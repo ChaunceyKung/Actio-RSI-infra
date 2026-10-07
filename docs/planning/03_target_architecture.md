@@ -52,6 +52,8 @@ flowchart TB
 
 Python 不是 session 第二写者，只订阅/读取并保存 source cursor→canonical 映射。SQLite 存索引、revision、lease、decision、namespace、outbox；大 payload/manifest 放 hash 文件。Graphiti/Vector 不在最小部署中；关系检索确有收益再加投影。Viewer dataset/score 是副本，不可改回封存 evaluator。
 
+2026-10-07 F03：Python 持有冻结 policy artifact；TS 插件在本地最终 guard 校验、记 decision 并独占 MCP dispatch。首期没有 Worker→Python 的逐调用审批往返。op ID 在调用前绑定到 scope/request hash，原生 callId/session/seq 供事后关联；Python 不再执行同一工具。动态审批为 unsupported，新增时需要独立协议与故障测试，不能仅凭 SDK 通用 incoming-request 方法宣称支持。此图描述只读首期；写工具仍需额外效果确认合同。
+
 ## 同机部署
 
 ```mermaid
@@ -95,9 +97,9 @@ sequenceDiagram
     E->>T: GM resolve
     E-->>C: resolved outcome or rejection
   else Assistant
-    W->>C: tool intent and permission request
-    C-->>W: approval and operation id
-    W->>T: MCP invocation
+    C->>W: frozen policy artifact and operation scope
+    W->>W: rewrite then final monotonic guard
+    W->>T: approved MCP invocation once
     T-->>W: result or unknown effect
     W-->>C: final result and native events
   end

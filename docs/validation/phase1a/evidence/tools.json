@@ -1,0 +1,2219 @@
+{
+  "case": "tools",
+  "tests": [
+    {
+      "test_id": "P2-allow",
+      "status": "PASS",
+      "calls": 1,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-deny",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-rewrite",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-expired",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-policy",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-lease",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-scope",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-run",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-version",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-dynamic",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": [
+        "static-policy fixture denial; no dynamic approval RPC exercised"
+      ]
+    },
+    {
+      "test_id": "P2-approval-timeout",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": [
+        "static-policy fixture denial; no dynamic approval RPC exercised"
+      ]
+    },
+    {
+      "test_id": "P2-approval-disconnect",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": [
+        "static-policy fixture denial; no dynamic approval RPC exercised"
+      ]
+    },
+    {
+      "test_id": "P2-cancel",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-missing",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    },
+    {
+      "test_id": "P2-shell",
+      "status": "PASS",
+      "calls": 0,
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limits": []
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 7.0,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "tools-6d68bbe8",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "b89f1d339c0ec2dabd99523ef3994cb2aab6a31b6d1df56cf91dadbc1d163fa9",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 2584,
+          "node": "v24.21.0",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "allow",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user"
+          ],
+          "tool_message_call_ids": [],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "allow:call",
+          "session": "assistant",
+          "argsHash": "793be54443d6aeab48c629d613d977e10685abf5fd5eb895b59b1836eca3f043"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "allow:call",
+          "session": "assistant",
+          "finalHash": "b99f57afcc0012e1bec12c874651824f805f2e1ccbb436ad7dfa7d4ede121cbb",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": true,
+          "reason": null
+        },
+        {
+          "kind": "tool-result",
+          "callId": "allow:call",
+          "isError": false,
+          "error": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "SYNTHETIC FILE VALUE"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "allow",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 16,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "deny",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "deny:call",
+          "session": "assistant",
+          "argsHash": "775878ed29134f9427023cc9d895ec8764ca457a9b6296e4e30a3ed253c67de9"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "deny:call",
+          "session": "assistant",
+          "finalHash": "d96cccc80b6dfce333ea0ed4c3e563e310bd32f6f4e2d7007b5d2773540b1a9e",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "policy denies"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "deny:call",
+          "isError": true,
+          "error": "policy denies",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: policy denies"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "deny",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 29,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "rewrite",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "rewrite:call",
+          "session": "assistant",
+          "argsHash": "dd9fcfa18de8c4f3acf84df4193e79f1d897bb286665940bd060e775e78b0cb8"
+        },
+        {
+          "kind": "rewritten",
+          "callId": "rewrite:call"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "rewrite:call",
+          "session": "assistant",
+          "finalHash": "161a7e412a7773de49b1059205e5798105ad63227164f8960ea27316a471a58a",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "final request hash mismatch"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "rewrite:call",
+          "isError": true,
+          "error": "final request hash mismatch",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: final request hash mismatch"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "rewrite",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 42,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "expired",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "expired:call",
+          "session": "assistant",
+          "argsHash": "a6aef3337c1cac954fe2173211400634e6e10553cd0c828e39d9212be068936a"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "expired:call",
+          "session": "assistant",
+          "finalHash": "472f05c42e6e2734eb331bd1f4fa568468e4783e89a9814e44a44521c6e10e78",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "lease/expiry invalid"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "expired:call",
+          "isError": true,
+          "error": "lease/expiry invalid",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: lease/expiry invalid"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "expired",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 55,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "policy",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "policy:call",
+          "session": "assistant",
+          "argsHash": "c3f84fc1721fc02a9f008368026eaf77524fb0ea1ed9a7e93be2e1d1ec0b5609"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "policy:call",
+          "session": "assistant",
+          "finalHash": "d102e94bbc431276412eb27c08d3cccce287205888ec6d188e3dd9766ca79276",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "policy hash mismatch"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "policy:call",
+          "isError": true,
+          "error": "policy hash mismatch",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: policy hash mismatch"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "policy",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 68,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "lease",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "lease:call",
+          "session": "assistant",
+          "argsHash": "27e32f85d7fc55aa62dfb61c0992ed4eb60e5f44d87b94cdc7e959b42b7f3e88"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "lease:call",
+          "session": "assistant",
+          "finalHash": "1ab919f438e87f2c1a990554bae9698702ee3fdaf49fb2d16283032eb988feac",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "lease/expiry invalid"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "lease:call",
+          "isError": true,
+          "error": "lease/expiry invalid",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: lease/expiry invalid"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "lease",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 81,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "scope",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "scope:call",
+          "session": "assistant",
+          "argsHash": "8d6ea58c8bdacfca8b49229113e5aaaab9fbdff915c700f06a475ff5d9df493e"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "scope:call",
+          "session": "assistant",
+          "finalHash": "c5a6ae911cdb404d7659cd5471d8c478a8f4da6c890f509790ce92e0cc4e1ced",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "run/scope mismatch"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "scope:call",
+          "isError": true,
+          "error": "run/scope mismatch",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: run/scope mismatch"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "scope",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 94,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "run",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "run:call",
+          "session": "assistant",
+          "argsHash": "faaa3e382f1290fd29d7e3e59745007c99f12f8f26b2ed50a236ee371b700ff2"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "run:call",
+          "session": "assistant",
+          "finalHash": "6a8f88bce2637e3f892f88c1415f17b06a0b071008e3cd6ab039d269a00d50e1",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "run/scope mismatch"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "run:call",
+          "isError": true,
+          "error": "run/scope mismatch",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: run/scope mismatch"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "run",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 107,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "version",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "version:call",
+          "session": "assistant",
+          "argsHash": "b0193db26df827e90e1a0736d140b89bcd3dbd34d3f1de11b79f21ebfb163b76"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "version:call",
+          "session": "assistant",
+          "finalHash": "fa00c489bdaa4c14447bb560523174e0f159146c566ed02b95bc28b46cd5bec0",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "tool/version mismatch"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "version:call",
+          "isError": true,
+          "error": "tool/version mismatch",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: tool/version mismatch"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "version",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 120,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "dynamic",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "dynamic:call",
+          "session": "assistant",
+          "argsHash": "be45379047da5be2b903937ca0d37ee3f0df8d9c3ae23015f9116856cc806a49"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "dynamic:call",
+          "isError": true,
+          "error": "dynamic approval unsupported",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: dynamic approval unsupported"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "dynamic",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 133,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "approval-timeout",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "approval-timeout:call",
+          "session": "assistant",
+          "argsHash": "5a9bdbeb95f7cf0dc4b63bc54ec3be9bf735c47708b1156182733c8d2aa1bf72"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "approval-timeout:call",
+          "isError": true,
+          "error": "fixture approval deadline expired",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: fixture approval deadline expired"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "approval-timeout",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 146,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "approval-disconnect",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "approval-disconnect:call",
+          "session": "assistant",
+          "argsHash": "40c70a04624d5927014046b17f063f401ce33ee66b00d4848aa7988676d6c28c"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "approval-disconnect:call",
+          "isError": true,
+          "error": "fixture approval channel unavailable",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: fixture approval channel unavailable"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "approval-disconnect",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 159,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "cancel",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "cancel:call",
+          "session": "assistant",
+          "argsHash": "5c51798200f3d62b3398753d3c0ab7fa722269d140c6f055250f22f311490d6b"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "cancel:call",
+          "isError": true,
+          "error": "cancel requested before dispatch; semantic cancel unsupported",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: cancel requested before dispatch; semantic cancel unsupported"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "cancel",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call",
+            "cancel:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 172,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "missing",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call",
+            "cancel:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "missing:call",
+          "session": "assistant",
+          "argsHash": "daf0ab1127223b40e58b029b93774617b545dae6bca158ce73cacf80db94fc02"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "missing:call",
+          "session": "assistant",
+          "finalHash": "9e624b3af74525cdffe84969c1774d639d1c383bf01af7a4eaea9b4226d6e2bc",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": false,
+          "reason": "missing approval"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "missing:call",
+          "isError": true,
+          "error": "missing approval",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: missing approval"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "missing",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call",
+            "cancel:call",
+            "missing:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 185,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "shell",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call",
+            "cancel:call",
+            "missing:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "shell:call",
+          "session": "assistant",
+          "argsHash": "2b0675ba64f58f1e921e9487288fac918c2a09d25e51e352ae914bb85c34a5cf"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "shell:call",
+          "session": "assistant",
+          "finalHash": "3a48cf53d0e97b4b27acabc13275bb3c5b2b59e167296001c5cae41c99c0b7c9",
+          "policyHash": "03a5d4db638523e8221d28ef7591b820784b74233e8c842b0a9ddb9fc53eb628",
+          "schemaHash": null,
+          "allowed": false,
+          "reason": "missing approval"
+        },
+        {
+          "kind": "tool-result",
+          "callId": "shell:call",
+          "isError": true,
+          "error": "missing approval",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: missing approval"
+            }
+          ]
+        },
+        {
+          "kind": "provider-input",
+          "op": "shell",
+          "schemas": [
+            "mcp__fixture__read_fixture"
+          ],
+          "message_roles": [
+            "system",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user",
+            "assistant",
+            "user"
+          ],
+          "tool_message_call_ids": [
+            "allow:call",
+            "deny:call",
+            "rewrite:call",
+            "expired:call",
+            "policy:call",
+            "lease:call",
+            "scope:call",
+            "run:call",
+            "version:call",
+            "dynamic:call",
+            "approval-timeout:call",
+            "approval-disconnect:call",
+            "cancel:call",
+            "missing:call",
+            "shell:call"
+          ],
+          "input_contains_private_marker": false
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 198,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [],
+      "native_event_count": 199
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 40272
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "ok",
+            "op": "allow"
+          },
+          "pid": 40272
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 2584,
+      "returncode": 0,
+      "elapsed_seconds": 0.1410000000614673
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5"
+}

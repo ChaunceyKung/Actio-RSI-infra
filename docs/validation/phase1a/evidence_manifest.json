@@ -1,0 +1,3393 @@
+{
+  "schema_version": 1,
+  "baseline": "fad04fcf0d14ded6684d54dc0633f4ee213276f3",
+  "created_utc": "2026-10-07T02:33:01.646668+00:00",
+  "conclusion": "CONDITIONAL_GO",
+  "G0": "PASS within documented configuration",
+  "G1": "UNSUPPORTED / limitations",
+  "G2": "BLOCKED",
+  "counts": {
+    "PASS": 57,
+    "FAIL": 3,
+    "BLOCKED": 1,
+    "NOT_RUN": 9
+  },
+  "tests": [
+    {
+      "evidence_id": "Phase1A-E001",
+      "test_id": "P1-lifecycle",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py lifecycle",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/lifecycle.json",
+        "sha256": "29de5592081989370ce6fe5e741f1b03fd0cc6186a8da7ccd7d98dbf501b7866"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/lifecycle-0428bc10/raw.zip",
+        "sha256": "e2bcc8f833153b7c4b2351f551d12ad49375f58096f83ab4735912afe6918978",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "cold handshake, native events, same-session multi-turn, distinct sessions, two concurrent homes, Chinese/space paths",
+        "provider inputs prove cross-home and cross-session marker isolation",
+        "only read-only fixture tool enumerated"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E002",
+      "test_id": "P1-shared-context",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py lifecycle",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/lifecycle.json",
+        "sha256": "29de5592081989370ce6fe5e741f1b03fd0cc6186a8da7ccd7d98dbf501b7866"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/lifecycle-0428bc10/raw.zip",
+        "sha256": "e2bcc8f833153b7c4b2351f551d12ad49375f58096f83ab4735912afe6918978",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "same session retains A_SECRET; other session excludes it"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E003",
+      "test_id": "P1-restart",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py lifecycle",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/lifecycle.json",
+        "sha256": "29de5592081989370ce6fe5e741f1b03fd0cc6186a8da7ccd7d98dbf501b7866"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/lifecycle-0428bc10/raw.zip",
+        "sha256": "e2bcc8f833153b7c4b2351f551d12ad49375f58096f83ab4735912afe6918978",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "reusing persisted session ID is characterized, not assumed to resume"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E004",
+      "test_id": "P2-allow",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E005",
+      "test_id": "P2-deny",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E006",
+      "test_id": "P2-rewrite",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E007",
+      "test_id": "P2-expired",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E008",
+      "test_id": "P2-policy",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E009",
+      "test_id": "P2-lease",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E010",
+      "test_id": "P2-scope",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E011",
+      "test_id": "P2-run",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E012",
+      "test_id": "P2-version",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E013",
+      "test_id": "P2-dynamic",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [
+        "static-policy fixture denial; no dynamic approval RPC exercised"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E014",
+      "test_id": "P2-approval-timeout",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [
+        "static-policy fixture denial; no dynamic approval RPC exercised"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E015",
+      "test_id": "P2-approval-disconnect",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [
+        "static-policy fixture denial; no dynamic approval RPC exercised"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E016",
+      "test_id": "P2-cancel",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E017",
+      "test_id": "P2-missing",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E018",
+      "test_id": "P2-shell",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tools",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tools.json",
+        "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tools-6d68bbe8/raw.zip",
+        "sha256": "653422f5ee4df9147b851d02091f83b98cbb59ae86e8db2a38d22c947ea8e3b5",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "actual worker MCP dispatch count matches expected; Python does not execute tool"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E019",
+      "test_id": "P2-policy-isolation",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py policy-isolation",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/policy-isolation.json",
+        "sha256": "cacff79be38fffa77a869d3a37c12cd2593311f46c4ab7980081dd45ab1f194d"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/policy-isolation-bebfba30/raw.zip",
+        "sha256": "ca630cad519e6905213909e0b015143652880278e44ba46c7ca913f0ff7b4ddd",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "same session/op in two concurrent homes obey separate policies",
+        "profile without MCP enumerates zero tools"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E020",
+      "test_id": "P2-final-schema",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py constraints",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/constraints.json",
+        "sha256": "661d751751c0f437a0f8c3c03d38b0d5913ec04f66f5cbb161b27d8821f6b6f8"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/constraints-f7b9a334/raw.zip",
+        "sha256": "863af27624a2817a69caf23ba2f0a97a40322cb08a3b17a3ba657ce46d601cff",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "guard": {
+            "kind": "final-guard",
+            "callId": "schema:call",
+            "session": "assistant",
+            "finalHash": "761a3693a01ff4b5baef75a8897b0d1b7a2f544e53c761835a9def3ce6d4e3d1",
+            "policyHash": "1561c35f0ab340d81daad5059d04ec34612dc016565214c5631f3d6a4b3904d0",
+            "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+            "allowed": false,
+            "reason": "final schema invalid"
+          },
+          "calls": 0
+        }
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E021",
+      "test_id": "P2-final-key-scope",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py constraints",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/constraints.json",
+        "sha256": "661d751751c0f437a0f8c3c03d38b0d5913ec04f66f5cbb161b27d8821f6b6f8"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/constraints-f7b9a334/raw.zip",
+        "sha256": "863af27624a2817a69caf23ba2f0a97a40322cb08a3b17a3ba657ce46d601cff",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "guard": {
+            "kind": "final-guard",
+            "callId": "key-scope:call",
+            "session": "assistant",
+            "finalHash": "3db2c9717332acb09cba7d34ce59371d7d0747488cab24d03b08f698df10d77e",
+            "policyHash": "32c3bbb7f84e70e2210d1cbe70479ae146e964d39bb3fd0af91340a4235126f4",
+            "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+            "allowed": false,
+            "reason": "final scope invalid"
+          },
+          "calls": 0
+        }
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E022",
+      "test_id": "P2-final-budget",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py constraints",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/constraints.json",
+        "sha256": "661d751751c0f437a0f8c3c03d38b0d5913ec04f66f5cbb161b27d8821f6b6f8"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/constraints-f7b9a334/raw.zip",
+        "sha256": "863af27624a2817a69caf23ba2f0a97a40322cb08a3b17a3ba657ce46d601cff",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "guard": {
+            "kind": "final-guard",
+            "callId": "budget:call",
+            "session": "assistant",
+            "finalHash": "8a0ed7b1844e36aa73a595fcec21ebffa691c1c532329af7a0a98415c33fdad0",
+            "policyHash": "6e468d497fabcffe9f8982b1008834a5177d8b1e7daf042ac347355efa5233cc",
+            "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+            "allowed": false,
+            "reason": "budget exhausted"
+          },
+          "calls": 0
+        }
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E023",
+      "test_id": "P2-result-error",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py iserror",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/iserror.json",
+        "sha256": "7aa8247ba31f3b5b66728c7adcc5d3af31a67a7848351d495b0b0d32c2faaddd"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/iserror-0b52e717/raw.zip",
+        "sha256": "8a52ff94b18eff79f624c5d6cb941e509dc918128827b4c9ea61f7a1e772cf5d",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "calls": 1,
+          "tool_result": {
+            "kind": "tool-result",
+            "callId": "result-error:call",
+            "result": {
+              "isError": true,
+              "error": {
+                "message": "synthetic isError"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Error: synthetic isError"
+                }
+              ]
+            }
+          },
+          "mcp_tail": [
+            {
+              "kind": "discovery",
+              "client_protocol": "2025-11-25",
+              "client_info": {
+                "name": "dsh-mcp-client",
+                "title": null,
+                "version": "0.0.1",
+                "websiteUrl": null,
+                "icons": null
+              }
+            },
+            {
+              "kind": "received",
+              "name": "read_fixture",
+              "arguments": {
+                "key": "error",
+                "op": "result-error"
+              },
+              "pid": 13788
+            }
+          ],
+          "limits": [
+            "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+          ]
+        }
+      ],
+      "limitations": [
+        "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E024",
+      "test_id": "P2-result-transport",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py transport",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/transport.json",
+        "sha256": "d7779ab90b0f29020d703d7397839da599940e3e89671c8bf3527238752a0d4a"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/transport-76269a74/raw.zip",
+        "sha256": "a616d814dd4845872240e48dbde6e77ab2a3745ec697c0d980bb4298a170dde2",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "calls": 1,
+          "tool_result": {
+            "kind": "tool-result",
+            "callId": "result-transport:call",
+            "result": {
+              "isError": true,
+              "error": {
+                "message": "MCP error -32000: Connection closed"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Error: MCP error -32000: Connection closed"
+                }
+              ]
+            }
+          },
+          "mcp_tail": [
+            {
+              "kind": "discovery",
+              "client_protocol": "2025-11-25",
+              "client_info": {
+                "name": "dsh-mcp-client",
+                "title": null,
+                "version": "0.0.1",
+                "websiteUrl": null,
+                "icons": null
+              }
+            },
+            {
+              "kind": "received",
+              "name": "read_fixture",
+              "arguments": {
+                "key": "transport",
+                "op": "result-transport"
+              },
+              "pid": 15140
+            }
+          ],
+          "limits": [
+            "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+          ]
+        }
+      ],
+      "limitations": [
+        "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E025",
+      "test_id": "P2-result-timeout",
+      "requirements": [
+        "P2",
+        "F02",
+        "F03",
+        "B03",
+        "B08"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py timeout",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/timeout.json",
+        "sha256": "9c275a488517429d7933189c456212f66e967f02f0f769fb3f5d1fdbcbc74c10"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/timeout-11fceaf3/raw.zip",
+        "sha256": "63674e13626c45dca98a47074eaacc2da7ef11cdf3c25ccd7fec98fa64f9a03a",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "calls": 1,
+          "tool_result": {
+            "kind": "tool-result",
+            "callId": "result-timeout:call",
+            "result": {
+              "isError": true,
+              "error": {
+                "message": "MCP error -32001: Request timed out"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Error: MCP error -32001: Request timed out"
+                }
+              ]
+            }
+          },
+          "mcp_tail": [
+            {
+              "kind": "received",
+              "name": "read_fixture",
+              "arguments": {
+                "key": "timeout",
+                "op": "result-timeout"
+              },
+              "pid": 35000
+            },
+            {
+              "kind": "cancelled",
+              "op": "result-timeout",
+              "error": "CancelledError"
+            }
+          ],
+          "limits": [
+            "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+          ]
+        }
+      ],
+      "limitations": [
+        "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E026",
+      "test_id": "P1-init-timeout",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py init-timeout",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/init-timeout.json",
+        "sha256": "902be2017d7e20e9175ccf46c86d8351fee636b059d2bac3f945884e9c866029"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/init-timeout-86c5fae7/raw.zip",
+        "sha256": "4317fb3bbacbb7ad178b4fe372317e05d682931b2c8bbcaf06d20971a442d149",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "elapsed_seconds": 1.3280000002123415,
+          "error": {
+            "type": "TimeoutError",
+            "message": "initialize timed out waiting for DeepSeek Harness runtime\nselected dsh profile 'sdk-minimal'"
+          },
+          "operation_state": "unknown/needs_reconcile",
+          "automatic_retries": 0,
+          "limits": [
+            "forced termination is not semantic cancellation or recovery"
+          ]
+        }
+      ],
+      "limitations": [
+        "forced termination is not semantic cancellation or recovery"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E027",
+      "test_id": "P1-run-timeout",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py run-timeout",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/run-timeout.json",
+        "sha256": "7ef39069b859696c89317b3236429ce64144c570d33a84df164e61c00acf1d93"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/run-timeout-56b43e3e/raw.zip",
+        "sha256": "0023238d1d77fc3155bd259d4683505120325db1c984f1d4e61489a10f9458d7",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "elapsed_seconds": 4.405999999959022,
+          "error": {
+            "type": "TimeoutError",
+            "message": "bounded run deadline; needs_reconcile; no automatic retry"
+          },
+          "operation_state": "unknown/needs_reconcile",
+          "automatic_retries": 0,
+          "limits": [
+            "forced termination is not semantic cancellation or recovery"
+          ]
+        }
+      ],
+      "limitations": [
+        "forced termination is not semantic cancellation or recovery"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E028",
+      "test_id": "P1-eof",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py eof",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/eof.json",
+        "sha256": "cf56a5533765b0b4aaf6e560204de84133f584048685351e38a63c6d4efb0159"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/eof-fea699bd/raw.zip",
+        "sha256": "d0b7d0a0deb6ad27a94c086c15c5118f89b89ffe6f2d1e062fc9d86a9e0f7f2b",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "elapsed_seconds": 3.1410000000614673,
+          "error": {
+            "type": "TransportClosedError",
+            "message": "Failed to write to DeepSeek Harness runtime"
+          },
+          "operation_state": "unknown/needs_reconcile",
+          "automatic_retries": 0,
+          "limits": [
+            "forced termination is not semantic cancellation or recovery"
+          ]
+        }
+      ],
+      "limitations": [
+        "forced termination is not semantic cancellation or recovery"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E029",
+      "test_id": "P1-exit",
+      "requirements": [
+        "P1",
+        "F04",
+        "F05",
+        "B03",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py exit",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/exit.json",
+        "sha256": "d35381af7733c4f1ce106df6dc98459fa83b87fd3b5224d0f2a9cafb2e4535e7"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/exit-85179a3c/raw.zip",
+        "sha256": "cdc3c99e0f6ea47583744806ad8e7639c9468276d4aefb2b6e4920690ecfac1a",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "elapsed_seconds": 3.0939999998081475,
+          "error": {
+            "type": "TransportClosedError",
+            "message": "DeepSeek Harness runtime stdout closed"
+          },
+          "operation_state": "unknown/needs_reconcile",
+          "automatic_retries": 0,
+          "limits": [
+            "forced termination is not semantic cancellation or recovery"
+          ]
+        }
+      ],
+      "limitations": [
+        "forced termination is not semantic cancellation or recovery"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E030",
+      "test_id": "P3-tool-interruption",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py tool-interruption",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/tool-interruption.json",
+        "sha256": "fa9b338a580bb4ee25c4c6f8f5ad35e5ac4562f7ee1cb9c99bd67d2f8581dd7f"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/tool-interruption-a9d2869f/raw.zip",
+        "sha256": "19d2800458ec819685e3068a8936d0d088c576adb9ba5721a5a3cdba30104758",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "trigger": "fsynced MCP received record, before native tool-result/collector confirmation",
+          "calls": 1,
+          "error": "DeepSeek Harness runtime stdout closed",
+          "operation_state": "unknown/needs_reconcile",
+          "automatic_retries": 0
+        }
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E031",
+      "test_id": "P3-native-collector",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py event-integration",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/event-integration.json",
+        "sha256": "e513ec52159ae81381b1ba63a1f7a1cc592cc15b8e50e792562ab1befc97b622"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/event-integration-947722f6/raw.zip",
+        "sha256": "c3e20194b4e9f922a72f108e23f8511c3f6a3025e89c5385a510cee1a980b0d7",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "SDK observed records equal persisted journal by seq after explicit flush",
+        "real native seq0 transaction rolled back before commit",
+        "reopen after commit with ack lost preserves count",
+        "same journal projected v2 creates no new business occurrence"
+      ],
+      "limitations": [
+        "process-local flush marker, not SDK durable watermark RPC",
+        "SQLite effects only; not remote exactly-once or power-loss test"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E032",
+      "test_id": "P3-accepted-receipt-loss",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py receipt-loss",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/receipt-loss.json",
+        "sha256": "2c7e28f187b3fe22f365713bfa7796ef77cd526d380352539083ef635201ab70"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/receipt-loss-65ef76b0/raw.zip",
+        "sha256": "87c9f565dfb972d57f7e24fdd8f3cc3eb8457dbebfc30f205f9067dc45eee08e",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        {
+          "messageId": "bfccebe8-2a09-4906-ad05-cc22b4c135d5",
+          "trigger": "SDK returned accepted ID and provider-input observed; application receipt deliberately not committed before real worker kill",
+          "operation_state": "unknown/needs_reconcile",
+          "automatic_retries": 0,
+          "limits": [
+            "application persistence fault; loss of bytes before SDK response decoding NOT_RUN",
+            "no turn completion claimed"
+          ]
+        }
+      ],
+      "limitations": [
+        "application persistence fault; loss of bytes before SDK response decoding NOT_RUN",
+        "no turn completion claimed"
+      ],
+      "probe_hashes": {
+        "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E033",
+      "test_id": "P4-real-engine",
+      "requirements": [
+        "P4",
+        "F04",
+        "F05",
+        "B07"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py concordia",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/concordia.json",
+        "sha256": "5e537bdb55f48cb35191b402c0bd71e989e0e022e56ab5f686eb3f462c9c4024"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/concordia-ec4b6670/raw.zip",
+        "sha256": "5a7a04e80a3dc19691298cc8ab0a7efbe345e2a14207d6505a37884b1a1f7fbf",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "real Sequential scheduling/observe/act/resolve; order B,A; ActionSpec validated",
+        "same runtime_adapter.Adapter as assistant",
+        "actual GM.act(RESOLVE) and GM.observe(EVENT) captured; no fabricated resolve return"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "concordia_case.py": "b1d1a9cd0ad47412c953bb58415bec81f9be859b3be42093ab8b3cef89c4e3e2",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E034",
+      "test_id": "P4-private-input",
+      "requirements": [
+        "P4",
+        "F04",
+        "F05",
+        "B07"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py concordia",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/concordia.json",
+        "sha256": "5e537bdb55f48cb35191b402c0bd71e989e0e022e56ab5f686eb3f462c9c4024"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/concordia-ec4b6670/raw.zip",
+        "sha256": "5a7a04e80a3dc19691298cc8ab0a7efbe345e2a14207d6505a37884b1a1f7fbf",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "all actual provider inputs exclude other entity private marker and GM full log"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "concordia_case.py": "b1d1a9cd0ad47412c953bb58415bec81f9be859b3be42093ab8b3cef89c4e3e2",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E035",
+      "test_id": "P4-illegal",
+      "requirements": [
+        "P4",
+        "F04",
+        "F05",
+        "B07"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py concordia",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/concordia.json",
+        "sha256": "5e537bdb55f48cb35191b402c0bd71e989e0e022e56ab5f686eb3f462c9c4024"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/concordia-ec4b6670/raw.zip",
+        "sha256": "5a7a04e80a3dc19691298cc8ab0a7efbe345e2a14207d6505a37884b1a1f7fbf",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "invalid DSH output rejected by actual ActionSpec.validate; world and resolution ledger remain empty"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "concordia_case.py": "b1d1a9cd0ad47412c953bb58415bec81f9be859b3be42093ab8b3cef89c4e3e2",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E036",
+      "test_id": "P4-start-rerun",
+      "requirements": [
+        "P4",
+        "F04",
+        "F05",
+        "B07"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/run_runtime.py concordia",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/concordia.json",
+        "sha256": "5e537bdb55f48cb35191b402c0bd71e989e0e022e56ab5f686eb3f462c9c4024"
+      },
+      "raw_log": {
+        "ref": "probes/phase1a/.local/runs/concordia-ec4b6670/raw.zip",
+        "sha256": "5a7a04e80a3dc19691298cc8ab0a7efbe345e2a14207d6505a37884b1a1f7fbf",
+        "committed": false,
+        "recreated_by_command": true
+      },
+      "assertions": [
+        "two fresh episodes match world and order from start manifest; mid-run resume unsupported"
+      ],
+      "limitations": [],
+      "probe_hashes": {
+        "concordia_case.py": "b1d1a9cd0ad47412c953bb58415bec81f9be859b3be42093ab8b3cef89c4e3e2",
+        "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+        "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+        "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+        "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+        "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+        "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E037",
+      "test_id": "P3-F01-duplicate",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "two deliveries, one occurrence; two semantic slots"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E038",
+      "test_id": "P3-F01-remap",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "v1/v2 projections=4; business effects remain 2; consumer atomically pins v2"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E039",
+      "test_id": "P3-F01-conflict",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "same occurrence/different hash rejected; original retained"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E040",
+      "test_id": "P3-F01-restart",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "new logical stream creation may reuse seq; continuing old stream reuses identity"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E041",
+      "test_id": "P3-F01-gap",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "cursor -1 → 0 → 2; advances only contiguous committed prefix"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E042",
+      "test_id": "P3-transaction-rollback",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "native observed supplied by caller; rollback before commit; safe re-ingest on reopen"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E043",
+      "test_id": "P3-ack-lost",
+      "requirements": [
+        "P3",
+        "F01",
+        "B04",
+        "B05"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "SQLITE_CONTRACT_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/event_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/events.json",
+        "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97"
+      },
+      "raw_log": null,
+      "assertions": [
+        "effect transaction committed before ack loss; replay after reopen does not increment count"
+      ],
+      "limitations": [
+        "exception rollback/reopen, not power-loss durability",
+        "business effect is local SQLite ledger, not remote exactly-once",
+        "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+      ],
+      "probe_hashes": {
+        "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E044",
+      "test_id": "P5-normal",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "valid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E045",
+      "test_id": "P5-empty",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "invalid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E046",
+      "test_id": "P5-identity",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "invalid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E047",
+      "test_id": "P5-missing_dimension",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "invalid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E048",
+      "test_id": "P5-nonnumeric",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "invalid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E049",
+      "test_id": "P5-nonfinite",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "invalid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E050",
+      "test_id": "P5-judge_exception",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "invalid_measurement"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E051",
+      "test_id": "P5-illegal",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "task_failure"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E052",
+      "test_id": "P5-leak",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "task_failure"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E053",
+      "test_id": "P5-budget",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "task_failure"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E054",
+      "test_id": "P5-partial",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "insufficient_evidence"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E055",
+      "test_id": "P5-no_barrier",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "insufficient_evidence"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E056",
+      "test_id": "P5-worker_loss",
+      "requirements": [
+        "P5",
+        "F04",
+        "F05",
+        "B09"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "CONTROLLED_ENVELOPE_FIXTURE",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/eval_probe.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/evaluation.json",
+        "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486"
+      },
+      "raw_log": null,
+      "assertions": [
+        {
+          "outcome": "infrastructure_failure"
+        }
+      ],
+      "limitations": [
+        "No upstream SOTOPIA parser/evaluator execution",
+        "No validity, statistical power or evolution claim",
+        "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+      ],
+      "probe_hashes": {
+        "eval_probe.py": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6"
+      }
+    },
+    {
+      "evidence_id": "Phase1A-E057",
+      "test_id": "P0-artifact",
+      "requirements": [
+        "F04",
+        "B01a",
+        "B03"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "ARTIFACT_INSPECTION",
+      "command": "probes/phase1a/.local/venv/Scripts/python.exe probes/phase1a/artifact_info.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "sanitized_log": {
+        "ref": "evidence/installed-artifacts.json",
+        "sha256": "1f12691159fb693c4f9567d7a8ceebf33a1c519f933a2eb3551c52b9bda8a48a"
+      },
+      "raw_log": null,
+      "assertions": [
+        "wheel hashes checked against official PyPI; executable hashed separately",
+        "SDK source equality checked"
+      ],
+      "limitations": [
+        "binary to source build mapping unproven"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E058",
+      "test_id": "P2-native-cancel-compatibility",
+      "requirements": [
+        "F04",
+        "B01a",
+        "B03"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "Historical attempt, preserved evidence; final suite command above",
+      "exit_code": 1,
+      "status": "FAIL",
+      "sanitized_log": {
+        "ref": "evidence/native-cancel-limitation.json",
+        "sha256": "92ead4033a9ea86c7273d0e7f8edf99054023abeb80113bbd0eba8b2338cf738"
+      },
+      "raw_log": null,
+      "assertions": [
+        "historical source/wheel cancel mismatch observed; final profile uses verified deny"
+      ],
+      "limitations": [
+        "G1 semantic cancel unsupported; failure not rerun as an unsafe supported configuration"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E059",
+      "test_id": "HIST-initial-launch",
+      "requirements": [
+        "F04",
+        "B01a",
+        "B03"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_ARTIFACT_STARTUP",
+      "command": "Historical attempt, preserved evidence; final suite command above",
+      "exit_code": 1,
+      "status": "FAIL",
+      "sanitized_log": {
+        "ref": "evidence/initial-launch-failure.json",
+        "sha256": "d368a80efcb58253139428f8c537633e3ff2451e52d285e2e0946d47672b2104"
+      },
+      "raw_log": null,
+      "assertions": [
+        "initial long-path/package-import startup failure retained"
+      ],
+      "limitations": [
+        "superseded by short-root structural provider interface success"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E060",
+      "test_id": "HIST-initial-fixture",
+      "requirements": [
+        "F04",
+        "B01a",
+        "B03"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "command": "Historical attempt, preserved evidence; final suite command above",
+      "exit_code": 1,
+      "status": "FAIL",
+      "sanitized_log": {
+        "ref": "evidence/initial-tool-fixture-failure.json",
+        "sha256": "1f90197fddc53702a9858dfe6c8a512a4a51b2f5163cb6e8960d4a24c9d99443"
+      },
+      "raw_log": null,
+      "assertions": [
+        "initial fixture message-shape mismatch retained"
+      ],
+      "limitations": [
+        "superseded by source.kind/callId matching and 6-call fixture limit"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E061",
+      "test_id": "G2-live",
+      "requirements": [
+        "G2"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "BLOCKED",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "No authorized provider/model and positive budget; no keys inspected or live requests"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E062",
+      "test_id": "G1-full-lifecycle",
+      "requirements": [
+        "G1"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "Fine cancellation/status/online catchup/resume/fork unsupported via SDK"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E063",
+      "test_id": "P2-dynamic-approval-rpc",
+      "requirements": [
+        "P2"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "Static policy selected; no per-call Python request/response protocol"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E064",
+      "test_id": "P2-other-mcp-combinations",
+      "requirements": [
+        "P2"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "Only stdio Python SDK 1.26.0 and protocol 2025-11-25 exercised"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E065",
+      "test_id": "P3-wire-response-loss",
+      "requirements": [
+        "P3"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "Application receipt persistence loss tested; bytes lost before SDK response decode not injected"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E066",
+      "test_id": "P3-powerloss-generation",
+      "requirements": [
+        "P3"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "No power loss, disk-full, exact fsync interruption or physical-generation migration"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E067",
+      "test_id": "P4-midrun-restore",
+      "requirements": [
+        "P4"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "External Entity and engine/world full snapshots absent; start rerun only"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E068",
+      "test_id": "P5-sotopia-real-evaluator",
+      "requirements": [
+        "P5"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "Controlled envelope fixtures only; upstream parser/judge not run"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E069",
+      "test_id": "G1-platform-scale",
+      "requirements": [
+        "G1"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "Linux/WSL, remote worker, 100-agent load, viewer, graph and second simulator deferred"
+      ]
+    },
+    {
+      "evidence_id": "Phase1A-E070",
+      "test_id": "Strands-fallback",
+      "requirements": [
+        "Strands"
+      ],
+      "artifact_versions": {
+        "source_sha": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "sdk": "0.1.5rc1",
+        "runtime_distribution": "0.1.5rc1",
+        "executable_sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+        "binary_source_mapping": "UNPROVEN",
+        "concordia_source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "mcp_python": "1.26.0"
+      },
+      "platform": "Windows-11-10.0.26200-SP0",
+      "execution_mode": "NOT_EXECUTED",
+      "command": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "sanitized_log": null,
+      "raw_log": null,
+      "assertions": [],
+      "limitations": [
+        "DSH G0 did not require loop/storage replacement; trigger not met"
+      ]
+    }
+  ],
+  "evidence_files": [
+    {
+      "ref": "evidence/artifacts.json",
+      "sha256": "0c3e5b128362a4cee29752579475f830e44b29a1206442e23d7bd4000e7de9b3",
+      "bytes": 41656
+    },
+    {
+      "ref": "evidence/concordia-source.json",
+      "sha256": "1351a362375a3195082a425e8b048f2acedf7783ca0eacde41363199e84f2517",
+      "bytes": 280
+    },
+    {
+      "ref": "evidence/concordia.json",
+      "sha256": "5e537bdb55f48cb35191b402c0bd71e989e0e022e56ab5f686eb3f462c9c4024",
+      "bytes": 31624
+    },
+    {
+      "ref": "evidence/constraints.json",
+      "sha256": "661d751751c0f437a0f8c3c03d38b0d5913ec04f66f5cbb161b27d8821f6b6f8",
+      "bytes": 32168
+    },
+    {
+      "ref": "evidence/deepseek-harness-runtime-bin-download.json",
+      "sha256": "52e95bba57756ee919627733d6ab1419317eb3d0fc36e3c85973c3e6796ccfbc",
+      "bytes": 515
+    },
+    {
+      "ref": "evidence/delivery-checks.json",
+      "sha256": "bedd2b6746146549dc51739a49dc8940654397f92876341742d3219def7a67c1",
+      "bytes": 491
+    },
+    {
+      "ref": "evidence/eof.json",
+      "sha256": "cf56a5533765b0b4aaf6e560204de84133f584048685351e38a63c6d4efb0159",
+      "bytes": 2852
+    },
+    {
+      "ref": "evidence/evaluation.json",
+      "sha256": "21bd7290b0cfc8ccd448518086dd735d51a714b1cf3ef0fbe9b6ecefc2cbf486",
+      "bytes": 1754
+    },
+    {
+      "ref": "evidence/event-integration.json",
+      "sha256": "e513ec52159ae81381b1ba63a1f7a1cc592cc15b8e50e792562ab1befc97b622",
+      "bytes": 7537
+    },
+    {
+      "ref": "evidence/events.json",
+      "sha256": "f51c9cf70a387c6314fac11b69f6814d9c66756171d84456dfb20fccaef63f97",
+      "bytes": 1663
+    },
+    {
+      "ref": "evidence/exit.json",
+      "sha256": "d35381af7733c4f1ce106df6dc98459fa83b87fd3b5224d0f2a9cafb2e4535e7",
+      "bytes": 6573
+    },
+    {
+      "ref": "evidence/init-timeout.json",
+      "sha256": "902be2017d7e20e9175ccf46c86d8351fee636b059d2bac3f945884e9c866029",
+      "bytes": 1866
+    },
+    {
+      "ref": "evidence/initial-launch-failure.json",
+      "sha256": "d368a80efcb58253139428f8c537633e3ff2451e52d285e2e0946d47672b2104",
+      "bytes": 16556
+    },
+    {
+      "ref": "evidence/initial-tool-fixture-failure.json",
+      "sha256": "1f90197fddc53702a9858dfe6c8a512a4a51b2f5163cb6e8960d4a24c9d99443",
+      "bytes": 1917
+    },
+    {
+      "ref": "evidence/installed-artifacts.json",
+      "sha256": "1f12691159fb693c4f9567d7a8ceebf33a1c519f933a2eb3551c52b9bda8a48a",
+      "bytes": 2336
+    },
+    {
+      "ref": "evidence/iserror.json",
+      "sha256": "7aa8247ba31f3b5b66728c7adcc5d3af31a67a7848351d495b0b0d32c2faaddd",
+      "bytes": 12496
+    },
+    {
+      "ref": "evidence/lifecycle.json",
+      "sha256": "29de5592081989370ce6fe5e741f1b03fd0cc6186a8da7ccd7d98dbf501b7866",
+      "bytes": 18689
+    },
+    {
+      "ref": "evidence/native-cancel-limitation.json",
+      "sha256": "92ead4033a9ea86c7273d0e7f8edf99054023abeb80113bbd0eba8b2338cf738",
+      "bytes": 1415
+    },
+    {
+      "ref": "evidence/pandas-download.json",
+      "sha256": "1852122170252afd483e2b349929bd30c68af288f4077b02053e9a188fdc4896",
+      "bytes": 432
+    },
+    {
+      "ref": "evidence/policy-isolation.json",
+      "sha256": "cacff79be38fffa77a869d3a37c12cd2593311f46c4ab7980081dd45ab1f194d",
+      "bytes": 24616
+    },
+    {
+      "ref": "evidence/receipt-loss.json",
+      "sha256": "2c7e28f187b3fe22f365713bfa7796ef77cd526d380352539083ef635201ab70",
+      "bytes": 6747
+    },
+    {
+      "ref": "evidence/run-timeout.json",
+      "sha256": "7ef39069b859696c89317b3236429ce64144c570d33a84df164e61c00acf1d93",
+      "bytes": 6808
+    },
+    {
+      "ref": "evidence/timeout.json",
+      "sha256": "9c275a488517429d7933189c456212f66e967f02f0f769fb3f5d1fdbcbc74c10",
+      "bytes": 12592
+    },
+    {
+      "ref": "evidence/tool-interruption.json",
+      "sha256": "fa9b338a580bb4ee25c4c6f8f5ad35e5ac4562f7ee1cb9c99bd67d2f8581dd7f",
+      "bytes": 7549
+    },
+    {
+      "ref": "evidence/tools.json",
+      "sha256": "dd86c22399af0390c84c022fb2f97dbab444605eb08b443a13c080999e7f2f5d",
+      "bytes": 59839
+    },
+    {
+      "ref": "evidence/transport.json",
+      "sha256": "d7779ab90b0f29020d703d7397839da599940e3e89671c8bf3527238752a0d4a",
+      "bytes": 12707
+    }
+  ],
+  "note": "Historical failures included separately. Expected 56 final behavior checks plus artifact inspection. Offline fixture does not imply live/production readiness.",
+  "current_case_failures": []
+}

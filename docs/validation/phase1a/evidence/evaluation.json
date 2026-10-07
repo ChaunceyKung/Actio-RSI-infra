@@ -1,0 +1,75 @@
+{
+  "mode": "CONTROLLED_ENVELOPE_FIXTURE",
+  "tests": [
+    {
+      "test_id": "P5-normal",
+      "status": "PASS",
+      "outcome": "valid_measurement"
+    },
+    {
+      "test_id": "P5-empty",
+      "status": "PASS",
+      "outcome": "invalid_measurement"
+    },
+    {
+      "test_id": "P5-identity",
+      "status": "PASS",
+      "outcome": "invalid_measurement"
+    },
+    {
+      "test_id": "P5-missing_dimension",
+      "status": "PASS",
+      "outcome": "invalid_measurement"
+    },
+    {
+      "test_id": "P5-nonnumeric",
+      "status": "PASS",
+      "outcome": "invalid_measurement"
+    },
+    {
+      "test_id": "P5-nonfinite",
+      "status": "PASS",
+      "outcome": "invalid_measurement"
+    },
+    {
+      "test_id": "P5-judge_exception",
+      "status": "PASS",
+      "outcome": "invalid_measurement"
+    },
+    {
+      "test_id": "P5-illegal",
+      "status": "PASS",
+      "outcome": "task_failure"
+    },
+    {
+      "test_id": "P5-leak",
+      "status": "PASS",
+      "outcome": "task_failure"
+    },
+    {
+      "test_id": "P5-budget",
+      "status": "PASS",
+      "outcome": "task_failure"
+    },
+    {
+      "test_id": "P5-partial",
+      "status": "PASS",
+      "outcome": "insufficient_evidence"
+    },
+    {
+      "test_id": "P5-no_barrier",
+      "status": "PASS",
+      "outcome": "insufficient_evidence"
+    },
+    {
+      "test_id": "P5-worker_loss",
+      "status": "PASS",
+      "outcome": "infrastructure_failure"
+    }
+  ],
+  "limits": [
+    "No upstream SOTOPIA parser/evaluator execution",
+    "No validity, statistical power or evolution claim",
+    "B09 requires pilot, independent units, dataset splits, metrics and authorized budget"
+  ]
+}

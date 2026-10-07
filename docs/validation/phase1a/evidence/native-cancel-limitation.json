@@ -1,0 +1,50 @@
+{
+  "status": "FAIL",
+  "test_id": "P2-native-cancel-compatibility",
+  "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+  "source_type": "source expected a cancel decision; wheel dispatched an already-authorized synthetic read",
+  "records": [
+    {
+      "kind": "pre-execute",
+      "callId": "cancel:call",
+      "session": "assistant",
+      "argsHash": "5c51798200f3d62b3398753d3c0ab7fa722269d140c6f055250f22f311490d6b"
+    },
+    {
+      "kind": "tool-result",
+      "callId": "cancel:call",
+      "result": {
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "SYNTHETIC FILE VALUE"
+          }
+        ],
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "SYNTHETIC FILE VALUE"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "raw_zip_sha256": "11a751347cd4c3e18770aa3442fa8eac4d686c926f86871fb596e8ed58fe6875",
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "impact": "native semantic cancel is unsupported on this artifact; restricted policy plugin must emit deny for cancellation before dispatch; bounded worker termination remains required"
+}

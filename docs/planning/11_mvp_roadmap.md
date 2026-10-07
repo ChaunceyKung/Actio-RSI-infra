@@ -6,12 +6,13 @@
 
 ```mermaid
 flowchart LR
-  A[Asset admission B01] --> C[Contracts B02]
-  C --> R[Runtime and lifecycle B03 B05]
-  C --> S[State and events B04 B06]
-  R --> D[Dual slice B07 B08]
+  A[Main path assets B01a] --> C[Draft contracts B02a]
+  C --> R[Probes B03 B05 B07 B08]
+  R --> F[Evidence based freeze B02b]
+  F --> S[State and events B04 B06]
+  F --> D[Dual slice B07 B08]
   S --> D
-  C --> E[Evaluator design B09]
+  D --> E[Evaluator pilot B09]
   D --> G[Candidate admission lineage B10 B11]
   E --> G
   G --> B[Branch intervention B12]
@@ -22,7 +23,7 @@ flowchart LR
 
 | 窗口 | 任务/工作量估算 | 并行与验收/退出 |
 |---|---|---|
-| W1–2 | B01/B02，2–3人周；B03初探5工程日 | 冻结contracts+资产；DSH public gap补丁范围超界即切Strands Python；不先造网络RPC |
+| W1–2 | B01a→B02a→B03/必要B05/B07/B08 probes→B02b，2–3人周；初探5工程日为预算估算 | 只准入主路径 artifacts，按实测冻结最小合同；G0 公开配置/窄plugin/最小补丁仍不可行才触发 Strands 同合同探针；下载阻塞不是技术退出 |
 | W2–4 | B03–B06，5–6人周 | 一人runtime/生命周期，一人event/memory；UTF-8/子进程/lease/背压/恢复通过；无需viewer |
 | W4–6 | B07/B08双slice，3–4人周；B09评估2人周可早并行 | 同一runtime、schema、memory/eval/version；环境非法动作不改world；无第二loop |
 | W6–8 | B10/B11，3–4人周 | 单seat候选、独立评估、四态准入、完整lineage，所有候选拒绝也可通过流程验收 |
@@ -30,7 +31,7 @@ flowchart LR
 | W9–10 | B14，1.5–2.5人周 | crash/reconcile、100人口/受限并发容量、预算和恢复演示 |
 | W11–12缓冲 | 3–5人周容量，不能全预订 | DSH补丁/平台依赖/评委校准；若超过则延期Graphiti、第二adapter、mid-run branch与viewer |
 
-关键路径：SDK可恢复生命周期→canonical一致性→真实双slice→独立eval→admission/lineage。社会rubric校准应从W1并行；不可最后才定义“提高”。B03探针限定5日，C01后续修改预算1–2人周；若升级为重写协议/大面积loop fork，触发ADR02/03退出。
+关键路径（2026-10-07 F05）：真实启动/隔离/最终授权/有界失败→canonical occurrence 一致性→双场景运行与失败恢复验收→B09 pilot→admission/lineage。B01a 不要求所有 A/B/C 许可闭包，B02a 不先冻结十个 API；B02b 以 [Phase 1A](../validation/phase1a/README.md) 证据冻结验证子集。full resume/fork/status/catchup 属于 G1，不能与 G0 启停和 unknown 识别同级阻断。5 工程日与 1–2 人周均为历史预算估算，不等待时间或自动触发换框架。
 
 ## 第一演化Demo
 

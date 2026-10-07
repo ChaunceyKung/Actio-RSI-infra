@@ -4,9 +4,9 @@
 
 | ID / Question | Why | 当前假设 | 所需证据 / 最小实验 | 级别 / owner / 出口 |
 |---|---|---|---|---|
-| Q01 SDK可否小补丁完整暴露生命周期？ | 单runtime恢复关键路径 | 内部seam可在原transport暴露 | 真实wheel运行cancel/resume/fork/catchup，记录native seq/receipt，5日探针 | P0/I/B03；超界换Strands |
+| Q01 必需的有界生命周期与完整恢复如何分级？ | G0 需真实启停/隔离/unknown；G1 才是完整恢复 | Phase1A wheel 启停可行，旧 session 重启拒绝；新版源码 cancel 语义不可直接套用 | 保持短路径与固定 profile，终止有界；精细 cancel/status/resume/fork/catchup 后置公开 seam | G0/I/B03 已有条件证据；G1 unsupported；非仅缺 fork 就换 Strands |
 | Q02 事件通知与native durable flush何时一致？ | crash可能ACK后事实丢失 | 需要显式flush/cursor确认 | 在接受prompt、tool完成、journal flush、canonical commit各点终止，比较合法前缀 | P0/I/B05；不完整时禁止resume |
-| Q03 worker配置隔离与背压实际成本？ | 10–100人口不宜默认一进程一人 | 同配置顺序复用可行但未证 | 双人格并发/顺序污染探针，queue压力/RSS/latency测量 | P0/I/B03/B14；限制活跃池 |
+| Q03 worker配置隔离与背压实际成本？ | 10–100人口不宜默认一进程一人 | Phase1A 双home/session/persona/policy隔离与同session多轮已证；压力未测 | 仍需队列上限/RSS/latency；当前限制单活动run，禁止把短场景外推容量 | P0/I/B03/B14；队列产品化未完成 |
 | Q04 Concordia external Entity与checkpoint缺口能否补齐？ | prefab跳过外部实体且无engine cursor | 起点重执行足够MVP | 小场景observe/act/GM日志映射；capture比对engine/GM/agent清单 | P0 social，P1 branch/E/B07/B12；mid-run false |
 | Q05 社会评分是否有效且可配对？ | judge顺序/偏差、agent干扰 | 约束指标+LLM rubric+人工校准 | 盲审样本、身份映射错误/[]探针，cluster pilot方差与power | P0/R/B09；不稳定则只报exploratory |
 | Q06 Raven退役后谁维护拆取模块？ | 原tree planned retirement | 小闭包可独立维护 | C02/C03真实LOC/import闭包、测试移植、patch责任人 | P0/E/B10/B11；移除selector或标准统计诊断 |
@@ -20,3 +20,5 @@
 | Q14 训练数据/Persona/模型artifact的再使用权？ | 根代码许可不覆盖数据/模型 | synthetic+授权API满足首期 | asset admission登记来源/条款/用途；导出dataset再审 | P0涉及该数据/R/B01；无授权不纳入 |
 
 三项最大交付风险：DSH生命周期与平台闭包（Q01–03）；跨runtime/world/tool一致性（Q02/Q04/Q11）；评价有效性与选择偏差（Q05）。许可/维护/资源风险已分配gate；本轮没有付费调用、GPU训练或真实服务部署以“验证”未知项。
+
+2026-10-07 新增：Windows 深路径原生模块解包会失败，使用任务专属短根（home/workspace 内中文空格另有实测）；source SHA/SDK wheel/TS executable 三种 pin 不等价。SDK 三文件文本一致，但二进制 build SHA 未证，原生消息/取消已有差异。MCP 只实测 Python SDK 1.26.0 的 stdio `2025-11-25`，其余组合 NOT_RUN。live/研究效度为 G2 BLOCKED，完整状态以 [验证结论](../validation/phase1a/06_go_no_go_and_next_slice.md) 为准。

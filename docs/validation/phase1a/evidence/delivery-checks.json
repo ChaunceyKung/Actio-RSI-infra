@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "json_files": 26,
+  "local_links_checked": 68,
+  "tables_checked": 86,
+  "mermaid_blocks_statically_checked": 8,
+  "mermaid_render": "NOT_RUN: no existing mmdc/renderer discovered; no large renderer stack installed",
+  "runtime_cases_verified": 15,
+  "manifest_tests": 70,
+  "pip_check": "No broken requirements found.",
+  "reference_repositories": "DSH/Concordia status clean at pinned HEAD after probes (separate shell verification)",
+  "failures": []
+}

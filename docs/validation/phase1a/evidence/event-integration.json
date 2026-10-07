@@ -1,0 +1,253 @@
+{
+  "case": "event-integration",
+  "tests": [
+    {
+      "test_id": "P3-native-collector",
+      "status": "PASS",
+      "header": {
+        "type": "session",
+        "version": 3,
+        "id": "assistant",
+        "createdAt": 1791339449310,
+        "cwd": "<CASE_ROOT>\\native",
+        "isSeeded": false,
+        "delegationDepth": 0
+      },
+      "physical_generation": "session.v3.jsonl",
+      "event_count": 12,
+      "barrier": {
+        "kind": "native-barrier",
+        "session": "assistant",
+        "through": 11,
+        "seam": "sessionPersistence.flush"
+      },
+      "cursor": 11,
+      "business_effect_slots": 24,
+      "assertions": [
+        "SDK observed records equal persisted journal by seq after explicit flush",
+        "real native seq0 transaction rolled back before commit",
+        "reopen after commit with ack lost preserves count",
+        "same journal projected v2 creates no new business occurrence"
+      ],
+      "limits": [
+        "process-local flush marker, not SDK durable watermark RPC",
+        "SQLite effects only; not remote exactly-once or power-loss test"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.6880000000819564,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "event-integration-947722f6",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "native\\plugin.jsonl",
+      "sha256": "2c9b8d72824e69638bb66b2112c1cf450fdd6deefa95cc10889f3b7b86828c07",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 44100,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "native-to-canonical",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "597bef40-1e8d-4ad3-937c-33d25d793574"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"native-to-canonical\", \"answer\": \"observed\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "3a19da3a-8469-4ed3-a962-819e03b04e32"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339449316,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"native-to-canonical\", \"answer\": \"observed\"}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "3a19da3a-8469-4ed3-a962-819e03b04e32"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339449331,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339449342,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 12
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "native\\mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 42436
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "native\\runtime-close.json",
+      "pid": 44100,
+      "returncode": 0,
+      "elapsed_seconds": 0.125
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "c3e20194b4e9f922a72f108e23f8511c3f6a3025e89c5385a510cee1a980b0d7"
+}

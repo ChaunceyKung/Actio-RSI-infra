@@ -1,0 +1,228 @@
+{
+  "case": "exit",
+  "tests": [
+    {
+      "test_id": "P1-exit",
+      "status": "PASS",
+      "elapsed_seconds": 3.0939999998081475,
+      "error": {
+        "type": "TransportClosedError",
+        "message": "DeepSeek Harness runtime stdout closed"
+      },
+      "operation_state": "unknown/needs_reconcile",
+      "automatic_retries": 0,
+      "limits": [
+        "forced termination is not semantic cancellation or recovery"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.5310000001918525,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "exit-85179a3c",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "584d1cf9c2d668ce2f3827a631ad7435c8d5b32259e9237bbc44643dc416836b",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 3832,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "exit",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "a4ed8122-ed8e-4455-b1e6-d541bcfbc88c"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"exit\", \"kind\": \"exit\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "2e832894-7c88-4c86-8a03-b7d30f50750a"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339441175,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"exit\", \"kind\": \"exit\"}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "2e832894-7c88-4c86-8a03-b7d30f50750a"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339441190,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339441201,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 8
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 24632
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 3832,
+      "returncode": 71,
+      "elapsed_seconds": 0.0
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "cdc3c99e0f6ea47583744806ad8e7639c9468276d4aefb2b6e4920690ecfac1a"
+}

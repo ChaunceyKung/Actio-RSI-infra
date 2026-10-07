@@ -1,0 +1,421 @@
+{
+  "case": "timeout",
+  "tests": [
+    {
+      "test_id": "P2-result-timeout",
+      "status": "PASS",
+      "calls": 1,
+      "tool_result": {
+        "kind": "tool-result",
+        "callId": "result-timeout:call",
+        "result": {
+          "isError": true,
+          "error": {
+            "message": "MCP error -32001: Request timed out"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: MCP error -32001: Request timed out"
+            }
+          ]
+        }
+      },
+      "mcp_tail": [
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "timeout",
+            "op": "result-timeout"
+          },
+          "pid": 35000
+        },
+        {
+          "kind": "cancelled",
+          "op": "result-timeout",
+          "error": "CancelledError"
+        }
+      ],
+      "limits": [
+        "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 4.437000000150874,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "timeout-11fceaf3",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "73ff1c66bb0e51c51bc5491e66d93cf63b16708e5dc91ccffc8f778f552976b1",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 22244,
+          "node": "v24.21.0",
+          "policyHash": "7087326c1203249ca8d4329782926127404fab837ce12164397964112cf3c63e",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "result-timeout",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "d2018eb4-cfc4-4062-a2b9-0dc4a72d9467"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"result-timeout\", \"kind\": \"tool\", \"args\": {\"key\": \"timeout\", \"op\": \"result-timeout\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "7a02e983-302a-4d6a-9cda-fe9b962001a2"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "result-timeout:call",
+          "session": "assistant",
+          "argsHash": "922430bf79cd766587ba706ab3ac01c3759e821f8ce743c49ab2fae1848e0f2b"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "result-timeout:call",
+          "session": "assistant",
+          "finalHash": "3626662a64212fc8f8d5282c32a1eb72e2404a1bc2837a661509b10a172a9036",
+          "policyHash": "7087326c1203249ca8d4329782926127404fab837ce12164397964112cf3c63e",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": true,
+          "reason": null
+        },
+        {
+          "kind": "tool-result",
+          "callId": "result-timeout:call",
+          "result": {
+            "isError": true,
+            "error": {
+              "message": "MCP error -32001: Request timed out"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Error: MCP error -32001: Request timed out"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "provider-input",
+          "op": "result-timeout",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "d2018eb4-cfc4-4062-a2b9-0dc4a72d9467"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"result-timeout\", \"kind\": \"tool\", \"args\": {\"key\": \"timeout\", \"op\": \"result-timeout\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "7a02e983-302a-4d6a-9cda-fe9b962001a2"
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool-call",
+                  "id": "result-timeout:call",
+                  "name": "mcp__fixture__read_fixture",
+                  "arguments": "{\"key\":\"timeout\",\"op\":\"result-timeout\"}"
+                }
+              ],
+              "source": {
+                "kind": "model",
+                "provider": "phase1a-fixture",
+                "model": "fixed"
+              },
+              "id": "aea091d2-7100-4dcc-8e87-dedb746c4edf"
+            },
+            {
+              "source": {
+                "kind": "tool",
+                "callId": "result-timeout:call"
+              },
+              "content": [
+                {
+                  "type": "tool-result",
+                  "toolCallId": "result-timeout:call",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Error: MCP error -32001: Request timed out"
+                    }
+                  ],
+                  "isError": true
+                }
+              ],
+              "role": "user",
+              "id": "b6ddf1ac-fd75-46f6-99ee-ff597b809f9c"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 16,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339423796,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"result-timeout\", \"kind\": \"tool\", \"args\": {\"key\": \"timeout\", \"op\": \"result-timeout\"}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "7a02e983-302a-4d6a-9cda-fe9b962001a2"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339423811,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339423822,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 17
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 35000
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "timeout",
+            "op": "result-timeout"
+          },
+          "pid": 35000
+        },
+        {
+          "kind": "cancelled",
+          "op": "result-timeout",
+          "error": "CancelledError"
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 22244,
+      "returncode": 0,
+      "elapsed_seconds": 0.125
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "63674e13626c45dca98a47074eaacc2da7ef11cdf3c25ccd7fec98fa64f9a03a"
+}

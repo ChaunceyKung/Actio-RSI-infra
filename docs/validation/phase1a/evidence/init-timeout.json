@@ -1,0 +1,51 @@
+{
+  "case": "init-timeout",
+  "tests": [
+    {
+      "test_id": "P1-init-timeout",
+      "status": "PASS",
+      "elapsed_seconds": 1.3280000002123415,
+      "error": {
+        "type": "TimeoutError",
+        "message": "initialize timed out waiting for DeepSeek Harness runtime\nselected dsh profile 'sdk-minimal'"
+      },
+      "operation_state": "unknown/needs_reconcile",
+      "automatic_retries": 0,
+      "limits": [
+        "forced termination is not semantic cancellation or recovery"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 1.7189999998081475,
+  "cleanup": {
+    "before": {
+      "total": 3,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 3,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "init-timeout-86c5fae7",
+  "status": "PASS",
+  "transcripts": [],
+  "mcp_records": [],
+  "runtime_close": [],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "4317fb3bbacbb7ad178b4fe372317e05d682931b2c8bbcaf06d20971a442d149"
+}

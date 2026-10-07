@@ -1,0 +1,63 @@
+{
+  "tests": [],
+  "case": "tools",
+  "exit_code": 1,
+  "timed_out": false,
+  "elapsed_seconds": 15.093999999808148,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "tools-5787cfcd",
+  "status": "FAIL",
+  "failure": {
+    "type": "TimeoutError",
+    "error": "bounded run deadline; needs_reconcile; no automatic retry"
+  },
+  "raw_zip_sha256": "e9166abec4a78a891438f2a8d038b4d7bde1d620b9b336594e0c0f6605679c93",
+  "cause": "Probe expected role=tool from source types; actual wheel emits role=user with source.kind=tool. Fixture repeated same call; native final guard allowed MCP once then denied repeats; bounded supervisor stopped it.",
+  "first_guard_and_result": [
+    {
+      "kind": "final-guard",
+      "callId": "allow:call",
+      "session": "assistant",
+      "finalHash": "b99f57afcc0012e1bec12c874651824f805f2e1ccbb436ad7dfa7d4ede121cbb",
+      "policyHash": "ca30e050ac88f3447e0ac6d618dbf959415f18dee8d56424c5ec67dfa9a9cbb6",
+      "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "kind": "tool-result",
+      "callId": "allow:call",
+      "result": {
+        "isError": false,
+        "content": [
+          {
+            "type": "text",
+            "text": "SYNTHETIC FILE VALUE"
+          }
+        ],
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "SYNTHETIC FILE VALUE"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "model_requests": 148,
+  "remedy": "Detect tool result by source.kind/callId; add hard 6-request fixture limit; rerun affected tool cases."
+}

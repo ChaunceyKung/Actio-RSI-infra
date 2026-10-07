@@ -1,0 +1,422 @@
+{
+  "case": "iserror",
+  "tests": [
+    {
+      "test_id": "P2-result-error",
+      "status": "PASS",
+      "calls": 1,
+      "tool_result": {
+        "kind": "tool-result",
+        "callId": "result-error:call",
+        "result": {
+          "isError": true,
+          "error": {
+            "message": "synthetic isError"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: synthetic isError"
+            }
+          ]
+        }
+      },
+      "mcp_tail": [
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "error",
+            "op": "result-error"
+          },
+          "pid": 13788
+        }
+      ],
+      "limits": [
+        "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.515000000130385,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "iserror-0b52e717",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "88a29d0d0602c52ba2c82ca9e9ff3515fb7b6a0dcb9ab71316699536f7deef92",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 6492,
+          "node": "v24.21.0",
+          "policyHash": "5f7544cc4171679c2ccda6719652115579688045f521827a5c44287fdde92bfb",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "result-error",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "05cbe15c-6dfe-45d2-9733-f66383a25d02"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"result-error\", \"kind\": \"tool\", \"args\": {\"key\": \"error\", \"op\": \"result-error\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "f28568ff-1bbd-48f5-a0d2-52cfd5ddbdf1"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "result-error:call",
+          "session": "assistant",
+          "argsHash": "c27ee95b7b8357eb4dc062e0aa6e3c3dead5415b8e52162d04a4cb431ebd8606"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "result-error:call",
+          "session": "assistant",
+          "finalHash": "b60fca568227774fdacbccd8a9bc62c90a4d29668e3eac4e52028c3ddb193057",
+          "policyHash": "5f7544cc4171679c2ccda6719652115579688045f521827a5c44287fdde92bfb",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": true,
+          "reason": null
+        },
+        {
+          "kind": "tool-result",
+          "callId": "result-error:call",
+          "result": {
+            "isError": true,
+            "error": {
+              "message": "synthetic isError"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Error: synthetic isError"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "provider-input",
+          "op": "result-error",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "05cbe15c-6dfe-45d2-9733-f66383a25d02"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"result-error\", \"kind\": \"tool\", \"args\": {\"key\": \"error\", \"op\": \"result-error\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "f28568ff-1bbd-48f5-a0d2-52cfd5ddbdf1"
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool-call",
+                  "id": "result-error:call",
+                  "name": "mcp__fixture__read_fixture",
+                  "arguments": "{\"key\":\"error\",\"op\":\"result-error\"}"
+                }
+              ],
+              "source": {
+                "kind": "model",
+                "provider": "phase1a-fixture",
+                "model": "fixed"
+              },
+              "id": "fe6c7f1a-08ac-4454-8e57-c0ba14f35fe6"
+            },
+            {
+              "source": {
+                "kind": "tool",
+                "callId": "result-error:call"
+              },
+              "content": [
+                {
+                  "type": "tool-result",
+                  "toolCallId": "result-error:call",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Error: synthetic isError"
+                    }
+                  ],
+                  "isError": true
+                }
+              ],
+              "role": "user",
+              "id": "04798a86-9c45-4296-b890-6c6955e33f5a"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 16,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339415267,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"result-error\", \"kind\": \"tool\", \"args\": {\"key\": \"error\", \"op\": \"result-error\"}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "f28568ff-1bbd-48f5-a0d2-52cfd5ddbdf1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339415280,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339415291,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 17
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 13788
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "error",
+            "op": "result-error"
+          },
+          "pid": 13788
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 6492,
+      "returncode": 0,
+      "elapsed_seconds": 0.125
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "8a52ff94b18eff79f624c5d6cb941e509dc918128827b4c9ea61f7a1e772cf5d"
+}

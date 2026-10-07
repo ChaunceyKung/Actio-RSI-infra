@@ -1,0 +1,234 @@
+{
+  "case": "run-timeout",
+  "tests": [
+    {
+      "test_id": "P1-run-timeout",
+      "status": "PASS",
+      "elapsed_seconds": 4.405999999959022,
+      "error": {
+        "type": "TimeoutError",
+        "message": "bounded run deadline; needs_reconcile; no automatic retry"
+      },
+      "operation_state": "unknown/needs_reconcile",
+      "automatic_retries": 0,
+      "limits": [
+        "forced termination is not semantic cancellation or recovery"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 4.859999999869615,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "run-timeout-56b43e3e",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "e83c0b5f225aeeff329fcf364c48a46f8c7f6b257ad2e98a50a02d918107bf5e",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 18632,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "run-timeout",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "e8e76762-0559-4861-9a5e-81d496bdb0f8"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"run-timeout\", \"kind\": \"hang\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "19dc5387-b914-4533-aaca-d5d077e55a87"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339431560,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"run-timeout\", \"kind\": \"hang\"}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "19dc5387-b914-4533-aaca-d5d077e55a87"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339431575,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339431590,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 12
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 21328
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 18632,
+      "returncode": 0,
+      "elapsed_seconds": 0.2029999999795109
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "0023238d1d77fc3155bd259d4683505120325db1c984f1d4e61489a10f9458d7"
+}

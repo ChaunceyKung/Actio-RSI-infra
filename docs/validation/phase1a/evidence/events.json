@@ -1,0 +1,59 @@
+{
+  "mode": "SQLITE_CONTRACT_FIXTURE",
+  "tests": [
+    {
+      "test_id": "P3-F01-duplicate",
+      "status": "PASS",
+      "assertions": [
+        "two deliveries, one occurrence; two semantic slots"
+      ]
+    },
+    {
+      "test_id": "P3-F01-remap",
+      "status": "PASS",
+      "assertions": [
+        "v1/v2 projections=4; business effects remain 2; consumer atomically pins v2"
+      ]
+    },
+    {
+      "test_id": "P3-F01-conflict",
+      "status": "PASS",
+      "assertions": [
+        "same occurrence/different hash rejected; original retained"
+      ]
+    },
+    {
+      "test_id": "P3-F01-restart",
+      "status": "PASS",
+      "assertions": [
+        "new logical stream creation may reuse seq; continuing old stream reuses identity"
+      ]
+    },
+    {
+      "test_id": "P3-F01-gap",
+      "status": "PASS",
+      "assertions": [
+        "cursor -1 → 0 → 2; advances only contiguous committed prefix"
+      ]
+    },
+    {
+      "test_id": "P3-transaction-rollback",
+      "status": "PASS",
+      "assertions": [
+        "native observed supplied by caller; rollback before commit; safe re-ingest on reopen"
+      ]
+    },
+    {
+      "test_id": "P3-ack-lost",
+      "status": "PASS",
+      "assertions": [
+        "effect transaction committed before ack loss; replay after reopen does not increment count"
+      ]
+    }
+  ],
+  "limits": [
+    "exception rollback/reopen, not power-loss durability",
+    "business effect is local SQLite ledger, not remote exactly-once",
+    "new slots require explicit consumer migration; never silently count remapping as a new occurrence"
+  ]
+}

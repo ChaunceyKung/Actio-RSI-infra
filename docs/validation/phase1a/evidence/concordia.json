@@ -1,0 +1,1125 @@
+{
+  "tests": [
+    {
+      "test_id": "P4-real-engine",
+      "status": "PASS",
+      "assertions": [
+        "real Sequential scheduling/observe/act/resolve; order B,A; ActionSpec validated",
+        "same runtime_adapter.Adapter as assistant",
+        "actual GM.act(RESOLVE) and GM.observe(EVENT) captured; no fabricated resolve return"
+      ]
+    },
+    {
+      "test_id": "P4-private-input",
+      "status": "PASS",
+      "assertions": [
+        "all actual provider inputs exclude other entity private marker and GM full log"
+      ]
+    },
+    {
+      "test_id": "P4-illegal",
+      "status": "PASS",
+      "assertions": [
+        "invalid DSH output rejected by actual ActionSpec.validate; world and resolution ledger remain empty"
+      ]
+    },
+    {
+      "test_id": "P4-start-rerun",
+      "status": "PASS",
+      "assertions": [
+        "two fresh episodes match world and order from start manifest; mid-run resume unsupported"
+      ]
+    }
+  ],
+  "start_manifest": {
+    "source": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+    "engine": "Sequential",
+    "order": [
+      "B",
+      "A"
+    ],
+    "options": [
+      "cooperate",
+      "wait"
+    ],
+    "private": {
+      "A": "PRIVATE_ONLY_A",
+      "B": "PRIVATE_ONLY_B"
+    },
+    "gm_private": "GM_PRIVATE_FULL_LOG",
+    "fixture_model": "fixed",
+    "max_steps": 2,
+    "covers": [
+      "initial scenario",
+      "entity identities",
+      "observation policy",
+      "ActionSpec",
+      "model fixture",
+      "profile code hash"
+    ],
+    "excludes": [
+      "native session mid-run resume",
+      "engine cursor snapshot",
+      "external world state",
+      "live model response"
+    ],
+    "mid_run_complete_restore": false
+  },
+  "first": {
+    "world": [
+      "[event] resolved[0]: [putative_event] B: cooperate",
+      "[event] resolved[1]: [putative_event] A: cooperate"
+    ],
+    "resolutions": [
+      {
+        "source": "GM.act(RESOLVE)",
+        "value": "resolved[0]: [putative_event] B: cooperate",
+        "pending": "[putative_event] B: cooperate"
+      },
+      {
+        "source": "GM.act(RESOLVE)",
+        "value": "resolved[1]: [putative_event] A: cooperate",
+        "pending": "[putative_event] A: cooperate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "acting_entity": "B",
+        "action": "B: cooperate",
+        "entity_actions": {
+          "B": "B: cooperate"
+        },
+        "entity_logs": {},
+        "game_master": "FixtureGM"
+      },
+      {
+        "step": 2,
+        "acting_entity": "A",
+        "action": "A: cooperate",
+        "entity_actions": {
+          "A": "A: cooperate"
+        },
+        "entity_logs": {},
+        "game_master": "FixtureGM"
+      }
+    ],
+    "gm_calls": [
+      "terminate",
+      "make_observation",
+      "make_observation",
+      "next_acting",
+      "next_action_spec",
+      "resolve",
+      "terminate",
+      "make_observation",
+      "make_observation",
+      "next_acting",
+      "next_action_spec",
+      "resolve",
+      "terminate"
+    ],
+    "entities": {
+      "A": [
+        {
+          "op": "act-A",
+          "session": "A",
+          "intent": "cooperate",
+          "action_spec": {
+            "call_to_action": "Choose a legal action.",
+            "output_type": "choice",
+            "options": [
+              "cooperate",
+              "wait"
+            ],
+            "tag": null
+          },
+          "seqs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "barrier": {
+            "kind": "native-barrier",
+            "session": "A",
+            "through": 11,
+            "seam": "sessionPersistence.flush"
+          }
+        }
+      ],
+      "B": [
+        {
+          "op": "act-B",
+          "session": "B",
+          "intent": "cooperate",
+          "action_spec": {
+            "call_to_action": "Choose a legal action.",
+            "output_type": "choice",
+            "options": [
+              "cooperate",
+              "wait"
+            ],
+            "tag": null
+          },
+          "seqs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "barrier": {
+            "kind": "native-barrier",
+            "session": "B",
+            "through": 11,
+            "seam": "sessionPersistence.flush"
+          }
+        }
+      ]
+    },
+    "loop_return": null,
+    "provider_requests": 2
+  },
+  "rerun": {
+    "world": [
+      "[event] resolved[0]: [putative_event] B: cooperate",
+      "[event] resolved[1]: [putative_event] A: cooperate"
+    ],
+    "resolutions": [
+      {
+        "source": "GM.act(RESOLVE)",
+        "value": "resolved[0]: [putative_event] B: cooperate",
+        "pending": "[putative_event] B: cooperate"
+      },
+      {
+        "source": "GM.act(RESOLVE)",
+        "value": "resolved[1]: [putative_event] A: cooperate",
+        "pending": "[putative_event] A: cooperate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "acting_entity": "B",
+        "action": "B: cooperate",
+        "entity_actions": {
+          "B": "B: cooperate"
+        },
+        "entity_logs": {},
+        "game_master": "FixtureGM"
+      },
+      {
+        "step": 2,
+        "acting_entity": "A",
+        "action": "A: cooperate",
+        "entity_actions": {
+          "A": "A: cooperate"
+        },
+        "entity_logs": {},
+        "game_master": "FixtureGM"
+      }
+    ],
+    "gm_calls": [
+      "terminate",
+      "make_observation",
+      "make_observation",
+      "next_acting",
+      "next_action_spec",
+      "resolve",
+      "terminate",
+      "make_observation",
+      "make_observation",
+      "next_acting",
+      "next_action_spec",
+      "resolve",
+      "terminate"
+    ],
+    "entities": {
+      "A": [
+        {
+          "op": "act-A",
+          "session": "A",
+          "intent": "cooperate",
+          "action_spec": {
+            "call_to_action": "Choose a legal action.",
+            "output_type": "choice",
+            "options": [
+              "cooperate",
+              "wait"
+            ],
+            "tag": null
+          },
+          "seqs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "barrier": {
+            "kind": "native-barrier",
+            "session": "A",
+            "through": 11,
+            "seam": "sessionPersistence.flush"
+          }
+        }
+      ],
+      "B": [
+        {
+          "op": "act-B",
+          "session": "B",
+          "intent": "cooperate",
+          "action_spec": {
+            "call_to_action": "Choose a legal action.",
+            "output_type": "choice",
+            "options": [
+              "cooperate",
+              "wait"
+            ],
+            "tag": null
+          },
+          "seqs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "barrier": {
+            "kind": "native-barrier",
+            "session": "B",
+            "through": 11,
+            "seam": "sessionPersistence.flush"
+          }
+        }
+      ]
+    },
+    "loop_return": null,
+    "provider_requests": 2
+  },
+  "illegal": {
+    "world": [],
+    "resolutions": [],
+    "steps": [],
+    "gm_calls": [
+      "terminate",
+      "make_observation",
+      "make_observation",
+      "next_acting",
+      "next_action_spec"
+    ],
+    "entities": {
+      "A": [],
+      "B": [
+        {
+          "op": "act-B",
+          "session": "B",
+          "intent": "INVALID",
+          "action_spec": {
+            "call_to_action": "Choose a legal action.",
+            "output_type": "choice",
+            "options": [
+              "cooperate",
+              "wait"
+            ],
+            "tag": null
+          },
+          "seqs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "barrier": {
+            "kind": "native-barrier",
+            "session": "B",
+            "through": 11,
+            "seam": "sessionPersistence.flush"
+          }
+        }
+      ]
+    },
+    "loop_return": null,
+    "provider_requests": 1
+  },
+  "case": "concordia",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 10.280999999959022,
+  "cleanup": {
+    "before": {
+      "total": 11,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 11,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "concordia-ec4b6670",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "illegal\\plugin.jsonl",
+      "sha256": "df2a044490427ef01b709e23a043fc42ecad0eb68ba99852c493ae534a029a78",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 29036,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "act-B",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SHARED_SYNTHETIC_AGENT"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "6f5e7028-6fb5-4c11-9de6-655398216513"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"act-B\", \"answer\": \"INVALID\", \"observations\": [\"PRIVATE_ONLY_B\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "9c852651-8d77-483c-af65-359420dc7acf"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "B",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339464708,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"act-B\", \"answer\": \"INVALID\", \"observations\": [\"PRIVATE_ONLY_B\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "9c852651-8d77-483c-af65-359420dc7acf"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339464723,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339464734,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 12
+    },
+    {
+      "path": "start-one\\plugin.jsonl",
+      "sha256": "5248f0a4614a5f4e98f1065cf58be60c9327c4b4a040e4da302ca6e8e3900935",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 38784,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "act-B",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SHARED_SYNTHETIC_AGENT"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "00b53e2e-364c-416e-a28d-6a6389bd8a37"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"act-B\", \"answer\": \"cooperate\", \"observations\": [\"PRIVATE_ONLY_B\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "e5cce84b-196f-4df1-9805-d73d6594011c"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "B",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "act-A",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SHARED_SYNTHETIC_AGENT"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "0057530c-77e6-4c59-aac8-409022e0077d"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"act-A\", \"answer\": \"cooperate\", \"observations\": [\"PRIVATE_ONLY_A\", \"PRIVATE_ONLY_A\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "d5ee25b8-52b5-431b-9f33-41e8c1e5b99a"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "A",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339458649,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"act-B\", \"answer\": \"cooperate\", \"observations\": [\"PRIVATE_ONLY_B\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "e5cce84b-196f-4df1-9805-d73d6594011c"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339458663,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339458673,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 24
+    },
+    {
+      "path": "start-two\\plugin.jsonl",
+      "sha256": "38c50af5403c4d8a66e4bd9a5c2f06388ae49c364c21644f8de7042966ab9ae5",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 32328,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "act-B",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SHARED_SYNTHETIC_AGENT"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "6f6e4993-e203-4c16-9afb-cf9e189be065"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"act-B\", \"answer\": \"cooperate\", \"observations\": [\"PRIVATE_ONLY_B\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "e94403b2-06ac-489f-8da9-262d0df6e3b8"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "B",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "act-A",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SHARED_SYNTHETIC_AGENT"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "8876da1d-9d73-4185-b251-3e57d75e04eb"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"act-A\", \"answer\": \"cooperate\", \"observations\": [\"PRIVATE_ONLY_A\", \"PRIVATE_ONLY_A\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "be196232-2eb8-4e1a-bb48-f318f0ef7d6e"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "A",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339461820,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"act-B\", \"answer\": \"cooperate\", \"observations\": [\"PRIVATE_ONLY_B\"], \"action_spec\": {\"call_to_action\": \"Choose a legal action.\", \"output_type\": \"choice\", \"options\": [\"cooperate\", \"wait\"], \"tag\": null}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "e94403b2-06ac-489f-8da9-262d0df6e3b8"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339461834,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "B",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339461844,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 24
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "illegal\\mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 30004
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    },
+    {
+      "path": "start-one\\mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 16128
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    },
+    {
+      "path": "start-two\\mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 45092
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "illegal\\runtime-close.json",
+      "pid": 29036,
+      "returncode": 0,
+      "elapsed_seconds": 0.10900000017136335
+    },
+    {
+      "path": "start-one\\runtime-close.json",
+      "pid": 38784,
+      "returncode": 0,
+      "elapsed_seconds": 0.125
+    },
+    {
+      "path": "start-two\\runtime-close.json",
+      "pid": 32328,
+      "returncode": 0,
+      "elapsed_seconds": 0.11000000010244548
+    }
+  ],
+  "probe_hashes": {
+    "concordia_case.py": "b1d1a9cd0ad47412c953bb58415bec81f9be859b3be42093ab8b3cef89c4e3e2",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "5a7a04e80a3dc19691298cc8ab0a7efbe345e2a14207d6505a37884b1a1f7fbf"
+}

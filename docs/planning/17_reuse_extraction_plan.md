@@ -6,7 +6,7 @@
 
 来源 `deepseek-ai/deepseek-harness@5badb15009ae1756c3afe0ae0cef1faafc290ccc`（E001–E005）。入口：`python/sdk/src/deepseek_harness/{client.py,api.py,models.py}`，`packages/sdk/server/src/server.ts::HarnessSdkJsonRpcServer.handleRequest/getOrCreateSession/createSession`，`packages/sdk/protocol/src/types.ts`；底层 `packages/core/session/src/index.ts::SessionStore.fork`、`fork.ts::buildForkSeed`，`packages/core/agent-loop/src/agent.ts::ReactLoopAgent`，JSONL persistence service。
 
-现状server只有三个request方法：`initialize`、`session/prompt`、`shutdown`。session由prompt时getOrCreate创建，不存在独立已发布的完整resume API。A单独不足以满足Actio生命周期；B只读native日志可做观察但无法稳定调用内部cancel/fork/resume，直接绕过SDK会增加第二套私有bridge，所以选窄C而非新网络RPC。
+现状server只有三个request方法：`initialize`、`session/prompt`、`shutdown`。session由prompt时getOrCreate创建，没有独立公开完整resume API。2026-10-07 Phase1A 将原“大生命周期 C01”拆分：G0 可用 A SDK+B profile/policy/supervisor 与 native flush 插件 seam 验证，**本轮没有 DSH 源码 patch**；完整 cancel/status/fork/resume/catchup 属 G1，按后续实际需要再开窄 C。Python 静态 policy 投影不需要新审批 RPC；不自建网络 bridge。
 
 | 拆解维度 | 方案 |
 |---|---|
@@ -15,12 +15,12 @@
 | 保留 | 原transport、launch args、通知分发、错误通道、原生session存储/锁、model/tool loop、平台runtime打包方式 |
 | 删除/不纳入 | 新HTTP服务、自写Pythonloop、私有_launch_args部署依赖、Raven host/registry |
 | 替换/封装 | RuntimePort将run/spec映射session/profile；显式dsh_home与worker pin；bounded ingestion而非无界消息累积 |
-| 扩展 | 能力协商；cancel/status；open-existing/resume；fork-at-seq；event catch-up与durable cursor/receipt查询。若上游最新release已有等价public方法则转A/B移除patch |
+| 扩展 | G0 产品化：有界 supervisor、冻结配置/策略校验、receipt/unknown ledger、连续 cursor 与显式 flush marker 交接；G1 可选：公开 cancel/status/open-existing/fork/catchup RPC。先检查新 official artifact 的实际能力再决定 patch，不能根据源码接口直接假定二进制支持 |
 | 未来落点 | Actio `adapters/runtime/dsh.py`、`domain/runtime.py`、`workers/supervisor.py`；patch来源清单 `third_party/dsh/patches/`（未来）。优先向上游提补丁，发布时单独patch artifact hash |
 | tests | 保留 `python/sdk/tests/test_client.py`、`test_runtime_resolution.py`、server `tests/server.spec.ts`、protocol `tests/transport.spec.ts`；现成真实wheel/model smoke需凭据时单列 |
 | contract/fault验证 | cancel前后unknown tool效果、重复receipt、EOF/kill、中文路径、seq gap、profile污染、锁未释放、queue压测；Python/TS版本不匹配必须拒绝 |
-| 规模/owner | 预计触及6–10个SDK/protocol文件、300–900 LOC，1–2人周；依据已有三方法dispatcher与内部seam，未实测。I负责；5日探针决定是否仍为窄补丁 |
-| 升级/退出 | 每次上游版本diff+合同suite；不改loop主体；若必须重写存储/大范围改loop或超预算，退出到Strands Python（ADR02/03），不无限fork |
+| 规模/owner | 2026-10-05 原估算 6–10 个文件/300–900 LOC/1–2 人周，针对完整生命周期，保留为历史估算；Phase1A upstream patch=0。只读 G0 采用薄 B 适配，G1 如立项再重新估算；5 工程日为预算而非等待或切换阈值 |
+| 升级/退出 | 每次 artifact/source 分别 diff+合同suite；G0 必须重写存储/大范围改loop且公开配置/窄plugin/最小patch不能解决才触发同合同 Strands 探针；下载缺失 BLOCKED。禁止无限fork |
 | License | MIT根及Cordis适用notice保留；修改标记/上游SHA清单；wheel依赖闭包/第三方NOTICE单列B01。商业托管仍须核sidecar/model/tool条款，不把MIT扩张到全部依赖 |
 
 ## C02 · Raven 配对诊断与结果适配
@@ -75,4 +75,4 @@ Meta-Harness onboarding能直接成为检查清单，但experimental controller�
 | K4 `evaluation/contracts.py`、`evolution/candidates.py`、`evolution/admission.py`、`evolution/versions.py`、`storage/lineage.py` | Raven判定/可靠性不足，Meta/DGM闭包大；复用C02/C03及SOTOPIA评委，独立规则/权限必需 | B09–B11/B17；四态、冻结test、完整失败谱系/版本切换 |
 | K5 `experiments/design.py`、`experiments/interventions.py`、`experiments/attribution.py` | viewer/DAG/LLM attribution没有实验识别；复用runtime fork、环境可选快照与标准统计工具 | B12/B15；cluster设计、freeze验证、受控差异/因果边界 |
 
-这些路径只用于划分未来责任，不保证每个文件最终都存在；wrapper/extension也归五核心，不偷偷另增自研训练器/数据库/前端。A/B配置与test harness的实施范围必须先由B01/B02冻结。
+这些路径只用于划分未来责任，不保证每个文件最终都存在；wrapper/extension也归五核心，不另增训练器/数据库/前端。验证先经B01a/B02a限定范围，B03及必要探针之后才B02b冻结，不先冻结全部产品API。

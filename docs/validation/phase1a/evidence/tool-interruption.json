@@ -1,0 +1,248 @@
+{
+  "case": "tool-interruption",
+  "tests": [
+    {
+      "test_id": "P3-tool-interruption",
+      "status": "PASS",
+      "trigger": "fsynced MCP received record, before native tool-result/collector confirmation",
+      "calls": 1,
+      "error": "DeepSeek Harness runtime stdout closed",
+      "operation_state": "unknown/needs_reconcile",
+      "automatic_retries": 0
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.4840000001713634,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "tool-interruption-a9d2869f",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "57669fce40db715dd584fabc4a2a6c75183f9e7e3939662e98b8e83ab01112f6",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 34768,
+          "node": "v24.21.0",
+          "policyHash": "07201073d5a6dcb895aa792c34a8dab2e4f63b952c0c447af9a2750670833d0b",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "interrupted",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "268032f0-1efe-49ff-bb21-81566b77c7e4"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"interrupted\", \"kind\": \"tool\", \"args\": {\"key\": \"hold\", \"op\": \"interrupted\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "470018e9-8f4c-4b6b-9fd3-482fbdd3967d"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "interrupted:call",
+          "session": "assistant",
+          "argsHash": "3ad86262a4a72a3710c5b1f9b83c0344611b75e5f8f514b00e54d8e5b8f1a84b"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "interrupted:call",
+          "session": "assistant",
+          "finalHash": "814fc0ef25d0aec56d5c1de15a27be6b87a14948313415ed4cf2c7a232fc911d",
+          "policyHash": "07201073d5a6dcb895aa792c34a8dab2e4f63b952c0c447af9a2750670833d0b",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": true,
+          "reason": null
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339445211,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"interrupted\", \"kind\": \"tool\", \"args\": {\"key\": \"hold\", \"op\": \"interrupted\"}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "470018e9-8f4c-4b6b-9fd3-482fbdd3967d"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339445225,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339445236,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 11
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 33744
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "hold",
+            "op": "interrupted"
+          },
+          "pid": 33744
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 34768,
+      "returncode": 1,
+      "elapsed_seconds": 0.0
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "19d2800458ec819685e3068a8936d0d088c576adb9ba5721a5a3cdba30104758"
+}

@@ -1,0 +1,4 @@
+# Phase 1A local artifacts, dependency caches and synthetic raw journals
+probes/phase1a/.local/
+__pycache__/
+*.pyc

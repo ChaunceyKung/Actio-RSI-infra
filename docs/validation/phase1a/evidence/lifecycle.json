@@ -1,0 +1,650 @@
+{
+  "case": "lifecycle",
+  "tests": [
+    {
+      "test_id": "P1-lifecycle",
+      "status": "PASS",
+      "assertions": [
+        "cold handshake, native events, same-session multi-turn, distinct sessions, two concurrent homes, Chinese/space paths",
+        "provider inputs prove cross-home and cross-session marker isolation",
+        "only read-only fixture tool enumerated"
+      ],
+      "barrier": {
+        "kind": "native-barrier",
+        "session": "same",
+        "through": 11,
+        "seam": "sessionPersistence.flush"
+      }
+    },
+    {
+      "test_id": "P1-shared-context",
+      "status": "PASS",
+      "assertions": [
+        "same session retains A_SECRET; other session excludes it"
+      ]
+    },
+    {
+      "test_id": "P1-restart",
+      "status": "PASS",
+      "behavior": {
+        "outcome": "rejected",
+        "error": "session \"same\" already exists"
+      },
+      "unchanged_journals": true,
+      "assertions": [
+        "reusing persisted session ID is characterized, not assumed to resume"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 8.797000000020489,
+  "cleanup": {
+    "before": {
+      "total": 11,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 11,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "lifecycle-0428bc10",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "中文 home A\\plugin.jsonl",
+      "sha256": "812e185cae17e503adcf6933c6e5133562f220bfe3af35c26a194fa20d778ece",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 19844,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "a1",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "PRIVATE_A"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "6bd3baa4-7d46-482e-9e18-1d7754a5d600"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"a1\", \"answer\": \"first\", \"private\": \"A_SECRET\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "e10000a4-5fab-47ea-bbce-c00ba90aba32"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "same",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "a2",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "PRIVATE_A"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "6bd3baa4-7d46-482e-9e18-1d7754a5d600"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"a1\", \"answer\": \"first\", \"private\": \"A_SECRET\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "e10000a4-5fab-47ea-bbce-c00ba90aba32"
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "first"
+                }
+              ],
+              "source": {
+                "kind": "model",
+                "provider": "phase1a-fixture",
+                "model": "fixed"
+              },
+              "id": "1b10f796-bbe5-49de-88ef-3d7b5534991d"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"a2\", \"answer\": \"second\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "fe2184d3-2f94-48e0-9bc3-5d19ed1e8671"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "same",
+          "through": 19,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "provider-input",
+          "op": "a-other",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "PRIVATE_A"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "6855cd90-e154-4d74-b006-6578439f21af"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"a-other\", \"answer\": \"other\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "daca008e-5738-4801-bf53-7e515359448f"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "other",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        },
+        {
+          "kind": "startup",
+          "pid": 10048,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "same",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339374354,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"a1\", \"answer\": \"first\", \"private\": \"A_SECRET\"}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "e10000a4-5fab-47ea-bbce-c00ba90aba32"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "same",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339374367,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "same",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339374380,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 32
+    },
+    {
+      "path": "中文 home B\\plugin.jsonl",
+      "sha256": "3b6e8d89cb49b9f39e0540260d96325ee9fef84627270e1c7fd9d44d15787015",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 35640,
+          "node": "v24.21.0",
+          "policyHash": "8d408a0be55318a8c8d2909b40890568b309967ed455428e2c6cf0cf32f338e7",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "b1",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "PRIVATE_B"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "542c7af2-dbab-46f8-b1c9-3425343a2a0b"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"b1\", \"answer\": \"B\", \"private\": \"B_SECRET\"}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "21c332fb-c378-49aa-82fc-d97ef87ba440"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "same",
+          "through": 11,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "same",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339377299,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"b1\", \"answer\": \"B\", \"private\": \"B_SECRET\"}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "21c332fb-c378-49aa-82fc-d97ef87ba440"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "same",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339377312,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "same",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339377324,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 12
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "中文 home A\\mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 22052
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "startup",
+          "pid": 36960
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    },
+    {
+      "path": "中文 home B\\mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 18008
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "中文 home A\\runtime-close.json",
+      "pid": 10048,
+      "returncode": 0,
+      "elapsed_seconds": 0.125
+    },
+    {
+      "path": "中文 home B\\runtime-close.json",
+      "pid": 35640,
+      "returncode": 0,
+      "elapsed_seconds": 0.10900000017136335
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "e2bcc8f833153b7c4b2351f551d12ad49375f58096f83ab4735912afe6918978"
+}

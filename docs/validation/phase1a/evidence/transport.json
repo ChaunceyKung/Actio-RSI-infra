@@ -1,0 +1,422 @@
+{
+  "case": "transport",
+  "tests": [
+    {
+      "test_id": "P2-result-transport",
+      "status": "PASS",
+      "calls": 1,
+      "tool_result": {
+        "kind": "tool-result",
+        "callId": "result-transport:call",
+        "result": {
+          "isError": true,
+          "error": {
+            "message": "MCP error -32000: Connection closed"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: MCP error -32000: Connection closed"
+            }
+          ]
+        }
+      },
+      "mcp_tail": [
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "transport",
+            "op": "result-transport"
+          },
+          "pid": 15140
+        }
+      ],
+      "limits": [
+        "DSH result may normalize transport/timeout into isError; classification retains scenario cause"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.6399999998975545,
+  "cleanup": {
+    "before": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "after": {
+      "total": 5,
+      "active": 0,
+      "terminated": 0
+    },
+    "seam": "Windows Job Object; no listeners; stdio only"
+  },
+  "raw_directory": "transport-76269a74",
+  "status": "PASS",
+  "transcripts": [
+    {
+      "path": "plugin.jsonl",
+      "sha256": "9471d9980bf7fe7aa9bafd25257cb7d90005d3172bc705a4ec1edc3a56ae9b72",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 45164,
+          "node": "v24.21.0",
+          "policyHash": "367a0084b109896c43ab73c4939a5332bbf1dceebdda8b9bb98ffcfe78801ea0",
+          "guardAvailable": true
+        },
+        {
+          "kind": "provider-input",
+          "op": "result-transport",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "d2633766-8b26-4e07-ac93-9f8ee5d884a8"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"result-transport\", \"kind\": \"tool\", \"args\": {\"key\": \"transport\", \"op\": \"result-transport\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "7fe9fc15-eab2-46a2-9e7e-4a2f7a456c8e"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "pre-execute",
+          "callId": "result-transport:call",
+          "session": "assistant",
+          "argsHash": "e394ac68f6880e0e83b6d05ac43d33ffc4911090b656c2a20dac3b4e54989a05"
+        },
+        {
+          "kind": "final-guard",
+          "callId": "result-transport:call",
+          "session": "assistant",
+          "finalHash": "9c7c2ed62429aa18d7cd6144c9ba1b24fd830ac9e06ae1fe79e658306cdcbc4f",
+          "policyHash": "367a0084b109896c43ab73c4939a5332bbf1dceebdda8b9bb98ffcfe78801ea0",
+          "schemaHash": "8633ace8312ddf82c26132c97dd6209f89c254c8bc0a2ad4d8325d46351cb48e",
+          "allowed": true,
+          "reason": null
+        },
+        {
+          "kind": "tool-result",
+          "callId": "result-transport:call",
+          "result": {
+            "isError": true,
+            "error": {
+              "message": "MCP error -32000: Connection closed"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Error: MCP error -32000: Connection closed"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "provider-input",
+          "op": "result-transport",
+          "messages": [
+            {
+              "role": "system",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC PERSONA"
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt"
+              },
+              "id": "d2633766-8b26-4e07-ac93-9f8ee5d884a8"
+            },
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"op\": \"result-transport\", \"kind\": \"tool\", \"args\": {\"key\": \"transport\", \"op\": \"result-transport\"}}"
+                }
+              ],
+              "source": {
+                "kind": "user"
+              },
+              "role": "user",
+              "id": "7fe9fc15-eab2-46a2-9e7e-4a2f7a456c8e"
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool-call",
+                  "id": "result-transport:call",
+                  "name": "mcp__fixture__read_fixture",
+                  "arguments": "{\"key\":\"transport\",\"op\":\"result-transport\"}"
+                }
+              ],
+              "source": {
+                "kind": "model",
+                "provider": "phase1a-fixture",
+                "model": "fixed"
+              },
+              "id": "37cafa45-1d61-4962-b34f-c0f4c20009ec"
+            },
+            {
+              "source": {
+                "kind": "tool",
+                "callId": "result-transport:call"
+              },
+              "content": [
+                {
+                  "type": "tool-result",
+                  "toolCallId": "result-transport:call",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Error: MCP error -32000: Connection closed"
+                    }
+                  ],
+                  "isError": true
+                }
+              ],
+              "role": "user",
+              "id": "588f83a1-fccb-41cc-aa59-f2c7722a0a56"
+            }
+          ],
+          "schemas": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ],
+          "tools": [
+            {
+              "name": "mcp__fixture__read_fixture",
+              "description": "Read one synthetic fixture key.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "op"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        {
+          "kind": "native-barrier",
+          "session": "assistant",
+          "through": 16,
+          "seam": "sessionPersistence.flush"
+        }
+      ],
+      "native_events": [
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 0,
+            "time": 1791339419525,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\"op\": \"result-transport\", \"kind\": \"tool\", \"args\": {\"key\": \"transport\", \"op\": \"result-transport\"}}"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user"
+                  },
+                  "role": "user",
+                  "id": "7fe9fc15-eab2-46a2-9e7e-4a2f7a456c8e"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "turn/start",
+            "seq": 1,
+            "time": 1791339419538,
+            "data": {
+              "turn": 1
+            }
+          }
+        },
+        {
+          "kind": "native-observed",
+          "session": "assistant",
+          "event": {
+            "type": "agent/inbox/spliced",
+            "seq": 2,
+            "time": 1791339419550,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          }
+        }
+      ],
+      "native_event_count": 17
+    }
+  ],
+  "mcp_records": [
+    {
+      "path": "mcp.jsonl",
+      "records": [
+        {
+          "kind": "startup",
+          "pid": 15140
+        },
+        {
+          "kind": "discovery",
+          "client_protocol": "2025-11-25",
+          "client_info": {
+            "name": "dsh-mcp-client",
+            "title": null,
+            "version": "0.0.1",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "kind": "received",
+          "name": "read_fixture",
+          "arguments": {
+            "key": "transport",
+            "op": "result-transport"
+          },
+          "pid": 15140
+        }
+      ]
+    }
+  ],
+  "runtime_close": [
+    {
+      "path": "runtime-close.json",
+      "pid": 45164,
+      "returncode": 0,
+      "elapsed_seconds": 0.03100000019185245
+    }
+  ],
+  "probe_hashes": {
+    "runtime_cases.py": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+    "runtime_adapter.py": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+    "fixtures/provider_policy.mjs": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+    "fixtures/mcp_server.py": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+    "run_runtime.py": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+    "winjob.py": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+    "common.py": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+    "event_probe.py": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02"
+  },
+  "raw_zip_sha256": "a616d814dd4845872240e48dbde6e77ab2a3745ec697c0d980bb4298a170dde2"
+}

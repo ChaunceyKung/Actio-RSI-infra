@@ -15,7 +15,7 @@
 | 错误/取消/超时 | cancel传worker并等待terminal或unknown；crash=dependency_failure；lease_lost停止新dispatch |
 | 事件 | run、model、tool与native status映射；原生seq/hash保留 |
 | 恢复 | journal合法前缀+cursor+pending ledger；无法证明完整则needs_reconcile或从episode起点重执行 |
-| 成功例 | prepare(v1)→ready→execute(obs17)→receipt(op8)→events(seq42..48)→idle→commit事实 |
+| 成功例 | prepare(v1)→ready→execute(obs17)→accepted(op8)→observed(seq42..48)→独立 native flush barrier→canonical commit→consumer ack；idle 单独记录 |
 | 失败例 | prompt已接收后连接断开→op8 unknown→查receipt/catchup；不能另发op9当重试 |
 
 ## Worker lifecycle contract
@@ -53,10 +53,10 @@
 | 输入/输出 | append(envelopes,source_cursor)→committed_offset/ack；read(scope,offset)→ordered facts；export projection→outbox cursor |
 | owner | canonical writer；producer只提交事实声明，scope由可信映射校验 |
 | 版本/能力 | envelope major/minor、mapping_version、source schema；声明max bytes/batch与catchup |
-| 幂等 | source stream+event id/seq+mapping_version唯一；同键hash冲突隔离 |
+| 幂等 | occurrence=producer+logical stream instance+native id/seq；稳定语义 slot；mapper version 只属于 projection revision。consumer+occurrence+slot 去重效果，切换版本不双写 memory/score/outbox；同 occurrence 不同 raw hash 才是源冲突 |
 | 错误/取消/超时 | missing_parent/seq、oversized、corrupt_payload；超时查commit receipt；已commit不取消，追加修正 |
 | 事件 | append failure为独立受限操作日志；恢复后补记录gap/correction，不递归无限产event |
-| 恢复 | 一事务fact+cursor+outbox；先落payload，orphan文件后续GC；缺失seq阻断完整trajectory声明 |
+| 恢复 | 一事务 occurrence/projection+连续前缀 cursor+本地效果 receipt；consumer pin 投影版本。进程重启保留原逻辑 stream；新创建 session/home 分配新实例；physical generation 需 lineage 映射，不自动生新事实。缺失 seq 阻断完整轨迹声明；详情见 05 与 Phase 1A P3 |
 | 成功例 | source seq7重发两次→仅一条fact→两次均ack相同offset |
 | 失败例 | 同seq7不同hash→conflict/quarantine→原事实保留，不后写覆盖 |
 
@@ -82,7 +82,7 @@
 | owner | independent evaluator executor；proposer无write权限、无sealed输入访问 |
 | 版本/能力 | evaluator/rubric/judge/data/split hash；metrics schemas、paired unit、visibility、deterministic/LLM标识 |
 | 幂等 | evaluation_id封存输入；重新执行有新attempt，不覆盖旧report |
-| 错误/取消/超时 | judge空/解析失败=infra_failure；missing trajectory=incomplete；取消保留partial，不当task0分 |
+| 错误/取消/超时 | judge空/错identity/缺维度/非数值/受控judge异常=invalid_measurement；worker/transport故障=infrastructure_failure；缺完整轨迹/屏障=insufficient_evidence；合法运行但约束失败=task_failure。不得都折成task0分 |
 | 事件 | evaluation.started/unit_completed/invalid/completed；raw response受限存储 |
 | 恢复 | 按unit receipt续跑，冻结条件不一致开新evaluation_id；不混不同judge版本 |
 | 成功例 | 30 paired clusters完整→report含N/CI/constraints与unit refs→交Admission |
@@ -153,4 +153,6 @@
 | Agent Client Protocol | 当前稳定wire v1 schema；package版本另记 | client-agent/editor权限与消息；canonical org迁移 | P2客户端门面；不是AGNTCY ACP |
 | OTel spec/proto + SDK1.45.0候选 | OTLP exporter组合待pin；span parent+links | exporter失败/drop可发生，SDK flush不作canonical ACK | 只投影；不导出秘密，不当多父DAG或归因引擎 |
 
-源版本/许可见 E006/E026–E029/E042；没有本轮互操作成功声明。
+源版本/许可见 E006/E026–E029/E042；以上是 2026-10-05 的规划候选。2026-10-07 实际 artifact/协议组合以 [Phase 1A](../validation/phase1a/README.md) 为准，不用源码 spec 版本代替发行包协议证据。只冻结 B02b 本次验证的最小子集，十个完整 API 仍是草案。
+
+只读工具首期采用 Python 冻结 policy artifact、TS 本地 guard 校验并记录决定。授权绑定 final hash/tool version/policy/run/scope/lease/expiry；rewrite 后再检查 schema 与预算。逐调用动态 Python 审批为 unsupported；没有许可、过期或版本不匹配直接拒绝。新增动态审批需单独定义 op correlation、超时/断线/取消协议并验证，不由通用 incoming-request API 推定支持。

@@ -4,7 +4,7 @@ A Direct Reuse；B Adapter；C Extract/Secondary Development；D Design Referenc
 
 | ID / Capability | 主选 / 粒度 / 状态 | Evidence | integration / 缺口 | 备选 / 退出条件 | 验收 |
 |---|---|---|---|---|---|
-| R01 Shared Runtime | DSH 官方 SDK A + TS worker B/P；生命周期 C01/P | E001–E005 | RuntimePort、spec→profile、独立 dsh_home；resume/cancel/fork/cursor 窄补丁；worker 固定配置 | Strands Python B/AFP；5 日探针或后续 2 人周补丁超界则 ADR 改 worker 语言 | B03/B05，同合同双 slice |
+| R01 Shared Runtime | DSH 官方 SDK A + TS worker/profile B；Phase1A 条件准入，非 production | E001–E005；[Phase1A](../validation/phase1a/README.md) | Windows 固定 wheel、独立短路径 home、静态 policy guard、有界 supervisor；完整 resume/cancel/fork/cursor 为 G1 | Strands Python 仅在 G0 确认不可行且窄配置/plugin/patch 无解时同合同比较；网络/预算缺失不是退出 | B03/B05 与共享 assistant/Concordia adapter |
 | R02 Tools/plugins | DSH/Cordis A、MCP client2 A、域 plugin B/P | E004/E006/E026 | permission/effect ledger、事件、deadline；HTTP OAuth 后置 | Strands tools/hooks B；只在 runtime 退出时整体切换 | B08，不重复外部写效果 |
 | R03 Facts/storage | SQLite A、canonical E/K3、OTel SDK A+B/P | E003/E029/E042 | cursor、去重、hash、事务、outbox；不自研 DB 引擎 | 容量实测不够才迁 Postgres | B04/B13 |
 | R04 Mind/memory | 自有 contract E/K1 + SQLite A/AFP；Graphiti B/P、P2 | E012–E014/E021 | M0–M6、主观性/双时间、CAS、consolidation；Graphiti 强制 namespace | Letta D；完整 Letta 作第二 owner F/AFP（此用途） | B06/B16 |
@@ -12,7 +12,7 @@ A Direct Reuse；B Adapter；C Extract/Secondary Development；D Design Referenc
 | R06 Eval/gate | Raven paired/scoring C02/P；独立 admission E/K4/AFP | E008/E010/E036 | 四态、缺失/infra、样本单位、阈值/多重比较；禁直用 promoted | 标准统计库+最小诊断（K4），保留 test vectors，不引完整外环 | B09/B10 |
 | R07 Archive/lineage | Raven descriptor/selector C03/P；canonical lineage E/K4/AFP | E009/E011/E037 | selector 与入库分离、保存失败；移除 best-effort JSON authority | 普通 SQL parent query，selector 可移除 | B11 |
 | R08 Replay/attribution | DSH fork A/B；manifest/experiment E/K3/K5/P | E002/E018–E020/E029/E033 | 全域 capture、I/O 匹配、冻结/重执行、干预 | episode 起点重执行；不支持的中途 branch 明确拒绝 | B12 |
-| R09 Social evaluator | SOTOPIA EpisodeLLMEvaluator B/P | E022 | identity 映射、[]→infra_failure、维度完整、judge 校准；合成任务 | 确定性约束+人工 rubric；LLM 分数 exploratory | B09 |
+| R09 Social evaluator | SOTOPIA EpisodeLLMEvaluator B/P | E022；Phase1A P5 controlled envelope | identity 映射、[]/错维度→invalid_measurement；worker故障另分 infrastructure_failure；真实 evaluator 未运行 | 确定性约束+人工 rubric；LLM 分数 exploratory | B09 pilot 后另 gate |
 | R10 Control root | 独立 Python E/K2/AFP；Raven root F/AFP | E007–E009 | 域调度/lease，不重写模型 loop；避免 host 争权 | 无另一 root 直接解决 mind/world owner；优先缩范围 | B02/B04 |
 | R11 Search/context | Meta、DGM、ACE、ADAS、AgentSquare、AFlow、ALSO、RSIHub、autoharness、OpenEvolve D/AFP | E010/E011/E023/E030–E037/E041 | 冻结评估、历史、seat 机制；提案仅 structured delta | P2 重评 RSIHub；不复制执行/权限闭包 | B10/B17 |
 | R12 Sandbox | 结构化 seat allowlist+预算 E/K4；上游 sandbox A/B/P | E005/E010/E011/E030 | MVP 不执行候选代码；L2 Linux 隔离另 gate | Native Windows 不满足隔离则 L2 blocked，继续 L1 | B10/B14 |

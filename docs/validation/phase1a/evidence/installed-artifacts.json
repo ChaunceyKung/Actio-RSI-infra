@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "distribution": {
+    "deepseek-harness-sdk": "0.1.5rc1",
+    "deepseek-harness-runtime-bin": "0.1.5rc1",
+    "mcp": "1.26.0",
+    "pydantic": "2.13.5"
+  },
+  "executable": {
+    "path_relative_to_probe": ".local/venv/Lib/site-packages/deepseek_harness_runtime/runtime/deepseek-harness-sdk-runtime-win-x64.exe",
+    "size": 240529920,
+    "sha256": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6"
+  },
+  "runtime_metadata": {
+    "name": "deepseek-harness-runtime-bin",
+    "version": "0.0.0-dev"
+  },
+  "binary_source_mapping": "UNPROVEN: no build attestation in installed artifact; do not infer from SDK file equality",
+  "sdk_source_comparison": {
+    "api.py": {
+      "installed_sha256": "9e24adee62987e38e0577c4ba051b15b015f61cd5d5412dc56882094f5e52c2b",
+      "text_equals_source": true
+    },
+    "client.py": {
+      "installed_sha256": "78193d6b88d49b87dc0057ec92cbc512426e7712f75c3e700f0fc7e0046d28fc",
+      "text_equals_source": true
+    },
+    "models.py": {
+      "installed_sha256": "c8cba1cdf77017506ab5a01e53c3c8e5b36bfe941cc3e51d40580cd9407a35be",
+      "text_equals_source": true
+    }
+  },
+  "license_files": [
+    {
+      "distribution": "deepseek-harness-sdk",
+      "path": "deepseek_harness_sdk-0.1.5rc1.dist-info/licenses/LICENSE",
+      "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "size": 1065
+    },
+    {
+      "distribution": "deepseek-harness-runtime-bin",
+      "path": "deepseek_harness_runtime_bin-0.1.5rc1.dist-info/licenses/LICENSE",
+      "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "size": 1065
+    },
+    {
+      "distribution": "deepseek-harness-runtime-bin",
+      "path": "deepseek_harness_runtime_bin-0.1.5rc1.dist-info/licenses/THIRD_PARTY_NOTICES.md",
+      "sha256": "33cef3c1707e1443c8919116b70b5b116519c7117d00b8d05475b31458ac9991",
+      "size": 18487
+    },
+    {
+      "distribution": "mcp",
+      "path": "mcp-1.26.0.dist-info/licenses/LICENSE",
+      "sha256": "5e13dbbc1d120fc2a03cecde7c91424ae2d7de11b63d58ded2f4431e261ee50d",
+      "size": 1071
+    }
+  ]
+}

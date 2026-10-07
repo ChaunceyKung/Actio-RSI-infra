@@ -1,5 +1,17 @@
 # 18 · 实际验证记录与未完成的技术验证
 
+## 2026-10-07 · Phase 1A 新增证据（不覆盖下方历史记录）
+
+入口：[Phase 1A](../validation/phase1a/README.md)；独立 registry：[evidence_manifest.json](../validation/phase1a/evidence_manifest.json)，使用 Phase1A-E 前缀，旧 E001–E042 不重编号。
+
+官方 Windows x64 SDK/runtime-bin 0.1.5rc1 wheel 经 metadata/download/executable 分层哈希校验。真实 DSH loop/journal+确定性provider+官方MCP SDK+真实Concordia Engine 已实际运行：最终36项真实路径断言、7项SQLite合同、13项受控评估通过；live预算0，G2 BLOCKED。双home/session/policy/工具隔离、final guard、unknown与有界进程退出、native flush/canonical commit分别验证。所有最终Job active=0，normal close returncode0，pip check通过。
+
+结论 CONDITIONAL_GO，限定报告配置；source SHA 到 TS binary对应未证，原生cancel有兼容性失败，最终plugin用deny替代前置取消；完整resume/fork/catchup、其他平台/协议与研究效果未测。初次深路径/外部包导入失败与fixture消息形态错误保留单独证据。没有修改DSH loop/storage，无upstream patch，无Strands触发，无Raven复制或演化实现。
+
+复现命令与环境锁：[probes/phase1a](../../probes/phase1a/README.md)。2026-10-05通过且未改的29项fake-client、37项Raven未无理由重复。下方“未运行”等状态均保留原核验日期，不代表Phase1A之后的最新状态。
+
+## 2026-10-05 · 原始核验记录
+
 核验日2026-10-05。Windows x64 / PowerShell；Python3.12.10（MSC1943 AMD64），pytest9.1.1，pydantic2.13.4，Git2.55.0.windows.3，Node24.19.0。系统已装pytest/pydantic；未安装上游完整依赖。未启动付费模型/GPU/Ray/Harbor/graph/viewer，不生成Actio运行代码。
 
 日志根：`D:\调研\RSI_AI训AI\agentic_evolution_infrastructure\workingspace\_external\_audit`。原始JSON日志与副本保留本地，**不提交原始环境dump/上游源码/临时脚本**；此文提供可复核命令和经筛选摘要。所有目标集成状态为未运行。

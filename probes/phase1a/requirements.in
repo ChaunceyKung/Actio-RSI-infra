@@ -1,0 +1,7 @@
+# Experimental Windows Python 3.12 closure; resolved hashes in requirements.lock.
+deepseek-harness-sdk==0.1.5rc1
+mcp==1.26.0
+absl-py==2.3.1
+termcolor==3.3.0
+numpy==2.4.2
+pandas==2.3.3

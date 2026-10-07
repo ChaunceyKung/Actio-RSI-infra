@@ -1,0 +1,9 @@
+{
+  "metadata_url": "https://pypi.org/pypi/deepseek-harness-runtime-bin/0.1.5rc1/json",
+  "filename": "deepseek_harness_runtime_bin-0.1.5rc1-py3-none-win_amd64.whl",
+  "size": 72045733,
+  "url": "https://files.pythonhosted.org/packages/a2/0e/4b52e5792a7accb09c70831ad3182efa253e15118c683a49dc66f3cbd83a/deepseek_harness_runtime_bin-0.1.5rc1-py3-none-win_amd64.whl",
+  "sha256": "d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf",
+  "elapsed_seconds": 28.344000000040978,
+  "status": "PASS"
+}

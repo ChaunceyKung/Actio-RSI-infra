@@ -4,15 +4,15 @@
 
 2026-10-05 的规划推荐：独立 Python Control Plane，经 RuntimePort 与官方 Python SDK 运行 DSH TS Worker；两条 vertical slice 共用身份、运行时、事件、记忆、评估和版本体系。以 Concordia 为第一真实 simulator adapter；SQLite + 不可变内容文件作为初期权威存储；受控拆取 Raven 配对诊断和语义档案选择逻辑。Langfuse 社区能力作为可替换 viewer，部署与许可闭包未验证前保持 provisional。
 
-交付范围是实施规划，**没有实现 Actio runtime、adapter、service 或演化引擎**。上游局部测试不代表目标集成：DSH SDK 客户端 29 项、Raven gate/scoring 37 项通过；Meta-Harness controller 因缺 Harbor 阻塞。真实 wheel、模型、MCP、Ray、图数据库和 viewer 全链未运行。
+2026-10-05 的交付范围是实施规划，**没有实现 Actio 产品 runtime、adapter、service 或演化引擎**。当时 DSH SDK 客户端 29 项、Raven gate/scoring 37 项通过；Meta-Harness controller 因缺 Harbor 阻塞；真实 wheel/MCP 未运行。2026-10-07 新增范围受限的 [Phase 1A 实际验证](../validation/phase1a/README.md)，原日期与 E001–E042 测试事实保留，新结果独立登记，不将旧 fake-client 结果充当 runtime 准入。
 
 ## 九项选择
 
 | 问题 | 当前选择与推翻条件 |
 |---|---|
 | Root | 独立 Python，拒绝 Raven root fork；host/DAG/routing 的状态模型不能直接成为社会实验控制面 |
-| DSH 粒度 | A 官方 SDK + B worker/profile adapter；C01 仅补 SDK 生命周期，不嵌入或重写 loop。5 个工程日探针无法界定补丁则转 Strands Python |
-| 单一 harness | 规划成立、集成未证实；social 与 assistant 只换环境/工具/上下文配置，均运行 DSH；不得藏第二个 agent loop |
+| DSH 粒度 | A 官方 SDK + B worker/profile/policy adapter；C01 按 G0/G1 拆分，不嵌入或重写 loop。只有 G0 经公开配置/窄plugin/最小补丁仍不可行才触发 Strands，5 日是预算估算 |
+| 单一 harness | Phase1A 在固定 Windows/offline 配置下实际验证：social external Entity 与 assistant 共用同一 DSH adapter；无第二 solver loop；live与产品化仍独立gate |
 | Memory | 自有领域 contract，SQLite + immutable files；Graphiti 可选关系投影。Letta 作为机制参考，不并列拥有同一 agent 的 memory/session |
 | Evolution | C02 Raven paired/scoring 诊断，C03 archive descriptor/selector；准入判定与可靠 lineage 必须改变。Meta/DGM 仅 D |
 | 环境 | Concordia B 主选；AgentSociety v2 设计验证要求 pending、batch barrier、逻辑时钟；OASIS ManualAction 补充兼容 |
@@ -30,4 +30,4 @@
 
 证据以 15 为准，覆盖以 16 为准，选型以 02 为准，contract 以 10 为准，任务验收以 12 为准。`accepted-for-planning` 仅表示采用此方向编排工作；`provisional` 表示有明确阻断探针；都不是生产认证。
 
-下一阶段先执行 B01 资产准入、B02 契约冻结和 B03 DSH 生命周期探针，再进入正式实现。未通过时按备选退出，不降低统计或隔离门槛制造“成功演化”。
+入口顺序修订为 B01a 主路径准入→B02a 草案→B03 与必要 B05/B07/B08 探针→B02b 证据冻结。下一最小 slice 及禁止依赖的能力以 [Phase 1A 结论](../validation/phase1a/06_go_no_go_and_next_slice.md) 为准，本轮不自动进入产品实施。

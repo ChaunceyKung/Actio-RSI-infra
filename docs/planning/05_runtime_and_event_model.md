@@ -16,7 +16,7 @@ DSH 公开 Python API 的同机桥接已实现，内部 session/fork/cancel 更�
 | rewrite / augment | 仅未提交请求；保存前/后 hash、规则版本、变换来源；不得改历史 fact |
 | retry | 新 attempt；先检查效果类别与剩余预算，不对未知写效果重试 |
 
-执行顺序：schema/namespace→permission/budget→domain policy→context augmentation→audit→dispatch。稳定 priority+plugin ID 排序，同字段多 writer 除非声明 composition 否则拒绝；deny 胜过 approve。hook 只能访问能力声明允许的字段。递归 hook 有 depth/trigger allowlist，初值建议 depth≤2；每 hook 有 timeout、取消和错误事件。权限/审计 hook fail-closed，纯 metrics hook 可降级。所有阈值是待 B02 冻结的默认值。
+执行顺序（2026-10-07 F02 修订）：可选预检→domain policy/context augmentation/rewrite→最终 schema/scope/permission/budget 校验→decision audit→dispatch。最终校验使用 DSH `tools/pre-execute` 之后的单调 `tools.guard`；deny 不能被另一个 allow 覆盖。许可绑定 final request hash、tool artifact/version、policy hash/version、run/scope、lease 与 expiry；后续改工具或参数使旧许可失效。hook 只能访问声明字段，同字段多 writer 必须声明 composition。递归 depth/timeout 等仍待产品合同冻结；权限/审计失败必须阻止 dispatch。Phase 1A 静态 policy artifact 在启动时冻结，Python 不参与逐次审批 RPC，只有 Worker 执行工具。证据与未覆盖范围见 [Phase 1A](../validation/phase1a/03_runtime_and_tool_results.md)。
 
 Cordis disposer 逆序释放可复用（E004），它不是外部事务；只在 run boundary 换 plugin/profile，L2 新 worker 启动候选，不承诺任意热改。
 
@@ -47,9 +47,15 @@ Cordis disposer 逆序释放可复用（E004），它不是外部事务；只在
 | environment GM/DB/log | observation、resolved fact | resolve 返回 None 时从裁决边界采集，不伪造函数返回 |
 | memory/evaluator/version transaction | 对应域 fact | 同事务写 state revision 与 outbox |
 
-原生 journal→mapper→SQLite 事务（event、source cursor、outbox）→ACK；至少一次传输，唯一键 `(source_stream_id, source_event_id或seq, mapping_version)` 去重。相同键不同 hash 隔离，不覆盖。乱序短暂缓冲并补拉；超过 gap timeout 标 incomplete，禁用依赖完整轨迹的 admission。native seq 与 canonical offset 分开，跨流不假设全局序。
+原生 journal→occurrence→mapper projection→SQLite transaction→consumer ack（2026-10-07 F01 修订）。发生唯一键为 `(producer_id, logical_stream_instance, native_event_id或seq)`，**不含 mapping_version**。同一原始键不同 raw hash 为 conflict，保留原文并隔离；合法 v1→v2 重投影不比较派生 hash 判断源损坏。
 
-先持久化内容文件并校验 hash，再提交引用；崩溃留下 orphan artifact 可后续 GC，不能留下指向未落盘文件的“成功”事实。SQLite commit ACK 是域持久化边界；native flush 的强度必须 B05 查验，通知到达不自动等于断电安全。
+logical stream 包含受管 store identity、native session identity 和原生创建 identity。进程重启不自动创建新发生；继续同一 journal 前缀使用原 stream，新建 session/独立 home 的创建实例才分配新 stream。physical journal generation 是存储/格式版本，不直接作为发生身份：能证明沿袭同一 occurrence 时保存 lineage/seq 对应，不能证明则标 unresolved，禁止将两代都作为新事实消费。
+
+一对多映射使用稳定的语义 `slot_id`，如同一工具结果的 fact/audit，不按数组位置或 mapper 版本编号。projection 主键含 occurrence+slot+mapper revision；消费效果键只含 consumer+occurrence+slot。consumer 原子 pin 或切换投影版本，禁止两版同时进入 memory/score/outbox。新增或拆分 slot 要单独迁移与语义审阅，不能借 mapper 升级创造业务发生。
+
+cursor 仅推进至已连续提交前缀。乱序事件可落库但不越过 gap 对外确认；重复投递不推进效果计数，冲突不覆盖。gap timeout 标 incomplete；native seq、canonical offset 与跨流顺序分开。最小实验见 [P3](../validation/phase1a/04_event_and_failure_results.md)，不是完整产品 store/outbox。
+
+明确分开 constructed、accepted/messageId、native observed、native persistence barrier、canonical transaction commit、consumer ack。先持久化内容文件再提交引用，orphan 可后续 GC；SDK idle 不充当屏障。DSH `sessionPersistence.flush()` 是可调用的本地原生屏障 seam，需独立记录 watermark 并比对 journal；SDK 没有对应业务 RPC。进程 kill 实验不代表断电或设备缓存保证。SQLite effect+receipt 同事务仅证明本地去重，不能推导远端 exactly-once。
 
 默认建议 envelope≤64KiB、payload inline≤16KiB、单 artifact≤16MiB（更大走附件配额）；每 worker 待处理事件/字节有上限，先暂停 dispatch 再 drain/catch-up。DSH Python queue 当前无界（E001），B03 必须量化并限制入口/补足队列边界。不能以丢弃 canonical 事件实现背压；viewer export 可延迟或丢失后重建。
 

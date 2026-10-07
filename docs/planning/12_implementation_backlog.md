@@ -4,11 +4,11 @@ Priority：P0阻断主链，P1主MVP可延后外观，P2扩展。Source E-ID指�
 
 | Task | Epic / Feature / 要做什么 | Dependency / Priority / owner | Reuse Source / Risk | Acceptance Criteria |
 |---|---|---|---|---|
-| B01 | Asset admission：SDK/runtime配对、许可证/NOTICE/SBOM、artifact hash、平台最小启动清单 | 无/P0/I | R01–R15；E001/E005/E024–E029/E042；EE/依赖再分发风险 | 每A/B/C有pin+许可范围+notices；不兼容项blocked；Windows/Linux artifact组合清晰；无模型/数据默认授权 |
-| B02 | Contract freeze：对象schema、owner、caps、error、mutation allowlist、协议版本 | B01/P0/I+R | E001/E017–E020/E036；接口过度抽象 | [10](10_interface_specification.md)十合同有fixtures及兼容决策；同一状态只有一个writer；Genome禁改规则/权限 |
-| B03 | DSH public lifecycle探针：官方wheel+SDK、双profile、cancel/resume/fork/catchup seam、queue上限 | B01/B02/P0/I | E001–E006；C01，alpha API/平台 | 5日出go/no-go；真实worker启停/model/tool无mock成功证明；receipt/seq可关联；未达则Strands探针，不新RPC |
+| B01 | B01a 主路径 artifact 准入；B01b 后续采用闭包 | 无/P0/I | E001/E005/E042；Phase1A artifact evidence | SDK/runtime 分开 pin、实际下载与 exe hash、实际平台、LICENSE/NOTICE；只审本轮闭包，全 A/B/C 与再分发后置；live 无默认授权 |
+| B02 | B02a 合同草案→探针→B02b 验证子集冻结 | B01a；B02b 依赖 B03 及必要 B05/B07/B08 probes/P0/I+R | E001/E017/E018；Phase1A F01–F05 | 冻结 occurrence/projection、静态授权、owner、caps、unknown 与错误分类；其余十合同仍草案 |
+| B03 | 官方 wheel+SDK 真实启停、双 home/session、受控工具及有界失败 | B01a/B02a/P0/I | E001–E006；Phase1A P1/P2/P3 | REAL_RUNTIME_FIXTURE_PROVIDER 与 live 分列；G0 有证据，G1 逐项 unsupported；5 日仅估算。G0 确认不可行且窄配置/plugin/patch 无法补足才触发 Strands |
 | B04 | Canonical store：SQLite事务、artifacts、cursor去重、namespace、outbox、lease | B02/P0/I | E003/E029/E042；双写/缺seq | 相同event重复仅一条，不同hash冲突；kill在artifact/commit间不悬挂引用；viewer断开事实继续；旧epoch禁写 |
-| B05 | Worker恢复与C01窄补丁：稳定receipt/status/catchup、quiescence、kill清理 | B03/B04/P0/I | E001–E005；SDK无界queue/原生锁 | 中途crash恢复或明确needs_reconcile；活旧worker不被TTL抢锁；重复prompt不重复工具；native/canonical gap可检测 |
+| B05 | G0 supervisor/receipt ledger/unknown reconcile；G1 生命周期扩展按需 | probe依赖B02a/B03；产品依赖B02b/B04/P0/I | E001–E005；Phase1A故障证据 | 启动/运行deadline与进程树清理有界；不自动重发未知效果；旧session重启拒绝不覆盖；native flush 与 canonical commit 分开。精细cancel/status/catchup/resume/fork不强行本轮实现 |
 | B06 | Mind/Memory：Persona来源、M0–M6、关系双时间、visibility、CAS/consolidation | B02/B04/P0/E | E012–E014/E021/E023；branch/test泄漏 | 主观belief不覆盖world；两个branch交叉读写拒绝；source chain完整；migration前后hash/rollback有证据 |
 | B07 | Social slice：Concordia external Entity、ActionSpec、GM outcome/clock、起点manifest | B05/B06/P0/E | E017/E018；sync/async bridge、checkpoint skip | 至少2 agent真实GM裁决；非法action不改world；观察私有数据不泄漏；不自称mid-run完整checkpoint；同RuntimePort |
 | B08 | Assistant slice：DSH MCP只读tool、效果账本、permission/deadline与协议兼容 | B05/B06/P0/I | E006/E026；旧/新MCP协商、unknown效果 | stdio discovery/legacy测试记录；tools schema/isError/取消分开；deny不调用；回执丢失不盲重试写；与B07共享contracts |

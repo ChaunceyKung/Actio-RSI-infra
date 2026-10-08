@@ -35,8 +35,9 @@ def action_spec(seat):
             'output_type':'choice','options':['propose:morning','propose:afternoon'] if seat=='A' else ['accept','decline'],'tag':None}
 
 
-def task_card(variant,bindings):
+def task_card(variant,bindings,mode='fixture'):
     require(variant in ('compatible','conflict'),'unknown scheduling card')
+    require(mode in ('fixture','transport_stub'),'unknown task execution mode')
     return sealed({'schema':SCHEMA,'version':1,'id':'cleanup-'+variant,'family':FAMILY,'variant':variant,
         'provenance':{'kind':'Actio_authored_synthetic_fixture','license':'CC0-1.0','upstream_dataset':None},
         'public':{'scenario':'Two adult neighbors arrange a one-hour shared park cleanup. A proposes a time; B responds.',
@@ -48,7 +49,7 @@ def task_card(variant,bindings):
         'relationships':{'A':'know_by_name; neutral; no prior joint activity.','B':'know_by_name; neutral; no prior joint activity.'},
         'action_specs':{s:action_spec(s) for s in ('A','B')},'order':['A','B'],'max_steps':2,'seed':0,
         'termination':'two legal actions or first illegal action; infrastructure interruption stays partial',
-        'result_rule':RULE,'visibility':VISIBILITY,'mode':'fixture',
+        'result_rule':RULE,'visibility':VISIBILITY,'mode':mode,
         'grouping':{'version':'family-group.v1','group':'development','arm':'baseline','independent_units':0}})
 
 
@@ -60,7 +61,7 @@ def validate_task(value):
         require(all(type(v['agent']) is str and re.fullmatch('[A-Za-z0-9_-]{1,64}',v['agent']) and
                     type(v['spec_hash']) is str and re.fullmatch('[0-9a-f]{64}',v['spec_hash']) for v in bindings.values()),'invalid task identity/spec binding')
         require(bindings['A']['agent']!=bindings['B']['agent'],'two distinct task identities required')
-        require(value==task_card(t['variant'],bindings),'unsupported or incomplete TaskSpec fields')
+        require(value==task_card(t['variant'],bindings,t['mode']),'unsupported or incomplete TaskSpec fields')
     except (KeyError,TypeError,AttributeError) as e:raise ContractError('missing or malformed TaskSpec fields') from e
     return t
 
@@ -76,13 +77,18 @@ def task_result(t,actions):
 
 def actor_observation(m,seat,public_actions):
     t=m['task']['body']
-    return canonical({'schema':'scheduling-observation.v1','task_hash':m['task']['sha256'],'seat':seat,
+    return canonical({**({'role':t['seats'][seat]['role']} if m.get('execution_mode')=='transport_stub' else {}),
+        'schema':'scheduling-observation.v2' if m.get('execution_mode')=='transport_stub' else 'scheduling-observation.v1','task_hash':m['task']['sha256'],'seat':seat,
         'public':t['public'],'own':t['seats'][seat]['private'],'initial_relationship':t['relationships'][seat],
         'public_actions':[{'seat':t['order'][i],'action':a} for i,a in enumerate(public_actions)]})
 
 
 def validate_manifest(m):
+    if m.get('input_contract')=='scheduling-transport.v1':
+        from .transport_contract import validate_manifest as transport_manifest
+        return transport_manifest(m)
     t=validate_task(m['task']);require(m['input_contract']==CONTRACT and m['scenario']=='social','task input contract mismatch')
+    require(t['mode']=='fixture','fixture input requires fixture card')
     entities={s:t['seats'][s]['agent'] for s in t['order']};agents={v['agent']:v['spec_hash'] for v in t['seats'].values()}
     require(m['entities']==entities and m['agents']==agents and set(m['memory'])==set(agents),'manifest task seat/spec/memory mismatch')
     require(m['engine']=='concordia.Sequential' and m['source']=='b71d202750e23444ce1bf28d9f114bcd88aa41db','task engine pin')

@@ -131,7 +131,8 @@ def social(store,key,a,b,short_root,*,as_of=UNSET,replay=None,illegal=UNSET,runt
 
 def run_engine(store,run,manifest,short_root,runtime_type):
     from .task_contract import CONTRACT,actor_observation,resolved_text,task_result
-    scheduling=manifest.get('input_contract')==CONTRACT
+    transport=manifest.get('input_contract')=='scheduling-transport.v1'
+    scheduling=manifest.get('input_contract')==CONTRACT or transport
     import concordia
     pin=json.loads((PACKAGE/'pins/concordia.json').read_text(encoding='utf-8'))
     base=Path(concordia.__file__).parent.parent
@@ -158,9 +159,10 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             who=manifest['entities'][self.label]
             self.port=runtime_type(store,run,who,short_root)
             self.port.start()
-            answer=manifest['scripted_actions'][self.label] if scheduling else ('INVALID' if manifest['illegal'] and self.label=='B' else 'cooperate')
-            self.result=self.port.submit({'answer':answer,
-                'observations':self.observations,'memory':manifest['memory'][who],'action_spec':action_spec.to_dict()})
+            task={'observations':self.observations,'memory':manifest['memory'][who],'action_spec':action_spec.to_dict()}
+            if not transport:
+                task['answer']=manifest['scripted_actions'][self.label] if scheduling else ('INVALID' if manifest['illegal'] and self.label=='B' else 'cooperate')
+            self.result=self.port.submit(task)
             try:
                 action_spec.validate(self.result['answer'])
             except ValueError:

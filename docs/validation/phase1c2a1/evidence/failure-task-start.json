@@ -1,0 +1,9 @@
+{
+  "kind": "failed_task_setup",
+  "evidence": "evidence/20261008T150349Z-3e535bd8.json",
+  "root": "D:/actio-p1c1-tests/e18f89229dc0",
+  "cause": "Windows platform.machine empty after WMI query failed; sanitized env lacked architecture fallback",
+  "model_requests": 0,
+  "local_provider_http_requests": 0,
+  "source_snapshot": ".local/phase1c2a1-before-architecture-fix-source.zip"
+}

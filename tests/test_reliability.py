@@ -42,6 +42,21 @@ class Reliability(unittest.TestCase):
         self.assertEqual(self.s.row('SELECT state FROM operation')['state'],'execution_complete')
         self.assertIsNone(self.s.row('SELECT * FROM scenario_terminal'))
 
+    def test_disk_scan_handles_atomic_rename_without_hiding_limits_or_errors(self):
+        from actio.supervisor import Supervisor
+        folder=self.root/'disk-scan';folder.mkdir()
+        existing=folder/'session.v3.jsonl';existing.write_bytes(b'1234')
+        supervisor=Supervisor(folder,'test-no-launch',limits={'disk':4})
+        # Reproduce an os.walk entry whose atomic-rename temp has already gone.
+        with patch('actio.supervisor.os.walk',return_value=[(str(folder),[],['session.v3.jsonl.123.tmp',existing.name])]):
+            supervisor.check_disk()
+            supervisor.limits['disk']=3
+            with self.assertRaisesRegex(ContractError,'disk_limit_exceeded'):supervisor.check_disk()
+        with patch('actio.supervisor.os.walk',return_value=[(str(folder),[],[existing.name])]):
+            with patch.object(Path,'stat',side_effect=PermissionError('denied')):
+                with self.assertRaises(PermissionError):supervisor.check_disk()
+        self.evidence['mode']='CONTROLLED_DISK_SCAN_ATOMIC_RENAME_NO_RUNTIME_LAUNCH'
+
     def test_primary_exception_retained_when_cleanup_also_raises(self):
         class TwoFailures(RuntimePort):
             def prepare(self):

@@ -2,6 +2,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import sys
 import uuid
 
 
@@ -94,6 +95,9 @@ def clean_env(root):
     (root / 'temp').mkdir(exist_ok=True)
     system = os.environ.get('SystemRoot', r'C:\Windows')
     return {'SystemRoot': system, 'WINDIR': system,
+            # CPython falls back here if the Windows WMI architecture query fails.
+            # Derive from this interpreter, never copy ambient provider environment.
+            **({'PROCESSOR_ARCHITECTURE':'AMD64'} if sys.platform=='win32' and '64 bit (AMD64)' in sys.version else {}),
             'COMSPEC': str(Path(system) / 'System32/cmd.exe'), 'PATH': str(Path(system) / 'System32'),
             'HOME': str(root), 'USERPROFILE': str(root), 'APPDATA': str(root/'appdata'),
             'LOCALAPPDATA': str(root/'localappdata'), 'TEMP': str(root/'temp'), 'TMP': str(root/'temp'),

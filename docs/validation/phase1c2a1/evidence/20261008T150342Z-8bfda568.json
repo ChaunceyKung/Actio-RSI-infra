@@ -1,0 +1,1667 @@
+{
+  "id": "20261008T150342Z-8bfda568",
+  "suite": "evaluation",
+  "command": ".local/phase1c2a1-eval-venv/Scripts/python.exe -X utf8 scripts/validate.py evaluation phase1c2a1",
+  "mode": "OFFLINE_EVALUATION",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_evaluation.Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls",
+      "status": "PASS",
+      "evidence": {
+        "zero_call_cases": {
+          "active": {
+            "admission": {
+              "reasons": [
+                "run active at snapshot"
+              ],
+              "status": "insufficient",
+              "verification": {
+                "bundle_integrity": "valid",
+                "content_sha256": "e471a1965041f0317f421584392e74c8f9faeaa4e714ddb8ab8dfdfc375fb850",
+                "errors": [],
+                "execution_mode": "fixture",
+                "facts_consistency": "partial",
+                "historical_claim": {
+                  "state": "execution_complete",
+                  "task": "success",
+                  "trajectory": "complete"
+                },
+                "missing": [
+                  "run active at snapshot"
+                ],
+                "recorded_prefix": "consistent",
+                "scenario_completeness": "partial",
+                "source_trust_limits": [
+                  "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+                  "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+                  "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+                  "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+                ],
+                "task_outcome": "success",
+                "verifier": {
+                  "contract": "fixture-input.v2",
+                  "implementation": "actio-verifier.3",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                  "task_contract": "scheduling-input.v1",
+                  "transport_contract": "scheduling-transport.v1"
+                }
+              }
+            },
+            "measurement": {
+              "audit": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "model_requests": 0,
+              "parser_calls": 0,
+              "results": null,
+              "status": "not_run",
+              "view_hash": null
+            }
+          },
+          "legacy": {
+            "admission": {
+              "reasons": [
+                "legacy_unverified"
+              ],
+              "status": "insufficient",
+              "verification": {
+                "bundle_integrity": "valid",
+                "content_sha256": "c1d32768530a5b1d7c6154be6357fb5f74e14321247d51fa82d384ae7fad7213",
+                "errors": [],
+                "execution_mode": "fixture",
+                "facts_consistency": "consistent",
+                "historical_claim": {
+                  "state": "execution_complete",
+                  "task": "success",
+                  "trajectory": "complete"
+                },
+                "missing": [],
+                "recorded_prefix": "consistent",
+                "scenario_completeness": "legacy_unverified",
+                "source_trust_limits": [
+                  "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+                  "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+                  "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+                  "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+                ],
+                "task_outcome": "unknown",
+                "verifier": {
+                  "contract": "fixture-input.v2",
+                  "implementation": "actio-verifier.3",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                  "task_contract": "scheduling-input.v1",
+                  "transport_contract": "scheduling-transport.v1"
+                }
+              }
+            },
+            "measurement": {
+              "audit": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "model_requests": 0,
+              "parser_calls": 0,
+              "results": null,
+              "status": "not_run",
+              "view_hash": null
+            }
+          },
+          "corrupt": {
+            "admission": {
+              "reasons": [
+                "file size/hash mismatch: evidence.json"
+              ],
+              "status": "rejected",
+              "verification": {
+                "bundle_integrity": "invalid",
+                "errors": [
+                  "file size/hash mismatch: evidence.json"
+                ],
+                "execution_mode": "unverified",
+                "facts_consistency": "unverified",
+                "scenario_completeness": "unknown",
+                "source_trust_limits": [
+                  "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+                  "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+                  "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+                  "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+                ],
+                "task_outcome": "unknown",
+                "verifier": {
+                  "contract": "fixture-input.v2",
+                  "implementation": "actio-verifier.3",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                  "task_contract": "scheduling-input.v1",
+                  "transport_contract": "scheduling-transport.v1"
+                }
+              }
+            },
+            "measurement": {
+              "audit": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "model_requests": 0,
+              "parser_calls": 0,
+              "results": null,
+              "status": "not_run",
+              "view_hash": null
+            }
+          },
+          "missing_context": {
+            "admission": {
+              "reasons": [
+                "missing goals/initial relationships"
+              ],
+              "status": "insufficient",
+              "verification": {
+                "bundle_integrity": "not_applicable",
+                "kind": "sealed-synthetic-input.v1",
+                "verifier": {
+                  "contract": "fixture-input.v2",
+                  "implementation": "actio-verifier.3",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                  "task_contract": "scheduling-input.v1",
+                  "transport_contract": "scheduling-transport.v1"
+                }
+              }
+            },
+            "measurement": {
+              "audit": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "model_requests": 0,
+              "parser_calls": 0,
+              "results": null,
+              "status": "not_run",
+              "view_hash": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes",
+      "status": "PASS",
+      "evidence": {
+        "not_run": {
+          "partial": {
+            "audit": null,
+            "error": null,
+            "evaluator_calls": 0,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "not_run",
+            "view_hash": null
+          },
+          "unknown": {
+            "audit": null,
+            "error": null,
+            "evaluator_calls": 0,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "not_run",
+            "view_hash": null
+          }
+        },
+        "rejections_have_zero_calls": true
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view",
+      "status": "PASS",
+      "evidence": {
+        "actual_worker_results": {
+          "assistant": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": null,
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": [
+              {
+                "alias": "agent_1",
+                "metric": "assistant.reference.v1",
+                "predicate": "single successful tool result contains reference",
+                "sources": [
+                  {
+                    "occurrence": [
+                      "7801bae9172949889826e244090038d9",
+                      14
+                    ],
+                    "operation": "8bb2e6990bb4402bbcdfbf12b488cf7a",
+                    "receipt": "8bb2e6990bb4402bbcdfbf12b488cf7a"
+                  },
+                  {
+                    "tool_seq": 11
+                  }
+                ],
+                "value": 1
+              }
+            ],
+            "status": "valid_measurement",
+            "view_hash": "2572d1b407b49bf3b7e4b64c5badc536ce3c6e93d85af86228e187afda36d496"
+          },
+          "social": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": null,
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": [
+              {
+                "metric": "social.constraints.v1",
+                "predicate": "check action membership and domain/world effects separately",
+                "sources": [
+                  {
+                    "occurrence": [
+                      "2135eb465b1b4ccfbb71e1644132cc08",
+                      9
+                    ],
+                    "operation": "54221cb4442f4ba083fa85da99ccade1",
+                    "receipt": "54221cb4442f4ba083fa85da99ccade1"
+                  },
+                  {
+                    "occurrence": [
+                      "5d3f111416124db08661990dc5fa5359",
+                      9
+                    ],
+                    "operation": "e03fd4ea39964299928b5a16ce35898c",
+                    "receipt": "e03fd4ea39964299928b5a16ce35898c"
+                  }
+                ],
+                "value": {
+                  "gm_resolved": 2,
+                  "illegal_rejected_before_world": 0,
+                  "legal_actions": 2,
+                  "observed_actions": 2
+                }
+              }
+            ],
+            "status": "valid_measurement",
+            "view_hash": "49e18c768d696251e210f5e341c7bdfecbf94a36989bfe5867b0e6d0072c0d95"
+          },
+          "rejected": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": null,
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": [
+              {
+                "metric": "social.constraints.v1",
+                "predicate": "check action membership and domain/world effects separately",
+                "sources": [
+                  {
+                    "occurrence": [
+                      "2f160443cafd4dee879db83f5cc1bc49",
+                      9
+                    ],
+                    "operation": "fa5860b0034d46599122b14fd62e45cf",
+                    "receipt": "fa5860b0034d46599122b14fd62e45cf"
+                  }
+                ],
+                "value": {
+                  "gm_resolved": 0,
+                  "illegal_rejected_before_world": 1,
+                  "legal_actions": 0,
+                  "observed_actions": 1
+                }
+              }
+            ],
+            "status": "valid_measurement",
+            "view_hash": "2804c92c6ba5e2aaf780553f6bb33b8ab421fbac59322b2e565f2cec102c3a52"
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication",
+      "status": "PASS",
+      "evidence": {
+        "duplicate_export_reused": true,
+        "spec_revision_new_record": true,
+        "changed_input_new_record": true,
+        "range_change": "unsupported range rejected, never reused"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved",
+      "status": "PASS",
+      "evidence": {
+        "failures": {
+          "internal": {
+            "body": {
+              "admission": {
+                "reasons": [],
+                "status": "admitted",
+                "verification": {
+                  "bundle_integrity": "not_applicable",
+                  "kind": "sealed-synthetic-input.v1",
+                  "verifier": {
+                    "contract": "fixture-input.v2",
+                    "implementation": "actio-verifier.3",
+                    "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                    "task_contract": "scheduling-input.v1",
+                    "transport_contract": "scheduling-transport.v1"
+                  }
+                }
+              },
+              "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+              "fixture": true,
+              "input": {
+                "body": {
+                  "aliases": {
+                    "agent_1": {
+                      "agent": "SYNTH_NORTH",
+                      "role": "participant",
+                      "seat": "north"
+                    },
+                    "agent_2": {
+                      "agent": "SYNTH_SOUTH",
+                      "role": "participant",
+                      "seat": "south"
+                    }
+                  },
+                  "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "fixture": true,
+                  "run": "synthetic-negotiation-1",
+                  "schema": "evaluation-input.v1",
+                  "selection": {
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ],
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation"
+                  },
+                  "source_identity": {
+                    "aliases": {
+                      "agent_1": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant",
+                        "seat": "north"
+                      },
+                      "agent_2": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant",
+                        "seat": "south"
+                      }
+                    },
+                    "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                    "kind": "synthetic"
+                  },
+                  "spec_hash": "9efd61c3e71542e3144eb3a17d6d1f0b87a6ec05127948adf13b6aef43ea7ba1",
+                  "unit": "synthetic-negotiation-1",
+                  "view": {
+                    "actions": [
+                      {
+                        "action": "I can help for one hour.",
+                        "alias": "agent_2",
+                        "source": [
+                          "synthetic",
+                          0
+                        ]
+                      },
+                      {
+                        "action": "Agreed, one hour on Saturday.",
+                        "alias": "agent_1",
+                        "source": [
+                          "synthetic",
+                          1
+                        ]
+                      }
+                    ],
+                    "aliases": {
+                      "agent_1": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant",
+                        "seat": "north"
+                      },
+                      "agent_2": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant",
+                        "seat": "south"
+                      }
+                    },
+                    "goals": {
+                      "agent_1": "Agree on a shared park cleanup time.",
+                      "agent_2": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "agent_1": "New neighbors; neutral before interaction.",
+                      "agent_2": "New neighbors; neutral before interaction."
+                    },
+                    "scenario": "synthetic-social.v1"
+                  },
+                  "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+                },
+                "sha256": "aec21c7b577c5d01ba3b6535196f9685a107b54128c617ac415931e9b38e60a9"
+              },
+              "limits": "hashes show consistency, not authorship or measurement validity; preset scores are not model judgments",
+              "measurement": {
+                "audit": null,
+                "error": {
+                  "reason": "fixed internal bug",
+                  "type": "RuntimeError"
+                },
+                "evaluator_calls": 1,
+                "model_requests": 0,
+                "parser_calls": 0,
+                "results": null,
+                "status": "measurement_error",
+                "view_hash": null
+              },
+              "mode": "controlled_response",
+              "raw_response": "{\"scores\":{\"agent_1\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":3},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":1}},\"agent_2\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":8},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":-2}}}}",
+              "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a",
+              "request": {
+                "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a",
+                "schema": "actio-eval.v2",
+                "source": {
+                  "aliases": {
+                    "agent_1": {
+                      "agent": "SYNTH_NORTH",
+                      "role": "participant",
+                      "seat": "north"
+                    },
+                    "agent_2": {
+                      "agent": "SYNTH_SOUTH",
+                      "role": "participant",
+                      "seat": "south"
+                    }
+                  },
+                  "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "kind": "synthetic"
+                },
+                "spec": "9efd61c3e71542e3144eb3a17d6d1f0b87a6ec05127948adf13b6aef43ea7ba1"
+              },
+              "request_hash": "afc3ab4cba6a2cf87ff15dae4e1927f53ff92d9665c63a29411be4d8be6ff628",
+              "schema": "evaluation-record.v1",
+              "source": {
+                "input": {
+                  "body": {
+                    "actions": [
+                      {
+                        "action": "I can help for one hour.",
+                        "seat": "south"
+                      },
+                      {
+                        "action": "Agreed, one hour on Saturday.",
+                        "seat": "north"
+                      }
+                    ],
+                    "agents": {
+                      "north": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant"
+                      },
+                      "south": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant"
+                      }
+                    },
+                    "fixture": true,
+                    "goals": {
+                      "north": "Agree on a shared park cleanup time.",
+                      "south": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "north": "New neighbors; neutral before interaction.",
+                      "south": "New neighbors; neutral before interaction."
+                    },
+                    "schema": "synthetic-social.v1",
+                    "task_outcome": "success",
+                    "unit": "synthetic-negotiation-1"
+                  },
+                  "sha256": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931"
+                },
+                "kind": "synthetic"
+              },
+              "spec": {
+                "body": {
+                  "accepted": {
+                    "bundle": [
+                      "actio-evidence",
+                      1
+                    ],
+                    "prerequisites": [
+                      "valid_inventory",
+                      "consistent_facts",
+                      "complete_scenario",
+                      "required_context"
+                    ],
+                    "scenario": [
+                      "assistant",
+                      "social",
+                      "synthetic-social.v1",
+                      "scheduling-input.v1"
+                    ],
+                    "verifier": {
+                      "contract": "fixture-input.v2",
+                      "implementation": "actio-verifier.3",
+                      "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                      "task_contract": "scheduling-input.v1",
+                      "transport_contract": "scheduling-transport.v1"
+                    }
+                  },
+                  "alias_rule": "sorted unique seat -> agent_N; explicit agent/role binding",
+                  "campaign": {
+                    "dataset_hash": "db4aa150bacdf33547652dcfd8d83c0dc900c0ef731182973c3cce7ac52fceaa",
+                    "dedup": "content+source snapshot; export metadata excluded",
+                    "independent_unit": "none; related episode start clusters only",
+                    "split": "synthetic-engineering-fixture"
+                  },
+                  "envelope": "scores[alias][dimension] = {reasoning, score}; exact keys; raw strict before parser",
+                  "errors": "null scores; no retries; retain task/admission; distinct invalid/error/timeout",
+                  "limits": {
+                    "input_bytes": 262144,
+                    "live_budget": 0,
+                    "rationale_bytes": 1024,
+                    "response_bytes": 16384,
+                    "timeout_seconds": 10
+                  },
+                  "metrics": {
+                    "goal": {
+                      "context": [
+                        "goals",
+                        "actions"
+                      ],
+                      "direction": "higher",
+                      "range": [
+                        0,
+                        10
+                      ],
+                      "rubric_hash": "5c3d721650d30a8ed8f7db7a4747b456c51f73a725a16a28f085fc0c6982c162",
+                      "rule": "controlled structure only: progress toward frozen synthetic goal",
+                      "type": "integer",
+                      "version": 1
+                    },
+                    "relationship": {
+                      "context": [
+                        "relationships",
+                        "actions"
+                      ],
+                      "direction": "higher",
+                      "range": [
+                        -5,
+                        5
+                      ],
+                      "rubric_hash": "de766c05997d3148dad1db3bd87f2f913b72441bffae021c815ee168d64f3ee3",
+                      "rule": "controlled structure only: change relative to frozen synthetic relationship baseline",
+                      "type": "integer",
+                      "version": 1
+                    }
+                  },
+                  "mode": "controlled_response",
+                  "pins": {
+                    "adapter": "actio-eval.v2",
+                    "dependencies": {
+                      "annotated-types": "0.8.0",
+                      "json-repair": "0.48.0",
+                      "pydantic": "2.13.5",
+                      "pydantic_core": "2.46.5",
+                      "typing-inspection": "0.4.4",
+                      "typing_extensions": "4.16.0"
+                    },
+                    "sotopia": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+                    "source": {
+                      "_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+                      "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+                      "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+                      "calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+                      "campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+                      "common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+                      "eval_contract.py": "79d86ec38521f1816ed47ae1f112b96c18bd2f37174eb756e5b220f00d7754e1",
+                      "eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+                      "evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+                      "preflight.py": "e8bf34df870aba54917fcc2c4989339a292aea1ac8c34fda339c31b939aee6f6",
+                      "task_contract.py": "e512fc7afc1c98bc1731a7ec3f23b771790616ede01429807813db2dba610c8b",
+                      "terminal.py": "fd936941319dba48316890e8ae62543c273dfb9555d89dc523acbbd645694ee8",
+                      "verify.py": "cbae0b4004ad98d7cbdbc0c368dcd1bd3707ef96dea6af9b477882447b8b98d6"
+                    }
+                  },
+                  "revision": 1,
+                  "schema": "actio-eval.v2",
+                  "task_rubrics": {
+                    "scheduling-input.v1": {
+                      "body": {
+                        "calibration": "NOT_CALIBRATED",
+                        "goal": {
+                          "anchors": {
+                            "0": "No progress toward own frozen scheduling goal.",
+                            "10": "Compatible agreement fulfills own frozen goal and constraints.",
+                            "5": "Engaged with the actual proposal but no compatible agreement."
+                          },
+                          "context": [
+                            "own goal",
+                            "both availability sets",
+                            "actual ordered actions"
+                          ],
+                          "range": [
+                            0,
+                            10
+                          ]
+                        },
+                        "relationship": {
+                          "anchors": {
+                            "-5": "Clear severe damage relative to initial relationship.",
+                            "0": "No supported change; minimal protocol behavior alone does not prove improvement.",
+                            "5": "Clear substantial improvement supported by interaction."
+                          },
+                          "cannot_judge": "Two symbolic actions may provide insufficient relational evidence.",
+                          "context": [
+                            "initial relationship",
+                            "public background",
+                            "actual ordered actions"
+                          ],
+                          "range": [
+                            -5,
+                            5
+                          ]
+                        },
+                        "schema": "scheduling-rubric.v1"
+                      },
+                      "sha256": "10f7459cf8c32ac8595912faf3850718c287858bf496a0acde040d0d2bf5801c"
+                    }
+                  },
+                  "view": {
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ],
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation"
+                  }
+                },
+                "sha256": "9efd61c3e71542e3144eb3a17d6d1f0b87a6ec05127948adf13b6aef43ea7ba1"
+              },
+              "task_outcome": "success"
+            },
+            "sha256": "70d1017220c34e171cf48a54f393822dfd68e0a53e51714f6b57c9c4eb9ad513"
+          },
+          "timeout": {
+            "body": {
+              "admission": {
+                "reasons": [],
+                "status": "admitted",
+                "verification": {
+                  "bundle_integrity": "not_applicable",
+                  "kind": "sealed-synthetic-input.v1",
+                  "verifier": {
+                    "contract": "fixture-input.v2",
+                    "implementation": "actio-verifier.3",
+                    "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                    "task_contract": "scheduling-input.v1",
+                    "transport_contract": "scheduling-transport.v1"
+                  }
+                }
+              },
+              "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+              "fixture": true,
+              "input": {
+                "body": {
+                  "aliases": {
+                    "agent_1": {
+                      "agent": "SYNTH_NORTH",
+                      "role": "participant",
+                      "seat": "north"
+                    },
+                    "agent_2": {
+                      "agent": "SYNTH_SOUTH",
+                      "role": "participant",
+                      "seat": "south"
+                    }
+                  },
+                  "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "fixture": true,
+                  "run": "synthetic-negotiation-1",
+                  "schema": "evaluation-input.v1",
+                  "selection": {
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ],
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation"
+                  },
+                  "source_identity": {
+                    "aliases": {
+                      "agent_1": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant",
+                        "seat": "north"
+                      },
+                      "agent_2": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant",
+                        "seat": "south"
+                      }
+                    },
+                    "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                    "kind": "synthetic"
+                  },
+                  "spec_hash": "9efd61c3e71542e3144eb3a17d6d1f0b87a6ec05127948adf13b6aef43ea7ba1",
+                  "unit": "synthetic-negotiation-1",
+                  "view": {
+                    "actions": [
+                      {
+                        "action": "I can help for one hour.",
+                        "alias": "agent_2",
+                        "source": [
+                          "synthetic",
+                          0
+                        ]
+                      },
+                      {
+                        "action": "Agreed, one hour on Saturday.",
+                        "alias": "agent_1",
+                        "source": [
+                          "synthetic",
+                          1
+                        ]
+                      }
+                    ],
+                    "aliases": {
+                      "agent_1": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant",
+                        "seat": "north"
+                      },
+                      "agent_2": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant",
+                        "seat": "south"
+                      }
+                    },
+                    "goals": {
+                      "agent_1": "Agree on a shared park cleanup time.",
+                      "agent_2": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "agent_1": "New neighbors; neutral before interaction.",
+                      "agent_2": "New neighbors; neutral before interaction."
+                    },
+                    "scenario": "synthetic-social.v1"
+                  },
+                  "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+                },
+                "sha256": "aec21c7b577c5d01ba3b6535196f9685a107b54128c617ac415931e9b38e60a9"
+              },
+              "limits": "hashes show consistency, not authorship or measurement validity; preset scores are not model judgments",
+              "measurement": {
+                "audit": null,
+                "error": {
+                  "reason": "fixed deadline",
+                  "type": "TimeoutError"
+                },
+                "evaluator_calls": 1,
+                "model_requests": 0,
+                "parser_calls": 0,
+                "results": null,
+                "status": "timeout",
+                "view_hash": null
+              },
+              "mode": "controlled_response",
+              "raw_response": "{\"scores\":{\"agent_1\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":3},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":1}},\"agent_2\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":8},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":-2}}}}",
+              "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a",
+              "request": {
+                "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a",
+                "schema": "actio-eval.v2",
+                "source": {
+                  "aliases": {
+                    "agent_1": {
+                      "agent": "SYNTH_NORTH",
+                      "role": "participant",
+                      "seat": "north"
+                    },
+                    "agent_2": {
+                      "agent": "SYNTH_SOUTH",
+                      "role": "participant",
+                      "seat": "south"
+                    }
+                  },
+                  "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "kind": "synthetic"
+                },
+                "spec": "9efd61c3e71542e3144eb3a17d6d1f0b87a6ec05127948adf13b6aef43ea7ba1"
+              },
+              "request_hash": "afc3ab4cba6a2cf87ff15dae4e1927f53ff92d9665c63a29411be4d8be6ff628",
+              "schema": "evaluation-record.v1",
+              "source": {
+                "input": {
+                  "body": {
+                    "actions": [
+                      {
+                        "action": "I can help for one hour.",
+                        "seat": "south"
+                      },
+                      {
+                        "action": "Agreed, one hour on Saturday.",
+                        "seat": "north"
+                      }
+                    ],
+                    "agents": {
+                      "north": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant"
+                      },
+                      "south": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant"
+                      }
+                    },
+                    "fixture": true,
+                    "goals": {
+                      "north": "Agree on a shared park cleanup time.",
+                      "south": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "north": "New neighbors; neutral before interaction.",
+                      "south": "New neighbors; neutral before interaction."
+                    },
+                    "schema": "synthetic-social.v1",
+                    "task_outcome": "success",
+                    "unit": "synthetic-negotiation-1"
+                  },
+                  "sha256": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931"
+                },
+                "kind": "synthetic"
+              },
+              "spec": {
+                "body": {
+                  "accepted": {
+                    "bundle": [
+                      "actio-evidence",
+                      1
+                    ],
+                    "prerequisites": [
+                      "valid_inventory",
+                      "consistent_facts",
+                      "complete_scenario",
+                      "required_context"
+                    ],
+                    "scenario": [
+                      "assistant",
+                      "social",
+                      "synthetic-social.v1",
+                      "scheduling-input.v1"
+                    ],
+                    "verifier": {
+                      "contract": "fixture-input.v2",
+                      "implementation": "actio-verifier.3",
+                      "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+                      "task_contract": "scheduling-input.v1",
+                      "transport_contract": "scheduling-transport.v1"
+                    }
+                  },
+                  "alias_rule": "sorted unique seat -> agent_N; explicit agent/role binding",
+                  "campaign": {
+                    "dataset_hash": "db4aa150bacdf33547652dcfd8d83c0dc900c0ef731182973c3cce7ac52fceaa",
+                    "dedup": "content+source snapshot; export metadata excluded",
+                    "independent_unit": "none; related episode start clusters only",
+                    "split": "synthetic-engineering-fixture"
+                  },
+                  "envelope": "scores[alias][dimension] = {reasoning, score}; exact keys; raw strict before parser",
+                  "errors": "null scores; no retries; retain task/admission; distinct invalid/error/timeout",
+                  "limits": {
+                    "input_bytes": 262144,
+                    "live_budget": 0,
+                    "rationale_bytes": 1024,
+                    "response_bytes": 16384,
+                    "timeout_seconds": 10
+                  },
+                  "metrics": {
+                    "goal": {
+                      "context": [
+                        "goals",
+                        "actions"
+                      ],
+                      "direction": "higher",
+                      "range": [
+                        0,
+                        10
+                      ],
+                      "rubric_hash": "5c3d721650d30a8ed8f7db7a4747b456c51f73a725a16a28f085fc0c6982c162",
+                      "rule": "controlled structure only: progress toward frozen synthetic goal",
+                      "type": "integer",
+                      "version": 1
+                    },
+                    "relationship": {
+                      "context": [
+                        "relationships",
+                        "actions"
+                      ],
+                      "direction": "higher",
+                      "range": [
+                        -5,
+                        5
+                      ],
+                      "rubric_hash": "de766c05997d3148dad1db3bd87f2f913b72441bffae021c815ee168d64f3ee3",
+                      "rule": "controlled structure only: change relative to frozen synthetic relationship baseline",
+                      "type": "integer",
+                      "version": 1
+                    }
+                  },
+                  "mode": "controlled_response",
+                  "pins": {
+                    "adapter": "actio-eval.v2",
+                    "dependencies": {
+                      "annotated-types": "0.8.0",
+                      "json-repair": "0.48.0",
+                      "pydantic": "2.13.5",
+                      "pydantic_core": "2.46.5",
+                      "typing-inspection": "0.4.4",
+                      "typing_extensions": "4.16.0"
+                    },
+                    "sotopia": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+                    "source": {
+                      "_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+                      "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+                      "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+                      "calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+                      "campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+                      "common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+                      "eval_contract.py": "79d86ec38521f1816ed47ae1f112b96c18bd2f37174eb756e5b220f00d7754e1",
+                      "eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+                      "evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+                      "preflight.py": "e8bf34df870aba54917fcc2c4989339a292aea1ac8c34fda339c31b939aee6f6",
+                      "task_contract.py": "e512fc7afc1c98bc1731a7ec3f23b771790616ede01429807813db2dba610c8b",
+                      "terminal.py": "fd936941319dba48316890e8ae62543c273dfb9555d89dc523acbbd645694ee8",
+                      "verify.py": "cbae0b4004ad98d7cbdbc0c368dcd1bd3707ef96dea6af9b477882447b8b98d6"
+                    }
+                  },
+                  "revision": 1,
+                  "schema": "actio-eval.v2",
+                  "task_rubrics": {
+                    "scheduling-input.v1": {
+                      "body": {
+                        "calibration": "NOT_CALIBRATED",
+                        "goal": {
+                          "anchors": {
+                            "0": "No progress toward own frozen scheduling goal.",
+                            "10": "Compatible agreement fulfills own frozen goal and constraints.",
+                            "5": "Engaged with the actual proposal but no compatible agreement."
+                          },
+                          "context": [
+                            "own goal",
+                            "both availability sets",
+                            "actual ordered actions"
+                          ],
+                          "range": [
+                            0,
+                            10
+                          ]
+                        },
+                        "relationship": {
+                          "anchors": {
+                            "-5": "Clear severe damage relative to initial relationship.",
+                            "0": "No supported change; minimal protocol behavior alone does not prove improvement.",
+                            "5": "Clear substantial improvement supported by interaction."
+                          },
+                          "cannot_judge": "Two symbolic actions may provide insufficient relational evidence.",
+                          "context": [
+                            "initial relationship",
+                            "public background",
+                            "actual ordered actions"
+                          ],
+                          "range": [
+                            -5,
+                            5
+                          ]
+                        },
+                        "schema": "scheduling-rubric.v1"
+                      },
+                      "sha256": "10f7459cf8c32ac8595912faf3850718c287858bf496a0acde040d0d2bf5801c"
+                    }
+                  },
+                  "view": {
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ],
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation"
+                  }
+                },
+                "sha256": "9efd61c3e71542e3144eb3a17d6d1f0b87a6ec05127948adf13b6aef43ea7ba1"
+              },
+              "task_outcome": "success"
+            },
+            "sha256": "22277b4d3bb02b385a3c50f1f89b07c5e21e21a3273aa6a092769eb64e999c3b"
+          }
+        },
+        "real_child_deadline": "killed and waited after 1 second; no retry"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion",
+      "status": "PASS",
+      "evidence": {
+        "invalid_response_records": {
+          "scores_null": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "scores_list": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "scores_number": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "scores_bool": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "empty": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "empty/oversized response",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "empty_object": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "response envelope requires scores only",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "empty_list": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "response envelope requires scores only",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "null": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "response envelope requires scores only",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "duplicate_key": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "invalid response JSON: duplicate JSON key: scores",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "nonfinite": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "invalid response JSON: nonfinite JSON",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "missing_alias": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "unknown_alias": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "extra_alias": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "scores must contain exact frozen aliases",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "missing_dimension": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "missing/extra dimensions: agent_1",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "extra_dimension": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "missing/extra dimensions: agent_1",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "bool_score": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "strict integer score out of range/type: goal",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "string_score": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "strict integer score out of range/type: goal",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "float_score": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "strict integer score out of range/type: goal",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "goal_range": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "strict integer score out of range/type: goal",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "relationship_range": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "strict integer score out of range/type: relationship",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "pair_container": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "reasoning/score pair required",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "rationale_type": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "rationale limit/type",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "rationale_limit": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "rationale limit/type",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "response_limit": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "empty/oversized response",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          },
+          "duplicate_alias": {
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            },
+            "error": {
+              "reason": "invalid response JSON: duplicate JSON key: agent_1",
+              "type": "ContractError"
+            },
+            "evaluator_calls": 1,
+            "model_requests": 0,
+            "parser_calls": 0,
+            "results": null,
+            "status": "invalid_measurement",
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+          }
+        },
+        "mode": "CONTROLLED_RESPONSE"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency",
+      "status": "PASS",
+      "evidence": {
+        "portable": {
+          "valid": true,
+          "record_hash": "a4c57ac1b7fd75f56a85306f6754ff1c8ff554580507d9c770ac2c86d2da5a5a",
+          "model_requests": 0,
+          "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+        },
+        "optional_missing": {
+          "status": "measurement_error",
+          "results": null,
+          "error": {
+            "type": "PackageNotFoundError",
+            "reason": "No package metadata was found for pydantic"
+          },
+          "parser_calls": 0,
+          "model_requests": 0,
+          "audit": {
+            "network_attempts": 0,
+            "process_attempts": 0,
+            "runtime_import_attempts": 0,
+            "write_attempts": 0
+          },
+          "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+        },
+        "guard": "-I -S; original directories inaccessible; socket/process/runtime imports denied"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_worker_audit_hook_enforces_denials_in_real_child",
+      "status": "PASS",
+      "evidence": {
+        "denied_before_effect": {
+          "network_attempts": 1,
+          "process_attempts": 1,
+          "runtime_import_attempts": 1,
+          "write_attempts": 0
+        },
+        "actual_evaluation_workers": "zero attempts, recorded separately"
+      }
+    }
+  ],
+  "tests_run": 8,
+  "exit_code": 0,
+  "source_hashes": {
+    "src/actio/budget.py": "6ebe7eca827aa0384744eb34408da1be992a79a44b7d59cfb78e0c58b1eb55c9",
+    "src/actio/calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+    "src/actio/campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+    "src/actio/cli.py": "39211521b6e681ad72fcd88c39e43b36dbfb0b31ec3131735ab30626a95f2bba",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+    "src/actio/eval_contract.py": "79d86ec38521f1816ed47ae1f112b96c18bd2f37174eb756e5b220f00d7754e1",
+    "src/actio/eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+    "src/actio/evidence.py": "8a7c753bf7250e0ef56dbdaddaaebe10acab56f8d23d9d18a74aa93fb29cc094",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/preflight.py": "e8bf34df870aba54917fcc2c4989339a292aea1ac8c34fda339c31b939aee6f6",
+    "src/actio/runtime.py": "4bc93f8c596dbbe157a27b539305a893cac27ba8fa56a5664051e28e1666f73b",
+    "src/actio/scenarios.py": "3eabb99a06422abe55c48d822485f51d82f8c56c1e21d51d895af23b22f3d747",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/task_contract.py": "e512fc7afc1c98bc1731a7ec3f23b771790616ede01429807813db2dba610c8b",
+    "src/actio/terminal.py": "fd936941319dba48316890e8ae62543c273dfb9555d89dc523acbbd645694ee8",
+    "src/actio/transport.py": "b239b18f98e319899189b29214f4a1028735eb87e9084077bef7089e5a873840",
+    "src/actio/transport_campaign.py": "b775cbe20c0111fbe3b945736a37b8ab5de361a4d41e001c075ab72b3484545c",
+    "src/actio/transport_contract.py": "1fe3a8575f344e6e530d21d28e3bba0bf04072461243cef32f46eb3852e9e748",
+    "src/actio/verify.py": "cbae0b4004ad98d7cbdbc0c368dcd1bd3707ef96dea6af9b477882447b8b98d6",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "src/actio/plugins/transport.mjs": "66d2e5b3da0c69c9aaecd4650b0aafdbd88cac5e8b42f8bf2e254ac9b82770cb",
+    "src/actio/_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+    "src/actio/_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "src/actio/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/chat_stub.py": "63a085e768cccbe86b8ad0a769c14e4bd1c3b8e2479cb04b37d23eae451010e7",
+    "tests/child_case.py": "819125d17afba6c268cfd6bafc972d52182fa95be3d9e49f2470f156bc7afedf",
+    "tests/entry_race.py": "e79bbc710ea017921c08608c2cf5ffffe93f93daa21a45b8bb85971b5c697bd4",
+    "tests/support.py": "c95ca8220c3b3e28eecf87d0a2e9c1741f2af699796f2f47da586dbfe807ec73",
+    "tests/test_budget.py": "977fdef7a3d415f0d8306e0e216f2e1d1c3e841d457e63a948e092822c719c68",
+    "tests/test_contract.py": "b582d843789bcbfc4475915aa97656f146173649923b7f0fd0d333f344b6063f",
+    "tests/test_entry_concurrency.py": "e7e55ccbec635a8a2125bdbe68d1577dd99db36a8a10f454b334fdb26bcf6a20",
+    "tests/test_evaluation.py": "dd94ee262cf3a255cc66d9c9604cf09fbe8249f3e1168493fdb1a9417482987b",
+    "tests/test_evidence.py": "df0e58f7d0f8f5d1e9841db2a0f49eca9e5aa86b605d0bda08e3fc28928183b8",
+    "tests/test_failures.py": "b294dfc73c44ef80f20ac8c8de1987226b7d4f892bb9107b52c4084611456a7b",
+    "tests/test_input_binding.py": "2c57b97e3c05b89ed6a842f6aa3596d6dc59e08d1cebcb1bd0d94cdd1a53c18c",
+    "tests/test_preflight.py": "3c021dc43300ebb2d55f67657344d015b4b2d502ce845a83d8fdd400d73fdbba",
+    "tests/test_processes.py": "d52994263787aea7716330236fa6c21b5687fc9ace64fe5601d02630ddc4d464",
+    "tests/test_reliability.py": "c76d6ff1fd686127ea70f7b0599d9f554765336f2ebef00e253acddf4c20213b",
+    "tests/test_runtime.py": "a85fe0690a2dfeab8ff53df6931aab97b8cb83f5e44fa6b1385cf191142b249b",
+    "tests/test_schema.py": "e65beac0b20482b647f034191c3c3a7483d97a17c67710282b942ebd0387f11f",
+    "tests/test_sotopia.py": "f36fe666913cacc72647b6e2e6df2ed2aebe5ee8546528d6c262930f336ec09b",
+    "tests/test_task.py": "2bea5dcb81d028682a6a4146018a9f9a0a318da9e89969c5ce40913116dd3222",
+    "tests/test_transport.py": "79fb15f05be9d8e3d017cf4b89d087a24c9fb1ed7d00657d85dec509b1b76c8f",
+    "tests/test_transport_config.py": "0e94eff29837a4487c010f873dc0885d8e058cf1b3b1e56be1e8e9d45c0ffffd",
+    "tests/fixtures/close_host.py": "9ede306b541854cc9cbd572fe7b68c8928374afcefe380bd05995d39380f8eca",
+    "tests/fixtures/faults.mjs": "afed8863c6eb7109527acd5f48100c61eec8d456eaff79c89f6bc975ae002574",
+    "tests/fixtures/mcp_hold.py": "353fb537f738173d658dc5ded9b8523b28f2cb5beb16f89734e9fe538abe41b2",
+    "tests/fixtures/provider.mjs": "db19aac2051a5723c35b371f4b050fab0e237a7c4021ab4684e1029b56d0c227",
+    "tests/fixtures/sotopia_episode.py": "0ca33d21428b1c6f5b1b5f6490dbf4242b76fa136c00e3d85685ca8b36916863",
+    "scripts/artifacts.py": "95bd35b85f8f8386ec1af96e7956a4af382b00278354d10a6aa93f519e43da23",
+    "scripts/bootstrap.py": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "scripts/bootstrap_eval.py": "304c11ed9337eb2111204080bf77090f8101a46c8e819022034f4ea6a58304c7",
+    "scripts/build_manifest.py": "594374f9440846c531a8eecb13111a9fa2946d9bdf8c51cd162fe32a930e43a9",
+    "scripts/check_delivery.py": "259d7ca4882d6e717b9a4298b47c655f452e86fc001140517298020d0b9994a9",
+    "scripts/extract_sotopia.py": "716e5cd815cde5fd640b93cf113623988cbba13649f91929544831b20d23870e",
+    "scripts/phase1b1_artifacts.py": "2c1be25cb67eb70980256cb035419b92ae4e1ff9731c9f366d4309c2e1e1ab07",
+    "scripts/phase1b1_release.py": "61ee4fff43a10f85f724e92c2725e2363bc2e6cac5fcc9763045f1e08174e9bd",
+    "scripts/phase1b1_smoke.py": "673bc96a7e5b51f47857f8fbf8814574e2b6753dca6f755e4f62f35f1019d9be",
+    "scripts/phase1c0_campaign.py": "de07a645f88b24a7dd22a71ca30c28032bb82f2eabed9516801366e43480423f",
+    "scripts/phase1c0_fixtures.py": "69c53d412347f0c9475231988d177b0632ba8b01eb3c5b0255e0bfcbe5d178ad",
+    "scripts/phase1c0_release.py": "ad3f22247183f5efeed1c550732dc6214edbfa36dd9f204184c5923f8578f07d",
+    "scripts/phase1c1_artifacts.py": "2a1b456086a22ea5a0936c29b5972427ced83cf07f3380fc351b6ccc8c89ce02",
+    "scripts/phase1c1_legacy.py": "39e581b38780e4984b54456a2dce5c0f456d503c477439f28d7bca13fc0f931f",
+    "scripts/phase1c1_release.py": "8ffa7b99b461f26cda6715b56b116195ec53610b73c615412106a4fa9ba17174",
+    "scripts/phase1c1_reuse.py": "2cb32c2dd375ceb582db727420291853da58408ff66f5001e15c92bd4f3c8989",
+    "scripts/phase1c2a1_legacy.py": "5dc5985c1b0e501b1a165049a3e3f32475d155257a1d64d6ae50bbbc4fd3213b",
+    "scripts/phase1c2a1_probe.mjs": "f00cd7b1ea988155d8ef9380ae640e8c8f127f7eee48af6c0c1fa3ed29021161",
+    "scripts/phase1c2a1_probe.py": "cfa984c21cbe3110aabfdd58dda66603c7210619caa455b9a43e7ae2498abc2f",
+    "scripts/phase1c2a1_smoke.py": "4692df72e89f66dc7f5ff1111e75b7cc02379de9fd27a36adce3fdff66203bf6",
+    "scripts/phase1c2a_legacy.py": "c120a1a1870f279ea031912df7d241206a543254406cd938ebbf2447f2667ecf",
+    "scripts/phase1c2a_probe.mjs": "790fbe282043c3888bfbe8f576e781f381f8b9f548eefa4250122bd87cb5aa0d",
+    "scripts/phase1c2a_probe.py": "d8dc72c6b41940403e9d876b71a89d477b5cbbbc024cd6d89ec73fb4d6815b07",
+    "scripts/phase1c2a_release.py": "ea69c288d63fba01e9ef02524d707d838e1847bfad8e4052ec53d8e45a2752c8",
+    "scripts/phase1c2a_reuse.py": "683e9d9e6b8ce8adaa1d7ac073996c29113287f7b0df32455548812961b0fb1b",
+    "scripts/validate.py": "c6923ee0b51e37c2cf556137f098df0b89dce7744552b6409b3d7e4307193430"
+  },
+  "log": "test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls (test_evaluation.Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls) ... ok\ntest_admission_before_evaluator_and_orthogonal_outcomes (test_evaluation.Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes) ... ok\ntest_deterministic_facts_refusal_and_whitelisted_received_view (test_evaluation.Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view) ... ok\ntest_idempotency_content_spec_export_metadata_and_atomic_publication (test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication) ... ok\ntest_internal_error_timeout_and_interrupted_claim_are_preserved (test_evaluation.Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved) ... ok\ntest_invalid_envelopes_persist_no_zero_or_parser_coercion (test_evaluation.Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion) ... ok\ntest_portable_stdlib_verification_and_missing_optional_dependency (test_evaluation.Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency) ... ok\ntest_worker_audit_hook_enforces_denials_in_real_child (test_evaluation.Evaluation.test_worker_audit_hook_enforces_denials_in_real_child) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 12.992s\n\nOK\n",
+  "log_sha256": "c7f117e0f44f402c8669b3f5a98c04b3af3cbe33d19044df91b080d1eca4ddf4"
+}

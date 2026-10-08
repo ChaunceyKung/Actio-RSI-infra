@@ -1,0 +1,11 @@
+{
+  "kind": "DELIVERY_TOOL_FAILURE",
+  "command": ".local/phase1c2a1-release2-venv/Scripts/python.exe -X utf8 scripts/phase1c2a1_release.py --seal docs/validation/phase1c2a1/evidence/delivery-20261008T152803Z-5dbc98ec.json",
+  "exit_code": 1,
+  "error": "ValueError: relative delivery path is not in absolute DOC subpath",
+  "tool_sha256": "7bf3c9bae781bd9e970b9d38bd8748c7e913ad36ab8200a7b65d775114f4cb1e",
+  "manifest_written": false,
+  "model_requests": 0,
+  "local_http_requests": 0,
+  "correction": "resolve caller-supplied path before relative_to"
+}

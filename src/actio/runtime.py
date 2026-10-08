@@ -44,6 +44,8 @@ def verify_runtime():
 
 
 class RuntimePort:
+    @staticmethod
+    def expected_pins():return pins()
     capabilities={'fresh_session':True,'sequential_turn':True,'readonly_mcp':True,'bounded_stop':True,
                   'local_status':True,'resume':False,'reopen':False,'fork':False,'catchup':False,
                   'semantic_cancel':False,'world_restore':False,'evaluator':False,'live_provider':False}
@@ -58,7 +60,7 @@ class RuntimePort:
         self.epoch=run['epoch']
         store.fence(run['id'],self.epoch)
         self.spec=store.agent(agent)['spec']
-        if self.spec['pins']!=pins():
+        if self.spec['pins']!=self.expected_pins():
             raise ContractError('immutable spec runtime pins changed; create a new explicit spec identity')
         inputs=json.loads(run['input'])
         if inputs['agents'].get(agent)!=store.agent(agent)['spec_hash']:
@@ -136,7 +138,7 @@ class RuntimePort:
         if task.get('tool'):
             task={**task,'callId':task.get('callId',uid()),'args':{**task['args'],'op':self.op}}
         try:
-            write_json(self.root/'active.json',{**self.binding,'op':self.op})
+            self.prepare_dispatch(task)
             self.supervisor.send({'kind':'submit','session':self.stream['native_id'],'op':self.op,'task':task})
             result=self.supervisor.wait('result',self.deadlines['result'],self.record)
             self.s.op_update(self.op,self.epoch,state='draining',answer=result['answer'],terminal=result['terminal'])
@@ -155,6 +157,9 @@ class RuntimePort:
                 e.add_note('failure ledger update failed: '+str(record_error))
             self.cleanup_after_error(e)
             raise
+
+    def prepare_dispatch(self,task):
+        write_json(self.root/'active.json',{**self.binding,'op':self.op})
 
     def drain(self):
         facts=Facts(self.s)

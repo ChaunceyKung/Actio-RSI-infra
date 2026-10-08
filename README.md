@@ -1,4 +1,12 @@
-# Actio-RSI · Phase 1C2A
+# Actio-RSI · Phase 1C2A.1
+
+固定 DSH `0.1.5rc1` 的官方 Chat Completions 本机链路已达 **CONDITIONAL_GO（仅 transport_stub 工程）**：无预置答案双 seat、真实 Concordia 两步调度、发送前 SQLite 持久预算、异常保守占额与只读 campaign 对账已验收。配置为 `pilot-config.v3` / `chat-completions.v1`，旧 v2 Messages 语义及历史 NO_GO 证据保留。
+
+真实模型请求、外部 provider 请求和真实费用均为 **0**。本机 HTTP、合成 usage 与历次失败分别统计于结果和 manifest。live、人工校准、judge、研究效度和演化晋升仍 **BLOCKED**。本轮仅发布任务分支 `phase1c2a1-chat-completions-budget`。
+
+当前入口：[结果与实际计数](docs/validation/phase1c2a1/02_results.md) · [Gate](docs/validation/phase1c2a1/03_gate.md) · [CLI](docs/validation/phase1c2a1/04_usage.md) · [合同](docs/validation/phase1c2a1/01_contract.md) · [复用](docs/validation/phase1c2a1/05_reuse.md) · [预算生命周期](docs/validation/phase1c2a1/06_budget.md) · [manifest](docs/validation/phase1c2a1/evidence_manifest.json)。离线复核入口 `python -m actio.transport_campaign <campaign目录>`；本机执行入口 `scripts/phase1c2a1_smoke.py`。preflight 始终 BLOCKED/退出 2，无 live 执行入口。
+
+## Phase 1C2A 历史交付
 
 本轮在官方 Messages adapter 准入处 **NO_GO**：固定 DSH `0.1.5rc1` 实际发送 `/chat/completions`；显式加载参考源码的 `@deepseek-ai/dsh-llm-deepseek-api-key` 报 `ERR_MODULE_NOT_FOUND`。按冻结 Prompt 的停止条件，未继续实现无答案双 seat transport、逐 attempt 预算账本和新模式验收，未升级依赖。
 

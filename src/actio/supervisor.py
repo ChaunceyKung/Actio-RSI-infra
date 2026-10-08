@@ -193,8 +193,14 @@ class Supervisor:
                 if path.is_symlink() or path.is_junction():
                     raise ContractError('unexpected reparse point in task root')
             for name in files:
+                try:
+                    size = (Path(parent)/name).stat().st_size
+                except FileNotFoundError:
+                    # DSH atomically replaces session files while the Worker runs.
+                    # Vanished entries consume no current disk; other I/O errors propagate.
+                    continue
                 count += 1
-                total += (Path(parent)/name).stat().st_size
+                total += size
                 if total > self.limits['disk'] or count > 2048:
                     raise ContractError('disk_limit_exceeded')
 

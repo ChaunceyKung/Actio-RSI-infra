@@ -63,7 +63,7 @@ def closure(store, target):
     terminal=rows('SELECT * FROM scenario_terminal WHERE run=?',(rid,)) if store.version else []
     request=rows('SELECT * FROM request_identity WHERE run=?',(rid,)) if store.version else []
     workers=rows('SELECT * FROM worker WHERE run=? ORDER BY id',(rid,))
-    data={'contract':'phase1b1.fixture.v1','live_budget':0,'mappers':['v1','v2'],'run':run,
+    data={'contract':'phase1c2a1.transport.v1' if manifest.get('input_contract')=='scheduling-transport.v1' else 'phase1b1.fixture.v1','live_budget':0,'mappers':['v1','v2'],'run':run,
           'agents':agents,'request_identity':request[0] if request else None,
           'operations':operations,'domain_receipts':receipts,'terminal':terminal[0] if terminal else None,
           'streams':[{k:v for k,v in s.items() if k!='path'} for s in streams],

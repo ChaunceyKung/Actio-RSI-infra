@@ -1,0 +1,19 @@
+{
+  "kind": "future-connection-smoke-fields-only",
+  "executable": false,
+  "live_authorized": false,
+  "episode_count_allowed_for_future_proposal": [1, 2],
+  "provider": null,
+  "model": null,
+  "endpoint": null,
+  "protocol_and_parameters": null,
+  "dataset_and_private_data_scope": null,
+  "per_request_input_output_limits": null,
+  "total_call_input_output_limits": null,
+  "cost_limit_minor_and_currency": null,
+  "quote_version_source_date_and_cache_rules": null,
+  "credential_reference_only_no_secret_value": null,
+  "explicit_cost_authorization_reference": null,
+  "stop_conditions_and_unknown_accounting_policy": null,
+  "note": "Fields alone are not cost authorization; no live CLI or automatic C2B execution is supplied."
+}

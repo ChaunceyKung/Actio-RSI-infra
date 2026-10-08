@@ -12,6 +12,7 @@ FORMAT = 'actio-evidence'
 VERSION = 1
 VERIFIER = {'implementation':'actio-verifier.3', 'contract':INPUT_CONTRACT,
             'task_contract':'scheduling-input.v1',
+            'transport_contract':'scheduling-transport.v1',
             'stored_report_policy':'hash-checked historical report; current result independently recomputed'}
 MAX_BYTES = 32 * 1024 * 1024
 MAX_ROWS = 20000
@@ -59,10 +60,15 @@ def analyze(data, source):
             result['task_outcome']=run['task']
         require(source['run']==run['id'] and source['schema'] in (0,2),'source run/schema mismatch')
         require(digest(manifest)==run['input_hash'],'frozen manifest hash mismatch')
-        require(data['contract']=='phase1b1.fixture.v1' and data['live_budget']==0,'unsupported execution contract')
+        transport=manifest.get('input_contract')=='scheduling-transport.v1'
+        require(data['contract']==('phase1c2a1.transport.v1' if transport else 'phase1b1.fixture.v1') and data['live_budget']==0,'unsupported execution contract')
+        result['execution_mode']='transport_stub' if transport else 'fixture'
         require(data['mappers']==['v1','v2'],'unknown mapper contract')
         pins=manifest.get('pins')
-        require(isinstance(pins,dict) and pins.get('provider')=='actio-fixture' and pins.get('model')=='fixed','fixture pins missing')
+        if transport:
+            from .transport_contract import validate_pins
+            validate_pins(pins)
+        else:require(isinstance(pins,dict) and pins.get('provider')=='actio-fixture' and pins.get('model')=='fixed','fixture pins missing')
         require(pins.get('sdk')=='0.1.5rc1' and pins.get('runtime')=='0.1.5rc1','unsupported runtime version')
         for field in ('exe','sdk_wheel','runtime_wheel','concordia','code','registry','policy'):
             require(bool(pins.get(field)),'required pin missing: '+field)
@@ -78,7 +84,7 @@ def analyze(data, source):
             require(req['run']==run['id'] and parse(req['request'])==manifest['request'] and req['request_hash']==digest(manifest['request']),'normalized request mismatch')
         elif source['schema']==2 and data.get('terminal'):
             missing.append('request_identity')
-        if manifest.get('input_contract')=='scheduling-input.v1':
+        if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1'):
             from .task_contract import validate_manifest
             validate_manifest(manifest)
         elif manifest['scenario']=='assistant':
@@ -240,6 +246,9 @@ def analyze(data, source):
             if effect['revision']!=m['revision']:
                 require(any(a.get('memory')==m['id'] and a.get('revision')==m['revision'] and a.get('source')==[m['stream'],m['seq'],m['slot']] for a in proof['corrections']),'memory correction provenance missing')
         if source.get('active_lease'):missing.append('run active at snapshot')
+        if transport:
+            from .budget import verify_run_attempts
+            result['accounting']=verify_run_attempts(data,manifest)
         if not operations:missing.append('no operation evidence')
         receipt=data.get('terminal')
         if receipt:

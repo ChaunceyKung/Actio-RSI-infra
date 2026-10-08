@@ -97,7 +97,7 @@ def synthetic_input(value):
 
 def bundle_aliases(data):
     m=parse(data['run']['input']); scenario=m['scenario']
-    if m.get('input_contract')=='scheduling-input.v1':
+    if m.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1'):
         return aliases({s:{'agent':v['agent'],'role':v['role']} for s,v in m['task']['body']['seats'].items()})
     seats={s:{'agent':a,'role':'participant'} for s,a in m['entities'].items()} if scenario=='social' else {'assistant':{'agent':m['request']['agent'],'role':'assistant'}}
     return aliases(seats)
@@ -106,7 +106,7 @@ def bundle_aliases(data):
 def build_view(data,mode):
     """Only admitted evidence enters this function. No full audit context crosses to evaluator."""
     m=parse(data['run']['input']); scenario=m['scenario']
-    if m.get('input_contract')=='scheduling-input.v1':return task_view(data)
+    if m.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1'):return task_view(data)
     mapping=bundle_aliases(data); by_agent={v['agent']:k for k,v in mapping.items()}
     streams={s['id']:s for s in data['streams']};ops={o['id']:o for o in data['operations']}
     receipts={r['op']:r for r in data['domain_receipts']}

@@ -97,7 +97,11 @@ def validate(config):
 
 def preflight(config):
     errors=[]
-    try:validate(config)
+    try:
+        if type(config) is dict and config.get('schema')=='pilot-config.v3':
+            from .transport_contract import validate_config
+            validate_config(config)
+        else:validate(config)
     except (ContractError,KeyError,TypeError,ValueError,RecursionError) as e:errors.append(str(e)[:512])
     return {'status':'BLOCKED','reasons':['no_live_execution_in_phase1c2a',*errors],
             'configuration_valid':not errors,'transport_validated':False,'live_authorized':False,'live_ready':False,

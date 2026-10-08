@@ -1,8 +1,10 @@
-# Actio-RSI · Phase 1B
+# Actio-RSI · Phase 1B.1
 
 单机、持久化、合成 fixture 双场景基础设施。Python 管身份/spec、run/lease/receipt、SQLite facts/memory；官方 DSH SDK + TS executable 管 agent loop、MCP 和原生 journal；真实 Concordia Sequential 管社会场景调度及 GM 裁决。预算 **0**，模型和 GM 输出为固定 fixture，未开放 live provider。
 
-入口：[本轮合同](docs/validation/phase1b/01_plan_and_contract.md) · [实现与验收](docs/validation/phase1b/02_results.md) · [Gate](docs/validation/phase1b/03_gate.md) · [独立证据](docs/validation/phase1b/evidence_manifest.json)。Phase 1A 的 probes/证据保留原样。
+入口：[本轮合同](docs/validation/phase1b1/01_contract.md) · [实现与验收](docs/validation/phase1b1/02_results.md) · [Gate](docs/validation/phase1b1/03_gate.md) · [独立证据](docs/validation/phase1b1/evidence_manifest.json) · [包格式与离线核验](docs/validation/phase1b1/04_bundle_format.md)。[Phase 1B 历史证据](docs/validation/phase1b/evidence_manifest.json) 与 Phase 1A probes 保留原样。
+
+本轮修正：场景终态独立于 operation 完成；原子 request claim 的赢家才可执行；recover 只操作指定 run；冻结起点 replay 拒绝显式 override。SQLite schema 版本为 2，旧库只读或显式迁移到新副本。新增单 run 审计包导出与标准库离线 verifier。
 
 ## 准备
 
@@ -55,6 +57,39 @@ python -X utf8 scripts/bootstrap.py --offline-wheels --concordia-source ../../co
 
 命令只核对受管 journal 和本地事实，**不会再次调用模型或工具**。owner 活着时拒绝接管，TTL 不授权接管。缺 receipt、flush 或领域效果时维持 incomplete/needs_reconcile。status 是本地台账状态。
 
+未知 run、历史 run 的恢复请求不会回收另一条 lease 的 Job。相同 key 的并发调用以 SQLite 原子决定为准；未取得执行资格的调用者只返回赢家的首次冻结输入。`social --replay ...` 不允许同时提供 `--illegal` 或 `--memory-revision`，即使 revision 恰巧相同也拒绝。
+
+## 旧库与证据包
+
+只有 `init` 可以创建数据库。`query`、`agent <id>` 和 `export` 可以只读打开已知 Phase 1B schema=0；不存在路径、未知版本和残缺结构明确失败。旧 spec 的源码 pins 不会自动刷新；不兼容的旧身份仍可查询、迁移和导出，但不能用新 runtime 执行。
+
+迁移仅支持 0→2 到**新的副本**。先用 SQLite backup 读取含 WAL 的一致快照，再在副本事务中增加表和版本。保留 `.backup.sqlite`、hash 和 `.migration.json`；失败保留备份/staging，重新尝试用新输出名。重复迁移到同一已成功副本只核对来源，不覆盖。不要将旧 `trajectory=complete` 视作新合同通过；无新终态凭据的历史记录核验为 `legacy_unverified`。
+
+以下命令已在新隔离环境按同样 CLI 调用运行；数据库和输出位置可替换为自己的合成任务路径。导出父目录须存在、目标目录须不存在。
+
+```powershell
+.local/phase1b1-delivery-venv/Scripts/python.exe -m actio --db .local/legacy.sqlite query social-one
+.local/phase1b1-delivery-venv/Scripts/python.exe -m actio --db .local/legacy.sqlite migrate --output .local/migrated.sqlite
+.local/phase1b1-delivery-venv/Scripts/python.exe -m actio --db .local/demo.sqlite export social-one --output .local/social-bundle
+.local/phase1b1-delivery-venv/Scripts/python.exe -m actio verify .local/social-bundle
+.local/phase1b1-delivery-venv/Scripts/python.exe -m actio.verify docs/validation/phase1b1/samples/social
+```
+
+包只含该 run、登记的 native 原始行和所引用 memory 的最小来源证明，不复制整库或 DSH home；单包 32 MiB、20,000 行预算。基于同一个 SQLite 读事务，在 staging 写完并核验后原子 rename。失败保留原因；重复导出的内容 hash 稳定，时间 metadata 单列。包内绝对路径若存在只是原始审计文本，verifier 不跟随读取。
+
+核验分别输出 `bundle_integrity`、`facts_consistency`、`scenario_completeness`、`task_outcome` 和 `execution_mode`。合法拒绝可为 `complete/task_failure`；合法 partial 包可通过封装完整性，不能当完整 episode。退出码 0 也可能是诚实 partial，消费方必须读取各维度；格式损坏/内部矛盾退出 2。历史状态与当前核验单独显示。保留新导出包即可保存之后发现的缺口，既有包和历史 run 声明不改写。
+
+`python -m actio.verify` 只依赖标准库与产品的 common/terminal/verify 模块，不导入或启动 DSH/Concordia、不联网、不执行包中代码。hash 不证明作者签名、二进制来源或真实模型能力。公开样例仅合成数据；审计读者能看见必要 private observation/GM/memory，这不改变 agent ACL，也不自动回灌 solver。
+
+干净环境准备和完整公开 CLI smoke（每次创建新的受管短根）：
+
+```powershell
+.local/venv/Scripts/python.exe -X utf8 scripts/bootstrap.py --venv .local/phase1b1-delivery-venv --offline-wheels --concordia-source ../../codebase/15_concordia/repo *> .local/phase1b1-delivery-bootstrap.log
+.local/phase1b1-delivery-venv/Scripts/python.exe -X utf8 scripts/phase1b1_smoke.py --bootstrap-log .local/phase1b1-delivery-bootstrap.log
+```
+
+首次没有既有 venv 时以 Windows Python 3.12 执行 `scripts/bootstrap.py` 即可。本轮准备使用 41 个已校验的缓存 wheel 和固定本地 Git archive；未重新做全量网络下载。
+
 ## 验证
 
 ```powershell
@@ -62,10 +97,16 @@ python -X utf8 scripts/bootstrap.py --offline-wheels --concordia-source ../../co
 .local/venv/Scripts/python.exe -X utf8 scripts/validate.py runtime
 .local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures
 .local/venv/Scripts/python.exe -X utf8 scripts/validate.py processes
+.local/venv/Scripts/python.exe -X utf8 scripts/validate.py reliability
+.local/venv/Scripts/python.exe -X utf8 scripts/validate.py entry_concurrency
+.local/venv/Scripts/python.exe -X utf8 scripts/validate.py schema
+.local/venv/Scripts/python.exe -X utf8 scripts/validate.py evidence
 .local/venv/Scripts/python.exe -m pip check
 ```
 
 必须先安装当前源码；runner 会逐文件拒绝源码与 installed package 不一致的测试。每次运行创建新的 evidence JSON，失败也保留。测试创建的 `D:\actio-p1b-tests\<唯一目录>` 保存合成 raw journal/SQLite/日志，不自动删除；venv、wheel、binary 不入 Git。故障注入只在 `tests/`，不进入产品包。每组 suite 为聚合行为验收，不能把聚合数量当作研究样本量。
+
+新测试使用 `D:\actio-p1b1-tests\<唯一目录>`；本轮所有验收记录写入 `docs/validation/phase1b1/evidence/`。原 RuntimePort 同 host 两 turn 测试继续核对两次原生 receipt 和 memory effect；其结果现在明确为 operation complete、scenario incomplete，因为它没有完成助手的一步场景合同。
 
 ## 范围
 

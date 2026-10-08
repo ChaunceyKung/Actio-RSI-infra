@@ -14,7 +14,7 @@ class Contracts(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory(prefix='actio-contract-')
         self.path=Path(self.temp.name)/'ledger.sqlite'
-        self.s=Store(self.path)
+        self.s=Store(self.path,create=True)
         self.s.agent('A',synthetic_spec('A')); self.s.agent('B',synthetic_spec('B'))
         self.run,_=self.s.begin('key',{'scenario':'assistant','agents':{'A':self.s.agent('A')['spec_hash']}})
         self.stream=self.s.allocate_worker(self.run['id'],self.run['epoch'],self.temp.name,'unused-contract-job','A')
@@ -40,13 +40,13 @@ class Contracts(unittest.TestCase):
         with self.assertRaisesRegex(ContractError,'TTL'):
             self.s.begin('different',{})
         with self.assertRaisesRegex(ContractError,'still alive'):
-            self.s.recover()
+            self.s.recover(self.run["id"])
         with self.assertRaisesRegex(ContractError,'stale epoch'):
             self.s.intent(self.run['id'],self.run['epoch']-1,self.stream['id'],{})
         with self.assertRaisesRegex(ContractError,'deadline'):
             self.s.intent(self.run['id'],self.run['epoch'],self.stream['id'],{})
         original=self.s.agent('A')
-        self.s.close(); self.s=Store(self.path)
+        self.s.close(); self.s=Store(self.path,create=True)
         self.assertEqual(original,self.s.agent('A'))
         spec={**original['spec'],'persona':'changed'}
         with self.assertRaisesRegex(ContractError,'immutable'):
@@ -71,7 +71,7 @@ class Contracts(unittest.TestCase):
     def test_memory_atomic_cas_ack_loss_correction_and_mapper(self):
         source=self.valid_source(); memory=Memory(self.s); ns=namespace('A','assistant')
         first=memory.write(ns,'A',source,'PRIVATE_A',0)
-        self.s.close(); self.s=Store(self.path); memory=Memory(self.s); self.facts=Facts(self.s)
+        self.s.close(); self.s=Store(self.path,create=True); memory=Memory(self.s); self.facts=Facts(self.s)
         again=memory.write(ns,'A',source,'PRIVATE_A',0)
         self.assertEqual((first['memory_id'],first['revision']),(again['memory_id'],again['revision']))
         self.assertEqual(memory.revision(ns),1)

@@ -12,7 +12,7 @@ from actio.store import Store
 from support import fault_type
 
 mode,root=sys.argv[1],Path(sys.argv[2])
-s=Store(root/'ledger.sqlite')
+s=Store(root/'ledger.sqlite',create=True)
 if mode=='race':
     (root/('ready-'+str(os.getpid()))).write_text('ready')
     assert sys.stdin.readline().strip()=='go'

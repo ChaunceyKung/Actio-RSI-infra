@@ -1,0 +1,917 @@
+{
+  "id": "20261008T035900Z-84a6e886",
+  "suite": "evidence",
+  "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py evidence",
+  "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_evidence.Evidence.test_complete_refusal_partial_unknown_are_separate_dimensions",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b1-tests\\e212a14095c3",
+        "workers": [
+          {
+            "id": "0669ad230d1d4e839a3a118d1542b01b",
+            "run": "1bfd0ce2a11a4f8c8101aaf6b96a68fc",
+            "epoch": 1,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w5820dffde773",
+            "job": "Local\\Actio-ea69b942bc5a4748816e608e68f22c24",
+            "pid": 23232,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "26f3283dc2c04032b0ffc2f3b7d19146",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w25504052b613",
+            "job": "Local\\Actio-d5796e7987be4666a6048c0b805028b9",
+            "pid": 30420,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "9e175bcfc12b4969b486a85e86a7b61f",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wcefba1b8198a",
+            "job": "Local\\Actio-cb325470553049b885a001bd0502b91d",
+            "pid": 32572,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":3,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "f09ebfacb16c46b6820d7d781b5f8790",
+            "run": "0e2818a206c94d8a98d92933dcda3685",
+            "epoch": 3,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w0a97219d7951",
+            "job": "Local\\Actio-13e44e0f69fa471990f1053feba80109",
+            "pid": 29904,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "13fb114c7e334e938bff226c88179dff",
+            "run": "c88c24d0b24c45a291fa74adf0a64153",
+            "epoch": 4,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w4e5a323baffd",
+            "job": "Local\\Actio-30a4807d83f0435f937ae6e32c46c6b0",
+            "pid": 25376,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "92ba5e4e3daf43769dbed15927f9f34a",
+            "run": "6500aa23f9f24ff78537777399df1dea",
+            "epoch": 5,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wa0693d6b1725",
+            "job": "Local\\Actio-90f9439bf678453b84e9bfb2066cb3f2",
+            "pid": 28492,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":6,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          }
+        ],
+        "mode": "REAL_ENGINE_DSH_FIXTURE_EXPORT_AND_OFFLINE_MUTATION",
+        "bundles": {
+          "assistant": "D:\\actio-p1b1-tests\\e212a14095c3\\assistant",
+          "social": "D:\\actio-p1b1-tests\\e212a14095c3\\social",
+          "rejected": "D:\\actio-p1b1-tests\\e212a14095c3\\rejected",
+          "partial": "D:\\actio-p1b1-tests\\e212a14095c3\\partial",
+          "unknown": "D:\\actio-p1b1-tests\\e212a14095c3\\unknown"
+        },
+        "results": {
+          "assistant": {
+            "facts_consistency": "consistent",
+            "scenario_completeness": "complete",
+            "task_outcome": "success",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "be444d602f6736cdb7c1525eb81bb3e43cf5c3a9ae4949601e967ff4f5966017"
+          },
+          "social": {
+            "facts_consistency": "consistent",
+            "scenario_completeness": "complete",
+            "task_outcome": "success",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "af9629f0369e2596d949cd7ed25c956529123f6cd3d8164a30d8dcc372c13505"
+          },
+          "rejected": {
+            "facts_consistency": "consistent",
+            "scenario_completeness": "complete",
+            "task_outcome": "task_failure",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "task_failure",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "38d1d7333b52464e0644c0ab43043380ad438c0589a76043de72fa898c7497be"
+          },
+          "partial": {
+            "facts_consistency": "partial",
+            "scenario_completeness": "partial",
+            "task_outcome": "infrastructure_failure",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [],
+            "missing": [
+              "scenario terminal"
+            ],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "needs_reconcile",
+              "task": "infrastructure_failure",
+              "trajectory": "incomplete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "53c5b26f0570c7ba1044ca3c8b4a0de0f3dc56397182a1426ccbc4ee44cdf502"
+          },
+          "unknown": {
+            "facts_consistency": "partial",
+            "scenario_completeness": "partial",
+            "task_outcome": "infrastructure_failure",
+            "execution_mode": "fixture",
+            "recorded_prefix": "partial",
+            "errors": [],
+            "missing": [
+              "native header: b2d6b927ea354316b8f634f6593b52fc",
+              "native integrity: pending",
+              "canonical prefix not yet imported through flush: 7601ecb463d4403c8e33fb3cb717facf",
+              "scenario terminal"
+            ],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "needs_reconcile",
+              "task": "infrastructure_failure",
+              "trajectory": "incomplete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "90c05a9d3f1ae028a418f6a506eba2e86a7da16be635cb1732cf603214d71f14"
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evidence.Evidence.test_missing_file_changed_hash_unknown_format_rejected",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b1-tests\\e212a14095c3",
+        "workers": [
+          {
+            "id": "0669ad230d1d4e839a3a118d1542b01b",
+            "run": "1bfd0ce2a11a4f8c8101aaf6b96a68fc",
+            "epoch": 1,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w5820dffde773",
+            "job": "Local\\Actio-ea69b942bc5a4748816e608e68f22c24",
+            "pid": 23232,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "26f3283dc2c04032b0ffc2f3b7d19146",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w25504052b613",
+            "job": "Local\\Actio-d5796e7987be4666a6048c0b805028b9",
+            "pid": 30420,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "9e175bcfc12b4969b486a85e86a7b61f",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wcefba1b8198a",
+            "job": "Local\\Actio-cb325470553049b885a001bd0502b91d",
+            "pid": 32572,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":3,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "f09ebfacb16c46b6820d7d781b5f8790",
+            "run": "0e2818a206c94d8a98d92933dcda3685",
+            "epoch": 3,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w0a97219d7951",
+            "job": "Local\\Actio-13e44e0f69fa471990f1053feba80109",
+            "pid": 29904,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "13fb114c7e334e938bff226c88179dff",
+            "run": "c88c24d0b24c45a291fa74adf0a64153",
+            "epoch": 4,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w4e5a323baffd",
+            "job": "Local\\Actio-30a4807d83f0435f937ae6e32c46c6b0",
+            "pid": 25376,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "92ba5e4e3daf43769dbed15927f9f34a",
+            "run": "6500aa23f9f24ff78537777399df1dea",
+            "epoch": 5,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wa0693d6b1725",
+            "job": "Local\\Actio-90f9439bf678453b84e9bfb2066cb3f2",
+            "pid": 28492,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":6,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          }
+        ],
+        "mode": "REAL_ENGINE_DSH_FIXTURE_EXPORT_AND_OFFLINE_MUTATION",
+        "bundles": {
+          "assistant": "D:\\actio-p1b1-tests\\e212a14095c3\\assistant",
+          "social": "D:\\actio-p1b1-tests\\e212a14095c3\\social",
+          "rejected": "D:\\actio-p1b1-tests\\e212a14095c3\\rejected",
+          "partial": "D:\\actio-p1b1-tests\\e212a14095c3\\partial",
+          "unknown": "D:\\actio-p1b1-tests\\e212a14095c3\\unknown"
+        },
+        "tampering": {
+          "missing": {
+            "bundle_integrity": "invalid",
+            "facts_consistency": "unverified",
+            "scenario_completeness": "unknown",
+            "task_outcome": "unknown",
+            "execution_mode": "unverified",
+            "errors": [
+              "bundle file missing/reparse: evidence.json"
+            ],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ]
+          },
+          "hash": {
+            "bundle_integrity": "invalid",
+            "facts_consistency": "unverified",
+            "scenario_completeness": "unknown",
+            "task_outcome": "unknown",
+            "execution_mode": "unverified",
+            "errors": [
+              "evidence size/hash mismatch"
+            ],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ]
+          },
+          "version": {
+            "bundle_integrity": "invalid",
+            "facts_consistency": "unverified",
+            "scenario_completeness": "unknown",
+            "task_outcome": "unknown",
+            "execution_mode": "unverified",
+            "errors": [
+              "unknown bundle format/version"
+            ],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evidence.Evidence.test_missing_receipt_legacy_complete_and_active_prefix_not_promoted",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b1-tests\\e212a14095c3",
+        "workers": [
+          {
+            "id": "0669ad230d1d4e839a3a118d1542b01b",
+            "run": "1bfd0ce2a11a4f8c8101aaf6b96a68fc",
+            "epoch": 1,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w5820dffde773",
+            "job": "Local\\Actio-ea69b942bc5a4748816e608e68f22c24",
+            "pid": 23232,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "26f3283dc2c04032b0ffc2f3b7d19146",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w25504052b613",
+            "job": "Local\\Actio-d5796e7987be4666a6048c0b805028b9",
+            "pid": 30420,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "9e175bcfc12b4969b486a85e86a7b61f",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wcefba1b8198a",
+            "job": "Local\\Actio-cb325470553049b885a001bd0502b91d",
+            "pid": 32572,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":3,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "f09ebfacb16c46b6820d7d781b5f8790",
+            "run": "0e2818a206c94d8a98d92933dcda3685",
+            "epoch": 3,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w0a97219d7951",
+            "job": "Local\\Actio-13e44e0f69fa471990f1053feba80109",
+            "pid": 29904,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "13fb114c7e334e938bff226c88179dff",
+            "run": "c88c24d0b24c45a291fa74adf0a64153",
+            "epoch": 4,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w4e5a323baffd",
+            "job": "Local\\Actio-30a4807d83f0435f937ae6e32c46c6b0",
+            "pid": 25376,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "92ba5e4e3daf43769dbed15927f9f34a",
+            "run": "6500aa23f9f24ff78537777399df1dea",
+            "epoch": 5,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wa0693d6b1725",
+            "job": "Local\\Actio-90f9439bf678453b84e9bfb2066cb3f2",
+            "pid": 28492,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":6,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          }
+        ],
+        "mode": "REAL_ENGINE_DSH_FIXTURE_EXPORT_AND_OFFLINE_MUTATION",
+        "bundles": {
+          "assistant": "D:\\actio-p1b1-tests\\e212a14095c3\\assistant",
+          "social": "D:\\actio-p1b1-tests\\e212a14095c3\\social",
+          "rejected": "D:\\actio-p1b1-tests\\e212a14095c3\\rejected",
+          "partial": "D:\\actio-p1b1-tests\\e212a14095c3\\partial",
+          "unknown": "D:\\actio-p1b1-tests\\e212a14095c3\\unknown"
+        }
+      }
+    },
+    {
+      "id": "test_evidence.Evidence.test_portable_stdlib_process_denies_source_roots_runtime_and_network",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b1-tests\\e212a14095c3",
+        "workers": [
+          {
+            "id": "0669ad230d1d4e839a3a118d1542b01b",
+            "run": "1bfd0ce2a11a4f8c8101aaf6b96a68fc",
+            "epoch": 1,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w5820dffde773",
+            "job": "Local\\Actio-ea69b942bc5a4748816e608e68f22c24",
+            "pid": 23232,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "26f3283dc2c04032b0ffc2f3b7d19146",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w25504052b613",
+            "job": "Local\\Actio-d5796e7987be4666a6048c0b805028b9",
+            "pid": 30420,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "9e175bcfc12b4969b486a85e86a7b61f",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wcefba1b8198a",
+            "job": "Local\\Actio-cb325470553049b885a001bd0502b91d",
+            "pid": 32572,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":3,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "f09ebfacb16c46b6820d7d781b5f8790",
+            "run": "0e2818a206c94d8a98d92933dcda3685",
+            "epoch": 3,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w0a97219d7951",
+            "job": "Local\\Actio-13e44e0f69fa471990f1053feba80109",
+            "pid": 29904,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "13fb114c7e334e938bff226c88179dff",
+            "run": "c88c24d0b24c45a291fa74adf0a64153",
+            "epoch": 4,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w4e5a323baffd",
+            "job": "Local\\Actio-30a4807d83f0435f937ae6e32c46c6b0",
+            "pid": 25376,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "92ba5e4e3daf43769dbed15927f9f34a",
+            "run": "6500aa23f9f24ff78537777399df1dea",
+            "epoch": 5,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wa0693d6b1725",
+            "job": "Local\\Actio-90f9439bf678453b84e9bfb2066cb3f2",
+            "pid": 28492,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":6,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          }
+        ],
+        "mode": "REAL_ENGINE_DSH_FIXTURE_EXPORT_AND_OFFLINE_MUTATION",
+        "bundles": {
+          "assistant": "D:\\actio-p1b1-tests\\e212a14095c3\\assistant",
+          "social": "D:\\actio-p1b1-tests\\e212a14095c3\\social",
+          "rejected": "D:\\actio-p1b1-tests\\e212a14095c3\\rejected",
+          "partial": "D:\\actio-p1b1-tests\\e212a14095c3\\partial",
+          "unknown": "D:\\actio-p1b1-tests\\e212a14095c3\\unknown"
+        },
+        "portable": {
+          "command": [
+            "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\venv\\Scripts\\python.exe",
+            "-I",
+            "-S",
+            "D:\\actio-p1b1-tests\\e212a14095c3\\portable\\check.py"
+          ],
+          "exit_code": 0,
+          "result": {
+            "facts_consistency": "consistent",
+            "scenario_completeness": "complete",
+            "task_outcome": "success",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "af9629f0369e2596d949cd7ed25c956529123f6cd3d8164a30d8dcc372c13505"
+          },
+          "mode": "PYTHON_ISOLATED_NO_SITE_WITH_SOURCE_PATH_IMPORT_NETWORK_GUARD"
+        }
+      }
+    },
+    {
+      "id": "test_evidence.Evidence.test_rehashed_internal_contradictions_and_missing_memory_are_not_complete",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b1-tests\\e212a14095c3",
+        "workers": [
+          {
+            "id": "0669ad230d1d4e839a3a118d1542b01b",
+            "run": "1bfd0ce2a11a4f8c8101aaf6b96a68fc",
+            "epoch": 1,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w5820dffde773",
+            "job": "Local\\Actio-ea69b942bc5a4748816e608e68f22c24",
+            "pid": 23232,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "26f3283dc2c04032b0ffc2f3b7d19146",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w25504052b613",
+            "job": "Local\\Actio-d5796e7987be4666a6048c0b805028b9",
+            "pid": 30420,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "9e175bcfc12b4969b486a85e86a7b61f",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wcefba1b8198a",
+            "job": "Local\\Actio-cb325470553049b885a001bd0502b91d",
+            "pid": 32572,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":3,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "f09ebfacb16c46b6820d7d781b5f8790",
+            "run": "0e2818a206c94d8a98d92933dcda3685",
+            "epoch": 3,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w0a97219d7951",
+            "job": "Local\\Actio-13e44e0f69fa471990f1053feba80109",
+            "pid": 29904,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "13fb114c7e334e938bff226c88179dff",
+            "run": "c88c24d0b24c45a291fa74adf0a64153",
+            "epoch": 4,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w4e5a323baffd",
+            "job": "Local\\Actio-30a4807d83f0435f937ae6e32c46c6b0",
+            "pid": 25376,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "92ba5e4e3daf43769dbed15927f9f34a",
+            "run": "6500aa23f9f24ff78537777399df1dea",
+            "epoch": 5,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wa0693d6b1725",
+            "job": "Local\\Actio-90f9439bf678453b84e9bfb2066cb3f2",
+            "pid": 28492,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":6,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          }
+        ],
+        "mode": "REAL_ENGINE_DSH_FIXTURE_EXPORT_AND_OFFLINE_MUTATION",
+        "bundles": {
+          "assistant": "D:\\actio-p1b1-tests\\e212a14095c3\\assistant",
+          "social": "D:\\actio-p1b1-tests\\e212a14095c3\\social",
+          "rejected": "D:\\actio-p1b1-tests\\e212a14095c3\\rejected",
+          "partial": "D:\\actio-p1b1-tests\\e212a14095c3\\partial",
+          "unknown": "D:\\actio-p1b1-tests\\e212a14095c3\\unknown"
+        },
+        "tampering": {
+          "duplicate_seq": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "invalid",
+            "errors": [
+              "duplicate identity: ['stream', 'seq']"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "d9afd8b054922f47d0c8c800ccc65008261353b15f59cb619dec9ef1eab01a05"
+          },
+          "gap": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "invalid",
+            "errors": [
+              "missing source or unknown mapper"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "acc5d72ef5cb28f0797aee20bb614912f8ef5d36dcafb9b00f50d07fa36c9a28"
+          },
+          "barrier": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "invalid",
+            "errors": [
+              "barrier outside contiguous prefix"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "d2a20113b83db950acac5cd8ec471f454750e24f3ffe3763fd931b258c580513"
+          },
+          "missing_memory_source": {
+            "facts_consistency": "partial",
+            "scenario_completeness": "partial",
+            "task_outcome": "success",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [],
+            "missing": [
+              "memory source: ('54f1a297c14f4e8d93ed89aff229a5e5', 1)",
+              "memory effect/source: ('54f1a297c14f4e8d93ed89aff229a5e5', 1)"
+            ],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "9875c47ddbfdddf07b5b48f48a4ec3754f451cbb4cb247a2c552e217ff6cca9b"
+          },
+          "domain_source": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "invalid",
+            "errors": [
+              "domain source mismatch"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "c0f303c94a8721c414705b733ac58b3edeefbac6b9da53f0a9771af03c6e0fb3"
+          },
+          "world_entity": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "consistent",
+            "errors": [
+              "world scope/order mismatch"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "641da807bbb5e5c938d3931b57f2b86fa0485c352f4a43197f3c66c111868716"
+          },
+          "conflict": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "invalid",
+            "errors": [
+              "unresolved native source conflict"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "fc89f27cc8a6e9dfdea513731967aae7cef2c1fdbd9aebe2a9701eb745315d85"
+          },
+          "projection": {
+            "facts_consistency": "invalid",
+            "scenario_completeness": "partial",
+            "task_outcome": "unknown",
+            "execution_mode": "fixture",
+            "recorded_prefix": "invalid",
+            "errors": [
+              "projection source mismatch"
+            ],
+            "missing": [],
+            "source_trust_limits": [
+              "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+              "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+              "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+              "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+            ],
+            "historical_claim": {
+              "state": "execution_complete",
+              "task": "success",
+              "trajectory": "complete"
+            },
+            "bundle_integrity": "valid",
+            "content_sha256": "807cd3362b8672920b71fc5038c3eaf4c27df20bec67b1cbf98874ff8f0ea8fc"
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evidence.Evidence.test_stable_scoped_readonly_export_and_atomic_failure",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b1-tests\\e212a14095c3",
+        "workers": [
+          {
+            "id": "0669ad230d1d4e839a3a118d1542b01b",
+            "run": "1bfd0ce2a11a4f8c8101aaf6b96a68fc",
+            "epoch": 1,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w5820dffde773",
+            "job": "Local\\Actio-ea69b942bc5a4748816e608e68f22c24",
+            "pid": 23232,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "26f3283dc2c04032b0ffc2f3b7d19146",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w25504052b613",
+            "job": "Local\\Actio-d5796e7987be4666a6048c0b805028b9",
+            "pid": 30420,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "9e175bcfc12b4969b486a85e86a7b61f",
+            "run": "f12f9f913b7c4644ba48eeff9eac72b6",
+            "epoch": 2,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wcefba1b8198a",
+            "job": "Local\\Actio-cb325470553049b885a001bd0502b91d",
+            "pid": 32572,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":3,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "f09ebfacb16c46b6820d7d781b5f8790",
+            "run": "0e2818a206c94d8a98d92933dcda3685",
+            "epoch": 3,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w0a97219d7951",
+            "job": "Local\\Actio-13e44e0f69fa471990f1053feba80109",
+            "pid": 29904,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "13fb114c7e334e938bff226c88179dff",
+            "run": "c88c24d0b24c45a291fa74adf0a64153",
+            "epoch": 4,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\w4e5a323baffd",
+            "job": "Local\\Actio-30a4807d83f0435f937ae6e32c46c6b0",
+            "pid": 25376,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          },
+          {
+            "id": "92ba5e4e3daf43769dbed15927f9f34a",
+            "run": "6500aa23f9f24ff78537777399df1dea",
+            "epoch": 5,
+            "root": "D:\\actio-p1b1-tests\\e212a14095c3\\wa0693d6b1725",
+            "job": "Local\\Actio-90f9439bf678453b84e9bfb2066cb3f2",
+            "pid": 28492,
+            "state": "reaped",
+            "report": "{\"before\":{\"total\":6,\"active\":6,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+          }
+        ],
+        "mode": "REAL_ENGINE_DSH_FIXTURE_EXPORT_AND_OFFLINE_MUTATION",
+        "bundles": {
+          "assistant": "D:\\actio-p1b1-tests\\e212a14095c3\\assistant",
+          "social": "D:\\actio-p1b1-tests\\e212a14095c3\\social",
+          "rejected": "D:\\actio-p1b1-tests\\e212a14095c3\\rejected",
+          "partial": "D:\\actio-p1b1-tests\\e212a14095c3\\partial",
+          "unknown": "D:\\actio-p1b1-tests\\e212a14095c3\\unknown"
+        },
+        "stable_content_hash": "af9629f0369e2596d949cd7ed25c956529123f6cd3d8164a30d8dcc372c13505"
+      }
+    }
+  ],
+  "tests_run": 6,
+  "exit_code": 0,
+  "source_hashes": {
+    "src/actio/cli.py": "cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/evidence.py": "ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+    "src/actio/scenarios.py": "023cec0ebde719edd06abb06aa5f017ba8c9c613c6a4bda231844e43c3eed25a",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/terminal.py": "e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5",
+    "src/actio/verify.py": "acb5e5e2b92b4c5354260c08c47169461c522ed305e7e75ef29d1f1dcaba75b1",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "tests/child_case.py": "5b74414c696e74451b7a2a11a4e379b59a448dd26be33460c75ecc663c9d665d",
+    "tests/entry_race.py": "e79bbc710ea017921c08608c2cf5ffffe93f93daa21a45b8bb85971b5c697bd4",
+    "tests/support.py": "c95ca8220c3b3e28eecf87d0a2e9c1741f2af699796f2f47da586dbfe807ec73",
+    "tests/test_contract.py": "9b1a55f1563a68ae2de7c00a6319b1029ecfea198b66077f9a3f0ea93c6ee122",
+    "tests/test_entry_concurrency.py": "e7e55ccbec635a8a2125bdbe68d1577dd99db36a8a10f454b334fdb26bcf6a20",
+    "tests/test_evidence.py": "1e89dd8c40a9a96b1020e75ed3cb5aeef7edfc7a0ec33d394d2273066bb3e89e",
+    "tests/test_failures.py": "ce159db675ed9b7ce1370d02f035693c5e1b7ee225b5a017eb4baae527ba93cf",
+    "tests/test_processes.py": "0787db4a32d232ff79e6f8acbba308f7d4247b0e7684ba89c31a69f6c53465cf",
+    "tests/test_reliability.py": "9ef01ebad39a6717c5ca9af983b15cb661f8c5141183a52773da39afc1d35992",
+    "tests/test_runtime.py": "b110c78a0ae91377e8b02e5e5341771358a16482ab82205e8693c0011dda866c",
+    "tests/test_schema.py": "fdf6142aba3a121ddca3c6207476813f6993fca4a34adcf4bfda5fad7c4bc74e",
+    "tests/fixtures/close_host.py": "9ede306b541854cc9cbd572fe7b68c8928374afcefe380bd05995d39380f8eca",
+    "tests/fixtures/faults.mjs": "afed8863c6eb7109527acd5f48100c61eec8d456eaff79c89f6bc975ae002574",
+    "tests/fixtures/mcp_hold.py": "353fb537f738173d658dc5ded9b8523b28f2cb5beb16f89734e9fe538abe41b2",
+    "tests/fixtures/provider.mjs": "db19aac2051a5723c35b371f4b050fab0e237a7c4021ab4684e1029b56d0c227",
+    "scripts/artifacts.py": "95bd35b85f8f8386ec1af96e7956a4af382b00278354d10a6aa93f519e43da23",
+    "scripts/bootstrap.py": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "scripts/build_manifest.py": "594374f9440846c531a8eecb13111a9fa2946d9bdf8c51cd162fe32a930e43a9",
+    "scripts/check_delivery.py": "259d7ca4882d6e717b9a4298b47c655f452e86fc001140517298020d0b9994a9",
+    "scripts/validate.py": "36e24df8488dd6659116625cbb89c900ba9ccf0cf06ee1912320efdac4340dfa"
+  },
+  "log": "test_complete_refusal_partial_unknown_are_separate_dimensions (test_evidence.Evidence.test_complete_refusal_partial_unknown_are_separate_dimensions) ... ok\ntest_missing_file_changed_hash_unknown_format_rejected (test_evidence.Evidence.test_missing_file_changed_hash_unknown_format_rejected) ... ok\ntest_missing_receipt_legacy_complete_and_active_prefix_not_promoted (test_evidence.Evidence.test_missing_receipt_legacy_complete_and_active_prefix_not_promoted) ... ok\ntest_portable_stdlib_process_denies_source_roots_runtime_and_network (test_evidence.Evidence.test_portable_stdlib_process_denies_source_roots_runtime_and_network) ... ok\ntest_rehashed_internal_contradictions_and_missing_memory_are_not_complete (test_evidence.Evidence.test_rehashed_internal_contradictions_and_missing_memory_are_not_complete) ... ok\ntest_stable_scoped_readonly_export_and_atomic_failure (test_evidence.Evidence.test_stable_scoped_readonly_export_and_atomic_failure) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 26.450s\n\nOK\n",
+  "log_sha256": "b2acf7a5a3b30b4669e272fe1bbe4e66c3d7d3d2f50f314ac570a59191e99c62"
+}

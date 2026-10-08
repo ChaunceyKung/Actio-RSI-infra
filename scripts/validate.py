@@ -43,14 +43,16 @@ if __name__=='__main__':
     output=io.StringIO()
     result=unittest.TextTestRunner(stream=output,verbosity=2,resultclass=Result).run(suite)
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:8]
-    target=ROOT/'docs/validation/phase1b/evidence';target.mkdir(parents=True,exist_ok=True)
+    target=ROOT/'docs/validation/phase1b1/evidence';target.mkdir(parents=True,exist_ok=True)
     log=output.getvalue()
     try:
         executable=Path(sys.executable).relative_to(ROOT).as_posix()
     except ValueError:
         executable=str(Path(sys.executable))
     data={'id':stamp,'suite':which,'command':f'{executable} -X utf8 scripts/validate.py {which}',
-          'mode':'SQLITE_CONTRACT' if which=='contract' else 'REAL_RUNTIME_FIXTURE_PROVIDER',
+          'mode':{'contract':'SQLITE_CONTRACT','schema':'SQLITE_MIGRATION_AND_REAL_PROCESS_INTERRUPTION',
+                  'reliability':'REAL_ENGINE_DSH_AND_CONTROLLED_BOUNDARIES','entry_concurrency':'TWO_CONTROL_PROCESS_ENTRY_RACES',
+                  'evidence':'REAL_FIXTURE_EXPORT_AND_OFFLINE_VERIFICATION'}.get(which,'REAL_RUNTIME_FIXTURE_PROVIDER'),
           'platform':platform.platform(),'python':sys.version,'tests':result.records,'tests_run':result.testsRun,
           'exit_code':0 if result.wasSuccessful() else 1,'source_hashes':hashes,'log':log,
           'log_sha256':hashlib.sha256(log.encode()).hexdigest()}

@@ -54,7 +54,7 @@ class Processes(unittest.TestCase):
         finally:k.CloseHandle(handle)
 
     def test_two_control_processes_one_lease(self):
-        Store(self.root/'ledger.sqlite').close()
+        Store(self.root/'ledger.sqlite',create=True).close()
         ps=[self.spawn('race',self.root) for _ in range(2)]
         self.wait_for(lambda:len(list(self.root.glob('ready-*')))==2)
         for p in ps:p.stdin.write(b'go\n');p.stdin.flush()
@@ -64,7 +64,7 @@ class Processes(unittest.TestCase):
         self.assertEqual(sum(r['winner'] for r in results),1)
         s=Store(self.root/'ledger.sqlite')
         try:
-            s.recover();self.assertIsNone(s.row('SELECT * FROM lease'))
+            s.recover(s.row('SELECT run FROM lease')['run']);self.assertIsNone(s.row('SELECT * FROM lease'))
         finally:s.close()
         self.evidence['cases']=results
 
@@ -78,7 +78,7 @@ class Processes(unittest.TestCase):
             self.assertIsNone(process_birth(marker['sdk_pid']))
             s=Store(root/'ledger.sqlite')
             try:
-                s.recover();run=s.run('crash-A' if mode=='A' else 'owner')
+                run=s.run('crash-A' if mode=='A' else 'owner');s.recover(run['id']);run=s.run(run['id'])
                 self.assertEqual(run['state'],'needs_reconcile')
                 if mode=='A':
                     op=s.row('SELECT * FROM operation');self.assertIsNone(op['receipt']);self.assertEqual(op['state'],'needs_reconcile')
@@ -121,7 +121,7 @@ class Processes(unittest.TestCase):
         out,err=p.communicate(timeout=40);self.assertEqual(p.returncode,84,err.decode())
         s=Store(root/'ledger.sqlite')
         try:
-            s.recover();m=Memory(s);ns=namespace('A','assistant')
+            s.recover('crash-D');m=Memory(s);ns=namespace('A','assistant')
             memory=m.retrieve(ns,'A');self.assertEqual(memory['as_of'],1);self.assertEqual(len(memory['items']),1)
             item=memory['items'][0]
             ack=m.write(ns,'A',item['source'],item['content'],0)

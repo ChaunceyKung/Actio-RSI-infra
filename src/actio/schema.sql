@@ -30,3 +30,7 @@ CREATE TABLE IF NOT EXISTS retrieval(id TEXT PRIMARY KEY,namespace TEXT,as_of IN
 CREATE TABLE IF NOT EXISTS world(run TEXT,step INTEGER,agent TEXT,intent TEXT,resolved TEXT,stream TEXT,seq INTEGER,
  PRIMARY KEY(run,step),FOREIGN KEY(stream,seq) REFERENCES occurrence(stream,seq));
 CREATE TABLE IF NOT EXISTS domain_receipt(op TEXT PRIMARY KEY REFERENCES operation(id),outcome TEXT,stream TEXT,seq INTEGER,body TEXT);
+CREATE TABLE IF NOT EXISTS request_identity(run TEXT PRIMARY KEY REFERENCES run(id),request_hash TEXT NOT NULL,request TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS scenario_terminal(run TEXT PRIMARY KEY REFERENCES run(id),version INTEGER NOT NULL,body TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS migration(id INTEGER PRIMARY KEY,source_version INTEGER,target_version INTEGER,backup_hash TEXT,source_store TEXT);
+PRAGMA user_version=2;

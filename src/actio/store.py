@@ -7,16 +7,27 @@ import sqlite3
 import time
 
 from .common import ContractError, canonical, digest, uid
+from . import database
 
 
 class Store:
-    def __init__(self, path):
+    def __init__(self, path, *, create=False, readonly=False):
         self.path = Path(path).resolve()
-        self.db = sqlite3.connect(self.path, timeout=10, isolation_level=None)
-        self.db.row_factory = sqlite3.Row
-        self.db.executescript(Path(__file__).with_name('schema.sql').read_text())
-        with self.tx():
-            self.db.execute("INSERT OR IGNORE INTO meta VALUES('store',?)", (uid(),))
+        self.claims = {}
+        if create and not self.path.exists():
+            database.create(self.path)
+        self.db = database.connect(self.path, readonly=readonly)
+        try:
+            self.version = database.inspect(self.db)
+            if self.version == 0 and not readonly:
+                raise ContractError('legacy database is read-only; migrate to a new copy')
+            self.db.execute('PRAGMA foreign_keys=ON')
+            if not readonly:
+                self.db.execute('PRAGMA journal_mode=WAL')
+                self.db.execute('PRAGMA synchronous=FULL')
+        except BaseException:
+            self.db.close()
+            raise
 
     def close(self):
         self.db.close()
@@ -53,28 +64,40 @@ class Store:
             self.db.execute('INSERT INTO agent VALUES(?,?,?)', (agent_id, digest(spec), canonical(spec)))
         return self.agent(agent_id)
 
-    def begin(self, request_key, inputs):
+    def begin(self, request_key, inputs, *, request=None):
         from .supervisor import process_birth
-        h = digest(inputs)
+        if not isinstance(request_key, str) or not request_key or len(request_key)>256:
+            raise ContractError('invalid request key')
+        requested = request if request is not None else inputs.get('request', inputs)
         with self.tx():
             old = self.row('SELECT * FROM run WHERE request_key=?', (request_key,))
             if old:
-                if old['input_hash'] != h:
+                old_input = json.loads(old['input'])
+                if digest(old_input.get('request', old_input)) != digest(requested):
                     raise ContractError('request key conflict')
                 return old, False
             if self.row('SELECT * FROM lease'):
                 raise ContractError('active lease; TTL cannot authorize takeover')
+            # Only the winner reads/fixes small DB snapshots; no model or worker here.
+            inputs = inputs() if callable(inputs) else inputs
+            if inputs.get('request', inputs) != requested:
+                raise ContractError('effective input does not bind normalized request')
+            h = digest(inputs)
             epoch = int(self.row("SELECT value FROM meta WHERE key='epoch'")['value']) + 1
             rid = uid()
             self.db.execute("UPDATE meta SET value=? WHERE key='epoch'", (str(epoch),))
             self.db.execute('INSERT INTO run(id,request_key,input_hash,input,epoch,state,task,trajectory,owner_pid,owner_birth,created) VALUES(?,?,?,?,?,?,?,?,?,?,?)',
                             (rid, request_key, h, canonical(inputs), epoch, 'allocated', 'unknown', 'incomplete', os.getpid(), process_birth(os.getpid()), int(time.time())))
             self.db.execute('INSERT INTO lease VALUES(1,?,?)', (rid, epoch))
+            self.db.execute('INSERT INTO request_identity VALUES(?,?,?)', (rid,digest(requested),canonical(requested)))
+        self.claims[rid] = (epoch, os.getpid())
         return self.run(rid), True
 
     def fence(self, run, epoch):
         if not self.row('SELECT * FROM lease WHERE run=? AND epoch=?', (run, epoch)):
             raise ContractError('stale epoch')
+        if self.claims.get(run) != (epoch, os.getpid()):
+            raise ContractError('execution owner claim required; readable run is not execution authority')
 
     def dispatch_fence(self, run, epoch):
         self.fence(run, epoch)
@@ -135,29 +158,51 @@ class Store:
             live = self.row("SELECT id FROM worker WHERE run=? AND state!='reaped'", (run,))
             if live:
                 raise ContractError('cannot release lease before job reaped')
-            complete = bool(ops) and all(o['state'] == 'execution_complete' for o in ops)
+            from .terminal import check_terminal
+            try:
+                check_terminal(self, run, task)
+                complete = True
+            except ContractError as error:
+                complete = False
+                self.audit(run, None, 'scenario_incomplete', {'reason': str(error)})
             state = 'execution_complete' if complete else ('needs_reconcile' if ops else 'infrastructure_failure')
             self.db.execute('UPDATE run SET state=?,task=?,trajectory=?,reason=? WHERE id=?',
-                            (state, task if complete else 'unknown', 'complete' if complete else 'incomplete', reason, run))
+                            (state, task if complete or task=='infrastructure_failure' else 'unknown', 'complete' if complete else 'incomplete', reason, run))
             self.db.execute('DELETE FROM lease WHERE run=? AND epoch=?', (run, epoch))
+        self.claims.pop(run, None)
         return self.run(run)
 
-    def recover(self):
+    def recover(self, target):
         from .supervisor import process_birth, reap_named_job
+        old = self.run(target)  # Resolve before looking at any other lease/Job.
         lease = self.row('SELECT * FROM lease')
         if not lease:
             return []
-        old = self.run(lease['run'])
+        if (lease['run'], lease['epoch']) != (old['id'],old['epoch']):
+            raise ContractError('recovery target does not own current lease')
         if process_birth(old['owner_pid']) == old['owner_birth']:
             raise ContractError('owner still alive; no takeover even after TTL')
         reports = []
-        for worker in self.rows('SELECT * FROM worker WHERE run=?', (old['id'],)):
+        workers = self.rows('SELECT * FROM worker WHERE run=? ORDER BY id', (old['id'],))
+        for worker in workers:
+            if self.row('SELECT * FROM lease') != lease:
+                raise ContractError('recovery lease changed before cleanup')
+            if worker['epoch'] != old['epoch'] or not worker['job'].startswith('Local\\Actio-'):
+                raise ContractError('unbound managed Job')
             reports.append((worker['id'], reap_named_job(worker['job'])))
         with self.tx():
-            self.fence(old['id'], old['epoch'])
+            if self.row('SELECT * FROM lease') != lease or self.run(old['id']) != old:
+                raise ContractError('recovery target/lease changed; reject old cleanup result')
+            if self.rows('SELECT * FROM worker WHERE run=? ORDER BY id', (old['id'],)) != workers:
+                raise ContractError('recovery worker set changed')
+            if process_birth(old['owner_pid']) == old['owner_birth']:
+                raise ContractError('owner still alive')
             for wid, report in reports:
+                if report.get('after', report).get('active') != 0:
+                    raise ContractError('Job cleanup unconfirmed')
                 self.db.execute("UPDATE worker SET state='reaped',report=? WHERE id=?", (canonical(report), wid))
             self.db.execute("UPDATE operation SET state='needs_reconcile',reason='owner died; never retry unknown dispatch' WHERE run=? AND state!='execution_complete'", (old['id'],))
             self.db.execute("UPDATE run SET state='needs_reconcile',trajectory='incomplete',task='unknown',reason='owner death verified; managed jobs quiesced' WHERE id=?", (old['id'],))
             self.db.execute('DELETE FROM lease WHERE run=?', (old['id'],))
+            self.audit(old['id'],None,'owner_recovered',{'epoch':old['epoch'],'reports':reports})
         return reports

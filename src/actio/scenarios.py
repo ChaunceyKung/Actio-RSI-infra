@@ -1,19 +1,23 @@
 """Two fixed synthetic environments using the same product RuntimePort."""
 import json
+import sys
 from pathlib import Path
 
 from .common import ContractError,canonical,digest,file_hash
 from .facts import Facts,wire
 from .memory import Memory,namespace
 from .runtime import RuntimePort,TOOL,CONCORDIA,PACKAGE,pins
+from .terminal import seal_terminal
 
 
-def existing(store,key,request):
-    old=store.row('SELECT * FROM run WHERE request_key=?',(key,))
-    if old:
-        if json.loads(old['input'])['request']!=request:
-            raise ContractError('request key conflict')
-        return old
+def failed(store, run, error):
+    """Keep the primary cause even when closing/finishing also fails."""
+    store.audit(run['id'],None,'primary_failure',{'type':type(error).__name__,'reason':str(error)})
+    try:
+        store.finish(run['id'],run['epoch'],task='infrastructure_failure',reason=type(error).__name__+': '+str(error))
+    except Exception as cleanup:
+        store.audit(run['id'],None,'cleanup_failure',{'reason':str(cleanup)})
+        error.add_note('cleanup/finish failed; lease retained: '+str(cleanup))
 
 
 def snapshot(store,agent,environment,source=None,as_of=None):
@@ -34,12 +38,13 @@ def final_source(store, result):
 
 def assistant(store,key,agent,short_root,*,runtime_type=RuntimePort):
     request={'scenario':'assistant','agent':agent}
-    old=existing(store,key,request)
-    if old:
-        return old
-    inputs={'request':request,'scenario':'assistant','agents':{agent:store.agent(agent)['spec_hash']},
+    def freeze():
+        return {'request':request,'scenario':'assistant','agents':{agent:store.agent(agent)['spec_hash']},
             'memory':{agent:snapshot(store,agent,'assistant')},'pins':pins(),'fixture':'read-reference-v1'}
-    run,_=store.begin(key,inputs)
+    run,fresh=store.begin(key,freeze,request=request)
+    if not fresh:
+        return run
+    inputs=json.loads(run['input'])
     try:
         with runtime_type(store,run,agent,short_root) as port:
             result=port.submit({'answer':'Reference recorded.','tool':TOOL,'args':{'key':'ok'},'memory':inputs['memory'][agent]})
@@ -53,9 +58,10 @@ def assistant(store,key,agent,short_root,*,runtime_type=RuntimePort):
             with store.tx():
                 store.db.execute('INSERT INTO domain_receipt VALUES(?,?,?,?,?)',(result['op'],'success' if success else 'task_failure',source[0],source[1],wire({'memory':memory,'tool_success':success})))
             port.confirm_effect()
+        seal_terminal(store,run['id'],run['epoch'],'success' if success else 'task_failure')
         return store.finish(run['id'],run['epoch'],task='success' if success else 'task_failure')
     except Exception as e:
-        store.finish(run['id'],run['epoch'],task='infrastructure_failure',reason=str(e))
+        failed(store,run,e)
         raise
 
 
@@ -69,29 +75,57 @@ def social_manifest(store,a,b,*,as_of=None,illegal=False):
             'mid_run_restore':False}
 
 
-def social(store,key,a,b,short_root,*,as_of=None,replay=None,illegal=False,runtime_type=RuntimePort):
+UNSET = object()
+
+
+def validate_replay(store, original, a, b):
+    required={'scenario','engine','source','world','entities','agents','observations','gm_private','observation_policy',
+              'action_spec','order','seed','max_steps','pins','fixture','illegal','memory','mid_run_restore'}
+    if not required <= original.keys():
+        raise ContractError('frozen replay required pin/snapshot missing')
+    if original['scenario']!='social' or original['entities']!={'A':a,'B':b}:
+        raise ContractError('replay manifest identity mismatch')
+    if original['pins']!=pins() or original['agents']!={n:store.agent(n)['spec_hash'] for n in (a,b)}:
+        raise ContractError('frozen replay pins unavailable')
+    if set(original['memory'])!={a,b}:
+        raise ContractError('frozen replay memory snapshot missing')
+    for value in original['memory'].values():
+        fields={'namespace','as_of','items','ordering','limit','content_byte_limit','truncated','target','context_hash'}
+        if set(value)!=fields:
+            raise ContractError('frozen replay required memory snapshot fields missing')
+        if digest({k:v for k,v in value.items() if k!='context_hash'})!=value['context_hash']:
+            raise ContractError('frozen replay memory snapshot hash mismatch')
+
+
+def social(store,key,a,b,short_root,*,as_of=UNSET,replay=None,illegal=UNSET,runtime_type=RuntimePort):
     if a==b:
         raise ContractError('two distinct identities required')
+    if replay and (as_of is not UNSET or illegal is not UNSET):
+        raise ContractError('frozen replay rejects explicit illegal/memory-revision overrides')
+    as_of=None if as_of is UNSET else as_of
+    illegal=False if illegal is UNSET else illegal
     request={'scenario':'social','a':a,'b':b,'as_of':as_of,'replay':replay,'illegal':illegal}
-    old=existing(store,key,request)
-    if old:
-        return old
-    if replay:
-        original=json.loads(store.run(replay)['input'])
-        if original['scenario']!='social' or original['entities']!={'A':a,'B':b}:
-            raise ContractError('replay manifest identity mismatch')
-        manifest={k:v for k,v in original.items() if k not in {'request','replay_of'}}
-        if manifest['pins']!=pins() or any(store.agent(n)['spec_hash']!=h for n,h in manifest['agents'].items()):
-            raise ContractError('frozen replay pins unavailable')
-    else:
-        manifest=social_manifest(store,a,b,as_of=as_of,illegal=illegal)
-    inputs={**manifest,'request':request,'replay_of':replay}
-    run,_=store.begin(key,inputs)
+    def freeze():
+        if replay:
+            source_run=store.run(replay)
+            original=json.loads(source_run['input'])
+            validate_replay(store,original,a,b)
+            if digest(original)!=source_run['input_hash']:
+                raise ContractError('frozen replay manifest hash mismatch')
+            manifest={k:v for k,v in original.items() if k not in {'request','replay_of'}}
+        else:
+            manifest=social_manifest(store,a,b,as_of=as_of,illegal=illegal)
+        return {**manifest,'request':request,'replay_of':replay}
+    run,fresh=store.begin(key,freeze,request=request)
+    if not fresh:
+        return run
+    manifest=json.loads(run['input'])
     try:
         outcome=run_engine(store,run,manifest,short_root,runtime_type)
+        seal_terminal(store,run['id'],run['epoch'],outcome)
         return store.finish(run['id'],run['epoch'],task=outcome)
     except Exception as e:
-        store.finish(run['id'],run['epoch'],task='infrastructure_failure',reason=str(e))
+        failed(store,run,e)
         raise
 
 
@@ -107,6 +141,9 @@ def run_engine(store,run,manifest,short_root,runtime_type):
     from concordia.environment.step_controller import StepController
     from concordia.typing import entity as entity_lib
 
+    class IllegalAction(ValueError):
+        pass
+
     class External(entity_lib.Entity):
         def __init__(self,label):
             self.label=label; self.observations=[]; self.port=None; self.result=None
@@ -117,7 +154,8 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             self.observations.append(observation)
         def act(self,action_spec):
             who=manifest['entities'][self.label]
-            self.port=runtime_type(store,run,who,short_root).start()
+            self.port=runtime_type(store,run,who,short_root)
+            self.port.start()
             self.result=self.port.submit({'answer':'INVALID' if manifest['illegal'] and self.label=='B' else 'cooperate',
                 'observations':self.observations,'memory':manifest['memory'][who],'action_spec':action_spec.to_dict()})
             try:
@@ -128,7 +166,7 @@ def run_engine(store,run,manifest,short_root,runtime_type):
                     store.db.execute('INSERT INTO domain_receipt VALUES(?,?,?,?,?)',(self.result['op'],'task_failure',source[0],source[1],wire({'rejected':'illegal_action','world_unchanged':True})))
                 self.port.confirm_effect()
                 self.port.close()
-                raise
+                raise IllegalAction('explicit illegal action rejected before world mutation')
             return self.result['answer']
 
     entities={label:External(label) for label in ('A','B')}
@@ -178,7 +216,7 @@ def run_engine(store,run,manifest,short_root,runtime_type):
         try:
             engine.run_loop(game_masters=[gm],entities=list(entities.values()),max_steps=2,
                 step_controller=StepController(start_paused=False),step_callback=lambda step:store.audit(run['id'],None,'engine_step',{'acting_entity':step.acting_entity}))
-        except ValueError:
+        except IllegalAction:
             if not manifest['illegal'] or gm.world or gm.resolved:
                 raise
             return 'task_failure'
@@ -186,6 +224,17 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             raise ContractError('Engine did not resolve both turns')
         return 'success'
     finally:
+        primary=sys.exception()
+        cleanup_errors=[]
         for entity in entities.values():
             if entity.port:
-                entity.port.close(force=True)
+                try:
+                    entity.port.close(force=True)
+                except Exception as cleanup:
+                    cleanup_errors.append(cleanup)
+                    store.audit(run['id'],None,'cleanup_failure',{'reason':str(cleanup),'entity':entity.label})
+        if cleanup_errors:
+            if primary is not None:
+                primary.add_note('cleanup failure: '+str(cleanup_errors[0]))
+            else:
+                raise cleanup_errors[0]

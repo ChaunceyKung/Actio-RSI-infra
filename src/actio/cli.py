@@ -7,8 +7,9 @@ from .common import ContractError
 from .facts import Facts
 from .memory import Memory,namespace
 from .runtime import RuntimePort,synthetic_spec
-from .scenarios import assistant,social
+from .scenarios import assistant,social,UNSET
 from .store import Store
+from .database import migrate_copy
 
 
 def main(argv=None):
@@ -17,10 +18,13 @@ def main(argv=None):
     p.add_argument('--short-root',type=Path,default=Path('D:/actio-p1b'))
     sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('init'); sub.add_parser('capabilities')
+    c=sub.add_parser('migrate'); c.add_argument('--output',required=True,type=Path)
+    c=sub.add_parser('export'); c.add_argument('run'); c.add_argument('--output',required=True,type=Path)
+    c=sub.add_parser('verify'); c.add_argument('bundle',type=Path)
     c=sub.add_parser('agent'); c.add_argument('id'); c.add_argument('--create',action='store_true')
     c=sub.add_parser('assistant'); c.add_argument('--agent',required=True); c.add_argument('--key',required=True)
     c=sub.add_parser('social'); c.add_argument('--a',required=True); c.add_argument('--b',required=True); c.add_argument('--key',required=True)
-    c.add_argument('--memory-revision',type=int); c.add_argument('--replay'); c.add_argument('--illegal',action='store_true')
+    c.add_argument('--memory-revision',type=int,default=UNSET); c.add_argument('--replay'); c.add_argument('--illegal',action='store_true',default=UNSET)
     c=sub.add_parser('query'); c.add_argument('run')
     c=sub.add_parser('reconcile'); c.add_argument('run'); c.add_argument('--recover-owner',action='store_true')
     c=sub.add_parser('memory'); c.add_argument('--agent',required=True); c.add_argument('--environment',choices=['assistant','social'],required=True)
@@ -33,8 +37,19 @@ def main(argv=None):
             result=RuntimePort.capabilities
         elif args.command=='require':
             RuntimePort.require(args.capability); result={'supported':True}
+        elif args.command=='migrate':
+            result=migrate_copy(args.db,args.output)
+        elif args.command=='export':
+            from .evidence import export_bundle
+            result=export_bundle(args.db,args.run,args.output)
+        elif args.command=='verify':
+            from .verify import verify_bundle
+            result=verify_bundle(args.bundle)
+            print(json.dumps(result,ensure_ascii=False,indent=2))
+            return 2 if result['bundle_integrity']!='valid' or result['facts_consistency']=='invalid' else 0
         else:
-            store=Store(args.db)
+            readonly=args.command=='query' or args.command=='agent' and not args.create
+            store=Store(args.db,create=args.command=='init',readonly=readonly)
             match args.command:
                 case 'init': result={'store':str(store.path),'initialized':True}
                 case 'agent': result=store.agent(args.id,synthetic_spec(args.id) if args.create else None)
@@ -44,10 +59,14 @@ def main(argv=None):
                     run=store.run(args.run)
                     result={'run':run,'operations':store.rows('SELECT * FROM operation WHERE run=?',(run['id'],)),
                             'streams':store.rows('SELECT * FROM stream WHERE run=?',(run['id'],)),
-                            'world':store.rows('SELECT * FROM world WHERE run=?',(run['id'],))}
+                            'world':store.rows('SELECT * FROM world WHERE run=?',(run['id'],)),
+                            'schema_version':store.version,
+                            'terminal':store.row('SELECT * FROM scenario_terminal WHERE run=?',(run['id'],)) if store.version else None,
+                            'current_verification':'legacy_unverified' if not store.version else 'use offline verify; historical state is not a current certificate'}
                 case 'reconcile':
-                    recovery=store.recover() if args.recover_owner else []
-                    result={'recovery':recovery,'facts':Facts(store).reconcile(store.run(args.run)['id']),'run':store.run(args.run)}
+                    target=store.run(args.run)
+                    recovery=store.recover(target['id']) if args.recover_owner else []
+                    result={'recovery':recovery,'facts':Facts(store).reconcile(target['id']),'run':store.run(target['id'])}
                 case 'memory': result=Memory(store).retrieve(namespace(args.agent,args.environment),args.agent,target=args.target,as_of=args.revision)
         print(json.dumps(result,ensure_ascii=False,indent=2))
         return 0

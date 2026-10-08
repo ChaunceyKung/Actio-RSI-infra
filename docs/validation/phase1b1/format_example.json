@@ -1,0 +1,10 @@
+{
+  "example_only": true,
+  "format": "actio-evidence",
+  "version": 1,
+  "source": {"store": "synthetic-store-id", "run": "synthetic-run-id", "schema": 2, "active_lease": false},
+  "files": [{"path": "evidence.json", "sha256": "computed-from-exact-utf8-bytes", "bytes": 123}],
+  "verification_dimensions": ["bundle_integrity", "facts_consistency", "scenario_completeness", "task_outcome", "execution_mode"],
+  "memory_source_scope": "selected occurrence + projection + namespace + effect proof; not recursive certification of previous episodes",
+  "publication": "write staging; verify; rename to previously absent destination"
+}

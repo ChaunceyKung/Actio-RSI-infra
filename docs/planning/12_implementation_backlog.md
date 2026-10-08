@@ -25,3 +25,5 @@ Priority：P0阻断主链，P1主MVP可延后外观，P2扩展。Source E-ID指�
 任务分解建议：每个B先产contract fixture/失败用例设计，再最小实现，再验证报告。已有上游测试按C拆解包保留；不写只镜像实现而无行为价值的测试。B03/B09是最高不确定性，不能后移到全部功能完成后。artifact admission若失败不再扩大同类调研，按R矩阵退出。
 
 2026-10-08：[Phase 1B](../validation/phase1b/README.md) 实现并验证 B04/B05/B06/B07/B08 的单机 fixture 子集；不表示表中完整任务全部完成。B09 仍未启动；原 eval_probe 的 scores=null/list/number/bool 四类结构错误须在提供 evaluator API 前修复并回归。本轮产品 evaluator capability=false。
+
+2026-10-08：[Phase 1B.1](../validation/phase1b1/03_gate.md) 修正场景终态、原子执行资格、目标恢复与 replay 输入；新增已知旧库迁移到副本、单 run 证据包与标准库离线 verifier。38 组聚合行为验收及干净安装通过，仍只准入受限 fixture。后续 Phase 1C0 先冻结离线测量合同和修复 envelope/parser；本轮未实现 evaluator、live 或候选演化。

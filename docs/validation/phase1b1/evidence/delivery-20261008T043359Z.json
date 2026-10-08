@@ -1,0 +1,448 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": ".local\\phase1b1-delivery-venv\\Scripts\\python.exe -X utf8 scripts/phase1b1_release.py",
+  "local_links_checked": 20,
+  "jobs": [
+    {
+      "job": "Local\\Actio-0068f1145aac4a059fdc5294c5a2f95a",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-009fad16388e48f2a000f7f874b2cb57",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-04e727ecb0b942de9a5a3040d1811bd5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-0559f810696b48f584bcf2981eb34639",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-073af12825fb4e32b2eb131fa40f328d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-09e5de3305ec4d799f2924814d3104cb",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-0bc435e87a424848b301e6da2fed7f5f",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-12ce0a53e4854cd6bcb95334bad90762",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-144a47829af6456eaa3494c35570b7d3",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-16254618f2b64492b9c40384183e2a72",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-16d603464c9647d1ab77b897897e0a41",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-1a2f29b7cd6a4ca3a3f7426cdb382dea",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-202dcda3d85245bb9fb7d225b0ba4a42",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-23aafd15d5b24bc497bb0582bd1f9420",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-33861b26fcff494d8ce7b953aa10e474",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-35753161bea7468eb73e65f02de32be9",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-3e4bb771d42947b68a9d9cc2ea6fa190",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-47bdb7d3396c4f9c9af251c7a7f2674a",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-48a9661d69bf4c558a54a449647858ee",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-4cb72b0baabe412cabdc3b7100add47c",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-586c8b7cda034da2978fd2dc107d8c5d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-588d2653843c4b3684e894705b206dd0",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-5f38f4284f36444dbe801f5ae3cf4343",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-659c44185b8c422bb4c3a673e2310dfb",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-690204ae3f9e408aaf53f9d8b839d11b",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-6cf445b8f8664f7fb44149bb1449f2fc",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-6e2e52a64a4b4d68ba22f30446b0bf37",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-714b25c1df06452b9ba7c4d6443aa0c5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-8b369a82b65d4ccfaf945e4648e0ed58",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-8ed748570b5c4f47b2425f50cc17d479",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-91dd69eaa96244bdbe2286ab2a7fb515",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-93700fe0db94442591257dc16d98e2ab",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-97cf46ff841b4e5db4680e10774d5ba5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a0ccb3d90401427198721eb738a6c4e7",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a0ed74f51e324e21bc057c5f55c6474c",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a1762093c4a84b848fc85e228d94e510",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a630905ed0a64362abed4983e45c9cc7",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a827ea2879ae4f5ebce702a935a2482d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-acedb8236de8415bbfa4452bdc9dcc1d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b08826aa9fa44e4e8ecf2c122165b1e1",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b1b70f4efbea44218988fec87b6acfbc",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b30eba5af1b944ba947084c4c3864ad8",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b3b9b2edb1db43bb98d6c67b099a2b78",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-bb47c8751c9d4afc8851ecac2e5f8615",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-cc153d566d504ddab006877a0acbc244",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d1314d7e21c9437891e99e154f0ccc37",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d1897de16d944e1f8cbe6a728b755412",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d26f4836c6e848788e0c89b3e45eb973",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d3594964ac4e45b39890ad2f9f8704c5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d36bab8685b94e14adf1d954d8809ff5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-da374d9d793d4a37a241588270a43458",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-db1840862eb947f6ac54ff663b858ed7",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-dbd3c9bacf1d4b0daeba71507976cd56",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-ddecc259eefa4a04a195ea2449039ec6",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-e0d348cd4a964e2684fd58ca217f6f72",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-e9ce082e97334a3cacc473ab2aeb01d3",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-eba1ba2c33f94e17b19484bd0c492afb",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-ef1907f578c5405b81f3b9202f5f2398",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-f3a63e4cf30c47c4bda64f496f650702",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fa26fc9e00754a74902fd020379a0765",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fba04f8f576c43be9a5fce1436a66c20",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fc169aeb271a442aab35ebffa8d7531f",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fd695713508043ac8ee9ba50d4fb9937",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fefde98bb01e4f4995760d6244fe1d2c",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-ffa054c6cb4f41628b7b669fea05e66c",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-test-11efe68c9f5448ea8e59f71235ad357d",
+      "active": 0
+    }
+  ],
+  "historical_paths_unchanged": [
+    "docs/validation/phase1a",
+    "docs/validation/phase1b",
+    "probes/phase1a",
+    "requirements.lock",
+    "src/actio/pins/concordia.json"
+  ],
+  "samples": {
+    "assistant": {
+      "files": {
+        "evidence.json": "1ca651fb62fad6fa521c3f63fcd07b4df11d2203a3d8e1a57c7b22ffbe1c55e9",
+        "export.json": "497589394ca0c3668330e2872736f4c18ab92ceb9600d1ed1e9d48d3e83a184f",
+        "manifest.json": "e8b536cdb220887db09697602e31d445bb51193966548420c1762ec2b48fc2a7",
+        "verification.json": "ac78018eecbc325ee4b44ad7036c872e04e8bcb38fd15f4cd71cb230aef3338f"
+      },
+      "verification": {
+        "facts_consistency": "consistent",
+        "scenario_completeness": "complete",
+        "task_outcome": "success",
+        "execution_mode": "fixture",
+        "recorded_prefix": "consistent",
+        "errors": [],
+        "missing": [],
+        "source_trust_limits": [
+          "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+          "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+          "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+          "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+        ],
+        "historical_claim": {
+          "state": "execution_complete",
+          "task": "success",
+          "trajectory": "complete"
+        },
+        "bundle_integrity": "valid",
+        "content_sha256": "1ca651fb62fad6fa521c3f63fcd07b4df11d2203a3d8e1a57c7b22ffbe1c55e9"
+      }
+    },
+    "partial": {
+      "files": {
+        "evidence.json": "99eb7e62276c41fdfa8d62d72fe454ead5314bdb8a3ddc73bf90204d9f309196",
+        "export.json": "0f1ecaa893d3c0d00671f62ba7fb7f78c9ad6d0b2a68f184d07b7d75f4ee1c8e",
+        "manifest.json": "9d899f4748e7aa048802f3fe87c8c7764c30d98d1e3912b8f86a5ac41fca7f65",
+        "verification.json": "cd66ab9bf2d981032e3b85bf97f491a25b5530fce62f6eb481935434342bcc03"
+      },
+      "verification": {
+        "facts_consistency": "partial",
+        "scenario_completeness": "partial",
+        "task_outcome": "infrastructure_failure",
+        "execution_mode": "fixture",
+        "recorded_prefix": "consistent",
+        "errors": [],
+        "missing": [
+          "scenario terminal"
+        ],
+        "source_trust_limits": [
+          "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+          "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+          "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+          "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+        ],
+        "historical_claim": {
+          "state": "needs_reconcile",
+          "task": "infrastructure_failure",
+          "trajectory": "incomplete"
+        },
+        "bundle_integrity": "valid",
+        "content_sha256": "99eb7e62276c41fdfa8d62d72fe454ead5314bdb8a3ddc73bf90204d9f309196"
+      }
+    },
+    "rejected": {
+      "files": {
+        "evidence.json": "0655fc6a3f0a036bd71d33cbaf618f946525bbca1b807184658be9a591b10f51",
+        "export.json": "8b9e1333b433fa2e989c26227da31f1bed1c86021cea57c79d883b8469f74d93",
+        "manifest.json": "48a8e18ecad9d6a2101102f05a4a709cbd6f7b3af9151e464826a62bee457c35",
+        "verification.json": "fc752b364a7e24b17c7ba7a793348b69b12beecb7d1fb30a5aad2f8a0d84b5c0"
+      },
+      "verification": {
+        "facts_consistency": "consistent",
+        "scenario_completeness": "complete",
+        "task_outcome": "task_failure",
+        "execution_mode": "fixture",
+        "recorded_prefix": "consistent",
+        "errors": [],
+        "missing": [],
+        "source_trust_limits": [
+          "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+          "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+          "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+          "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+        ],
+        "historical_claim": {
+          "state": "execution_complete",
+          "task": "task_failure",
+          "trajectory": "complete"
+        },
+        "bundle_integrity": "valid",
+        "content_sha256": "0655fc6a3f0a036bd71d33cbaf618f946525bbca1b807184658be9a591b10f51"
+      }
+    },
+    "social": {
+      "files": {
+        "evidence.json": "e471a1965041f0317f421584392e74c8f9faeaa4e714ddb8ab8dfdfc375fb850",
+        "export.json": "d1aa0fa270b0142c356b28a149132811cb29d849a911a5e309d0e8fc0687847a",
+        "manifest.json": "7eb7fcafd055be8a8fd8280ea4675f459dff4801e11da821a514aeb2a67f394c",
+        "verification.json": "002b25198b7e9ef23b0c7dd220e20b0e2a7268292159f815772fe6d192d863f8"
+      },
+      "verification": {
+        "facts_consistency": "consistent",
+        "scenario_completeness": "complete",
+        "task_outcome": "success",
+        "execution_mode": "fixture",
+        "recorded_prefix": "consistent",
+        "errors": [],
+        "missing": [],
+        "source_trust_limits": [
+          "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+          "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+          "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+          "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+        ],
+        "historical_claim": {
+          "state": "execution_complete",
+          "task": "success",
+          "trajectory": "complete"
+        },
+        "bundle_integrity": "valid",
+        "content_sha256": "e471a1965041f0317f421584392e74c8f9faeaa4e714ddb8ab8dfdfc375fb850"
+      }
+    },
+    "unknown": {
+      "files": {
+        "evidence.json": "d23fabd95164d757c9478666973478d5bb270da80a4445149385a3524b6848d0",
+        "export.json": "2f4d3b1389d8774bbe71c612798d65aff2620acc5f91a9c768d929fc6b714c9e",
+        "manifest.json": "a2f89605484a900c064c1af264201825f0e6c08dfe4dfd7c819238d48918becb",
+        "verification.json": "28ba905d0c3bb805df3cccc30d8939f0fd6e5dad68daf48ca4fa1291a6b830af"
+      },
+      "verification": {
+        "facts_consistency": "partial",
+        "scenario_completeness": "partial",
+        "task_outcome": "infrastructure_failure",
+        "execution_mode": "fixture",
+        "recorded_prefix": "partial",
+        "errors": [],
+        "missing": [
+          "native header: 2a867de2c05f4466878f859241e8cdce",
+          "native integrity: pending",
+          "canonical prefix not yet imported through flush: 535f3b8c76184a5e8561f0375924d119",
+          "scenario terminal"
+        ],
+        "source_trust_limits": [
+          "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+          "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+          "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+          "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+        ],
+        "historical_claim": {
+          "state": "needs_reconcile",
+          "task": "infrastructure_failure",
+          "trajectory": "incomplete"
+        },
+        "bundle_integrity": "valid",
+        "content_sha256": "d23fabd95164d757c9478666973478d5bb270da80a4445149385a3524b6848d0"
+      }
+    }
+  },
+  "documents": {
+    "README.md": "d0827bff6b99db1e9aa0f29386945d7a17a6a9766c1d095665c3e4ed0a03a4e0",
+    "docs/validation/phase1b1/01_contract.md": "200e75dc8239ebe904720d55719ecc893e78ca179a7cf9968fbcce0504e20d33",
+    "docs/validation/phase1b1/02_results.md": "4fd31bdc060e7af991da191ab1013e08773fc4146248a735e2596b7aa52b9ad1",
+    "docs/validation/phase1b1/03_gate.md": "a2f23f8ab609044c2f26e0bf56fe7d297925e08fa7540efc05d13e5eff17b294",
+    "docs/validation/phase1b1/04_bundle_format.md": "a0f728ccf8d7523a7ba3277a09330c92dc6e2f289ab81e79092c496af2027736",
+    "docs/validation/phase1b1/samples/README.md": "6a24643b6b2e843e830e5ed80e684d4e36de5d0395cc7aee4ab34ecba6593a27",
+    "docs/planning/12_implementation_backlog.md": "795ef143481195e8f85479046d98a84a6b6c56760a80edab979cf6e483ee1686"
+  },
+  "source_and_suite_bindings": "All current product hashes plus suite-specific test/fixture hashes checked; unrelated recorder/document additions do not invalidate earlier suites"
+}

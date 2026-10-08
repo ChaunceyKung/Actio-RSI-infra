@@ -1,0 +1,308 @@
+{
+  "id": "20261008T042315Z-4981967e",
+  "suite": "processes",
+  "command": ".local/phase1b1-final-venv/Scripts/python.exe -X utf8 scripts/validate.py processes",
+  "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_processes.Processes.test_abrupt_owner_exit_and_accepted_receipt_loss",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b-tests\\57ac517a828c",
+        "cases": [
+          {
+            "mode": "owner",
+            "marker": {
+              "job": "Local\\Actio-9dadcfe5349842458a464902543c2467",
+              "job_before": {
+                "active": 6,
+                "terminated": 0,
+                "total": 6
+              },
+              "sdk_pid": 17560,
+              "window": "owner"
+            },
+            "run": {
+              "id": "f1f961b13d7c4ca0856636a6fb60e18d",
+              "request_key": "owner",
+              "input_hash": "cf386288111d0735016c505b31736ae866de31ea0b789a2c337ab8a52db89876",
+              "input": "{\"agents\":{\"A\":\"551b910ed8af79f5c0a866cab8ac660d9d6200b2e3e10ca08526a7270b70f221\"},\"scenario\":\"assistant\"}",
+              "epoch": 1,
+              "state": "needs_reconcile",
+              "task": "unknown",
+              "trajectory": "incomplete",
+              "reason": "owner death verified; managed jobs quiesced",
+              "stop_requested": 0,
+              "owner_pid": 43168,
+              "owner_birth": "134359069745802784",
+              "created": 1791433375
+            },
+            "automatic_retries": 0,
+            "job_active_after_owner_exit": 0
+          },
+          {
+            "mode": "A",
+            "marker": {
+              "job": "Local\\Actio-13edc71b0f304a40b310353c53486461",
+              "job_before": {
+                "active": 6,
+                "terminated": 0,
+                "total": 6
+              },
+              "receipt": "719bf259-e23f-4b8a-ba1b-76ee23d16c87",
+              "sdk_pid": 31472,
+              "window": "A"
+            },
+            "run": {
+              "id": "aa71222ae4714fc48f941a66d8a8ea1d",
+              "request_key": "crash-A",
+              "input_hash": "1a5a1132e7aebdd6c07a5a3a31f94c4d4faa5649904609302e32999d16e9b5b0",
+              "input": "{\"agents\":{\"A\":\"551b910ed8af79f5c0a866cab8ac660d9d6200b2e3e10ca08526a7270b70f221\"},\"fixture\":\"read-reference-v1\",\"memory\":{\"A\":{\"as_of\":0,\"content_byte_limit\":16384,\"context_hash\":\"fccfa05e6c9a1ae2037108c569b0aba0086ba64012ab811bf717982e70cc79fe\",\"items\":[],\"limit\":8,\"namespace\":{\"agent\":\"A\",\"branch\":\"main\",\"environment\":\"assistant\",\"project\":\"synthetic\",\"visibility\":\"private\"},\"ordering\":\"revision DESC,id\",\"target\":\"assistant\",\"truncated\":false}},\"pins\":{\"binary_source_mapping\":\"unproven\",\"code\":{\"__init__.py\":\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\",\"__main__.py\":\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\",\"cli.py\":\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\",\"common.py\":\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\",\"database.py\":\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\",\"evidence.py\":\"ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a\",\"facts.py\":\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\",\"fixtures/provider.mjs\":\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\",\"host.py\":\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\",\"legacy_schema.sql\":\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\",\"mcp_server.py\":\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\",\"memory.py\":\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\",\"pins/concordia.json\":\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\",\"plugins/common.mjs\":\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\",\"plugins/guard.mjs\":\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\",\"runtime.py\":\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\",\"scenarios.py\":\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\",\"schema.sql\":\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\",\"store.py\":\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\",\"supervisor.py\":\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\",\"terminal.py\":\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\",\"verify.py\":\"77d13b77635f5b21b3db782732abb8fd6747f0e2a4f8a9df7e92d6fd0ef11c7a\"},\"concordia\":\"b71d202750e23444ce1bf28d9f114bcd88aa41db\",\"exe\":\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\",\"mcp\":\"1.26.0\",\"model\":\"fixed\",\"policy\":\"static-read-v1\",\"profile\":\"sdk-minimal+actio-v1\",\"provider\":\"actio-fixture\",\"registry\":\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\",\"reviewed_dsh_source\":\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\",\"runtime\":\"0.1.5rc1\",\"runtime_wheel\":\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\",\"sdk\":\"0.1.5rc1\",\"sdk_wheel\":\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\"},\"request\":{\"agent\":\"A\",\"scenario\":\"assistant\"},\"scenario\":\"assistant\"}",
+              "epoch": 1,
+              "state": "needs_reconcile",
+              "task": "unknown",
+              "trajectory": "incomplete",
+              "reason": "owner death verified; managed jobs quiesced",
+              "stop_requested": 0,
+              "owner_pid": 9288,
+              "owner_birth": "134359069790753203",
+              "created": 1791433380
+            },
+            "automatic_retries": 0,
+            "job_active_after_owner_exit": 0
+          }
+        ],
+        "files": {
+          "owner.json": "8fbbab968eef39e556d884fd1dbbec992d6606299c60bb1865efa41ab4e0f3e9",
+          "A/crash-marker.json": "38cbefd20d35b374ae39e1e8d8c6ca1db99a2fbf5dab97e4d128e10de30395ee",
+          "A/ledger.sqlite": "596c5bf932c5dc4822270e09bf59acf74279dd0a22911d175f77e6659da08c4f",
+          "owner/crash-marker.json": "ca728239534e08a3fadd8dccda20896d205a8bf2781dc8c9c77cde66dd9fed0c",
+          "owner/ledger.sqlite": "92207c2a69df610c4137f198843e207cc5e44bf1af35c765efd4ec4fde8fadf1",
+          "A/wdff364da928e/active.json": "1faba1e4a3aa760ef7b1bc63eed2cfdc05b36f5d21f964ea0182c185184b23ab",
+          "A/wdff364da928e/bridge.jsonl": "8630676af1cbc28c74ba020b154b4fc8a20086e634b5a4570205d22b689fe984",
+          "A/wdff364da928e/host-config.json": "9c70e95448490e5f29c59fc71799dfbd3baa1f0fdc5bcf15d89f58134238f518",
+          "A/wdff364da928e/host.jsonl": "25d9bbabb0c7547199208284f3a7246193db2d7ea0ca3c32456bbeaa31a23670",
+          "A/wdff364da928e/mcp.jsonl": "1af13012f0dc1fc1dfdf51dc763cba94662d5a211bd22f6fa90816ac2260d06e",
+          "A/wdff364da928e/owner.json": "38efd8ed80cbbf8ffdba41b61346204918b028e992231609994ebae2694ace74",
+          "A/wdff364da928e/policy.json": "5f605d166dad1b6a7b83262dd01a955ef8eb2cac903a1b719053efb9c5d8f0e1",
+          "A/wdff364da928e/provider.jsonl": "cf62dde34048120262a49fda3aa386e238aa21dae10f03da74cbeb83af481d3b",
+          "A/wdff364da928e/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "A/wdff364da928e/.cache/pkg/8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b/@koromix/koffi-win32-x64/package.json": "3c6d427795e7c1e18220dfa56d9dfdf392c62b074e7a061f84a55fe44857670f",
+          "A/wdff364da928e/home/profiles/sdk-minimal/package.json": "777238f4d83dd22276852ee865e06b60c4fcdce9e0ce9293cb6dd9cffc975e7b",
+          "owner/wbd9eb50c2fe0/active.json": "77e8a91a52d3ee4b243c5e914431f484af7ea20cea18a6278d61fe47b71f7d5b",
+          "owner/wbd9eb50c2fe0/bridge.jsonl": "e5619e516cd30bde82bf62c0205b3879923342a6caacf5467006a8e82ccf728d",
+          "owner/wbd9eb50c2fe0/host-config.json": "6211e743cf1ed48d02adb9f51d3ceca99ae5ebf7dd2511b6a28353f2a857d719",
+          "owner/wbd9eb50c2fe0/host.jsonl": "906ba560be4ad2d40a4b4487d6e681e57dbe1cd2bba1f519a95ea60325e5b4c4",
+          "owner/wbd9eb50c2fe0/mcp.jsonl": "d0d124c6d327c745153a3e9c754f956ee278f08b7ada75f032abdfe7cfeacd5b",
+          "owner/wbd9eb50c2fe0/owner.json": "f788c95013a5a5cbb645fece11f3d42b0a6792dc4045b8de10191f5d2371f430",
+          "owner/wbd9eb50c2fe0/policy.json": "2b78490d0e1a6d0409ce57842db305486be8b20f7d163a786d83bc608ddfa007",
+          "owner/wbd9eb50c2fe0/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "owner/wbd9eb50c2fe0/.cache/pkg/8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b/@koromix/koffi-win32-x64/package.json": "3c6d427795e7c1e18220dfa56d9dfdf392c62b074e7a061f84a55fe44857670f",
+          "owner/wbd9eb50c2fe0/home/profiles/sdk-minimal/package.json": "777238f4d83dd22276852ee865e06b60c4fcdce9e0ce9293cb6dd9cffc975e7b"
+        }
+      }
+    },
+    {
+      "id": "test_processes.Processes.test_mcp_received_before_result_real_sdk_host_kill",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b-tests\\3571bc37da08",
+        "cases": [
+          {
+            "window": "B",
+            "sdk_host_killed": 11044,
+            "run": {
+              "id": "c82fa923c1b34093b22239a5adf8f943",
+              "request_key": "crash-B",
+              "input_hash": "1a5a1132e7aebdd6c07a5a3a31f94c4d4faa5649904609302e32999d16e9b5b0",
+              "input": "{\"agents\":{\"A\":\"551b910ed8af79f5c0a866cab8ac660d9d6200b2e3e10ca08526a7270b70f221\"},\"fixture\":\"read-reference-v1\",\"memory\":{\"A\":{\"as_of\":0,\"content_byte_limit\":16384,\"context_hash\":\"fccfa05e6c9a1ae2037108c569b0aba0086ba64012ab811bf717982e70cc79fe\",\"items\":[],\"limit\":8,\"namespace\":{\"agent\":\"A\",\"branch\":\"main\",\"environment\":\"assistant\",\"project\":\"synthetic\",\"visibility\":\"private\"},\"ordering\":\"revision DESC,id\",\"target\":\"assistant\",\"truncated\":false}},\"pins\":{\"binary_source_mapping\":\"unproven\",\"code\":{\"__init__.py\":\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\",\"__main__.py\":\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\",\"cli.py\":\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\",\"common.py\":\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\",\"database.py\":\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\",\"evidence.py\":\"ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a\",\"facts.py\":\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\",\"fixtures/provider.mjs\":\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\",\"host.py\":\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\",\"legacy_schema.sql\":\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\",\"mcp_server.py\":\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\",\"memory.py\":\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\",\"pins/concordia.json\":\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\",\"plugins/common.mjs\":\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\",\"plugins/guard.mjs\":\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\",\"runtime.py\":\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\",\"scenarios.py\":\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\",\"schema.sql\":\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\",\"store.py\":\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\",\"supervisor.py\":\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\",\"terminal.py\":\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\",\"verify.py\":\"77d13b77635f5b21b3db782732abb8fd6747f0e2a4f8a9df7e92d6fd0ef11c7a\"},\"concordia\":\"b71d202750e23444ce1bf28d9f114bcd88aa41db\",\"exe\":\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\",\"mcp\":\"1.26.0\",\"model\":\"fixed\",\"policy\":\"static-read-v1\",\"profile\":\"sdk-minimal+actio-v1\",\"provider\":\"actio-fixture\",\"registry\":\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\",\"reviewed_dsh_source\":\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\",\"runtime\":\"0.1.5rc1\",\"runtime_wheel\":\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\",\"sdk\":\"0.1.5rc1\",\"sdk_wheel\":\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\"},\"request\":{\"agent\":\"A\",\"scenario\":\"assistant\"},\"scenario\":\"assistant\"}",
+              "epoch": 1,
+              "state": "needs_reconcile",
+              "task": "infrastructure_failure",
+              "trajectory": "incomplete",
+              "reason": "ContractError: SDK host exited before result",
+              "stop_requested": 0,
+              "owner_pid": 14764,
+              "owner_birth": "134359069841230760",
+              "created": 1791433385
+            },
+            "received": 1,
+            "tool_results": 0,
+            "report": {
+              "before": {
+                "total": 6,
+                "active": 0,
+                "terminated": 0
+              },
+              "after": {
+                "total": 6,
+                "active": 0,
+                "terminated": 0
+              }
+            }
+          }
+        ],
+        "files": {
+          "owner.json": "89359f4365597d45dbb7de0826302f51b2970639b2350266de06df35804425fa",
+          "B/crash-marker.json": "f4fe5d081ac872c8280c6c0eb9b32b7708deb06d0c2ff0b6e5577f45dc991bd3",
+          "B/ledger.sqlite": "3d34c9204d7847bc04b2f97aa522c40c357d686c94dec91a0d828d3bf72ad49c",
+          "B/wa55d3668106f/active.json": "38d0542ef1e7513e5f820663249a4cff27844d32d0a7c7d793d1c69b01951407",
+          "B/wa55d3668106f/bridge.jsonl": "2b17b0201c88f4d468d171b78463a56b0ce680695f1f431c5ce6004ef557eabf",
+          "B/wa55d3668106f/host-config.json": "f8a8121ca046af66bcf2e4e167f2c9edec0f66911469785690870d42bb44a6a2",
+          "B/wa55d3668106f/host.jsonl": "4438fa364b9916c7664cf34dbe10b2665699e0bb17fee9ea71e04e787a4177c9",
+          "B/wa55d3668106f/mcp.jsonl": "e84cd97e4d742a2a717b8dcf83c3b5d98d16ed910a8712c4ddf8078d0f0b04fb",
+          "B/wa55d3668106f/owner.json": "05e0ab2bae71cf2bf780164afd31399e541f5c6a3859291fc8a51a43574d96d8",
+          "B/wa55d3668106f/policy.json": "97b8059c1a823d8b8fa6e6bd67afa3d1f89f7f22264fda7e537c383eb895630e",
+          "B/wa55d3668106f/provider.jsonl": "d50ab3710915a0b1c3830a1c0d875e8270a35dcaa4d05f5875b8b95d3dbb299d",
+          "B/wa55d3668106f/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "B/wa55d3668106f/.cache/pkg/8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b/@koromix/koffi-win32-x64/package.json": "3c6d427795e7c1e18220dfa56d9dfdf392c62b074e7a061f84a55fe44857670f",
+          "B/wa55d3668106f/home/profiles/sdk-minimal/package.json": "777238f4d83dd22276852ee865e06b60c4fcdce9e0ce9293cb6dd9cffc975e7b",
+          "B/wa55d3668106f/home/sessions/--D-actio-p1b-tests-3571bc37da08-B-wa55d3668106f--/s1e4ba469565c465f844ab5260d822ea2/session.v3.jsonl": "2f96eba89a0b346754d0421f6d71aa3f8a1ef04f83490932b95756f69e93c6ea"
+        }
+      }
+    },
+    {
+      "id": "test_processes.Processes.test_memory_commit_before_caller_ack_process_death",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b-tests\\c7039de440d4",
+        "cases": [
+          {
+            "window": "D",
+            "memory": {
+              "namespace": {
+                "project": "synthetic",
+                "agent": "A",
+                "environment": "assistant",
+                "branch": "main",
+                "visibility": "private"
+              },
+              "as_of": 1,
+              "items": [
+                {
+                  "id": "b3bb292bc824476bbdec110ff8174c5c",
+                  "revision": 1,
+                  "content": "PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17",
+                  "source": [
+                    "67fdef26a5f54349b31fd1ea22da2b8c",
+                    14,
+                    "assistant.final"
+                  ]
+                }
+              ],
+              "ordering": "revision DESC,id",
+              "limit": 8,
+              "content_byte_limit": 16384,
+              "truncated": false,
+              "target": "assistant",
+              "context_ref": "d042ee735e3a484ab80649a0f0639a96",
+              "context_hash": "e69aa325177b2ebedff06b331eb57bb1cf1135a1472ed49e2e94f14a080d5849"
+            },
+            "recovered_ack": {
+              "consumer": "episodic",
+              "stream": "67fdef26a5f54349b31fd1ea22da2b8c",
+              "seq": 14,
+              "slot": "assistant.final",
+              "memory_id": "b3bb292bc824476bbdec110ff8174c5c",
+              "revision": 1,
+              "namespace": "{\"agent\":\"A\",\"branch\":\"main\",\"environment\":\"assistant\",\"project\":\"synthetic\",\"visibility\":\"private\"}"
+            },
+            "memory_rows": 1,
+            "effect_rows": 1
+          }
+        ],
+        "files": {
+          "owner.json": "6aee14c06eca9619e7e1c566269179d616341e1d82e2bdd8a6ff2a1648ee5179",
+          "D/crash-marker.json": "ed95b6c33061f3e030d46a3e3c3219d2da6c840b5230dd33e63a02fbed61e920",
+          "D/ledger.sqlite": "6065fcafac1d5bda046029717f7189370c285dfd766955c6434f229b8fd849d3",
+          "D/wa9a37ff5b7a1/active.json": "9b1186394e54744751b24b43a04a9714bd38b4cac0e14cc4aad5deb90c034f99",
+          "D/wa9a37ff5b7a1/bridge.jsonl": "aad64fb5cb3025f5b2a86c1b116cfcc725fb3df5e10df7da1f0c3b86b8f624e2",
+          "D/wa9a37ff5b7a1/host-config.json": "b593ff48783b0b98b7688c6c118e6d67ecd374026fb3e6d46b343f48bb0ba861",
+          "D/wa9a37ff5b7a1/host.jsonl": "84f77a27620d0e442e741718915d632db67bab09c7b8b9af7658061851869e56",
+          "D/wa9a37ff5b7a1/mcp.jsonl": "59de4717e8d14123fe9d54216a4e19f2c350d38631b099586630e1cc1678c627",
+          "D/wa9a37ff5b7a1/owner.json": "aec2b60b479dc0278378fa3741083cff738e01edc325f0d41891c3ff35855120",
+          "D/wa9a37ff5b7a1/policy.json": "a33f0660ef12961c893a5d39154c970e09aa32d78496a0659934ebb458a2878e",
+          "D/wa9a37ff5b7a1/provider.jsonl": "46ea2099b189c9f9542de666be0331ab27b167f327b462f129f6e0a37479a2a9",
+          "D/wa9a37ff5b7a1/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "D/wa9a37ff5b7a1/.cache/pkg/8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b/@koromix/koffi-win32-x64/package.json": "3c6d427795e7c1e18220dfa56d9dfdf392c62b074e7a061f84a55fe44857670f",
+          "D/wa9a37ff5b7a1/home/profiles/sdk-minimal/package.json": "777238f4d83dd22276852ee865e06b60c4fcdce9e0ce9293cb6dd9cffc975e7b",
+          "D/wa9a37ff5b7a1/home/sessions/--D-actio-p1b-tests-c7039de440d4-D-wa9a37ff5b7a1--/scaab71b7aacd4cb292f4a32d943a958f/session.v3.jsonl": "ed0bbc606d9e592f0fdd6f0bf7342c0673462bedd6f213e56b96b27176c9497a"
+        }
+      }
+    },
+    {
+      "id": "test_processes.Processes.test_two_control_processes_one_lease",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-p1b-tests\\44f61fcc5f47",
+        "cases": [
+          {
+            "winner": true,
+            "run": "c5bdd883f2ac429db49150a0bf8ae95e"
+          },
+          {
+            "winner": false,
+            "reason": "active lease; TTL cannot authorize takeover"
+          }
+        ],
+        "files": {
+          "ledger.sqlite": "f093aba4335a9d3495b078f5b80674df2bee2a31935413a45a6d43e311b52a35",
+          "owner.json": "2dc6979c9f517e4bc638dd4e01f2c0bc5334b65381405c160d5094b03bec1bf4"
+        }
+      }
+    }
+  ],
+  "tests_run": 4,
+  "exit_code": 0,
+  "source_hashes": {
+    "src/actio/cli.py": "cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/evidence.py": "ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+    "src/actio/scenarios.py": "dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/terminal.py": "e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5",
+    "src/actio/verify.py": "77d13b77635f5b21b3db782732abb8fd6747f0e2a4f8a9df7e92d6fd0ef11c7a",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "tests/child_case.py": "819125d17afba6c268cfd6bafc972d52182fa95be3d9e49f2470f156bc7afedf",
+    "tests/entry_race.py": "e79bbc710ea017921c08608c2cf5ffffe93f93daa21a45b8bb85971b5c697bd4",
+    "tests/support.py": "c95ca8220c3b3e28eecf87d0a2e9c1741f2af699796f2f47da586dbfe807ec73",
+    "tests/test_contract.py": "b582d843789bcbfc4475915aa97656f146173649923b7f0fd0d333f344b6063f",
+    "tests/test_entry_concurrency.py": "e7e55ccbec635a8a2125bdbe68d1577dd99db36a8a10f454b334fdb26bcf6a20",
+    "tests/test_evidence.py": "d5f0c6a1cf0f3f1f9642fe4874872dafc4fa1837c8df67a47b9eecfb234b8693",
+    "tests/test_failures.py": "b294dfc73c44ef80f20ac8c8de1987226b7d4f892bb9107b52c4084611456a7b",
+    "tests/test_processes.py": "d52994263787aea7716330236fa6c21b5687fc9ace64fe5601d02630ddc4d464",
+    "tests/test_reliability.py": "c76d6ff1fd686127ea70f7b0599d9f554765336f2ebef00e253acddf4c20213b",
+    "tests/test_runtime.py": "a85fe0690a2dfeab8ff53df6931aab97b8cb83f5e44fa6b1385cf191142b249b",
+    "tests/test_schema.py": "e65beac0b20482b647f034191c3c3a7483d97a17c67710282b942ebd0387f11f",
+    "tests/fixtures/close_host.py": "9ede306b541854cc9cbd572fe7b68c8928374afcefe380bd05995d39380f8eca",
+    "tests/fixtures/faults.mjs": "afed8863c6eb7109527acd5f48100c61eec8d456eaff79c89f6bc975ae002574",
+    "tests/fixtures/mcp_hold.py": "353fb537f738173d658dc5ded9b8523b28f2cb5beb16f89734e9fe538abe41b2",
+    "tests/fixtures/provider.mjs": "db19aac2051a5723c35b371f4b050fab0e237a7c4021ab4684e1029b56d0c227",
+    "scripts/artifacts.py": "95bd35b85f8f8386ec1af96e7956a4af382b00278354d10a6aa93f519e43da23",
+    "scripts/bootstrap.py": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "scripts/build_manifest.py": "594374f9440846c531a8eecb13111a9fa2946d9bdf8c51cd162fe32a930e43a9",
+    "scripts/check_delivery.py": "259d7ca4882d6e717b9a4298b47c655f452e86fc001140517298020d0b9994a9",
+    "scripts/phase1b1_artifacts.py": "2c1be25cb67eb70980256cb035419b92ae4e1ff9731c9f366d4309c2e1e1ab07",
+    "scripts/phase1b1_release.py": "61ee4fff43a10f85f724e92c2725e2363bc2e6cac5fcc9763045f1e08174e9bd",
+    "scripts/phase1b1_smoke.py": "673bc96a7e5b51f47857f8fbf8814574e2b6753dca6f755e4f62f35f1019d9be",
+    "scripts/validate.py": "9a6f8a09638d9ae2a69dbcfc2f902223bf5ced1035e49e82198a253d29cc0e03"
+  },
+  "log": "test_abrupt_owner_exit_and_accepted_receipt_loss (test_processes.Processes.test_abrupt_owner_exit_and_accepted_receipt_loss) ... ok\ntest_mcp_received_before_result_real_sdk_host_kill (test_processes.Processes.test_mcp_received_before_result_real_sdk_host_kill) ... ok\ntest_memory_commit_before_caller_ack_process_death (test_processes.Processes.test_memory_commit_before_caller_ack_process_death) ... ok\ntest_two_control_processes_one_lease (test_processes.Processes.test_two_control_processes_one_lease) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 21.448s\n\nOK\n",
+  "log_sha256": "c71b669cdaafe7123edc0f0df026d62cf00754ea15622ee4814f7f5ac818a73d"
+}

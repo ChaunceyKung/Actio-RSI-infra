@@ -17,7 +17,7 @@ class Failures(unittest.TestCase):
     def setUp(self):
         self.root=Path('D:/actio-p1b-tests')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         write_json(self.root/'owner.json',{'test':self.id()})
-        self.s=Store(self.root/'ledger.sqlite');self.s.agent('A',synthetic_spec('A'))
+        self.s=Store(self.root/'ledger.sqlite',create=True);self.s.agent('A',synthetic_spec('A'))
         self.evidence={'root':str(self.root),'cases':[]};self.ports=[]
 
     def tearDown(self):

@@ -11,3 +11,6 @@
 /src/actio/pins/*.json -text !eol whitespace=cr-at-eol
 /requirements.lock -text !eol whitespace=cr-at-eol
 /.gitattributes text eol=lf
+/docs/validation/phase1b1/** text eol=lf
+/docs/validation/phase1b1/**/*.json -text !eol whitespace=cr-at-eol
+/docs/validation/phase1b1/evidence_manifest.json -text !eol whitespace=cr-at-eol

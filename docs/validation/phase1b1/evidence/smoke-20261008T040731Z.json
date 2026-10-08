@@ -1,0 +1,519 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "mode": "CLEAN_INSTALL_PUBLIC_CLI_REAL_ENGINE_DSH_FIXTURE",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "root": "D:\\actio-p1b1-demo\\wf0388bc616c3",
+  "pins": {
+    "sdk": "0.1.5rc1",
+    "runtime": "0.1.5rc1",
+    "exe": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+    "concordia": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+    "mcp": "1.26.0",
+    "sdk_wheel": "8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8",
+    "runtime_wheel": "d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf",
+    "reviewed_dsh_source": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+    "binary_source_mapping": "unproven",
+    "profile": "sdk-minimal+actio-v1",
+    "provider": "actio-fixture",
+    "model": "fixed",
+    "policy": "static-read-v1",
+    "registry": "ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d",
+    "code": {
+      "__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+      "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "cli.py": "cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf",
+      "common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+      "database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+      "evidence.py": "ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21",
+      "facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+      "fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+      "host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+      "legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+      "mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+      "memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+      "pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+      "plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+      "plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+      "runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+      "scenarios.py": "dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a",
+      "schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+      "store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+      "supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+      "terminal.py": "e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5",
+      "verify.py": "8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "init"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"store\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\ledger.sqlite\",\n  \"initialized\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "agent",
+        "A",
+        "--create"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"id\": \"A\",\n  \"spec_hash\": \"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\",\n  \"spec\": {\n    \"memory_shares\": [\n      [\n        \"assistant\",\n        \"social\"\n      ]\n    ],\n    \"persona\": \"SYNTHETIC_PERSONA_A\",\n    \"persona_hash\": \"0c2d163ed9a1bff023af1f9238fca74690132cc4b8469bdb49aee1869046ab10\",\n    \"persona_source\": \"synthetic-inline-v1\",\n    \"pins\": {\n      \"binary_source_mapping\": \"unproven\",\n      \"code\": {\n        \"__init__.py\": \"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\",\n        \"__main__.py\": \"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\",\n        \"cli.py\": \"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\",\n        \"common.py\": \"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\",\n        \"database.py\": \"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\",\n        \"evidence.py\": \"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\",\n        \"facts.py\": \"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\",\n        \"fixtures/provider.mjs\": \"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\",\n        \"host.py\": \"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\",\n        \"legacy_schema.sql\": \"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\",\n        \"mcp_server.py\": \"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\",\n        \"memory.py\": \"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\",\n        \"pins/concordia.json\": \"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\",\n        \"plugins/common.mjs\": \"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\",\n        \"plugins/guard.mjs\": \"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\",\n        \"runtime.py\": \"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\",\n        \"scenarios.py\": \"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\",\n        \"schema.sql\": \"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\",\n        \"store.py\": \"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\",\n        \"supervisor.py\": \"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\",\n        \"terminal.py\": \"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\",\n        \"verify.py\": \"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\"\n      },\n      \"concordia\": \"b71d202750e23444ce1bf28d9f114bcd88aa41db\",\n      \"exe\": \"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\",\n      \"mcp\": \"1.26.0\",\n      \"model\": \"fixed\",\n      \"policy\": \"static-read-v1\",\n      \"profile\": \"sdk-minimal+actio-v1\",\n      \"provider\": \"actio-fixture\",\n      \"registry\": \"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\",\n      \"reviewed_dsh_source\": \"5badb15009ae1756c3afe0ae0cef1faafc290ccc\",\n      \"runtime\": \"0.1.5rc1\",\n      \"runtime_wheel\": \"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\",\n      \"sdk\": \"0.1.5rc1\",\n      \"sdk_wheel\": \"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\"\n    },\n    \"prompt_version\": \"fixture-v1\",\n    \"version\": 1\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "agent",
+        "B",
+        "--create"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"id\": \"B\",\n  \"spec_hash\": \"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\",\n  \"spec\": {\n    \"memory_shares\": [\n      [\n        \"assistant\",\n        \"social\"\n      ]\n    ],\n    \"persona\": \"SYNTHETIC_PERSONA_B\",\n    \"persona_hash\": \"9acc1f22e3f1b01b2d77237d90a0caf0e3286ed6c20bd22d2fd5bb3f13063cc4\",\n    \"persona_source\": \"synthetic-inline-v1\",\n    \"pins\": {\n      \"binary_source_mapping\": \"unproven\",\n      \"code\": {\n        \"__init__.py\": \"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\",\n        \"__main__.py\": \"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\",\n        \"cli.py\": \"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\",\n        \"common.py\": \"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\",\n        \"database.py\": \"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\",\n        \"evidence.py\": \"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\",\n        \"facts.py\": \"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\",\n        \"fixtures/provider.mjs\": \"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\",\n        \"host.py\": \"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\",\n        \"legacy_schema.sql\": \"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\",\n        \"mcp_server.py\": \"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\",\n        \"memory.py\": \"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\",\n        \"pins/concordia.json\": \"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\",\n        \"plugins/common.mjs\": \"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\",\n        \"plugins/guard.mjs\": \"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\",\n        \"runtime.py\": \"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\",\n        \"scenarios.py\": \"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\",\n        \"schema.sql\": \"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\",\n        \"store.py\": \"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\",\n        \"supervisor.py\": \"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\",\n        \"terminal.py\": \"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\",\n        \"verify.py\": \"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\"\n      },\n      \"concordia\": \"b71d202750e23444ce1bf28d9f114bcd88aa41db\",\n      \"exe\": \"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\",\n      \"mcp\": \"1.26.0\",\n      \"model\": \"fixed\",\n      \"policy\": \"static-read-v1\",\n      \"profile\": \"sdk-minimal+actio-v1\",\n      \"provider\": \"actio-fixture\",\n      \"registry\": \"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\",\n      \"reviewed_dsh_source\": \"5badb15009ae1756c3afe0ae0cef1faafc290ccc\",\n      \"runtime\": \"0.1.5rc1\",\n      \"runtime_wheel\": \"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\",\n      \"sdk\": \"0.1.5rc1\",\n      \"sdk_wheel\": \"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\"\n    },\n    \"prompt_version\": \"fixture-v1\",\n    \"version\": 1\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "assistant",
+        "--agent",
+        "A",
+        "--key",
+        "assistant-one"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"id\": \"3bee9ec6875d4826b693d81654a9cd25\",\n  \"request_key\": \"assistant-one\",\n  \"input_hash\": \"6f1d5f1d7227623f49ab4b2191c2e8a9b43fb9d9a1534964b8eeab909243f4d5\",\n  \"input\": \"{\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\"},\\\"fixture\\\":\\\"read-reference-v1\\\",\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"fccfa05e6c9a1ae2037108c569b0aba0086ba64012ab811bf717982e70cc79fe\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"assistant\\\",\\\"truncated\\\":false}},\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"request\\\":{\\\"agent\\\":\\\"A\\\",\\\"scenario\\\":\\\"assistant\\\"},\\\"scenario\\\":\\\"assistant\\\"}\",\n  \"epoch\": 1,\n  \"state\": \"execution_complete\",\n  \"task\": \"success\",\n  \"trajectory\": \"complete\",\n  \"reason\": null,\n  \"stop_requested\": 0,\n  \"owner_pid\": 21036,\n  \"owner_birth\": \"134359059656584030\",\n  \"created\": 1791432367\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "social",
+        "--a",
+        "A",
+        "--b",
+        "B",
+        "--key",
+        "social-one",
+        "--memory-revision",
+        "1"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"id\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n  \"request_key\": \"social-one\",\n  \"input_hash\": \"59ec13b3810c8b927f0992647fabdcea95795bbc123ca5e62ca09e38eba473b7\",\n  \"input\": \"{\\\"action_spec\\\":{\\\"call_to_action\\\":\\\"Choose a legal action.\\\",\\\"options\\\":[\\\"cooperate\\\",\\\"wait\\\"]},\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\",\\\"B\\\":\\\"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\\\"},\\\"engine\\\":\\\"concordia.Sequential\\\",\\\"entities\\\":{\\\"A\\\":\\\"A\\\",\\\"B\\\":\\\"B\\\"},\\\"fixture\\\":\\\"cooperate-v1\\\",\\\"gm_private\\\":\\\"GM_PRIVATE_FULL_LOG\\\",\\\"illegal\\\":false,\\\"max_steps\\\":2,\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":1,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"5a68892a2926ee6a2d1db9826ef81a91584c1b4c14a4d3e661cfea2bd9086340\\\",\\\"items\\\":[{\\\"content\\\":\\\"PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17\\\",\\\"id\\\":\\\"3503ff5056024b17b7f1ec8ecb8abf46\\\",\\\"revision\\\":1,\\\"source\\\":[\\\"103ee867bede4876ac8f8f1bd0f10331\\\",14,\\\"assistant.final\\\"]}],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false},\\\"B\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"db6db4d7bed80d1c94cf2bb424b10e80be8e9b911b9398b150d4e42d31b5face\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"B\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"social\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false}},\\\"mid_run_restore\\\":false,\\\"observation_policy\\\":\\\"own-only-v1\\\",\\\"observations\\\":{\\\"A\\\":\\\"PRIVATE_ONLY_A\\\",\\\"B\\\":\\\"PRIVATE_ONLY_B\\\"},\\\"order\\\":[\\\"B\\\",\\\"A\\\"],\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"replay_of\\\":null,\\\"request\\\":{\\\"a\\\":\\\"A\\\",\\\"as_of\\\":1,\\\"b\\\":\\\"B\\\",\\\"illegal\\\":false,\\\"replay\\\":null,\\\"scenario\\\":\\\"social\\\"},\\\"scenario\\\":\\\"social\\\",\\\"seed\\\":0,\\\"source\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"world\\\":[]}\",\n  \"epoch\": 2,\n  \"state\": \"execution_complete\",\n  \"task\": \"success\",\n  \"trajectory\": \"complete\",\n  \"reason\": null,\n  \"stop_requested\": 0,\n  \"owner_pid\": 13240,\n  \"owner_birth\": \"134359059757007806\",\n  \"created\": 1791432376\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "social",
+        "--a",
+        "A",
+        "--b",
+        "B",
+        "--key",
+        "replay-one",
+        "--replay",
+        "social-one"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"id\": \"f1b58653083e40e1af9bbe772cd27d99\",\n  \"request_key\": \"replay-one\",\n  \"input_hash\": \"7a95e2deb603101794d533b3a6244f0e5aa6cf9c5d288f7092f05f09852641d4\",\n  \"input\": \"{\\\"action_spec\\\":{\\\"call_to_action\\\":\\\"Choose a legal action.\\\",\\\"options\\\":[\\\"cooperate\\\",\\\"wait\\\"]},\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\",\\\"B\\\":\\\"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\\\"},\\\"engine\\\":\\\"concordia.Sequential\\\",\\\"entities\\\":{\\\"A\\\":\\\"A\\\",\\\"B\\\":\\\"B\\\"},\\\"fixture\\\":\\\"cooperate-v1\\\",\\\"gm_private\\\":\\\"GM_PRIVATE_FULL_LOG\\\",\\\"illegal\\\":false,\\\"max_steps\\\":2,\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":1,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"5a68892a2926ee6a2d1db9826ef81a91584c1b4c14a4d3e661cfea2bd9086340\\\",\\\"items\\\":[{\\\"content\\\":\\\"PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17\\\",\\\"id\\\":\\\"3503ff5056024b17b7f1ec8ecb8abf46\\\",\\\"revision\\\":1,\\\"source\\\":[\\\"103ee867bede4876ac8f8f1bd0f10331\\\",14,\\\"assistant.final\\\"]}],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false},\\\"B\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"db6db4d7bed80d1c94cf2bb424b10e80be8e9b911b9398b150d4e42d31b5face\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"B\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"social\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false}},\\\"mid_run_restore\\\":false,\\\"observation_policy\\\":\\\"own-only-v1\\\",\\\"observations\\\":{\\\"A\\\":\\\"PRIVATE_ONLY_A\\\",\\\"B\\\":\\\"PRIVATE_ONLY_B\\\"},\\\"order\\\":[\\\"B\\\",\\\"A\\\"],\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"replay_of\\\":\\\"social-one\\\",\\\"request\\\":{\\\"a\\\":\\\"A\\\",\\\"as_of\\\":null,\\\"b\\\":\\\"B\\\",\\\"illegal\\\":false,\\\"replay\\\":\\\"social-one\\\",\\\"scenario\\\":\\\"social\\\"},\\\"scenario\\\":\\\"social\\\",\\\"seed\\\":0,\\\"source\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"world\\\":[]}\",\n  \"epoch\": 3,\n  \"state\": \"execution_complete\",\n  \"task\": \"success\",\n  \"trajectory\": \"complete\",\n  \"reason\": null,\n  \"stop_requested\": 0,\n  \"owner_pid\": 40160,\n  \"owner_birth\": \"134359060067198244\",\n  \"created\": 1791432407\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "social",
+        "--a",
+        "A",
+        "--b",
+        "B",
+        "--key",
+        "rejected",
+        "--illegal"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"id\": \"972aaad3727a4f34ae9213519a0acc80\",\n  \"request_key\": \"rejected\",\n  \"input_hash\": \"07d3e41e866fe57f36e20583f405a8de79f443bf9ef7d05627af58b7b56f1299\",\n  \"input\": \"{\\\"action_spec\\\":{\\\"call_to_action\\\":\\\"Choose a legal action.\\\",\\\"options\\\":[\\\"cooperate\\\",\\\"wait\\\"]},\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\",\\\"B\\\":\\\"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\\\"},\\\"engine\\\":\\\"concordia.Sequential\\\",\\\"entities\\\":{\\\"A\\\":\\\"A\\\",\\\"B\\\":\\\"B\\\"},\\\"fixture\\\":\\\"cooperate-v1\\\",\\\"gm_private\\\":\\\"GM_PRIVATE_FULL_LOG\\\",\\\"illegal\\\":true,\\\"max_steps\\\":2,\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":1,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"5a68892a2926ee6a2d1db9826ef81a91584c1b4c14a4d3e661cfea2bd9086340\\\",\\\"items\\\":[{\\\"content\\\":\\\"PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17\\\",\\\"id\\\":\\\"3503ff5056024b17b7f1ec8ecb8abf46\\\",\\\"revision\\\":1,\\\"source\\\":[\\\"103ee867bede4876ac8f8f1bd0f10331\\\",14,\\\"assistant.final\\\"]}],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false},\\\"B\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"db6db4d7bed80d1c94cf2bb424b10e80be8e9b911b9398b150d4e42d31b5face\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"B\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"social\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false}},\\\"mid_run_restore\\\":false,\\\"observation_policy\\\":\\\"own-only-v1\\\",\\\"observations\\\":{\\\"A\\\":\\\"PRIVATE_ONLY_A\\\",\\\"B\\\":\\\"PRIVATE_ONLY_B\\\"},\\\"order\\\":[\\\"B\\\",\\\"A\\\"],\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"replay_of\\\":null,\\\"request\\\":{\\\"a\\\":\\\"A\\\",\\\"as_of\\\":null,\\\"b\\\":\\\"B\\\",\\\"illegal\\\":true,\\\"replay\\\":null,\\\"scenario\\\":\\\"social\\\"},\\\"scenario\\\":\\\"social\\\",\\\"seed\\\":0,\\\"source\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"world\\\":[]}\",\n  \"epoch\": 4,\n  \"state\": \"execution_complete\",\n  \"task\": \"task_failure\",\n  \"trajectory\": \"complete\",\n  \"reason\": null,\n  \"stop_requested\": 0,\n  \"owner_pid\": 35656,\n  \"owner_birth\": \"134359060224071269\",\n  \"created\": 1791432424\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "query",
+        "social-one"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run\": {\n    \"id\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n    \"request_key\": \"social-one\",\n    \"input_hash\": \"59ec13b3810c8b927f0992647fabdcea95795bbc123ca5e62ca09e38eba473b7\",\n    \"input\": \"{\\\"action_spec\\\":{\\\"call_to_action\\\":\\\"Choose a legal action.\\\",\\\"options\\\":[\\\"cooperate\\\",\\\"wait\\\"]},\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\",\\\"B\\\":\\\"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\\\"},\\\"engine\\\":\\\"concordia.Sequential\\\",\\\"entities\\\":{\\\"A\\\":\\\"A\\\",\\\"B\\\":\\\"B\\\"},\\\"fixture\\\":\\\"cooperate-v1\\\",\\\"gm_private\\\":\\\"GM_PRIVATE_FULL_LOG\\\",\\\"illegal\\\":false,\\\"max_steps\\\":2,\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":1,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"5a68892a2926ee6a2d1db9826ef81a91584c1b4c14a4d3e661cfea2bd9086340\\\",\\\"items\\\":[{\\\"content\\\":\\\"PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17\\\",\\\"id\\\":\\\"3503ff5056024b17b7f1ec8ecb8abf46\\\",\\\"revision\\\":1,\\\"source\\\":[\\\"103ee867bede4876ac8f8f1bd0f10331\\\",14,\\\"assistant.final\\\"]}],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false},\\\"B\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"db6db4d7bed80d1c94cf2bb424b10e80be8e9b911b9398b150d4e42d31b5face\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"B\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"social\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false}},\\\"mid_run_restore\\\":false,\\\"observation_policy\\\":\\\"own-only-v1\\\",\\\"observations\\\":{\\\"A\\\":\\\"PRIVATE_ONLY_A\\\",\\\"B\\\":\\\"PRIVATE_ONLY_B\\\"},\\\"order\\\":[\\\"B\\\",\\\"A\\\"],\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"replay_of\\\":null,\\\"request\\\":{\\\"a\\\":\\\"A\\\",\\\"as_of\\\":1,\\\"b\\\":\\\"B\\\",\\\"illegal\\\":false,\\\"replay\\\":null,\\\"scenario\\\":\\\"social\\\"},\\\"scenario\\\":\\\"social\\\",\\\"seed\\\":0,\\\"source\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"world\\\":[]}\",\n    \"epoch\": 2,\n    \"state\": \"execution_complete\",\n    \"task\": \"success\",\n    \"trajectory\": \"complete\",\n    \"reason\": null,\n    \"stop_requested\": 0,\n    \"owner_pid\": 13240,\n    \"owner_birth\": \"134359059757007806\",\n    \"created\": 1791432376\n  },\n  \"operations\": [\n    {\n      \"id\": \"9338d5747bec43509b36be78ab873665\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"stream\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"epoch\": 2,\n      \"input_hash\": \"09e5edaf2db3962ec9a45e895b476768dfab663e8e20ee06e775baa4478a79ef\",\n      \"state\": \"execution_complete\",\n      \"receipt\": \"5ed53e11-c277-4c9b-83f3-0e32a08e124e\",\n      \"terminal\": \"completed\",\n      \"barrier\": \"{\\\"kind\\\":\\\"flush\\\",\\\"creation\\\":\\\"3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"epoch\\\":2,\\\"nonce\\\":\\\"486f9a791f1c4accbbfe82d581181471\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"session\\\":\\\"s3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"op\\\":\\\"9338d5747bec43509b36be78ab873665\\\",\\\"through\\\":11,\\\"receipt\\\":\\\"5ed53e11-c277-4c9b-83f3-0e32a08e124e\\\",\\\"terminal\\\":{\\\"seq\\\":11,\\\"reason\\\":\\\"completed\\\"}}\",\n      \"answer\": \"cooperate\",\n      \"reason\": null\n    },\n    {\n      \"id\": \"41623bd9f4a44be7867365bab19eea56\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"stream\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"epoch\": 2,\n      \"input_hash\": \"fd7d76c7a8b8242a05113ddc8bd0164f2c4a4e597434d4b4a9f8468147ae1dee\",\n      \"state\": \"execution_complete\",\n      \"receipt\": \"2f2cffd9-2f6e-4ce4-951d-b77794ec6ab5\",\n      \"terminal\": \"completed\",\n      \"barrier\": \"{\\\"kind\\\":\\\"flush\\\",\\\"creation\\\":\\\"b2b871e64f2049d691e506c32653ccb8\\\",\\\"epoch\\\":2,\\\"nonce\\\":\\\"e1eec1b3246e4c899a0b39178b41cf4d\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"session\\\":\\\"sb2b871e64f2049d691e506c32653ccb8\\\",\\\"op\\\":\\\"41623bd9f4a44be7867365bab19eea56\\\",\\\"through\\\":11,\\\"receipt\\\":\\\"2f2cffd9-2f6e-4ce4-951d-b77794ec6ab5\\\",\\\"terminal\\\":{\\\"seq\\\":11,\\\"reason\\\":\\\"completed\\\"}}\",\n      \"answer\": \"cooperate\",\n      \"reason\": null\n    }\n  ],\n  \"streams\": [\n    {\n      \"id\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"worker\": \"4e39e30db898482f841d9a0b5d17aee8\",\n      \"agent\": \"B\",\n      \"native_id\": \"s3b901c4800d14acc82125d1c4d0ab0f6\",\n      \"creation\": \"3b901c4800d14acc82125d1c4d0ab0f6\",\n      \"native_store\": \"4e39e30db898482f841d9a0b5d17aee8\",\n      \"generation\": \"session.v3.jsonl\",\n      \"path\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\w0f619f810488\\\\home\\\\sessions\\\\--D-actio-p1b1-demo-wf0388bc616c3-w0f619f810488--\\\\s3b901c4800d14acc82125d1c4d0ab0f6\\\\session.v3.jsonl\",\n      \"header\": \"{\\\"type\\\":\\\"session\\\",\\\"version\\\":3,\\\"id\\\":\\\"s3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"createdAt\\\":1791432399175,\\\"cwd\\\":\\\"D:\\\\\\\\actio-p1b1-demo\\\\\\\\wf0388bc616c3\\\\\\\\w0f619f810488\\\",\\\"isSeeded\\\":false,\\\"delegationDepth\\\":0}\",\n      \"cursor\": 11,\n      \"consumed_bytes\": 4034,\n      \"integrity\": \"valid\"\n    },\n    {\n      \"id\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"worker\": \"72bacd8aa0244b32a3bbf18c32e51e42\",\n      \"agent\": \"A\",\n      \"native_id\": \"sb2b871e64f2049d691e506c32653ccb8\",\n      \"creation\": \"b2b871e64f2049d691e506c32653ccb8\",\n      \"native_store\": \"72bacd8aa0244b32a3bbf18c32e51e42\",\n      \"generation\": \"session.v3.jsonl\",\n      \"path\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\w65c235af2698\\\\home\\\\sessions\\\\--D-actio-p1b1-demo-wf0388bc616c3-w65c235af2698--\\\\sb2b871e64f2049d691e506c32653ccb8\\\\session.v3.jsonl\",\n      \"header\": \"{\\\"type\\\":\\\"session\\\",\\\"version\\\":3,\\\"id\\\":\\\"sb2b871e64f2049d691e506c32653ccb8\\\",\\\"createdAt\\\":1791432404936,\\\"cwd\\\":\\\"D:\\\\\\\\actio-p1b1-demo\\\\\\\\wf0388bc616c3\\\\\\\\w65c235af2698\\\",\\\"isSeeded\\\":false,\\\"delegationDepth\\\":0}\",\n      \"cursor\": 11,\n      \"consumed_bytes\": 4492,\n      \"integrity\": \"valid\"\n    }\n  ],\n  \"world\": [\n    {\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"step\": 0,\n      \"agent\": \"B\",\n      \"intent\": \"cooperate\",\n      \"resolved\": \"[event] resolved[0]: [putative_event] B: cooperate\",\n      \"stream\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"seq\": 9\n    },\n    {\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"step\": 1,\n      \"agent\": \"A\",\n      \"intent\": \"cooperate\",\n      \"resolved\": \"[event] resolved[1]: [putative_event] A: cooperate\",\n      \"stream\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"seq\": 9\n    }\n  ],\n  \"schema_version\": 2,\n  \"terminal\": {\n    \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n    \"version\": 1,\n    \"body\": \"{\\\"domain_hash\\\":\\\"b1bfb5cc86a14cee10299c86723be0cc17c8b8c36a5ad7b4d1fd4d99562d44c5\\\",\\\"manifest_hash\\\":\\\"59ec13b3810c8b927f0992647fabdcea95795bbc123ca5e62ca09e38eba473b7\\\",\\\"operations\\\":[\\\"9338d5747bec43509b36be78ab873665\\\",\\\"41623bd9f4a44be7867365bab19eea56\\\"],\\\"outcome\\\":\\\"success\\\",\\\"owner\\\":\\\"concordia.scenario.owner.v1\\\",\\\"reason\\\":\\\"two_entities_resolved\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"scenario\\\":\\\"social\\\",\\\"version\\\":1,\\\"world_hash\\\":\\\"fd2af7012c9f4c057718bbec716b021b85712f31dfb3185aafd73028ebd90af6\\\"}\"\n  },\n  \"current_verification\": \"use offline verify; historical state is not a current certificate\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "social",
+        "--a",
+        "A",
+        "--b",
+        "B",
+        "--key",
+        "bad-replay",
+        "--replay",
+        "social-one",
+        "--illegal"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "{\"error\": \"ContractError\", \"reason\": \"frozen replay rejects explicit illegal/memory-revision overrides\"}\n"
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "social",
+        "--a",
+        "A",
+        "--b",
+        "B",
+        "--key",
+        "bad-replay",
+        "--replay",
+        "social-one",
+        "--memory-revision",
+        "0"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "{\"error\": \"ContractError\", \"reason\": \"frozen replay rejects explicit illegal/memory-revision overrides\"}\n"
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "query",
+        "social-one"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run\": {\n    \"id\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n    \"request_key\": \"social-one\",\n    \"input_hash\": \"59ec13b3810c8b927f0992647fabdcea95795bbc123ca5e62ca09e38eba473b7\",\n    \"input\": \"{\\\"action_spec\\\":{\\\"call_to_action\\\":\\\"Choose a legal action.\\\",\\\"options\\\":[\\\"cooperate\\\",\\\"wait\\\"]},\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\",\\\"B\\\":\\\"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\\\"},\\\"engine\\\":\\\"concordia.Sequential\\\",\\\"entities\\\":{\\\"A\\\":\\\"A\\\",\\\"B\\\":\\\"B\\\"},\\\"fixture\\\":\\\"cooperate-v1\\\",\\\"gm_private\\\":\\\"GM_PRIVATE_FULL_LOG\\\",\\\"illegal\\\":false,\\\"max_steps\\\":2,\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":1,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"5a68892a2926ee6a2d1db9826ef81a91584c1b4c14a4d3e661cfea2bd9086340\\\",\\\"items\\\":[{\\\"content\\\":\\\"PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17\\\",\\\"id\\\":\\\"3503ff5056024b17b7f1ec8ecb8abf46\\\",\\\"revision\\\":1,\\\"source\\\":[\\\"103ee867bede4876ac8f8f1bd0f10331\\\",14,\\\"assistant.final\\\"]}],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false},\\\"B\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"db6db4d7bed80d1c94cf2bb424b10e80be8e9b911b9398b150d4e42d31b5face\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"B\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"social\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false}},\\\"mid_run_restore\\\":false,\\\"observation_policy\\\":\\\"own-only-v1\\\",\\\"observations\\\":{\\\"A\\\":\\\"PRIVATE_ONLY_A\\\",\\\"B\\\":\\\"PRIVATE_ONLY_B\\\"},\\\"order\\\":[\\\"B\\\",\\\"A\\\"],\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"replay_of\\\":null,\\\"request\\\":{\\\"a\\\":\\\"A\\\",\\\"as_of\\\":1,\\\"b\\\":\\\"B\\\",\\\"illegal\\\":false,\\\"replay\\\":null,\\\"scenario\\\":\\\"social\\\"},\\\"scenario\\\":\\\"social\\\",\\\"seed\\\":0,\\\"source\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"world\\\":[]}\",\n    \"epoch\": 2,\n    \"state\": \"execution_complete\",\n    \"task\": \"success\",\n    \"trajectory\": \"complete\",\n    \"reason\": null,\n    \"stop_requested\": 0,\n    \"owner_pid\": 13240,\n    \"owner_birth\": \"134359059757007806\",\n    \"created\": 1791432376\n  },\n  \"operations\": [\n    {\n      \"id\": \"9338d5747bec43509b36be78ab873665\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"stream\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"epoch\": 2,\n      \"input_hash\": \"09e5edaf2db3962ec9a45e895b476768dfab663e8e20ee06e775baa4478a79ef\",\n      \"state\": \"execution_complete\",\n      \"receipt\": \"5ed53e11-c277-4c9b-83f3-0e32a08e124e\",\n      \"terminal\": \"completed\",\n      \"barrier\": \"{\\\"kind\\\":\\\"flush\\\",\\\"creation\\\":\\\"3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"epoch\\\":2,\\\"nonce\\\":\\\"486f9a791f1c4accbbfe82d581181471\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"session\\\":\\\"s3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"op\\\":\\\"9338d5747bec43509b36be78ab873665\\\",\\\"through\\\":11,\\\"receipt\\\":\\\"5ed53e11-c277-4c9b-83f3-0e32a08e124e\\\",\\\"terminal\\\":{\\\"seq\\\":11,\\\"reason\\\":\\\"completed\\\"}}\",\n      \"answer\": \"cooperate\",\n      \"reason\": null\n    },\n    {\n      \"id\": \"41623bd9f4a44be7867365bab19eea56\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"stream\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"epoch\": 2,\n      \"input_hash\": \"fd7d76c7a8b8242a05113ddc8bd0164f2c4a4e597434d4b4a9f8468147ae1dee\",\n      \"state\": \"execution_complete\",\n      \"receipt\": \"2f2cffd9-2f6e-4ce4-951d-b77794ec6ab5\",\n      \"terminal\": \"completed\",\n      \"barrier\": \"{\\\"kind\\\":\\\"flush\\\",\\\"creation\\\":\\\"b2b871e64f2049d691e506c32653ccb8\\\",\\\"epoch\\\":2,\\\"nonce\\\":\\\"e1eec1b3246e4c899a0b39178b41cf4d\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"session\\\":\\\"sb2b871e64f2049d691e506c32653ccb8\\\",\\\"op\\\":\\\"41623bd9f4a44be7867365bab19eea56\\\",\\\"through\\\":11,\\\"receipt\\\":\\\"2f2cffd9-2f6e-4ce4-951d-b77794ec6ab5\\\",\\\"terminal\\\":{\\\"seq\\\":11,\\\"reason\\\":\\\"completed\\\"}}\",\n      \"answer\": \"cooperate\",\n      \"reason\": null\n    }\n  ],\n  \"streams\": [\n    {\n      \"id\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"worker\": \"4e39e30db898482f841d9a0b5d17aee8\",\n      \"agent\": \"B\",\n      \"native_id\": \"s3b901c4800d14acc82125d1c4d0ab0f6\",\n      \"creation\": \"3b901c4800d14acc82125d1c4d0ab0f6\",\n      \"native_store\": \"4e39e30db898482f841d9a0b5d17aee8\",\n      \"generation\": \"session.v3.jsonl\",\n      \"path\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\w0f619f810488\\\\home\\\\sessions\\\\--D-actio-p1b1-demo-wf0388bc616c3-w0f619f810488--\\\\s3b901c4800d14acc82125d1c4d0ab0f6\\\\session.v3.jsonl\",\n      \"header\": \"{\\\"type\\\":\\\"session\\\",\\\"version\\\":3,\\\"id\\\":\\\"s3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"createdAt\\\":1791432399175,\\\"cwd\\\":\\\"D:\\\\\\\\actio-p1b1-demo\\\\\\\\wf0388bc616c3\\\\\\\\w0f619f810488\\\",\\\"isSeeded\\\":false,\\\"delegationDepth\\\":0}\",\n      \"cursor\": 11,\n      \"consumed_bytes\": 4034,\n      \"integrity\": \"valid\"\n    },\n    {\n      \"id\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"worker\": \"72bacd8aa0244b32a3bbf18c32e51e42\",\n      \"agent\": \"A\",\n      \"native_id\": \"sb2b871e64f2049d691e506c32653ccb8\",\n      \"creation\": \"b2b871e64f2049d691e506c32653ccb8\",\n      \"native_store\": \"72bacd8aa0244b32a3bbf18c32e51e42\",\n      \"generation\": \"session.v3.jsonl\",\n      \"path\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\w65c235af2698\\\\home\\\\sessions\\\\--D-actio-p1b1-demo-wf0388bc616c3-w65c235af2698--\\\\sb2b871e64f2049d691e506c32653ccb8\\\\session.v3.jsonl\",\n      \"header\": \"{\\\"type\\\":\\\"session\\\",\\\"version\\\":3,\\\"id\\\":\\\"sb2b871e64f2049d691e506c32653ccb8\\\",\\\"createdAt\\\":1791432404936,\\\"cwd\\\":\\\"D:\\\\\\\\actio-p1b1-demo\\\\\\\\wf0388bc616c3\\\\\\\\w65c235af2698\\\",\\\"isSeeded\\\":false,\\\"delegationDepth\\\":0}\",\n      \"cursor\": 11,\n      \"consumed_bytes\": 4492,\n      \"integrity\": \"valid\"\n    }\n  ],\n  \"world\": [\n    {\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"step\": 0,\n      \"agent\": \"B\",\n      \"intent\": \"cooperate\",\n      \"resolved\": \"[event] resolved[0]: [putative_event] B: cooperate\",\n      \"stream\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"seq\": 9\n    },\n    {\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"step\": 1,\n      \"agent\": \"A\",\n      \"intent\": \"cooperate\",\n      \"resolved\": \"[event] resolved[1]: [putative_event] A: cooperate\",\n      \"stream\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"seq\": 9\n    }\n  ],\n  \"schema_version\": 2,\n  \"terminal\": {\n    \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n    \"version\": 1,\n    \"body\": \"{\\\"domain_hash\\\":\\\"b1bfb5cc86a14cee10299c86723be0cc17c8b8c36a5ad7b4d1fd4d99562d44c5\\\",\\\"manifest_hash\\\":\\\"59ec13b3810c8b927f0992647fabdcea95795bbc123ca5e62ca09e38eba473b7\\\",\\\"operations\\\":[\\\"9338d5747bec43509b36be78ab873665\\\",\\\"41623bd9f4a44be7867365bab19eea56\\\"],\\\"outcome\\\":\\\"success\\\",\\\"owner\\\":\\\"concordia.scenario.owner.v1\\\",\\\"reason\\\":\\\"two_entities_resolved\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"scenario\\\":\\\"social\\\",\\\"version\\\":1,\\\"world_hash\\\":\\\"fd2af7012c9f4c057718bbec716b021b85712f31dfb3185aafd73028ebd90af6\\\"}\"\n  },\n  \"current_verification\": \"use offline verify; historical state is not a current certificate\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "reconcile",
+        "assistant-one"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"recovery\": [],\n  \"facts\": [\n    {\n      \"stream\": \"103ee867bede4876ac8f8f1bd0f10331\",\n      \"cursor\": 16,\n      \"integrity\": \"valid\"\n    }\n  ],\n  \"run\": {\n    \"id\": \"3bee9ec6875d4826b693d81654a9cd25\",\n    \"request_key\": \"assistant-one\",\n    \"input_hash\": \"6f1d5f1d7227623f49ab4b2191c2e8a9b43fb9d9a1534964b8eeab909243f4d5\",\n    \"input\": \"{\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\"},\\\"fixture\\\":\\\"read-reference-v1\\\",\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"fccfa05e6c9a1ae2037108c569b0aba0086ba64012ab811bf717982e70cc79fe\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"assistant\\\",\\\"truncated\\\":false}},\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"request\\\":{\\\"agent\\\":\\\"A\\\",\\\"scenario\\\":\\\"assistant\\\"},\\\"scenario\\\":\\\"assistant\\\"}\",\n    \"epoch\": 1,\n    \"state\": \"execution_complete\",\n    \"task\": \"success\",\n    \"trajectory\": \"complete\",\n    \"reason\": null,\n    \"stop_requested\": 0,\n    \"owner_pid\": 21036,\n    \"owner_birth\": \"134359059656584030\",\n    \"created\": 1791432367\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "export",
+        "social-one",
+        "--output",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\social-bundle"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"directory\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\social-bundle\",\n  \"verification\": {\n    \"facts_consistency\": \"consistent\",\n    \"scenario_completeness\": \"complete\",\n    \"task_outcome\": \"success\",\n    \"execution_mode\": \"fixture\",\n    \"recorded_prefix\": \"consistent\",\n    \"errors\": [],\n    \"missing\": [],\n    \"source_trust_limits\": [\n      \"Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.\",\n      \"Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.\",\n      \"Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.\",\n      \"Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context.\"\n    ],\n    \"historical_claim\": {\n      \"state\": \"execution_complete\",\n      \"task\": \"success\",\n      \"trajectory\": \"complete\"\n    },\n    \"bundle_integrity\": \"valid\",\n    \"content_sha256\": \"25e9a89dae0d9eba684375b65b11cd76c6030aa00c429e884d10c580515c0239\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\ledger.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "verify",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\social-bundle"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"facts_consistency\": \"consistent\",\n  \"scenario_completeness\": \"complete\",\n  \"task_outcome\": \"success\",\n  \"execution_mode\": \"fixture\",\n  \"recorded_prefix\": \"consistent\",\n  \"errors\": [],\n  \"missing\": [],\n  \"source_trust_limits\": [\n    \"Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.\",\n    \"Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.\",\n    \"Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.\",\n    \"Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context.\"\n  ],\n  \"historical_claim\": {\n    \"state\": \"execution_complete\",\n    \"task\": \"success\",\n    \"trajectory\": \"complete\"\n  },\n  \"bundle_integrity\": \"valid\",\n  \"content_sha256\": \"25e9a89dae0d9eba684375b65b11cd76c6030aa00c429e884d10c580515c0239\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio.verify",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\social-bundle"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"facts_consistency\": \"consistent\",\n  \"scenario_completeness\": \"complete\",\n  \"task_outcome\": \"success\",\n  \"execution_mode\": \"fixture\",\n  \"recorded_prefix\": \"consistent\",\n  \"errors\": [],\n  \"missing\": [],\n  \"source_trust_limits\": [\n    \"Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.\",\n    \"Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.\",\n    \"Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.\",\n    \"Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context.\"\n  ],\n  \"historical_claim\": {\n    \"state\": \"execution_complete\",\n    \"task\": \"success\",\n    \"trajectory\": \"complete\"\n  },\n  \"bundle_integrity\": \"valid\",\n  \"content_sha256\": \"25e9a89dae0d9eba684375b65b11cd76c6030aa00c429e884d10c580515c0239\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\absent.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "query",
+        "missing"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "{\"error\": \"ContractError\", \"reason\": \"database missing; use init explicitly\"}\n"
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\legacy.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "query",
+        "social-one"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run\": {\n    \"id\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n    \"request_key\": \"social-one\",\n    \"input_hash\": \"59ec13b3810c8b927f0992647fabdcea95795bbc123ca5e62ca09e38eba473b7\",\n    \"input\": \"{\\\"action_spec\\\":{\\\"call_to_action\\\":\\\"Choose a legal action.\\\",\\\"options\\\":[\\\"cooperate\\\",\\\"wait\\\"]},\\\"agents\\\":{\\\"A\\\":\\\"53227415c2bfd7d0d703a5eb18001332e677ee2319434f560c48cbfafd9e960f\\\",\\\"B\\\":\\\"4de69c5334814016589e1e0bf03cfac1c299c6cac2e33307a3940fac6cfde6ff\\\"},\\\"engine\\\":\\\"concordia.Sequential\\\",\\\"entities\\\":{\\\"A\\\":\\\"A\\\",\\\"B\\\":\\\"B\\\"},\\\"fixture\\\":\\\"cooperate-v1\\\",\\\"gm_private\\\":\\\"GM_PRIVATE_FULL_LOG\\\",\\\"illegal\\\":false,\\\"max_steps\\\":2,\\\"memory\\\":{\\\"A\\\":{\\\"as_of\\\":1,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"5a68892a2926ee6a2d1db9826ef81a91584c1b4c14a4d3e661cfea2bd9086340\\\",\\\"items\\\":[{\\\"content\\\":\\\"PRIVATE_MEMORY_A: SYNTHETIC_SHARED_REFERENCE_17\\\",\\\"id\\\":\\\"3503ff5056024b17b7f1ec8ecb8abf46\\\",\\\"revision\\\":1,\\\"source\\\":[\\\"103ee867bede4876ac8f8f1bd0f10331\\\",14,\\\"assistant.final\\\"]}],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"A\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"assistant\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false},\\\"B\\\":{\\\"as_of\\\":0,\\\"content_byte_limit\\\":16384,\\\"context_hash\\\":\\\"db6db4d7bed80d1c94cf2bb424b10e80be8e9b911b9398b150d4e42d31b5face\\\",\\\"items\\\":[],\\\"limit\\\":8,\\\"namespace\\\":{\\\"agent\\\":\\\"B\\\",\\\"branch\\\":\\\"main\\\",\\\"environment\\\":\\\"social\\\",\\\"project\\\":\\\"synthetic\\\",\\\"visibility\\\":\\\"private\\\"},\\\"ordering\\\":\\\"revision DESC,id\\\",\\\"target\\\":\\\"social\\\",\\\"truncated\\\":false}},\\\"mid_run_restore\\\":false,\\\"observation_policy\\\":\\\"own-only-v1\\\",\\\"observations\\\":{\\\"A\\\":\\\"PRIVATE_ONLY_A\\\",\\\"B\\\":\\\"PRIVATE_ONLY_B\\\"},\\\"order\\\":[\\\"B\\\",\\\"A\\\"],\\\"pins\\\":{\\\"binary_source_mapping\\\":\\\"unproven\\\",\\\"code\\\":{\\\"__init__.py\\\":\\\"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\\\",\\\"__main__.py\\\":\\\"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\\\",\\\"cli.py\\\":\\\"cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf\\\",\\\"common.py\\\":\\\"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\\\",\\\"database.py\\\":\\\"64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55\\\",\\\"evidence.py\\\":\\\"ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21\\\",\\\"facts.py\\\":\\\"0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6\\\",\\\"fixtures/provider.mjs\\\":\\\"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\\\",\\\"host.py\\\":\\\"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\\\",\\\"legacy_schema.sql\\\":\\\"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\\\",\\\"mcp_server.py\\\":\\\"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\\\",\\\"memory.py\\\":\\\"21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c\\\",\\\"pins/concordia.json\\\":\\\"ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb\\\",\\\"plugins/common.mjs\\\":\\\"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\\\",\\\"plugins/guard.mjs\\\":\\\"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\\\",\\\"runtime.py\\\":\\\"99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd\\\",\\\"scenarios.py\\\":\\\"dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a\\\",\\\"schema.sql\\\":\\\"7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd\\\",\\\"store.py\\\":\\\"4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e\\\",\\\"supervisor.py\\\":\\\"e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46\\\",\\\"terminal.py\\\":\\\"e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5\\\",\\\"verify.py\\\":\\\"8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994\\\"},\\\"concordia\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"exe\\\":\\\"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\\\",\\\"mcp\\\":\\\"1.26.0\\\",\\\"model\\\":\\\"fixed\\\",\\\"policy\\\":\\\"static-read-v1\\\",\\\"profile\\\":\\\"sdk-minimal+actio-v1\\\",\\\"provider\\\":\\\"actio-fixture\\\",\\\"registry\\\":\\\"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\\\",\\\"reviewed_dsh_source\\\":\\\"5badb15009ae1756c3afe0ae0cef1faafc290ccc\\\",\\\"runtime\\\":\\\"0.1.5rc1\\\",\\\"runtime_wheel\\\":\\\"d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf\\\",\\\"sdk\\\":\\\"0.1.5rc1\\\",\\\"sdk_wheel\\\":\\\"8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8\\\"},\\\"replay_of\\\":null,\\\"request\\\":{\\\"a\\\":\\\"A\\\",\\\"as_of\\\":1,\\\"b\\\":\\\"B\\\",\\\"illegal\\\":false,\\\"replay\\\":null,\\\"scenario\\\":\\\"social\\\"},\\\"scenario\\\":\\\"social\\\",\\\"seed\\\":0,\\\"source\\\":\\\"b71d202750e23444ce1bf28d9f114bcd88aa41db\\\",\\\"world\\\":[]}\",\n    \"epoch\": 2,\n    \"state\": \"execution_complete\",\n    \"task\": \"success\",\n    \"trajectory\": \"complete\",\n    \"reason\": null,\n    \"stop_requested\": 0,\n    \"owner_pid\": 13240,\n    \"owner_birth\": \"134359059757007806\",\n    \"created\": 1791432376\n  },\n  \"operations\": [\n    {\n      \"id\": \"9338d5747bec43509b36be78ab873665\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"stream\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"epoch\": 2,\n      \"input_hash\": \"09e5edaf2db3962ec9a45e895b476768dfab663e8e20ee06e775baa4478a79ef\",\n      \"state\": \"execution_complete\",\n      \"receipt\": \"5ed53e11-c277-4c9b-83f3-0e32a08e124e\",\n      \"terminal\": \"completed\",\n      \"barrier\": \"{\\\"kind\\\":\\\"flush\\\",\\\"creation\\\":\\\"3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"epoch\\\":2,\\\"nonce\\\":\\\"486f9a791f1c4accbbfe82d581181471\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"session\\\":\\\"s3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"op\\\":\\\"9338d5747bec43509b36be78ab873665\\\",\\\"through\\\":11,\\\"receipt\\\":\\\"5ed53e11-c277-4c9b-83f3-0e32a08e124e\\\",\\\"terminal\\\":{\\\"seq\\\":11,\\\"reason\\\":\\\"completed\\\"}}\",\n      \"answer\": \"cooperate\",\n      \"reason\": null\n    },\n    {\n      \"id\": \"41623bd9f4a44be7867365bab19eea56\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"stream\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"epoch\": 2,\n      \"input_hash\": \"fd7d76c7a8b8242a05113ddc8bd0164f2c4a4e597434d4b4a9f8468147ae1dee\",\n      \"state\": \"execution_complete\",\n      \"receipt\": \"2f2cffd9-2f6e-4ce4-951d-b77794ec6ab5\",\n      \"terminal\": \"completed\",\n      \"barrier\": \"{\\\"kind\\\":\\\"flush\\\",\\\"creation\\\":\\\"b2b871e64f2049d691e506c32653ccb8\\\",\\\"epoch\\\":2,\\\"nonce\\\":\\\"e1eec1b3246e4c899a0b39178b41cf4d\\\",\\\"run\\\":\\\"b306bc1ff10745759a0a9ab1a5e23b1f\\\",\\\"session\\\":\\\"sb2b871e64f2049d691e506c32653ccb8\\\",\\\"op\\\":\\\"41623bd9f4a44be7867365bab19eea56\\\",\\\"through\\\":11,\\\"receipt\\\":\\\"2f2cffd9-2f6e-4ce4-951d-b77794ec6ab5\\\",\\\"terminal\\\":{\\\"seq\\\":11,\\\"reason\\\":\\\"completed\\\"}}\",\n      \"answer\": \"cooperate\",\n      \"reason\": null\n    }\n  ],\n  \"streams\": [\n    {\n      \"id\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"worker\": \"4e39e30db898482f841d9a0b5d17aee8\",\n      \"agent\": \"B\",\n      \"native_id\": \"s3b901c4800d14acc82125d1c4d0ab0f6\",\n      \"creation\": \"3b901c4800d14acc82125d1c4d0ab0f6\",\n      \"native_store\": \"4e39e30db898482f841d9a0b5d17aee8\",\n      \"generation\": \"session.v3.jsonl\",\n      \"path\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\w0f619f810488\\\\home\\\\sessions\\\\--D-actio-p1b1-demo-wf0388bc616c3-w0f619f810488--\\\\s3b901c4800d14acc82125d1c4d0ab0f6\\\\session.v3.jsonl\",\n      \"header\": \"{\\\"type\\\":\\\"session\\\",\\\"version\\\":3,\\\"id\\\":\\\"s3b901c4800d14acc82125d1c4d0ab0f6\\\",\\\"createdAt\\\":1791432399175,\\\"cwd\\\":\\\"D:\\\\\\\\actio-p1b1-demo\\\\\\\\wf0388bc616c3\\\\\\\\w0f619f810488\\\",\\\"isSeeded\\\":false,\\\"delegationDepth\\\":0}\",\n      \"cursor\": 11,\n      \"consumed_bytes\": 4034,\n      \"integrity\": \"valid\"\n    },\n    {\n      \"id\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"worker\": \"72bacd8aa0244b32a3bbf18c32e51e42\",\n      \"agent\": \"A\",\n      \"native_id\": \"sb2b871e64f2049d691e506c32653ccb8\",\n      \"creation\": \"b2b871e64f2049d691e506c32653ccb8\",\n      \"native_store\": \"72bacd8aa0244b32a3bbf18c32e51e42\",\n      \"generation\": \"session.v3.jsonl\",\n      \"path\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\w65c235af2698\\\\home\\\\sessions\\\\--D-actio-p1b1-demo-wf0388bc616c3-w65c235af2698--\\\\sb2b871e64f2049d691e506c32653ccb8\\\\session.v3.jsonl\",\n      \"header\": \"{\\\"type\\\":\\\"session\\\",\\\"version\\\":3,\\\"id\\\":\\\"sb2b871e64f2049d691e506c32653ccb8\\\",\\\"createdAt\\\":1791432404936,\\\"cwd\\\":\\\"D:\\\\\\\\actio-p1b1-demo\\\\\\\\wf0388bc616c3\\\\\\\\w65c235af2698\\\",\\\"isSeeded\\\":false,\\\"delegationDepth\\\":0}\",\n      \"cursor\": 11,\n      \"consumed_bytes\": 4492,\n      \"integrity\": \"valid\"\n    }\n  ],\n  \"world\": [\n    {\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"step\": 0,\n      \"agent\": \"B\",\n      \"intent\": \"cooperate\",\n      \"resolved\": \"[event] resolved[0]: [putative_event] B: cooperate\",\n      \"stream\": \"2ec5de1ce6604103b490979eacd2fc55\",\n      \"seq\": 9\n    },\n    {\n      \"run\": \"b306bc1ff10745759a0a9ab1a5e23b1f\",\n      \"step\": 1,\n      \"agent\": \"A\",\n      \"intent\": \"cooperate\",\n      \"resolved\": \"[event] resolved[1]: [putative_event] A: cooperate\",\n      \"stream\": \"07bdec3e270449d38eae0835a7d28615\",\n      \"seq\": 9\n    }\n  ],\n  \"schema_version\": 0,\n  \"terminal\": null,\n  \"current_verification\": \"legacy_unverified\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\legacy.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "migrate",
+        "--output",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\migrated.sqlite"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"source\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\legacy.sqlite\",\n  \"destination\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\migrated.sqlite\",\n  \"backup\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\migrated.sqlite.backup.sqlite\",\n  \"backup_sha256\": \"c77c5798d0458b79eb72e99a5deba9595ce03ef723f25752146f644697f14d72\",\n  \"from\": 0,\n  \"to\": 2,\n  \"status\": \"migrated\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\legacy.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "migrate",
+        "--output",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\migrated.sqlite"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"already_migrated\",\n  \"destination\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\migrated.sqlite\",\n  \"backup_sha256\": \"c77c5798d0458b79eb72e99a5deba9595ce03ef723f25752146f644697f14d72\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "actio",
+        "--db",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\migrated.sqlite",
+        "--short-root",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3",
+        "export",
+        "social-one",
+        "--output",
+        "D:\\actio-p1b1-demo\\wf0388bc616c3\\legacy-bundle"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"directory\": \"D:\\\\actio-p1b1-demo\\\\wf0388bc616c3\\\\legacy-bundle\",\n  \"verification\": {\n    \"facts_consistency\": \"consistent\",\n    \"scenario_completeness\": \"legacy_unverified\",\n    \"task_outcome\": \"unknown\",\n    \"execution_mode\": \"fixture\",\n    \"recorded_prefix\": \"consistent\",\n    \"errors\": [],\n    \"missing\": [],\n    \"source_trust_limits\": [\n      \"Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.\",\n      \"Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.\",\n      \"Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.\",\n      \"Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context.\"\n    ],\n    \"historical_claim\": {\n      \"state\": \"execution_complete\",\n      \"task\": \"success\",\n      \"trajectory\": \"complete\"\n    },\n    \"bundle_integrity\": \"valid\",\n    \"content_sha256\": \"10614db795419eb3251865fb8d9728a8aeb63bb4cedded738f107a3394ebc539\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1b1-venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "--isolated",
+        "check"
+      ],
+      "exit_code": 0,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    }
+  ],
+  "workers": [
+    {
+      "id": "74ecf53f6e114a368206be4412e7a455",
+      "run": "3bee9ec6875d4826b693d81654a9cd25",
+      "epoch": 1,
+      "root": "D:\\actio-p1b1-demo\\wf0388bc616c3\\we3cf30429dfa",
+      "job": "Local\\Actio-35245b5044c0422ea55e460cfcf88f54",
+      "pid": 44568,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+    },
+    {
+      "id": "4e39e30db898482f841d9a0b5d17aee8",
+      "run": "b306bc1ff10745759a0a9ab1a5e23b1f",
+      "epoch": 2,
+      "root": "D:\\actio-p1b1-demo\\wf0388bc616c3\\w0f619f810488",
+      "job": "Local\\Actio-bd8113a09116465abe00494dc1f72395",
+      "pid": 22072,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+    },
+    {
+      "id": "72bacd8aa0244b32a3bbf18c32e51e42",
+      "run": "b306bc1ff10745759a0a9ab1a5e23b1f",
+      "epoch": 2,
+      "root": "D:\\actio-p1b1-demo\\wf0388bc616c3\\w65c235af2698",
+      "job": "Local\\Actio-81fb6150b2ae40d7ae30ae80d16b644e",
+      "pid": 45828,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+    },
+    {
+      "id": "9bc9b89fe1814adfb22a4e853823d93c",
+      "run": "f1b58653083e40e1af9bbe772cd27d99",
+      "epoch": 3,
+      "root": "D:\\actio-p1b1-demo\\wf0388bc616c3\\wa0447e284d8c",
+      "job": "Local\\Actio-e37cb1169c8b42c4a83e24319168a003",
+      "pid": 39128,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+    },
+    {
+      "id": "bb746571357c49789bd8aca632f2896f",
+      "run": "f1b58653083e40e1af9bbe772cd27d99",
+      "epoch": 3,
+      "root": "D:\\actio-p1b1-demo\\wf0388bc616c3\\wbf8777f9716f",
+      "job": "Local\\Actio-b031d84f4d6a4edc9038819c20494ac7",
+      "pid": 44992,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+    },
+    {
+      "id": "2e0964ad297f4ee5a3439c05f105d82a",
+      "run": "972aaad3727a4f34ae9213519a0acc80",
+      "epoch": 4,
+      "root": "D:\\actio-p1b1-demo\\wf0388bc616c3\\w86b0debd9973",
+      "job": "Local\\Actio-57f7503620cb4fce8af8cac509a0fc89",
+      "pid": 30988,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":6,\"active\":0,\"terminated\":0},\"after\":{\"total\":6,\"active\":0,\"terminated\":0}}"
+    }
+  ],
+  "bootstrap_log_sha256": "6e6592554642e39bf04427f21dfa55641516ab02da478289a9fcbba0a6fdbc3a",
+  "bootstrap_command": ".local/venv/Scripts/python.exe -X utf8 scripts/bootstrap.py --venv .local/phase1b1-venv --offline-wheels --concordia-source ../../codebase/15_concordia/repo",
+  "network": "No index/network used in this preparation; 41 cached locked wheels and read-only fixed local Git archive",
+  "source_hashes": {
+    "src/actio/cli.py": "cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/evidence.py": "ba6118468b561f052ed7115eba057d111df633342a241a342b046f9ee83f6c21",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+    "src/actio/scenarios.py": "dfa475ec2f671630159695878ab2cf0b2ebb1635300314af63f8bca9edbc158a",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/terminal.py": "e51bc466ae094e0033ba13c9461a30f296183ad3d7146c90a7264b89928f28e5",
+    "src/actio/verify.py": "8b6f4429a4368c9c60ca3d1337d8d61846cb0758b909bf60d46ce2420c3ab994",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "scripts/artifacts.py": "95bd35b85f8f8386ec1af96e7956a4af382b00278354d10a6aa93f519e43da23",
+    "scripts/bootstrap.py": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "scripts/build_manifest.py": "594374f9440846c531a8eecb13111a9fa2946d9bdf8c51cd162fe32a930e43a9",
+    "scripts/check_delivery.py": "259d7ca4882d6e717b9a4298b47c655f452e86fc001140517298020d0b9994a9",
+    "scripts/phase1b1_smoke.py": "a81587b5acaff3aa2ca3fdfcae05e02c0bd0de74e6ac5512cda8d4a2abd5f964",
+    "scripts/validate.py": "36e24df8488dd6659116625cbb89c900ba9ccf0cf06ee1912320efdac4340dfa"
+  }
+}

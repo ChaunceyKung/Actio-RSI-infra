@@ -56,6 +56,7 @@ class RuntimePort:
     def __init__(self, store, run, agent, short_root, *, deadlines=None, limits=None):
         self.s,self.run,self.agent=store,run,agent
         self.epoch=run['epoch']
+        store.fence(run['id'],self.epoch)
         self.spec=store.agent(agent)['spec']
         if self.spec['pins']!=pins():
             raise ContractError('immutable spec runtime pins changed; create a new explicit spec identity')
@@ -75,9 +76,16 @@ class RuntimePort:
         self.closed=False
         try:
             self.prepare()
-        except BaseException:
-            self.close(force=True)
+        except BaseException as error:
+            self.cleanup_after_error(error)
             raise
+
+    def cleanup_after_error(self, error):
+        try:
+            self.close(force=True)
+        except Exception as cleanup:
+            self.s.audit(self.run['id'],self.op,'cleanup_failure',{'reason':str(cleanup)})
+            error.add_note('cleanup failed; lease retained: '+str(cleanup))
 
     def prepare(self):
         """Frozen config assembled before launch; no dynamic approval transport."""
@@ -106,8 +114,8 @@ class RuntimePort:
             self.supervisor.start()
             self.s.db.execute("UPDATE worker SET pid=?,state='running' WHERE id=?",(self.supervisor.proc.pid,self.stream['worker']))
             self.supervisor.wait('ready',self.deadlines['ready'],self.record)
-        except BaseException:
-            self.close(force=True)
+        except BaseException as error:
+            self.cleanup_after_error(error)
             raise
         return self
 
@@ -141,8 +149,11 @@ class RuntimePort:
             self.drain()
             return {'op':self.op,'answer':result['answer'],'stream':self.stream['id'],'marker':self.marker}
         except BaseException as e:
-            self.s.op_update(self.op,self.epoch,state='needs_reconcile',reason=type(e).__name__+': '+str(e))
-            self.close(force=True)
+            try:
+                self.s.op_update(self.op,self.epoch,state='needs_reconcile',reason=type(e).__name__+': '+str(e))
+            except Exception as record_error:
+                e.add_note('failure ledger update failed: '+str(record_error))
+            self.cleanup_after_error(e)
             raise
 
     def drain(self):
@@ -194,4 +205,10 @@ class RuntimePort:
         return self.start()
 
     def __exit__(self, typ, value, tb):
-        self.close(force=typ is not None)
+        try:
+            self.close(force=typ is not None)
+        except Exception as cleanup:
+            if value is None:
+                raise
+            self.s.audit(self.run['id'],self.op,'cleanup_failure',{'reason':str(cleanup)})
+            value.add_note('cleanup failure: '+str(cleanup))

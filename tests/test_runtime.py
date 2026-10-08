@@ -77,7 +77,7 @@ class RuntimeTests(unittest.TestCase):
         finally:s.close()
 
     def test_current_host_two_turns_have_distinct_receipt_barriers(self):
-        s=Store(self.db);s.agent('A',synthetic_spec('A'))
+        s=Store(self.db,create=True);s.agent('A',synthetic_spec('A'))
         run,_=s.begin('two-turns',{'scenario':'assistant','agents':{'A':s.agent('A')['spec_hash']}})
         markers=[]
         try:
@@ -94,7 +94,8 @@ class RuntimeTests(unittest.TestCase):
                 with self.assertRaisesRegex(ContractError,'stale'):
                     Facts(s).certify(result['op'],markers[0])
             final=s.finish(run['id'],run['epoch'],task='success')
-            self.assertEqual(final['trajectory'],'complete')
+            self.assertEqual(final['trajectory'],'incomplete')  # Two RuntimePort turns are not a one-step assistant episode.
+            self.assertTrue(all(o['state']=='execution_complete' for o in s.rows('SELECT * FROM operation')))
             self.assertEqual(s.row('SELECT COUNT(*) n FROM worker')['n'],1)
             self.assertEqual(s.row('SELECT COUNT(*) n FROM memory')['n'],2)
             self.evidence['markers']=markers

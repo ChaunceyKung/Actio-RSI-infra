@@ -2,3 +2,7 @@
 probes/phase1a/.local/
 __pycache__/
 *.pyc
+.local/
+*.egg-info/
+build/
+dist/

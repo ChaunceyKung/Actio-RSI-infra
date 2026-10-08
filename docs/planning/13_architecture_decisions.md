@@ -21,3 +21,5 @@
 | ADR15 Occurrence/projection（2026-10-07） | mapper version 放入发生唯一键会双计；Phase1A P3 SQLite 与真实 journal 实验 | source occurrence 与稳定 slot 独立于 mapper revision；consumer pin/switch 投影，效果独立去重 | 新 slot/物理 generation 必须显式迁移；本地 ledger exactly-once 不扩张为远端效果承诺 |
 
 主要取舍不是“复用占比”，而是每个状态谁写、可否验证恢复、补丁是否比适配更贵。R01/R05/R06/R07/R09/R13的P状态必须由B任务证据更新，不能由文档提交自动转生产可用。
+
+2026-10-08 ADR16（有限实现）：[Phase 1B](../validation/phase1b/01_plan_and_contract.md) 采用自有 SDK host + Windows Job、受控 flush spool + SQLite 连续前缀及领域回执、CAS episodic memory/effect 同事务。只暴露已测 fresh/顺序执行/强停/只读核对，native reopen/resume/fork/catchup 和完整 world restore 明确 unsupported；结果与未证明范围见 [Gate](../validation/phase1b/03_gate.md)。

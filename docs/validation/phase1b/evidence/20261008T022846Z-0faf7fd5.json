@@ -1,0 +1,67 @@
+{
+  "id": "20261008T022846Z-0faf7fd5",
+  "suite": "contract",
+  "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+  "mode": "SQLITE_CONTRACT",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_contract.Contracts.test_barrier_gap_old_marker_partial_tail_and_truncation",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_bounded_data_and_unsupported_capabilities",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_identity_idempotency_epoch_and_ttl",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_memory_atomic_cas_ack_loss_correction_and_mapper",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_namespace_source_slot_and_frozen_retrieval",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_out_of_order_dedup_conflict_and_remap",
+      "status": "PASS",
+      "evidence": {}
+    }
+  ],
+  "tests_run": 6,
+  "exit_code": 0,
+  "source_hashes": {
+    "src/actio/cli.py": "47a96b29ccf2dc256546e16844c1584e720e8f6172391d1c88ae087b98708b7b",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/facts.py": "d07fd3a47218d7d31164c9565d3da847723ec8e4fd7d12b3ed4272d7f0317901",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "7dfb787a95b3d6fc02fcd01f056fbd02695bac0764cebd78f17bc537726f5976",
+    "src/actio/runtime.py": "588010e2abc7fafd66b707abb8297196eac46ab8d17ceefd9e700ba460886b81",
+    "src/actio/scenarios.py": "a75c0d91e23d29d358794361ba1d28d9da72354946dacedef8787d63b58e811b",
+    "src/actio/schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/store.py": "3fceb7d81c8783d1631d312d30bd08b69a39dcff8f70391da362543ae6b08ea3",
+    "src/actio/supervisor.py": "1cbd4b4437b5994bb52aa0e65f2608faac5a7d6166ed268ca19cbffd785c1ddd",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "438a2fc7b3462daed326e24a790c3736585fac2c140071442015631045950be8",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "tests/test_contract.py": "3af57a422ce7c0edb32876966fa277a896944029fb1a378e4946d957ff7fdead",
+    "tests/test_runtime.py": "c81403708783261f06bf5d976856a430e9ed97a4eaa447ce2a949135d568ddad",
+    "scripts/bootstrap.py": "9521638564f058ffb9100497ed61974ffdfdcb2c777d6dccc18fe7cd3077bf48",
+    "scripts/validate.py": "b186f0310007df53f06944c80f01d0e7779baa411d54ba85a12649177706b607"
+  },
+  "log": "test_barrier_gap_old_marker_partial_tail_and_truncation (test_contract.Contracts.test_barrier_gap_old_marker_partial_tail_and_truncation) ... ok\ntest_bounded_data_and_unsupported_capabilities (test_contract.Contracts.test_bounded_data_and_unsupported_capabilities) ... ok\ntest_identity_idempotency_epoch_and_ttl (test_contract.Contracts.test_identity_idempotency_epoch_and_ttl) ... ok\ntest_memory_atomic_cas_ack_loss_correction_and_mapper (test_contract.Contracts.test_memory_atomic_cas_ack_loss_correction_and_mapper) ... ok\ntest_namespace_source_slot_and_frozen_retrieval (test_contract.Contracts.test_namespace_source_slot_and_frozen_retrieval) ... ok\ntest_out_of_order_dedup_conflict_and_remap (test_contract.Contracts.test_out_of_order_dedup_conflict_and_remap) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.608s\n\nOK\n",
+  "log_sha256": "843aadf175d19dfd85339628bd9375738ce12873ab614acc6879a08a59f1de97"
+}

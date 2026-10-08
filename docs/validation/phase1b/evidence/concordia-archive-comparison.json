@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "mode": "ARTIFACT_VERIFICATION",
+  "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+  "checked_files": 242,
+  "comparison": "GitHub ZIP bytes exactly equal git -c core.autocrlf=false -c core.eol=lf archive bytes for every pinned file",
+  "initial_failure": "Default Windows git archive used CRLF; GitHub archive uses LF. Initial exact hash check correctly rejected it.",
+  "old_license_hash": "f2ffa5942b316849be283deaeb2912e2e5b5b17e91012bede8210210ff3e91e7",
+  "license_hash": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac",
+  "github_archive_sha256": "0cb5ed633a4a4db19221247e4835efc84b8b8ea421730ea4280fe727679a819a"
+}

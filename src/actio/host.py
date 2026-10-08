@@ -1,0 +1,81 @@
+"""SDK host. Started only behind the supervisor's Job assignment gate."""
+import json
+import os
+from pathlib import Path
+import sys
+import time
+
+from .common import ContractError, Lines
+
+
+def main(root):
+    if json.loads(sys.stdin.buffer.readline(65537)) != {'kind':'go'}:
+        raise ContractError('missing launch gate')
+    from deepseek_harness import DeepSeekHarness
+    from deepseek_harness.api import final_response, finish_reason
+    config = json.loads((root/'host-config.json').read_text())
+    limits = config['limits']
+    count = total = 0
+    def emit(row):
+        nonlocal count,total
+        data = (json.dumps(row,ensure_ascii=False,allow_nan=False)+'\n').encode()
+        count += 1; total += len(data)
+        if len(data)>limits['item'] or count>limits['count'] or total>limits['total']:
+            (root/'host.jsonl.limit').write_text('data_limit_exceeded')
+            raise ContractError('data_limit_exceeded')
+        with (root/'host.jsonl').open('ab') as f:
+            f.write(data); f.flush(); os.fsync(f.fileno())
+    harness = DeepSeekHarness(**config['sdk'])
+    bridge = Lines(root/'bridge.jsonl',**{k:limits[k] for k in ('item','count','total')})
+    try:
+        harness.start()
+        emit({'kind':'ready','pid':os.getpid()})
+        while raw := sys.stdin.buffer.readline(limits['item']+1):
+            if len(raw)>limits['item']:
+                raise ContractError('command limit')
+            command = json.loads(raw)
+            if command['kind']=='close':
+                harness.close()
+                emit({'kind':'closed'})
+                return
+            if command['kind']=='drain':
+                while True:
+                    found = None
+                    for record in bridge.poll():
+                        if record['kind']=='flush' and record['op']==command['op']:
+                            found = record
+                    if found:
+                        emit({'kind':'drained','op':command['op'],'marker':found})
+                        break
+                    time.sleep(.01)  # Hard deadline belongs to the owning process.
+                continue
+            if command['kind']!='submit':
+                raise ContractError('unknown host command')
+            session,op = command['session'],command['op']
+            received = False
+            answer = terminal = None
+            with harness.client.subscribe_session_notifications(session) as subscription:
+                receipt = harness.client.session_prompt(session,[{'type':'text','text':json.dumps(command['task'])}],notification_subscription=subscription)
+                emit({'kind':'accepted','op':op,'receipt':receipt})
+                while True:
+                    notice = subscription.next()
+                    emit({'kind':'notification','op':op,'method':notice.method,'payload':notice.payload})
+                    event = notice.payload.get('event',{}) if notice.method=='session.event' else {}
+                    if event.get('type')=='agent/inbox/spliced':
+                        received |= any(m.get('id')==receipt for m in event.get('data',{}).get('inserted',[]))
+                    if received and event.get('type')=='assistant/message':
+                        answer = final_response([event])
+                    if received and event.get('type')=='turn/end':
+                        terminal = finish_reason([event])
+                    if received and notice.method=='session.status' and notice.payload.get('status')=='idle':
+                        break
+            emit({'kind':'result','op':op,'answer':answer,'terminal':terminal})
+    except Exception as e:
+        emit({'kind':'error','error':type(e).__name__+': '+str(e)})
+        raise
+    finally:
+        harness.close()
+
+
+if __name__=='__main__':
+    main(Path(sys.argv[1]))

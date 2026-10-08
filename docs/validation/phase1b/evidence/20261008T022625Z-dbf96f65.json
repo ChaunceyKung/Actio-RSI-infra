@@ -1,0 +1,97 @@
+{
+  "id": "20261008T022625Z-dbf96f65",
+  "suite": "runtime",
+  "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py runtime",
+  "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_runtime.RuntimeTests.test_cross_process_dual_scenario_replay_and_privacy",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_runtime.py\", line 36, in test_cross_process_dual_scenario_replay_and_privacy\n    first=self.cli('assistant','--agent','A','--key','assistant-one')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_runtime.py\", line 26, in cli\n    self.assertEqual(result.returncode,code,result.stderr)\nAssertionError: 2 != 0 : {\"error\": \"ContractError\", \"reason\": \"cannot release lease before job reaped\"}\n\n",
+      "evidence": {
+        "root": "D:\\actio-p1b-tests\\b60268f2d7b6",
+        "commands": [
+          {
+            "args": [
+              "init"
+            ],
+            "exit_code": 0,
+            "stdout": "{\n  \"store\": \"D:\\\\actio-p1b-tests\\\\b60268f2d7b6\\\\ledger.sqlite\",\n  \"initialized\": true\n}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "agent",
+              "A",
+              "--create"
+            ],
+            "exit_code": 0,
+            "stdout": "{\n  \"id\": \"A\",\n  \"spec_hash\": \"95d127899b2e98a8af564b85b5f2d6ffa61c91f6edcc0dc49320907ec90f8bb3\",\n  \"spec\": {\n    \"memory_shares\": [\n      [\n        \"assistant\",\n        \"social\"\n      ]\n    ],\n    \"persona\": \"SYNTHETIC_PERSONA_A\",\n    \"persona_hash\": \"0c2d163ed9a1bff023af1f9238fca74690132cc4b8469bdb49aee1869046ab10\",\n    \"persona_source\": \"synthetic-inline-v1\",\n    \"pins\": {\n      \"code\": {\n        \"__init__.py\": \"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\",\n        \"__main__.py\": \"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\",\n        \"cli.py\": \"47a96b29ccf2dc256546e16844c1584e720e8f6172391d1c88ae087b98708b7b\",\n        \"common.py\": \"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\",\n        \"facts.py\": \"d07fd3a47218d7d31164c9565d3da847723ec8e4fd7d12b3ed4272d7f0317901\",\n        \"fixtures/provider.mjs\": \"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\",\n        \"host.py\": \"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\",\n        \"mcp_server.py\": \"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\",\n        \"memory.py\": \"7dfb787a95b3d6fc02fcd01f056fbd02695bac0764cebd78f17bc537726f5976\",\n        \"plugins/common.mjs\": \"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\",\n        \"plugins/guard.mjs\": \"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\",\n        \"runtime.py\": \"1850ca7810b7dbb0334f9e1b918d272d838d9078a785872750b32c20f2c0dff2\",\n        \"scenarios.py\": \"a75c0d91e23d29d358794361ba1d28d9da72354946dacedef8787d63b58e811b\",\n        \"schema.sql\": \"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\",\n        \"store.py\": \"3fceb7d81c8783d1631d312d30bd08b69a39dcff8f70391da362543ae6b08ea3\",\n        \"supervisor.py\": \"1cbd4b4437b5994bb52aa0e65f2608faac5a7d6166ed268ca19cbffd785c1ddd\"\n      },\n      \"concordia\": \"b71d202750e23444ce1bf28d9f114bcd88aa41db\",\n      \"exe\": \"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\",\n      \"mcp\": \"1.26.0\",\n      \"model\": \"fixed\",\n      \"policy\": \"static-read-v1\",\n      \"profile\": \"sdk-minimal+actio-v1\",\n      \"provider\": \"actio-fixture\",\n      \"registry\": \"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\",\n      \"runtime\": \"0.1.5rc1\",\n      \"sdk\": \"0.1.5rc1\"\n    },\n    \"prompt_version\": \"fixture-v1\",\n    \"version\": 1\n  }\n}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "agent",
+              "B",
+              "--create"
+            ],
+            "exit_code": 0,
+            "stdout": "{\n  \"id\": \"B\",\n  \"spec_hash\": \"2587779997daa6d59158d6d004510d4a7c3a7ad1c839be0a8318da6650c41d65\",\n  \"spec\": {\n    \"memory_shares\": [\n      [\n        \"assistant\",\n        \"social\"\n      ]\n    ],\n    \"persona\": \"SYNTHETIC_PERSONA_B\",\n    \"persona_hash\": \"9acc1f22e3f1b01b2d77237d90a0caf0e3286ed6c20bd22d2fd5bb3f13063cc4\",\n    \"persona_source\": \"synthetic-inline-v1\",\n    \"pins\": {\n      \"code\": {\n        \"__init__.py\": \"4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0\",\n        \"__main__.py\": \"79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4\",\n        \"cli.py\": \"47a96b29ccf2dc256546e16844c1584e720e8f6172391d1c88ae087b98708b7b\",\n        \"common.py\": \"bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf\",\n        \"facts.py\": \"d07fd3a47218d7d31164c9565d3da847723ec8e4fd7d12b3ed4272d7f0317901\",\n        \"fixtures/provider.mjs\": \"df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d\",\n        \"host.py\": \"9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419\",\n        \"mcp_server.py\": \"473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf\",\n        \"memory.py\": \"7dfb787a95b3d6fc02fcd01f056fbd02695bac0764cebd78f17bc537726f5976\",\n        \"plugins/common.mjs\": \"a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d\",\n        \"plugins/guard.mjs\": \"0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263\",\n        \"runtime.py\": \"1850ca7810b7dbb0334f9e1b918d272d838d9078a785872750b32c20f2c0dff2\",\n        \"scenarios.py\": \"a75c0d91e23d29d358794361ba1d28d9da72354946dacedef8787d63b58e811b\",\n        \"schema.sql\": \"27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572\",\n        \"store.py\": \"3fceb7d81c8783d1631d312d30bd08b69a39dcff8f70391da362543ae6b08ea3\",\n        \"supervisor.py\": \"1cbd4b4437b5994bb52aa0e65f2608faac5a7d6166ed268ca19cbffd785c1ddd\"\n      },\n      \"concordia\": \"b71d202750e23444ce1bf28d9f114bcd88aa41db\",\n      \"exe\": \"7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6\",\n      \"mcp\": \"1.26.0\",\n      \"model\": \"fixed\",\n      \"policy\": \"static-read-v1\",\n      \"profile\": \"sdk-minimal+actio-v1\",\n      \"provider\": \"actio-fixture\",\n      \"registry\": \"ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d\",\n      \"runtime\": \"0.1.5rc1\",\n      \"sdk\": \"0.1.5rc1\"\n    },\n    \"prompt_version\": \"fixture-v1\",\n    \"version\": 1\n  }\n}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "assistant",
+              "--agent",
+              "A",
+              "--key",
+              "assistant-one"
+            ],
+            "exit_code": 2,
+            "stdout": "",
+            "stderr": "{\"error\": \"ContractError\", \"reason\": \"cannot release lease before job reaped\"}\n"
+          }
+        ],
+        "files": {
+          "ledger.sqlite": "00b8e363b4c622af94636c3d3b5933eac07f8eb11823e219e42a40b0a406dc2c",
+          "owner.json": "f82c4689623216e1cf4efa13dcf723839cf0864919a91fc48db94386e1181d67",
+          "w4ce894ce97c3/active.json": "6f615357532822c5469bec3cd4262df54fe0251a9c70743fc956af790cc5aad7",
+          "w4ce894ce97c3/host-config.json": "414dc00fa8c2120c5f1d1f4b18e6535f975cf6b8a085070cf9acedc4dce5aea8",
+          "w4ce894ce97c3/owner.json": "d3cb33191354868f19368aa3e3dc5729a12a8fb6b12182d1c9da6981c129a15e",
+          "w4ce894ce97c3/policy.json": "2e9864fd9ae32ffc87fa9500c914951f8bc2ac2425f1b425d416e29a8297eb52",
+          "w4ce894ce97c3/profile.patch.yml": "01e6ce43831536c7f3cdc5c425d78a8aa5197ce161594d7d5763b28138737fdb"
+        },
+        "transcripts": {}
+      }
+    }
+  ],
+  "tests_run": 1,
+  "exit_code": 1,
+  "source_hashes": {
+    "src/actio/cli.py": "47a96b29ccf2dc256546e16844c1584e720e8f6172391d1c88ae087b98708b7b",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/facts.py": "d07fd3a47218d7d31164c9565d3da847723ec8e4fd7d12b3ed4272d7f0317901",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "7dfb787a95b3d6fc02fcd01f056fbd02695bac0764cebd78f17bc537726f5976",
+    "src/actio/runtime.py": "1850ca7810b7dbb0334f9e1b918d272d838d9078a785872750b32c20f2c0dff2",
+    "src/actio/scenarios.py": "a75c0d91e23d29d358794361ba1d28d9da72354946dacedef8787d63b58e811b",
+    "src/actio/schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/store.py": "3fceb7d81c8783d1631d312d30bd08b69a39dcff8f70391da362543ae6b08ea3",
+    "src/actio/supervisor.py": "1cbd4b4437b5994bb52aa0e65f2608faac5a7d6166ed268ca19cbffd785c1ddd",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "438a2fc7b3462daed326e24a790c3736585fac2c140071442015631045950be8",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "tests/test_contract.py": "3af57a422ce7c0edb32876966fa277a896944029fb1a378e4946d957ff7fdead",
+    "tests/test_runtime.py": "c81403708783261f06bf5d976856a430e9ed97a4eaa447ce2a949135d568ddad",
+    "scripts/bootstrap.py": "9521638564f058ffb9100497ed61974ffdfdcb2c777d6dccc18fe7cd3077bf48",
+    "scripts/validate.py": "b186f0310007df53f06944c80f01d0e7779baa411d54ba85a12649177706b607"
+  },
+  "log": "test_cross_process_dual_scenario_replay_and_privacy (test_runtime.RuntimeTests.test_cross_process_dual_scenario_replay_and_privacy) ... FAIL\n\n======================================================================\nFAIL: test_cross_process_dual_scenario_replay_and_privacy (test_runtime.RuntimeTests.test_cross_process_dual_scenario_replay_and_privacy)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_runtime.py\", line 36, in test_cross_process_dual_scenario_replay_and_privacy\n    first=self.cli('assistant','--agent','A','--key','assistant-one')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_runtime.py\", line 26, in cli\n    self.assertEqual(result.returncode,code,result.stderr)\nAssertionError: 2 != 0 : {\"error\": \"ContractError\", \"reason\": \"cannot release lease before job reaped\"}\n\n\n----------------------------------------------------------------------\nRan 1 test in 4.250s\n\nFAILED (failures=1)\n",
+  "log_sha256": "58dbfc0176cf051dc98041fe96f70cc460e701cc049fd644cbd3274b5f0308e6"
+}

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "actio-rsi"
+version = "0.1.0"
+description = "Bounded offline persistent agent vertical slice"
+requires-python = ">=3.12,<3.13"
+dependencies = ["deepseek-harness-sdk==0.1.5rc1", "mcp==1.26.0"]
+
+[project.scripts]
+actio = "actio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+actio = ["*.sql", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]

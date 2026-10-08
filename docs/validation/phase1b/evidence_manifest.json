@@ -1,0 +1,618 @@
+{
+  "phase": "1B",
+  "gate": "CONDITIONAL_GO",
+  "base_commit": "56865acb920d309f787485e16a06f24df67c883d",
+  "branch": "phase1b-persistent-vertical-slice",
+  "live_budget": 0,
+  "product_hashes": {
+    "src/actio/cli.py": "47a96b29ccf2dc256546e16844c1584e720e8f6172391d1c88ae087b98708b7b",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/runtime.py": "bb1adb0ea3948189498cc9b5479fe26e450545ba38b909ef33ce0475e554dcab",
+    "src/actio/scenarios.py": "a75c0d91e23d29d358794361ba1d28d9da72354946dacedef8787d63b58e811b",
+    "src/actio/schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/store.py": "e4ccb49119e520a826d8347e489ef27abd481657e8fd7ccacad8fb5b394b97c0",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263"
+  },
+  "current_suites": [
+    {
+      "suite": "contract",
+      "file": "evidence/20261008T030646Z-456a327c.json",
+      "sha256": "7f4607b312d0e1f76db50c87fb194c90f9d309f5fe78eb512943e4705589be20",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0,
+      "raw_archive": ".local/evidence/20261008T030646Z-456a327c.zip",
+      "raw_archive_sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
+    },
+    {
+      "suite": "runtime",
+      "file": "evidence/20261008T030617Z-38f8d7b2.json",
+      "sha256": "4452fd07457f0e1267bbc917d6711b5ce1f154bd19ecfc8fc438a17b749a121d",
+      "command": ".local/final-venv/Scripts/python.exe -X utf8 scripts/validate.py runtime",
+      "exit_code": 0,
+      "raw_archive": ".local/evidence/20261008T030617Z-38f8d7b2.zip",
+      "raw_archive_sha256": "c62f52a89c21ee160033de824159e1f284edd0722a76c3c9e158e55a329e9b68"
+    },
+    {
+      "suite": "failures",
+      "file": "evidence/20261008T025928Z-8317247f.json",
+      "sha256": "b21bdefca3fe9d0d28da92f4f5ff92250e2cb51dd811915fed2f27c2f40f538d",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0,
+      "raw_archive": ".local/evidence/20261008T025928Z-8317247f.zip",
+      "raw_archive_sha256": "5621b5a9f6e31adf7701e1c2390a60722ebad856fcd12eea05682c23caf73957"
+    },
+    {
+      "suite": "processes",
+      "file": "evidence/20261008T030706Z-c1857591.json",
+      "sha256": "d479683533db0d83193dcd7c7bad3165ecd63facb9f36a8d0c609c7db6c381cd",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py processes",
+      "exit_code": 0,
+      "raw_archive": ".local/evidence/20261008T030706Z-c1857591.zip",
+      "raw_archive_sha256": "59a5bb6f798b314054adbb17513c579472d2e8ddf2dfef26009cb96d3460fde9"
+    }
+  ],
+  "tests": [
+    {
+      "id": "P1B-001",
+      "test": "test_contract.Contracts.test_barrier_gap_old_marker_partial_tail_and_truncation",
+      "requirements": [
+        "B1.2",
+        "R2"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030646Z-456a327c.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-002",
+      "test": "test_contract.Contracts.test_bounded_data_and_unsupported_capabilities",
+      "requirements": [
+        "B1.1",
+        "R3",
+        "R5"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030646Z-456a327c.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-003",
+      "test": "test_contract.Contracts.test_identity_idempotency_epoch_and_ttl",
+      "requirements": [
+        "B1.1",
+        "R3"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030646Z-456a327c.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-004",
+      "test": "test_contract.Contracts.test_memory_atomic_cas_ack_loss_correction_and_mapper",
+      "requirements": [
+        "B1.3",
+        "R4"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030646Z-456a327c.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-005",
+      "test": "test_contract.Contracts.test_namespace_source_slot_and_frozen_retrieval",
+      "requirements": [
+        "B1.3",
+        "R4"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030646Z-456a327c.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-006",
+      "test": "test_contract.Contracts.test_out_of_order_dedup_conflict_and_remap",
+      "requirements": [
+        "B1.2",
+        "R2"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030646Z-456a327c.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-007",
+      "test": "test_runtime.RuntimeTests.test_cross_process_dual_scenario_replay_and_privacy",
+      "requirements": [
+        "B1.1",
+        "B1.3",
+        "B1.4",
+        "privacy",
+        "frozen-start-reexecution"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T030617Z-38f8d7b2.json",
+      "command": ".local/final-venv/Scripts/python.exe -X utf8 scripts/validate.py runtime",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-008",
+      "test": "test_runtime.RuntimeTests.test_current_host_two_turns_have_distinct_receipt_barriers",
+      "requirements": [
+        "B1.1",
+        "B1.2",
+        "R2"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T030617Z-38f8d7b2.json",
+      "command": ".local/final-venv/Scripts/python.exe -X utf8 scripts/validate.py runtime",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-009",
+      "test": "test_failures.Failures.test_call_id_dedup_conflict_and_new_creation",
+      "requirements": [
+        "B1.1",
+        "R1"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T025928Z-8317247f.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-010",
+      "test": "test_failures.Failures.test_data_limits_preserve_prefix_and_job_assignment_failure",
+      "requirements": [
+        "B1.1",
+        "R3",
+        "bounded-execution"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T025928Z-8317247f.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-011",
+      "test": "test_failures.Failures.test_final_policy_denies_and_registry_rewrite",
+      "requirements": [
+        "B1.1",
+        "R1"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T025928Z-8317247f.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-012",
+      "test": "test_failures.Failures.test_native_flush_before_canonical_readonly_reconcile",
+      "requirements": [
+        "B1.2",
+        "R2",
+        "window-C"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T025928Z-8317247f.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-013",
+      "test": "test_failures.Failures.test_slow_consumer_event_limit_and_explicit_stop",
+      "requirements": [
+        "B1.1",
+        "R3",
+        "bounded-execution"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T025928Z-8317247f.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-014",
+      "test": "test_failures.Failures.test_stage_deadlines_mcp_hang_and_worker_exit",
+      "requirements": [
+        "B1.1",
+        "R3",
+        "bounded-execution"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T025928Z-8317247f.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py failures",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-015",
+      "test": "test_processes.Processes.test_abrupt_owner_exit_and_accepted_receipt_loss",
+      "requirements": [
+        "B1.1",
+        "B1.2",
+        "R3",
+        "window-A",
+        "owner-death"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T030706Z-c1857591.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py processes",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-016",
+      "test": "test_processes.Processes.test_mcp_received_before_result_real_sdk_host_kill",
+      "requirements": [
+        "B1.1",
+        "B1.2",
+        "window-B"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T030706Z-c1857591.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py processes",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-017",
+      "test": "test_processes.Processes.test_memory_commit_before_caller_ack_process_death",
+      "requirements": [
+        "B1.3",
+        "R4",
+        "window-D"
+      ],
+      "status": "PASS",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+      "evidence": "evidence/20261008T030706Z-c1857591.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py processes",
+      "exit_code": 0
+    },
+    {
+      "id": "P1B-018",
+      "test": "test_processes.Processes.test_two_control_processes_one_lease",
+      "requirements": [
+        "B1.1",
+        "lease-race"
+      ],
+      "status": "PASS",
+      "mode": "SQLITE_CONTRACT",
+      "evidence": "evidence/20261008T030706Z-c1857591.json",
+      "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py processes",
+      "exit_code": 0
+    }
+  ],
+  "aggregate_tests": 18,
+  "history": [
+    {
+      "id": "20261008T022515Z-f5120b9d",
+      "suite": "contract",
+      "file": "evidence/20261008T022515Z-f5120b9d.json",
+      "sha256": "b7af97d12165efb5e92a10bb75aabca549525c601f7f7286a77c1b008a170e3a",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T022625Z-dbf96f65",
+      "suite": "runtime",
+      "file": "evidence/20261008T022625Z-dbf96f65.json",
+      "sha256": "6b77825940e0753ea23be79e0642a110c8a125263b466c654e1745af7af5b98b",
+      "exit_code": 1,
+      "tests_run": 1
+    },
+    {
+      "id": "20261008T022752Z-3e1d9903",
+      "suite": "runtime",
+      "file": "evidence/20261008T022752Z-3e1d9903.json",
+      "sha256": "db12af0195fe323c9871baa74bfc608b6d4a89819ef16cf650bf3b43239a668d",
+      "exit_code": 1,
+      "tests_run": 1
+    },
+    {
+      "id": "20261008T022846Z-0faf7fd5",
+      "suite": "contract",
+      "file": "evidence/20261008T022846Z-0faf7fd5.json",
+      "sha256": "40a1583af65d7591f35281aaf79d28ad0a54f955b8a6a77094e00e5e59ff9824",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T022854Z-4876461e",
+      "suite": "runtime",
+      "file": "evidence/20261008T022854Z-4876461e.json",
+      "sha256": "794e8608c0962e76d950f11551614d4da300cfa80fd0cbeded1fef7654f6b2a9",
+      "exit_code": 1,
+      "tests_run": 1
+    },
+    {
+      "id": "20261008T023014Z-16c8fa6b",
+      "suite": "runtime",
+      "file": "evidence/20261008T023014Z-16c8fa6b.json",
+      "sha256": "53383bab81b9f0690554b31d55a236e64827897b996f5cb38c890615297f4b70",
+      "exit_code": 0,
+      "tests_run": 1
+    },
+    {
+      "id": "20261008T023510Z-de26d540",
+      "suite": "failures",
+      "file": "evidence/20261008T023510Z-de26d540.json",
+      "sha256": "8b873225985de508264981bcef34d09f9cddbb2a2c22a77f936a2809dfc1b542",
+      "exit_code": 0,
+      "tests_run": 5
+    },
+    {
+      "id": "20261008T023629Z-545c8d6c",
+      "suite": "processes",
+      "file": "evidence/20261008T023629Z-545c8d6c.json",
+      "sha256": "83e35379688061e15165027004908d38e8c87a95691271c7b804aa5515b9b28c",
+      "exit_code": 0,
+      "tests_run": 4
+    },
+    {
+      "id": "20261008T023950Z-b0fb93ea",
+      "suite": "contract",
+      "file": "evidence/20261008T023950Z-b0fb93ea.json",
+      "sha256": "2de93bcc2bcbe55c5b5449f9792a079b0501862d0e58fc844b07587e3262776d",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T024145Z-71bcae55",
+      "suite": "runtime",
+      "file": "evidence/20261008T024145Z-71bcae55.json",
+      "sha256": "a601ced49f24cc23bc831d35027a9397cb3be7340ca579d5383034fd3fbdce21",
+      "exit_code": 0,
+      "tests_run": 2
+    },
+    {
+      "id": "20261008T024429Z-a6c76b58",
+      "suite": "failures",
+      "file": "evidence/20261008T024429Z-a6c76b58.json",
+      "sha256": "9d7e253eb01d196b955611944868d20cb110d71d8db6d38d5ad00f369bbf02a7",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T024924Z-8fc7ef9b",
+      "suite": "contract",
+      "file": "evidence/20261008T024924Z-8fc7ef9b.json",
+      "sha256": "b257a1eda142532c97b85868df8f5535b5bde171d97964eb9257ce42e0ef8dca",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T025118Z-75bfc52f",
+      "suite": "runtime",
+      "file": "evidence/20261008T025118Z-75bfc52f.json",
+      "sha256": "1ca468370624c77710b602a42fd9177505cdb08cd3d504e908eb9eb601225ae0",
+      "exit_code": 0,
+      "tests_run": 2
+    },
+    {
+      "id": "20261008T025413Z-44ba07df",
+      "suite": "contract",
+      "file": "evidence/20261008T025413Z-44ba07df.json",
+      "sha256": "90bee3b9e3a73bc3fc9c28dd0ed01e9200d76d402ee0e890a7e607ec8abc8cd6",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T025506Z-ef9af5e6",
+      "suite": "runtime",
+      "file": "evidence/20261008T025506Z-ef9af5e6.json",
+      "sha256": "74eea367089577232b60458de34250f31876eeb6b9258b79cb0111b710858f46",
+      "exit_code": 0,
+      "tests_run": 2
+    },
+    {
+      "id": "20261008T025928Z-8317247f",
+      "suite": "failures",
+      "file": "evidence/20261008T025928Z-8317247f.json",
+      "sha256": "b21bdefca3fe9d0d28da92f4f5ff92250e2cb51dd811915fed2f27c2f40f538d",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T030202Z-d6d8fee1",
+      "suite": "processes",
+      "file": "evidence/20261008T030202Z-d6d8fee1.json",
+      "sha256": "54d72b2530856b081082d17e76599b04a0253bbfd900a742d76d9d85d3a88fd1",
+      "exit_code": 0,
+      "tests_run": 4
+    },
+    {
+      "id": "20261008T030617Z-38f8d7b2",
+      "suite": "runtime",
+      "file": "evidence/20261008T030617Z-38f8d7b2.json",
+      "sha256": "4452fd07457f0e1267bbc917d6711b5ce1f154bd19ecfc8fc438a17b749a121d",
+      "exit_code": 0,
+      "tests_run": 2
+    },
+    {
+      "id": "20261008T030646Z-456a327c",
+      "suite": "contract",
+      "file": "evidence/20261008T030646Z-456a327c.json",
+      "sha256": "7f4607b312d0e1f76db50c87fb194c90f9d309f5fe78eb512943e4705589be20",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "id": "20261008T030706Z-c1857591",
+      "suite": "processes",
+      "file": "evidence/20261008T030706Z-c1857591.json",
+      "sha256": "d479683533db0d83193dcd7c7bad3165ecd63facb9f36a8d0c609c7db6c381cd",
+      "exit_code": 0,
+      "tests_run": 4
+    }
+  ],
+  "artifacts": {
+    "file": "evidence/artifacts-20261008T030520Z.json",
+    "sha256": "e893024924b717b32573241ab519df37e03c07b3dfdeef0cc1b2a27edcf85c06",
+    "status": "PASS",
+    "command": ".local\\final-venv\\Scripts\\python.exe -X utf8 scripts/artifacts.py"
+  },
+  "supporting_evidence": [
+    {
+      "file": "evidence/concordia-archive-comparison.json",
+      "sha256": "4469cdddbf501f2cf3fcd978abeab59bd01196621f60df22c60699a4b1158b27"
+    },
+    {
+      "file": "evidence/delivery-initial-false-positive.json",
+      "sha256": "d8c905e136951b9b2d10fa1143e83739ce1b1444d5672aff8ed13cc6d55bfbd0"
+    },
+    {
+      "file": "evidence/delivery.json",
+      "sha256": "969f0f8fd874d55dc382b6d94d25095071a577d609058dcaa460f5876bcfebe4"
+    }
+  ],
+  "bootstrap": {
+    "successful_command": "python -X utf8 scripts/bootstrap.py --venv .local/final-venv --offline-wheels",
+    "exit_code": 0,
+    "source_sha256": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "logs": [
+      {
+        "file": ".local/bootstrap-clean-final.log",
+        "sha256": "d77c3ee3e00a5f91a93a382e3139cd6f7f14256542624620303dc2b272c9054d"
+      },
+      {
+        "file": ".local/bootstrap-clean-initial-failed.log",
+        "sha256": "95af42727f2ce542b7266d30e4db24a0676383a6e64af7ed8af3d35b4f87acce"
+      },
+      {
+        "file": ".local/bootstrap-clean.log",
+        "sha256": "95af42727f2ce542b7266d30e4db24a0676383a6e64af7ed8af3d35b4f87acce"
+      },
+      {
+        "file": ".local/bootstrap-final-local.log",
+        "sha256": "81491312831f77eb66207583e7e23b631de50d04d2115ef5af60894922b49503"
+      },
+      {
+        "file": ".local/bootstrap-isolated-build-failed.log",
+        "sha256": "0c4e5535bc7e4495c435cb9a06322008e87fb4bee2d78189b79aefa11adaf4a4"
+      },
+      {
+        "file": ".local/bootstrap-isolated-final.log",
+        "sha256": "0c4e5535bc7e4495c435cb9a06322008e87fb4bee2d78189b79aefa11adaf4a4"
+      },
+      {
+        "file": ".local/bootstrap-isolated-retry.log",
+        "sha256": "e5f94ca2a9847b53a2e923ff7ce28196be37649dc8bd14aafa625b8cf3daf863"
+      },
+      {
+        "file": ".local/bootstrap-local-sealed.log",
+        "sha256": "e084f5c09f74703bf90f62020187d16bf3f4efa075aeaec80a4a2f91c635776c"
+      },
+      {
+        "file": ".local/bootstrap-offline.log",
+        "sha256": "c069d51fbd89136163d37f6c5e85e4a3669612a344fb551f2915cc7a7882e863"
+      },
+      {
+        "file": ".local/bootstrap-sealed.log",
+        "sha256": "872a846db2236e388698e2337a095f25f5d779340c6c7e9d42e89b61f818b4ac"
+      }
+    ],
+    "raw_archive": ".local/evidence/bootstrap-logs.zip",
+    "raw_archive_sha256": "38f0aab32e4108f0c86f0e0de7795a86c45ff536371b48091709fe4b3e61595b",
+    "historical_failures": [
+      "Initial online wheel download timeout (pip exit 2, bootstrap exit 1; tool transcript, no separate raw log file)",
+      "GitHub Concordia LF bytes rejected against original local CRLF pin; exact LF git/archive equivalence then verified",
+      "Isolated deep TEMP product wheel build WinError 3; task-owned short TEMP succeeded"
+    ]
+  },
+  "controlled_cases": [
+    {
+      "requirement": "Job assignment failure cleanup",
+      "mode": "CONTROLLED_ENVELOPE",
+      "actual": "injected constructor rejection before gate release; real waiting child terminated"
+    },
+    {
+      "requirement": "window-C",
+      "mode": "REAL_RUNTIME_FIXTURE_PROVIDER + CONTROLLED_ENVELOPE",
+      "actual": "real native flush then explicit exception before canonical commit"
+    }
+  ],
+  "not_executed": [
+    {
+      "id": "G2-live-provider-budget-zero",
+      "status": "BLOCKED",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "research-evaluator/SOTOPIA",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "wire-bytes-before-SDK-decode",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "disk-full",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "power-loss/device-cache",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "physical-generation-migration",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "Linux/WSL",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "100-agent-scale",
+      "status": "NOT_RUN",
+      "mode": "NOT_EXECUTED"
+    },
+    {
+      "id": "binary-source-build-provenance",
+      "status": "UNPROVEN",
+      "mode": "NOT_EXECUTED"
+    }
+  ],
+  "limits": [
+    "All data synthetic; fixed provider and GM outputs",
+    "No automatic dispatch on reconcile",
+    "SDK queues remain internally unbounded; Job memory/time containment only",
+    "Disk budget is monitored, not a filesystem hard quota",
+    "Full raw evidence is local and ignored; committed summaries retain assertions, source hashes and raw hashes",
+    "No push, merge, deployment or next-slice work authorized by this delivery"
+  ]
+}

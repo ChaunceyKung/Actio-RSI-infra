@@ -1,0 +1,10 @@
+{
+  "id": "P1B-delivery-initial",
+  "status": "FAIL",
+  "mode": "DELIVERY_AUDIT",
+  "exit_code": 1,
+  "command": ".local/final-venv/Scripts/python.exe -X utf8 scripts/check_delivery.py",
+  "source_sha256": "776ca1cf7974d5e5844251ea212e9a3c3c2d0103eaaee03b0adfe049d559abd4",
+  "error": "Audit regex fault\\s*= falsely matched argparse default= in cli.py; no product fault flag was present. The audit was corrected to a word boundary.",
+  "product_change": false
+}

@@ -1,0 +1,75 @@
+{
+  "id": "20261008T023950Z-b0fb93ea",
+  "suite": "contract",
+  "command": ".local/venv/Scripts/python.exe -X utf8 scripts/validate.py contract",
+  "mode": "SQLITE_CONTRACT",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_contract.Contracts.test_barrier_gap_old_marker_partial_tail_and_truncation",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_bounded_data_and_unsupported_capabilities",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_identity_idempotency_epoch_and_ttl",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_memory_atomic_cas_ack_loss_correction_and_mapper",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_namespace_source_slot_and_frozen_retrieval",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "test_contract.Contracts.test_out_of_order_dedup_conflict_and_remap",
+      "status": "PASS",
+      "evidence": {}
+    }
+  ],
+  "tests_run": 6,
+  "exit_code": 0,
+  "source_hashes": {
+    "src/actio/cli.py": "47a96b29ccf2dc256546e16844c1584e720e8f6172391d1c88ae087b98708b7b",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "7dfb787a95b3d6fc02fcd01f056fbd02695bac0764cebd78f17bc537726f5976",
+    "src/actio/runtime.py": "7517672cb52d438ff793ae48b0ce4ec34308bb7e454c0db39e240000dceb2385",
+    "src/actio/scenarios.py": "a75c0d91e23d29d358794361ba1d28d9da72354946dacedef8787d63b58e811b",
+    "src/actio/schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/store.py": "bae3ba5bd62951cc5cc3aabab902c11811e9c9fb1f3e807fd091ca939fa30e99",
+    "src/actio/supervisor.py": "fc27ca69cda7791fba86fc1350bfe7fd09ad347877fd296e9dbb9d97561b5541",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "438a2fc7b3462daed326e24a790c3736585fac2c140071442015631045950be8",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "tests/child_case.py": "39c235ac3d91097dab25a23a40be3e68581689caad0374ab6c4cef57a7d1c944",
+    "tests/support.py": "c95ca8220c3b3e28eecf87d0a2e9c1741f2af699796f2f47da586dbfe807ec73",
+    "tests/test_contract.py": "87c5e13ace7cf8cf2c682e40af7d580889637dacf00e2fb7abd2c482b05f6c2f",
+    "tests/test_failures.py": "ff0b63de6f91ab74821316b1c235c4e536a083ae3d01cf66a747274ef63dc691",
+    "tests/test_processes.py": "00488da3fbbd297021c4a7c27b37a4724793f459dee387132c0babd4fed43593",
+    "tests/test_runtime.py": "cb3341147ae8555cd2e98a88ef1ab036bf38ab07232cbba3590c186b272ab0ee",
+    "tests/fixtures/close_host.py": "9ede306b541854cc9cbd572fe7b68c8928374afcefe380bd05995d39380f8eca",
+    "tests/fixtures/faults.mjs": "afed8863c6eb7109527acd5f48100c61eec8d456eaff79c89f6bc975ae002574",
+    "tests/fixtures/mcp_hold.py": "353fb537f738173d658dc5ded9b8523b28f2cb5beb16f89734e9fe538abe41b2",
+    "tests/fixtures/provider.mjs": "db19aac2051a5723c35b371f4b050fab0e237a7c4021ab4684e1029b56d0c227",
+    "scripts/bootstrap.py": "9521638564f058ffb9100497ed61974ffdfdcb2c777d6dccc18fe7cd3077bf48",
+    "scripts/validate.py": "46d5da39396fe43badfef1143e2b9f41c2bd33f59fb29af2b1751aac1b050bed"
+  },
+  "log": "test_barrier_gap_old_marker_partial_tail_and_truncation (test_contract.Contracts.test_barrier_gap_old_marker_partial_tail_and_truncation) ... ok\ntest_bounded_data_and_unsupported_capabilities (test_contract.Contracts.test_bounded_data_and_unsupported_capabilities) ... ok\ntest_identity_idempotency_epoch_and_ttl (test_contract.Contracts.test_identity_idempotency_epoch_and_ttl) ... ok\ntest_memory_atomic_cas_ack_loss_correction_and_mapper (test_contract.Contracts.test_memory_atomic_cas_ack_loss_correction_and_mapper) ... ok\ntest_namespace_source_slot_and_frozen_retrieval (test_contract.Contracts.test_namespace_source_slot_and_frozen_retrieval) ... ok\ntest_out_of_order_dedup_conflict_and_remap (test_contract.Contracts.test_out_of_order_dedup_conflict_and_remap) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.665s\n\nOK\n",
+  "log_sha256": "995eb92141cfdd53bc24f252de972aff3f4e18f60740c39c7fdb9e31d105390f"
+}

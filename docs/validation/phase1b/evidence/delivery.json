@@ -1,0 +1,202 @@
+{
+  "id": "P1B-delivery",
+  "status": "PASS",
+  "exit_code": 0,
+  "mode": "DELIVERY_AUDIT",
+  "command": ".local\\final-venv\\Scripts\\python.exe -X utf8 scripts/check_delivery.py",
+  "local_links_checked": 21,
+  "current_jobs_checked": [
+    {
+      "job": "Local\\Actio-03ee8c5551234f27afd2be93b453c22c",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-200a09392a4a4c289a45a6a9f378d06b",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-50ae5c2882f24ca282a5557b3e790199",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b6418700cafc40ebbeaad2d744c06bec",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-c3794dadbb5c48fa99c8d783de84d592",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-c71d9126cc2b49a9b29286aefdb4fd24",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-62647dc8b9ac40c0a189fbd0fcb3c43d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-119fb1b9beac4da9bd2654627e003540",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-306c91ec43494756b4cae7567ca05d07",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-372222b4110c4ecf804d960c95112142",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a10be19058f44761bc2c6e4f093e2537",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-c7dfb54812714d64be4aa7795b0474e7",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-39453459900548228b65d89e73116ae0",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-739449de74744c4d8a77cdcde0563af3",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-0afa47f6a3614a619df0198dc5a570b5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-19a154a17fd449fea886b07f91816b62",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-2a06159ca8d74848901e8ee7f0f30d07",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-6a931247e72c4782a906e02500b0f39d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-a4f03865df93484d814349150721988d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-aa0799b5079c4bd5bbbc504a99ee150b",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b61b3c93421b44b5bf8868d87cb9122b",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d390b11d770d4d5a89ac2edc1f791877",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-d98df8e8a0a74b0a817a550bff68d40e",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-e52972a4e250409a932e6f91e2ea9507",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-e798ac30fa034eec981a9d3d5e094bb1",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fdaca75c5b4a442d8556e63e6b2e3a35",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-fe1b680c66a44bc39ba385434ba50895",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-21309ab3fbf144359aea3cd723f5bf4f",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-16cd47e3d3f44a8da24c6238c63159bd",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-777459c630d9458cb8e59f7a844b9fa2",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-e890f869d15642528fc4f43496783b9d",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-2a2b0d9da990440bbc92d62f6015a59a",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-4cd230506e634ca887183129da84b645",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-53881af99df444baae2b230460d07133",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-b6316e27286a481695931ca2801b8caa",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-bbf20a34e361439bb837a67a04a8f8c5",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-ec147076a4e04853b83ff331095b799e",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-eda67cb2eff54ad2b56ebb6c2cc7b5f4",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-67b6b680b18f499089e3d3bcaf7b8941",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-febde15ff94f441484e372f0639d00bc",
+      "active": 0
+    },
+    {
+      "job": "Local\\Actio-5a296267936342d39944deec6696f555",
+      "active": 0
+    }
+  ],
+  "console_capabilities": {
+    "fresh_session": true,
+    "sequential_turn": true,
+    "readonly_mcp": true,
+    "bounded_stop": true,
+    "local_status": true,
+    "resume": false,
+    "reopen": false,
+    "fork": false,
+    "catchup": false,
+    "semantic_cancel": false,
+    "world_restore": false,
+    "evaluator": false,
+    "live_provider": false
+  },
+  "product_code_hashes_match_manifest": true,
+  "documents": {
+    "README.md": "205f038bbcbed2e3aa5d8e0b6b0f3e4975a786be930f2bc44554601fa71a1b41",
+    "docs/validation/phase1b/01_plan_and_contract.md": "5edfed05e3489e46267de679ccb149752a0525b841447b34b89efba41c4ead58",
+    "docs/validation/phase1b/02_results.md": "47075811b537cba800acdc083f4b7859ff5b8214e205013072c892e8c86e84dd",
+    "docs/validation/phase1b/03_gate.md": "c6bc2c238333cfac549024621c9486ea520af8bbe5f28432063605bfbb0b660a",
+    "docs/validation/phase1b/README.md": "03605f60d221ae735bbafb9c07a41a371b0c2965a5523859749b0e2c49ccbed1",
+    "docs/planning/12_implementation_backlog.md": "c31b7c4165ef5378e304614016ba5db7a57b9ab1b2714ca84007920ce2239625",
+    "docs/planning/13_architecture_decisions.md": "e062a2ab492ef5e0eba25cac757ed5035d1e5fc6c4afb3807850f4854b67c7ae"
+  },
+  "limitations": [
+    "No graphical Markdown/Mermaid renderer required or used; local links and structured evidence verified"
+  ]
+}

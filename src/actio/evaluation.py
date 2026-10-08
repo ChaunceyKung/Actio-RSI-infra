@@ -59,9 +59,11 @@ def prepare(spec,source):
             identity['aliases']=bundle_aliases(data)
             if v['scenario_completeness']!='complete' or v['facts_consistency']!='consistent':
                 status='insufficient';reasons=v['missing'] or [v['scenario_completeness']]
-            elif mode=='controlled_response':
+            elif mode=='controlled_response' and m.get('input_contract')!='scheduling-input.v1':
                 status='insufficient';reasons=['frozen social goals and initial relationship baselines absent; historical bundles cannot be backfilled']
-            else:view=build_view(data,mode);mapping=view['aliases']
+            elif mode=='controlled_response' and (len(data['operations'])!=2 or any('rejected' in parse(r['body']) for r in data['domain_receipts'])):
+                status='insufficient';reasons=['controlled task rubric requires two legal observed actions; no score for absent/rejected actor']
+            else:view=build_view(data,mode);mapping=view['aliases'];identity['aliases']=mapping
     elif source['kind']=='synthetic':
         v={'verifier':VERIFIER,'kind':'sealed-synthetic-input.v1','bundle_integrity':'not_applicable'}
         identity={'content':source['input']['sha256'],'kind':'synthetic'}

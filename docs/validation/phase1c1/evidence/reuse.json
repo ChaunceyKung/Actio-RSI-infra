@@ -1,0 +1,44 @@
+{
+  "schema": "phase1c1-reuse.v1",
+  "status": "PASS",
+  "files": [
+    {
+      "path": "sotopia/database/persistent_profile.py",
+      "url": "https://raw.githubusercontent.com/sotopia-lab/sotopia/a0aaafb440e570e5e61b7c44a44e5e417c545383/sotopia/database/persistent_profile.py",
+      "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+      "local_sha256": "03abfa84e917835ab56249009250babbf83fd65c609e00dfb62886f4fa69fe30",
+      "remote_sha256": "a78a30b5175982431120661906b201e84fd073bae7245865179ae30d0ad7cd8a",
+      "lf_equal": true
+    },
+    {
+      "path": "sotopia/cli/install/published_datasets.json",
+      "url": "https://raw.githubusercontent.com/sotopia-lab/sotopia/a0aaafb440e570e5e61b7c44a44e5e417c545383/sotopia/cli/install/published_datasets.json",
+      "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+      "local_sha256": "630912b279a4e9af416691ca0f4caccb736efa16e0cff67238b7106381d4f953",
+      "remote_sha256": "b5a7368acc6f4532855b3cf03ea90737f57cf1bfa1445e423787ea5ec1d148ff",
+      "lf_equal": true
+    },
+    {
+      "path": "tests/envs/test_background.json",
+      "url": "https://raw.githubusercontent.com/sotopia-lab/sotopia/a0aaafb440e570e5e61b7c44a44e5e417c545383/tests/envs/test_background.json",
+      "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+      "local_sha256": "d4c9784213fd772c361a70b8aa680e32d5fa4af3d342865c37bb208a79c24756",
+      "remote_sha256": "ad0a6dc0e609281d7f0a8dac5cba2eced318b2248feca3cb985945cbdbaf4b59",
+      "lf_equal": true
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/sotopia-lab/sotopia/a0aaafb440e570e5e61b7c44a44e5e417c545383/LICENSE",
+      "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+      "local_sha256": "ea42d2dc5117e496615b49b95ae4bbb62b0ee17f2b9309ca9007133d774d1fb3",
+      "remote_sha256": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+      "lf_equal": true
+    }
+  ],
+  "code_license": "MIT / Copyright (c) 2023 Hao Zhu",
+  "adopted": "scenario, agent_goals, relationship/background_story semantics; existing extracted parser/schema unchanged",
+  "not_adopted": "Redis persistence and platform; incomplete test_background scenario; datasets not licensed as MIT",
+  "task_data": "two Actio authored synthetic scheduling cards, CC0-1.0; no SOTOPIA dataset rows copied",
+  "data_note": "registry lists CC-BY-SA-4.0 and AI2 Impact License; no concrete dataset adopted/downloaded, so no redistribution claim",
+  "model_requests": 0
+}

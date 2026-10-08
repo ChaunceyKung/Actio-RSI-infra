@@ -130,6 +130,8 @@ def social(store,key,a,b,short_root,*,as_of=UNSET,replay=None,illegal=UNSET,runt
 
 
 def run_engine(store,run,manifest,short_root,runtime_type):
+    from .task_contract import CONTRACT,actor_observation,resolved_text,task_result
+    scheduling=manifest.get('input_contract')==CONTRACT
     import concordia
     pin=json.loads((PACKAGE/'pins/concordia.json').read_text(encoding='utf-8'))
     base=Path(concordia.__file__).parent.parent
@@ -156,7 +158,8 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             who=manifest['entities'][self.label]
             self.port=runtime_type(store,run,who,short_root)
             self.port.start()
-            self.result=self.port.submit({'answer':'INVALID' if manifest['illegal'] and self.label=='B' else 'cooperate',
+            answer=manifest['scripted_actions'][self.label] if scheduling else ('INVALID' if manifest['illegal'] and self.label=='B' else 'cooperate')
+            self.result=self.port.submit({'answer':answer,
                 'observations':self.observations,'memory':manifest['memory'][who],'action_spec':action_spec.to_dict()})
             try:
                 action_spec.validate(self.result['answer'])
@@ -172,7 +175,7 @@ def run_engine(store,run,manifest,short_root,runtime_type):
     entities={label:External(label) for label in ('A','B')}
     class GM(entity_lib.Entity):
         def __init__(self):
-            self.world=[]; self.pending=None; self.acting=None; self.resolved=None
+            self.world=[]; self.pending=None; self.acting=None; self.resolved=None;self.actions=[]
         @property
         def name(self):
             return 'FixtureGM'
@@ -184,8 +187,10 @@ def run_engine(store,run,manifest,short_root,runtime_type):
                 source=final_source(store,acting.result)
                 with store.tx():
                     store.db.execute('INSERT INTO world VALUES(?,?,?,?,?,?,?)',(run['id'],len(self.world),manifest['entities'][self.acting],acting.result['answer'],observation,source[0],source[1]))
-                    store.db.execute('INSERT INTO domain_receipt VALUES(?,?,?,?,?)',(acting.result['op'],'success',source[0],source[1],wire({'resolved':observation,'producer':'GM.observe(EVENT)','putative':self.pending})))
+                    result=task_result(manifest['task']['body'],self.actions+[acting.result['answer']]) if scheduling else None
+                    store.db.execute('INSERT INTO domain_receipt VALUES(?,?,?,?,?)',(acting.result['op'],'task_failure' if result and result['status']=='not_agreed' else 'success',source[0],source[1],wire({'resolved':observation,'producer':'GM.observe(EVENT)','putative':self.pending,**({'task_result':result} if scheduling else {})})))
                 self.world.append(observation)
+                self.actions.append(acting.result['answer'])
                 acting.port.confirm_effect()
                 acting.port.close()
         def act(self,action_spec):
@@ -199,13 +204,16 @@ def run_engine(store,run,manifest,short_root,runtime_type):
                     self.acting=manifest['order'][len(self.world)]
                     return self.acting
                 case entity_lib.OutputType.NEXT_ACTION_SPEC:
+                    if scheduling:
+                        return engine_lib.action_spec_to_string(entity_lib.action_spec_from_dict(manifest['task']['body']['action_specs'][self.acting]))
                     return engine_lib.action_spec_to_string(entity_lib.ActionSpec(call_to_action=manifest['action_spec']['call_to_action'],
                         output_type=entity_lib.OutputType.CHOICE,options=manifest['action_spec']['options']))
                 case entity_lib.OutputType.MAKE_OBSERVATION:
                     label=action_spec.call_to_action.removeprefix('OBSERVE:')
+                    if scheduling:return actor_observation(manifest,label,self.actions)
                     return manifest['observations'][label]
                 case entity_lib.OutputType.RESOLVE:
-                    self.resolved=f'resolved[{len(self.world)}]: {self.pending}'
+                    self.resolved=resolved_text(manifest['task']['body'],self.actions+[entities[self.acting].result['answer']]) if scheduling else f'resolved[{len(self.world)}]: {self.pending}'
                     store.audit(run['id'],entities[self.acting].result['op'],'gm_resolve',{'intent':self.pending,'resolved':self.resolved,'source':'GM.act(RESOLVE)'})
                     return self.resolved
                 case _:
@@ -217,12 +225,13 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             engine.run_loop(game_masters=[gm],entities=list(entities.values()),max_steps=2,
                 step_controller=StepController(start_paused=False),step_callback=lambda step:store.audit(run['id'],None,'engine_step',{'acting_entity':step.acting_entity}))
         except IllegalAction:
+            if scheduling:return 'task_failure'
             if not manifest['illegal'] or gm.world or gm.resolved:
                 raise
             return 'task_failure'
         if len(gm.world)!=2:
             raise ContractError('Engine did not resolve both turns')
-        return 'success'
+        return ('success' if task_result(manifest['task']['body'],gm.actions)['status']=='agreed' else 'task_failure') if scheduling else 'success'
     finally:
         primary=sys.exception()
         cleanup_errors=[]
@@ -238,3 +247,48 @@ def run_engine(store,run,manifest,short_root,runtime_type):
                 primary.add_note('cleanup failure: '+str(cleanup_errors[0]))
             else:
                 raise cleanup_errors[0]
+
+
+def scheduling(store,key,short_root,*,task=UNSET,script=UNSET,replay=None,runtime_type=RuntimePort):
+    """Validate immutable authored task before run allocation; reuse the existing Engine adapter."""
+    from .task_contract import validate_task,validate_manifest,CONTRACT
+    if replay:
+        if task is not UNSET or script is not UNSET:raise ContractError('frozen task replay rejects explicit overrides')
+        original=store.run(replay);m=json.loads(original['input'])
+        validate_manifest(m)
+        if original['input_hash']!=digest(m) or m['pins']!=pins():raise ContractError('frozen task replay pins/hash unavailable')
+        task=m['task'];script=m['scripted_actions']
+    else:
+        if task is UNSET:raise ContractError('TaskSpec required before run allocation')
+    t=validate_task(task)
+    task=json.loads(canonical(task))
+    if script is UNSET:script={'A':'propose:morning','B':'accept'}
+    if type(script) is not dict or set(script)!={'A','B'} or not all(type(a) is str and 0<len(a)<=64 for a in script.values()):
+        raise ContractError('bounded fixture script required')
+    script=json.loads(canonical(script))
+    for seat in t['seats'].values():
+        agent=store.agent(seat['agent'])
+        if agent['spec_hash']!=seat['spec_hash'] or agent['spec']['pins']!=pins():raise ContractError('task identity/spec pins unavailable; create new identity')
+    entities={s:t['seats'][s]['agent'] for s in ('A','B')}
+    request={'scenario':'social','task_hash':task['sha256'],'a':entities['A'],'b':entities['B'],
+             'script_hash':digest(script),'replay':replay}
+    def freeze():
+        if replay:
+            value={**m,'request':request,'replay_of':replay}
+        else:
+            value={'input_contract':CONTRACT,'scenario':'social','task':task,'entities':entities,
+                   'agents':{s['agent']:s['spec_hash'] for s in t['seats'].values()},'scripted_actions':script,
+                   'memory':{a:snapshot(store,a,'social') for a in entities.values()},'pins':pins(),
+                   'engine':'concordia.Sequential','source':CONCORDIA,'order':['A','B'],'max_steps':2,'seed':0,'world':[],
+                   'fixture':'scheduling-script.v1','observation_policy':'scheduling-own-plus-public.v1',
+                   'gm_private':'SCHEDULING_GM_PRIVATE_AUDIT_ONLY','request':request,'replay_of':None}
+        validate_manifest(value)
+        return value
+    run,fresh=store.begin(key,freeze,request=request)
+    if not fresh:return run
+    try:
+        outcome=run_engine(store,run,json.loads(run['input']),short_root,runtime_type)
+        seal_terminal(store,run['id'],run['epoch'],outcome)
+        return store.finish(run['id'],run['epoch'],task=outcome)
+    except Exception as e:
+        failed(store,run,e);raise

@@ -21,6 +21,9 @@ def validate_inputs(manifest, streams, operations, audit):
     """
     scenario = manifest['scenario']
     version = manifest.get('input_contract', 'fixture-input.v1')
+    if version=='scheduling-input.v1':
+        from .task_contract import validate_inputs as task_inputs
+        return task_inputs(manifest,streams,operations,audit)
     require(version in ('fixture-input.v1', INPUT_CONTRACT), 'unsupported input contract')
     agents = set(manifest['agents'])
     require(set(manifest['memory']) == agents, 'required frozen memory identities missing')
@@ -85,7 +88,13 @@ def terminal_body(run, streams, operations, receipts, world, audit, outcome):
         marker = json.loads(op['barrier'] or '{}')
         require(receipt['seq'] <= marker.get('through', -1), 'domain receipt outside barrier')
     ordered = [by_op[k] for k in order]
-    if scenario == 'assistant':
+    task_details=None
+    if manifest.get('input_contract')=='scheduling-input.v1':
+        from .task_contract import terminal_details
+        require(all(w['run']==run['id'] for w in world),'task world run scope mismatch')
+        task_details=terminal_details(manifest,ordered,by_receipt,world,audit,by_stream,outcome)
+        reason,owner=task_details['reason'],task_details['owner']
+    elif scenario == 'assistant':
         require(len(ordered) == 1 and not world, 'assistant single-step contract incomplete')
         op = ordered[0]
         require(by_stream[op['stream']]['agent'] == manifest['request']['agent'], 'assistant identity mismatch')
@@ -125,7 +134,7 @@ def terminal_body(run, streams, operations, receipts, world, audit, outcome):
                         and w['resolved'] == '[event] '+resolved, 'GM resolved evidence mismatch')
             reason = 'two_entities_resolved'
         owner = 'concordia.scenario.owner.v1'
-    return {'version':VERSION, 'run':run['id'], 'scenario':scenario, 'owner':owner,
+    return {**({'task':task_details} if task_details else {}),'version':VERSION, 'run':run['id'], 'scenario':scenario, 'owner':owner,
             'manifest_hash':run['input_hash'], 'outcome':outcome, 'reason':reason,
             'operations':order, 'domain_hash':digest(sorted(receipts,key=lambda r:r['op'])),
             'world_hash':digest(sorted(world,key=lambda w:w['step']))}

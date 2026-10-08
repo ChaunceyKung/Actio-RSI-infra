@@ -1,4 +1,10 @@
-# Actio-RSI · Phase 1C0
+# Actio-RSI · Phase 1C1
+
+新增离线两人共同排程 TaskSpec、真实 DSH + Concordia 两步闭环、独立只读 campaign 核验、盲化标注交接与始终 BLOCKED 的 provider preflight。42 组相关行为验收通过；模型请求、真实人工标签、独立研究单位均为 0。工程 Gate 为 **CONDITIONAL_GO**，人工校准 / live / 研究效度与演化晋升仍为 **BLOCKED**。
+
+当前入口：[结果](docs/validation/phase1c1/02_results.md) · [CLI 复现](docs/validation/phase1c1/04_usage.md) · [冻结合同](docs/validation/phase1c1/01_contract.md) · [Gate](docs/validation/phase1c1/03_gate.md) · [证据 manifest](docs/validation/phase1c1/evidence_manifest.json) · [标注指南](docs/validation/phase1c1/05_annotation.md) · [pilot 草案](docs/validation/phase1c1/06_pilot.md)。`python -m actio.campaign verify-campaign <目录>` 完全只读；`python -m actio.preflight <配置>` 当前始终退出 2。代码 pins 改变后须新身份/新卡，不刷新旧身份；C0 原记录由固定 C0 提交复核。
+
+## Phase 1C0 历史交付
 
 新增离线测量准入、确定性合同指标、严格 controlled-response envelope 与 SOTOPIA 最小 parser/schema 复用。输入绑定修正由在线 seal 和离线 verifier 共用；原证据不改写。35 组相关行为验收、零模型请求，Gate 为 **CONDITIONAL_GO（仅离线工程）**。
 

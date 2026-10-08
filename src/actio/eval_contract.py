@@ -7,11 +7,13 @@ from .common import ContractError, canonical, digest, file_hash
 from .terminal import require
 from .verify import parse, VERIFIER
 
-VERSION='actio-eval.v1'
+VERSION='actio-eval.v2'
 LIMITS={'input_bytes':262144,'response_bytes':16384,'rationale_bytes':1024,'timeout_seconds':10,'live_budget':0}
 DEPENDENCIES={'pydantic':'2.13.5','pydantic_core':'2.46.5','annotated-types':'0.8.0',
               'typing_extensions':'4.16.0','typing-inspection':'0.4.4','json-repair':'0.48.0'}
 RULES={
+    'scheduling.result.v1':{'rule':'accept the proposed slot only when it is in both frozen availability sets; illegal, not agreed and incomplete remain distinct',
+                          'type':'task_result','range':None,'direction':'report_separately','context':['task_constraints','actual_actions']},
     'assistant.reference.v1':{'rule':'one successful native tool result contains SYNTHETIC_SHARED_REFERENCE_17',
                              'type':'integer','range':[0,1],'direction':'higher','context':['tool_results']},
     'social.constraints.v1':{'rule':'legal actions resolved by GM; illegal action rejected before any world effect',
@@ -37,20 +39,23 @@ def unseal(value):
 def pins():
     root=Path(__file__).parent
     names=['common.py','terminal.py','verify.py','eval_contract.py','evaluation.py','eval_worker.py',
+           'task_contract.py','campaign.py','calibration.py','preflight.py',
            '_vendor/sotopia.py','_vendor/sotopia_provenance.json','_vendor/SOTOPIA_LICENSE']
     return {'adapter':VERSION,'source':{n:file_hash(root/n) for n in names},
             'sotopia':'a0aaafb440e570e5e61b7c44a44e5e417c545383','dependencies':DEPENDENCIES}
 
 
 def make_spec(mode,dataset_hash,revision=1):
+    from .task_contract import RUBRIC
     require(mode in ('deterministic','controlled_response'),'unsupported evaluator mode')
     require(type(dataset_hash) is str and re.fullmatch('[0-9a-f]{64}',dataset_hash),'dataset SHA256 required')
     metrics={k:{**v,'version':1,'rubric_hash':digest(v['rule'])} for k,v in RULES.items()
              if (k in ('goal','relationship'))==(mode=='controlled_response')}
     return seal({'schema':VERSION,'revision':revision,'mode':mode,'accepted':{'bundle':['actio-evidence',1],
-                 'scenario':['assistant','social','synthetic-social.v1'],'verifier':VERIFIER,
+                 'scenario':['assistant','social','synthetic-social.v1','scheduling-input.v1'],'verifier':VERIFIER,
                  'prerequisites':['valid_inventory','consistent_facts','complete_scenario','required_context']},
-                 'metrics':metrics,'pins':pins(),'alias_rule':'sorted unique seat -> agent_N; explicit agent/role binding',
+                 'metrics':metrics,'task_rubrics':{'scheduling-input.v1':{'body':RUBRIC,'sha256':digest(RUBRIC)}},
+                 'pins':pins(),'alias_rule':'sorted unique seat -> agent_N; explicit agent/role binding',
                  'view':{'selection':'metric whitelist v1','truncation':'reject over limit; no silent truncation',
                          'excluded':['forced_fixture_answer','private_observation','gm_private','memory','historical_score','candidate']},
                  'envelope':'scores[alias][dimension] = {reasoning, score}; exact keys; raw strict before parser',
@@ -92,6 +97,8 @@ def synthetic_input(value):
 
 def bundle_aliases(data):
     m=parse(data['run']['input']); scenario=m['scenario']
+    if m.get('input_contract')=='scheduling-input.v1':
+        return aliases({s:{'agent':v['agent'],'role':v['role']} for s,v in m['task']['body']['seats'].items()})
     seats={s:{'agent':a,'role':'participant'} for s,a in m['entities'].items()} if scenario=='social' else {'assistant':{'agent':m['request']['agent'],'role':'assistant'}}
     return aliases(seats)
 
@@ -99,6 +106,7 @@ def bundle_aliases(data):
 def build_view(data,mode):
     """Only admitted evidence enters this function. No full audit context crosses to evaluator."""
     m=parse(data['run']['input']); scenario=m['scenario']
+    if m.get('input_contract')=='scheduling-input.v1':return task_view(data)
     mapping=bundle_aliases(data); by_agent={v['agent']:k for k,v in mapping.items()}
     streams={s['id']:s for s in data['streams']};ops={o['id']:o for o in data['operations']}
     receipts={r['op']:r for r in data['domain_receipts']}
@@ -154,6 +162,13 @@ def strict_response(raw,mapping):
 
 
 def deterministic(view):
+    if view['scenario']=='scheduling-input.v1':
+        from .task_contract import task_result
+        task={'order':['A','B'],'action_specs':view['action_specs'],
+              'seats':{v['seat']:{'private':view['constraints'][k]} for k,v in view['aliases'].items()}}
+        return [{'metric':'scheduling.result.v1','value':task_result(task,[a['action'] for a in view['actions']]),
+                 'predicate':'accept proposed slot in both frozen availability sets',
+                 'sources':[a['source'] for a in view['actions']]}]
     actions=view['actions'];results=[]
     if view['scenario']=='assistant':
         a=actions[0];blocks=a['tool_results']
@@ -172,3 +187,25 @@ def deterministic(view):
                   'predicate':'check action membership and domain/world effects separately',
                   'sources':[a['source'] for a in actions]}]
     return results
+
+
+def task_view(data):
+    from .task_contract import validate_manifest,RUBRIC
+    m=parse(data['run']['input']);t=validate_manifest(m)
+    mapping=aliases({s:{'agent':v['agent'],'role':v['role']} for s,v in t['seats'].items()})
+    by_agent={v['agent']:k for k,v in mapping.items()};ops={o['id']:o for o in data['operations']}
+    streams={s['id']:s for s in data['streams']};receipts={r['op']:r for r in data['domain_receipts']}
+    actions=[]
+    for row in sorted(data['audit'],key=lambda a:a['id']):
+        if row['kind']!='dispatch_intent':continue
+        op=ops[row['op']];r=receipts[op['id']]
+        actions.append({'alias':by_agent[streams[op['stream']]['agent']],'action':op['answer'],
+                        'source':{'operation':op['id'],'occurrence':[r['stream'],r['seq']],'receipt':r['op']}})
+    view={'scenario':'scheduling-input.v1','task_hash':m['task']['sha256'],'card':t['id'],'family':t['family'],
+          'public':t['public'],'aliases':mapping,'actions':actions,'action_specs':t['action_specs'],
+          'goals':{k:t['seats'][v['seat']]['private']['goal'] for k,v in mapping.items()},
+          'constraints':{k:{f:t['seats'][v['seat']]['private'][f] for f in ('available','preferred')} for k,v in mapping.items()},
+          'relationships':{k:t['relationships'][v['seat']] for k,v in mapping.items()},
+          'rubric':RUBRIC,'rubric_hash':digest(RUBRIC),'grouping':t['grouping']}
+    require(len(canonical(view).encode())<=LIMITS['input_bytes'],'task judge view byte limit')
+    return view

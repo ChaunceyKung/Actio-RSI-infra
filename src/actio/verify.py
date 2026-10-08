@@ -10,7 +10,8 @@ from .terminal import terminal_body, require, validate_inputs, INPUT_CONTRACT
 
 FORMAT = 'actio-evidence'
 VERSION = 1
-VERIFIER = {'implementation':'actio-verifier.2', 'contract':INPUT_CONTRACT,
+VERIFIER = {'implementation':'actio-verifier.3', 'contract':INPUT_CONTRACT,
+            'task_contract':'scheduling-input.v1',
             'stored_report_policy':'hash-checked historical report; current result independently recomputed'}
 MAX_BYTES = 32 * 1024 * 1024
 MAX_ROWS = 20000
@@ -77,7 +78,10 @@ def analyze(data, source):
             require(req['run']==run['id'] and parse(req['request'])==manifest['request'] and req['request_hash']==digest(manifest['request']),'normalized request mismatch')
         elif source['schema']==2 and data.get('terminal'):
             missing.append('request_identity')
-        if manifest['scenario']=='assistant':
+        if manifest.get('input_contract')=='scheduling-input.v1':
+            from .task_contract import validate_manifest
+            validate_manifest(manifest)
+        elif manifest['scenario']=='assistant':
             require(manifest['request']=={'scenario':'assistant','agent':next(iter(agents))},'assistant request/effective mismatch')
         elif manifest['scenario']=='social':
             request=manifest['request']

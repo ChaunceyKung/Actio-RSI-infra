@@ -1,0 +1,449 @@
+{
+  "schema": "actio-review-evidence.v1",
+  "date": "2026-10-08",
+  "scope": "documentation review and handoff only",
+  "baseline": "1e85d8c2fb4a756de81acb333905190df9e97592",
+  "baseline_branch": "phase1c0-offline-measurement",
+  "initial_worktree": "clean",
+  "remote_baseline_observed": "1e85d8c2fb4a756de81acb333905190df9e97592",
+  "remote_main_observed": "fad04fcf0d14ded6684d54dc0633f4ee213276f3",
+  "manifest_sha256": "2555a5abbebaf6c97fad710a654710eb1d42deb8ce474f3b9e0a658016125de5",
+  "hash_comparisons": 428,
+  "hash_checks": {
+    "product_hashes": {
+      "count": 29,
+      "mismatch": []
+    },
+    "tooling_hashes": {
+      "count": 13,
+      "mismatch": []
+    },
+    "optional_lock_hashes": {
+      "count": 3,
+      "mismatch": []
+    },
+    "preparation_logs": {
+      "count": 8,
+      "mismatch": []
+    },
+    "preserved_intermediate_source_archives": {
+      "count": 2,
+      "mismatch": []
+    },
+    "artifact_hashes": {
+      "count": 146,
+      "mismatch": []
+    },
+    "suite_evaluation": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_evaluation": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_evaluation": {
+      "count": 28,
+      "mismatch": []
+    },
+    "tests_evaluation": {
+      "count": 2,
+      "mismatch": []
+    },
+    "suite_evidence": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_evidence": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_evidence": {
+      "count": 22,
+      "mismatch": []
+    },
+    "tests_evidence": {
+      "count": 1,
+      "mismatch": []
+    },
+    "suite_input_binding": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_input_binding": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_input_binding": {
+      "count": 28,
+      "mismatch": []
+    },
+    "tests_input_binding": {
+      "count": 1,
+      "mismatch": []
+    },
+    "suite_reliability": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_reliability": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_reliability": {
+      "count": 22,
+      "mismatch": []
+    },
+    "tests_reliability": {
+      "count": 1,
+      "mismatch": []
+    },
+    "suite_runtime": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_runtime": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_runtime": {
+      "count": 22,
+      "mismatch": []
+    },
+    "tests_runtime": {
+      "count": 1,
+      "mismatch": []
+    },
+    "suite_schema": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_schema": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_schema": {
+      "count": 22,
+      "mismatch": []
+    },
+    "tests_schema": {
+      "count": 1,
+      "mismatch": []
+    },
+    "suite_sotopia": {
+      "count": 1,
+      "mismatch": []
+    },
+    "raw_sotopia": {
+      "count": 1,
+      "mismatch": []
+    },
+    "products_sotopia": {
+      "count": 28,
+      "mismatch": []
+    },
+    "tests_sotopia": {
+      "count": 2,
+      "mismatch": []
+    },
+    "delivery": {
+      "count": 1,
+      "mismatch": []
+    },
+    "runtime_smoke": {
+      "count": 1,
+      "mismatch": []
+    },
+    "current_campaign": {
+      "count": 1,
+      "mismatch": []
+    },
+    "installed_eval_package": {
+      "count": 29,
+      "mismatch": []
+    }
+  },
+  "product_hashes": {
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+    "src/actio/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+    "src/actio/_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "src/actio/cli.py": "cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/eval_contract.py": "718a3865225374447616633715a97bce8b83874ef0a804362e4e96c086cd8a2f",
+    "src/actio/eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+    "src/actio/evaluation.py": "992689ebebe9f94fddadcbdd7daf2a549248aaa22980bd2eb0531d568bfd2650",
+    "src/actio/evidence.py": "ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "src/actio/runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+    "src/actio/scenarios.py": "d1138719829752b69a4c606d808bd581115f8f16a2de904ad64608ae1ef7bfbc",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/terminal.py": "5972d45e6ca4a6da6afe1e2d908743dfb8c8e273301dc8536ef1824b2e5d5d6a",
+    "src/actio/verify.py": "90d243e36223d4ed1331d9744d4ee0201a336e311205a37bbe73a39707fb918d"
+  },
+  "current_historical_suites": [
+    {
+      "suite": "evaluation",
+      "tests_run": 8,
+      "file": "evidence/20261008T062501Z-d8995db3.json"
+    },
+    {
+      "suite": "evidence",
+      "tests_run": 7,
+      "file": "evidence/20261008T061724Z-8b84cab4.json"
+    },
+    {
+      "suite": "input_binding",
+      "tests_run": 3,
+      "file": "evidence/20261008T062449Z-a6ae2f75.json"
+    },
+    {
+      "suite": "reliability",
+      "tests_run": 7,
+      "file": "evidence/20261008T061735Z-4e4e94d8.json"
+    },
+    {
+      "suite": "runtime",
+      "tests_run": 2,
+      "file": "evidence/20261008T061746Z-e4f7cca8.json"
+    },
+    {
+      "suite": "schema",
+      "tests_run": 5,
+      "file": "evidence/20261008T061833Z-aedf3c21.json"
+    },
+    {
+      "suite": "sotopia",
+      "tests_run": 3,
+      "file": "evidence/20261008T062449Z-98a9121f.json"
+    }
+  ],
+  "historical_test_groups": 35,
+  "executed_tests": {
+    "command": "source-injected unittest test_input_binding + test_sotopia + test_evaluation via .local/phase1c0-release-venv/Scripts/python.exe -X utf8 -B -",
+    "tests_run": 14,
+    "failures": 0,
+    "errors": 0,
+    "successful": true,
+    "source_package": "src/actio/__init__.py",
+    "log": "test_original_five_and_historical_reports (test_input_binding.InputBinding.test_original_five_and_historical_reports) ... ok\ntest_real_inventory_corruption_still_fails (test_input_binding.InputBinding.test_real_inventory_corruption_still_fails) ... ok\ntest_rehashed_frozen_contradictions_shared_with_seal (test_input_binding.InputBinding.test_rehashed_frozen_contradictions_shared_with_seal) ... ok\ntest_episode_original_definition_with_fixed_generation_seam (test_sotopia.Sotopia.test_episode_original_definition_with_fixed_generation_seam) ... ok\ntest_parser_actual_context_repair_value_properties_and_coercion (test_sotopia.Sotopia.test_parser_actual_context_repair_value_properties_and_coercion) ... ok\ntest_strict_adapter_keeps_reverse_keys_and_three_identities (test_sotopia.Sotopia.test_strict_adapter_keeps_reverse_keys_and_three_identities) ... ok\ntest_active_legacy_corrupt_and_missing_synthetic_context_zero_calls (test_evaluation.Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls) ... ok\ntest_admission_before_evaluator_and_orthogonal_outcomes (test_evaluation.Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes) ... ok\ntest_deterministic_facts_refusal_and_whitelisted_received_view (test_evaluation.Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view) ... ok\ntest_idempotency_content_spec_export_metadata_and_atomic_publication (test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication) ... ok\ntest_internal_error_timeout_and_interrupted_claim_are_preserved (test_evaluation.Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved) ... ok\ntest_invalid_envelopes_persist_no_zero_or_parser_coercion (test_evaluation.Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion) ... ok\ntest_portable_stdlib_verification_and_missing_optional_dependency (test_evaluation.Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency) ... ok\ntest_worker_audit_hook_enforces_denials_in_real_child (test_evaluation.Evaluation.test_worker_audit_hook_enforces_denials_in_real_child) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 13.177s\n\nOK\n",
+    "log_sha256": "b6e8a1871995431c2c7a6af9119e3e15451b82ac1b8b9664b24429aee47bc39e",
+    "model_requests": 0,
+    "runtime_workers_started": 0
+  },
+  "campaign_verification": {
+    "report": "campaign/reports/8f58df3b4b00d583130797981ec7c8c808446a1991b430f353d2324b1ed0b5e3.json",
+    "dataset": "7843afb624ca1b783b90b87822fb85efdd82985889a8463225a88837719ea9af",
+    "counts": {
+      "registered": 14,
+      "unique_evidence": 10,
+      "unique_measurements": 12,
+      "admitted": 7,
+      "rejected": 2,
+      "insufficient": 3,
+      "task_failure": 1,
+      "infrastructure_failure": 2,
+      "valid_measurement": 6,
+      "invalid_measurement": 1,
+      "measurement_error": 0,
+      "timeout": 0,
+      "not_run": 5
+    },
+    "registrations_checked": [
+      "assistant",
+      "social",
+      "rejected",
+      "partial",
+      "unknown",
+      "identical-social-package",
+      "same-run-alternate-export",
+      "historical-social-missing-goals",
+      "contradiction-observation",
+      "contradiction-action-spec",
+      "controlled-valid",
+      "controlled-invalid-null",
+      "c0-social",
+      "c0-replay"
+    ],
+    "record_verifications": {
+      "2365b5e8eae53762dab1aba3222ee9000e69c34d6bc5c526c0befae88ccf4fa6": {
+        "valid": true,
+        "record_hash": "2365b5e8eae53762dab1aba3222ee9000e69c34d6bc5c526c0befae88ccf4fa6",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "2cefa9cddd880a078457a31f1ddb3a72da2061952f080da8b96f723891173abe": {
+        "valid": true,
+        "record_hash": "2cefa9cddd880a078457a31f1ddb3a72da2061952f080da8b96f723891173abe",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "64eae1054581bc51b86d6454a1c0b79aab5e7f008369ccf4d8159d813eb0952c": {
+        "valid": true,
+        "record_hash": "64eae1054581bc51b86d6454a1c0b79aab5e7f008369ccf4d8159d813eb0952c",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "431a4e0923f07bfd15cdf9343f6593c55f856e51c1ad3813d6891d4315839aad": {
+        "valid": true,
+        "record_hash": "431a4e0923f07bfd15cdf9343f6593c55f856e51c1ad3813d6891d4315839aad",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "5b40ee991434ea4903a4f3f42cb518bc14431913a9f50246d6e08fde048e189d": {
+        "valid": true,
+        "record_hash": "5b40ee991434ea4903a4f3f42cb518bc14431913a9f50246d6e08fde048e189d",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "f35ec68927a810284be9be10e8390a60ceca65febce38d62f7441ebd6fb17fe7": {
+        "valid": true,
+        "record_hash": "f35ec68927a810284be9be10e8390a60ceca65febce38d62f7441ebd6fb17fe7",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "e1b9d85784e1dede55b5a69f24cf63b0be4339c01a946b1a400c8d1eed91fdc6": {
+        "valid": true,
+        "record_hash": "e1b9d85784e1dede55b5a69f24cf63b0be4339c01a946b1a400c8d1eed91fdc6",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "64781e59a23bd81425910f1e2d6b1fcd1b07b06a35f0f26d5fb125de2b85e3f1": {
+        "valid": true,
+        "record_hash": "64781e59a23bd81425910f1e2d6b1fcd1b07b06a35f0f26d5fb125de2b85e3f1",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "1d04c42e5d57f1fb4df118f442f16952994e421780f9301dc10357c51b805018": {
+        "valid": true,
+        "record_hash": "1d04c42e5d57f1fb4df118f442f16952994e421780f9301dc10357c51b805018",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "ee47c1baa40ff666da55fbaac8bb1c35cbd592dafca7bff449514a8a682ce885": {
+        "valid": true,
+        "record_hash": "ee47c1baa40ff666da55fbaac8bb1c35cbd592dafca7bff449514a8a682ce885",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "c5183855f63784e82dd4e4a72095ca938f8a94d95881aa6bbff8a8a7489a69f0": {
+        "valid": true,
+        "record_hash": "c5183855f63784e82dd4e4a72095ca938f8a94d95881aa6bbff8a8a7489a69f0",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      "a7314fb8c0986601fd2f84f5e9f145a7a46a117095cb61d1de56f1870d121fca": {
+        "valid": true,
+        "record_hash": "a7314fb8c0986601fd2f84f5e9f145a7a46a117095cb61d1de56f1870d121fca",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      }
+    },
+    "independent_research_units": 0,
+    "model_requests": 0
+  },
+  "upstream_extraction": {
+    "command": ".local/phase1c0-release-venv/Scripts/python.exe -B scripts/extract_sotopia.py ../../codebase/18_sotopia/repo --check",
+    "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+    "definitions": 11,
+    "status": "PASS"
+  },
+  "upstream_readonly_comparisons": [
+    {
+      "url": "https://raw.githubusercontent.com/sotopia-lab/sotopia/a0aaafb440e570e5e61b7c44a44e5e417c545383/sotopia/database/persistent_profile.py",
+      "bytes": 9515,
+      "remote_sha256": "a78a30b5175982431120661906b201e84fd073bae7245865179ae30d0ad7cd8a",
+      "local_sha256": "03abfa84e917835ab56249009250babbf83fd65c609e00dfb62886f4fa69fe30",
+      "normalized_equal": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sotopia-lab/sotopia/a0aaafb440e570e5e61b7c44a44e5e417c545383/sotopia/cli/install/published_datasets.json",
+      "bytes": 3134,
+      "remote_sha256": "b5a7368acc6f4532855b3cf03ea90737f57cf1bfa1445e423787ea5ec1d148ff",
+      "local_sha256": "630912b279a4e9af416691ca0f4caccb736efa16e0cff67238b7106381d4f953",
+      "normalized_equal": true
+    }
+  ],
+  "historical_delivery": {
+    "status": "PASS",
+    "jobs": 28,
+    "active": 0,
+    "core_and_eval_pip_check": "No broken requirements found.",
+    "reexecuted": false
+  },
+  "findings": {
+    "C0R1": "closed within defined behavior; 12 frozen-input inconsistency cases rerun",
+    "new_blocking_defects": "none found in reviewed scope",
+    "next_phase_gaps": [
+      "C1D1 frozen task semantics",
+      "C1D2 family grouping and unit definitions",
+      "C1D3 human calibration and live authorization",
+      "C1D4 exact-pin version verification",
+      "C1D5 campaign-only verifier"
+    ]
+  },
+  "limits": [
+    "14 targeted groups rerun, not all 35 historical groups",
+    "No DSH/Concordia runtime execution or fresh installation in this review",
+    "Historical Job cleanup observed in bound records, not requeried",
+    "Independent research units remain zero",
+    "Hash comparisons include repeated file comparisons across suites",
+    "GitHub raw source compared after CRLF to LF normalization; original hashes retained"
+  ],
+  "model_requests": 0,
+  "runtime_workers_started": 0,
+  "product_changes": false,
+  "historical_evidence_changes": false,
+  "next_gate": "CONDITIONAL_GO offline engineering only",
+  "failures": [],
+  "suite_record_source_binding_checks": [
+    {
+      "suite": "evaluation",
+      "recorded_source_bindings": 30,
+      "status": "PASS"
+    },
+    {
+      "suite": "evidence",
+      "recorded_source_bindings": 23,
+      "status": "PASS"
+    },
+    {
+      "suite": "input_binding",
+      "recorded_source_bindings": 29,
+      "status": "PASS"
+    },
+    {
+      "suite": "reliability",
+      "recorded_source_bindings": 23,
+      "status": "PASS"
+    },
+    {
+      "suite": "runtime",
+      "recorded_source_bindings": 23,
+      "status": "PASS"
+    },
+    {
+      "suite": "schema",
+      "recorded_source_bindings": 23,
+      "status": "PASS"
+    },
+    {
+      "suite": "sotopia",
+      "recorded_source_bindings": 30,
+      "status": "PASS"
+    }
+  ]
+}

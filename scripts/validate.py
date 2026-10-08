@@ -44,7 +44,7 @@ if __name__=='__main__':
     result=unittest.TextTestRunner(stream=output,verbosity=2,resultclass=Result).run(suite)
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:8]
     phase=sys.argv[2] if len(sys.argv)>2 else 'phase1b1'
-    if phase not in ('phase1b1','phase1c0','phase1c1'):raise SystemExit('unknown evidence phase')
+    if phase not in ('phase1b1','phase1c0','phase1c1','phase1c2a'):raise SystemExit('unknown evidence phase')
     target=ROOT/'docs/validation'/phase/'evidence';target.mkdir(parents=True,exist_ok=True)
     log=output.getvalue()
     try:
@@ -56,7 +56,8 @@ if __name__=='__main__':
                   'reliability':'REAL_ENGINE_DSH_AND_CONTROLLED_BOUNDARIES','entry_concurrency':'TWO_CONTROL_PROCESS_ENTRY_RACES',
                   'evidence':'REAL_FIXTURE_EXPORT_AND_OFFLINE_VERIFICATION',
                   'input_binding':'OFFLINE_FROZEN_INPUT_COUNTEREXAMPLES', 'evaluation':'OFFLINE_EVALUATION',
-                  'sotopia':'REAL_EXTRACTED_SOTOPIA_CONTROLLED_SEAMS'}.get(which,'REAL_RUNTIME_FIXTURE_PROVIDER'),
+                  'sotopia':'REAL_EXTRACTED_SOTOPIA_CONTROLLED_SEAMS',
+                  'preflight':'PURE_ROLE_CONFIGURATION_NO_TRANSPORT'}.get(which,'REAL_RUNTIME_FIXTURE_PROVIDER'),
           'platform':platform.platform(),'python':sys.version,'tests':result.records,'tests_run':result.testsRun,
           'exit_code':0 if result.wasSuccessful() else 1,'source_hashes':hashes,'log':log,
           'log_sha256':hashlib.sha256(log.encode()).hexdigest()}

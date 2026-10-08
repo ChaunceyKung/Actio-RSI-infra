@@ -21,7 +21,7 @@ from actio.eval_contract import make_spec,seal
 from actio.evaluation import prepare,evaluate,source_bundle,verify_record
 from actio.campaign import GROUP_RULE,source_group,run_campaign,verify_campaign,validate_dataset
 from actio.calibration import export_annotations,import_labels
-from actio.preflight import template,preflight
+from actio.preflight import template,preflight,stub_config
 from test_evaluation import response
 
 
@@ -244,13 +244,12 @@ class TaskContract(unittest.TestCase):
 
     def test_07_preflight_blocks_before_credentials_clients_workers(self):
         config=template();zero=preflight(config);self.assertEqual(zero['status'],'BLOCKED')
-        config['authorization']='synthetic positive-config fixture, not spend permission'
-        for c in config['components'].values():c.update(provider='synthetic',model_version='fixed-fixture',data_scope='synthetic-only',process_context='separate')
-        for b in config['budgets'].values():b.update(calls=1,tokens=10,cost=1,currency='synthetic',quote='synthetic not current price')
-        config.update(failure_denominator='all registered calls',stop_conditions=['any budget exhausted'],ledger_owner='synthetic')
+        config=stub_config('http://127.0.0.1:23456')
+        config['authorization_ref']='synthetic positive-config fixture, not spend permission'
         runner='''import json,sys,os
 from actio.preflight import preflight
 config=json.loads(sys.stdin.read())
+'codec warmup'.encode('utf-16be')
 def audit(event,args):
     if event.startswith('socket.') or event in ('subprocess.Popen','open'):raise RuntimeError('side effect denied '+event)
     if event=='import':raise RuntimeError('late import denied '+args[0])

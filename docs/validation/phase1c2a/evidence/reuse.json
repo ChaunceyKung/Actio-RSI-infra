@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+  "license": "MIT Copyright (c) 2026 DeepSeek",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/LICENSE",
+      "local_sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "remote_sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/bundle/sdk-minimal/cordis.patch.yml",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/bundle/sdk-minimal/cordis.patch.yml",
+      "local_sha256": "2d1489651428fa2636fae150d61b423effceae9b15dcc7412555fa5e9b80ad69",
+      "remote_sha256": "2d1489651428fa2636fae150d61b423effceae9b15dcc7412555fa5e9b80ad69",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-deepseek/src/adapter.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/src/adapter.ts",
+      "local_sha256": "68d03fbaa3dd5f04a55ff48d7cd0f2ef125077f8144977459c15432e1464cf8f",
+      "remote_sha256": "68d03fbaa3dd5f04a55ff48d7cd0f2ef125077f8144977459c15432e1464cf8f",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-deepseek/src/messages-api.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/src/messages-api.ts",
+      "local_sha256": "c4f2036fc3b561690f05426f308bbee525a4a5ae121e47ebf61b7bc3a7b8656c",
+      "remote_sha256": "c4f2036fc3b561690f05426f308bbee525a4a5ae121e47ebf61b7bc3a7b8656c",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-deepseek-api-key/src/index.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek-api-key/src/index.ts",
+      "local_sha256": "16ccb29fc5feee3778f7fa86af16693c175844b2b74b4aad0218288e7e670170",
+      "remote_sha256": "16ccb29fc5feee3778f7fa86af16693c175844b2b74b4aad0218288e7e670170",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm/src/index.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm/src/index.ts",
+      "local_sha256": "336cc8be1c05a6cb1881cbec4defdd6586d49c8b6a7bea08e1dceb258fb1a89d",
+      "remote_sha256": "336cc8be1c05a6cb1881cbec4defdd6586d49c8b6a7bea08e1dceb258fb1a89d",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm/src/retry-policy.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm/src/retry-policy.ts",
+      "local_sha256": "eee2423a0152096026446dd651f29678e0c504f0349a91758720f01f74efa871",
+      "remote_sha256": "eee2423a0152096026446dd651f29678e0c504f0349a91758720f01f74efa871",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-retry/src/index.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-retry/src/index.ts",
+      "local_sha256": "d33553781ed2118aab3b249c159fae550d359627565e4714c9ea599e474b8093",
+      "remote_sha256": "d33553781ed2118aab3b249c159fae550d359627565e4714c9ea599e474b8093",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-deepseek/tests/mock-server.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/tests/mock-server.ts",
+      "local_sha256": "e157eaeba7c95ef78ed4273eddff6dc242aa6ddb241b9cb8a3478eb6e63f9e4f",
+      "remote_sha256": "e157eaeba7c95ef78ed4273eddff6dc242aa6ddb241b9cb8a3478eb6e63f9e4f",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-deepseek/tests/stream.spec.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/tests/stream.spec.ts",
+      "local_sha256": "0df1ef959aa0e083e4c27980105f117cd41dd9d6f121574f15dec8aa4c82ede4",
+      "remote_sha256": "0df1ef959aa0e083e4c27980105f117cd41dd9d6f121574f15dec8aa4c82ede4",
+      "normalized_equal": true
+    },
+    {
+      "path": "packages/llm/llm-deepseek/package.json",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/package.json",
+      "local_sha256": "cd6066c69afeacd4eaed25292c58eafc104106c48eeb9b25d2895eb4fb627fe5",
+      "remote_sha256": "cd6066c69afeacd4eaed25292c58eafc104106c48eeb9b25d2895eb4fb627fe5",
+      "normalized_equal": true
+    }
+  ],
+  "adopt": "official binary adapter unmodified; Messages mock event structure and bounded fault behaviors adapted with attribution",
+  "not_adopted": [
+    "Files API",
+    "upstream live e2e",
+    "full test platform",
+    "implicit retry"
+  ],
+  "binary_source_mapping": "unproven; source package version 0.2.1-alpha.1 versus installed runtime 0.1.5rc1; runtime probe required",
+  "model_requests": 0
+}

@@ -1,4 +1,12 @@
-# Actio-RSI · Phase 1C1
+# Actio-RSI · Phase 1C2A
+
+本轮在官方 Messages adapter 准入处 **NO_GO**：固定 DSH `0.1.5rc1` 实际发送 `/chat/completions`；显式加载参考源码的 `@deepseek-ai/dsh-llm-deepseek-api-key` 报 `ERR_MODULE_NOT_FOUND`。按冻结 Prompt 的停止条件，未继续实现无答案双 seat transport、逐 attempt 预算账本和新模式验收，未升级依赖。
+
+已交付 `pilot-config.v2` 角色配置修正、4 次有界协议定位、47 组通过的配置/旧路径回归及固定旧版 C0/C1 只读复核。真实模型请求和费用均为 **0**，本机 provider HTTP 接收合计 **2**。live、人工校准、研究效度与演化晋升均 **BLOCKED**。发布仅到 `phase1c2a-solver-transport-and-budget`，不合并 main。
+
+当前入口：[结果](docs/validation/phase1c2a/02_results.md) · [Gate 与备选](docs/validation/phase1c2a/03_gate.md) · [CLI](docs/validation/phase1c2a/04_usage.md) · [合同](docs/validation/phase1c2a/01_contract.md) · [复用与协议差异](docs/validation/phase1c2a/05_reuse_and_protocol.md) · [预算状态边界](docs/validation/phase1c2a/06_budget.md) · [证据 manifest](docs/validation/phase1c2a/evidence_manifest.json)。当前 preflight 永远 BLOCKED/退出 2；旧 v1 配置只用固定旧版本核验。新配置完整不代表传输验证或 live 授权。
+
+## Phase 1C1 历史交付
 
 新增离线两人共同排程 TaskSpec、真实 DSH + Concordia 两步闭环、独立只读 campaign 核验、盲化标注交接与始终 BLOCKED 的 provider preflight。42 组相关行为验收通过；模型请求、真实人工标签、独立研究单位均为 0。工程 Gate 为 **CONDITIONAL_GO**，人工校准 / live / 研究效度与演化晋升仍为 **BLOCKED**。
 

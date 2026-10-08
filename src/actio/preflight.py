@@ -1,53 +1,117 @@
-"""Read-only configuration validation; Phase 1C1 has no live transport implementation."""
+"""Role-aware offline configuration validation. No live execution/credential path."""
 import argparse
 import json
 from pathlib import Path
+from urllib.parse import urlsplit
+
+from .common import ContractError,canonical
 
 ROLES=('solver','gm','judge','retries','other')
+MODES=('disabled','deterministic_local','transport_stub','future_live')
+STUB_MODEL='deepseek-v4-flash'
 
 
-def template():
-    return {'schema':'pilot-config.v1','authorization':None,
-            'components':{r:{'provider':None,'model_version':None,'parameters':{},'tool_permissions':[],
-                             'data_scope':None,'process_context':None,'depends_on':[]} for r in ('solver','gm','judge')},
-            'budgets':{r:{'calls':0,'tokens':0,'cost':0,'currency':None,'quote':None} for r in ROLES},
-            'failure_denominator':None,'stop_conditions':[],'ledger_owner':None}
+def budget():
+    return {'calls':0,'input_tokens':0,'output_tokens':0,'cost_minor':0,'currency':None,'price_version':None,
+            'input_price_minor':0,'output_price_minor':0}
+
+
+def template(mode='future_live'):
+    return {'schema':'pilot-config.v2','authorization_ref':None,'roles':{
+        r:{'mode':mode if r=='solver' else 'deterministic_local' if r=='gm' else 'disabled',
+           'provider':None,'model':None,'protocol':None,'endpoint':None,'credential_ref':None,
+           'data_scope':None,'parameters':{},'tools':[],'budget':budget()} for r in ROLES},
+        'failure_denominator':'all registered attempts including failures and unknown',
+        'stop_conditions':['first limit reached','unrecognized protocol or context'], 'ledger_owner':'python-experiment'}
+
+
+def stub_config(endpoint,calls=2):
+    c=template('transport_stub');s=c['roles']['solver']
+    s.update(provider='deepseek-official',model=STUB_MODEL,protocol='messages.v1',endpoint=endpoint,
+             credential_ref='ACTIO_STUB_KEY',data_scope='synthetic-own-context.v1',parameters={'max_tokens':64,'thinking':'disabled'})
+    s['budget']={'calls':calls,'input_tokens':calls*65536,'output_tokens':calls*64,'cost_minor':calls*(65536+64),
+                 'currency':'SYNTHETIC','price_version':'synthetic-byte-upper.v1','input_price_minor':1,'output_price_minor':1}
+    return c
+
+
+def loopback_endpoint(value):
+    if type(value) is not str:return False
+    try:
+        u=urlsplit(value)
+        return (u.scheme=='http' and u.hostname=='127.0.0.1' and u.port is not None and 1024<=u.port<=65535 and
+                value==f'http://127.0.0.1:{u.port}' and not u.username and not u.password)
+    except ValueError:return False
+
+
+def parse_config(raw):
+    def pairs(items):
+        out={}
+        for k,v in items:
+            if k in out:raise ContractError('duplicate JSON key: '+k)
+            out[k]=v
+        return out
+    def invalid(value):raise ContractError('non-integer/non-finite numeric value: '+value)
+    value=json.loads(raw,object_pairs_hook=pairs,parse_float=invalid,parse_constant=invalid)
+    canonical(value)
+    return value
+
+
+def validate(config):
+    def require(ok,reason):
+        if not ok:raise ContractError(reason)
+    canonical(config)
+    baseline=template();require(type(config) is dict and set(config)==set(baseline) and config['schema']=='pilot-config.v2','configuration_schema (v1 unsupported by current validator)')
+    require(config['authorization_ref'] is None or type(config['authorization_ref']) is str and 0<len(config['authorization_ref'])<=256,'authorization reference type')
+    require(type(config['roles']) is dict and set(config['roles'])==set(ROLES),'role set')
+    for role in ROLES:
+        r=config['roles'][role];require(type(r) is dict and set(r)==set(baseline['roles'][role]),role+': unknown/missing fields')
+        require(r['mode'] in MODES,role+': mode')
+        require(r['tools']==[] and type(r['parameters']) is dict,role+': tools/parameters')
+        b=r['budget'];require(type(b) is dict and set(b)==set(budget()),role+': budget fields')
+        for k in ('calls','input_tokens','output_tokens','cost_minor','input_price_minor','output_price_minor'):
+            require(type(b[k]) is int and 0<=b[k]<=9007199254740991,role+': integer nonnegative '+k)
+        if role=='gm':require(r['mode']=='deterministic_local','GM must stay deterministic_local')
+        if role in ('judge','retries','other'):require(r['mode']=='disabled',role+' must stay disabled')
+        if r['mode'] in ('disabled','deterministic_local'):
+            require(b==budget(),role+': disabled/local remote budgets must be zero without quote')
+            require(all(r[k] is None for k in ('provider','model','protocol','endpoint','credential_ref','data_scope')) and r['parameters']=={},role+': inapplicable provider/credential configuration')
+            continue
+        require(role=='solver','only solver transport is in scope')
+        require(all(type(r[k]) is str and 0<len(r[k])<=512 for k in ('provider','model','protocol','endpoint','credential_ref','data_scope')),role+': missing explicit transport fields')
+        require(r['protocol']=='messages.v1' and r['data_scope']=='synthetic-own-context.v1','unsupported protocol/data scope')
+        require(set(r['parameters'])=={'max_tokens','thinking'} and type(r['parameters']['max_tokens']) is int and 1<=r['parameters']['max_tokens']<=256 and r['parameters']['thinking']=='disabled','bounded parameters required')
+        if r['mode']=='transport_stub':
+            require(loopback_endpoint(r['endpoint']),'stub endpoint must be exact literal loopback with temporary port')
+            require((r['provider'],r['model'],r['credential_ref'])==('deepseek-official',STUB_MODEL,'ACTIO_STUB_KEY'),'stub route/model/fake credential reference')
+            require((b['currency'],b['price_version'],b['input_price_minor'],b['output_price_minor'])==('SYNTHETIC','synthetic-byte-upper.v1',1,1),'synthetic budget/price required')
+        else:
+            u=urlsplit(r['endpoint']);require(u.scheme=='https' and bool(u.hostname) and not u.username and not u.password,'future endpoint requires explicit HTTPS origin')
+            require(type(config['authorization_ref']) is str and bool(config['authorization_ref'].strip()),'future authorization reference missing; references do not authorize execution')
+            require(all(type(b[k]) is str and 0<len(b[k])<=128 for k in ('currency','price_version')),'future quote/currency required')
+            require(all(b[k]>0 for k in ('calls','input_tokens','output_tokens','cost_minor')),'future zero budget remains blocked')
+    require(config['roles']['solver']['mode'] in ('disabled','transport_stub','future_live'),'solver mode')
+    require(type(config['failure_denominator']) is str and bool(config['failure_denominator'].strip()) and type(config['ledger_owner']) is str and bool(config['ledger_owner'].strip()),'failure denominator/ledger owner')
+    require(type(config['stop_conditions']) is list and bool(config['stop_conditions']) and all(type(x) is str and x for x in config['stop_conditions']),'stop conditions')
+    return config
 
 
 def preflight(config):
-    reasons=['live_transport_not_implemented_in_phase1c1'];configuration_errors=[]
-    if not isinstance(config,dict) or set(config)!=set(template()) or config.get('schema')!='pilot-config.v1':
-        configuration_errors.append('configuration_schema')
-    else:
-        if not isinstance(config['authorization'],str) or not config['authorization'].strip():configuration_errors.append('explicit_authorization_missing')
-        components=config['components'];budgets=config['budgets']
-        if not isinstance(components,dict) or set(components)!=set(template()['components']):configuration_errors.append('component_roles')
-        else:
-            for role,c in components.items():
-                if not isinstance(c,dict) or set(c)!=set(template()['components'][role]):configuration_errors.append(role+'_configuration');continue
-                if any(not isinstance(c[k],str) or not c[k].strip() for k in ('provider','model_version','data_scope','process_context')):configuration_errors.append(role+'_required_fields')
-                if not isinstance(c['parameters'],dict) or not isinstance(c['tool_permissions'],list) or not isinstance(c['depends_on'],list):configuration_errors.append(role+'_parameters_permissions_dependencies')
-        if not isinstance(budgets,dict) or set(budgets)!=set(ROLES):configuration_errors.append('budget_roles')
-        else:
-            for role,b in budgets.items():
-                if not isinstance(b,dict) or set(b)!=set(template()['budgets'][role]):configuration_errors.append(role+'_budget');continue
-                if any(type(b[k]) is not int or b[k]<0 for k in ('calls','tokens')) or type(b['cost']) not in (int,float) or not 0<=b['cost']<float('inf'):
-                    configuration_errors.append(role+'_budget_values');continue
-                if b['calls']==0 or b['tokens']==0 or b['cost']==0:configuration_errors.append(role+'_zero_budget')
-                if any(not isinstance(b[k],str) or not b[k].strip() for k in ('currency','quote')):configuration_errors.append(role+'_price_unconfirmed')
-        if any(not isinstance(config[k],str) or not config[k].strip() for k in ('failure_denominator','ledger_owner')) or not config['stop_conditions']:configuration_errors.append('ledger_stopping_failure_policy')
-    return {'status':'BLOCKED','reasons':reasons+configuration_errors,'configuration_valid':not configuration_errors,
-            'provider_compatibility':'UNVERIFIED','live_ready':False,'model_requests':0,'credential_reads':0,
-            'clients_created':0,'workers_started':0,'human_calibration':'BLOCKED'}
+    errors=[]
+    try:validate(config)
+    except (ContractError,KeyError,TypeError,ValueError,RecursionError) as e:errors.append(str(e)[:512])
+    return {'status':'BLOCKED','reasons':['no_live_execution_in_phase1c2a',*errors],
+            'configuration_valid':not errors,'transport_validated':False,'live_authorized':False,'live_ready':False,
+            'provider_compatibility':'UNVERIFIED','model_requests':0,'credential_reads':0,'clients_created':0,
+            'workers_started':0,'human_calibration':'BLOCKED'}
 
 
 def main(argv=None):
     p=argparse.ArgumentParser();p.add_argument('config',type=Path);a=p.parse_args(argv)
     try:
         with a.config.open('rb') as f:raw=f.read(262145)
-        if len(raw)>262144:raise ValueError('configuration byte limit')
-        result=preflight(json.loads(raw))
-    except (OSError,ValueError,TypeError) as e:result={'status':'BLOCKED','reasons':[str(e)[:256]],'model_requests':0}
+        if len(raw)>262144:raise ContractError('configuration byte limit')
+        result=preflight(parse_config(raw))
+    except (OSError,ValueError,TypeError,RecursionError) as e:result={'status':'BLOCKED','reasons':[str(e)[:512]],'configuration_valid':False,'live_authorized':False,'live_ready':False,'model_requests':0}
     print(json.dumps(result));return 2
 
 

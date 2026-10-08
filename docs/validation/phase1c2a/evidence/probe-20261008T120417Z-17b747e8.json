@@ -1,0 +1,177 @@
+{
+  "status": "FAIL",
+  "case": "explicit-adapter",
+  "root": "D:\\actio-c2a-probe\\20261008T120417Z-17b747e8",
+  "model_requests": 0,
+  "wire": [],
+  "runtime_pins": {
+    "sdk": "0.1.5rc1",
+    "runtime": "0.1.5rc1",
+    "exe": "7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6",
+    "concordia": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+    "mcp": "1.26.0",
+    "sdk_wheel": "8d9897e97e8a95fd738cb2c3e2c563951d824e43847ec6f3b0fb172c0729b4d8",
+    "runtime_wheel": "d031a5ab4919c572fd7e48c7ef19ec8b1896e93d93c44b0937bb958c528f8acf",
+    "reviewed_dsh_source": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+    "binary_source_mapping": "unproven",
+    "profile": "sdk-minimal+actio-v1",
+    "provider": "actio-fixture",
+    "model": "fixed",
+    "policy": "static-read-v1",
+    "registry": "ae352e7248303305085ef1b8e9d8a5129005d8ac384156f921524c1223ed6a0d",
+    "code": {
+      "__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+      "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+      "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+      "calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+      "campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+      "cli.py": "39211521b6e681ad72fcd88c39e43b36dbfb0b31ec3131735ab30626a95f2bba",
+      "common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+      "database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+      "eval_contract.py": "52d0993d9a254a394e7cd101b3f897074c1c044af6a99653b9d1e85019e1fd7c",
+      "eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+      "evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+      "evidence.py": "ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a",
+      "facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+      "fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+      "host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+      "legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+      "mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+      "memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+      "pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+      "plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+      "plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+      "preflight.py": "15807c3857ab914d7a9ac6ed640b16f8143e84b7a91511195b6108eca45f824f",
+      "runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+      "scenarios.py": "aa8f57e52fe12370e9784444f8cf38feb5528473adb98e2e86ec7718d8ff179a",
+      "schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+      "store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+      "supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+      "task_contract.py": "f67dabf14ea930de3eb4e9cbec25c5491e562ef0604e246e638c0b1bde2d2cb3",
+      "terminal.py": "3ab840f25543193ebf25e1c559d4082ad3b2ddf24fbe0517bf4d6174a181dd11",
+      "verify.py": "c3b33134de383fa6b01fcb82cbcd4609d98c7ca6a76eca1c5602b0747fee4249"
+    }
+  },
+  "error": {
+    "type": "ContractError",
+    "reason": "receipt/terminal evidence missing"
+  },
+  "local_http_requests": 0,
+  "server_thread_alive": false,
+  "workers": [
+    {
+      "id": "978564bb2e224a449c0552c6d472aa62",
+      "run": "f5a4bf150fc24c6ca25a7d3141401ab3",
+      "epoch": 1,
+      "root": "D:\\actio-c2a-probe\\20261008T120417Z-17b747e8\\w2e968ca0c369",
+      "job": "Local\\Actio-7844aad54a4945fb931de9856204dba3",
+      "pid": 36312,
+      "state": "reaped",
+      "report": "{\"before\":{\"total\":4,\"active\":4,\"terminated\":0},\"after\":{\"total\":4,\"active\":0,\"terminated\":0}}"
+    }
+  ],
+  "operations": [
+    {
+      "id": "e05c4440a6b046f5b5033e81cc59bf8a",
+      "run": "f5a4bf150fc24c6ca25a7d3141401ab3",
+      "stream": "dda9114ef7fd4fbeba04d2ec1e4c9cd4",
+      "epoch": 1,
+      "input_hash": "d745866755e9fb8f239e390734eadf71c33040430e3dfe551a7afbccfe2eb553",
+      "state": "needs_reconcile",
+      "receipt": "24ac6ec5-7acc-42e6-8cef-c44a56764a22",
+      "terminal": "error",
+      "barrier": "{\"kind\":\"flush\",\"creation\":\"1b1e18b03449419ca3a70336dc44e3d8\",\"epoch\":1,\"nonce\":\"fc86db71629d4d9bb714b9c9a5b94609\",\"run\":\"f5a4bf150fc24c6ca25a7d3141401ab3\",\"session\":\"s1b1e18b03449419ca3a70336dc44e3d8\",\"op\":\"e05c4440a6b046f5b5033e81cc59bf8a\",\"through\":11,\"receipt\":\"24ac6ec5-7acc-42e6-8cef-c44a56764a22\",\"terminal\":{\"seq\":11,\"reason\":\"error\"}}",
+      "answer": null,
+      "reason": "ContractError: receipt/terminal evidence missing"
+    }
+  ],
+  "probe_capture": [
+    {
+      "kind": "installed-module-error",
+      "name": "@deepseek-ai/dsh-llm-deepseek",
+      "error": "Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@deepseek-ai/dsh-llm-deepseek' imported from D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\scripts\\phase1c2a_probe.mjs"
+    },
+    {
+      "kind": "installed-module-error",
+      "name": "@deepseek-ai/dsh-llm-deepseek-api-key",
+      "error": "Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@deepseek-ai/dsh-llm-deepseek-api-key' imported from D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\scripts\\phase1c2a_probe.mjs"
+    },
+    {
+      "kind": "probe-loaded",
+      "runtime": "v24.21.0"
+    },
+    {
+      "kind": "llm-request",
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "purpose": null,
+      "messages": [
+        {
+          "role": "system",
+          "content": [
+            {
+              "type": "text",
+              "text": "SYNTHETIC_PERSONA_PROBE"
+            }
+          ],
+          "source": {
+            "kind": "plugin",
+            "plugin": "@deepseek-ai/dsh-system-prompt"
+          },
+          "id": "ac14b243-5d3a-43a2-9774-67c93b1d54b9"
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"action_spec\": {\"call_to_action\": \"Choose one action.\", \"options\": [\"propose:morning\", \"propose:afternoon\"], \"output_type\": \"choice\", \"tag\": null}, \"op\": \"e05c4440a6b046f5b5033e81cc59bf8a\", \"own_available\": [\"morning\"], \"public\": \"Pick a cleanup time.\", \"role\": \"proposer\"}"
+            }
+          ],
+          "source": {
+            "kind": "user"
+          },
+          "role": "user",
+          "id": "24ac6ec5-7acc-42e6-8cef-c44a56764a22"
+        }
+      ],
+      "tools": []
+    },
+    {
+      "kind": "chunk",
+      "chunk": {
+        "type": "finish",
+        "reason": {
+          "kind": "error",
+          "failure": {
+            "message": "llm-deepseek: no API key for provider route \"deepseek-official\"; store DEEPSEEK_API_KEY through the credentials service (the web Models page writes it), or export DEEPSEEK_API_KEY in the launching environment",
+            "code": "MISSING_CREDENTIAL"
+          }
+        }
+      }
+    }
+  ],
+  "files": {
+    "ledger.sqlite": "8eb5c66620a2d2252ad596d799e3f2a1d6252ff2fd2d8db568f36aa831c4efed",
+    "w2e968ca0c369\\active.json": "bc0b9ba08445dbad87cd801d781d15f6269c84c4a839798cbff28837c0d8664c",
+    "w2e968ca0c369\\bridge.jsonl": "a13a94e991d4b69efddfd0d7e4cf197c70a2527bc7e2e00193e2c413610ce84a",
+    "w2e968ca0c369\\host-config.json": "2234c673af26973ffc55eb952fbaafa4a6edf1d8af3972da39c15bc415746a4f",
+    "w2e968ca0c369\\host.jsonl": "eed1b0eeee958398d9bf90a0cfb36ff75d73806e97e2e0e53aefca22dcd7f601",
+    "w2e968ca0c369\\owner.json": "a6da25d811dfb1df13918360636a5100ee18fe14e24a7f0938b0d2c89d38deee",
+    "w2e968ca0c369\\policy.json": "321add5d8499c3f1d0722397ceb3a53af883c0d8b47fc084ed36af9e9ff574e3",
+    "w2e968ca0c369\\probe.jsonl": "b90df7026ce0a0dc3102751c29b742914697c3efe2393518bddcab085e8e357f",
+    "w2e968ca0c369\\profile.patch.yml": "fcaff4176ea5a572d72dd76a31890de40f84972394be1834b911f9561a964666",
+    "w2e968ca0c369\\stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "w2e968ca0c369\\.cache\\pkg\\8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b\\@koromix\\koffi-win32-x64\\index.js": "f9991ec70a0f775487ffadc2461d69edd1555e3d9bf80de0bbdd2eec7d245c49",
+    "w2e968ca0c369\\.cache\\pkg\\8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b\\@koromix\\koffi-win32-x64\\package.json": "3c6d427795e7c1e18220dfa56d9dfdf392c62b074e7a061f84a55fe44857670f",
+    "w2e968ca0c369\\.cache\\pkg\\8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b\\@koromix\\koffi-win32-x64\\README.md": "4fc87635ba2ce995d9f91401e96c68dd0600ca3db25dae419a9abc4e8e11fcd0",
+    "w2e968ca0c369\\.cache\\pkg\\8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b\\@koromix\\koffi-win32-x64\\win32_x64\\koffi.node": "8623dc57f3093a457f71fcbe31fad77741f5b648d8015f7c1dac959595f0972b",
+    "w2e968ca0c369\\home\\profiles\\sdk-minimal\\cordis.patch.yml": "ef189a8c27db6d63930aa3046a3040482e952eafcb7487c644d508e8d461f027",
+    "w2e968ca0c369\\home\\profiles\\sdk-minimal\\cordis.yml": "c300dcf2ebc5f02062d6591268d29d3db6fe45e0cb138f5467276fe2ba06076e",
+    "w2e968ca0c369\\home\\profiles\\sdk-minimal\\package.json": "777238f4d83dd22276852ee865e06b60c4fcdce9e0ce9293cb6dd9cffc975e7b",
+    "w2e968ca0c369\\home\\profiles\\sdk-minimal\\pnpm-workspace.yaml": "ae7c5b68e2f157528e62885804e69e88583897b775e03c86fcbe52feaf498aba",
+    "w2e968ca0c369\\home\\sessions\\--D-actio-c2a-probe-20261008T120417Z-17b747e8-w2e968ca0c369--\\s1b1e18b03449419ca3a70336dc44e3d8\\session.v3.jsonl": "3c8cfd5943c872479b7e86c7be0e75a3d0699376e5cdf3388607feec7d1aed1a",
+    "w2e968ca0c369\\localappdata\\node-addon-native-custom-loader\\native-cache\\node-addon-require-builtin-win32-x64-msvc\\0.1.5\\win32-x64-msvc\\win32-x64-msvc-napi-v9.node": "57845c9e7c184b564b35a59c9012f7682f06f33877bb01c550e01f48210f98d5"
+  }
+}

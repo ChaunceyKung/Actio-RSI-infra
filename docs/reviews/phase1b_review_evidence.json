@@ -1,0 +1,26 @@
+{
+  "review_date": "2026-10-08",
+  "product_commit": "668754fc51915a56818c25d1c0d6b3715f7f5396",
+  "remote_ref_checked": "refs/heads/phase1b-persistent-vertical-slice",
+  "remote_commit_matches": true,
+  "verification_mode": "READ_ONLY_DELIVERY_AUDIT_AND_CONTROLLED_STORE_CONTRACT",
+  "delivered_suites": {"contract": 6, "runtime": 2, "failures": 6, "processes": 4},
+  "delivered_tests_pass": 18,
+  "product_file_hashes_matched": 17,
+  "current_suite_json_hashes_matched": 4,
+  "raw_archive_hashes_matched": 4,
+  "history_artifact_delivery_file_hashes_matched": 24,
+  "delivered_job_cleanup_records": 41,
+  "all_delivered_job_records_inactive": true,
+  "source_hash_scope_note": "Historical runtime/failures snapshots include older unrelated test/preparation files. Current suite-specific tests and product files match; updated contract/processes suites and bootstrap have their own matching evidence.",
+  "new_contract_observation": {
+    "finding": "B1R1",
+    "mode": "CONTROLLED_STORE_CONTRACT",
+    "input": "Temporary SQLite store with social order B,A and max_steps=2; one operation marked execution_complete, its worker marked reaped; finish(task=infrastructure_failure) represents failure before the second operation exists.",
+    "actual": {"state": "execution_complete", "task": "infrastructure_failure", "trajectory": "complete"},
+    "expected": "No complete social-episode claim without an explicit scenario terminal receipt.",
+    "limits": "Constructed ledger fixture only. No DSH/MCP/Engine executed, and no real native receipt or world evidence was generated. Real Engine regression is required in Phase 1B.1."
+  },
+  "static_findings": ["B1R2: scenario callers discard fresh result from atomic begin", "B1R3: global owner recovery precedes resolving requested run", "B1R4: replay ignores illegal/as_of overrides in effective manifest"],
+  "not_performed": ["Full Phase 1B suite rerun", "Fresh dependency installation", "Live query of all historical Job objects", "Concurrent duplicate dispatch reproduction", "Target-recovery process termination experiment", "Paid provider calls", "Product changes"]
+}

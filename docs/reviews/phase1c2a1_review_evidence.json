@@ -1,0 +1,1825 @@
+{
+  "schema": "phase1c2a1-review.v1",
+  "reviewed_commit": "b086cbae97fcebd5c818dce611a0c2a331380cb1",
+  "started_utc": "2026-10-08T15:49:52.098806+00:00",
+  "status": "PASS",
+  "scope": "read-only source/evidence audit, offline verifiers, pure configuration regression; no new DSH/HTTP experiments",
+  "review_model_requests": 0,
+  "review_external_provider_requests": 0,
+  "review_local_http_receives": 0,
+  "review_workers_started": 0,
+  "review_evaluator_calls": 0,
+  "review_real_cost": 0,
+  "hash_checks": {
+    "artifact_hashes": 71,
+    "product_hashes": 38,
+    "test_hashes": 20,
+    "tooling_hashes": 28,
+    "lock_hashes": 4,
+    "entry_hashes": 2,
+    "intermediate_source_archives": 3,
+    "preparation_logs": 19,
+    "historical_files": 537
+  },
+  "manifest_sha256": "de6faabbc5d7353b1f8579affde234295ae12c6019dbca3542c4c8b9ed17f666",
+  "delivery_sha256": "5f7e030a33ce0f69d01ba97fd2f4cc6c4d4708e422955e39095c6a143fc71b50",
+  "installations": {
+    "runtime": {
+      "files": 38,
+      "matches": true
+    },
+    "eval": {
+      "files": 38,
+      "matches": true
+    },
+    "release2": {
+      "files": 38,
+      "matches": true
+    }
+  },
+  "published_suites": [
+    {
+      "suite": "budget",
+      "tests_run": 4,
+      "file": "evidence/20261008T152519Z-f4c51b47.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "evaluation",
+      "tests_run": 8,
+      "file": "evidence/20261008T152125Z-9a0dc126.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "evidence",
+      "tests_run": 7,
+      "file": "evidence/20261008T152547Z-f4549a51.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "input_binding",
+      "tests_run": 3,
+      "file": "evidence/20261008T152108Z-8de84658.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "preflight",
+      "tests_run": 5,
+      "file": "evidence/20261008T152106Z-ba3af019.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "reliability",
+      "tests_run": 8,
+      "file": "evidence/20261008T152504Z-83f20270.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "runtime",
+      "tests_run": 2,
+      "file": "evidence/20261008T152413Z-50407db5.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "schema",
+      "tests_run": 5,
+      "file": "evidence/20261008T152550Z-2f46efab.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "sotopia",
+      "tests_run": 3,
+      "file": "evidence/20261008T152109Z-aa103584.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "task",
+      "tests_run": 7,
+      "file": "evidence/20261008T152256Z-ca9ba942.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "transport",
+      "tests_run": 4,
+      "file": "evidence/20261008T152428Z-1b646345.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "transport_config",
+      "tests_run": 3,
+      "file": "evidence/20261008T152107Z-a413c6b9.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    }
+  ],
+  "archives": {
+    "count": 73,
+    "members": 6891,
+    "bytes": 15524688,
+    "all_hashes_match": true
+  },
+  "independently_recounted_history": {
+    "all_budget_path_http": 187,
+    "final_formal_http": 48,
+    "all_budget_sending": 191,
+    "final_formal_sending": 49,
+    "diagnostic_http": 3,
+    "all_phase_http": 190
+  },
+  "public_sources": [
+    {
+      "name": "pricing",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "final_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "status": 200,
+      "bytes": 23982,
+      "sha256": "210f102275ccf1a6542f08a3bc9e4b4c7c83278cb74b35217bffa112df6363b2",
+      "accessed_utc": "2026-10-08T15:46:37.614077+00:00"
+    },
+    {
+      "name": "chat",
+      "url": "https://api-docs.deepseek.com/api/create-chat-completion",
+      "final_url": "https://api-docs.deepseek.com/api/create-chat-completion/",
+      "status": 200,
+      "bytes": 142966,
+      "sha256": "e7133a7c2a7c2662567cca2e2392b503f97c2fb583009ff85f878744e0a36ba7",
+      "accessed_utc": "2026-10-08T15:46:37.830441+00:00"
+    },
+    {
+      "name": "intro",
+      "url": "https://api-docs.deepseek.com/",
+      "final_url": "https://api-docs.deepseek.com/",
+      "status": 200,
+      "bytes": 48088,
+      "sha256": "7ce9db1b1cc7e2efafe7cbfd57b9d46d240c20399f7bd87672c7e3a5250ccdd0",
+      "accessed_utc": "2026-10-08T15:46:37.902922+00:00"
+    }
+  ],
+  "samples": [
+    {
+      "name": "success",
+      "valid": true,
+      "counts": {
+        "registered": 2,
+        "attempted": 2,
+        "not_run": 0,
+        "send_attempts": 2,
+        "received": 2,
+        "settled": 2,
+        "unknown": 0,
+        "denied": 0,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    },
+    {
+      "name": "missing-done",
+      "valid": true,
+      "counts": {
+        "registered": 2,
+        "attempted": 2,
+        "not_run": 0,
+        "send_attempts": 2,
+        "received": 2,
+        "settled": 1,
+        "unknown": 1,
+        "denied": 0,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    },
+    {
+      "name": "last-call",
+      "valid": true,
+      "counts": {
+        "registered": 4,
+        "attempted": 3,
+        "not_run": 1,
+        "send_attempts": 1,
+        "received": 1,
+        "settled": 1,
+        "unknown": 0,
+        "denied": 2,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    }
+  ],
+  "pure_configuration_regression": {
+    "command": [
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2a1-release2-venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-I",
+      "-B",
+      "-c",
+      "import sys,unittest,json\nsys.path[:0]=[sys.argv[1],sys.argv[2]]\ns=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromName(n) for n in ['test_preflight','test_transport_config'])\nr=unittest.TextTestRunner(verbosity=1).run(s)\nprint(json.dumps({'tests_run':r.testsRun,'failures':len(r.failures),'errors':len(r.errors)}));sys.exit(not r.wasSuccessful())\n",
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\src",
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"tests_run\": 8, \"failures\": 0, \"errors\": 0}\n",
+    "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.378s\n\nOK\n"
+  },
+  "legacy": [
+    {
+      "phase": "phase1c0",
+      "commit": "1e85d8c2fb4a756de81acb333905190df9e97592",
+      "source_matches_git": true,
+      "result": {
+        "records": 12,
+        "all_valid": true
+      }
+    },
+    {
+      "phase": "phase1c1",
+      "commit": "af0a88cfff23c22c396fd7c9ef9916f0df8cd21f",
+      "source_matches_git": true,
+      "result": {
+        "records": 22,
+        "all_valid": true,
+        "campaign": {
+          "valid": true,
+          "campaign_hash": "56663f1de9158d9106cd7419308046334e088e1264d75c18ad220fb71f46286e",
+          "counts": {
+            "admitted": 15,
+            "infrastructure_failure": 2,
+            "insufficient": 5,
+            "invalid_measurement": 1,
+            "measurement_error": 0,
+            "not_run": 7,
+            "registered": 25,
+            "rejected": 2,
+            "task_failure": 8,
+            "timeout": 0,
+            "unique_evidence": 10,
+            "unique_measurements": 22,
+            "valid_measurement": 14
+          },
+          "evaluator_calls": 0,
+          "model_requests": 0,
+          "scope": "complete relative to sealed dataset and inventory; hashes do not prove authorship"
+        }
+      }
+    }
+  ],
+  "jobs": {
+    "queried": 298,
+    "active": 0,
+    "action": "query only",
+    "records": [
+      {
+        "job": "Local\\Actio-01ed4a88f4474e3b9670ae4ed4784704",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-025eaa38027c4891a9f56537e37e6a91",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-02eccd07055c47fdbadc2bf185ad9317",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-038a6ee89d4b46709a39e9a2a1039673",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-038c33dc2c1049d2900307127a55911a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-041dd9e1a43d4fde98cf855adfda2760",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-042c79f225d046c084f0c684da7f4dbe",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-043551e8c0dd4f63857dceb65379eb1b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-045d67f717014c7391d0fa2a1c3a5247",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-04ee9710fd78455f80b18e08d34831e6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-052ad37519074f5e97435e6918fc519c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0810cae61a31408e9f1032e0e2742af4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0867ff3aab9c41fba859840284ab5256",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-08fde40fba6e4b86a1e277099eb67624",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-094ee31dd1ad4facb969ff26bdd256f6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-096327357a1b45efa46f99e7b18571e1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0999cee133ef4e17a8325e37266b0d05",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0d506a8a256d44b3acc6c06cad80c6fd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-100570b524b04a188c743aaab6505f55",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-136b34d39fa84192a9f40ba15576db92",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-143f58a0576c47f3ac60b3b75822d5b4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-14790e9344584faab8f6ae2add5a4f03",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-152b3c26c45540869c4b136c3e449db5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1594843f02ed4bce93cc26143116cf0b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-18d3bc11d5ad43028ced4aeb34b1a7da",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1bdf49d9071b46938e5e3ad8430d67c0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1bee22c9fec44d9a89a2027f857db3e0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1ea39cc1699b4ee1ae35d15bbd16539f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1f3695c4368d45d880f59b22cefa9ce6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2501393a874a416ebe6034266d9acfb5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2656009c4c6b413aadd6221ca1cd612a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-266dc1bfac9d4eb090a80596f034689d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-277f8ca07f10478a8add4acfa92f98ed",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2841ec6d346347e992c9ae18d54b7279",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2940941c5dbf47e0826c85fa7a285e83",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2989bee8c8544ef797a9644338275749",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-299562da545640d5b71c41d0640df7de",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2b800ea420e945e6a6ee353a68fc01fd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2b8fe59062744ca48433ada0ebe8ab7d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2c86a9471f414eaf965793a90cf7d6c1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2d4fd031b1464263953299e9de981b4f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2d7d45d8a3784c2fb396c10b98fb1eb4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2dde842a6a514b97b4fe7db14e571a02",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2f0308eb361743718405b5909fb3349f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-300df961ed3841d5b8ecf06a6e2b6058",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-304b0afb2d564df7a4e09780e1e97fd3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-34886a2b9fa448128fefe47e672f9b36",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3546d642932845b883dc5270d2a01550",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3642473f58bd44f89e7d5d3d1b11a399",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-374e82035ddf43e3be50920c208ea6b3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-37df71dfd9a847d49f4aeae986e3612f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-37e42dbbbcec4bbcbf4fde047db9de62",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3b7baf0939644a98a7fbd7ce4bb787b1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3d5096b3cc094318a0bd5c63654eb82f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3d9d3bd2eeb14902908f0b41fc7ae939",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3de07c8ac4c04ecb824581ed37a9d0d9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3e1afd608ad645f394eaf73db0a3ce2f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3fcd2722b8e14e259915de6a49d96e58",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-40616b8dfd134bc4bcbc215cbf8b17f7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-40b1a7bc0f764045b966e2daa8d1c0b1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-40de3afec49b4e478fff110ac1e56776",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-41dab637de334a46b7eea93c39c2798e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-446f940553a44b5995d360584b2d6028",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-458759232b2d49eb82df54f2f506dc25",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4599bc2bb13440f6ab7db2c87d002b04",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-47623b08c3ac4a0e89b833dda7445ee3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-47956c3a72fa409cb940797173f141d0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-487e56613b8943979037d4165df4a7b2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4883c2e20d2a438498075df8fbe625ee",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-48a8da55f84c4ef4b7216498d470635b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-48fdd150257442468d370b43033bd48b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4921d2518969414f8f7e182652769537",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-49b76b7ebfaf4de6b32c387fd6f248b8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-49e41af717234e64a2b088f7908626d5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4a51fc1033464e56b5da8a7ce28a1140",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4b51e746b0124b2a95b443f6a5561e63",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4bb22da2259246c292ca9380b0fa6b41",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4bef3636688243d9ac180af0152ffd03",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4c5244b9e2b344579c5a9171cbc058bf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4c688bb8dc26474cacf5e28ea7f56b3f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4d9ad3349a824f1894d8c8f46b131e4f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4dac8571910b4792bdaa608680bfb15e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4e02383bf1484d718b79b46415034597",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4e4438bdca264f7ebfca83385bde06b2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4e5e398f07b24b02851c8ed10f53f71e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4efbe27bafec42d799e40229b340f069",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-50bd3433eed5408989a47e65dd871b90",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5172b070d19744f6bf6479f84a5626e7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-523e5e69c5bb4d32bb2de34557d0c509",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-53364905c95343fa85f06d14bfdd4b5b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5414835fc77c4a0087669e6f48794454",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-557c3e5677c149b394dcd86e65f8b6f1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-55fb45d57a294fbfae60c29cf7c67472",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-57c7921d4484476fb26255e48df38221",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-584b4524ed1b48028445f566500c63c8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-595da50fee874d51a336fd58943f5062",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-59c4475774ea425a96146967f6fda808",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5c342c173a1c4310b5973af0e804161f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5d91bbc0f18b4b9ab7ec8919f7b5c801",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5e618dba63d84f71817e1e916db3641f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6048aadf3e584d06934605c740fcf3d5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-60607cf8864b446abd8117514998658b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-60a62f70677f455781f551da1a46a3da",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-60cf4596f1d7411ab72e62aa6bbb1064",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-61377ab145eb4deab41d55c20a82a244",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-625f336ba2c34c26b35d1b1562be7a1f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-65d4131249594865a338fecea31052f6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-66c4d818b6694e69a13add6034d63ec4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-670f5ae29cf145aba3634bfdc4508923",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-679be8487c2a40cb95dabc20e9568b33",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6a293e6e1d4d4e978e506fa28b91cbfb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6bb0ded141b84b68bd013e5b6c086395",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6c4db857e36143db97e9e9a963437dcb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6c8ef6d030d14b1f938b5ec480d8198b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6cf903c0fdf94a2990c63b0f80c2b24a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6dc4bf81e81349d8b7be757098c601ec",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6fa184a2deb34da485ec2a525bb1e0a1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6fd201525beb4b719c4d5a306ef8d088",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6ffc06fbf934425581d13497d30102a9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-70f47e22701240c39a5eaec659e08d12",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7155627ef6b14c799b102a648280c60a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7170a085c33d495f901c0301d4fc0ca5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-71812a5f18fa4ef292358ad4ad30abbb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-72129553039441128c3f29ab05004a64",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-72fc1c0e708640cca2ff01aa9036e190",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7334368351aa436cace826d0d11b4443",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7741c80981984f3789639c1a7cbd25ad",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-799324239b084d0f8dc326f8311d07a7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7afc86560dd942c6bcca11466dc3e4bd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7d0fb3fe46d2491198edce5bafec4021",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-808cb3fa449b44b8991cc21d94aa535d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-81b51be42bda4fa184a99c4c6dd73025",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-82a1f9d512644f2ebd1fd6991fa27c2a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8518eca02d4448a89bfa990848f526e3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-85cc3258d274465c922f5088a19cf985",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-86a01b0995df40a39712b8d5d7e60f09",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-871b06bdcd674504b2739444c03a89f8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-87487067596148f49d85a8b99ef608cd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-87be5cbe17e74228b03fbba60c7a5bfd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-88c0e42f3093473baf5077dab14b40d2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-89522ad0612b4d1db5fbf918dda65026",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8a6069d2997d40fab1da3984e09682bb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8b768b4a70c54ef9a2a939eeedc38155",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8bad25be879141e6879a1789675be6ec",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8c3b022110c240ac98b8f84dc1711d0c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8cf4944c4cc34cda9ba70be7a1a1c971",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8d4074ca4a184a59949a1d4187959a1d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8df8c39e08f646a7b56629e1768d568b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8f2b4d297b434797ae484009ed186d3c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8f5fd18fbfc24ad58f9e65df7de59b3b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-90112fffafd94acc8a4f1bb7c6e6119d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9039fa99067a42a7b9abb10fb38d7521",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9057edcb49ab4b2d9268f18048fe3a35",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-90c34e0482e04bbaa111653033b2ad47",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-913069ca5e3e43788e7db2c513a7fb00",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-91d2afab704b4f539be37f21a3168587",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-935e812fbfc54a68a00466853e983ec4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-937750db9c0147a7a3bf6741c6692efe",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-938b1f5c109745a0a3300b9473bebdfb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-94118b4e466a4cd8828c0e66a78ebef5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-94476d17493e41afb6381ab89a64941b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-95d7008d4b844a2e9c7ba3ed1e31718d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-96e8e2cef2c44d5eba9ca5b439fa070c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-96fc83f08e3042c380a67924e4006cee",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-97b33c743d5841298e115fa65d3fa0e5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-987a9a8b8ec04853bc68c7ad6e40c587",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-98f0fe0cde294ba494438289b45c9685",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-99160558233f497ca92f7d453653bbe6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-99b9dcba9b5e485f820dbc1a8f915dbe",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-99db311b80af4a9b8ec119954b5e20bf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-99f13513e3bf46c5bc8dd3ae54ed1776",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9b6260db7fc34c6ca6a1b54dc77057e2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9c6f06491a0c4d329f71f3086222a51a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9c745b7fe3ef4b03844e25401ca335f5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9d7fbf22a4ef4c3684a975b2d61a7d69",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a012380032e24c6eaba48f64fbe41275",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a03cbd1c4d23434185253d3fa00b8930",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a09cf79655cb4c16bff127783a466844",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a105226174194c2db6d8b90fb26ceeb5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a19db0e3bbb5468f80a75e00219d13cf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a203fd8a1bd74edd80d4b01580643654",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a32eb2a1588349b299b83489b189ac00",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a35aa8a5451d4e689da6cd6444526b07",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a6be234d685640e79412c747f5ff1995",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a78a0d3332f642cf996c91abac75e918",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a9683be774d844a3a6d82e88a86e3bf5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-aa7055bcc84a4f24aa4da62896cc6969",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ac26ce4251b5441b8e05548d59707891",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-acee7f13212e4898bbbed051fa0caab8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ad7b119d7b0a411ea57feb6732306a4c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-adbddabc18584701ba2a9a060f5cfcd5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ae8f97b9a6a448488dfce66a792f243d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-af3e5f48a38248fd968ce5db022bc519",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b075779541b6433a8c04d36fd53e5512",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b1b9fba0789e4c78919505c772c33522",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b1f87f6747d8415baf92aaaf4c224e2c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b37dc848e4434b368de32b96629658ea",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b38dad842e4844978b5d963a8f1046f8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b580c19f5b754652804bf597f5670e89",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b5edc663b7c24ca9ad599805fe80af4f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b66d3a0f50934fb7bf5ba951f3ca2966",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b6d7ca0e28d247bf8b5d9b4d5ce57772",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b722c03801654ca69f1123a0c0415654",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b83581a640fd4b9e9ae6825c3f06d8ed",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b84f8ece00b54c7191dda42c0489e7a9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b86e97a809c44a8e9af55e7b3f7f1177",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b9ab71ffef5e46e18164e135c24d0f79",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b9e2673e183f4c8580733e1d350af9c7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ba925b4fb36e4c63b60d04fdad2f4888",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bb2a713750ee47189eeba15e255c421c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bb4e63371b05483f9d461079ef4006d3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bb96e6668c1a421fb39b82b054268cf0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bc0658783075499eb4bef4b03ae03d12",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bd1ae31d590946b29add7a304ff64c3d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bd36ef8556c244a0be15d0a9c154fce4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bd6118a6bb2d4ad487de706e41764025",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-be6f7370b7ce41e7b5f5f4b38d29b65e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-be74c1141cc74270a02810636f7a21f4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bf077e1838604fd0aabfc8783ffa02cd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c061ac6ba84c466e909eb92b841c8b45",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c29f8fe7840e4c8ca53728b510a8e38d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c317113abc34475894a18faadac3d8fa",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c404d1dceb1b4c1b97489ac8e4c1f231",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c436ad29591948248a4867f131487a7f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c4baaa5e8aff4b17aea410cc34986679",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c6bf05a5f6234db1bcc63d7922716010",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c6dfe6e5d3d34d549f7e6c88bd218316",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c8cbc865a2784afe9a0d9cc59f059368",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c92cef6785674c13af6ffdc14c154aca",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c96b62c215d04a658d971e162fe4bfe8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ca417f43d4074fe8a85ff29623bdddac",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cac63fccf89f491da3ffb399f8cdf310",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cbb569eff16042bbb081bc171a1975f9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cc3ded6db126452291bd7cc50decae7c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cc9cd7d443d2406eb73a0554aaa1c53e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cd027f4a5f0f44e5a2d5a55bcba503cc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cd986a5ff24149d0865456f49a8ad913",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ce8179884a564a49b750f9833c5ad508",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d03c4434e60d4c4cba383c1d9680c9d2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d0483bbd66de4f3ca36ebd29791b5106",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d0c5989ed7c742bb9b97bcdf779f22cb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d0de6213f92f49c7b7dc2b744439943f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d0f11ba7bb704211b463ecb816d45c86",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d1210bbb704d4fa1a19155675f0a3e62",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d1599d1e71504f3b9266bd32675627a6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d1ddbcc9e5ed42a993d0e5e1d40aa169",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d3d1023f19d84cbaaa8826fb2cd109d0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d43a4de70c1e45cb929addcb3c571535",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d466fbbca6ba42fe86b31cfa1ce0affd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d47c86c84a01462fb4f9789e7b8c74c5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d76d70b2ce674216bbb06d7c234757b6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d778174de7dd4042894ad4a48bbc9a9e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d87b5a1051b5422e8a2dd2d757e65b89",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-da23181fddc545e88c760990cc975b3f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-da5b60fa66884f53a0b5d9b018bcbf81",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-da7656c0e7964ef8b08f0781809aa131",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-dd5a33b0850c421bbcf92d9c754ba2f3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-dd743c9e0c104a079ad8671329421c1b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-de787e52114540a8a5532798b9fffc83",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-dfffe71c61bb4a5d9fee17e2372ecc19",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e0fffbda2e4d46618c04ccb6a029aad7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e16c1a63a9694fd9bbbfcbd74eb91870",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e2c7a68ec99c4d128be5c0c4227660e2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e3bcd04d634c4a7fbd8b9c77fafa9d54",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e3f9f38e5909400a8f31df49df69bd44",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e46d03ac558541aebe907d3473bf815f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e4967cdd1cc043a58cf0302016a6e845",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e4a46805c84447888755eb2f63f97279",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e550aa4027fc4b42af66f4a8307b0094",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e553f4b5d8a34646a4e191cddec4a4eb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e5b030feded04e82aa789180d2ca1879",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e60b39c14faf475fae5d55210eb58eca",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e6c0396d0fc64dadabec3ef2fbdfef9f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e7c937c6bdc448b8a693ee0236a73cf4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e8b74dc8648f4a2a96e9c62cc57a317f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e8d340e2d0bc421ca264a8514f8cb148",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e9ae24b9093f4f84810a959481b9abbb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ea6aecdba0d848d8827f2459ee55994a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-eb9806daaed74691ad3eeb4e5dc65693",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ef6e331cbd8843cca176aee4ac840e74",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f03fcd2c9b4748578098ad621fa87d03",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f18cd8ca00d347c7b55d917219329261",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f3a846f789f1454786c89c504c13f1c8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f402ff2880ad41838a1903c9c7759584",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f58c2a8775764bf5bb2ff4965bf50344",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f6cd27c262dc441fbe32ab6ee5d02ca4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f73cf5ed22d0412cb0df0835e334e6dc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f794265752304bc8926b3c78a8f24abf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f81c29e4800f410fa9025a9b1f483cd2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f831f557916a4559ba8b2ada3b652a59",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f8ebf846363f443c87523f62987ebf32",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f8fa4994570d4e11a5d12152994a451f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-fa6866e31e904980b779d6007e89f45b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-faf1ac04e5d1443aacdf4e3c60c02cc8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-fd60c5ee22994d67a073baa57f1b9f88",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ff6fc210d6304f3981f9827909c327fc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-test-ad0f7063d4bf44619d26fad981f02828",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-test-f7299b11635f42828df0e8746758797a",
+        "active": 0,
+        "query": "object_absent"
+      }
+    ]
+  },
+  "finished_utc": "2026-10-08T15:49:59.908591+00:00",
+  "runner_sha256": "b4b31e792d14de27ef4a2797fd8300dc3189801b4f28072da2ee4fa1b7e7379b",
+  "listener_recheck": {
+    "command": "Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -in delivery.listeners.ports }",
+    "historical_unique_ports": 115,
+    "remaining": [],
+    "exit_code": 0,
+    "scope": "read-only current listener snapshot; no sockets opened by reviewer"
+  },
+  "public_source_observations": {
+    "candidate_model": "deepseek-flash",
+    "legacy_alias": "deepseek-v4-flash is served by DeepSeek-V4.1-Flash according to current documentation",
+    "base_url": "https://api.deepseek.com",
+    "protocol": "Chat Completions",
+    "current_peak_usd_per_million": {
+      "input_cache_hit": "0.006",
+      "input_cache_miss": "0.30",
+      "output": "1.20"
+    },
+    "quote_status": "reference only, revalidate before approval; not spending authorization",
+    "stream_usage": "current docs say final content chunk includes usage, followed by DONE; no separate usage-only chunk"
+  },
+  "review_verdict": {
+    "transport_stub": "CONDITIONAL_GO",
+    "next_slice": "Phase 1C2B0 solver live readiness with zero external provider requests",
+    "live": "BLOCKED",
+    "product_changes": false
+  },
+  "handoff_document_hashes": {
+    "docs/reviews/phase1c2a1_review_and_live_readiness_plan.md": "9ad71ffac94ff811eb06b5dc97cef339cc297ded1360acbe47b010eba2ad671b",
+    "docs/prompts/phase1c2b0_solver_live_readiness.md": "ed30e778d11f55e66c36d7f0756872b1e822e40098dea882e4adbfcd29878f73"
+  },
+  "documentation_validation": {
+    "local_links": "PASS",
+    "fences": "PASS",
+    "baseline_and_push_requirements": "PASS",
+    "product_history_unchanged": "PASS"
+  },
+  "handoff_document_hash_basis": "UTF-8 LF content; normalize CRLF to LF if Git checkout applies autocrlf"
+}

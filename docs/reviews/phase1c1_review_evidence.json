@@ -1,0 +1,514 @@
+{
+  "schema": "actio-review-evidence.v1",
+  "date": "2026-10-08",
+  "scope": "review and next-session prompt; no product implementation",
+  "baseline": "af0a88cfff23c22c396fd7c9ef9916f0df8cd21f",
+  "observed_local_branch": "phase1c1-task-contract-and-calibration",
+  "observed_remote_main": "af0a88cfff23c22c396fd7c9ef9916f0df8cd21f",
+  "observed_remote_task_branch": "af0a88cfff23c22c396fd7c9ef9916f0df8cd21f",
+  "initial_worktree": "clean",
+  "manifest_sha256": "480040e287fa51df75e92b45928f03721e1238e93d7a3689cb7c78f8f9219c38",
+  "hash_comparisons": 739,
+  "hash_checks": {
+    "product_hashes": {
+      "count": 33,
+      "mismatches": []
+    },
+    "tooling_hashes": {
+      "count": 17,
+      "mismatches": []
+    },
+    "lock_hashes": {
+      "count": 4,
+      "mismatches": []
+    },
+    "preparation_logs": {
+      "count": 11,
+      "mismatches": []
+    },
+    "intermediate_source_archives": {
+      "count": 5,
+      "mismatches": []
+    },
+    "artifacts": {
+      "count": 188,
+      "mismatches": []
+    },
+    "raw_archives": {
+      "count": 24,
+      "mismatches": []
+    },
+    "suite_evaluation": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_evaluation": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_evidence": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_evidence": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_input_binding": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_input_binding": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_reliability": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_reliability": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_runtime": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_runtime": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_schema": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_schema": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_sotopia": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_sotopia": {
+      "count": 52,
+      "mismatches": []
+    },
+    "suite_task": {
+      "count": 1,
+      "mismatches": []
+    },
+    "suite_source_task": {
+      "count": 52,
+      "mismatches": []
+    },
+    "installed_release": {
+      "count": 33,
+      "mismatches": []
+    }
+  },
+  "product_hashes": {
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+    "src/actio/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+    "src/actio/_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "src/actio/calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+    "src/actio/campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+    "src/actio/cli.py": "39211521b6e681ad72fcd88c39e43b36dbfb0b31ec3131735ab30626a95f2bba",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/eval_contract.py": "52d0993d9a254a394e7cd101b3f897074c1c044af6a99653b9d1e85019e1fd7c",
+    "src/actio/eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+    "src/actio/evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+    "src/actio/evidence.py": "ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "src/actio/preflight.py": "9457e1baa8f52e16ad6275404b106b95dc1a8fdc40d5f0d5e0911fad8209329f",
+    "src/actio/runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+    "src/actio/scenarios.py": "aa8f57e52fe12370e9784444f8cf38feb5528473adb98e2e86ec7718d8ff179a",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/task_contract.py": "f67dabf14ea930de3eb4e9cbec25c5491e562ef0604e246e638c0b1bde2d2cb3",
+    "src/actio/terminal.py": "3ab840f25543193ebf25e1c559d4082ad3b2ddf24fbe0517bf4d6174a181dd11",
+    "src/actio/verify.py": "c3b33134de383fa6b01fcb82cbcd4609d98c7ca6a76eca1c5602b0747fee4249"
+  },
+  "historical_test_groups": 42,
+  "current_suites": [
+    {
+      "suite": "evaluation",
+      "file": "evidence\\20261008T082957Z-27167945.json",
+      "tests_run": 8
+    },
+    {
+      "suite": "evidence",
+      "file": "evidence\\20261008T083208Z-277ae14d.json",
+      "tests_run": 7
+    },
+    {
+      "suite": "input_binding",
+      "file": "evidence\\20261008T082944Z-d13b8521.json",
+      "tests_run": 3
+    },
+    {
+      "suite": "reliability",
+      "file": "evidence\\20261008T083133Z-82eb711f.json",
+      "tests_run": 7
+    },
+    {
+      "suite": "runtime",
+      "file": "evidence\\20261008T083047Z-de299d42.json",
+      "tests_run": 2
+    },
+    {
+      "suite": "schema",
+      "file": "evidence\\20261008T083211Z-9f65c920.json",
+      "tests_run": 5
+    },
+    {
+      "suite": "sotopia",
+      "file": "evidence\\20261008T082945Z-1b49307e.json",
+      "tests_run": 3
+    },
+    {
+      "suite": "task",
+      "file": "evidence\\20261008T082824Z-789662a1.json",
+      "tests_run": 7
+    }
+  ],
+  "executed_tests": {
+    "command": "source-injected unittest test_input_binding + test_sotopia + test_evaluation via .local/phase1c1-eval-venv/Scripts/python.exe -X utf8 -B -",
+    "tests_run": 14,
+    "successful": true,
+    "failures": 0,
+    "errors": 0,
+    "log": "test_original_five_and_historical_reports (test_input_binding.InputBinding.test_original_five_and_historical_reports) ... ok\ntest_real_inventory_corruption_still_fails (test_input_binding.InputBinding.test_real_inventory_corruption_still_fails) ... ok\ntest_rehashed_frozen_contradictions_shared_with_seal (test_input_binding.InputBinding.test_rehashed_frozen_contradictions_shared_with_seal) ... ok\ntest_episode_original_definition_with_fixed_generation_seam (test_sotopia.Sotopia.test_episode_original_definition_with_fixed_generation_seam) ... ok\ntest_parser_actual_context_repair_value_properties_and_coercion (test_sotopia.Sotopia.test_parser_actual_context_repair_value_properties_and_coercion) ... ok\ntest_strict_adapter_keeps_reverse_keys_and_three_identities (test_sotopia.Sotopia.test_strict_adapter_keeps_reverse_keys_and_three_identities) ... ok\ntest_active_legacy_corrupt_and_missing_synthetic_context_zero_calls (test_evaluation.Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls) ... ok\ntest_admission_before_evaluator_and_orthogonal_outcomes (test_evaluation.Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes) ... ok\ntest_deterministic_facts_refusal_and_whitelisted_received_view (test_evaluation.Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view) ... ok\ntest_idempotency_content_spec_export_metadata_and_atomic_publication (test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication) ... ok\ntest_internal_error_timeout_and_interrupted_claim_are_preserved (test_evaluation.Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved) ... ok\ntest_invalid_envelopes_persist_no_zero_or_parser_coercion (test_evaluation.Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion) ... ok\ntest_portable_stdlib_verification_and_missing_optional_dependency (test_evaluation.Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency) ... ok\ntest_worker_audit_hook_enforces_denials_in_real_child (test_evaluation.Evaluation.test_worker_audit_hook_enforces_denials_in_real_child) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 20.084s\n\nOK\n",
+    "log_sha256": "33c08ef15aec7c74cc7c69efe0a59c54fb9ff567ff789a6700797f4158326333",
+    "model_requests": 0,
+    "runtime_workers_started": 0
+  },
+  "campaign_verification": {
+    "valid": true,
+    "campaign_hash": "56663f1de9158d9106cd7419308046334e088e1264d75c18ad220fb71f46286e",
+    "counts": {
+      "admitted": 15,
+      "infrastructure_failure": 2,
+      "insufficient": 5,
+      "invalid_measurement": 1,
+      "measurement_error": 0,
+      "not_run": 7,
+      "registered": 25,
+      "rejected": 2,
+      "task_failure": 8,
+      "timeout": 0,
+      "unique_evidence": 10,
+      "unique_measurements": 22,
+      "valid_measurement": 14
+    },
+    "evaluator_calls": 0,
+    "model_requests": 0,
+    "scope": "complete relative to sealed dataset and inventory; hashes do not prove authorship"
+  },
+  "annotation_verification": {
+    "cases": 3,
+    "registry_matches_public": true,
+    "blank_import": {
+      "schema": "annotation-import.v1",
+      "valid": false,
+      "errors": [
+        {
+          "row": 0,
+          "reason": "unknown or missing rater"
+        },
+        {
+          "row": 1,
+          "reason": "unknown or missing rater"
+        },
+        {
+          "row": 2,
+          "reason": "unknown or missing rater"
+        }
+      ],
+      "missing": [
+        {
+          "case": "4abf97819dc3aa96c3727ea0868998070291917a3599b3bd93e361507ac37b4a",
+          "rater": "rater_1"
+        },
+        {
+          "case": "4abf97819dc3aa96c3727ea0868998070291917a3599b3bd93e361507ac37b4a",
+          "rater": "rater_2"
+        },
+        {
+          "case": "b013e4a17ed79bf0aad11f9ff87f71d218bcae02469f3970a6e93b4fbea3ef30",
+          "rater": "rater_1"
+        },
+        {
+          "case": "b013e4a17ed79bf0aad11f9ff87f71d218bcae02469f3970a6e93b4fbea3ef30",
+          "rater": "rater_2"
+        },
+        {
+          "case": "eafac81db1de60f4ce3615f1693c9ee71491ef93705af72c2540bde6c649d5e0",
+          "rater": "rater_1"
+        },
+        {
+          "case": "eafac81db1de60f4ce3615f1693c9ee71491ef93705af72c2540bde6c649d5e0",
+          "rater": "rater_2"
+        }
+      ],
+      "duplicates": [],
+      "disagreements": [],
+      "accepted": [],
+      "provenance_counts": {
+        "human": 0,
+        "synthetic_label_fixture": 0
+      },
+      "human_calibration": "BLOCKED",
+      "reason": "import validation does not establish calibration or adjudicated gold"
+    }
+  },
+  "legacy_reverification": {
+    "fixed_commit": "1e85d8c2fb4a756de81acb333905190df9e97592",
+    "fixed_source_hashes_checked": 29,
+    "record_results": [
+      {
+        "valid": true,
+        "record_hash": "1d04c42e5d57f1fb4df118f442f16952994e421780f9301dc10357c51b805018",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "2365b5e8eae53762dab1aba3222ee9000e69c34d6bc5c526c0befae88ccf4fa6",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "2cefa9cddd880a078457a31f1ddb3a72da2061952f080da8b96f723891173abe",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "431a4e0923f07bfd15cdf9343f6593c55f856e51c1ad3813d6891d4315839aad",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "5b40ee991434ea4903a4f3f42cb518bc14431913a9f50246d6e08fde048e189d",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "64781e59a23bd81425910f1e2d6b1fcd1b07b06a35f0f26d5fb125de2b85e3f1",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "64eae1054581bc51b86d6454a1c0b79aab5e7f008369ccf4d8159d813eb0952c",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "a7314fb8c0986601fd2f84f5e9f145a7a46a117095cb61d1de56f1870d121fca",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "c5183855f63784e82dd4e4a72095ca938f8a94d95881aa6bbff8a8a7489a69f0",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "e1b9d85784e1dede55b5a69f24cf63b0be4339c01a946b1a400c8d1eed91fdc6",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "ee47c1baa40ff666da55fbaac8bb1c35cbd592dafca7bff449514a8a682ce885",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      },
+      {
+        "valid": true,
+        "record_hash": "f35ec68927a810284be9be10e8390a60ceca65febce38d62f7441ebd6fb17fe7",
+        "model_requests": 0,
+        "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+      }
+    ],
+    "command": "verified fixed-C0 source, -X utf8 -I -S -B subprocess; 12 historical records; clean_env",
+    "model_requests": 0
+  },
+  "historical_delivery": {
+    "status": "PASS",
+    "jobs": 59,
+    "active": 0,
+    "reexecuted": false,
+    "core_plus_eval_pip_check": "No broken requirements found."
+  },
+  "upstream_commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+  "upstream_normalized_comparisons": [
+    {
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/README.md",
+      "local_sha256": "259761e43e55292586ffc3d6b041431d3ab3df7d1ae4b5b9550c5a25896d3235",
+      "remote_sha256": "259761e43e55292586ffc3d6b041431d3ab3df7d1ae4b5b9550c5a25896d3235",
+      "normalized_equal": true,
+      "bytes": 25945
+    },
+    {
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-retry/README.md",
+      "local_sha256": "45f7a96d3bfcab2b3cc2747cf65c3c4582c271c04906ff52ddbae2546b558f4b",
+      "remote_sha256": "45f7a96d3bfcab2b3cc2747cf65c3c4582c271c04906ff52ddbae2546b558f4b",
+      "normalized_equal": true,
+      "bytes": 9833
+    },
+    {
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-deepseek/tests/mock-server.ts",
+      "local_sha256": "e157eaeba7c95ef78ed4273eddff6dc242aa6ddb241b9cb8a3478eb6e63f9e4f",
+      "remote_sha256": "e157eaeba7c95ef78ed4273eddff6dc242aa6ddb241b9cb8a3478eb6e63f9e4f",
+      "normalized_equal": true,
+      "bytes": 7021
+    }
+  ],
+  "findings": [
+    {
+      "id": "C2R1",
+      "severity": "P2",
+      "scope": "role-aware future configuration readiness; current live execution remains blocked",
+      "file": "src/actio/preflight.py",
+      "line": 36,
+      "reproduction": {
+        "case": "deterministic GM and disabled retries/other are required to have positive budgets",
+        "configuration": {
+          "schema": "pilot-config.v1",
+          "authorization": "review-test-only-not-spend-permission",
+          "components": {
+            "solver": {
+              "provider": "synthetic-provider",
+              "model_version": "synthetic-version",
+              "parameters": {},
+              "tool_permissions": [],
+              "data_scope": "synthetic-only",
+              "process_context": "isolated-solver",
+              "depends_on": []
+            },
+            "gm": {
+              "provider": "deterministic-local",
+              "model_version": "common-slot-accept.v1",
+              "parameters": {},
+              "tool_permissions": [],
+              "data_scope": "synthetic-only",
+              "process_context": "isolated-gm",
+              "depends_on": []
+            },
+            "judge": {
+              "provider": "synthetic-provider",
+              "model_version": "synthetic-version",
+              "parameters": {},
+              "tool_permissions": [],
+              "data_scope": "synthetic-only",
+              "process_context": "isolated-judge",
+              "depends_on": []
+            }
+          },
+          "budgets": {
+            "solver": {
+              "calls": 2,
+              "tokens": 100,
+              "cost": 1,
+              "currency": "TEST",
+              "quote": "synthetic quote, not current pricing"
+            },
+            "gm": {
+              "calls": 0,
+              "tokens": 0,
+              "cost": 0,
+              "currency": null,
+              "quote": null
+            },
+            "judge": {
+              "calls": 2,
+              "tokens": 100,
+              "cost": 1,
+              "currency": "TEST",
+              "quote": "synthetic quote, not current pricing"
+            },
+            "retries": {
+              "calls": 0,
+              "tokens": 0,
+              "cost": 0,
+              "currency": null,
+              "quote": null
+            },
+            "other": {
+              "calls": 0,
+              "tokens": 0,
+              "cost": 0,
+              "currency": null,
+              "quote": null
+            }
+          },
+          "failure_denominator": "all registered requests",
+          "stop_conditions": [
+            "first exceeded cap"
+          ],
+          "ledger_owner": "review-fixture"
+        },
+        "actual": {
+          "status": "BLOCKED",
+          "reasons": [
+            "live_transport_not_implemented_in_phase1c1",
+            "gm_zero_budget",
+            "gm_price_unconfirmed",
+            "retries_zero_budget",
+            "retries_price_unconfirmed",
+            "other_zero_budget",
+            "other_price_unconfirmed"
+          ],
+          "configuration_valid": false,
+          "provider_compatibility": "UNVERIFIED",
+          "live_ready": false,
+          "model_requests": 0,
+          "credential_reads": 0,
+          "clients_created": 0,
+          "workers_started": 0,
+          "human_calibration": "BLOCKED"
+        },
+        "expected": "role-aware validation accepts disabled/deterministic zero budgets while live remains BLOCKED",
+        "model_requests": 0
+      }
+    }
+  ],
+  "next_phase": "Phase 1C2A solver transport and budget offline admission",
+  "live_budget": 0,
+  "model_requests": 0,
+  "runtime_workers_started": 0,
+  "product_changes": false,
+  "historical_evidence_changes": false,
+  "limitations": [
+    "42 historical behavior groups hash-checked; only 14 targeted groups rerun",
+    "Current campaign verifier executed with zero evaluator calls",
+    "No DSH or Concordia runtime executed in this review",
+    "59 Job cleanup and clean-install results read from bound historical delivery, not rerun",
+    "739 includes repeated file hash comparisons across suites",
+    "Upstream source comparison does not prove runtime binary/source mapping",
+    "No human labels, real model requests or independent research units added"
+  ],
+  "failures": []
+}

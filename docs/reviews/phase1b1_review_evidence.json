@@ -1,0 +1,41 @@
+{
+  "review_date": "2026-10-08",
+  "product_commit": "bc0c034f997a59161ff79f865ad41098433884b5",
+  "remote_ref": "refs/heads/phase1b1-reliability-and-evidence-export",
+  "remote_commit_matches": true,
+  "delivered_tests": {"contract": 6, "runtime": 2, "failures": 6, "processes": 4, "reliability": 7, "entry_concurrency": 1, "schema": 5, "evidence": 7},
+  "product_hashes_matched": 22,
+  "relevant_test_fixture_hashes_matched": 15,
+  "current_suite_files_matched": 8,
+  "current_raw_archives_matched": 8,
+  "additional_hashes_matched": ["artifacts", "clean_install_public_cli", "delivery", "bootstrap log", "20 files in five sample bundles"],
+  "delivered_job_cleanup_records": 66,
+  "all_delivered_job_records_inactive": true,
+  "sample_verifier_executed": {
+    "assistant": ["valid", "consistent", "complete", "success"],
+    "social": ["valid", "consistent", "complete", "success"],
+    "rejected": ["valid", "consistent", "complete", "task_failure"],
+    "partial": ["valid", "partial", "partial", "infrastructure_failure"],
+    "unknown": ["valid", "partial", "partial", "infrastructure_failure"]
+  },
+  "sample_result_field_order": ["bundle_integrity", "facts_consistency", "scenario_completeness", "task_outcome"],
+  "new_observation": {
+    "finding": "C0R1",
+    "mode": "OFFLINE_REHASHED_MANIFEST_MUTATION",
+    "input": "Temporary copies of the committed social sample, using current src/actio/verify.py; no runtime/model execution.",
+    "variants": ["Change run.input observations.A only", "Change run.input action_spec.call_to_action only"],
+    "dependent_updates": ["run.input_hash", "scenario terminal manifest_hash", "manifest evidence.json size and SHA-256"],
+    "preserved": ["dispatch audit", "native raw events", "answers", "world"],
+    "optional_report": "verification.json omitted to force independent recomputation; source sample left unchanged",
+    "actual_both": {"bundle_integrity": "valid", "facts_consistency": "consistent", "scenario_completeness": "complete", "task_outcome": "success", "errors": [], "missing": []},
+    "expected": "Identify contradiction between frozen scenario input and actual dispatch/native task; prohibit measurement admission."
+  },
+  "sotopia_review": {
+    "source_commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+    "reference_worktree_clean": true,
+    "mode": "STATIC_SOURCE_REVIEW_ONLY",
+    "license": "MIT",
+    "findings_to_characterize": ["JSON repair/context branch and coercion", "dict-value enumeration loses response alias identity", "tuple indexing versus nested reasoning/score objects", "exception-to-empty-list and history-only zero-participant behavior", "dimension-specific signed score ranges"]
+  },
+  "not_performed": ["Full 38-group suite rerun", "Fresh dependency installation", "Live re-query of all historical Job objects", "SOTOPIA execution", "DSH/Concordia execution", "Paid provider call", "Product modification"]
+}

@@ -1,4 +1,10 @@
-# Actio-RSI · Phase 1B.1
+# Actio-RSI · Phase 1C0
+
+新增离线测量准入、确定性合同指标、严格 controlled-response envelope 与 SOTOPIA 最小 parser/schema 复用。输入绑定修正由在线 seal 和离线 verifier 共用；原证据不改写。35 组相关行为验收、零模型请求，Gate 为 **CONDITIONAL_GO（仅离线工程）**。
+
+本阶段入口：[结果与计数](docs/validation/phase1c0/02_results.md) · [实测复现](docs/validation/phase1c0/04_usage.md) · [SOTOPIA 复用](docs/validation/phase1c0/05_sotopia_reuse.md) · [Gate](docs/validation/phase1c0/03_gate.md) · [独立证据](docs/validation/phase1c0/evidence_manifest.json)。离线入口是 `python -m actio.evaluation` / `actio-eval`，只读源包，结果另存不可变文件。RuntimePort 的 evaluator capability 仍为 false，运行中的 agent 不获得评估或 judge 上下文。
+
+下文保留 Phase 1B.1 runtime 准备与运行说明；其中 evaluator 未开放的描述指 runtime/live 路径。当前 stored verification.json 的历史处理以 Phase 1C0 合同为准。
 
 单机、持久化、合成 fixture 双场景基础设施。Python 管身份/spec、run/lease/receipt、SQLite facts/memory；官方 DSH SDK + TS executable 管 agent loop、MCP 和原生 journal；真实 Concordia Sequential 管社会场景调度及 GM 裁决。预算 **0**，模型和 GM 输出为固定 fixture，未开放 live provider。
 

@@ -9,11 +9,16 @@ description = "Bounded offline persistent agent vertical slice"
 requires-python = ">=3.12,<3.13"
 dependencies = ["deepseek-harness-sdk==0.1.5rc1", "mcp==1.26.0"]
 
+[project.optional-dependencies]
+eval = ["pydantic==2.13.5", "json-repair==0.48.0"]
+
 [project.scripts]
 actio = "actio.cli:main"
+actio-eval = "actio.evaluation:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
 actio = ["*.sql", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]
+"actio._vendor" = ["*.json", "SOTOPIA_LICENSE"]

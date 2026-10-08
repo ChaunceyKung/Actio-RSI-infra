@@ -1,0 +1,104 @@
+{
+  "upstream": "https://github.com/sotopia-lab/sotopia",
+  "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+  "metadata_version": "0.1.5",
+  "license": "MIT",
+  "definitions": [
+    {
+      "source": "sotopia/database/base_models.py",
+      "symbol": "LLMBaseModel",
+      "start": 27,
+      "end": 35,
+      "source_sha256": "7e41c49d680b3d41f9298d58da531c3caffd18b0815110335406a57634c22742",
+      "definition_lf_sha256": "e84c001beb6cfa8ebc1baad4f775659c97336cdd841d3e62b8736957a6b5f00a"
+    },
+    {
+      "source": "sotopia/database/base_models.py",
+      "symbol": "LLMEvalBaseModel",
+      "start": 38,
+      "end": 48,
+      "source_sha256": "7e41c49d680b3d41f9298d58da531c3caffd18b0815110335406a57634c22742",
+      "definition_lf_sha256": "6d89581549d3e5bbb300b9cc86350af2c3ff38131d7207af6f3ce58d6098fc64"
+    },
+    {
+      "source": "sotopia/database/evaluation_dimensions.py",
+      "symbol": "zero_to_ten",
+      "start": 18,
+      "end": 21,
+      "source_sha256": "32a180fb5969d73605a6e2f93f20cc20f20b1706dc2c94cfc08b353255b6b795",
+      "definition_lf_sha256": "5ad1750d7d2273a080480a23487df1a002aabc69b4851dc5c01434cddb672dcd"
+    },
+    {
+      "source": "sotopia/database/evaluation_dimensions.py",
+      "symbol": "minus_five_to_five",
+      "start": 24,
+      "end": 27,
+      "source_sha256": "32a180fb5969d73605a6e2f93f20cc20f20b1706dc2c94cfc08b353255b6b795",
+      "definition_lf_sha256": "62bffecbda965d9182cd653e0b43eb906eeac9b79511672cf034283e30b86523"
+    },
+    {
+      "source": "sotopia/database/evaluation_dimensions.py",
+      "symbol": "PositiveReasoningScore",
+      "start": 49,
+      "end": 59,
+      "source_sha256": "32a180fb5969d73605a6e2f93f20cc20f20b1706dc2c94cfc08b353255b6b795",
+      "definition_lf_sha256": "23a9ec7476eca46a0b602910164edd1879ebd66d2c7f16d45c0a1085ffd296a6"
+    },
+    {
+      "source": "sotopia/database/evaluation_dimensions.py",
+      "symbol": "BidirectionalReasoningScore",
+      "start": 62,
+      "end": 72,
+      "source_sha256": "32a180fb5969d73605a6e2f93f20cc20f20b1706dc2c94cfc08b353255b6b795",
+      "definition_lf_sha256": "47beb5c59adbc5f0fdd3f26beeedc8bc25d73a41255d6a1810eb2fa594d00002"
+    },
+    {
+      "source": "sotopia/generation_utils/output_parsers.py",
+      "symbol": "OutputParser",
+      "start": 21,
+      "end": 26,
+      "source_sha256": "a703fbe53c938cb5e8996ccad538e6513a41355c8c6a464fae54b8fc3d405ce0",
+      "definition_lf_sha256": "a40fc8d644fd628c1629165270078f7cc2d27ec182024b6e0c955360c93a2157"
+    },
+    {
+      "source": "sotopia/generation_utils/output_parsers.py",
+      "symbol": "PydanticOutputParser",
+      "start": 29,
+      "end": 73,
+      "source_sha256": "a703fbe53c938cb5e8996ccad538e6513a41355c8c6a464fae54b8fc3d405ce0",
+      "definition_lf_sha256": "8d3344d1b3d39e796713035194e7e85216e4c90de47a5ad4d8c7d6919fa75e90"
+    },
+    {
+      "source": "sotopia/envs/evaluators.py",
+      "symbol": "EvaluationForAgents",
+      "start": 27,
+      "end": 28,
+      "source_sha256": "b224c40345205cd3ab790b7031c89b40077532dcb8fbb12631551919020f8d77",
+      "definition_lf_sha256": "8a926dd5cc01cc9ee44f60b62f459af4259a6c766300565fd4eddb992fbd3c9a"
+    },
+    {
+      "source": "sotopia/envs/evaluators.py",
+      "symbol": "Evaluator",
+      "start": 31,
+      "end": 45,
+      "source_sha256": "b224c40345205cd3ab790b7031c89b40077532dcb8fbb12631551919020f8d77",
+      "definition_lf_sha256": "0c454a434687735ce3ee27ccd130bed812da958fd676c9ee9d9827bc2d0ce404"
+    },
+    {
+      "source": "sotopia/envs/evaluators.py",
+      "symbol": "EpisodeLLMEvaluator",
+      "start": 162,
+      "end": 272,
+      "source_sha256": "b224c40345205cd3ab790b7031c89b40077532dcb8fbb12631551919020f8d77",
+      "definition_lf_sha256": "38986befb509eea66d323cc36a1e24f6716cb65130a1331f75236b980b28732b"
+    }
+  ],
+  "modifications": [
+    "original definition text normalized to LF only",
+    "imports limited to parser/schema closure",
+    "storage Field replaced by pydantic.Field (no index/storage fields selected)",
+    "test evaluator uses controlled Message/generation/transport seams"
+  ],
+  "generated_sha256": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+  "test_evaluator_sha256": "0ca33d21428b1c6f5b1b5f6490dbf4242b76fa136c00e3d85685ca8b36916863"
+}

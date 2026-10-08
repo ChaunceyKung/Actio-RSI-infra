@@ -7,7 +7,7 @@ from .common import ContractError,canonical,digest,file_hash
 from .facts import Facts,wire
 from .memory import Memory,namespace
 from .runtime import RuntimePort,TOOL,CONCORDIA,PACKAGE,pins
-from .terminal import seal_terminal
+from .terminal import seal_terminal, INPUT_CONTRACT
 
 
 def failed(store, run, error):
@@ -39,7 +39,7 @@ def final_source(store, result):
 def assistant(store,key,agent,short_root,*,runtime_type=RuntimePort):
     request={'scenario':'assistant','agent':agent}
     def freeze():
-        return {'request':request,'scenario':'assistant','agents':{agent:store.agent(agent)['spec_hash']},
+        return {'input_contract':INPUT_CONTRACT,'request':request,'scenario':'assistant','agents':{agent:store.agent(agent)['spec_hash']},
             'memory':{agent:snapshot(store,agent,'assistant')},'pins':pins(),'fixture':'read-reference-v1'}
     run,fresh=store.begin(key,freeze,request=request)
     if not fresh:
@@ -66,10 +66,10 @@ def assistant(store,key,agent,short_root,*,runtime_type=RuntimePort):
 
 
 def social_manifest(store,a,b,*,as_of=None,illegal=False):
-    return {'scenario':'social','engine':'concordia.Sequential','source':CONCORDIA,'world':[],
+    return {'input_contract':INPUT_CONTRACT,'scenario':'social','engine':'concordia.Sequential','source':CONCORDIA,'world':[],
             'entities':{'A':a,'B':b},'agents':{n:store.agent(n)['spec_hash'] for n in (a,b)},
             'observations':{'A':'PRIVATE_ONLY_A','B':'PRIVATE_ONLY_B'},'gm_private':'GM_PRIVATE_FULL_LOG',
-            'observation_policy':'own-only-v1','action_spec':{'options':['cooperate','wait'],'call_to_action':'Choose a legal action.'},
+            'observation_policy':'own-only-v1','action_spec':{'options':['cooperate','wait'],'call_to_action':'Choose a legal action.','output_type':'choice','tag':None},
             'order':['B','A'],'seed':0,'max_steps':2,'pins':pins(),'fixture':'cooperate-v1','illegal':illegal,
             'memory':{a:snapshot(store,a,'social','assistant',as_of),b:snapshot(store,b,'social')},
             'mid_run_restore':False}

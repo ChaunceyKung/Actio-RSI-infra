@@ -1,0 +1,1480 @@
+{
+  "id": "20261008T061739Z-66fd32ec",
+  "suite": "evaluation",
+  "command": ".local/phase1c0-eval-venv/Scripts/python.exe -X utf8 scripts/validate.py evaluation phase1c0",
+  "mode": "OFFLINE_EVALUATION",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_evaluation.Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls",
+      "status": "PASS",
+      "evidence": {
+        "zero_call_cases": {
+          "active": {
+            "admission": {
+              "status": "insufficient",
+              "reasons": [
+                "run active at snapshot"
+              ],
+              "verification": {
+                "facts_consistency": "partial",
+                "scenario_completeness": "partial",
+                "task_outcome": "success",
+                "execution_mode": "fixture",
+                "recorded_prefix": "consistent",
+                "errors": [],
+                "missing": [
+                  "run active at snapshot"
+                ],
+                "source_trust_limits": [
+                  "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+                  "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+                  "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+                  "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+                ],
+                "historical_claim": {
+                  "state": "execution_complete",
+                  "task": "success",
+                  "trajectory": "complete"
+                },
+                "bundle_integrity": "valid",
+                "content_sha256": "e471a1965041f0317f421584392e74c8f9faeaa4e714ddb8ab8dfdfc375fb850",
+                "verifier": {
+                  "implementation": "actio-verifier.2",
+                  "contract": "fixture-input.v2",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                }
+              }
+            },
+            "measurement": {
+              "status": "not_run",
+              "results": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "parser_calls": 0,
+              "model_requests": 0,
+              "view_hash": null,
+              "audit": null
+            }
+          },
+          "legacy": {
+            "admission": {
+              "status": "insufficient",
+              "reasons": [
+                "legacy_unverified"
+              ],
+              "verification": {
+                "facts_consistency": "consistent",
+                "scenario_completeness": "legacy_unverified",
+                "task_outcome": "unknown",
+                "execution_mode": "fixture",
+                "recorded_prefix": "consistent",
+                "errors": [],
+                "missing": [],
+                "source_trust_limits": [
+                  "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+                  "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+                  "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+                  "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+                ],
+                "historical_claim": {
+                  "state": "execution_complete",
+                  "task": "success",
+                  "trajectory": "complete"
+                },
+                "bundle_integrity": "valid",
+                "content_sha256": "c1d32768530a5b1d7c6154be6357fb5f74e14321247d51fa82d384ae7fad7213",
+                "verifier": {
+                  "implementation": "actio-verifier.2",
+                  "contract": "fixture-input.v2",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                }
+              }
+            },
+            "measurement": {
+              "status": "not_run",
+              "results": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "parser_calls": 0,
+              "model_requests": 0,
+              "view_hash": null,
+              "audit": null
+            }
+          },
+          "corrupt": {
+            "admission": {
+              "status": "rejected",
+              "reasons": [
+                "file size/hash mismatch: evidence.json"
+              ],
+              "verification": {
+                "bundle_integrity": "invalid",
+                "facts_consistency": "unverified",
+                "scenario_completeness": "unknown",
+                "task_outcome": "unknown",
+                "execution_mode": "unverified",
+                "errors": [
+                  "file size/hash mismatch: evidence.json"
+                ],
+                "source_trust_limits": [
+                  "Hashes prove internal consistency, not authorship/signatures or upstream binary-source provenance.",
+                  "Provider and GM are synthetic fixtures; no evidence of live model execution or model quality.",
+                  "Prior memory proof covers selected source occurrences/effects, not entire predecessor episodes.",
+                  "Audit reader sees scoped synthetic private observations, GM and memory; this is not agent context."
+                ],
+                "verifier": {
+                  "implementation": "actio-verifier.2",
+                  "contract": "fixture-input.v2",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                }
+              }
+            },
+            "measurement": {
+              "status": "not_run",
+              "results": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "parser_calls": 0,
+              "model_requests": 0,
+              "view_hash": null,
+              "audit": null
+            }
+          },
+          "missing_context": {
+            "admission": {
+              "status": "insufficient",
+              "reasons": [
+                "missing goals/initial relationships"
+              ],
+              "verification": {
+                "verifier": {
+                  "implementation": "actio-verifier.2",
+                  "contract": "fixture-input.v2",
+                  "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                },
+                "kind": "sealed-synthetic-input.v1",
+                "bundle_integrity": "not_applicable"
+              }
+            },
+            "measurement": {
+              "status": "not_run",
+              "results": null,
+              "error": null,
+              "evaluator_calls": 0,
+              "parser_calls": 0,
+              "model_requests": 0,
+              "view_hash": null,
+              "audit": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes",
+      "status": "PASS",
+      "evidence": {
+        "not_run": {
+          "partial": {
+            "status": "not_run",
+            "results": null,
+            "error": null,
+            "evaluator_calls": 0,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": null,
+            "audit": null
+          },
+          "unknown": {
+            "status": "not_run",
+            "results": null,
+            "error": null,
+            "evaluator_calls": 0,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": null,
+            "audit": null
+          }
+        },
+        "rejections_have_zero_calls": true
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view",
+      "status": "PASS",
+      "evidence": {
+        "actual_worker_results": {
+          "assistant": {
+            "status": "valid_measurement",
+            "results": [
+              {
+                "metric": "assistant.reference.v1",
+                "alias": "agent_1",
+                "value": 1,
+                "predicate": "single successful tool result contains reference",
+                "sources": [
+                  {
+                    "occurrence": [
+                      "7801bae9172949889826e244090038d9",
+                      14
+                    ],
+                    "operation": "8bb2e6990bb4402bbcdfbf12b488cf7a",
+                    "receipt": "8bb2e6990bb4402bbcdfbf12b488cf7a"
+                  },
+                  {
+                    "tool_seq": 11
+                  }
+                ]
+              }
+            ],
+            "error": null,
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "2572d1b407b49bf3b7e4b64c5badc536ce3c6e93d85af86228e187afda36d496",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "social": {
+            "status": "valid_measurement",
+            "results": [
+              {
+                "metric": "social.constraints.v1",
+                "value": {
+                  "observed_actions": 2,
+                  "legal_actions": 2,
+                  "gm_resolved": 2,
+                  "illegal_rejected_before_world": 0
+                },
+                "predicate": "check action membership and domain/world effects separately",
+                "sources": [
+                  {
+                    "occurrence": [
+                      "2135eb465b1b4ccfbb71e1644132cc08",
+                      9
+                    ],
+                    "operation": "54221cb4442f4ba083fa85da99ccade1",
+                    "receipt": "54221cb4442f4ba083fa85da99ccade1"
+                  },
+                  {
+                    "occurrence": [
+                      "5d3f111416124db08661990dc5fa5359",
+                      9
+                    ],
+                    "operation": "e03fd4ea39964299928b5a16ce35898c",
+                    "receipt": "e03fd4ea39964299928b5a16ce35898c"
+                  }
+                ]
+              }
+            ],
+            "error": null,
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "49e18c768d696251e210f5e341c7bdfecbf94a36989bfe5867b0e6d0072c0d95",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "rejected": {
+            "status": "valid_measurement",
+            "results": [
+              {
+                "metric": "social.constraints.v1",
+                "value": {
+                  "observed_actions": 1,
+                  "legal_actions": 0,
+                  "gm_resolved": 0,
+                  "illegal_rejected_before_world": 1
+                },
+                "predicate": "check action membership and domain/world effects separately",
+                "sources": [
+                  {
+                    "occurrence": [
+                      "2f160443cafd4dee879db83f5cc1bc49",
+                      9
+                    ],
+                    "operation": "fa5860b0034d46599122b14fd62e45cf",
+                    "receipt": "fa5860b0034d46599122b14fd62e45cf"
+                  }
+                ]
+              }
+            ],
+            "error": null,
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "2804c92c6ba5e2aaf780553f6bb33b8ab421fbac59322b2e565f2cec102c3a52",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication",
+      "status": "PASS",
+      "evidence": {
+        "duplicate_export_reused": true,
+        "spec_revision_new_record": true,
+        "changed_input_new_record": true,
+        "range_change": "unsupported range rejected, never reused"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved",
+      "status": "PASS",
+      "evidence": {
+        "failures": {
+          "internal": {
+            "body": {
+              "schema": "evaluation-record.v1",
+              "request": {
+                "schema": "actio-eval.v1",
+                "source": {
+                  "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "kind": "synthetic"
+                },
+                "spec": "e811b1b6389f4f74a436640bfb2417b59666506318d508e5c466c644b888fd7a",
+                "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a"
+              },
+              "request_hash": "707b6816f9e5442b506238364930cb72a3ece1a36390ef192e4571a488171239",
+              "spec": {
+                "body": {
+                  "schema": "actio-eval.v1",
+                  "revision": 1,
+                  "mode": "controlled_response",
+                  "accepted": {
+                    "bundle": [
+                      "actio-evidence",
+                      1
+                    ],
+                    "scenario": [
+                      "assistant",
+                      "social",
+                      "synthetic-social.v1"
+                    ],
+                    "verifier": {
+                      "implementation": "actio-verifier.2",
+                      "contract": "fixture-input.v2",
+                      "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                    },
+                    "prerequisites": [
+                      "valid_inventory",
+                      "consistent_facts",
+                      "complete_scenario",
+                      "required_context"
+                    ]
+                  },
+                  "metrics": {
+                    "goal": {
+                      "rule": "controlled structure only: progress toward frozen synthetic goal",
+                      "type": "integer",
+                      "range": [
+                        0,
+                        10
+                      ],
+                      "direction": "higher",
+                      "context": [
+                        "goals",
+                        "actions"
+                      ],
+                      "version": 1,
+                      "rubric_hash": "5c3d721650d30a8ed8f7db7a4747b456c51f73a725a16a28f085fc0c6982c162"
+                    },
+                    "relationship": {
+                      "rule": "controlled structure only: change relative to frozen synthetic relationship baseline",
+                      "type": "integer",
+                      "range": [
+                        -5,
+                        5
+                      ],
+                      "direction": "higher",
+                      "context": [
+                        "relationships",
+                        "actions"
+                      ],
+                      "version": 1,
+                      "rubric_hash": "de766c05997d3148dad1db3bd87f2f913b72441bffae021c815ee168d64f3ee3"
+                    }
+                  },
+                  "pins": {
+                    "adapter": "actio-eval.v1",
+                    "source": {
+                      "common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+                      "terminal.py": "5972d45e6ca4a6da6afe1e2d908743dfb8c8e273301dc8536ef1824b2e5d5d6a",
+                      "verify.py": "90d243e36223d4ed1331d9744d4ee0201a336e311205a37bbe73a39707fb918d",
+                      "eval_contract.py": "cc2706cbd9b1d906e37a0f002581f1f945f1487e96a1392656bd87b1ac1d8a37",
+                      "evaluation.py": "bf8644e2dc6d309edfb08fb9d88764a88a0b572a931ab88b32fed7fa4901a996",
+                      "eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+                      "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+                      "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+                      "_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e"
+                    },
+                    "sotopia": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+                    "dependencies": {
+                      "pydantic": "2.13.5",
+                      "pydantic_core": "2.46.5",
+                      "annotated-types": "0.8.0",
+                      "typing_extensions": "4.16.0",
+                      "typing-inspection": "0.4.4",
+                      "json-repair": "0.48.0"
+                    }
+                  },
+                  "alias_rule": "sorted unique seat -> agent_N; explicit agent/role binding",
+                  "view": {
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation",
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ]
+                  },
+                  "envelope": "scores[alias][dimension] = {reasoning, score}; exact keys; raw strict before parser",
+                  "errors": "null scores; no retries; retain task/admission; distinct invalid/error/timeout",
+                  "limits": {
+                    "input_bytes": 262144,
+                    "response_bytes": 16384,
+                    "rationale_bytes": 1024,
+                    "timeout_seconds": 10,
+                    "live_budget": 0
+                  },
+                  "campaign": {
+                    "dataset_hash": "synthetic-dataset-test",
+                    "split": "synthetic-engineering-fixture",
+                    "dedup": "content+source snapshot; export metadata excluded",
+                    "independent_unit": "none; related episode start clusters only"
+                  }
+                },
+                "sha256": "e811b1b6389f4f74a436640bfb2417b59666506318d508e5c466c644b888fd7a"
+              },
+              "source": {
+                "kind": "synthetic",
+                "input": {
+                  "body": {
+                    "schema": "synthetic-social.v1",
+                    "fixture": true,
+                    "unit": "synthetic-negotiation-1",
+                    "agents": {
+                      "north": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant"
+                      },
+                      "south": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant"
+                      }
+                    },
+                    "goals": {
+                      "north": "Agree on a shared park cleanup time.",
+                      "south": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "north": "New neighbors; neutral before interaction.",
+                      "south": "New neighbors; neutral before interaction."
+                    },
+                    "actions": [
+                      {
+                        "seat": "south",
+                        "action": "I can help for one hour."
+                      },
+                      {
+                        "seat": "north",
+                        "action": "Agreed, one hour on Saturday."
+                      }
+                    ],
+                    "task_outcome": "success"
+                  },
+                  "sha256": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931"
+                }
+              },
+              "admission": {
+                "status": "admitted",
+                "reasons": [],
+                "verification": {
+                  "verifier": {
+                    "implementation": "actio-verifier.2",
+                    "contract": "fixture-input.v2",
+                    "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                  },
+                  "kind": "sealed-synthetic-input.v1",
+                  "bundle_integrity": "not_applicable"
+                }
+              },
+              "task_outcome": "success",
+              "measurement": {
+                "status": "measurement_error",
+                "results": null,
+                "error": {
+                  "type": "RuntimeError",
+                  "reason": "fixed internal bug"
+                },
+                "evaluator_calls": 1,
+                "parser_calls": 0,
+                "model_requests": 0,
+                "view_hash": null,
+                "audit": null
+              },
+              "input": {
+                "body": {
+                  "schema": "evaluation-input.v1",
+                  "source_identity": {
+                    "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                    "kind": "synthetic"
+                  },
+                  "spec_hash": "e811b1b6389f4f74a436640bfb2417b59666506318d508e5c466c644b888fd7a",
+                  "run": "synthetic-negotiation-1",
+                  "unit": "synthetic-negotiation-1",
+                  "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "aliases": {
+                    "agent_1": {
+                      "seat": "north",
+                      "agent": "SYNTH_NORTH",
+                      "role": "participant"
+                    },
+                    "agent_2": {
+                      "seat": "south",
+                      "agent": "SYNTH_SOUTH",
+                      "role": "participant"
+                    }
+                  },
+                  "view": {
+                    "scenario": "synthetic-social.v1",
+                    "aliases": {
+                      "agent_1": {
+                        "seat": "north",
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant"
+                      },
+                      "agent_2": {
+                        "seat": "south",
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant"
+                      }
+                    },
+                    "goals": {
+                      "agent_1": "Agree on a shared park cleanup time.",
+                      "agent_2": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "agent_1": "New neighbors; neutral before interaction.",
+                      "agent_2": "New neighbors; neutral before interaction."
+                    },
+                    "actions": [
+                      {
+                        "alias": "agent_2",
+                        "action": "I can help for one hour.",
+                        "source": [
+                          "synthetic",
+                          0
+                        ]
+                      },
+                      {
+                        "alias": "agent_1",
+                        "action": "Agreed, one hour on Saturday.",
+                        "source": [
+                          "synthetic",
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+                  "selection": {
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation",
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ]
+                  },
+                  "fixture": true
+                },
+                "sha256": "869822a140418cab8ea5b59487484465edd785c8c95f58305bdd5248c83277ca"
+              },
+              "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+              "mode": "controlled_response",
+              "fixture": true,
+              "raw_response": "{\"scores\":{\"agent_1\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":3},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":1}},\"agent_2\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":8},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":-2}}}}",
+              "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a",
+              "limits": "hashes show consistency, not authorship or measurement validity; preset scores are not model judgments"
+            },
+            "sha256": "057d6f23310c363f3c089f026b2c5bcd1e312b0a1d77b093b054faae3ef8dccc"
+          },
+          "timeout": {
+            "body": {
+              "schema": "evaluation-record.v1",
+              "request": {
+                "schema": "actio-eval.v1",
+                "source": {
+                  "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "kind": "synthetic"
+                },
+                "spec": "e811b1b6389f4f74a436640bfb2417b59666506318d508e5c466c644b888fd7a",
+                "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a"
+              },
+              "request_hash": "707b6816f9e5442b506238364930cb72a3ece1a36390ef192e4571a488171239",
+              "spec": {
+                "body": {
+                  "schema": "actio-eval.v1",
+                  "revision": 1,
+                  "mode": "controlled_response",
+                  "accepted": {
+                    "bundle": [
+                      "actio-evidence",
+                      1
+                    ],
+                    "scenario": [
+                      "assistant",
+                      "social",
+                      "synthetic-social.v1"
+                    ],
+                    "verifier": {
+                      "implementation": "actio-verifier.2",
+                      "contract": "fixture-input.v2",
+                      "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                    },
+                    "prerequisites": [
+                      "valid_inventory",
+                      "consistent_facts",
+                      "complete_scenario",
+                      "required_context"
+                    ]
+                  },
+                  "metrics": {
+                    "goal": {
+                      "rule": "controlled structure only: progress toward frozen synthetic goal",
+                      "type": "integer",
+                      "range": [
+                        0,
+                        10
+                      ],
+                      "direction": "higher",
+                      "context": [
+                        "goals",
+                        "actions"
+                      ],
+                      "version": 1,
+                      "rubric_hash": "5c3d721650d30a8ed8f7db7a4747b456c51f73a725a16a28f085fc0c6982c162"
+                    },
+                    "relationship": {
+                      "rule": "controlled structure only: change relative to frozen synthetic relationship baseline",
+                      "type": "integer",
+                      "range": [
+                        -5,
+                        5
+                      ],
+                      "direction": "higher",
+                      "context": [
+                        "relationships",
+                        "actions"
+                      ],
+                      "version": 1,
+                      "rubric_hash": "de766c05997d3148dad1db3bd87f2f913b72441bffae021c815ee168d64f3ee3"
+                    }
+                  },
+                  "pins": {
+                    "adapter": "actio-eval.v1",
+                    "source": {
+                      "common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+                      "terminal.py": "5972d45e6ca4a6da6afe1e2d908743dfb8c8e273301dc8536ef1824b2e5d5d6a",
+                      "verify.py": "90d243e36223d4ed1331d9744d4ee0201a336e311205a37bbe73a39707fb918d",
+                      "eval_contract.py": "cc2706cbd9b1d906e37a0f002581f1f945f1487e96a1392656bd87b1ac1d8a37",
+                      "evaluation.py": "bf8644e2dc6d309edfb08fb9d88764a88a0b572a931ab88b32fed7fa4901a996",
+                      "eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+                      "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+                      "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+                      "_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e"
+                    },
+                    "sotopia": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+                    "dependencies": {
+                      "pydantic": "2.13.5",
+                      "pydantic_core": "2.46.5",
+                      "annotated-types": "0.8.0",
+                      "typing_extensions": "4.16.0",
+                      "typing-inspection": "0.4.4",
+                      "json-repair": "0.48.0"
+                    }
+                  },
+                  "alias_rule": "sorted unique seat -> agent_N; explicit agent/role binding",
+                  "view": {
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation",
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ]
+                  },
+                  "envelope": "scores[alias][dimension] = {reasoning, score}; exact keys; raw strict before parser",
+                  "errors": "null scores; no retries; retain task/admission; distinct invalid/error/timeout",
+                  "limits": {
+                    "input_bytes": 262144,
+                    "response_bytes": 16384,
+                    "rationale_bytes": 1024,
+                    "timeout_seconds": 10,
+                    "live_budget": 0
+                  },
+                  "campaign": {
+                    "dataset_hash": "synthetic-dataset-test",
+                    "split": "synthetic-engineering-fixture",
+                    "dedup": "content+source snapshot; export metadata excluded",
+                    "independent_unit": "none; related episode start clusters only"
+                  }
+                },
+                "sha256": "e811b1b6389f4f74a436640bfb2417b59666506318d508e5c466c644b888fd7a"
+              },
+              "source": {
+                "kind": "synthetic",
+                "input": {
+                  "body": {
+                    "schema": "synthetic-social.v1",
+                    "fixture": true,
+                    "unit": "synthetic-negotiation-1",
+                    "agents": {
+                      "north": {
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant"
+                      },
+                      "south": {
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant"
+                      }
+                    },
+                    "goals": {
+                      "north": "Agree on a shared park cleanup time.",
+                      "south": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "north": "New neighbors; neutral before interaction.",
+                      "south": "New neighbors; neutral before interaction."
+                    },
+                    "actions": [
+                      {
+                        "seat": "south",
+                        "action": "I can help for one hour."
+                      },
+                      {
+                        "seat": "north",
+                        "action": "Agreed, one hour on Saturday."
+                      }
+                    ],
+                    "task_outcome": "success"
+                  },
+                  "sha256": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931"
+                }
+              },
+              "admission": {
+                "status": "admitted",
+                "reasons": [],
+                "verification": {
+                  "verifier": {
+                    "implementation": "actio-verifier.2",
+                    "contract": "fixture-input.v2",
+                    "stored_report_policy": "hash-checked historical report; current result independently recomputed"
+                  },
+                  "kind": "sealed-synthetic-input.v1",
+                  "bundle_integrity": "not_applicable"
+                }
+              },
+              "task_outcome": "success",
+              "measurement": {
+                "status": "timeout",
+                "results": null,
+                "error": {
+                  "type": "TimeoutError",
+                  "reason": "fixed deadline"
+                },
+                "evaluator_calls": 1,
+                "parser_calls": 0,
+                "model_requests": 0,
+                "view_hash": null,
+                "audit": null
+              },
+              "input": {
+                "body": {
+                  "schema": "evaluation-input.v1",
+                  "source_identity": {
+                    "content": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                    "kind": "synthetic"
+                  },
+                  "spec_hash": "e811b1b6389f4f74a436640bfb2417b59666506318d508e5c466c644b888fd7a",
+                  "run": "synthetic-negotiation-1",
+                  "unit": "synthetic-negotiation-1",
+                  "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+                  "aliases": {
+                    "agent_1": {
+                      "seat": "north",
+                      "agent": "SYNTH_NORTH",
+                      "role": "participant"
+                    },
+                    "agent_2": {
+                      "seat": "south",
+                      "agent": "SYNTH_SOUTH",
+                      "role": "participant"
+                    }
+                  },
+                  "view": {
+                    "scenario": "synthetic-social.v1",
+                    "aliases": {
+                      "agent_1": {
+                        "seat": "north",
+                        "agent": "SYNTH_NORTH",
+                        "role": "participant"
+                      },
+                      "agent_2": {
+                        "seat": "south",
+                        "agent": "SYNTH_SOUTH",
+                        "role": "participant"
+                      }
+                    },
+                    "goals": {
+                      "agent_1": "Agree on a shared park cleanup time.",
+                      "agent_2": "Keep the cleanup within one hour."
+                    },
+                    "relationships": {
+                      "agent_1": "New neighbors; neutral before interaction.",
+                      "agent_2": "New neighbors; neutral before interaction."
+                    },
+                    "actions": [
+                      {
+                        "alias": "agent_2",
+                        "action": "I can help for one hour.",
+                        "source": [
+                          "synthetic",
+                          0
+                        ]
+                      },
+                      {
+                        "alias": "agent_1",
+                        "action": "Agreed, one hour on Saturday.",
+                        "source": [
+                          "synthetic",
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+                  "selection": {
+                    "selection": "metric whitelist v1",
+                    "truncation": "reject over limit; no silent truncation",
+                    "excluded": [
+                      "forced_fixture_answer",
+                      "private_observation",
+                      "gm_private",
+                      "memory",
+                      "historical_score",
+                      "candidate"
+                    ]
+                  },
+                  "fixture": true
+                },
+                "sha256": "869822a140418cab8ea5b59487484465edd785c8c95f58305bdd5248c83277ca"
+              },
+              "cluster": "65863580253f8159087ee7844c1f7d6dcbaba944294d1cbeaf4a58d801bd9931",
+              "mode": "controlled_response",
+              "fixture": true,
+              "raw_response": "{\"scores\":{\"agent_1\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":3},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":1}},\"agent_2\":{\"goal\":{\"reasoning\":\"Preset fixture only.\",\"score\":8},\"relationship\":{\"reasoning\":\"Preset fixture only.\",\"score\":-2}}}}",
+              "raw_response_hash": "f6f30780b3e51acd8b19a6d856f47cb8d8f8da6b50e0afca102233726206a71a",
+              "limits": "hashes show consistency, not authorship or measurement validity; preset scores are not model judgments"
+            },
+            "sha256": "43efe73ff910323b5c37e0e35e2bc20e278d620c9cb778455c90ad82d009cb7a"
+          }
+        },
+        "real_child_deadline": "killed and waited after 1 second; no retry"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion",
+      "status": "PASS",
+      "evidence": {
+        "invalid_response_records": {
+          "scores_null": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "scores_list": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "scores_number": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "scores_bool": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "empty": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "empty/oversized response"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "empty_object": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "response envelope requires scores only"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "empty_list": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "response envelope requires scores only"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "null": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "response envelope requires scores only"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "duplicate_key": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "invalid response JSON: duplicate JSON key: scores"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "nonfinite": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "invalid response JSON: nonfinite JSON"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "missing_alias": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "unknown_alias": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "extra_alias": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "scores must contain exact frozen aliases"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "missing_dimension": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "missing/extra dimensions: agent_1"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "extra_dimension": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "missing/extra dimensions: agent_1"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "bool_score": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "strict integer score out of range/type: goal"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "string_score": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "strict integer score out of range/type: goal"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "float_score": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "strict integer score out of range/type: goal"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "goal_range": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "strict integer score out of range/type: goal"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "relationship_range": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "strict integer score out of range/type: relationship"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "pair_container": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "reasoning/score pair required"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "rationale_type": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "rationale limit/type"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "rationale_limit": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "rationale limit/type"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "response_limit": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "empty/oversized response"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          },
+          "duplicate_alias": {
+            "status": "invalid_measurement",
+            "results": null,
+            "error": {
+              "type": "ContractError",
+              "reason": "invalid response JSON: duplicate JSON key: agent_1"
+            },
+            "evaluator_calls": 1,
+            "parser_calls": 0,
+            "model_requests": 0,
+            "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe",
+            "audit": {
+              "network_attempts": 0,
+              "process_attempts": 0,
+              "runtime_import_attempts": 0,
+              "write_attempts": 0
+            }
+          }
+        },
+        "mode": "CONTROLLED_RESPONSE"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency",
+      "status": "PASS",
+      "evidence": {
+        "portable": {
+          "valid": true,
+          "record_hash": "65324149059dcb6b0c9d1481d0717f8f006b8e7996ebc328101029b5693dbb9c",
+          "model_requests": 0,
+          "trust": "internal consistency; parser execution/errors are recorded local observations, not signed attestations"
+        },
+        "optional_missing": {
+          "status": "measurement_error",
+          "results": null,
+          "error": {
+            "type": "PackageNotFoundError",
+            "reason": "No package metadata was found for pydantic"
+          },
+          "parser_calls": 0,
+          "model_requests": 0,
+          "audit": {
+            "network_attempts": 0,
+            "process_attempts": 0,
+            "runtime_import_attempts": 0,
+            "write_attempts": 0
+          },
+          "view_hash": "359e05a87f15b9ec146ba8dcec1bb5b788681f014890f9f7e32e3e2bcf76f6fe"
+        },
+        "guard": "-I -S; original directories inaccessible; socket/process/runtime imports denied"
+      }
+    },
+    {
+      "id": "test_evaluation.Evaluation.test_worker_audit_hook_enforces_denials_in_real_child",
+      "status": "PASS",
+      "evidence": {
+        "denied_before_effect": {
+          "network_attempts": 1,
+          "process_attempts": 1,
+          "runtime_import_attempts": 1,
+          "write_attempts": 0
+        },
+        "actual_evaluation_workers": "zero attempts, recorded separately"
+      }
+    }
+  ],
+  "tests_run": 8,
+  "exit_code": 0,
+  "source_hashes": {
+    "src/actio/cli.py": "cf3018034c1f46c8ca328b0e4a205bd784079429febbcd7c9c69cf2bae1e80bf",
+    "src/actio/common.py": "bd6949aa1ec490a301eab83227268be3ae23d99bf6d1e2aee7ffa01afdde9acf",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/evaluation.py": "bf8644e2dc6d309edfb08fb9d88764a88a0b572a931ab88b32fed7fa4901a996",
+    "src/actio/eval_contract.py": "cc2706cbd9b1d906e37a0f002581f1f945f1487e96a1392656bd87b1ac1d8a37",
+    "src/actio/eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+    "src/actio/evidence.py": "ec37b1e1f70c646dd9e7bed21a2db8377194084aac97ad85480e128f6188cb0a",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/host.py": "9d3679b7c5e8e608020e9949c46f89992a8b6280a22a7964763a104923978419",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/runtime.py": "99801199216827cfcde1df44a277e9c1af546bbe4c71c37bee01a096ca752afd",
+    "src/actio/scenarios.py": "d1138719829752b69a4c606d808bd581115f8f16a2de904ad64608ae1ef7bfbc",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "e7cbdb734ceaabf726c1818e8249585f32c5fb26dd3742155cafc8fcf1baff46",
+    "src/actio/terminal.py": "5972d45e6ca4a6da6afe1e2d908743dfb8c8e273301dc8536ef1824b2e5d5d6a",
+    "src/actio/verify.py": "90d243e36223d4ed1331d9744d4ee0201a336e311205a37bbe73a39707fb918d",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "src/actio/_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+    "src/actio/_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "src/actio/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/child_case.py": "819125d17afba6c268cfd6bafc972d52182fa95be3d9e49f2470f156bc7afedf",
+    "tests/entry_race.py": "e79bbc710ea017921c08608c2cf5ffffe93f93daa21a45b8bb85971b5c697bd4",
+    "tests/support.py": "c95ca8220c3b3e28eecf87d0a2e9c1741f2af699796f2f47da586dbfe807ec73",
+    "tests/test_contract.py": "b582d843789bcbfc4475915aa97656f146173649923b7f0fd0d333f344b6063f",
+    "tests/test_entry_concurrency.py": "e7e55ccbec635a8a2125bdbe68d1577dd99db36a8a10f454b334fdb26bcf6a20",
+    "tests/test_evaluation.py": "83eff98eb3c6b3dd525556fea439a9cedcb9d7cf3e760cec0d46ee240df9fe33",
+    "tests/test_evidence.py": "df0e58f7d0f8f5d1e9841db2a0f49eca9e5aa86b605d0bda08e3fc28928183b8",
+    "tests/test_failures.py": "b294dfc73c44ef80f20ac8c8de1987226b7d4f892bb9107b52c4084611456a7b",
+    "tests/test_input_binding.py": "2c57b97e3c05b89ed6a842f6aa3596d6dc59e08d1cebcb1bd0d94cdd1a53c18c",
+    "tests/test_processes.py": "d52994263787aea7716330236fa6c21b5687fc9ace64fe5601d02630ddc4d464",
+    "tests/test_reliability.py": "c76d6ff1fd686127ea70f7b0599d9f554765336f2ebef00e253acddf4c20213b",
+    "tests/test_runtime.py": "a85fe0690a2dfeab8ff53df6931aab97b8cb83f5e44fa6b1385cf191142b249b",
+    "tests/test_schema.py": "e65beac0b20482b647f034191c3c3a7483d97a17c67710282b942ebd0387f11f",
+    "tests/test_sotopia.py": "f36fe666913cacc72647b6e2e6df2ed2aebe5ee8546528d6c262930f336ec09b",
+    "tests/fixtures/close_host.py": "9ede306b541854cc9cbd572fe7b68c8928374afcefe380bd05995d39380f8eca",
+    "tests/fixtures/faults.mjs": "afed8863c6eb7109527acd5f48100c61eec8d456eaff79c89f6bc975ae002574",
+    "tests/fixtures/mcp_hold.py": "353fb537f738173d658dc5ded9b8523b28f2cb5beb16f89734e9fe538abe41b2",
+    "tests/fixtures/provider.mjs": "db19aac2051a5723c35b371f4b050fab0e237a7c4021ab4684e1029b56d0c227",
+    "tests/fixtures/sotopia_episode.py": "0ca33d21428b1c6f5b1b5f6490dbf4242b76fa136c00e3d85685ca8b36916863",
+    "scripts/artifacts.py": "95bd35b85f8f8386ec1af96e7956a4af382b00278354d10a6aa93f519e43da23",
+    "scripts/bootstrap.py": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "scripts/bootstrap_eval.py": "304c11ed9337eb2111204080bf77090f8101a46c8e819022034f4ea6a58304c7",
+    "scripts/build_manifest.py": "594374f9440846c531a8eecb13111a9fa2946d9bdf8c51cd162fe32a930e43a9",
+    "scripts/check_delivery.py": "259d7ca4882d6e717b9a4298b47c655f452e86fc001140517298020d0b9994a9",
+    "scripts/extract_sotopia.py": "716e5cd815cde5fd640b93cf113623988cbba13649f91929544831b20d23870e",
+    "scripts/phase1b1_artifacts.py": "2c1be25cb67eb70980256cb035419b92ae4e1ff9731c9f366d4309c2e1e1ab07",
+    "scripts/phase1b1_release.py": "61ee4fff43a10f85f724e92c2725e2363bc2e6cac5fcc9763045f1e08174e9bd",
+    "scripts/phase1b1_smoke.py": "673bc96a7e5b51f47857f8fbf8814574e2b6753dca6f755e4f62f35f1019d9be",
+    "scripts/phase1c0_campaign.py": "12bef822163268e3f07c73417a26e91d000bb590443e8a5418127ae831a2e1b3",
+    "scripts/phase1c0_fixtures.py": "69c53d412347f0c9475231988d177b0632ba8b01eb3c5b0255e0bfcbe5d178ad",
+    "scripts/validate.py": "668a9200c88c0513323543ef00e4218a63f800de704540bb34ae2a5f92ae9c15"
+  },
+  "log": "test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls (test_evaluation.Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls) ... ok\ntest_admission_before_evaluator_and_orthogonal_outcomes (test_evaluation.Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes) ... ok\ntest_deterministic_facts_refusal_and_whitelisted_received_view (test_evaluation.Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view) ... ok\ntest_idempotency_content_spec_export_metadata_and_atomic_publication (test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication) ... ok\ntest_internal_error_timeout_and_interrupted_claim_are_preserved (test_evaluation.Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved) ... ok\ntest_invalid_envelopes_persist_no_zero_or_parser_coercion (test_evaluation.Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion) ... ok\ntest_portable_stdlib_verification_and_missing_optional_dependency (test_evaluation.Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency) ... ok\ntest_worker_audit_hook_enforces_denials_in_real_child (test_evaluation.Evaluation.test_worker_audit_hook_enforces_denials_in_real_child) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 15.000s\n\nOK\n",
+  "log_sha256": "e78c6b1c0f2d669b66f2e3ddbe882a19a8d9b9842a4aa70f6ae7f36eae8f0fbd"
+}

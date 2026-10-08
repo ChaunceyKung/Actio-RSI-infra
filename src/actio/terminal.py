@@ -4,6 +4,7 @@ import json
 from .common import ContractError, digest, canonical
 
 VERSION = 1
+INPUT_CONTRACT = 'fixture-input.v2'
 
 
 def require(ok, reason):
@@ -11,8 +12,58 @@ def require(ok, reason):
         raise ContractError(reason)
 
 
+def validate_inputs(manifest, streams, operations, audit):
+    """Bind the fixed scenario's complete input to each dispatched step, including partial runs.
+
+    Legacy v1 froze only configurable ActionSpec fields. Its pinned adapter supplied
+    choice/tag=None; v2 freezes all four. This proves the context delivered at action
+    time, not independently journaled GM observation delivery events.
+    """
+    scenario = manifest['scenario']
+    version = manifest.get('input_contract', 'fixture-input.v1')
+    require(version in ('fixture-input.v1', INPUT_CONTRACT), 'unsupported input contract')
+    agents = set(manifest['agents'])
+    require(set(manifest['memory']) == agents, 'required frozen memory identities missing')
+    by_stream = {s['id']: s for s in streams}
+    by_op = {o['id']: o for o in operations}
+    intents = sorted((a for a in audit if a['kind']=='dispatch_intent'), key=lambda a:a['id'])
+    require(len(intents)==len(by_op) and {a['op'] for a in intents}==set(by_op), 'input dispatch order incomplete')
+    if scenario == 'social':
+        require(manifest['engine']=='concordia.Sequential' and manifest['source']=='b71d202750e23444ce1bf28d9f114bcd88aa41db', 'unsupported social engine')
+        entities = manifest['entities']
+        require(set(entities)=={'A','B'} and set(entities.values())==agents and len(agents)==2, 'frozen social roles mismatch')
+        require(manifest['order']==['B','A'] and type(manifest['max_steps']) is int and manifest['max_steps']==2 and manifest['world']==[], 'unsupported social scheduling')
+        require(manifest['observation_policy']=='own-only-v1', 'unsupported frozen observation policy')
+        obs=manifest['observations']; gm=manifest['gm_private']
+        require(set(obs)==set(entities) and all(type(v) is str and v.strip() for v in obs.values()), 'required frozen observations missing')
+        require(type(gm) is str and gm and obs['A']!=obs['B'] and all(gm not in v and obs[k] not in obs[j] for k,j in [('A','B'),('B','A')] for v in [obs[k]]), 'private observation scope mismatch')
+        spec=manifest['action_spec']
+        fields={'call_to_action','options'} if version=='fixture-input.v1' else {'call_to_action','output_type','options','tag'}
+        require(set(spec)==fields, 'required full frozen ActionSpec fields mismatch')
+        spec={**spec, **({'output_type':'choice','tag':None} if version=='fixture-input.v1' else {})}
+        require(type(spec['call_to_action']) is str and bool(spec['call_to_action'].strip()) and spec['output_type']=='choice' and spec['tag'] is None, 'unsupported ActionSpec type/tag')
+        require(spec['options']==['cooperate','wait'] and type(manifest['illegal']) is bool and manifest['fixture']=='cooperate-v1', 'unsupported action options/fixture')
+        require(len(intents)<=2, 'too many social actions')
+    else:
+        require(scenario=='assistant' and len(agents)==1 and manifest['fixture']=='read-reference-v1', 'unsupported assistant input')
+        require(len(intents)<=1, 'too many assistant actions')
+    for step, row in enumerate(intents):
+        agent=by_stream[by_op[row['op']]['stream']]['agent']
+        task=json.loads(row['body'])
+        if scenario=='social':
+            label=manifest['order'][step]
+            require(agent==entities[label], 'dispatch role/step mismatch')
+            expected={'answer':'INVALID' if manifest['illegal'] and label=='B' else 'cooperate',
+                      'observations':[obs[label]]*(step+1), 'memory':manifest['memory'][agent], 'action_spec':spec}
+        else:
+            require(agent==manifest['request']['agent'], 'dispatch assistant role mismatch')
+            expected={'answer':'Reference recorded.','tool':'mcp__fixture__read_fixture','args':{'key':'ok'},'memory':manifest['memory'][agent]}
+        require(task==expected, 'dispatch input differs from frozen scenario: step '+str(step))
+
+
 def terminal_body(run, streams, operations, receipts, world, audit, outcome):
     manifest = json.loads(run['input'])
+    validate_inputs(manifest, streams, operations, audit)
     scenario = manifest.get('scenario')
     require(scenario in ('assistant', 'social'), 'unknown scenario contract')
     require(outcome in ('success', 'task_failure'), 'no scenario terminal for infrastructure/unknown outcome')
@@ -95,6 +146,14 @@ def validate_sources(store, run):
         receipt = store.row('SELECT * FROM domain_receipt WHERE op=?',(op['id'],))
         require(receipt is not None, 'domain receipt missing')
         start = max(e['seq'] for e in events if e['type']=='agent/inbox/spliced' and any(m.get('id')==op['receipt'] for m in e['data'].get('inserted',[])))
+        accepted=next(e for e in events if e['seq']==start)
+        message=next(m for m in accepted['data']['inserted'] if m.get('id')==op['receipt'])
+        task=json.loads(''.join(c.get('text','') for c in message['content'] if c.get('type')=='text'))
+        intent=store.rows("SELECT body FROM audit WHERE op=? AND kind='dispatch_intent'",(op['id'],))
+        require(len(intent)==1 and task.get('op')==op['id'], 'native dispatch binding missing')
+        normalized={k:v for k,v in task.items() if k not in ('op','callId')}
+        if normalized.get('tool'): normalized['args']={k:v for k,v in normalized['args'].items() if k!='op'}
+        require(normalized==json.loads(intent[0]['body']), 'native input differs from dispatch')
         end = json.loads(op['barrier'])['terminal']['seq']
         finals = [e for e in events if e['type']=='assistant/message' and start<e['seq']<end]
         require(finals and receipt['seq'] == finals[-1]['seq'] and receipt['stream']==op['stream'], 'domain source is not final assistant occurrence')

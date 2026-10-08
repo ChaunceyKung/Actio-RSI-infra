@@ -6,10 +6,12 @@ import itertools
 from pathlib import Path
 
 from .common import ContractError, digest
-from .terminal import terminal_body, require
+from .terminal import terminal_body, require, validate_inputs, INPUT_CONTRACT
 
 FORMAT = 'actio-evidence'
 VERSION = 1
+VERIFIER = {'implementation':'actio-verifier.2', 'contract':INPUT_CONTRACT,
+            'stored_report_policy':'hash-checked historical report; current result independently recomputed'}
 MAX_BYTES = 32 * 1024 * 1024
 MAX_ROWS = 20000
 NATIVE_TYPES = {'agent/inbox/spliced','turn/start','turn/end','assistant/message','step/start','step/end',
@@ -91,6 +93,7 @@ def analyze(data, source):
         workers={r['id']:r for r in data['workers']};unique(data['workers'],['id'])
         unique(data['streams'],['creation']);unique(data['streams'],['native_id'])
         operations={r['id']:r for r in data['operations']};unique(data['operations'],['id'])
+        validate_inputs(manifest, data['streams'], data['operations'], data['audit'])
         occurrences=unique(data['occurrences'],['stream','seq'])
         projections=unique(data['projections'],['stream','seq','slot','mapper'])
         receipts={r['op']:r for r in data['domain_receipts']};unique(data['domain_receipts'],['op'])
@@ -145,7 +148,7 @@ def analyze(data, source):
             sid=op['stream'];s=streams[sid]
             intent=[parse(a['body']) for a in data['audit'] if a['op']==op['id'] and a['kind']=='dispatch_intent']
             require(len(intent)==1 and digest(intent[0])==op['input_hash'],'operation intent missing/hash mismatch')
-            if 'memory' in intent[0]:require(intent[0]['memory']==manifest['memory'][s['agent']],'dispatch memory differs from frozen snapshot')
+            require(intent[0]['memory']==manifest['memory'][s['agent']],'dispatch memory differs from frozen snapshot')
             if not op['barrier'] or not op['receipt'] or op['terminal']!='completed':
                 missing.append('operation receipt/terminal/barrier: '+op['id']);continue
             marker=parse(op['barrier'])
@@ -258,24 +261,34 @@ def analyze(data, source):
     return result
 
 
-def verify_bundle(directory):
+def verify_bundle(directory=None, *, capture=None, snapshot=None):
     result={'bundle_integrity':'invalid','facts_consistency':'unverified','scenario_completeness':'unknown',
             'task_outcome':'unknown','execution_mode':'unverified','errors':[],'source_trust_limits':TRUST}
     try:
-        root=Path(directory).absolute()
-        require(root.is_dir(),'bundle directory missing')
-        require(not any(p.is_symlink() or p.is_junction() for p in (root,*root.parents)),'bundle reparse path rejected')
         allowed={'manifest.json','evidence.json','verification.json','export.json'}
-        children=list(itertools.islice(root.iterdir(),5));require(len(children)<=4 and {p.name for p in children}<=allowed,'unexpected bundle files')
+        if snapshot is None:
+            root=Path(directory).absolute()
+            require(root.is_dir(),'bundle directory missing')
+            require(not any(p.is_symlink() or p.is_junction() for p in (root,*root.parents)),'bundle reparse path rejected')
+            children=list(itertools.islice(root.iterdir(),5));names={p.name for p in children}
+        else:
+            require(type(snapshot) is dict,'invalid embedded snapshot')
+            names=set(snapshot)
+        require(len(names)<=4 and names<=allowed,'unexpected bundle files')
         total=0
         def read(name):
             nonlocal total
-            p=root/name
-            require(p.is_file() and not p.is_symlink() and not p.is_junction(),'bundle file missing/reparse: '+name)
-            require(p.stat().st_size<=MAX_BYTES-total,'bundle byte limit')
-            with p.open('rb') as f:raw=f.read(MAX_BYTES-total+1)
+            if snapshot is None:
+                p=root/name
+                require(p.is_file() and not p.is_symlink() and not p.is_junction(),'bundle file missing/reparse: '+name)
+                require(p.stat().st_size<=MAX_BYTES-total,'bundle byte limit')
+                with p.open('rb') as f:raw=f.read(MAX_BYTES-total+1)
+            else:
+                require(type(snapshot[name]) is str,'snapshot must contain UTF-8 text')
+                raw=snapshot[name].encode()
             total+=len(raw)
             require(total<=MAX_BYTES,'bundle byte limit')
+            if capture is not None: capture.setdefault('files',{})[name]=raw.decode('utf8')
             return raw
         manifest=parse(read('manifest.json'))
         require(manifest['format']==FORMAT and type(manifest['version']) is int and manifest['version']==VERSION,'unknown bundle format/version')
@@ -283,7 +296,7 @@ def verify_bundle(directory):
         require(1<=len(inventory)<=3,'unexpected content inventory')
         by_name={entry['path']:entry for entry in inventory}
         require(len(by_name)==len(inventory) and 'evidence.json' in by_name and set(by_name)<=allowed-{'manifest.json'},'unexpected content inventory')
-        require(set(by_name)=={p.name for p in children}-{'manifest.json'},'unlisted or missing bundle file')
+        require(set(by_name)==names-{'manifest.json'},'unlisted or missing bundle file')
         contents={}
         for name,entry in by_name.items():
             content=read(name)
@@ -296,11 +309,12 @@ def verify_bundle(directory):
         # Stored report is advisory; recomputation remains authoritative.
         if 'verification.json' in contents:
             stored=parse(contents['verification.json'])
-            require(stored==result,'stored verification differs from current recomputation')
+            require(isinstance(stored,dict),'stored verification must be a historical report object')
         if 'export.json' in contents:parse(contents['export.json'])
+        if capture is not None: capture.update(evidence=data,manifest=manifest)
     except (OSError,ContractError,KeyError,TypeError,ValueError,RecursionError,AttributeError) as e:
         result['bundle_integrity']='invalid';result['scenario_completeness']='unknown';result.setdefault('errors',[]).append(str(e))
-    return result
+    return {**result,'verifier':VERIFIER}
 
 
 def main(argv=None):

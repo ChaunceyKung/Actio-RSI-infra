@@ -1,0 +1,626 @@
+{
+  "schema": "actio-review-evidence.v1",
+  "review_phase": "phase1c2c1-to-phase1c2c2",
+  "baseline": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+  "recorded_utc": "2026-10-09T14:03:42.314762+00:00",
+  "scope": "Review and next-session prompt only; guarded immutable delivery recomputation, two pure tests and one synthetic metric/decision path. No product changes, Worker or new model/provider calls.",
+  "remote_baseline": {
+    "main": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+    "phase1c2c1-channel-audit-and-candidate-lineage": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+    "method": "git ls-remote over HTTPS"
+  },
+  "input_records": [
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/integrity.json",
+      "sha256": "51ec1d7e3905baed9c12b8c64e1786522ccab6408235def7514f3788a184a538"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/offline.json",
+      "sha256": "d6894459870d7ce2323639f6303f8369c07000d1e8f2dfa6ed12fb8b70958587"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/pure-tests.json",
+      "sha256": "09a7c4df3dda5cb09d89060211540932bdf55f9362602851d7209a047845b1d8"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/cleanup.json",
+      "sha256": "a047ca1cd29120bd2395a6e23d195da8350a1801f795155e18f0703edfd86efe"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/ports.json",
+      "sha256": "0926b91bee896b163e177d96376688498f9da452f62583a15dad1810be06d065"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/reuse.json",
+      "sha256": "0a880c7575e88e7bb97f547a8a5f3b6e5f925a16bce0cb2a9ea5f8c201224935"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c1-review/semantics.json",
+      "sha256": "16ea0204ca88997e10dd7e7e296383802848bcded29383a16a225ed92a787b32"
+    }
+  ],
+  "integrity_review": {
+    "baseline": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+    "checked_utc": "2026-10-09T13:55:47.864242+00:00",
+    "manifest_sha256": "9f3dde7dad4863dfd55991e5d92480ec279db2c59f4edbba1403b4157a93b960",
+    "checks": {
+      "artifacts": 52,
+      "implementation": 60,
+      "entry_hashes": 4,
+      "tooling_hashes": 95,
+      "raw_archives": {
+        "count": 12,
+        "members": 2001,
+        "uncompressed_bytes": 143686718
+      },
+      "installed_sources": 60,
+      "published_tests": {
+        "current_source_bound_pass": 8,
+        "rerun_all": false,
+        "failed_validation_records": 2
+      },
+      "freeze": {
+        "commit": "dc15292bc6827593e8321e31acbcf599dd25d772",
+        "preregistration_hash": "47f728d661a192c2623dc25a1f8deb6c19d6259b70cca8984e04e5160c842d29",
+        "product_unchanged": true,
+        "local_order_valid": true,
+        "independently_signed_time": false
+      },
+      "ledger_census": {
+        "database_hashes": 73,
+        "recounted_ledgers": 36,
+        "unchanged": true,
+        "by_scope": {
+          "main_matrix": {
+            "sent": 48,
+            "unknown": 0,
+            "unresolved": 0,
+            "usage": 48
+          },
+          "development_admission": {
+            "sent": 20,
+            "unknown": 4,
+            "unresolved": 0,
+            "usage": 16
+          }
+        }
+      }
+    },
+    "line_ending_only": [
+      "AGENTS.md"
+    ],
+    "new_model_requests": 0
+  },
+  "offline_delivery_review": {
+    "valid": true,
+    "reader_commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+    "report_exact_recompute": true,
+    "plan_no_side_effects": true,
+    "guard": [
+      "network",
+      "subprocess",
+      "runtime import",
+      "key",
+      "env",
+      "write"
+    ],
+    "counts": {
+      "planned_episodes": 24,
+      "observed_episodes": 24,
+      "complete_episodes": 24,
+      "not_run_episodes": 0,
+      "assigned": 48,
+      "sent": 48,
+      "response": 48,
+      "terminal": 48,
+      "admitted": 48,
+      "not_run": 0,
+      "protocol_error": 0,
+      "usage_responses": 48,
+      "unknown": 0
+    },
+    "usage": {
+      "responses": 48,
+      "billed_cost": null
+    },
+    "pair_coverage": {
+      "unit": "arm_pair",
+      "assigned": 12,
+      "eligible": 12,
+      "not_applicable": 0,
+      "defined": 12,
+      "missing": 0,
+      "true": 12,
+      "false": 0,
+      "reasons": {}
+    },
+    "all_12_pair_deltas_zero": true,
+    "wire_invariants_recomputed": true,
+    "lineage": {
+      "valid": true,
+      "candidates": 6,
+      "rejected": 4,
+      "decisions": 6,
+      "activation": false
+    },
+    "decision_counts": {
+      "reject": 4,
+      "insufficient_evidence": 2,
+      "infrastructure_failure": 0,
+      "pass": 0
+    },
+    "candidate_identity": {
+      "baseline_proposal_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+      "candidate_proposal_hash": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2",
+      "baseline_scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+      "candidate_scaffold_hash": "1458fb1db9310b9c54a03c72f32f09045293f789a0f93e3ef9e4cad2fad15c95"
+    },
+    "strata": [
+      {
+        "family": "scheduling",
+        "arm": "baseline",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 12,
+          "missing": 0,
+          "true": 12,
+          "false": 0,
+          "reasons": {}
+        },
+        "a_own": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "b_local": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 3,
+          "false": 3,
+          "reasons": {}
+        },
+        "utility": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 0,
+          "false": 0,
+          "reasons": {}
+        }
+      },
+      {
+        "family": "scheduling",
+        "arm": "candidate",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 12,
+          "missing": 0,
+          "true": 12,
+          "false": 0,
+          "reasons": {}
+        },
+        "a_own": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "b_local": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 3,
+          "false": 3,
+          "reasons": {}
+        },
+        "utility": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 0,
+          "false": 0,
+          "reasons": {}
+        }
+      },
+      {
+        "family": "bargaining",
+        "arm": "baseline",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 12,
+          "missing": 0,
+          "true": 12,
+          "false": 0,
+          "reasons": {}
+        },
+        "a_own": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "b_local": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 2,
+          "false": 4,
+          "reasons": {}
+        },
+        "utility": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 0,
+          "false": 0,
+          "reasons": {}
+        }
+      },
+      {
+        "family": "bargaining",
+        "arm": "candidate",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 12,
+          "missing": 0,
+          "true": 12,
+          "false": 0,
+          "reasons": {}
+        },
+        "a_own": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "b_local": {
+          "unit": "seat",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 6,
+          "false": 0,
+          "reasons": {}
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 2,
+          "false": 4,
+          "reasons": {}
+        },
+        "utility": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 6,
+          "missing": 0,
+          "true": 0,
+          "false": 0,
+          "reasons": {}
+        }
+      }
+    ],
+    "new_model_requests": 0,
+    "historical_generation_attempts": 91
+  },
+  "executed_tests": {
+    "tests": [
+      "test_historical_channel_compatibility_and_clock_semantics",
+      "test_candidate_policy_and_complete_denominators"
+    ],
+    "tests_run": 2,
+    "failures": 0,
+    "errors": 0,
+    "new_model_calls": 0,
+    "scope": "pure historical channel/clock checks and static policy/complete denominator tests; no runtime"
+  },
+  "cleanup_review": {
+    "jobs_read_only_checked": 68,
+    "active": 0,
+    "historical_service_join_records": 13
+  },
+  "ports_review": {
+    "registered_ports": 13,
+    "remaining_listeners": 0
+  },
+  "reuse_review": {
+    "sources": [
+      {
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\evolver\\orchestrator\\gates\\paired.py",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "evolver/orchestrator/gates/paired.py",
+        "git_blob_sha256": "1b7b65aa4c42cca345b044f308e5ac33abe73864bd46efda4992a878dc8beb8c",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/gates/paired.py",
+        "normalized_working_match": true
+      },
+      {
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\evolver\\orchestrator\\archive.py",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "evolver/orchestrator/archive.py",
+        "git_blob_sha256": "ac767194a888d0b73efb668973f8f05170c5c730e39dd6c3ee9d8760d814343a",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/archive.py",
+        "normalized_working_match": true
+      },
+      {
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\01_deepseek-harness\\repo\\packages\\llm\\llm-pi-ai\\src\\stream.ts",
+        "commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "path": "packages/llm/llm-pi-ai/src/stream.ts",
+        "git_blob_sha256": "e3563cc091cc2e6b0c2bdbd4c1614339d7cbb01f747a956931b43f3256e0c640",
+        "github_url": "https://github.com/deepseek-ai/deepseek-harness/blob/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-pi-ai/src/stream.ts",
+        "normalized_working_match": true
+      }
+    ],
+    "new_upstream_tests": 0,
+    "new_github_raw_fetches": 0,
+    "scope": "Pinned local/Git recheck; prior C2C0 review fetched these exact GitHub blobs. Continue current narrow integration, no new dependencies."
+  },
+  "semantic_path_review": {
+    "kind": "synthetic_semantic_path_review",
+    "fixture_scope": "A trusted nonempty answer outside task option domain; no provider/transport/runtime call",
+    "current_metric_cells": {
+      "format_A": {
+        "value": false,
+        "state": "defined",
+        "reason": null
+      },
+      "joint": {
+        "value": null,
+        "state": "missing",
+        "reason": "task_predecessor_invalid"
+      }
+    },
+    "current_complete_predicate": false,
+    "current_decision": "infrastructure_failure",
+    "current_source_locations": [
+      "candidate_measurement.py comparison/analyze_pilot completeness condition",
+      "candidate_contract.py decide"
+    ],
+    "interpretation": "The current decision treats metric incompleteness as technical incompleteness. Published C2C1 matrix has no such behavior, so existing counts are unaffected.",
+    "local_plan_external_requests_constant": 0,
+    "new_model_requests": 0
+  },
+  "source_refs": [
+    {
+      "path": "src/actio/candidate_schema.sql",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "4e9113b08ffe019fd13348ac9cfd66822a1d65d84bb3c9d9db9be1f704ddda5a"
+    },
+    {
+      "path": "src/actio/candidate_store.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "9be6f9cda05d14ce77d41fcfbb0c1e3cf379b7a327445e32fda38a40fc0b59e3"
+    },
+    {
+      "path": "src/actio/candidate_contract.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "311646888eaad302d699f9250f25971cbe057341078bccda76dfdbcce2393f7f"
+    },
+    {
+      "path": "src/actio/candidate_measurement.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "934ebdf6e9324f777e9c9bf50aa78d3cef1dd52f74855e6cb7b8ed621ca708f8"
+    },
+    {
+      "path": "src/actio/candidate_campaign.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "c6ac68c9277355a01a99d281e5c58fec0a019e509fd82be9c5f4029f4ea454d3"
+    },
+    {
+      "path": "src/actio/candidate_tasks.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "955e8a69168314a2c4940af4dd9e5ae57213811e9128dd4e240fd6048a47e492"
+    },
+    {
+      "path": "src/actio/pilot.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "5e76cd9766aeef4ec70c3536b1a39fc8471758572213bb5f80c4ff51a08fb700"
+    },
+    {
+      "path": "src/actio/channel_audit.py",
+      "commit": "6578c742bd5ab3672c97ee002a6559150c70b1fd",
+      "git_blob_sha256": "6296b0af6ee5366906ae1dde3fd9a4f90dcd5e36bd6f5f74f35bb95de3e0b615"
+    }
+  ],
+  "findings": [
+    {
+      "id": "C2R1",
+      "kind": "forward_evaluation_lifecycle_requirement",
+      "sources": [
+        "candidate_schema.sql",
+        "candidate_store.py"
+      ],
+      "observation": "campaign_binding and decision have candidate primary keys, and bind requires validated global candidate state; C2C1 candidates are decided.",
+      "action": "Append independent evaluation identity/state/binding/decision; preserve candidate hashes and prior history with explicit migration."
+    },
+    {
+      "id": "C2R2",
+      "kind": "behavior_failure_classification_gap_for_live",
+      "sources": [
+        "candidate_measurement.py",
+        "candidate_contract.py"
+      ],
+      "observation": "Joint metric defined controls complete; a trusted invalid action makes joint missing and current policy reports infrastructure_failure. Published valid C2C1 observations are unaffected.",
+      "action": "Separate technical evidence completeness, execution resolution, metric applicability and candidate behavior constraints; preserve per-metric missing."
+    },
+    {
+      "id": "C2R3",
+      "kind": "forward_live_mode_requirement",
+      "sources": [
+        "candidate_campaign.py",
+        "candidate_tasks.py",
+        "channel_audit.py",
+        "pilot.py"
+      ],
+      "observation": "v8 and candidate task are explicitly loopback-only; report contains local zero-provider constants.",
+      "action": "New explicit live/rehearsal versions and full dispatch/binding/counts; keep old contract unchanged and verify B input when A differs."
+    }
+  ],
+  "next_phase": {
+    "name": "phase1c2c2-live-candidate-pairing",
+    "goal": "Finite exploratory real solver comparison of frozen B0/C1 on existing development cards, with independent evaluation history and behavior/technical separation.",
+    "plan": {
+      "cards": 12,
+      "families": 2,
+      "arms": 2,
+      "routes": [
+        "gpt-5.6"
+      ],
+      "repeats": 1,
+      "episodes": 24,
+      "maximum_real_solver_sends": 48,
+      "independent_research_units": 0,
+      "split": "development_exploratory"
+    },
+    "authorization": "Existing TokenKey uncapped instruction; no repeat fee permission. Preregister/publish before new calls.",
+    "activation": false,
+    "capability_pass_allowed": false,
+    "stop": "first infrastructure/integrity failure; no retry, supplementation or second live campaign",
+    "candidate_identity": {
+      "baseline_proposal_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+      "candidate_proposal_hash": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2",
+      "baseline_scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+      "candidate_scaffold_hash": "1458fb1db9310b9c54a03c72f32f09045293f789a0f93e3ef9e4cad2fad15c95"
+    },
+    "prerequisites": [
+      "append evaluation-scoped lineage",
+      "separate behavior failure from technical evidence gaps",
+      "new live/rehearsal contracts and actual input binding",
+      "local validation including divergent A to B histories",
+      "implementation and immutable preregistration published on main and task branch"
+    ]
+  },
+  "limits": [
+    "Eight published C2C1 tests are PASS/source-bound checked; two pure tests rerun.",
+    "Twenty legacy pure regressions are reported at preceding source snapshot, not re-executed or relabeled as current-source full regression.",
+    "No new upstream tests or GitHub raw fetches; three pinned local upstream files rechecked against Git blobs.",
+    "All original C2C1 actions are legal; classification gap is shown on a synthetic metric/decision input, not an observed main-matrix failure.",
+    "Historical joins checked; named Jobs and ports independently queried.",
+    "Timing order uses local records, not an independently signed timestamp.",
+    "Fixture results do not measure natural-language scaffold effectiveness."
+  ],
+  "activity": {
+    "new_model_requests": 0,
+    "new_provider_requests": 0,
+    "new_local_http_requests": 0,
+    "new_dsh_workers": 0,
+    "pure_tests_run": 2,
+    "synthetic_semantic_checks": 1,
+    "historical_real_generation_attempts": 91,
+    "historical_catalog_get": 1
+  },
+  "documents": [
+    {
+      "path": "docs/reviews/phase1c2c1_review_and_c2c2_plan.md",
+      "normalized_lf_sha256": "9bf234082549036e35c92f3e5f46640239540a914b7ead99d1d4e704707a23bf"
+    },
+    {
+      "path": "docs/prompts/phase1c2c2_live_candidate_pairing.md",
+      "normalized_lf_sha256": "15d01273c39a4dbf6187568e5a6e733f46a3513137f214aa8a426303b8e724f8"
+    }
+  ],
+  "delivery_validation": {
+    "checked_utc": "2026-10-09T14:07:10.480543+00:00",
+    "scope": "Three documentation artifacts only; no product execution.",
+    "utf8_json_markdown_links_fences_whitespace": "PASS",
+    "document_and_input_record_hashes": "PASS",
+    "upstream_local_paths": "PASS",
+    "plan_counts_and_required_constraints": "PASS",
+    "exact_credential_and_pattern_scan": "PASS",
+    "credential_ignored_untracked": true,
+    "only_three_intended_documents": true,
+    "note": "Source evidence reread directly as UTF-8 to preserve local paths during aggregation. Staged bytes are checked separately before commit."
+  }
+}

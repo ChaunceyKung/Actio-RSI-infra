@@ -1,0 +1,645 @@
+{
+  "schema": "actio-c2b1-review.v1",
+  "date_local": "2026-10-09",
+  "timezone": "Asia/Shanghai",
+  "packaged_utc": "2026-10-09T05:25:07.324378+00:00",
+  "baseline": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+  "git_before_review": {
+    "local_main": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+    "remote_refs": [
+      {
+        "sha": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+        "ref": "refs/heads/main"
+      },
+      {
+        "sha": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+        "ref": "refs/heads/phase1c2b1-gated-solver-smoke"
+      }
+    ],
+    "working_tree_initially_clean": true
+  },
+  "scope": "Read-only product/evidence review and next-session prompt; no product implementation or new model calls",
+  "checks": {
+    "integrity.json": {
+      "started_utc": "2026-10-09T05:15:06.860196+00:00",
+      "review_baseline": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+      "checks": {
+        "working_and_committed_files": {
+          "artifact_hashes": 51,
+          "product_hashes": 43,
+          "test_hashes": 26,
+          "tooling_hashes": 40,
+          "entry_hashes": 4,
+          "lock_hashes": 3
+        },
+        "preparation_logs": 6,
+        "source_snapshots": 2,
+        "archives": {
+          "count": 49,
+          "members": 5042,
+          "bytes": 12782056
+        },
+        "installations": {
+          "runtime": 43,
+          "release": 43
+        },
+        "published_suites": {
+          "suites": 16,
+          "groups": 75,
+          "rerun": false,
+          "retained_suite_attempts": 17
+        },
+        "unchanged_historical_files": 650,
+        "manifest_sha256": "b09f97b4795bf5e913265e3294cb20303195fbf90c78d3816d40809b9b179929"
+      },
+      "new_model_requests": 0,
+      "new_workers": 0,
+      "new_local_http": 0
+    },
+    "offline-and-counterexamples.json": {
+      "baseline": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+      "new_network_requests": 0,
+      "new_workers": 0,
+      "unaltered_campaigns": [
+        {
+          "sample": "gpt56",
+          "valid": true,
+          "report": {
+            "schema": "transport-report.v1",
+            "campaign": "2337a0f46a744885a5204d0a70eacdd7",
+            "counts": {
+              "registered": 4,
+              "attempted": 4,
+              "not_run": 0,
+              "send_attempts": 4,
+              "received": null,
+              "settled": 4,
+              "unknown": 0,
+              "denied": 0,
+              "released": 0,
+              "real_model_requests": 4,
+              "real_cost": null,
+              "observed_responses": 4,
+              "usage_bearing_verified_responses": 4
+            },
+            "totals": {
+              "calls": 4,
+              "cost_minor": null,
+              "input_tokens": 2132,
+              "output_tokens": 29
+            },
+            "runs": {
+              "ae264f99073348a3b377abcd66e8c2c6": {
+                "task_outcome": "success",
+                "scenario_completeness": "complete",
+                "world_effects": 2,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 2,
+                  "unknown": 0,
+                  "mode": "gateway_usage_cost_unverified"
+                }
+              },
+              "f5d9994b0e9f404cae8485a0cfb365e3": {
+                "task_outcome": "task_failure",
+                "scenario_completeness": "complete",
+                "world_effects": 2,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 2,
+                  "unknown": 0,
+                  "mode": "gateway_usage_cost_unverified"
+                }
+              }
+            },
+            "usage_basis": "TokenKey reported usage; cost unverified",
+            "gateway_cost_observations": [
+              {
+                "attempt": "0e4206ec64ff4886b798307783404af0",
+                "value": null,
+                "currency": null,
+                "unit": null
+              },
+              {
+                "attempt": "5a36a85a2e10494387db126f5d5e207b",
+                "value": null,
+                "currency": null,
+                "unit": null
+              },
+              {
+                "attempt": "7d9f87bbd94944a8806a371abfe8fc9a",
+                "value": "0.001864",
+                "currency": null,
+                "unit": null
+              },
+              {
+                "attempt": "cb493fb601a04560a9e555a2873f8297",
+                "value": "0.0024799999999999996",
+                "currency": null,
+                "unit": null
+              }
+            ],
+            "gateway": "TokenKey",
+            "requested_model": "gpt-5.6",
+            "upstream_identity_verified": false,
+            "supplier_received": null,
+            "supplier_bill_minor": null,
+            "billing_reconciliation": "UNVERIFIED",
+            "independent_units": 0
+          },
+          "model_requests": 0,
+          "evaluator_calls": 0
+        },
+        {
+          "sample": "claude",
+          "valid": true,
+          "report": {
+            "schema": "transport-report.v1",
+            "campaign": "4ce71688edf247bea495ca3b7461c264",
+            "counts": {
+              "registered": 4,
+              "attempted": 4,
+              "not_run": 0,
+              "send_attempts": 4,
+              "received": null,
+              "settled": 4,
+              "unknown": 0,
+              "denied": 0,
+              "released": 0,
+              "real_model_requests": 4,
+              "real_cost": null,
+              "observed_responses": 4,
+              "usage_bearing_verified_responses": 4
+            },
+            "totals": {
+              "calls": 4,
+              "cost_minor": null,
+              "input_tokens": 1968,
+              "output_tokens": 11
+            },
+            "runs": {
+              "153b3f8ea83246e49e1b4b1f95b03185": {
+                "task_outcome": "task_failure",
+                "scenario_completeness": "complete",
+                "world_effects": 2,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 2,
+                  "unknown": 0,
+                  "mode": "gateway_usage_cost_unverified"
+                }
+              },
+              "ac2d3b56ac6f4957b2cc2c65bfb04a9f": {
+                "task_outcome": "success",
+                "scenario_completeness": "complete",
+                "world_effects": 2,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 2,
+                  "unknown": 0,
+                  "mode": "gateway_usage_cost_unverified"
+                }
+              }
+            },
+            "usage_basis": "TokenKey reported usage; cost unverified",
+            "gateway_cost_observations": [
+              {
+                "attempt": "c2e1a2686130483bb852c1e862b15f9e",
+                "value": null,
+                "currency": null,
+                "unit": null
+              },
+              {
+                "attempt": "b7c28534f45e46a8b5b06feaef50fc80",
+                "value": null,
+                "currency": null,
+                "unit": null
+              },
+              {
+                "attempt": "781eb92f6b314922a8c4cf0c04c8045f",
+                "value": null,
+                "currency": null,
+                "unit": null
+              },
+              {
+                "attempt": "9aea26dd4fb043a8ae707dc7d4fa7787",
+                "value": null,
+                "currency": null,
+                "unit": null
+              }
+            ],
+            "gateway": "TokenKey",
+            "requested_model": "claude-sonnet-4-6",
+            "upstream_identity_verified": false,
+            "supplier_received": null,
+            "supplier_bill_minor": null,
+            "billing_reconciliation": "UNVERIFIED",
+            "independent_units": 0
+          },
+          "model_requests": 0,
+          "evaluator_calls": 0
+        }
+      ],
+      "original_raw_to_translated_text_checks": 8,
+      "raw_text_mismatch_counterexample": {
+        "mutation": "Only first nonempty raw SSE delta.content changed; adapter blocks and native action unchanged. Duplicate attempt/event/audit facts and structural hashes resealed in memory.",
+        "changed_attempt": "0e4206ec64ff4886b798307783404af0",
+        "original_raw_sha256": "80fcbfa12049c4ee44f1339c3dbab8a314e05651fee19ddf7f166fcb8b269805",
+        "mutated_raw_sha256": "49af08b67ef5af0d684090dc8988700509f239319d9f133978576cb7c260c1d3",
+        "trusted_usage_accepted": true,
+        "bundle_integrity": "valid",
+        "facts_consistency": "consistent",
+        "campaign_analyze_accepted": true,
+        "settled": 4,
+        "modified_original_files": false
+      },
+      "actor_information_boundary": {
+        "comparison": "Existing compatible vs conflict with fixed A identity/spec/private information and fixed public history",
+        "only_changed_A_observation_fields": [
+          "task_hash"
+        ],
+        "task_hash_is_full_task_hash": true,
+        "private_plaintext_exposed": false,
+        "conclusion": "Actor message varies with hidden opponent state through full task digest; counterfactual input invariance is not established."
+      }
+    },
+    "recount-and-jobs.json": {
+      "readonly_databases_recounted": 88,
+      "database_bytes_unchanged": true,
+      "modes": {
+        "priced_rehearsal": {
+          "sending": 36,
+          "registered": 48,
+          "observed_responses": 33,
+          "verified_usage_responses": 23,
+          "input_tokens": 276,
+          "output_tokens": 115,
+          "gateway_cost_fields": 0
+        },
+        "tokenkey_live": {
+          "sending": 8,
+          "registered": 8,
+          "observed_responses": 8,
+          "verified_usage_responses": 8,
+          "input_tokens": 4100,
+          "output_tokens": 40,
+          "gateway_cost_fields": 2
+        },
+        "tokenkey_rehearsal": {
+          "sending": 72,
+          "registered": 78,
+          "observed_responses": 69,
+          "verified_usage_responses": 51,
+          "input_tokens": 612,
+          "output_tokens": 255,
+          "gateway_cost_fields": 4
+        },
+        "transport_stub": {
+          "sending": 47,
+          "registered": 58,
+          "observed_responses": 43,
+          "verified_usage_responses": 31,
+          "input_tokens": 372,
+          "output_tokens": 155,
+          "gateway_cost_fields": 0
+        }
+      },
+      "local_service_receives_recounted": 152,
+      "zero_receive_services_without_receives_file": 9,
+      "historical_loader_probe_receives": 1,
+      "jobs_rechecked_inactive": 215,
+      "no_workers_started": true,
+      "review_attempts": [
+        {
+          "status": "FAILED",
+          "reason": "review collector assumed legacy v3 config had top-level mode; KeyError"
+        },
+        {
+          "status": "FAILED",
+          "reason": "review collector assumed zero-receive service wrote receives.json; missing file"
+        },
+        {
+          "status": "PASS",
+          "change": "use established transport_stub fallback for legacy config; accept absent receive file only when both recorded counts are zero; preserve source data"
+        }
+      ]
+    },
+    "ports.json": {
+      "remaining_listeners": 0,
+      "registered_ports": 87
+    },
+    "guarded-offline.json": {
+      "exit_code": 0,
+      "reader_baseline": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+      "reader_source_matches_manifest": true,
+      "result": {
+        "guarded_network_process_write_runtime_key_and_env": true,
+        "pure_plans": 2,
+        "sample_checks": [
+          {
+            "counts": {
+              "attempted": 4,
+              "denied": 0,
+              "not_run": 0,
+              "observed_responses": 4,
+              "real_cost": null,
+              "real_model_requests": 4,
+              "received": null,
+              "registered": 4,
+              "released": 0,
+              "send_attempts": 4,
+              "settled": 4,
+              "unknown": 0,
+              "usage_bearing_verified_responses": 4
+            },
+            "sample": "gpt56",
+            "valid": true
+          },
+          {
+            "counts": {
+              "attempted": 4,
+              "denied": 0,
+              "not_run": 0,
+              "observed_responses": 4,
+              "real_cost": null,
+              "real_model_requests": 4,
+              "received": null,
+              "registered": 4,
+              "released": 0,
+              "send_attempts": 4,
+              "settled": 4,
+              "unknown": 0,
+              "usage_bearing_verified_responses": 4
+            },
+            "sample": "claude",
+            "valid": true
+          }
+        ]
+      },
+      "guard_script_sha256": "badba43cd68c3c53ab3db95b0881d2c1e17feb40aa4ec26a56583fc78a5b56eb",
+      "previous_attempt": {
+        "status": "REVIEW_OUTPUT_DECODE_ERROR",
+        "child_exit_code": 0,
+        "reason": "UTF-8 parent could not decode Windows default child output containing Chinese path",
+        "repair": "explicit child -X utf8; no product change or model request"
+      }
+    },
+    "metric-separation.json": {
+      "sample": "gpt56",
+      "metric_status": "review-only descriptive recomputation, not published product metrics",
+      "observations": [
+        {
+          "variant": "compatible",
+          "legal": true,
+          "A_own_feasible": true,
+          "B_correct_local_response": true,
+          "agreement_feasible": true,
+          "task_outcome": "success",
+          "actions": [
+            "propose:morning",
+            "accept"
+          ]
+        },
+        {
+          "variant": "conflict",
+          "legal": true,
+          "A_own_feasible": true,
+          "B_correct_local_response": true,
+          "agreement_feasible": false,
+          "task_outcome": "task_failure",
+          "actions": [
+            "propose:morning",
+            "decline"
+          ]
+        }
+      ]
+    },
+    "tokenkey-public-home.json": {
+      "url": "https://tokenkey.dev/",
+      "retrieved_utc": "2026-10-09T05:17:30.956145+00:00",
+      "authenticated": false,
+      "status": 200,
+      "sha256": "2c68b9a78b7a4247e1e6861e17dee24935b5326eecddb47a659127c9f636b344",
+      "links": [
+        "/favicon.ico",
+        "/logo.png",
+        "https://tokenkey.dev/",
+        "/assets/index-QIlGE0_S.js",
+        "/assets/vendor-vue-DxV2Be5g.js",
+        "/assets/vendor-i18n-DNf_UMHc.js",
+        "/assets/_commonjsHelpers-Cpj98o6Y.js",
+        "/assets/vendor-misc-D1Z_frmg.js",
+        "/assets/vendor-misc-CTZuBZOi.css",
+        "/assets/index-KahSK5-b.css"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "B2R1",
+      "priority": "P1 before new measurement",
+      "title": "Raw SSE text is not semantically bound to adapter/native action by the existing offline analyzer",
+      "source": [
+        {
+          "path": "src/actio/gateway_contract.py",
+          "line": 73
+        },
+        {
+          "path": "src/actio/transport_campaign.py",
+          "line": 54
+        }
+      ],
+      "evidence": "offline-and-counterexamples.json: raw_text_mismatch_counterexample",
+      "confirmed": true,
+      "existing_eight_live_records_raw_text_matches": true,
+      "historical_artifacts_modified": false,
+      "next_step": "Versioned bounded pure-text SSE audit, contradiction rejection, historical read-only sidecar; retain official production adapter"
+    },
+    {
+      "id": "B2R2",
+      "priority": "P2 before counterfactual measurement",
+      "title": "Full task hash varies actor input with hidden opponent state",
+      "source": [
+        {
+          "path": "src/actio/task_contract.py",
+          "line": 78
+        }
+      ],
+      "evidence": "offline-and-counterexamples.json: actor_information_boundary",
+      "confirmed": true,
+      "plaintext_private_data_leak_observed": false,
+      "hash_inversion_or_model_use_claimed": false,
+      "next_step": "Keep complete task digest outside model-visible input; test complete payload invariance under hidden-state changes"
+    },
+    {
+      "id": "B2R3",
+      "priority": "Measurement design requirement",
+      "title": "Joint task failure must not be used as actor error score",
+      "source": [
+        {
+          "path": "src/actio/task_contract.py",
+          "line": 69
+        }
+      ],
+      "evidence": "metric-separation.json",
+      "existing_domain_semantics_are_intentional": true,
+      "next_step": "Independent format, own-constraint, local-response, feasibility and joint-result metrics"
+    },
+    {
+      "id": "B2R4",
+      "priority": "Pilot plan requirement",
+      "title": "Register all planned units before execution and reconcile not-started units",
+      "source": [
+        {
+          "path": "src/actio/gateway_contract.py",
+          "line": 39
+        },
+        {
+          "path": "src/actio/gateway.py",
+          "symbol": "execute"
+        },
+        {
+          "path": "src/actio/transport_campaign.py",
+          "symbol": "analyze"
+        }
+      ],
+      "existing_scope": "v5 intentionally fixes compatible then conflict and records not_run_episodes in execution result",
+      "next_step": "New immutable experiment plan with complete assigned/sent/not_run denominator, separate from on-start Ledger registrations"
+    }
+  ],
+  "authorization": {
+    "provider": "TokenKey",
+    "base_url": "https://api.tokenkey.dev/v1",
+    "monetary_policy": "explicit uncapped user instruction retained",
+    "no_new_monetary_confirmation_requested": true,
+    "next_scope": "C2B2 bounded solver engineering measurement pilot via the next-session prompt",
+    "not_in_next_scope": [
+      "live judge",
+      "fabricated human labels",
+      "training or candidate promotion",
+      "deployment",
+      "account settings or recharge"
+    ]
+  },
+  "next_stage": {
+    "name": "Phase 1C2B2 measurement integrity and preregistered engineering pilot",
+    "reuse": [
+      "official DSH SDK/runtime 0.1.5rc1",
+      "official llm-pi-ai already loaded in fixed binary",
+      "Concordia Sequential",
+      "SQLite Ledger and immutable source bundles",
+      "independent deterministic metrics and existing reader infrastructure"
+    ],
+    "prerequisites": [
+      "B2R1",
+      "B2R2",
+      "versioned task/measurement/plan and local validation",
+      "publish preregistration and implementation before first pilot call"
+    ],
+    "default_design": {
+      "parameter_instances": 4,
+      "presentation_variants": 2,
+      "models": [
+        "gpt-5.6",
+        "claude-sonnet-4-6"
+      ],
+      "repeats": 2,
+      "planned_episodes": 32,
+      "maximum_planned_solver_sends": 64,
+      "independent_research_units": 0,
+      "families": 1,
+      "symmetry_classes": 2,
+      "monetary_cap": null
+    },
+    "claims": "Descriptive engineering measurement, not model ranking or research promotion",
+    "billing_unknown_blocks": "Cost-normalized claims, not all authorized engineering work"
+  },
+  "public_document_lookup": {
+    "authenticated_requests": 0,
+    "search_queries": [
+      "site:tokenkey.dev API 定价 usage cost 模型 路由",
+      "site:tokenkey.dev docs pricing API billing"
+    ],
+    "search_results": "No results returned",
+    "web_open_home": "Title TokenKey - AI API Gateway; no parsed content",
+    "web_open_api_root": "Browser service reported inaccessible; not evidence that Chat Completions is unavailable",
+    "unauthenticated_home_snapshot": "tokenkey-public-home.json",
+    "pricing_unit_or_bill_document_found": false,
+    "limitations": "Bounded public search/static inspection only; did not inspect logged-in account, infer nonexistent documentation, query guessed admin endpoints or contact supplier"
+  },
+  "new_activity": {
+    "model_generation_attempts": 0,
+    "authenticated_provider_requests": 0,
+    "local_http_receives": 0,
+    "dsh_workers_started": 0,
+    "live_judge_calls": 0,
+    "evaluator_calls": 0,
+    "new_product_tests_run": 0,
+    "public_web_and_git_reads": "separate, performed",
+    "offline_semantic_checks": "performed"
+  },
+  "gates": {
+    "c2b1_fixed_engineering": "CONDITIONAL_GO_RETAINED",
+    "new_formal_measurement": "NOT_ADMITTED_PENDING_MEASUREMENT_FIXES",
+    "c2b2_engineering_pilot": "PLANNED_FOR_NEXT_SESSION",
+    "billing_reconciliation": "UNVERIFIED",
+    "upstream_model_identity": "UNVERIFIED",
+    "binary_source_mapping": "unproven",
+    "full_controller_recovery": "unsupported",
+    "judge_human_calibration_research_evolution": "BLOCKED"
+  },
+  "source_snapshots": [
+    {
+      "path": ".local/phase1c2b1-review/integrity.json",
+      "sha256_exact_bytes": "41ed72e7d37769ee0de449b24a2676ca934412f4bdd19f9583896b57319103bd",
+      "inlined": true
+    },
+    {
+      "path": ".local/phase1c2b1-review/offline-and-counterexamples.json",
+      "sha256_exact_bytes": "11e96375e9979d6f39d25e19d8fff0a9010cf4996e3b5027d6d0e7fb2fd0f5ee",
+      "inlined": true
+    },
+    {
+      "path": ".local/phase1c2b1-review/recount-and-jobs.json",
+      "sha256_exact_bytes": "3d7885d12ed1eecd1733a0f4d1d9dbf189b528a6628e3840341d10537f32c54d",
+      "inlined": true
+    },
+    {
+      "path": ".local/phase1c2b1-review/ports.json",
+      "sha256_exact_bytes": "00ed24cecaa35264210a6b79a640e3d8f098da4bd8e8cd0ca4f85c03493e798a",
+      "inlined": true
+    },
+    {
+      "path": ".local/phase1c2b1-review/guarded-offline.json",
+      "sha256_exact_bytes": "970ae19ef14657f6e329688870575230a7ee4dd492da579e18d2b3ae03477a8e",
+      "inlined": true
+    },
+    {
+      "path": ".local/phase1c2b1-review/metric-separation.json",
+      "sha256_exact_bytes": "98cafe9d6723b20dc55488af731c7d2a57d78f7fa7adfae185bda066624cf2df",
+      "inlined": true
+    },
+    {
+      "path": ".local/phase1c2b1-review/tokenkey-public-home.json",
+      "sha256_exact_bytes": "ad84dc0d71520be0a557c7d8a9afc6b64fbef11049f9c7984ab22af5ce9e96f9",
+      "inlined": true
+    }
+  ],
+  "associated_documents": [
+    {
+      "path": "docs/prompts/phase1c2b2_measurement_integrity_and_pilot.md",
+      "sha256_utf8_lf": "611314942e87651d1a5b14fe4f26033176c710e2c3855fcf3d75e6cd02be5504"
+    },
+    {
+      "path": "docs/reviews/phase1c2b1_review_and_c2b2_plan.md",
+      "sha256_utf8_lf": "cd99b1fe5fe39039838e54f2759cade7761d8e05e92f086e664faa081749a892"
+    }
+  ],
+  "limitations": [
+    "Original published 75 groups were verified against evidence/code, not rerun",
+    "Raw counterexample was an in-memory consistency check, not a provider or live-model experiment",
+    "Historical key/model diagnostics and eight C2B1 sends are excluded from future pilot denominators",
+    "No new pricing or upstream identity proof",
+    "Hash consistency is not independent proof of provider authorship"
+  ]
+}

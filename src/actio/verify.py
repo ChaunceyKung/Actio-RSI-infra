@@ -60,8 +60,10 @@ def analyze(data, source):
             result['task_outcome']=run['task']
         require(source['run']==run['id'] and source['schema'] in (0,2),'source run/schema mismatch')
         require(digest(manifest)==run['input_hash'],'frozen manifest hash mismatch')
-        transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1')
-        require(data['contract']==(('phase1c2b0.priced.v1' if manifest.get('input_contract')=='scheduling-priced.v1' else 'phase1c2a1.transport.v1') if transport else 'phase1b1.fixture.v1') and data['live_budget']==0,'unsupported execution contract')
+        transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1')
+        require(data['contract']==(('phase1c2b1.gateway.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v1' else 'phase1c2b0.priced.v1' if manifest.get('input_contract')=='scheduling-priced.v1' else 'phase1c2a1.transport.v1') if transport else 'phase1b1.fixture.v1') and data['live_budget']==(None if manifest.get('execution_mode')=='tokenkey_live' else 0),'unsupported execution contract')
+        if manifest.get('input_contract')=='scheduling-tokenkey.v1':
+            result['source_trust_limits']=[TRUST[0],'TokenKey gateway labels do not independently prove upstream identity, billed cost or model quality.','GM and task data are synthetic; solver mode is recorded separately.']
         result['execution_mode']=manifest['execution_mode'] if transport else 'fixture'
         require(data['mappers']==['v1','v2'],'unknown mapper contract')
         pins=manifest.get('pins')
@@ -84,7 +86,7 @@ def analyze(data, source):
             require(req['run']==run['id'] and parse(req['request'])==manifest['request'] and req['request_hash']==digest(manifest['request']),'normalized request mismatch')
         elif source['schema']==2 and data.get('terminal'):
             missing.append('request_identity')
-        if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1'):
+        if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1'):
             from .task_contract import validate_manifest
             validate_manifest(manifest)
         elif manifest['scenario']=='assistant':

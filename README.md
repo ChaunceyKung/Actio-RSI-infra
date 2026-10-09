@@ -1,4 +1,14 @@
-# Actio-RSI · Phase 1C2B0
+# Actio-RSI · Phase 1C2B1
+
+TokenKey → 官方 DSH `0.1.5rc1` / `llm-pi-ai` → 真实 Concordia 的多模型 solver 闭环已完成，工程 Gate 为 **CONDITIONAL_GO**。`gpt-5.6` 与 `claude-sonnet-4-6` 各完成 compatible、conflict 两个 A→B episode：共 **8 次正式请求、8 份可信 usage，4,100 输入 / 40 输出 token**，无自动重试或新 unknown。compatible 达成调度，conflict 合法拒绝并完整记录 task_failure。
+
+新增 `pilot-config.v5` / `scheduling-tokenkey.v1`，显式采用本轮用户授权的无金额上限策略，继续保留有限批次、请求级长度/期限、原子 Ledger、凭据隔离、幂等和只读导出。当前 **16 suites / 75 组通过**；旧 v2/v3/v4 与历史证据原义保留，C2B0 execute 仍拒绝。
+
+当前入口：[结果与完整计数](docs/validation/phase1c2b1/02_results.md) · [Gate](docs/validation/phase1c2b1/03_gate.md) · [CLI](docs/validation/phase1c2b1/04_usage.md) · [合同](docs/validation/phase1c2b1/01_contract.md) · [账务](docs/validation/phase1c2b1/05_accounting.md) · [官方 adapter 复用](docs/validation/phase1c2b1/06_adapter.md) · [模型选择](docs/validation/phase1c2b1/07_models.md) · [manifest](docs/validation/phase1c2b1/evidence_manifest.json)。`python -m actio.gateway plan/preflight/verify` 不读凭据或联网；真实 execute 仅在精确 TokenKey origin 和显式本轮授权合同下运行。交付推送任务分支及 main。
+
+正式执行仅 2 个响应含 `usage.cost`，币种/单位未核实，**实际费用与供应商接收数仍未知**。前置直接诊断另有 14 次生成尝试和 1 次目录 GET，不混入上述正式分母。上游模型身份及账单仍 UNVERIFIED；binary_source_mapping=unproven、full_controller_recovery=unsupported；judge、真人校准、研究/演化晋升仍 BLOCKED。本轮不是质量排名或生产部署。
+
+## Phase 1C2B0 历史交付
 
 真实 solver 接入的本机准备工程已完成，Gate 为 **CONDITIONAL_GO（仅 local_readiness_engineering）**。新增 `pilot-config.v4` / `scheduling-priced.v1`，沿用固定官方 Chat Completions adapter、DSH `0.1.5rc1`、真实 Concordia 与持久 Ledger，验证 USD 整数报价估算、内存假凭据注入、分层超时、未知占额和只读导出。v2/v3 原语义及历史证据保留。
 

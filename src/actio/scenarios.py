@@ -131,7 +131,7 @@ def social(store,key,a,b,short_root,*,as_of=UNSET,replay=None,illegal=UNSET,runt
 
 def run_engine(store,run,manifest,short_root,runtime_type):
     from .task_contract import CONTRACT,actor_observation,resolved_text,task_result
-    transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1')
+    transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1')
     scheduling=manifest.get('input_contract')==CONTRACT or transport
     import concordia
     pin=json.loads((PACKAGE/'pins/concordia.json').read_text(encoding='utf-8'))

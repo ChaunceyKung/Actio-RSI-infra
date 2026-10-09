@@ -23,7 +23,7 @@ export async function apply(ctx,config) {
     if(disposed || !a || a.used || String(url)!==config.endpoint+'/chat/completions' || options?.method!=='POST' || typeof options.body!=='string') {
       log({kind:'denied',reason:'out-of-scope fetch'});throw new Error('unbound/duplicate/nonloopback fetch')
     }
-    a.used=true
+    a.used=true;a.started=Date.now()
     const request={method:'POST',url:String(url),raw:options.body,prepared:a.prepared}
     const ticket=ipc({command:'reserve',attempt:a.op,request})
     const wireHash=bytesHash(Buffer.from(options.body))
@@ -35,6 +35,7 @@ export async function apply(ctx,config) {
       const expected=config.credential_env?process.env[config.credential_env]:'actio-loopback-fake-key'
       if(!expected || headers.get('authorization')!=='Bearer '+expected) throw new Error('unexpected credential')
       headers.set('X-Actio-Attempt',a.op)
+      if(config.gateway)a.started=Date.now()
       const first=new AbortController()
       const timer=config.first_ms?setTimeout(()=>first.abort('first-response deadline'),config.first_ms):null
       let response
@@ -43,13 +44,14 @@ export async function apply(ctx,config) {
           signal:AbortSignal.any([...(options.signal?[options.signal]:[]),first.signal,AbortSignal.timeout(config.total_ms??3000)])})
       } finally {if(timer) clearTimeout(timer)}
       a.response.status=response.status
+      if(config.gateway){a.response.http_request_id=response.headers.get('x-request-id')??response.headers.get('request-id');a.response.timings.headers_ms=Date.now()-a.started}
       // The official Response is returned unchanged. A bounded tee only retains audit bytes.
       a.capture=(async()=>{
         const reader=response.clone().body.getReader();let size=0;const chunks=[]
         try {
           while(true) {
             const {value,done}=await reader.read();if(done) break
-            size+=value.byteLength;if(size>65536) {await reader.cancel();throw new Error('response byte limit')}
+            size+=value.byteLength;if(size>(config.max_bytes??65536)) {await reader.cancel();throw new Error('response byte limit')}
             chunks.push(Buffer.from(value))
           }
           a.response.raw=Buffer.concat(chunks).toString('utf8')
@@ -64,20 +66,22 @@ export async function apply(ctx,config) {
     const binding=JSON.parse(readFileSync(config.active,'utf8'))
     const a={op:binding.op,used:false,capture:null,
       prepared:{provider:request.provider,model:request.model,purpose:request.purpose??null,messages:request.messages,tools:request.tools??[]},
-      response:{status:0,raw:'',chunks:[],error:null}}
+      response:{status:0,raw:'',chunks:[],error:null,...(config.gateway?{http_request_id:null,timings:{headers_ms:null,first_token_ms:null,total_ms:null}}:{})}}
     if(!a.op || a.op==='not-dispatched') throw new Error('no active operation')
     active=a;log({kind:'hook',op:a.op})
     try {
       for await(const chunk of next()) {
-        if(a.response.chunks.length>=128) throw new Error('stream event limit')
+        if(a.response.chunks.length>=(config.max_chunks??128)) throw new Error('stream event limit')
         // DSH cancels its fetch signal when the consumer receives finish. Drain the
         // bounded audit tee first so that normal consumer disposal is not an audit failure.
         if(chunk.type==='finish' && a.capture) await a.capture
+        if(config.gateway && chunk.type==='text-delta' && a.response.timings.first_token_ms===null)a.response.timings.first_token_ms=Date.now()-a.started
         a.response.chunks.push(chunk);yield chunk
       }
     } catch(e) {a.response.error=String(e);throw e}
     finally {
       if(a.capture) await a.capture
+      if(config.gateway)a.response.timings.total_ms=a.started?Date.now()-a.started:null
       writeFileSync(config.response,JSON.stringify(a.response))
       log({kind:'observed-terminal',op:a.op,response:a.response})
       active=null

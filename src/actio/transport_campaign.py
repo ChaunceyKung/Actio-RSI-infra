@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from .common import canonical,digest,file_hash,uid,write_json,ContractError
-from .budget import Ledger,verify_snapshot,sha,priced
+from .budget import Ledger,verify_snapshot,sha,priced,gateway
 from .eval_contract import seal,unseal
 from .evaluation import publish,read_json,source_bundle
 from .transport_contract import require,INPUT
@@ -13,15 +13,18 @@ from .verify import verify_bundle
 
 def analyze(dataset,ledger,receives):
     verify_snapshot(ledger)
+    cfg=ledger['meta']['config'];is_gateway=gateway(cfg);live=is_gateway and cfg['mode']=='tokenkey_live'
+    if live:require(receives is None,'live supplier receives must remain null without independent logs')
+    received=[] if live else receives
     d=unseal(dataset);require(set(d)=={'schema','campaign','registrations','sources'} and d['schema']=='transport-dataset.v1','transport dataset schema')
     require(d['campaign']==ledger['meta']['campaign'] and d['registrations']==ledger['registrations'],'registration completeness/order')
     require(set(d['sources'])=={r['run'] for r in d['registrations']},'missing/extra run source')
     audits={};operation_rows={};states={}
     for run,source in d['sources'].items():
         capture={};v=verify_bundle(snapshot=source['files'],capture=capture)
-        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal'),'transport bundle rejected: '+str(v['errors']))
+        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal'),'transport bundle rejected: '+str(v['errors']))
         data=capture['evidence'];m=json.loads(data['run']['input'])
-        require(data['run']['id']==run and m['input_contract']==('scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
+        require(data['run']['id']==run and m['input_contract']==('scheduling-tokenkey.v1' if is_gateway else 'scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
         require([r for r in d['registrations'] if r['run']==run]==sorted([
             {'id':run+':'+seat,'run':run,'seat':seat,'manifest_hash':digest(m),'task_hash':m['task']['sha256']} for seat in ('A','B')],key=lambda r:r['id']),'dataset seat/view/manifest binding')
         for row in data['audit']:
@@ -31,27 +34,34 @@ def analyze(dataset,ledger,receives):
         states[run]={'task_outcome':v['task_outcome'],'scenario_completeness':v['scenario_completeness'],
                      'world_effects':len(data['world']),'accounting':v['accounting']}
     require(audits=={a['id']:a for a in ledger['attempts']},'ledger/source missing/extra/changed attempt')
-    ids=[r['attempt'] for r in receives];require(len(ids)==len(set(ids)),'duplicate service receive')
-    for r in receives:
+    ids=[r['attempt'] for r in received];require(len(ids)==len(set(ids)),'duplicate service receive')
+    for r in received:
         require(r['attempt'] in audits,'service capture wrong attempt')
         a=audits[r['attempt']]
         require(any(e['attempt']==a['id'] and e['kind']=='sending' for e in ledger['events']),'receive without sending')
         require(r['wire_hash']==sha(r['raw'])==a['binding']['wire_hash'] and r['raw']==a['request']['raw'],'service/wire body mismatch')
-        require(r['method']=='POST' and r['path']=='/chat/completions' and r['headers']['X-Actio-Attempt']==a['id'],'service method/attempt')
+        require(r['method']=='POST' and r['path']==('/v1/chat/completions' if is_gateway else '/chat/completions') and r['headers']['X-Actio-Attempt']==a['id'],'service method/attempt')
         require(r['response']['sha256']==sha(r['response']['raw']),'service response hash')
         if a['state']=='settled':
             require(r['response']['status']==200 and r['response']['raw']==a['response']['raw'],'settled raw service response')
             chunks=json.loads(a['response']['chunks_json']);texts=[c['block']['text'] for c in chunks if c['type']=='block-end' and c['block']['type']=='text']
             require(''.join(texts)==operation_rows[a['id']]['answer'],'official text/native answer mismatch')
     for a in audits.values():
-        if a['state']=='settled':require(a['id'] in ids,'settled without receive')
+        if a['state']=='settled':
+            if not live:require(a['id'] in ids,'settled without receive')
+            if is_gateway:
+                chunks=json.loads(a['response']['chunks_json']);text=''.join(x['block']['text'] for x in chunks if x['type']=='block-end' and x['block']['type']=='text')
+                require(text==operation_rows[a['id']]['answer'],'gateway text/native answer mismatch')
         if a['state'] in ('denied','released'):require(a['id'] not in ids,'unsent state had receive')
     counts={'registered':len(d['registrations']),'attempted':len(audits),'not_run':len(d['registrations'])-len(audits),
-            'send_attempts':sum(e['kind']=='sending' for e in ledger['events']),'received':len(receives),
+            'send_attempts':sum(e['kind']=='sending' for e in ledger['events']),'received':None if live else len(received),
             **{k:sum(a['state']==k for a in audits.values()) for k in ('settled','unknown','denied','released')},
-            'real_model_requests':0 if ledger['meta']['config'].get('mode') in (None,'priced_rehearsal') else None,'real_cost':0 if ledger['meta']['config'].get('mode') in (None,'priced_rehearsal') else None}
+            'real_model_requests':sum(e['kind']=='sending' for e in ledger['events']) if live else 0,'real_cost':None if live else 0}
+    if is_gateway:
+        counts.update(observed_responses=sum(bool(a['response'] and a['response']['status']) for a in audits.values()),usage_bearing_verified_responses=sum(a['usage'] is not None for a in audits.values()))
     return {'schema':'transport-report.v1','campaign':d['campaign'],'counts':counts,'totals':ledger['totals'],'runs':states,
-            'usage_basis':'simulated usage; USD frozen-quote estimate; not a supplier bill' if priced(ledger['meta']['config']) else 'synthetic; no real tokenizer/billing bound',
+            'usage_basis':'TokenKey reported usage; cost unverified' if live else 'pi-ai local simulation; cost unverified' if is_gateway else 'simulated usage; USD frozen-quote estimate; not a supplier bill' if priced(ledger['meta']['config']) else 'synthetic; no real tokenizer/billing bound',
+            **({'gateway_cost_observations':[{'attempt':a['id'],'value':a['usage']['gateway_reported_cost_raw'],'currency':None,'unit':None} for a in audits.values() if a['usage']],'gateway':'TokenKey','requested_model':cfg['model'],'upstream_identity_verified':False} if is_gateway else {}),
             'supplier_received':None,'supplier_bill_minor':None,'billing_reconciliation':'UNVERIFIED','independent_units':0}
 
 

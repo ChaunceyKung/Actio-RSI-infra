@@ -21,7 +21,7 @@ def validate_inputs(manifest, streams, operations, audit):
     """
     scenario = manifest['scenario']
     version = manifest.get('input_contract', 'fixture-input.v1')
-    if version in ('scheduling-transport.v1','scheduling-priced.v1'):
+    if version in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1'):
         from .transport_contract import validate_inputs as transport_inputs
         return transport_inputs(manifest,streams,operations,audit)
     if version=='scheduling-input.v1':
@@ -92,7 +92,7 @@ def terminal_body(run, streams, operations, receipts, world, audit, outcome):
         require(receipt['seq'] <= marker.get('through', -1), 'domain receipt outside barrier')
     ordered = [by_op[k] for k in order]
     task_details=None
-    if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1'):
+    if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1'):
         from .task_contract import terminal_details
         require(all(w['run']==run['id'] for w in world),'task world run scope mismatch')
         task_details=terminal_details(manifest,ordered,by_receipt,world,audit,by_stream,outcome)

@@ -1,0 +1,102 @@
+{
+  "accessed_utc": "2026-10-09T03:48:06.819161+00:00",
+  "files": [
+    {
+      "path": "packages/llm/llm-pi-ai/src/index.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/index.ts",
+      "sha256": "73e3c4b1f6e953fcb482423147d8e782928179dfe75b600dcf7dba31d341dd29",
+      "status": 200,
+      "bytes": 14982
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/config.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/config.ts",
+      "sha256": "969866686fec879f1631b8f2e60002201ebee919a711792a9225d3623072edfc",
+      "status": 200,
+      "bytes": 23374
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/types.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/types.ts",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/provider.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/provider.ts",
+      "sha256": "94f7c555fded9f9debb91a37b492fc23420fcdb5bb4e00baa7365c3d03c33886",
+      "status": 200,
+      "bytes": 9456
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/stream.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/stream.ts",
+      "sha256": "2c21104091fc0a1d15e712a0dfce7b7e569c017aeae828eda30aa18394273dd4",
+      "status": 200,
+      "bytes": 10761
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/context.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/context.ts",
+      "sha256": "c4efca7f88991461556aaab30a9b7f6cdaf528f2148df098b9eed853e1c576ff",
+      "status": 200,
+      "bytes": 13868
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/catalog.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/catalog.ts",
+      "sha256": "f54ea456dc9a9274dd6e08b2eb6299d216bd5e65014d62774d2fd7f003da35af",
+      "status": 200,
+      "bytes": 45932
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/src/auth.ts",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/src/auth.ts",
+      "sha256": "50fbdd55f60a95bdc256edfbc2686a3d96e108b3b9d4a441c9649a2870ef9fee",
+      "status": 200,
+      "bytes": 10041
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/package.json",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/package.json",
+      "sha256": "35bd3c2db925a89b71e57a3a748a2cb2847193eb452f629da1bfc154630e3964",
+      "status": 200,
+      "bytes": 1979
+    },
+    {
+      "path": "packages/llm/llm-pi-ai/README.md",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/README.md",
+      "sha256": "1bd87a72987985f810b76fba63fb484045a49603461990c3ce4cfe9e4eb93a88",
+      "status": 200,
+      "bytes": 25045
+    },
+    {
+      "path": "packages/bundle/sdk-minimal/cordis.patch.yml",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/bundle/sdk-minimal/cordis.patch.yml",
+      "sha256": "31805d5b233c33eabc57f4bac562b2d2db00e8a7bb1f205926f43e5f84749680",
+      "status": 200,
+      "bytes": 5248
+    },
+    {
+      "path": "package.json",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/package.json",
+      "sha256": "7fa89a300d571fc39c99e0e9616202ee4973f76032c996539e12c2466afdf7a0",
+      "status": 200,
+      "bytes": 14017
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/LICENSE",
+      "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "status": 200,
+      "bytes": 1065
+    }
+  ],
+  "source_commit": "183f08e9c6dde7e36cd2318eaee70b0da08fb35e",
+  "binary_source_mapping": "unproven",
+  "package_loaded_from_fixed_binary": true,
+  "extra_node_dependencies_installed": false,
+  "source_edits": false,
+  "license": "MIT; Copyright (c) 2026 DeepSeek",
+  "type_location": "src/types.ts returned 404; public types and config are in catalog.ts/config.ts",
+  "usage_mapping": "mapUsage copies input/output/total, includes cacheRead/cacheWrite only when positive; reasoning folded into output; pi-ai cost metadata is not TokenKey billing"
+}

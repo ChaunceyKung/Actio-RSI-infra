@@ -18,15 +18,27 @@ def main(root):
     secret=None
     if 'credential_ref' in config:
         credential=launch.pop('credential',{})
-        if set(credential)!={'ref','value'} or credential['ref']!=config['credential_ref'] or not credential['value'].startswith('ACTIO_FAKE_'):
+        if set(credential)!={'ref','value'} or credential['ref']!=config['credential_ref'] or type(credential['value']) is not str or not credential['value']:
             raise ContractError('C2B0 rehearsal credential gate rejected')
+        if 'gateway_contract' in config:
+            from .gateway_contract import validate
+            cfg=validate(config['gateway_contract'])
+            if cfg['mode']=='tokenkey_rehearsal' and not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('fake key required')
+        elif not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('C2B0 fake key required')
         secret=credential['value']
         config['sdk']['env']={credential['ref']:secret}
         # SDK stderr stays in memory. Redact before host diagnostics reach any disk sink.
         class DiagnosticStream:
-            def __init__(self,stream):self.stream=stream
-            def write(self,value):return self.stream.write(value.replace(secret,'[credential omitted]'))
-            def flush(self):return self.stream.flush()
+            def __init__(self,stream):self.stream=stream;self.pending=''
+            def write(self,value):
+                self.pending+=value
+                while '\n' in self.pending:
+                    line,self.pending=self.pending.split('\n',1)
+                    self.stream.write(line.replace(secret,'[credential omitted]')+'\n')
+                return len(value)
+            def flush(self):
+                # Keep an incomplete line in memory: SDK stderr may split a key across writes.
+                self.stream.flush()
         sys.stderr=DiagnosticStream(sys.stderr)
         sys.stdout=DiagnosticStream(sys.stdout)
     elif 'credential' in launch:

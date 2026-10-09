@@ -1,0 +1,568 @@
+{
+  "id": "20261009T040009Z-740ca99d",
+  "suite": "gateway",
+  "command": ".local/phase1c2b1-runtime-venv/Scripts/python.exe -X utf8 scripts/validate.py gateway phase1c2b1",
+  "actual_argv": [
+    "C:\\Users\\CausalRider\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-X",
+    "utf8",
+    "scripts\\validate.py",
+    "gateway",
+    "phase1c2b1"
+  ],
+  "mode": "REAL_RUNTIME_FIXTURE_PROVIDER",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": [
+    {
+      "id": "test_gateway.Gateway.test_01_explicit_uncapped_plan_and_no_side_effects",
+      "status": "PASS",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\0fd98741b4f9",
+        "cases": [],
+        "external_requests": 0,
+        "plan": {
+          "actual_wire_hash": null,
+          "authorization_basis": "explicit_user_instruction_2026_10_09",
+          "binding": "proposal; B wire frozen after actual A action; implementation/task/config and real wire bound before sending",
+          "candidate": {
+            "adapter": "@deepseek-ai/dsh-llm-pi-ai",
+            "adapter_version": "0.1.5-rc.1",
+            "authority": null,
+            "authorization_basis": "explicit_user_instruction_2026_10_09",
+            "bounds": {
+              "chunks": 1024,
+              "input_bytes": 65536,
+              "response_bytes": 262144
+            },
+            "cost_limit_minor": null,
+            "credential_env": "ACTIO_SOLVER_KEY",
+            "credential_ref": "file:.local/credentials/token_key.txt",
+            "endpoint": "https://api.tokenkey.dev/v1",
+            "gateway": "TokenKey",
+            "identity_policy": "response_model must equal requested label; upstream identity unverified",
+            "implementation": {
+              "__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+              "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+              "_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+              "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+              "budget.py": "89f7eea3b912d752a529a5edc62e955383ee2d19a40ce45acab56c6198c17c57",
+              "calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+              "campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+              "cli.py": "39211521b6e681ad72fcd88c39e43b36dbfb0b31ec3131735ab30626a95f2bba",
+              "common.py": "572cf56e7353e30fdf41a1c30e9329d0ddcbca14a60f91b6cda657bfdde92dcd",
+              "database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+              "eval_contract.py": "de7636aeb3f694a5df92ea47ed9415b7bc65b9f9cbff493ffed6b60f27f3d34e",
+              "eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+              "evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+              "evidence.py": "b7efc0a69093a0dcc0cbbdd9e66fef8ab7d190e61758c801c9ad437bee071b66",
+              "facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+              "fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+              "gateway.py": "ff6074f165d1c61980ff8bf518e773800d538c52ef918efc5c6d289e3030ff8b",
+              "gateway_contract.py": "e869e005a292d824ed5ebd1f7acc6a3b837ed07e36c6196de7b0e7b0ca6694bb",
+              "host.py": "d945d2c116242ab37e56851bda258ef42057151960c022cd6db49f0baf67a302",
+              "legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+              "mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+              "memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+              "pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+              "plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+              "plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+              "plugins/transport.mjs": "cfb94dad0b89ac90ca747c8b79694a08c22af298b25b3561318ba496bc7305dc",
+              "preflight.py": "d3c0b44785fa0eee378bdbca79ac335481b918f35dc695abe765475300c6cad5",
+              "readiness.py": "17e929971cd456cb7ecd3fe4cd35898e22b2fa48bae89ea332cb25137472b660",
+              "readiness_contract.py": "2d4bb3ce17eea9c29387b8ac23dbbd3c17b8db24f05e45d2ec4bff247c6cf5b9",
+              "readiness_quote.json": "e9f8298e1a6edb4ef177e1e9c881506b937305fb4c949be0880888112be190e7",
+              "runtime.py": "4bc93f8c596dbbe157a27b539305a893cac27ba8fa56a5664051e28e1666f73b",
+              "scenarios.py": "a91fb95b7963558423d289c737fab8082a2dbb1ba5037bf5e4fdf58aa738f0bc",
+              "schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+              "store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+              "supervisor.py": "5fb805cbb45865c80d06aa6e2f4f901353cf8acba6c83c5fe3c8e09614463ab7",
+              "task_contract.py": "d0ab03f21e67a2fe271b1ce247767e3b9bd8f2e815793524d0e4b771c7c0c7c2",
+              "terminal.py": "22089e8a8c01e8edc422fc45518eebe0aa468e6bc36d60d4b4b8299d094f6cb6",
+              "transport.py": "20c32f0a48680115deadadeddfc515f49eb41130b10516c77fd9a04106b45e9b",
+              "transport_campaign.py": "d4f0784e59ab50f01b8b24bff9c55ef53e69b31549a3615fa0abff98b2fc799b",
+              "transport_contract.py": "49ca7f51fa982ee55d6a742604729a216de7b82d9a55ca49e7b187373be26236",
+              "verify.py": "9535d117d910f6ffa655e0c99743326fc06ddca4cbb37e9b9d2302a741b0d512"
+            },
+            "mode": "tokenkey_live",
+            "model": "gpt-5.6",
+            "parameters": {
+              "max_tokens": 512,
+              "reasoning": "not_requested",
+              "seed": null,
+              "temperature": null
+            },
+            "path": "/chat/completions",
+            "plan": [
+              "compatible",
+              "conflict"
+            ],
+            "predecessors": [],
+            "pricing": "TokenKey usage.cost preserved as decimal text; currency/unit unverified; no USD estimate",
+            "profile": "sdk-minimal+actio-tokenkey.v1",
+            "protocol": "openai-completions",
+            "provider": "actio-tokenkey",
+            "schema": "pilot-config.v5",
+            "source": "183f08e9c6dde7e36cd2318eaee70b0da08fb35e",
+            "spending_policy": "uncapped_for_phase1c2b1",
+            "stop": "first unknown/protocol/identity/timeout stops batch; no retries; new diagnostics must reference predecessor",
+            "timeouts": {
+              "closed": 5,
+              "drained": 5,
+              "first_response": 45,
+              "idle": 30,
+              "ready": 30,
+              "request": 90,
+              "result": 115,
+              "rpc": 5,
+              "worker": 165
+            }
+          },
+          "contract_hash": "ac5b713a9e0537530cab201c826210ba99da5a39e1e4317946dfd6e95de35179",
+          "cost_limit_minor": null,
+          "credential_reads": 0,
+          "estimated_cost": null,
+          "maximum_planned_calls": 4,
+          "network_requests": 0,
+          "research_promotion": "BLOCKED",
+          "schema": "tokenkey-plan.v1",
+          "status": "AUTHORIZED_SCOPE_READY_FOR_EXPLICIT_EXECUTE",
+          "supplier_bill": null,
+          "tasks": [
+            {
+              "body": {
+                "action_specs": {
+                  "A": {
+                    "call_to_action": "Propose one cleanup time.",
+                    "options": [
+                      "propose:morning",
+                      "propose:afternoon"
+                    ],
+                    "output_type": "choice",
+                    "tag": null
+                  },
+                  "B": {
+                    "call_to_action": "Respond to the public proposal.",
+                    "options": [
+                      "accept",
+                      "decline"
+                    ],
+                    "output_type": "choice",
+                    "tag": null
+                  }
+                },
+                "family": "adult-neighbors-scheduling.v1",
+                "grouping": {
+                  "arm": "baseline",
+                  "group": "development",
+                  "independent_units": 0,
+                  "version": "family-group.v1"
+                },
+                "id": "cleanup-compatible",
+                "max_steps": 2,
+                "mode": "tokenkey_live",
+                "order": [
+                  "A",
+                  "B"
+                ],
+                "provenance": {
+                  "kind": "Actio_authored_synthetic_fixture",
+                  "license": "CC0-1.0",
+                  "upstream_dataset": null
+                },
+                "public": {
+                  "background": "New neighbors coordinating for the first time.",
+                  "scenario": "Two adult neighbors arrange a one-hour shared park cleanup. A proposes a time; B responds.",
+                  "slots": [
+                    "morning",
+                    "afternoon"
+                  ]
+                },
+                "relationships": {
+                  "A": "know_by_name; neutral; no prior joint activity.",
+                  "B": "know_by_name; neutral; no prior joint activity."
+                },
+                "result_rule": "common-slot-accept.v1",
+                "schema": "actio-task.v1",
+                "seats": {
+                  "A": {
+                    "agent": "PROPOSED_A",
+                    "private": {
+                      "available": [
+                        "morning"
+                      ],
+                      "goal": "Agree to a cleanup time within my availability.",
+                      "preferred": "morning"
+                    },
+                    "role": "proposer",
+                    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                  },
+                  "B": {
+                    "agent": "PROPOSED_B",
+                    "private": {
+                      "available": [
+                        "morning"
+                      ],
+                      "goal": "Agree to a cleanup time within my availability.",
+                      "preferred": "morning"
+                    },
+                    "role": "responder",
+                    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                  }
+                },
+                "seed": 0,
+                "termination": "two legal actions or first illegal action; infrastructure interruption stays partial",
+                "variant": "compatible",
+                "version": 1,
+                "visibility": {
+                  "actor": "public scenario + own private constraints/goals + prior public actions",
+                  "judge": "public scenario + both goals/constraints + initial relationships + actual actions",
+                  "memory": "own social namespace at frozen revision; not shared with judge"
+                }
+              },
+              "sha256": "184dd2e732796c904585d1570cf117a88c8c816f1c00f9d7bc036efd4787e144"
+            },
+            {
+              "body": {
+                "action_specs": {
+                  "A": {
+                    "call_to_action": "Propose one cleanup time.",
+                    "options": [
+                      "propose:morning",
+                      "propose:afternoon"
+                    ],
+                    "output_type": "choice",
+                    "tag": null
+                  },
+                  "B": {
+                    "call_to_action": "Respond to the public proposal.",
+                    "options": [
+                      "accept",
+                      "decline"
+                    ],
+                    "output_type": "choice",
+                    "tag": null
+                  }
+                },
+                "family": "adult-neighbors-scheduling.v1",
+                "grouping": {
+                  "arm": "baseline",
+                  "group": "development",
+                  "independent_units": 0,
+                  "version": "family-group.v1"
+                },
+                "id": "cleanup-conflict",
+                "max_steps": 2,
+                "mode": "tokenkey_live",
+                "order": [
+                  "A",
+                  "B"
+                ],
+                "provenance": {
+                  "kind": "Actio_authored_synthetic_fixture",
+                  "license": "CC0-1.0",
+                  "upstream_dataset": null
+                },
+                "public": {
+                  "background": "New neighbors coordinating for the first time.",
+                  "scenario": "Two adult neighbors arrange a one-hour shared park cleanup. A proposes a time; B responds.",
+                  "slots": [
+                    "morning",
+                    "afternoon"
+                  ]
+                },
+                "relationships": {
+                  "A": "know_by_name; neutral; no prior joint activity.",
+                  "B": "know_by_name; neutral; no prior joint activity."
+                },
+                "result_rule": "common-slot-accept.v1",
+                "schema": "actio-task.v1",
+                "seats": {
+                  "A": {
+                    "agent": "PROPOSED_A",
+                    "private": {
+                      "available": [
+                        "morning"
+                      ],
+                      "goal": "Agree to a cleanup time within my availability.",
+                      "preferred": "morning"
+                    },
+                    "role": "proposer",
+                    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                  },
+                  "B": {
+                    "agent": "PROPOSED_B",
+                    "private": {
+                      "available": [
+                        "afternoon"
+                      ],
+                      "goal": "Agree to a cleanup time within my availability.",
+                      "preferred": "afternoon"
+                    },
+                    "role": "responder",
+                    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                  }
+                },
+                "seed": 0,
+                "termination": "two legal actions or first illegal action; infrastructure interruption stays partial",
+                "variant": "conflict",
+                "version": 1,
+                "visibility": {
+                  "actor": "public scenario + own private constraints/goals + prior public actions",
+                  "judge": "public scenario + both goals/constraints + initial relationships + actual actions",
+                  "memory": "own social namespace at frozen revision; not shared with judge"
+                }
+              },
+              "sha256": "247295dcc6ac2778b38254ac7f268fb6e04b807e8c861895f231fa0eeb679606"
+            }
+          ],
+          "upstream_identity_verified": false,
+          "workers_started": 0
+        }
+      }
+    },
+    {
+      "id": "test_gateway.Gateway.test_02_official_models_two_cards_usage_and_visibility",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 57, in test_02_official_models_two_cards_usage_and_visibility\n    v=self.case(model,[{'text':'propose:morning','case':'gateway-cost'},{'text':'accept'},{'text':'propose:morning'},{'text':'decline'}],model,both=True)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\bf0ee7481fb8",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='400')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='401')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='429')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='500')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='missing-done')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='missing-usage')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='fractional')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='model-change')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='length')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='illegal')",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\c0698a3911f0",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_gateway.Gateway.test_04_deadlines_and_secret_diagnostics",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 83, in test_04_deadlines_and_secret_diagnostics\n    v=self.case(name,[{'text':'propose:morning'},{'text':'accept','case':name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\fc54d8511165",
+        "cases": [],
+        "external_requests": 0
+      }
+    },
+    {
+      "id": "test_gateway.Gateway.test_05_offline_reader_rehash_and_send_boundaries",
+      "status": "FAIL",
+      "error": "Traceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 109, in test_05_offline_reader_rehash_and_send_boundaries\n    v=self.case('boundary',[{'text':'propose:morning'},{'text':'accept'}],runtime_type=Boundary)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n",
+      "evidence": {
+        "root": "D:\\actio-c2b1-tests\\1ab52e5d32ec",
+        "cases": [],
+        "external_requests": 0
+      }
+    }
+  ],
+  "tests_run": 5,
+  "exit_code": 1,
+  "source_hashes": {
+    "src/actio/budget.py": "89f7eea3b912d752a529a5edc62e955383ee2d19a40ce45acab56c6198c17c57",
+    "src/actio/calibration.py": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+    "src/actio/campaign.py": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+    "src/actio/cli.py": "39211521b6e681ad72fcd88c39e43b36dbfb0b31ec3131735ab30626a95f2bba",
+    "src/actio/common.py": "572cf56e7353e30fdf41a1c30e9329d0ddcbca14a60f91b6cda657bfdde92dcd",
+    "src/actio/database.py": "64005c5288022b6286666dfa4bffaf59b6c0e304fe3ff5e4057569138fe16d55",
+    "src/actio/evaluation.py": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+    "src/actio/eval_contract.py": "de7636aeb3f694a5df92ea47ed9415b7bc65b9f9cbff493ffed6b60f27f3d34e",
+    "src/actio/eval_worker.py": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+    "src/actio/evidence.py": "b7efc0a69093a0dcc0cbbdd9e66fef8ab7d190e61758c801c9ad437bee071b66",
+    "src/actio/facts.py": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+    "src/actio/gateway.py": "ff6074f165d1c61980ff8bf518e773800d538c52ef918efc5c6d289e3030ff8b",
+    "src/actio/gateway_contract.py": "e869e005a292d824ed5ebd1f7acc6a3b837ed07e36c6196de7b0e7b0ca6694bb",
+    "src/actio/host.py": "d945d2c116242ab37e56851bda258ef42057151960c022cd6db49f0baf67a302",
+    "src/actio/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/memory.py": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+    "src/actio/preflight.py": "d3c0b44785fa0eee378bdbca79ac335481b918f35dc695abe765475300c6cad5",
+    "src/actio/readiness.py": "17e929971cd456cb7ecd3fe4cd35898e22b2fa48bae89ea332cb25137472b660",
+    "src/actio/readiness_contract.py": "2d4bb3ce17eea9c29387b8ac23dbbd3c17b8db24f05e45d2ec4bff247c6cf5b9",
+    "src/actio/readiness_quote.json": "e9f8298e1a6edb4ef177e1e9c881506b937305fb4c949be0880888112be190e7",
+    "src/actio/runtime.py": "4bc93f8c596dbbe157a27b539305a893cac27ba8fa56a5664051e28e1666f73b",
+    "src/actio/scenarios.py": "a91fb95b7963558423d289c737fab8082a2dbb1ba5037bf5e4fdf58aa738f0bc",
+    "src/actio/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/store.py": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e",
+    "src/actio/supervisor.py": "5fb805cbb45865c80d06aa6e2f4f901353cf8acba6c83c5fe3c8e09614463ab7",
+    "src/actio/task_contract.py": "d0ab03f21e67a2fe271b1ce247767e3b9bd8f2e815793524d0e4b771c7c0c7c2",
+    "src/actio/terminal.py": "22089e8a8c01e8edc422fc45518eebe0aa468e6bc36d60d4b4b8299d094f6cb6",
+    "src/actio/transport.py": "20c32f0a48680115deadadeddfc515f49eb41130b10516c77fd9a04106b45e9b",
+    "src/actio/transport_campaign.py": "d4f0784e59ab50f01b8b24bff9c55ef53e69b31549a3615fa0abff98b2fc799b",
+    "src/actio/transport_contract.py": "49ca7f51fa982ee55d6a742604729a216de7b82d9a55ca49e7b187373be26236",
+    "src/actio/verify.py": "9535d117d910f6ffa655e0c99743326fc06ddca4cbb37e9b9d2302a741b0d512",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/actio/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "src/actio/plugins/transport.mjs": "cfb94dad0b89ac90ca747c8b79694a08c22af298b25b3561318ba496bc7305dc",
+    "src/actio/_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+    "src/actio/_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "src/actio/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/chat_stub.py": "63a085e768cccbe86b8ad0a769c14e4bd1c3b8e2479cb04b37d23eae451010e7",
+    "tests/child_case.py": "819125d17afba6c268cfd6bafc972d52182fa95be3d9e49f2470f156bc7afedf",
+    "tests/entry_race.py": "e79bbc710ea017921c08608c2cf5ffffe93f93daa21a45b8bb85971b5c697bd4",
+    "tests/gateway_stub.py": "370c93b118b623dce3c1b33794e862dde8c2c4c55c12aec4eaa5d7b7f5d32654",
+    "tests/readiness_stub.py": "86e18d4cfd312021ef877593b2dc6c70cb14f95e12c81b35da6638d57a9047c4",
+    "tests/support.py": "c95ca8220c3b3e28eecf87d0a2e9c1741f2af699796f2f47da586dbfe807ec73",
+    "tests/test_budget.py": "7a0a07e3526c59a85ac2816afa14bfd75a75ddab5822713b8e20c8daeb0b7ca8",
+    "tests/test_contract.py": "b582d843789bcbfc4475915aa97656f146173649923b7f0fd0d333f344b6063f",
+    "tests/test_entry_concurrency.py": "e7e55ccbec635a8a2125bdbe68d1577dd99db36a8a10f454b334fdb26bcf6a20",
+    "tests/test_evaluation.py": "dd94ee262cf3a255cc66d9c9604cf09fbe8249f3e1168493fdb1a9417482987b",
+    "tests/test_evidence.py": "df0e58f7d0f8f5d1e9841db2a0f49eca9e5aa86b605d0bda08e3fc28928183b8",
+    "tests/test_failures.py": "b294dfc73c44ef80f20ac8c8de1987226b7d4f892bb9107b52c4084611456a7b",
+    "tests/test_gateway.py": "d5a14d7a1ff078d43d2c236350405562c8b6bf47484967fde77a00ba6b7f7eb1",
+    "tests/test_input_binding.py": "2c57b97e3c05b89ed6a842f6aa3596d6dc59e08d1cebcb1bd0d94cdd1a53c18c",
+    "tests/test_preflight.py": "3c021dc43300ebb2d55f67657344d015b4b2d502ce845a83d8fdd400d73fdbba",
+    "tests/test_processes.py": "d52994263787aea7716330236fa6c21b5687fc9ace64fe5601d02630ddc4d464",
+    "tests/test_readiness.py": "8153754c27ccf9102889354d34f9589078e211f22d66b745c40f851c0c3f3de3",
+    "tests/test_readiness_config.py": "91763ffc5500d581858e31ee7e3413cdc8b2aa661bca15ec39f2f37a0879f95c",
+    "tests/test_reliability.py": "d667392e53316d89c0e07f204ab13b921ac6bfee9559de9376ee5f31e21a6f63",
+    "tests/test_runtime.py": "a85fe0690a2dfeab8ff53df6931aab97b8cb83f5e44fa6b1385cf191142b249b",
+    "tests/test_schema.py": "e65beac0b20482b647f034191c3c3a7483d97a17c67710282b942ebd0387f11f",
+    "tests/test_sotopia.py": "f36fe666913cacc72647b6e2e6df2ed2aebe5ee8546528d6c262930f336ec09b",
+    "tests/test_task.py": "2bea5dcb81d028682a6a4146018a9f9a0a318da9e89969c5ce40913116dd3222",
+    "tests/test_transport.py": "79fb15f05be9d8e3d017cf4b89d087a24c9fb1ed7d00657d85dec509b1b76c8f",
+    "tests/test_transport_config.py": "302cf5974c0ab05dce6ed9116a26ce8e9f2fcff439eaecab9fb8e5d023eea294",
+    "tests/fixtures/close_host.py": "9ede306b541854cc9cbd572fe7b68c8928374afcefe380bd05995d39380f8eca",
+    "tests/fixtures/faults.mjs": "afed8863c6eb7109527acd5f48100c61eec8d456eaff79c89f6bc975ae002574",
+    "tests/fixtures/mcp_hold.py": "353fb537f738173d658dc5ded9b8523b28f2cb5beb16f89734e9fe538abe41b2",
+    "tests/fixtures/provider.mjs": "db19aac2051a5723c35b371f4b050fab0e237a7c4021ab4684e1029b56d0c227",
+    "tests/fixtures/sotopia_episode.py": "0ca33d21428b1c6f5b1b5f6490dbf4242b76fa136c00e3d85685ca8b36916863",
+    "scripts/artifacts.py": "95bd35b85f8f8386ec1af96e7956a4af382b00278354d10a6aa93f519e43da23",
+    "scripts/bootstrap.py": "1b3ed1e16c29fcfff90853b2722c084573e3b40dfd8b4a30d7dfa27f47134374",
+    "scripts/bootstrap_eval.py": "304c11ed9337eb2111204080bf77090f8101a46c8e819022034f4ea6a58304c7",
+    "scripts/build_manifest.py": "594374f9440846c531a8eecb13111a9fa2946d9bdf8c51cd162fe32a930e43a9",
+    "scripts/check_delivery.py": "259d7ca4882d6e717b9a4298b47c655f452e86fc001140517298020d0b9994a9",
+    "scripts/extract_sotopia.py": "716e5cd815cde5fd640b93cf113623988cbba13649f91929544831b20d23870e",
+    "scripts/phase1b1_artifacts.py": "2c1be25cb67eb70980256cb035419b92ae4e1ff9731c9f366d4309c2e1e1ab07",
+    "scripts/phase1b1_release.py": "61ee4fff43a10f85f724e92c2725e2363bc2e6cac5fcc9763045f1e08174e9bd",
+    "scripts/phase1b1_smoke.py": "673bc96a7e5b51f47857f8fbf8814574e2b6753dca6f755e4f62f35f1019d9be",
+    "scripts/phase1c0_campaign.py": "de07a645f88b24a7dd22a71ca30c28032bb82f2eabed9516801366e43480423f",
+    "scripts/phase1c0_fixtures.py": "69c53d412347f0c9475231988d177b0632ba8b01eb3c5b0255e0bfcbe5d178ad",
+    "scripts/phase1c0_release.py": "ad3f22247183f5efeed1c550732dc6214edbfa36dd9f204184c5923f8578f07d",
+    "scripts/phase1c1_artifacts.py": "2a1b456086a22ea5a0936c29b5972427ced83cf07f3380fc351b6ccc8c89ce02",
+    "scripts/phase1c1_legacy.py": "39e581b38780e4984b54456a2dce5c0f456d503c477439f28d7bca13fc0f931f",
+    "scripts/phase1c1_release.py": "8ffa7b99b461f26cda6715b56b116195ec53610b73c615412106a4fa9ba17174",
+    "scripts/phase1c1_reuse.py": "2cb32c2dd375ceb582db727420291853da58408ff66f5001e15c92bd4f3c8989",
+    "scripts/phase1c2a1_cli.py": "3b90c6d187d790b9454dd34e7e13d0b0ad190ae0a058fa7276dbfa3fd725a23d",
+    "scripts/phase1c2a1_legacy.py": "5dc5985c1b0e501b1a165049a3e3f32475d155257a1d64d6ae50bbbc4fd3213b",
+    "scripts/phase1c2a1_probe.mjs": "f00cd7b1ea988155d8ef9380ae640e8c8f127f7eee48af6c0c1fa3ed29021161",
+    "scripts/phase1c2a1_probe.py": "cfa984c21cbe3110aabfdd58dda66603c7210619caa455b9a43e7ae2498abc2f",
+    "scripts/phase1c2a1_release.py": "2ada390876f099cd33cf78c8cedcb97d787f305b62c60b4a881b1317033d1b79",
+    "scripts/phase1c2a1_smoke.py": "4692df72e89f66dc7f5ff1111e75b7cc02379de9fd27a36adce3fdff66203bf6",
+    "scripts/phase1c2a_legacy.py": "c120a1a1870f279ea031912df7d241206a543254406cd938ebbf2447f2667ecf",
+    "scripts/phase1c2a_probe.mjs": "790fbe282043c3888bfbe8f576e781f381f8b9f548eefa4250122bd87cb5aa0d",
+    "scripts/phase1c2a_probe.py": "d8dc72c6b41940403e9d876b71a89d477b5cbbbc024cd6d89ec73fb4d6815b07",
+    "scripts/phase1c2a_release.py": "ea69c288d63fba01e9ef02524d707d838e1847bfad8e4052ec53d8e45a2752c8",
+    "scripts/phase1c2a_reuse.py": "683e9d9e6b8ce8adaa1d7ac073996c29113287f7b0df32455548812961b0fb1b",
+    "scripts/phase1c2b0_cli.py": "598bbba8e5d7ed7a442890f95654f2c57f2088a59940614753784d8d67b11982",
+    "scripts/phase1c2b0_legacy.py": "43efa8f29f43236b2352ec9ba4e3163baccc1a0708165707ee96fa24cea14e04",
+    "scripts/phase1c2b0_rehearsal.py": "7e6b9002f5ac8678bf2042b9348edd6e466492ccc59957a635215c6b815a2597",
+    "scripts/phase1c2b0_release.py": "ab9e51da4748b8dfd0bdfa771e5a4744e65ba1ad318a57cf71fd6eb52a622c7f",
+    "scripts/phase1c2b1_probe.mjs": "0183cc3c25e87aa59bac8bb0edc56aabcb7d16e8ac36b4fb6992a6921bd931e8",
+    "scripts/phase1c2b1_probe.py": "6eefc673e8c3cde3bd99fd8fa2070265c4cf30cd8071569c412565ec9da1df44",
+    "scripts/validate.py": "3ced15a3bfe835be08eb691f9fd9088514ce3e11c224a1d3106f314f7b4395e4"
+  },
+  "log": "test_01_explicit_uncapped_plan_and_no_side_effects (test_gateway.Gateway.test_01_explicit_uncapped_plan_and_no_side_effects) ... ok\ntest_02_official_models_two_cards_usage_and_visibility (test_gateway.Gateway.test_02_official_models_two_cards_usage_and_visibility) ... ERROR\ntest_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) ... \n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='400') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='401') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='429') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='500') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='missing-done') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='missing-usage') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='fractional') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='model-change') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='length') ... ERROR\n  test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='illegal') ... ERROR\ntest_04_deadlines_and_secret_diagnostics (test_gateway.Gateway.test_04_deadlines_and_secret_diagnostics) ... ERROR\ntest_05_offline_reader_rehash_and_send_boundaries (test_gateway.Gateway.test_05_offline_reader_rehash_and_send_boundaries) ... ERROR\n\n======================================================================\nERROR: test_02_official_models_two_cards_usage_and_visibility (test_gateway.Gateway.test_02_official_models_two_cards_usage_and_visibility)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 57, in test_02_official_models_two_cards_usage_and_visibility\n    v=self.case(model,[{'text':'propose:morning','case':'gateway-cost'},{'text':'accept'},{'text':'propose:morning'},{'text':'decline'}],model,both=True)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='400')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='401')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='429')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='500')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='missing-done')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='missing-usage')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='fractional')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='model-change')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='length')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_03_errors_unknown_length_no_retry (test_gateway.Gateway.test_03_errors_unknown_length_no_retry) (case='illegal')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 70, in test_03_errors_unknown_length_no_retry\n    v=self.case(name,[{'text':'propose:morning'},{'text':'INVALID' if name=='illegal' else 'accept','case':'attached' if name=='illegal' else name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_04_deadlines_and_secret_diagnostics (test_gateway.Gateway.test_04_deadlines_and_secret_diagnostics)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 83, in test_04_deadlines_and_secret_diagnostics\n    v=self.case(name,[{'text':'propose:morning'},{'text':'accept','case':name}])\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n======================================================================\nERROR: test_05_offline_reader_rehash_and_send_boundaries (test_gateway.Gateway.test_05_offline_reader_rehash_and_send_boundaries)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 109, in test_05_offline_reader_rehash_and_send_boundaries\n    v=self.case('boundary',[{'text':'propose:morning'},{'text':'accept'}],runtime_type=Boundary)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests\\test_gateway.py\", line 27, in case\n    r=execute(c,runroot,self.secret,operation_authorization=AUTH,runtime_type=runtime_type,receives=server.receives)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\gateway.py\", line 53, in execute\n    try:snap=ledger.snapshot();verify_snapshot(snap)\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b1-runtime-venv\\Lib\\site-packages\\actio\\budget.py\", line 292, in verify_snapshot\n    require(allowed(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')\n            ^^^^^^^\nUnboundLocalError: cannot access local variable 'allowed' where it is not associated with a value\n\n----------------------------------------------------------------------\nRan 5 tests in 155.786s\n\nFAILED (errors=13)\n",
+  "log_sha256": "50469d7ec5043f71f39a017ec00d374928bbb5781a0d5fdd7200530ea8780a2d"
+}

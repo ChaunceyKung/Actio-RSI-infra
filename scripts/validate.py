@@ -44,14 +44,14 @@ if __name__=='__main__':
     result=unittest.TextTestRunner(stream=output,verbosity=2,resultclass=Result).run(suite)
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:8]
     phase=sys.argv[2] if len(sys.argv)>2 else 'phase1b1'
-    if phase not in ('phase1b1','phase1c0','phase1c1','phase1c2a','phase1c2a1','phase1c2b0'):raise SystemExit('unknown evidence phase')
+    if phase not in ('phase1b1','phase1c0','phase1c1','phase1c2a','phase1c2a1','phase1c2b0','phase1c2b1'):raise SystemExit('unknown evidence phase')
     target=ROOT/'docs/validation'/phase/'evidence';target.mkdir(parents=True,exist_ok=True)
     log=output.getvalue()
     try:
         executable=Path(sys.executable).relative_to(ROOT).as_posix()
     except ValueError:
         executable=str(Path(sys.executable))
-    data={'id':stamp,'suite':which,'command':f'{executable} -X utf8 scripts/validate.py {which} {phase}',
+    data={'id':stamp,'suite':which,'command':f'{executable} -X utf8 scripts/validate.py {which} {phase}','actual_argv':sys.orig_argv,
           'mode':{'contract':'SQLITE_CONTRACT','schema':'SQLITE_MIGRATION_AND_REAL_PROCESS_INTERRUPTION',
                   'reliability':'REAL_ENGINE_DSH_AND_CONTROLLED_BOUNDARIES','entry_concurrency':'TWO_CONTROL_PROCESS_ENTRY_RACES',
                   'evidence':'REAL_FIXTURE_EXPORT_AND_OFFLINE_VERIFICATION',

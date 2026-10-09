@@ -13,10 +13,30 @@ from .transport_contract import validate_config,require,PROFILE,PROVIDER,MODEL,M
 def sha(raw):return hashlib.sha256(raw.encode()).hexdigest()
 
 
+def gateway(c):return c is not None and c.get('schema')=='pilot-config.v5'
+
+
+def metered(c):return priced(c) or gateway(c)
+
+
+def schema_for(c):return 3 if gateway(c) else 2 if priced(c) else 1
+
+
+def ledger_contract(c):return 'attempt-ledger.v'+str(schema_for(c))
+
+
+def cap_allows(used,reserved,c):
+    if gateway(c):return used['calls']+reserved['calls']<=2*len(c['plan'])
+    return all(used[k]+v<=caps(c)[k] for k,v in reserved.items())
+
+
 def priced(c):return c is not None and c.get('schema')=='pilot-config.v4'
 
 
 def validate_budget_config(c):
+    if gateway(c):
+        from .gateway_contract import validate
+        return validate(c)
     if priced(c):
         from .readiness_contract import validate
         return validate(c)
@@ -24,26 +44,35 @@ def validate_budget_config(c):
 
 
 def profile_for(c):
+    if gateway(c):
+        from .gateway_contract import PROFILE as p
+        return p
     if priced(c):
         from .readiness_contract import PROFILE as p
         return p
     return PROFILE
 
 
-def caps(c):return c['budget'] if priced(c) else c['roles']['solver']['budget']
+def caps(c):
+    if gateway(c):return {'calls':2*len(c['plan']),'input_tokens':None,'output_tokens':None,'cost_minor':None}
+    return c['budget'] if priced(c) else c['roles']['solver']['budget']
 
 
 def reserve_amount(c):
+    if gateway(c):return {'calls':1,'input_tokens':None,'output_tokens':512,'cost_minor':None}
     if priced(c):
         from .readiness_contract import reservation
         return reservation(c)
     return {'calls':1,'input_tokens':MAX_INPUT,'output_tokens':MAX_OUTPUT,'cost_minor':MAX_INPUT+MAX_OUTPUT}
 
 
-def endpoint_for(c):return c['endpoint'] if priced(c) else c['roles']['solver']['endpoint']
+def endpoint_for(c):return c['endpoint'] if metered(c) else c['roles']['solver']['endpoint']
 
 
 def wire_binding(scope,request,config=None):
+    if gateway(config):
+        from .gateway_contract import wire_binding as bind
+        return bind(scope,request,config)
     """Check the observed official transformation; IDs/source are not model content."""
     require(set(request)=={'method','url','raw','prepared'},'attempt request fields')
     require(request['method']=='POST' and request['url']==scope['endpoint']+'/chat/completions','attempt endpoint/method')
@@ -69,6 +98,9 @@ def wire_binding(scope,request,config=None):
 
 
 def trusted_usage(response,native,config=None):
+    if gateway(config):
+        from .gateway_contract import trusted_usage as usage
+        return usage(response,native,config)
     """Observe raw synthetic usage; official adapter still owns protocol/stream translation."""
     require(set(response)=={'status','raw','chunks_json','error'} and response['status']==200 and response['error'] is None,'response not complete')
     require(len(response['raw'].encode())<=65536,'response byte limit')
@@ -119,8 +151,8 @@ class Ledger:
         self.path=Path(path).resolve()
         if config is not None:
             validate_budget_config(config);require(not self.path.exists(),'new budget database required')
-            if priced(config):
-                require(config['mode']=='priced_rehearsal','C2B0 cannot create live execution ledger')
+            if metered(config):
+                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live'),'C2B0 cannot create live execution ledger')
                 authority=Path(config['authority']['root']);authority.mkdir(parents=True,exist_ok=True)
                 anchor=authority/(config['authority']['id']+'.json')
                 # Exclusive authority binding survives controller/Worker death and DB removal.
@@ -132,18 +164,18 @@ class Ledger:
             db=sqlite3.connect(self.path)
             try:
                 db.executescript('CREATE TABLE meta(body TEXT NOT NULL); CREATE TABLE registration(id TEXT PRIMARY KEY,body TEXT NOT NULL); CREATE TABLE attempt(id TEXT PRIMARY KEY,body TEXT NOT NULL); CREATE TABLE event(seq INTEGER PRIMARY KEY,attempt TEXT,kind TEXT NOT NULL,body TEXT NOT NULL); PRAGMA user_version=1;')
-                if priced(config):db.execute('PRAGMA user_version=2')
-                db.execute('INSERT INTO meta VALUES(?)',(canonical({'schema':'attempt-ledger.v2' if priced(config) else 'attempt-ledger.v1','campaign':campaign or uid(),'config':config,'config_hash':digest(config),'profile':profile_for(config)}),));db.commit()
+                db.execute('PRAGMA user_version='+str(schema_for(config)))
+                db.execute('INSERT INTO meta VALUES(?)',(canonical({'schema':ledger_contract(config),'campaign':campaign or uid(),'config':config,'config_hash':digest(config),'profile':profile_for(config)}),));db.commit()
             finally:db.close()
         require(self.path.exists(),'budget DB missing')
         self.db=sqlite3.connect(self.path.as_uri()+('?mode=ro' if readonly else '?mode=rw'),uri=True,isolation_level=None,timeout=5)
-        require(self.db.execute('PRAGMA user_version').fetchone()[0] in (1,2),'budget schema version')
+        require(self.db.execute('PRAGMA user_version').fetchone()[0] in (1,2,3),'budget schema version')
         if not readonly:self.db.execute('PRAGMA synchronous=FULL')
         self.meta=json.loads(self.db.execute('SELECT body FROM meta').fetchone()[0])
         validate_budget_config(self.meta['config']);require(self.meta['config_hash']==digest(self.meta['config']),'ledger config hash')
         c=self.meta['config']
-        require(self.db.execute('PRAGMA user_version').fetchone()[0]==(2 if priced(c) else 1),'budget schema/config mismatch')
-        if priced(c):
+        require(self.db.execute('PRAGMA user_version').fetchone()[0]==schema_for(c),'budget schema/config mismatch')
+        if metered(c):
             anchor=Path(c['authority']['root'])/(c['authority']['id']+'.json')
             require(json.loads(anchor.read_bytes())=={'ledger':str(self.path),'config_hash':digest(c)},'authorization already bound to another ledger/config')
 
@@ -166,6 +198,9 @@ class Ledger:
     def register(self,run,manifest):
         require(manifest['transport']['campaign']==self.meta['campaign'] and manifest['transport']['config_hash']==self.meta['config_hash'],'run budget binding')
         with self.tx():
+            if gateway(self.meta['config']):
+                c=self.meta['config'];regs=self.rows('registration');index=len(regs)//2
+                require(index<len(c['plan']) and manifest['task']['body']['variant']==c['plan'][index],'episode not in ordered batch plan')
             for seat in ('A','B'):
                 value={'id':run+':'+seat,'run':run,'seat':seat,'manifest_hash':digest(manifest),'task_hash':manifest['task']['sha256']}
                 self.db.execute('INSERT INTO registration VALUES(?,?)',(value['id'],canonical(value)))
@@ -191,8 +226,8 @@ class Ledger:
                 require(not any(x['state'] in ('reserved','sending','unknown') for x in self.rows('attempt')),
                         'unsettled reservation blocks budget; no automatic recovery')
                 reserved=reserve_amount(self.meta['config'])
-                used=totals(self.rows('attempt'));cap=caps(self.meta['config'])
-                require(all(used[k]+v<=cap[k] for k,v in reserved.items()),'budget exhausted before send')
+                used=totals(self.rows('attempt'))
+                require(cap_allows(used,reserved,self.meta['config']),'budget exhausted before send')
             except (ContractError,ValueError,KeyError,TypeError) as e:
                 a.update(state='denied',reason=str(e));self.save(a);self.event(attempt,'denied',{'reason':str(e)})
                 return {'allowed':False,'reason':str(e)}
@@ -216,7 +251,7 @@ class Ledger:
             require(a['state'] in ('authorized','reserved','sending'),'unknown attempt state')
             usage=None;reason=None
             try:
-                require(a['state']=='sending' and (complete or priced(self.meta['config'])),'no complete native terminal')
+                require(a['state']=='sending' and (complete or metered(self.meta['config'])),'no complete native terminal')
                 usage=trusted_usage(response,native_usage,self.meta['config'])
             except (ContractError,KeyError,TypeError,ValueError,AttributeError,RecursionError) as e:reason=str(e)
             state='settled' if usage else 'unknown'
@@ -246,14 +281,15 @@ def totals(attempts):
     for a in attempts:
         charge=a['usage'] if a['state']=='settled' else a['reservation'] if a['state'] in ('reserved','sending','unknown') else None
         if charge:
-            for k in result:result[k]+=charge[k]
+            for k in result:
+                result[k]=None if result[k] is None or charge[k] is None else result[k]+charge[k]
     return result
 
 
 def verify_snapshot(s):
-    m=s['meta'];validate_budget_config(m['config']);require(m['schema']==('attempt-ledger.v2' if priced(m['config']) else 'attempt-ledger.v1') and m['config_hash']==digest(m['config']) and m['profile']==profile_for(m['config']),'ledger metadata')
+    m=s['meta'];validate_budget_config(m['config']);require(m['schema']==ledger_contract(m['config']) and m['config_hash']==digest(m['config']) and m['profile']==profile_for(m['config']),'ledger metadata')
     require(s['totals']==totals(s['attempts']),'budget totals mismatch')
-    require(all(s['totals'][k]<=caps(m['config'])[k] for k in s['totals']),'budget cap exceeded')
+    require(cap_allows(s['totals'],dict.fromkeys(s['totals'],0),m['config']),'budget cap exceeded')
     regs={r['id']:r for r in s['registrations']};require(len(regs)==len(s['registrations']),'duplicate registration')
     attempts={a['id']:a for a in s['attempts']};require(len(attempts)==len(s['attempts']),'duplicate attempt')
     events=s['events'];require([e['seq'] for e in events]==list(range(1,len(events)+1)),'budget event sequence')
@@ -290,7 +326,7 @@ def verify_snapshot(s):
             if kind=='reserved':
                 used=totals(list(replay.values()))
                 require(not any(v['state'] in ('reserved','sending','unknown') for v in replay.values()),'reserve after unresolved reservation')
-                require(all(used[k]+v<=cap[k] for k,v in body['reservation'].items()),'reservation exceeded concurrent cap')
+                require(cap_allows(used,body['reservation'],m['config']),'reservation exceeded concurrent cap')
                 a['reservation']=body['reservation']
             if kind=='settled':a['usage']=body['usage']
             a['state']=kind
@@ -312,14 +348,14 @@ def verify_run_attempts(data,m):
         if a['request'] is not None:require(a['binding']==wire_binding(scope,a['request'],m['transport']['config']),'run wire mapping')
         require(a['state'] in ('denied','released','unknown','settled'),'unresolved active budget state')
         if a['state']=='settled':
-            require((op['terminal']=='completed' and op['barrier']) or (priced(m['transport']['config']) and a['usage']['finish']=='max-tokens'),'settlement without native terminal')
+            require((op['terminal']=='completed' and op['barrier']) or (metered(m['transport']['config']) and a['usage']['finish']=='max-tokens'),'settlement without native terminal')
             events=[json.loads(e['raw']) for e in data['occurrences'] if e['stream']==op['stream']]
             finals=[e for e in events if e['type']=='assistant/message']
             require(finals and finals[-1]['data'].get('usage')==json.loads(a['native_usage']),'native usage not bound')
             require(a['usage']==trusted_usage(a['response'],a['native_usage'],m['transport']['config']),'run settlement usage')
         else:require(a['usage'] is None,'unknown/denied usage cannot be zero charge')
     return {'attempts':len(attempts),'settled':sum(a['state']=='settled' for a in attempts),
-            'unknown':sum(a['state']=='unknown' for a in attempts),'mode':'simulated_provider_usage_usd_estimate' if priced(m['transport']['config']) else 'synthetic_only'}
+            'unknown':sum(a['state']=='unknown' for a in attempts),'mode':'gateway_usage_cost_unverified' if gateway(m['transport']['config']) else 'simulated_provider_usage_usd_estimate' if priced(m['transport']['config']) else 'synthetic_only'}
 
 
 def main():

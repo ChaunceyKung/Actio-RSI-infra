@@ -21,7 +21,7 @@ def predicates(task,actions):
             'joint_achieved':None if slot is None or not legal['B'] else b=='accept' and slot in av['A'] and slot in av['B'],
             'goal':'NOT_CALIBRATED','relationship':'NOT_CALIBRATED'}
 
-def measure(entry,pre,configuration=None,predicate=None):
+def measure(entry,pre,configuration=None,predicate=None,reader=None):
     unit=entry['unit'];bundle=entry['evidence']
     if bundle is None:
         require(type(entry['reason']) is str and bool(entry['reason']),'not_run reason required')
@@ -42,7 +42,7 @@ def measure(entry,pre,configuration=None,predicate=None):
         response=bool(a and a['response'] and a['response']['status']);terminal=bool(op and op['terminal']=='completed' and op['barrier'])
         integrity=bool(a and (a['text_integrity'] or {}).get('status')=='verified');admitted=bool(terminal and integrity and a['usage'] is not None and op['answer'] is not None)
         if admitted or configuration and terminal and integrity and op['answer'] is not None:
-            audit(a['response'],op['answer'],require_bytes=True);actions[seat]=op['answer']
+            (reader or audit)(a['response'],op['answer'],require_bytes=True);actions[seat]=op['answer']
             if configuration:admitted=True
         receipt=next((r for r in data['domain_receipts'] if op and r['op']==op['id']),None)
         native=[{'stream':r['stream'],'seq':r['seq'],'raw_hash':r['raw_hash']} for r in data['occurrences'] if op and r['stream']==op['stream'] and json.loads(r['raw'])['type']=='assistant/message']

@@ -35,7 +35,10 @@ def run_unit(root,cfg,secret,*,receives=None,runtime_type=None):
     try:
         for name in ('ACTOR_A','ACTOR_B'):s.agent(name,transport_spec(name,cfg))
         bindings={seat:{'agent':name,'spec_hash':s.agent(name)['spec_hash']} for seat,name in [('A','ACTOR_A'),('B','ACTOR_B')]}
-        task=card(cfg['plan'][0],bindings,cfg['mode'])
+        if cfg.get('schema')=='pilot-config.v8':
+            from .candidate_tasks import card
+            task=card(cfg['plan'][0],bindings,cfg['mode'],cfg['scaffold'])
+        else:task=card(cfg['plan'][0],bindings,cfg['mode'])
         try:
             scheduling_transport(s,'episode',root,task=task,config=cfg,ledger_path=root/'budget.sqlite',credential=secret,
                                  **({'runtime_type':runtime_type} if runtime_type else {}))
@@ -78,14 +81,16 @@ def execute(root,pre,secret,*,freeze=None,endpoint=None,authority_root,operation
     from .pilot_measurement import analyze_pilot
     if contract:
         from .suite_measurement import analyze_pilot
+        if hasattr(contract,'analyze'):analyze_pilot=contract.analyze
     p=(contract.validate_preregistration if contract else validate_preregistration)(pre);require(operation_authorization==AUTH,'explicit C2B2 operator instruction required')
+    if contract and contract.CONFIG=='pilot-config.v8':require(endpoint is not None,'candidate campaign loopback only')
     live=endpoint is None;root=Path(root).resolve();require(not root.exists(),'new experiment root required')
     require(not live or freeze and freeze['preregistration_hash']==pre['sha256'] and freeze['commit']==freeze['remote_main']==freeze['remote_branch'],'published preregistration required')
     authority=Path(authority_root).resolve();authority.mkdir(parents=True,exist_ok=True)
     # One persistent claim per preregistration across arbitrary output roots.
     create(authority/(pre['sha256']+'.json'),{'preregistration_hash':pre['sha256'],'root':str(root),'first_intent_utc':now()})
     root.mkdir(parents=True);create(root/'preregistration.json',pre)
-    f={**freeze,'first_intent_utc':now()} if live else None
+    f={**freeze,'first_intent_utc':now()} if freeze else None
     if f:create(root/'freeze.json',f)
     entries=[{'unit':u,'evidence':None,'reason':'not_started','episode_ms':None} for u in p['units']]
     state='stopped';reason=None

@@ -29,6 +29,8 @@ def transport_spec(name,config=None):
         if suite(config):
             from .suite_contract import PERSONA
             from .suite_tasks import INPUT as gateway_input
+        if config.get('schema')=='pilot-config.v8':
+            from .candidate_campaign import INPUT as gateway_input
         return {**synthetic_spec(name),'persona':PERSONA,'persona_hash':digest(PERSONA),'pins':transport_pins(config),'prompt_version':gateway_input}
     return {**synthetic_spec(name),'pins':transport_pins(config),'prompt_version':'scheduling-priced.v1' if priced(config) else INPUT}
 
@@ -46,7 +48,7 @@ class TransportPort(RuntimePort):
             kwargs['deadlines']={k:self.candidate_config['timeouts'][k] for k in ('ready','result','drained','closed')}
         if gateway(self.candidate_config):
             validate_budget_config(self.candidate_config)
-            if type(credential) is not str or not credential or (self.candidate_config['mode'] in ('tokenkey_rehearsal','tokenkey_pilot_rehearsal','tokenkey_suite_rehearsal') and not credential.startswith('ACTIO_FAKE_')):
+            if type(credential) is not str or not credential or (self.candidate_config['mode'] in ('tokenkey_rehearsal','tokenkey_pilot_rehearsal','tokenkey_suite_rehearsal','candidate_loopback') and not credential.startswith('ACTIO_FAKE_')):
                 raise ContractError('explicit gateway credential required')
             kwargs['deadlines']={k:self.candidate_config['timeouts'][k] for k in ('ready','result','drained','closed')}
         super().__init__(*args,**kwargs)
@@ -168,8 +170,8 @@ class TransportPort(RuntimePort):
                         self.s.audit(self.run['id'],self.op,'transport_attempt',a);self.accounted=True
                         if pilot(self.config) and (a['text_integrity'] or {}).get('status')!='verified':raise ContractError('pilot text evidence rejected; batch frozen')
                         if pilot(self.config) and complete:
-                            from .stream_audit import audit
-                            audit(response,result['answer'],require_bytes=True)
+                            from .channel_audit import for_config
+                            for_config(self.config).audit(response,result['answer'],require_bytes=True,**({'native_blocks':finals[-1]['data']['message']['content']} if self.config['schema']=='pilot-config.v8' else {}))
                         if gateway(self.config) and a['state']=='unknown':raise ContractError('gateway usage/identity incomplete; batch frozen')
                 finally:ledger.close()
 
@@ -191,11 +193,14 @@ def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_
         request={'scenario':'social','task_hash':task['sha256'],'a':entities['A'],'b':entities['B'],
                  'config_hash':digest(config),'campaign':campaign,'mode':mode}
         def freeze():
-            m={'input_contract':'finite-suite-tokenkey.v1' if suite(config) else 'scheduling-tokenkey.v2' if pilot(config) else 'scheduling-tokenkey.v1' if gateway(config) else 'scheduling-priced.v1' if priced(config) else INPUT,'execution_mode':mode,'scenario':'social','task':task,'entities':entities,
+            m={'input_contract':'finite-candidate-loopback.v1' if config.get('schema')=='pilot-config.v8' else 'finite-suite-tokenkey.v1' if suite(config) else 'scheduling-tokenkey.v2' if pilot(config) else 'scheduling-tokenkey.v1' if gateway(config) else 'scheduling-priced.v1' if priced(config) else INPUT,'execution_mode':mode,'scenario':'social','task':task,'entities':entities,
                'agents':{s['agent']:s['spec_hash'] for s in t['seats'].values()},'memory':{a:snapshot(store,a,'social') for a in entities.values()},
                'pins':transport_pins(config),'engine':'concordia.Sequential','source':CONCORDIA,'order':['A','B'],'max_steps':2,'seed':0,'world':[],
                'observation_policy':'scheduling-own-plus-public.v3' if pilot(config) else 'scheduling-own-plus-public.v2','gm_private':'SCHEDULING_GM_PRIVATE_AUDIT_ONLY',
                'request':request,'replay_of':None,'transport':{'config':config,'config_hash':digest(config),'campaign':campaign,'profile':profile_for(config)}}
+            if config.get('schema')=='pilot-config.v8':
+                from .candidate_tasks import binding
+                m['transport']['scaffold_binding']=binding(m)
             validate_manifest(m);return m
         run,fresh=store.begin(key,freeze,request=request)
         if not fresh:return run

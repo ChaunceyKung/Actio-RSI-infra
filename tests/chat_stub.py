@@ -26,6 +26,9 @@ def response(plan):
     if case=='malformed':return 200,'data: {invalid}\n\ndata: [DONE]\n\n','text/event-stream'
     finish={'choices':[{'index':0,'delta':{},'finish_reason':'stop'}]}
     rows=[{'choices':[{'index':0,'delta':{'role':'assistant','content':plan['text']}}]},finish]
+    if 'reasoning' in plan:
+        rows[0]['choices'][0]['delta']={'role':'assistant','reasoning_content':plan['reasoning']}
+        rows.insert(1,{'choices':[{'index':0,'delta':{'content':plan['text']}}]})
     if case not in ('missing-usage','trailing'):finish['usage']=usage
     if case in ('trailing','override'):
         if case=='override':finish['usage']={'prompt_tokens':2,'completion_tokens':1,'total_tokens':3}

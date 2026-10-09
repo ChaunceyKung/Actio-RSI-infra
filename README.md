@@ -1,4 +1,10 @@
-# Actio-RSI · Phase 1C2C0
+# Actio-RSI · Phase 1C2C1
+
+双通道审计与单 seat 候选谱系已实现，当前发布冻结本机计划。主矩阵结果将在冻结后追加，真实 provider 请求保持 0。
+
+入口：[合同](docs/validation/phase1c2c1/CONTRACT.md) · [结果](docs/validation/phase1c2c1/RESULTS.md) · [Gate](docs/validation/phase1c2c1/GATES.md) · [CLI](docs/validation/phase1c2c1/CLI.md)。
+
+## Phase 1C2C0 历史交付
 
 任务集与独立评估准入已交付：2 families / 12 张卡，完整分层分母、新有限期限及只读评估器。正式 pilot stopped，计划 24 episodes / 48 seats，sent=15，usage=15，not_run=33，unknown=0。
 

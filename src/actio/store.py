@@ -11,11 +11,11 @@ from . import database
 
 
 class Store:
-    def __init__(self, path, *, create=False, readonly=False):
+    def __init__(self, path, *, create=False, readonly=False, lineage=False):
         self.path = Path(path).resolve()
         self.claims = {}
         if create and not self.path.exists():
-            database.create(self.path)
+            database.create(self.path, lineage=lineage)
         self.db = database.connect(self.path, readonly=readonly)
         try:
             self.version = database.inspect(self.db)
@@ -31,6 +31,22 @@ class Store:
 
     def close(self):
         self.db.close()
+
+    def candidate(self, proposal):
+        from .candidate_store import register
+        return register(self, proposal)
+
+    def bind_candidate(self, cid, plan):
+        from .candidate_store import bind
+        return bind(self, cid, plan)
+
+    def decide_candidate(self, cid, decision):
+        from .candidate_store import record_decision
+        return record_decision(self, cid, decision)
+
+    def candidate_lineage(self):
+        from .candidate_store import export
+        return export(self)
 
     @contextmanager
     def tx(self):

@@ -26,10 +26,12 @@ def structure(db):
 
 def inspect(db):
     version = db.execute('PRAGMA user_version').fetchone()[0]
-    if version not in (0, VERSION):
+    if version not in (0, VERSION, 3):
         raise ContractError('unsupported database schema version: ' + str(version))
     with sqlite3.connect(':memory:') as expected:
         expected.executescript(Path(__file__).with_name('legacy_schema.sql' if version == 0 else 'schema.sql').read_text())
+        if version == 3:
+            expected.executescript(Path(__file__).with_name('candidate_schema.sql').read_text())
         if structure(db) != structure(expected):
             raise ContractError('unknown or incomplete database structure')
     if not db.execute("SELECT value FROM meta WHERE key='store'").fetchone():
@@ -37,7 +39,7 @@ def inspect(db):
     return version
 
 
-def create(path):
+def create(path, *, lineage=False):
     path = Path(path).resolve()
     # Exclusive reservation distinguishes initialization from accidental lookup.
     with path.open('xb'):
@@ -45,6 +47,8 @@ def create(path):
     db = sqlite3.connect(path, isolation_level=None)
     try:
         db.executescript(Path(__file__).with_name('schema.sql').read_text())
+        if lineage:
+            db.executescript(Path(__file__).with_name('candidate_schema.sql').read_text())
         db.execute("INSERT INTO meta VALUES('store',?)", (uid(),))
     finally:
         db.close()
@@ -133,3 +137,35 @@ def migrate_copy(source, destination):
         raise
     finally:
         src.close()
+
+
+def migrate_lineage_copy(source, destination):
+    """Explicit v2 -> v3 snapshot with backup; never upgrade an old run in place."""
+    source, destination = Path(source).resolve(), Path(destination).resolve()
+    backup = destination.with_name(destination.name + '.backup.sqlite')
+    record = destination.with_name(destination.name + '.migration.json')
+    stage = destination.with_name(destination.name + '.migrating-' + uid())
+    if source == destination or any(p.exists() for p in (destination,backup,record)):
+        raise ContractError('new lineage migration destination required')
+    src = connect(source, readonly=True)
+    try:
+        if inspect(src) != 2: raise ContractError('lineage migration requires v2')
+        with backup.open('xb'): pass
+        saved = sqlite3.connect(backup)
+        try: src.backup(saved); saved.execute('PRAGMA journal_mode=DELETE')
+        finally: saved.close()
+        saved = connect(backup, readonly=True); target = sqlite3.connect(stage, isolation_level=None)
+        try:
+            saved.backup(target)
+            target.executescript('BEGIN IMMEDIATE;\n' + Path(__file__).with_name('candidate_schema.sql').read_text() + '\nCOMMIT;')
+            inspect(target); target.execute('PRAGMA journal_mode=DELETE')
+        finally: target.close(); saved.close()
+        stage.rename(destination)
+        result={'status':'migrated','from':2,'to':3,'backup_sha256':file_hash(backup),'source':str(source),'destination':str(destination)}
+        write_json(record,result); return result
+    except BaseException as error:
+        if backup.exists():
+            write_json(record,{'status':'failed','reason':str(error),'backup':str(backup),
+                               'backup_sha256':file_hash(backup),'retained_stage':str(stage)})
+        raise
+    finally: src.close()

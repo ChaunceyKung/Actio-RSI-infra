@@ -13,12 +13,12 @@ from .transport_contract import validate_config,require,PROFILE,PROVIDER,MODEL,M
 def sha(raw):return hashlib.sha256(raw.encode()).hexdigest()
 
 
-def suite(c):return c is not None and c.get('schema')=='pilot-config.v7'
+def suite(c):return c is not None and c.get('schema') in ('pilot-config.v7','pilot-config.v8')
 
-def pilot(c):return c is not None and c.get('schema') in ('pilot-config.v6','pilot-config.v7')
+def pilot(c):return c is not None and c.get('schema') in ('pilot-config.v6','pilot-config.v7','pilot-config.v8')
 
 
-def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6','pilot-config.v7')
+def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6','pilot-config.v7','pilot-config.v8')
 
 
 def metered(c):return priced(c) or gateway(c)
@@ -39,6 +39,9 @@ def priced(c):return c is not None and c.get('schema')=='pilot-config.v4'
 
 
 def validate_budget_config(c):
+    if c is not None and c.get('schema')=='pilot-config.v8':
+        from .candidate_campaign import validate
+        return validate(c)
     if suite(c):
         from .suite_contract import validate
         return validate(c)
@@ -55,6 +58,9 @@ def validate_budget_config(c):
 
 
 def profile_for(c):
+    if c is not None and c.get('schema')=='pilot-config.v8':
+        from .candidate_campaign import PROFILE
+        return PROFILE
     if suite(c):
         from .suite_contract import PROFILE
         return PROFILE
@@ -169,7 +175,7 @@ class Ledger:
         if config is not None:
             validate_budget_config(config);require(not self.path.exists(),'new budget database required')
             if metered(config):
-                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal','tokenkey_suite_live','tokenkey_suite_rehearsal'),'C2B0 cannot create live execution ledger')
+                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal','tokenkey_suite_live','tokenkey_suite_rehearsal','candidate_loopback'),'C2B0 cannot create live execution ledger')
                 authority=Path(config['authority']['root']);authority.mkdir(parents=True,exist_ok=True)
                 anchor=authority/(config['authority']['id']+'.json')
                 # Exclusive authority binding survives controller/Worker death and DB removal.
@@ -277,8 +283,8 @@ class Ledger:
             state='settled' if usage else 'unknown'
             if a['state']=='authorized':state='released';reason='no durable reserve, therefore no send permission'
             if pilot(self.meta['config']):
-                from .stream_audit import verdict
-                a['text_integrity']=verdict(response)
+                from .channel_audit import for_config
+                a['text_integrity']=for_config(self.meta['config']).verdict(response)
             a.update(state=state,response=response,native_usage=native_usage,usage=usage,reason=reason);self.save(a)
             self.event(attempt,state,{k:a[k] for k in terminal_keys(self.meta['config'])})
             return a
@@ -343,8 +349,8 @@ def verify_snapshot(s):
         if a['state'] in ('settled','unknown'):
             require(ev[-1]['body']=={k:a[k] for k in terminal_keys(m['config'])},'terminal budget event')
         if pilot(m['config']) and a['state'] in ('settled','unknown'):
-            from .stream_audit import verdict
-            require(a['text_integrity']==verdict(a['response']),'text audit recomputation mismatch')
+            from .channel_audit import for_config
+            require(a['text_integrity']==for_config(m['config']).verdict(a['response']),'text audit recomputation mismatch')
         if a['state']=='denied':require(ev[-1]['body']=={'reason':a['reason']},'denial reason mismatch')
     require(len(registered)==len(set(registered)),'multiple attempts per registration')
     replay={};cap=caps(m['config'])
@@ -377,11 +383,13 @@ def verify_run_attempts(data,m):
                 'endpoint':endpoint_for(m['transport']['config']),'persona':agents[stream['agent']]['persona'],'task':intent if pilot(m['transport']['config']) else {**intent,'op':op['id']}},'run/actor/attempt ownership mismatch')
         if a['request'] is not None:require(a['binding']==wire_binding(scope,a['request'],m['transport']['config']),'run wire mapping')
         if pilot(m['transport']['config']):
-            from .stream_audit import verdict,audit
-            expected=verdict(a['response'])
+            from .channel_audit import for_config, native_content
+            reader=for_config(m['transport']['config'])
+            expected=reader.verdict(a['response'])
             require(a['text_integrity']==expected or a['text_integrity'] is None and a['response'] is None and a['state'] in ('denied','released'),'run text audit mismatch')
             integrity=(a['text_integrity'] or {}).get('status')=='verified'
-            if integrity and op['answer'] is not None:audit(a['response'],op['answer'],require_bytes=True)
+            if integrity and op['answer'] is not None:
+                reader.audit(a['response'],op['answer'],require_bytes=True,**({'native_blocks':native_content(data,op['stream'])} if m['transport']['config']['schema']=='pilot-config.v8' else {}))
             if not integrity:require(not any(r['op']==op['id'] for r in data['domain_receipts']),'rejected text cannot mutate world')
         require(a['state'] in ('denied','released','unknown','settled'),'unresolved active budget state')
         if a['state']=='settled':

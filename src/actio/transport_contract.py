@@ -41,6 +41,9 @@ def validate_config(c):
 
 
 def validate_pins(p):
+    if p.get('profile')=='sdk-minimal+actio-tokenkey.v4':
+        require(p.get('connection_mode')=='candidate_loopback' and p.get('model')=='gpt-5.6','candidate pins')
+        return validate_pins({**p,'profile':'sdk-minimal+actio-tokenkey.v1','connection_mode':'tokenkey_live'})
     if p.get('profile')=='sdk-minimal+actio-tokenkey.v3':
         require(p.get('connection_mode') in ('tokenkey_suite_live','tokenkey_suite_rehearsal'),'suite pin mode')
         return validate_pins({**p,'profile':'sdk-minimal+actio-tokenkey.v1','connection_mode':'tokenkey_live'})
@@ -67,29 +70,35 @@ def validate_pins(p):
 def validate_manifest(m):
     from .task_contract import validate_task
     v4=m.get('input_contract')=='scheduling-priced.v1'
-    v7=m.get('input_contract')=='finite-suite-tokenkey.v1'
+    v8=m.get('input_contract')=='finite-candidate-loopback.v1'
+    v7=m.get('input_contract')=='finite-suite-tokenkey.v1' or v8
     v6=m.get('input_contract')=='scheduling-tokenkey.v2' or v7
     v5=m.get('input_contract')=='scheduling-tokenkey.v1' or v6
     mode=m.get('execution_mode') if v5 else 'priced_rehearsal' if v4 else 'transport_stub'
-    if v5:require(mode in (('tokenkey_suite_live','tokenkey_suite_rehearsal') if v7 else ('tokenkey_pilot_live','tokenkey_pilot_rehearsal') if v6 else ('tokenkey_live','tokenkey_rehearsal')),'gateway mode')
+    if v5:require(mode in (('candidate_loopback',) if v8 else ('tokenkey_suite_live','tokenkey_suite_rehearsal') if v7 else ('tokenkey_pilot_live','tokenkey_pilot_rehearsal') if v6 else ('tokenkey_live','tokenkey_rehearsal')),'gateway mode')
     from .readiness_contract import PROFILE as priced_profile,validate as validate_priced
     from .gateway_contract import PROFILE as gateway_profile,validate as validate_gateway
     if v6:
         from .pilot_contract import PROFILE as gateway_profile,validate as validate_gateway
     if v7:
         from .suite_contract import PROFILE as gateway_profile,validate as validate_gateway
+    if v8:
+        from .candidate_campaign import PROFILE as gateway_profile,validate as validate_gateway
     profile=gateway_profile if v5 else priced_profile if v4 else PROFILE
     t=validate_task(m['task']);require(t['mode']==mode,'transport task mode')
     require(set(m)=={'input_contract','execution_mode','scenario','task','entities','agents','memory','pins','engine','source',
                     'order','max_steps','seed','world','observation_policy','gm_private','request','replay_of','transport'},'transport manifest fields')
-    require(m['input_contract']==('finite-suite-tokenkey.v1' if v7 else 'scheduling-tokenkey.v2' if v6 else 'scheduling-tokenkey.v1' if v5 else 'scheduling-priced.v1' if v4 else INPUT) and m['execution_mode']==mode and m['scenario']=='social','transport input mode')
+    require(m['input_contract']==('finite-candidate-loopback.v1' if v8 else 'finite-suite-tokenkey.v1' if v7 else 'scheduling-tokenkey.v2' if v6 else 'scheduling-tokenkey.v1' if v5 else 'scheduling-priced.v1' if v4 else INPUT) and m['execution_mode']==mode and m['scenario']=='social','transport input mode')
     require(m['entities']=={s:t['seats'][s]['agent'] for s in t['order']} and
             m['agents']=={s['agent']:s['spec_hash'] for s in t['seats'].values()},'transport seats/specs')
     require(m['engine']=='concordia.Sequential' and m['source']=='b71d202750e23444ce1bf28d9f114bcd88aa41db','transport Engine pin')
     require(m['order']==['A','B'] and m['max_steps']==2 and m['seed']==0 and m['world']==[] and m['replay_of'] is None,'transport fixed schedule')
     require(m['observation_policy']==('scheduling-own-plus-public.v3' if v6 else 'scheduling-own-plus-public.v2') and m['gm_private']=='SCHEDULING_GM_PRIVATE_AUDIT_ONLY','transport visibility policy')
-    tr=m['transport'];require(set(tr)=={'config','config_hash','campaign','profile'},'transport binding fields')
+    tr=m['transport'];require(set(tr)==({'config','config_hash','campaign','profile','scaffold_binding'} if v8 else {'config','config_hash','campaign','profile'}),'transport binding fields')
     (validate_gateway if v5 else validate_priced if v4 else validate_config)(tr['config']);require(tr['config_hash']==digest(tr['config']) and tr['profile']==profile and type(tr['campaign']) is str,'transport config binding')
+    if v8:
+        from .candidate_tasks import binding
+        require(tr['scaffold_binding']==binding(m) and t['scaffold']==tr['config']['scaffold'],'external scaffold binding')
     validate_pins(m['pins']);require(m['pins']['profile']==profile,'mode/profile mismatch')
     if v4 or v5:require(m['pins'].get('connection_mode')==mode and tr['config']['mode']==mode,'connection mode pin mismatch')
     require(m['request']=={'scenario':'social','task_hash':m['task']['sha256'],'a':m['entities']['A'],'b':m['entities']['B'],
@@ -107,6 +116,9 @@ def validate_manifest(m):
 
 
 def payload(m,seat,observations):
+    if m.get('input_contract')=='finite-candidate-loopback.v1':
+        from .candidate_tasks import payload as candidate_payload
+        return candidate_payload(m,seat,observations)
     if m.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1'):
         from .task_v2 import payload as visible
         return visible(m,seat,observations)

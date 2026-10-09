@@ -1,0 +1,1905 @@
+{
+  "schema": "phase1c2b0-review.v1",
+  "reviewed_commit": "f65045a11d1a4728b98b5564623e4827365f91c8",
+  "started_utc": "2026-10-09T02:56:14.005325+00:00",
+  "status": "PASS",
+  "scope": "read-only source/evidence audit, offline verifiers, pure configuration regression; no new DSH/HTTP experiments",
+  "review_model_requests": 0,
+  "review_external_provider_requests": 0,
+  "review_local_http_receives": 0,
+  "review_workers_started": 0,
+  "review_evaluator_calls": 0,
+  "review_real_cost": 0,
+  "history_checkout_line_endings": [
+    {
+      "path": "docs/prompts/phase1b1_reliability_and_evidence_export.md",
+      "recorded_lf_sha256": "823ed64210c1cd5428115d03215ae828a9412203b5ef1e9e5835b0fdf00f5194",
+      "checkout_crlf_sha256": "f095963c419f1a723d72395828dc90a2fefbd2a60fd42b10862acc60fb506088",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/prompts/phase1c0_offline_measurement_and_sotopia.md",
+      "recorded_lf_sha256": "3f2a339cd9d26cd05b92cc50e6ea1f00179f05524ca3b8a841d72faddb795d00",
+      "checkout_crlf_sha256": "a8210d1b7afa0cb7ec3c2cbb4a23d077e68a872d0dbb4d25a27244766f38d15e",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/prompts/phase1c1_task_contract_and_calibration_readiness.md",
+      "recorded_lf_sha256": "aaf65cef3253dee6bdb82c0dcf3c4e27ed1c781cfe875ec818f86ae9d42b0802",
+      "checkout_crlf_sha256": "e9d4a201062da1633d164401d6a43a3b38e074f7bdf4c95939ce856bbbb5f3ca",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/prompts/phase1c2a1_chat_completions_and_budget.md",
+      "recorded_lf_sha256": "8608920f57eb3baf9f0c4e6d896bbecfe79b91567daa7c501e4c99283f2c9969",
+      "checkout_crlf_sha256": "2df97fb1ce9a16655ac72d682164b4fbb729f70eec808ca67d702e56c3527d61",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/prompts/phase1c2a_solver_transport_and_budget.md",
+      "recorded_lf_sha256": "b9396de8afe0b0f66ef47590db0e903a4ea80e6d11be42658f238ad3c4de835a",
+      "checkout_crlf_sha256": "82f815156287a2726dd9fe172211ef01423d400414c251f703fc62ca34516313",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/prompts/phase1c2b0_solver_live_readiness.md",
+      "recorded_lf_sha256": "ed30e778d11f55e66c36d7f0756872b1e822e40098dea882e4adbfcd29878f73",
+      "checkout_crlf_sha256": "0429dee6879173da1def17066e1dedba122d84af22fedd01c62c159cef092cd4",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1b1_review_and_phase1c0_plan.md",
+      "recorded_lf_sha256": "4156438a599810c0b8b4724dbc2c9bfe0b03aae1d9923d21057c53c398ec441b",
+      "checkout_crlf_sha256": "cf13d90658f6fea75f6cc27661bff725ed715260ce32ec631af9b8b5fabf4765",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1b1_review_evidence.json",
+      "recorded_lf_sha256": "4faf46eb54cac294da1ed4dec3cc8f03c927850054a79309f5079a990b4edd2e",
+      "checkout_crlf_sha256": "b76cb685dab768a455fd1baa93da1faf28ea3bf90ccc161cd0d4e17d47607a5d",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1b_review_and_phase1b1_plan.md",
+      "recorded_lf_sha256": "d2c788228d404b307371fca0f4fca578681f5a3157db7cff72e95878f25174cb",
+      "checkout_crlf_sha256": "cdfe80ec8b7aaf4f9d966377c4a9fbecfe0836a500e873a62bce7f221cb2155a",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1b_review_evidence.json",
+      "recorded_lf_sha256": "248074cdb235c01c4a812c12c9be20acb34e8835f56cafd8dd76758a1b0ae7d3",
+      "checkout_crlf_sha256": "472770f40f1624166e2052816c2d519f38571da2ad36bd060063b20fd1a9504b",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1c0_review_and_phase1c1_plan.md",
+      "recorded_lf_sha256": "e0cc7a5cc96ad2f9669b507d226763bb79f79d6eb2dd365c9b0a178c3bcc2273",
+      "checkout_crlf_sha256": "00f4c018536ead49b78396df06a5bf8a303368d77e816aaec06ef6129c1e6936",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1c1_review_and_phase1c2a_plan.md",
+      "recorded_lf_sha256": "d56a5afd83782b780adf1dba4782332f24531ce4bfb7292569366753df4171df",
+      "checkout_crlf_sha256": "68478a02bca5664fb3a77addbd4ce493b80a342391070b965a8a96e39c27805d",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1c2a1_review_and_live_readiness_plan.md",
+      "recorded_lf_sha256": "9ad71ffac94ff811eb06b5dc97cef339cc297ded1360acbe47b010eba2ad671b",
+      "checkout_crlf_sha256": "7aa2924081d2e05f423a535420e01fa969b567d3d724f8807e388e0bd34bb6d8",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1c2a1_review_evidence.json",
+      "recorded_lf_sha256": "2a9277cf055087a8a5610b7ba1e578e14ae652aed2a9dd072c6654dd7ea1624d",
+      "checkout_crlf_sha256": "bca125a6bcbd7473aafbf8597a1c8e404d704cf5f6f41ed6ed488b5602a0e99b",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/reviews/phase1c2a_review_and_chat_completions_plan.md",
+      "recorded_lf_sha256": "90907634b4d359c8fa9aa2637328444dc23ed421287bb3dff5c7a59b14ca65e1",
+      "checkout_crlf_sha256": "01366e05b494c5bef42f83978d805c0c680f62ec6cfe88273bad6cf5ea7d88f5",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/01_review_resolution.md",
+      "recorded_lf_sha256": "83486efae100e6d8332e592ceaedb2ca8a965da46a8350d35ca1257dc94f2df5",
+      "checkout_crlf_sha256": "81092de5efc3f5758cb32c671d752727a87edf9d84c86930ed98d97900e1a5be",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/02_artifact_and_environment.md",
+      "recorded_lf_sha256": "726afa6ddc6683ac4465a7e55926765e9e83dcccfedd76dd4b98c81dd6abb1d8",
+      "checkout_crlf_sha256": "ef6ec76d2902db9adc44f7238f88f63a0a4e5222f7bab2647a8e7ea5b1106ea1",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/03_runtime_and_tool_results.md",
+      "recorded_lf_sha256": "01abb216062749f2b8f15b959f4bb4469a92112ad3eef7a49c36e7a0427afd59",
+      "checkout_crlf_sha256": "908e03297af9b1d630ba6d30f3d48e6644109f245a4b917744445d32248bf3c5",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/04_event_and_failure_results.md",
+      "recorded_lf_sha256": "43e6557ea4c53c9a58b0c309dc3efa4e7998debc46453ecae61a179c3a86e62f",
+      "checkout_crlf_sha256": "800fe76ef38293779e0006181219cf4a7108d7e277cca8f01c97ea65ad96efc3",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/05_concordia_and_eval_results.md",
+      "recorded_lf_sha256": "b0d6a439cbb58d801949080575dd280632db176f8793d8fc560ce85c66e0043b",
+      "checkout_crlf_sha256": "2de7790abbf14abc7dbf742486a22d45998008b0a484f8c4d4698b8f1fd7cdd1",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/06_go_no_go_and_next_slice.md",
+      "recorded_lf_sha256": "e74a303dfe9f4bfa14572d0d1accb4af1c47c8416da3d84ca1aa2bc50951562a",
+      "checkout_crlf_sha256": "2f837520d9a2adc14a1d97dbf475cc1cf6caed500f763b6740a4cd5260fff18b",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "docs/validation/phase1a/README.md",
+      "recorded_lf_sha256": "cb92f9715566d73503072c199a823ad83db86ce787b4445e85641c8dc4d1e778",
+      "checkout_crlf_sha256": "c78eb09e3eddb6b92568fac8d95acf12e99d9eafbd14ce7f1e9d05a042716071",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/README.md",
+      "recorded_lf_sha256": "b39dc561fb75ad76e10dff94d63eaad4dfa49ea83f70f570ec98d904d40f00fa",
+      "checkout_crlf_sha256": "2f4dfe3d861ebcb9228ab77db34489de923b9cae26e8493cd796ebacbee42714",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/artifact_info.py",
+      "recorded_lf_sha256": "f77843f32126352d1fbd709df51c130b5628291f42e07584a3bc3d42a056e4c2",
+      "checkout_crlf_sha256": "37f8484d0795cb5e759ef6e62df7311ca94300ca44bab6bb73cc5ecdaa0afa69",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/bootstrap.py",
+      "recorded_lf_sha256": "7fb2f21b9c146a84c619610d4b2c7dedae6be9f15fdb44bb234d8edd8d1034a3",
+      "checkout_crlf_sha256": "cbb632b530126c2b5fe74ddca4117d6225ae051a18efea254dbd1dbe3935d847",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/build_manifest.py",
+      "recorded_lf_sha256": "c781b4a700aeef1ebbd4d077ec39f29f369c81d8cbca145c8ae6edff205652cf",
+      "checkout_crlf_sha256": "1b4a99b5b0f7298eaa63aed693cf325fb55d1045019f53e608c5d33e7d533e2c",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/common.py",
+      "recorded_lf_sha256": "0ce103bd99c87cf845d1f71002cef41c66a6744a3ef26444a89f771df509d475",
+      "checkout_crlf_sha256": "ba3dd6453939daea5fbbfb218366af5f46fc4c719ab6ba4bf3dfbad981ca5761",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/concordia_case.py",
+      "recorded_lf_sha256": "b1d1a9cd0ad47412c953bb58415bec81f9be859b3be42093ab8b3cef89c4e3e2",
+      "checkout_crlf_sha256": "f699f067409f0c2bb5dab54fd93afb4c2e26a3c99f014fd3a195bdc9d886e0c1",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/eval_probe.py",
+      "recorded_lf_sha256": "92fd37b7b36f5526fac4af93b207de52b9575fea9ce7ab7f237132c90fcde0d6",
+      "checkout_crlf_sha256": "4106fcfad7ef8c871329e23212cdc60b48c3b6c27f81f8e0e445d406f87bf2f8",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/event_probe.py",
+      "recorded_lf_sha256": "c2c279663fb9cfa6fa1a2d9f9dd3807da9efe5b0ea06f04aa4572d1875531c02",
+      "checkout_crlf_sha256": "20dca84de55cddf058a7329a3705b519df416cde29e6338df5534699a646c1ed",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/fetch_artifact.py",
+      "recorded_lf_sha256": "98e1663d542943a0c227bfda76f4c8cdcf84db8358f23b4c68c4f3c5889b4394",
+      "checkout_crlf_sha256": "75854d9877bbd0041140390b3243e50d350bba95b457cf2aa43a7f4cac90d4f3",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/fixtures/mcp_server.py",
+      "recorded_lf_sha256": "efd3da06237b0fd025d9d56bf59031d1689254b9b0fe7dbd8d13904b37378d82",
+      "checkout_crlf_sha256": "3fabf74f90875414ae8594bf3d9a6dfb5eb3a938d98beb9152d41a5e52b4c335",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/fixtures/provider_policy.mjs",
+      "recorded_lf_sha256": "f65a91ee48009b4b39794c61a57c9d01bb17b6ffbbb9f5c4b715469be9dd4a00",
+      "checkout_crlf_sha256": "c7ea9c063b13eb2d674fab6ef4f84b403944d5ace8a4a8450da7c886e8e26b85",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/lock_environment.py",
+      "recorded_lf_sha256": "77519f4f63e6d67a06fb287dd91ae0974524b2e14c90956471a750748aa413e0",
+      "checkout_crlf_sha256": "e71f0832bd99ce0fccae9a86ff60e10ac627231edfabe6e0bfed29db9d4b96c9",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/requirements.in",
+      "recorded_lf_sha256": "1ceabf39154cf00e69e7af1d1e5447e67a6f3b2badad8cb2e700e49c71136ed1",
+      "checkout_crlf_sha256": "072bac9eabd29ff327ebd23d6f577e2380c46b8b7365dcd3efdc330b77a0450b",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/run_runtime.py",
+      "recorded_lf_sha256": "773cd55e2eef96818e904195a75bc4238bdbdce536188b3e1c67aec08a8e6a88",
+      "checkout_crlf_sha256": "8e339a83f2216e927bff22b96dbdb0b1701490495fd70d74db987fd36d17702f",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/runtime_adapter.py",
+      "recorded_lf_sha256": "4c8d4067f04fab54621ebfaa5b1176f043a9d3ceb30a6418c2581ca48b2ab893",
+      "checkout_crlf_sha256": "5d4e1346055bdb7eed4778e13f18d13739569ea203ea86ffd51b7f76065d6c23",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/runtime_cases.py",
+      "recorded_lf_sha256": "53a16cd9f2b3ef823f95500c0bcfbe05cd1b16bdcc80fd919086b4e2dc3d667a",
+      "checkout_crlf_sha256": "025184039f1d8c29620ad8ac7a973c3b53eccac761659cdf4b3de89c62b907a8",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/verify_delivery.py",
+      "recorded_lf_sha256": "bb107a1a4f756cc2e11f1591f6f5a17c8e8e5518a85ffb050db2e1d342aef03b",
+      "checkout_crlf_sha256": "2744fe0414a1c3138e5cb3c57ca2e3e704f196d5943ece81e1df222681cfdb07",
+      "git_blobs_unchanged": true
+    },
+    {
+      "path": "probes/phase1a/winjob.py",
+      "recorded_lf_sha256": "f662a1d579d71f3d3aa5096597743d5d5cba12bf79ad0397eba6ff8a2218dc27",
+      "checkout_crlf_sha256": "12ae0cc12ef7f8d1d9334c7fa5563efff5fcc83134b3da1b4881707f610ffa7d",
+      "git_blobs_unchanged": true
+    }
+  ],
+  "initial_review_failure": {
+    "reason": "strict history byte hash mismatch after checkout CRLF conversion",
+    "first_result": {
+      "schema": "phase1c2b0-review.v1",
+      "reviewed_commit": "f65045a11d1a4728b98b5564623e4827365f91c8",
+      "started_utc": "2026-10-09T02:55:12.079935+00:00",
+      "status": "FAIL",
+      "scope": "read-only source/evidence audit, offline verifiers, pure configuration regression; no new DSH/HTTP experiments",
+      "review_model_requests": 0,
+      "review_external_provider_requests": 0,
+      "review_local_http_receives": 0,
+      "review_workers_started": 0,
+      "review_evaluator_calls": 0,
+      "review_real_cost": 0,
+      "error": {
+        "type": "AssertionError",
+        "message": "('history', 'docs/prompts/phase1b1_reliability_and_evidence_export.md')"
+      },
+      "finished_utc": "2026-10-09T02:55:14.209598+00:00",
+      "runner_sha256": "23ce2db6f8725a8391f4048ff39bba7e419a3c3349ecc49776589ec3cce46305"
+    },
+    "handling": "Retained initial failure; no old file or manifest changed; only verified LF Git blobs for listed paths. Artifact/ZIP checks remain exact bytes."
+  },
+  "hash_checks": {
+    "artifact_hashes": 51,
+    "product_hashes": 41,
+    "test_hashes": 23,
+    "tooling_hashes": 32,
+    "lock_hashes": 4,
+    "entry_hashes": 2,
+    "intermediate_source_archives": 1,
+    "preparation_logs": 6,
+    "historical_files": 612
+  },
+  "manifest_sha256": "7788bb4cf6a09eecb41fc8372633a12b99cf0490847e4f1437dd920c28523da3",
+  "delivery_sha256": "f17d7859435b51abcd804898e55da9a32c3fb6ed643722546e56448f0079a58e",
+  "installations": {
+    "runtime": {
+      "files": 41,
+      "matches": true
+    },
+    "release": {
+      "files": 41,
+      "matches": true
+    }
+  },
+  "published_suites": [
+    {
+      "suite": "budget",
+      "tests_run": 4,
+      "file": "evidence/20261009T024014Z-5d48fa92.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "evaluation",
+      "tests_run": 8,
+      "file": "evidence/20261009T023322Z-a3b5c662.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "evidence",
+      "tests_run": 7,
+      "file": "evidence/20261009T023301Z-033605d2.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "input_binding",
+      "tests_run": 3,
+      "file": "evidence/20261009T023306Z-1f0ff029.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "preflight",
+      "tests_run": 5,
+      "file": "evidence/20261009T022756Z-900bffd5.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "readiness",
+      "tests_run": 6,
+      "file": "evidence/20261009T023332Z-5db54cff.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "readiness_config",
+      "tests_run": 3,
+      "file": "evidence/20261009T022755Z-69d79de5.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "reliability",
+      "tests_run": 8,
+      "file": "evidence/20261009T023222Z-2356d278.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "runtime",
+      "tests_run": 2,
+      "file": "evidence/20261009T023138Z-c723b6e5.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "schema",
+      "tests_run": 5,
+      "file": "evidence/20261009T023305Z-37b7b986.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "sotopia",
+      "tests_run": 3,
+      "file": "evidence/20261009T023308Z-52cc05f3.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "task",
+      "tests_run": 7,
+      "file": "evidence/20261009T023005Z-92cdef9f.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "transport",
+      "tests_run": 4,
+      "file": "evidence/20261009T023927Z-ea732826.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    },
+    {
+      "suite": "transport_config",
+      "tests_run": 3,
+      "file": "evidence/20261009T022756Z-9fe74ef5.json",
+      "source_test_binding": "MATCH",
+      "rerun": false
+    }
+  ],
+  "archives": {
+    "count": 43,
+    "members": 5269,
+    "bytes": 13046701,
+    "all_hashes_match": true,
+    "public_source_zip": {
+      "file": ".local/phase1c2b0-raw/public-source-pages.zip",
+      "members": 9,
+      "bytes": 45481,
+      "matches": true
+    },
+    "total_zips": 44,
+    "total_bytes": 13092182
+  },
+  "independently_recounted_history": {
+    "all_phase_http": 158,
+    "final_formal_http": 83,
+    "all_sending": 162,
+    "final_formal_sending": 85,
+    "priced_rehearsal": {
+      "sending": 76,
+      "receives": 74
+    },
+    "v3_regression": {
+      "sending": 86,
+      "receives": 84
+    }
+  },
+  "public_sources": [
+    {
+      "name": "pricing",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "final_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "status": 200,
+      "bytes": 23982,
+      "sha256": "210f102275ccf1a6542f08a3bc9e4b4c7c83278cb74b35217bffa112df6363b2",
+      "accessed_utc": "2026-10-09T02:54:10.957347+00:00",
+      "extracts": {
+        "CONTEXT LENGTH": "efault) modes See Thinking Mode for how to switch CONTEXT LENGTH 1M MAX OUTPUT MAXIMUM: 384K FEATURES Json Output ✓ ✓ Tool Calls ✓ ✓ Responses API ✓ ✓ Anthropic API ✓ ✓ Chat Prefix Completion（Beta） ✓ ✓ FIM Completion（Beta） Non-thinking mode",
+        "1M INPUT": "king mode only Vision ✓ Not supported PRICING (2) 1M INPUT TOKENS (CACHE HIT) OFF-PEAK $0.003 $0.022 PEAK $0.006 $0.044 1M INPUT TOKENS (CACHE MISS) OFF-PEAK $0.15 $0.66 PEAK $0.3 $1.32 1M OUTPUT TOKENS OFF-PEAK $0.6 $1.98 PEAK $1.2 $3.96 C"
+      }
+    },
+    {
+      "name": "chat",
+      "url": "https://api-docs.deepseek.com/api/create-chat-completion/",
+      "final_url": "https://api-docs.deepseek.com/api/create-chat-completion/",
+      "status": 200,
+      "bytes": 142966,
+      "sha256": "e7133a7c2a7c2662567cca2e2392b503f97c2fb583009ff85f878744e0a36ba7",
+      "accessed_utc": "2026-10-09T02:54:11.155619+00:00",
+      "extracts": {
+        "max_tokens": " medium / xhigh are accepted and mapped to high . max_tokens integer nullable The maximum number of tokens that can be generated in the chat completion. The total length of input tokens and generated tokens is limited by the model&#x27;s co",
+        "400": " if stream is not set to true , the API returns a 400 error. include_usage boolean If set to true , all chunks in the stream will include a usage field, whose value is null on every chunk except the last one. If omitted or set to false , th"
+      }
+    },
+    {
+      "name": "tokens",
+      "url": "https://api-docs.deepseek.com/quick_start/token_usage/",
+      "final_url": "https://api-docs.deepseek.com/quick_start/token_usage/",
+      "status": 200,
+      "bytes": 22447,
+      "sha256": "08bf766935b9ff92aee592c70bdac0908e3f44f1e3e52e93dd7aeafc9925fd1a",
+      "accessed_utc": "2026-10-09T02:54:11.263504+00:00",
+      "extracts": {
+        "tokenizer": "culate token usage offline ​ You can run the demo tokenizer code in the following zip package to calculate the token usage for your intput/output. deepseek_tokenizer.zip Calculate image token usage ​ You can estimate the number of tokens co",
+        "0.3": "approximately as following: 1 English character ≈ 0.3 token. 1 Chinese character ≈ 0.6 token. However, due to the different tokenization methods used by different models, the conversion ratios can vary. The actual number of tokens processed"
+      }
+    }
+  ],
+  "samples": [
+    {
+      "name": "success",
+      "valid": true,
+      "counts": {
+        "registered": 2,
+        "attempted": 2,
+        "not_run": 0,
+        "send_attempts": 2,
+        "received": 2,
+        "settled": 2,
+        "unknown": 0,
+        "denied": 0,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    },
+    {
+      "name": "stall",
+      "valid": true,
+      "counts": {
+        "registered": 2,
+        "attempted": 2,
+        "not_run": 0,
+        "send_attempts": 2,
+        "received": 2,
+        "settled": 1,
+        "unknown": 1,
+        "denied": 0,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    },
+    {
+      "name": "length",
+      "valid": true,
+      "counts": {
+        "registered": 2,
+        "attempted": 2,
+        "not_run": 0,
+        "send_attempts": 2,
+        "received": 2,
+        "settled": 2,
+        "unknown": 0,
+        "denied": 0,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    },
+    {
+      "name": "last-money",
+      "valid": true,
+      "counts": {
+        "registered": 4,
+        "attempted": 3,
+        "not_run": 1,
+        "send_attempts": 1,
+        "received": 1,
+        "settled": 1,
+        "unknown": 0,
+        "denied": 2,
+        "released": 0,
+        "real_model_requests": 0,
+        "real_cost": 0
+      },
+      "model_requests": 0,
+      "evaluator_calls": 0,
+      "network_process_write_guard": true
+    }
+  ],
+  "pure_configuration_regression": {
+    "command": [
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2b0-release-venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-I",
+      "-B",
+      "-c",
+      "import sys,unittest,json\nsys.path[:0]=[sys.argv[1],sys.argv[2]]\ns=unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromName(n) for n in ['test_preflight','test_transport_config','test_readiness_config'])\nr=unittest.TextTestRunner(verbosity=1).run(s)\nprint(json.dumps({'tests_run':r.testsRun,'failures':len(r.failures),'errors':len(r.errors)}));sys.exit(not r.wasSuccessful())\n",
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\src",
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\tests"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"tests_run\": 11, \"failures\": 0, \"errors\": 0}\n",
+    "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.719s\n\nOK\n"
+  },
+  "legacy": [
+    {
+      "phase": "phase1c0",
+      "commit": "1e85d8c2fb4a756de81acb333905190df9e97592",
+      "source_matches_git": true,
+      "result": {
+        "records": 12,
+        "all_valid": true
+      }
+    },
+    {
+      "phase": "phase1c1",
+      "commit": "af0a88cfff23c22c396fd7c9ef9916f0df8cd21f",
+      "source_matches_git": true,
+      "result": {
+        "records": 22,
+        "all_valid": true,
+        "campaign": {
+          "valid": true,
+          "campaign_hash": "56663f1de9158d9106cd7419308046334e088e1264d75c18ad220fb71f46286e",
+          "counts": {
+            "admitted": 15,
+            "infrastructure_failure": 2,
+            "insufficient": 5,
+            "invalid_measurement": 1,
+            "measurement_error": 0,
+            "not_run": 7,
+            "registered": 25,
+            "rejected": 2,
+            "task_failure": 8,
+            "timeout": 0,
+            "unique_evidence": 10,
+            "unique_measurements": 22,
+            "valid_measurement": 14
+          },
+          "evaluator_calls": 0,
+          "model_requests": 0,
+          "scope": "complete relative to sealed dataset and inventory; hashes do not prove authorship"
+        }
+      }
+    },
+    {
+      "phase": "phase1c2a1",
+      "commit": "b086cbae97fcebd5c818dce611a0c2a331380cb1",
+      "source_matches_git": true,
+      "samples": {
+        "success": {
+          "valid": true,
+          "report": {
+            "schema": "transport-report.v1",
+            "campaign": "6b2bc28ee3ea470381f69e3e5909ca4e",
+            "counts": {
+              "registered": 2,
+              "attempted": 2,
+              "not_run": 0,
+              "send_attempts": 2,
+              "received": 2,
+              "settled": 2,
+              "unknown": 0,
+              "denied": 0,
+              "released": 0,
+              "real_model_requests": 0,
+              "real_cost": 0
+            },
+            "totals": {
+              "calls": 2,
+              "cost_minor": 34,
+              "input_tokens": 24,
+              "output_tokens": 10
+            },
+            "runs": {
+              "3ffdeb946c6b453d99e0f556791cd94b": {
+                "task_outcome": "success",
+                "scenario_completeness": "complete",
+                "world_effects": 2,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 2,
+                  "unknown": 0,
+                  "mode": "synthetic_only"
+                }
+              }
+            },
+            "usage_basis": "synthetic; no real tokenizer/billing bound",
+            "independent_units": 0
+          },
+          "model_requests": 0,
+          "evaluator_calls": 0
+        },
+        "missing-done": {
+          "valid": true,
+          "report": {
+            "schema": "transport-report.v1",
+            "campaign": "6556e7b0861a4a348b79870a0ce25c22",
+            "counts": {
+              "registered": 2,
+              "attempted": 2,
+              "not_run": 0,
+              "send_attempts": 2,
+              "received": 2,
+              "settled": 1,
+              "unknown": 1,
+              "denied": 0,
+              "released": 0,
+              "real_model_requests": 0,
+              "real_cost": 0
+            },
+            "totals": {
+              "calls": 2,
+              "cost_minor": 65617,
+              "input_tokens": 65548,
+              "output_tokens": 69
+            },
+            "runs": {
+              "abcd6f2a05564fa0a12273abd14e483f": {
+                "task_outcome": "infrastructure_failure",
+                "scenario_completeness": "partial",
+                "world_effects": 1,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 1,
+                  "unknown": 1,
+                  "mode": "synthetic_only"
+                }
+              }
+            },
+            "usage_basis": "synthetic; no real tokenizer/billing bound",
+            "independent_units": 0
+          },
+          "model_requests": 0,
+          "evaluator_calls": 0
+        },
+        "last-call": {
+          "valid": true,
+          "report": {
+            "schema": "transport-report.v1",
+            "campaign": "29145f10443448df8db3714f0a741092",
+            "counts": {
+              "registered": 4,
+              "attempted": 3,
+              "not_run": 1,
+              "send_attempts": 1,
+              "received": 1,
+              "settled": 1,
+              "unknown": 0,
+              "denied": 2,
+              "released": 0,
+              "real_model_requests": 0,
+              "real_cost": 0
+            },
+            "totals": {
+              "calls": 1,
+              "cost_minor": 17,
+              "input_tokens": 12,
+              "output_tokens": 5
+            },
+            "runs": {
+              "828a4b48b8cd46d587d4619cb8af2894": {
+                "task_outcome": "infrastructure_failure",
+                "scenario_completeness": "partial",
+                "world_effects": 1,
+                "accounting": {
+                  "attempts": 2,
+                  "settled": 1,
+                  "unknown": 0,
+                  "mode": "synthetic_only"
+                }
+              },
+              "c44c36357a474cf2b05e874eb91e3776": {
+                "task_outcome": "infrastructure_failure",
+                "scenario_completeness": "partial",
+                "world_effects": 0,
+                "accounting": {
+                  "attempts": 1,
+                  "settled": 0,
+                  "unknown": 0,
+                  "mode": "synthetic_only"
+                }
+              }
+            },
+            "usage_basis": "synthetic; no real tokenizer/billing bound",
+            "independent_units": 0
+          },
+          "model_requests": 0,
+          "evaluator_calls": 0
+        }
+      }
+    }
+  ],
+  "jobs": {
+    "queried": 219,
+    "active": 0,
+    "action": "query only",
+    "records": [
+      {
+        "job": "Local\\Actio-004d0407b3324fe38eb0102b9cae1e2e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-00f0b017f95e4ee4bed772ce7abebd90",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-01641a72ab3344198b7ba74505ce09cd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-01d641137ef648a08d0c2699e56d68fd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0271b60685fe433f8272c95352bae4a3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-05bd6183da3e4880ad4357da396db4d4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-066d61eafc554523bf055e86cb767ca8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-06e95e2cda3245bbbfb188dc1b0d6f0f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-06fce011bfb34b90808f3c107dfe5e5c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-07535f2bc8fb401b836a8b19a3a230b0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0a1f9e7303964be59ecd1f8b90d0f695",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0a5423a355f24033917058b96ea87332",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0a5ad1bec2904b14b21dc1386a9e74e4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0b2b329adac54a0da623d660d34e1605",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0bee4ddcd502433c9e2edfb84e6d993a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0c6339f5a7924aa6be0e8be63b100e0c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-0ccf049d6b324a6aad2e010717e0278b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-10055ccb9cde491a9561d67ab3bcf899",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-11550f7fe062463f8f999a823320e655",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-11832be1b46749de9ab6300df6368c3a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-11f025a5e0d34d0aa6b619d21a121d9d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-12d3dc742c3a44fdb8ea7bbf6a0d48f7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-12f09af0f80b4322a9662ccaf1539e23",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-13644523aae241628df2e3311be4e51d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1411922c7a72479f83eb08d0d11260ad",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-145d9ad6c2fd4af5b4282fe91ff0ef59",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-15411cb4fe074ca7a25a30ab892a4f6a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-16863e31f7844db89521ff89f239934e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-182dbfe2b0fe4d26ba825461d3ae9516",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-1f3669dfd07c41ecb120626a8afe4792",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2198d14fd0d84b87acebfb1371c637e2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-242392926931412cb5c38260927a577a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-27101aeab3144cb981e02653735b026c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2889cd9a6c16479982327f9c548920ea",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-28ae12af6abf4c4fae5e7d59555c7820",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-28afafaa432b4fa1a51459814a351ae7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2cc103bd060a4755aa9e2e2f358f9d73",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2ef57b6d787845cbaf90c0e6ac773ac1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-2f3e24a756d7442a83888128acec3b34",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-31681752fbc24b9da6311e649c6b424c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-31ade467c1ff4874b2782243c3fb7308",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-33f1b78db1534fce96dea624742eb258",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-34d953aef9264239a91de4d667a59da1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-34ec3759aa8b41ce8770317e4dbb22de",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-37b0c9e610a84541a433c35aa7cf048a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-37fddd3f224744738254c0102d6a637e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-394954767bad4479940d9c908bf18b44",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3a4295f4d6c64d8999be88b79d08b637",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3aff75a2518e4d908a635756da31e94c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3b169e989da849af8706818fb241b774",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3b466dcc12ac4e6f823c1dc9b4881608",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3cad1528ece642c8a08bfe6c11da5690",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3ddba7ea470a46e2a573c92877b9a2e2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3ddf026ed9ca4449a869ddfb22349368",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3e46f31d8cb74bd985491b9356ee8163",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3f1574fea59041ab914ff6d5a062757f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-3f2af6c16a93442cb050c24673f359bf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-439d7e3578e144bc95a864e953342b04",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-43c6b4f252314b93864d2c39b0f8c2f6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-45e19bb5fc8c4b7f96bd0afc89737e41",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-45fbee2faa5f4502a9780abf03562797",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-465fea6dad184e6fb67a99e51df9ac3b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-485cdf477b7347ef8f4ed81286338023",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4a16a0e6c31b44f1aa98743de0704da3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4b7f6a7a967349d6bc42ec46389a107b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4c852443112a453fa290e0f604c12e8e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4d4b1bfc55c246308a8bf05b4c68ce82",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4dc5a5f602664e8f877b39934d5db965",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4e196badc58849759e030a77054ce1cf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4e62f9eb02f142e497439b07c8dab40f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-4e7b2c3302244dd38b4f4261303730ee",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-50610ed58e6047f898c7b2d24ae17e89",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5139749965a6476f98b3f7dfce12f874",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5359e3fbb3644bd9bd9c58cb4b6330ca",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-536840a4034c4389a57f31aec5900d1f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-54cae0a6e135420788dc0a509ae964fb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5600de1de98b435da85057284e265b67",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5756b78a6cad40e89e3d7320f5dd3e90",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-576850388f2f4cb1a9505b66f5b313e0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-58c4e06cc82541348eae7a07ae399bb9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5a4cc8fabeb94a5ebbadcd54f86b7101",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5ae17f6bf9174790b734f67ece34985a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5c71747ef8ea4523a6156db69b19d8dd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5cd969208a064c6885db9857b143aa3b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5db7ec84002b4669ba9fc7e33a8ef15f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-5de13278497d4f7e9e4429a9db8a4ba4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-64d03844263943658baa130d6df5763e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-650e71afe94f44a0b72afc4fd65dfb35",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6524ffb972c14a33a2b0b6e5328beac8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-659dd31006794ed087beadd0a146fedd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-65f3e823068742779a83979d075bb8c6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-687e6899e66943d9b7d8458bb1809918",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-694cadf2d845418a86d5523bb230b130",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-6967d69eb8a748a6ab959a49cc2d9da3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-715694a5e3434ebf9b38b3bc3fed8dd6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-735b548adb394471b8960931f4442e57",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7481929dea2e4d768c15bcc6935cd674",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-748e041b842340438997220610f9e5a8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-74d1a40a03e143fa90ce2291392f0951",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-76958df0ae9e46cfbfea3413fd114d96",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-77f09155620843e5b8562007f12bc4d2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-79e7388ea3b944d8a668fe67c5051155",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7a9a215c7d4241e3bb15dede777ed964",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7aa4ebe39ee14e9fad9ca849c2edaf61",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7bcdbfaf7099428f937518390c28c8d3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7cb18cfb879a4a83925153744e25b6f8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7d21afffe75044719da2307c5361e991",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7dcada217eb94426a2bc4460a59188ab",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7de0533a9fce4653b4e7a5a054e2ecdc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7e3cd49181444c1a94120a0d25b96dcc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7e85d3dbade34e5ab12d13f3e421057b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-7efa43c540c1494c98b75a59de43faa2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8029dc23e1184162a6e6b82abcddd161",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-812ccc7cc3ae4a66ac870ed4cc2941ce",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-81b0a3f00a424140bb2eb8f7ac4ce5b3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-82b712d529d442f889297bf016948d3e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-83d28f5cdddb4f9c99db1a190ea047b4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8656dd6f499d4ad0acc911074b968716",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-87108d6cd77944c39e5a8ce9c40d8a31",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8a5967af20ee4147b9c2ba1ec2325a43",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8a9c73d89c254b9884d642c9b7b4abf6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8b718ab415b141e28e3b0176bfe53c78",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8c326f98c0eb4637b7218bcbdc08518e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8c86e55f322c48ac91e49e77bd15aade",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8cd7aa3962774e1f8533114cd4ad71a8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-8eb0e7ed6d6d41fea4407e2523e55f62",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9039bd4c864d44a9a19dab2c355ec154",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-90605361600544ef82802db3a524d473",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-910cbab34af44019ae787c530caf791e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9310621b3a2d4801b2f920a71f991662",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-93cd25856c1848469726f6f3988fb5cf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-941ee425debb454baf2e4037ee701787",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-97ea7a3b79d54b0e852fdb18d0b26d1b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-98437e383fec43e4986bba596a3cc2b9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9845a9374e4d4b5eab7eda34108549c4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9892ef24222241aba5a9e39302ca31a0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9a4256b23a024cac802177d2c5362fa8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9b99905fa84947fea3ae29be40989985",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9bc20ba907004c1193a2b28e6de516ab",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9ceb2710936942f2a36b144445b546f0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9db28c5df04a4e358bd4a441d451f49d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9f93aac03a224085bdfa74fad438dc3e",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-9f996a3cdfbc4fe6aae57b557ac79fe9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a19b7f6f22184861b7e909323941e0ed",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a23df2f485c44a378948c6c3a75eaec7",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a2fd25b02d7d4cc9b479c3640c230dc1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a381ac4be7dd486dad43627b3ac049bb",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a3e57cff8a804ea8842829952c41fba2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a425763857844edc96b31fb17b60f2aa",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a4307a23840f456eb336259f46b9b516",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a57c872abc654021b0c2b84a9f84c676",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a74fc01a1ed6478893eef200c51c6b1d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a92bfeca8cd74d41991f360bb448a2a4",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a9700cfe72e64ec4bea0e39031e8bf96",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-a9e8077428fa44fcaa32218f8e854932",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ab6bad56d2f4480ba508a68f30794f99",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ab9053a5e40348f883c0a51b9c30e4cd",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-abd96868ae8a47cc8369a372cbdbd5cf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ae53bc2f64ad441d80208b8bb44172d3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-aeec7a049e9c43e09c804c45e1a6009a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b054dd336e7e4ee5adf004be8a57b7aa",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b0b45cf662ba4a878dd6e6e6d091f0d3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b16adacd779542e1930ba69a058fb090",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b1b2be9e06ca4cc0826a36c65bc1819c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b4327dd3886f46f9a0da51f552911a20",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b6cc6adc29694a69b464e0f6aec0e5f6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-b9f35e93cc8642d78c00c349709bfd5d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ba55653b72e64149a267e767e192cfbc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bd725f1d07294633aa47a49e4462efb2",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bd94e569a3b0457ea2e5bc01cc638b27",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-bfcd9e619fe94eefa3defec84b3ba035",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c23fbc55440a47cfa6dad9581514796c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c45d1daf284f4866843e13eed2b4ab53",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c49d72de237142c4ab386fff541b6b9a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c5bc6f14bd6b41a0b219d933ade1ab93",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c6b2dea83db443ce8b539b0d2da9a686",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c78c80b135744450be53001281157d43",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-c7f8bcc6052346e892ddf34bbed6e396",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ca50e8a90b1e454a894498a41bc7514a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cc49211c716d4ab4a9fa5228aeaa5f87",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cedffde7cdec4bb99ff8870466668e29",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cf011de2daff43a189e0f60f7467f496",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-cfab994c27884adab6f00b13438a32f8",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d10b02921b3041d39cf3e7ea746f4005",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d10f3cfb79db427bb7f8b6d4f36e586d",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d505a4b2c1a54ec3a9906042c826f724",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d5444b8811ae416995773f23bd35eb99",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d755cb4b1b6a4bc09bd576d6690095a3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-d9baa15bd98444f5ab606499daf5ad6b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-db10b828980e4d43bbf72c7a4d5c31ce",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-dc5eb103aa5e486db3ae1fc6606e067f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-de9092dbdd3d4094925026108b2335d3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-df4a648733de47c4aff5476b9c77c3cf",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-dfefaba8f2e34c6b873df0c949a4c5e0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e002494c572a4b6ea93cd8035af63485",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e11471cd542c45e9a2f76b9855762914",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e21a2fa1f77e421c970480563097adbc",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e260918ece2f4b2b8099924a9af9b6f0",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e371319fbcf747fe85878943d5f6b225",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e401642bd2bc4718b63d05079d4352db",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e4815448ae9f4b3281d3b5f03c937124",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e514719852c74737910e22efde0ec6d9",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e81a51915ca246bea5ebf0a9dd85a5da",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-e90645e513fa4c79b6d360060397510c",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ea764696cfd94617b437d5736cb6c3de",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ebd02ccc59304e9ba054e73a38caf4b1",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ecd00453ad0f4ba6a1166499932ecb1b",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ed3737c72d694c0087dcf222e738b150",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-eda2def6079e477ba1227ab06ef90339",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f101641a1b314275a8239eff628bdad6",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f6891a8dec6f40c0898fda015ffac210",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f832f4578dd040ada917c5513676468f",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f8c001478e58432db6aa632d600cea7a",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-f9152e3760af40cb9d8001737fbe06f3",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-fbb30c2044104f22a248c9b56454a1e5",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-fd14dfeaff954dbc903e1218b60ad254",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-fe8b09f793ce462bbe453b255683d824",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-ff76ec99d91742628af96f2cfd784758",
+        "active": 0,
+        "query": "object_absent"
+      },
+      {
+        "job": "Local\\Actio-test-3a05bfb80800414eba0575e4e39fc2db",
+        "active": 0,
+        "query": "object_absent"
+      }
+    ]
+  },
+  "finished_utc": "2026-10-09T02:56:29.145932+00:00",
+  "runner_sha256": "6c367cea04d468237d2060c8eb25145cd45075e27a56969057f798473dc60917",
+  "listener_recheck": {
+    "command": "Get-NetTCPConnection -State Listen; filter by delivery.listeners.ports",
+    "historical_unique_ports": 95,
+    "remaining": [],
+    "exit_code": 0,
+    "scope": "read-only current listener snapshot"
+  },
+  "user_decisions": {
+    "publication_target": "origin/main",
+    "live_boundary": "先完成执行入口和批准包，下一 session 首次真实调用前再确认（推荐）",
+    "live_spending_authorized": false,
+    "credential_access_authorized": false,
+    "selected_provider_model": null,
+    "actual_budget": null
+  },
+  "review_verdict": {
+    "local_readiness_engineering": "CONDITIONAL_GO",
+    "next_slice": "Phase 1C2B1 gated single-episode solver smoke; implement and publish preparation before explicit user confirmation",
+    "live": "AWAITING_FUTURE_APPROVAL",
+    "product_changes": false,
+    "new_runtime_requests": 0
+  },
+  "public_source_findings": {
+    "comparison": "pricing/chat/tokens response bytes SHA256 equal published C2B0 sources",
+    "new_exact_input_bound_proof": false,
+    "tokenizer_binding_to_current_model_proven": false,
+    "cost_envelope_status": "conservative proposal with assumptions, not supplier billing guarantee",
+    "candidate_request_reserve_usd": "0.314649600",
+    "candidate_two_request_total_usd": "0.629299200",
+    "suggested_future_local_budget_usd": "1.00",
+    "suggestion_is_authorization": false
+  },
+  "handoff_document_hashes": {
+    "AGENTS.md": "15aa8fa0e91620e5d4c4142b16b51b9ef38a7d527529fb0d9dfccc05f8212c0e",
+    "docs/reviews/phase1c2b0_review_and_c2b1_plan.md": "85100562c6ff54eb51e7d764acdd841127250bac0480991a6014dc3719e485dd",
+    "docs/prompts/phase1c2b1_gated_solver_smoke.md": "fdbd5fd9b732d8fd15c768a284f69f82953d68d52e612383827bff8af91db679"
+  },
+  "handoff_document_hash_basis": "UTF-8 LF content; normalize CRLF to LF if Git checkout applies autocrlf",
+  "documentation_validation": {
+    "local_links": "PASS",
+    "fences": "PASS",
+    "baseline_main_push_and_first_live_confirmation": "PASS",
+    "product_tests_scripts_historical_validation_locks_README_attributes_unchanged": "PASS"
+  }
+}

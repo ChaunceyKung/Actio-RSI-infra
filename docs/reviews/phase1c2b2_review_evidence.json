@@ -1,0 +1,522 @@
+{
+  "schema": "actio-review-evidence.v1",
+  "review_phase": "phase1c2b2-to-phase1c2c0",
+  "recorded_utc": "2026-10-09T07:16:17.982692+00:00",
+  "baseline": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+  "scope": "Read-only evidence/source review, deterministic offline verification, upstream logic tests and next-session planning. No product changes or new solver calls.",
+  "inputs": [
+    {
+      "local_ignored_path": ".local/phase1c2b2-review/integrity.json",
+      "sha256": "1e6177c63b62c6e06ab7125bf5ecc3e62483f3951a231da12ceb360bf627ad55"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2b2-review/offline-review.json",
+      "sha256": "c9f75184ce7f75ecb962ed06da11b96a9ae8edf91b706d24a1bd58fe9ef0c709"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2b2-review/census-review.json",
+      "sha256": "06a0a4cb7fbb6abb8e6c5ea8e4fa83ad4e4b098f633d8195d8b3da580766c735"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2b2-review/ports.json",
+      "sha256": "2d07b02a574ce39083777654d594eea180eae2c90779567a18e2c19df034dec6"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2b2-review/asset-review.json",
+      "sha256": "cb7f9136c58490b311556315245ed90328c8ad810b518031a0036a3b1cf54b94"
+    }
+  ],
+  "integrity_review": {
+    "baseline": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+    "checked_utc": "2026-10-09T07:02:40.671454+00:00",
+    "checks": {
+      "manifested_files": {
+        "artifacts": 44,
+        "source": 47,
+        "entries": 4,
+        "tooling": 73,
+        "git_line_ending_only": [
+          "AGENTS.md"
+        ]
+      },
+      "raw_archives": {
+        "count": 23,
+        "members": 5725,
+        "bytes": 127810089,
+        "relocations": []
+      },
+      "installed_source_files": 47,
+      "published_current_tests": {
+        "count": 31,
+        "rerun": false,
+        "failed_attempts_preserved": 4
+      },
+      "freeze": {
+        "commit": "80d13896a790cb341ecf923f41330b967591b210",
+        "preregistration_hash": "a36c3088bd6ccbe589b957b488bf745f360cc22be99f37b58ad9ec66b188e41a",
+        "product_unchanged_since_freeze": true,
+        "publication_before_intent": true,
+        "remote_publication_time_independently_signed": false
+      },
+      "manifest_sha256": "ce853a7522504029cd9a61a1e1aff46242905e9e4e2e64219c0cc07adfb731f0"
+    },
+    "new_model_requests": 0
+  },
+  "offline_reader_review": {
+    "valid": true,
+    "counts": {
+      "planned_episodes": 32,
+      "observed_episodes": 27,
+      "not_run_episodes": 5,
+      "assigned": 64,
+      "sent": 54,
+      "response": 53,
+      "terminal": 53,
+      "admitted": 53,
+      "not_run": 10,
+      "protocol_error": 1,
+      "attempted": 54,
+      "usage_responses": 53,
+      "unknown": 1
+    },
+    "usage": {
+      "input_tokens": 16116,
+      "output_tokens": 270,
+      "cost_fields": 13,
+      "estimated_cost": null,
+      "billed_cost": null
+    },
+    "plan_no_side_effects": true,
+    "reader_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+    "report_exact_recompute": true,
+    "side_effect_guard": [
+      "network",
+      "subprocess",
+      "key",
+      "environment",
+      "file writes",
+      "runtime imports"
+    ],
+    "stratified_denominator_review": [
+      {
+        "route": "gpt-5.6",
+        "feasible": true,
+        "assigned": 8,
+        "defined": 7,
+        "expected_missing": 1,
+        "reported_missing": 0,
+        "not_started": 1
+      },
+      {
+        "route": "gpt-5.6",
+        "feasible": false,
+        "assigned": 8,
+        "defined": 6,
+        "expected_missing": 2,
+        "reported_missing": 0,
+        "not_started": 2
+      },
+      {
+        "route": "claude-sonnet-4-6",
+        "feasible": true,
+        "assigned": 8,
+        "defined": 7,
+        "expected_missing": 1,
+        "reported_missing": 0,
+        "not_started": 1
+      },
+      {
+        "route": "claude-sonnet-4-6",
+        "feasible": false,
+        "assigned": 8,
+        "defined": 6,
+        "expected_missing": 2,
+        "reported_missing": 1,
+        "not_started": 1
+      }
+    ],
+    "admitted_latency_descriptive": {
+      "gpt-5.6": {
+        "headers_ms": {
+          "n": 26,
+          "median_ms": 2657.5,
+          "max_ms": 15147
+        },
+        "first_token_ms": {
+          "n": 26,
+          "median_ms": 3018.0,
+          "max_ms": 16427
+        },
+        "total_ms": {
+          "n": 26,
+          "median_ms": 3107.5,
+          "max_ms": 19361
+        }
+      },
+      "claude-sonnet-4-6": {
+        "headers_ms": {
+          "n": 27,
+          "median_ms": 2405,
+          "max_ms": 24150
+        },
+        "first_token_ms": {
+          "n": 27,
+          "median_ms": 2414,
+          "max_ms": 24160
+        },
+        "total_ms": {
+          "n": 27,
+          "median_ms": 2424,
+          "max_ms": 26512
+        }
+      }
+    },
+    "complete_pair_blocks": 13,
+    "complete_episodes": 26,
+    "incomplete_pair_blocks": 3,
+    "new_model_calls": 0
+  },
+  "ledger_census_review": {
+    "databases_hash_checked": 210,
+    "ledger_recounted": 104,
+    "databases_unchanged": true,
+    "counts_by_mode": {
+      "tokenkey_rehearsal": {
+        "registered": 10,
+        "sent": 6,
+        "unknown": 3,
+        "unresolved": 0,
+        "usage_responses": 4
+      },
+      "tokenkey_pilot_live": {
+        "registered": 54,
+        "sent": 54,
+        "unknown": 1,
+        "unresolved": 0,
+        "usage_responses": 53
+      },
+      "tokenkey_pilot_rehearsal": {
+        "registered": 144,
+        "sent": 125,
+        "unknown": 9,
+        "unresolved": 0,
+        "usage_responses": 116
+      }
+    },
+    "named_jobs_inactive": 193,
+    "service_joined_historical_records": 77,
+    "new_model_requests": 0
+  },
+  "ports_review": {
+    "registered_ports": 77,
+    "remaining_listeners": 0
+  },
+  "upstream_assets": {
+    "retrieved_utc": "2026-10-09T07:05:25.553835+00:00",
+    "sources": [
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\LICENSE",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "LICENSE",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/LICENSE",
+        "local_sha256": "f2ffa5942b316849be283deaeb2912e2e5b5b17e91012bede8210210ff3e91e7",
+        "git_blob_sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\examples\\games\\haggling\\simulation.py",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "examples/games/haggling/simulation.py",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling/simulation.py",
+        "local_sha256": "6e058d3ff68a48b270bea2cccabdb925c7c308996b1815f5afa60165d3ca9e85",
+        "git_blob_sha256": "b4dcc8c21bd044d07fd2706f1f90e4ebdabc09c2f2e0c750aa5f8c7a1940676c",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\examples\\games\\haggling\\haggling_logic_test.py",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "examples/games/haggling/haggling_logic_test.py",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling/haggling_logic_test.py",
+        "local_sha256": "30a663f7d996e6935317ba4dbcc733ed6411a0291dac2940d810b6256bfc7bc2",
+        "git_blob_sha256": "977dd486aee20f942b923044056220fdc1528836b15cb02875fe40c8ee83afd7",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\examples\\games\\haggling_multi_item\\simulation.py",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "examples/games/haggling_multi_item/simulation.py",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling_multi_item/simulation.py",
+        "local_sha256": "3d6e45a01dfa377c4220b02ac0df882414c35d03a5a8887c44995a0e76a56e91",
+        "git_blob_sha256": "67eb43c96d913bc1730d093475233b2f689dfb6842db2c280c3ff82befd6c4ac",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\examples\\games\\haggling_multi_item\\haggling_multi_item_logic_test.py",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "examples/games/haggling_multi_item/haggling_multi_item_logic_test.py",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling_multi_item/haggling_multi_item_logic_test.py",
+        "local_sha256": "7d6c8602d7ab520fd2f5b09651cc2f2bd64bce538726a9a04fdea6c7d1ac2bb5",
+        "git_blob_sha256": "a15ec06273d8130e46ff9d1a851af554accff0035847975109e5ac6fdd959b7b",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\examples\\games\\haggling\\sequential_bargain_payoff.py",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "examples/games/haggling/sequential_bargain_payoff.py",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling/sequential_bargain_payoff.py",
+        "local_sha256": "1f6abb7a5c8fc856bab7c019241df2939462ed3e6c66d0a7515eba4609236b41",
+        "git_blob_sha256": "156f1530273ca9a1052ed7ead22c17be273d7d009b88f768cab191b2c8af4b0d",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "concordia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\15_concordia\\repo\\examples\\games\\pub_coordination\\pub_coordination_logic_test.py",
+        "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+        "path": "examples/games/pub_coordination/pub_coordination_logic_test.py",
+        "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/pub_coordination/pub_coordination_logic_test.py",
+        "local_sha256": "5661cec6d766f34f2559717ba643d0ae780a84be5cf2769983124e8f1a9da10d",
+        "git_blob_sha256": "22dbbba5ec9fdf50516e22343394cf666b112f7ac4ab97687794ed4886a7bb67",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "raven",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\LICENSE",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "LICENSE",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/LICENSE",
+        "local_sha256": "548514ced381fbde2164196f44680dbd27593e23e0773fba12b42bddb1ce6437",
+        "git_blob_sha256": "548514ced381fbde2164196f44680dbd27593e23e0773fba12b42bddb1ce6437",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "raven",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\evolver\\orchestrator\\gates\\paired.py",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "evolver/orchestrator/gates/paired.py",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/gates/paired.py",
+        "local_sha256": "1b7b65aa4c42cca345b044f308e5ac33abe73864bd46efda4992a878dc8beb8c",
+        "git_blob_sha256": "1b7b65aa4c42cca345b044f308e5ac33abe73864bd46efda4992a878dc8beb8c",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "sotopia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\18_sotopia\\repo\\LICENSE",
+        "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+        "path": "LICENSE",
+        "github_url": "https://github.com/sotopia-lab/sotopia/blob/a0aaafb440e570e5e61b7c44a44e5e417c545383/LICENSE",
+        "local_sha256": "ea42d2dc5117e496615b49b95ae4bbb62b0ee17f2b9309ca9007133d774d1fb3",
+        "git_blob_sha256": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+        "git_matches_normalized_lf": true
+      },
+      {
+        "asset": "sotopia",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\18_sotopia\\repo\\sotopia\\database\\persistent_profile.py",
+        "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+        "path": "sotopia/database/persistent_profile.py",
+        "github_url": "https://github.com/sotopia-lab/sotopia/blob/a0aaafb440e570e5e61b7c44a44e5e417c545383/sotopia/database/persistent_profile.py",
+        "local_sha256": "03abfa84e917835ab56249009250babbf83fd65c609e00dfb62886f4fa69fe30",
+        "git_blob_sha256": "a78a30b5175982431120661906b201e84fd073bae7245865179ae30d0ad7cd8a",
+        "git_matches_normalized_lf": true
+      }
+    ],
+    "github_checks": [
+      {
+        "url": "https://raw.githubusercontent.com/google-deepmind/concordia/b71d202750e23444ce1bf28d9f114bcd88aa41db/LICENSE",
+        "status": 200,
+        "sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac",
+        "matches_pinned_git_blob": true,
+        "credential_sent": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/google-deepmind/concordia/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling_multi_item/simulation.py",
+        "status": 200,
+        "sha256": "67eb43c96d913bc1730d093475233b2f689dfb6842db2c280c3ff82befd6c4ac",
+        "matches_pinned_git_blob": true,
+        "credential_sent": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/google-deepmind/concordia/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling_multi_item/haggling_multi_item_logic_test.py",
+        "status": 200,
+        "sha256": "a15ec06273d8130e46ff9d1a851af554accff0035847975109e5ac6fdd959b7b",
+        "matches_pinned_git_blob": true,
+        "credential_sent": false
+      }
+    ],
+    "executed_upstream_tests": {
+      "modules": [
+        "examples.games.haggling.haggling_logic_test",
+        "examples.games.haggling_multi_item.haggling_multi_item_logic_test"
+      ],
+      "runtime": ".local/phase1c2b2-release-venv/Scripts/python.exe",
+      "flags": [
+        "-X",
+        "utf8",
+        "-I",
+        "-B"
+      ],
+      "tests_run": 27,
+      "exit_code": 0,
+      "test_duration_seconds": 0.003,
+      "full_simulation_or_model_runs": 0,
+      "scope": "unmodified upstream payoff, parser, generation and cumulative logic tests; not admission of full upstream simulation stack"
+    },
+    "reuse_decisions": {
+      "concordia": "Reuse finite payoff logic/test vectors with explicit role, exact choice and incomplete/null adapter; real Engine remains existing integration",
+      "sotopia": "Reuse schema/rubric context as reference only; no new evaluator/Redis stack or dataset license assumptions",
+      "raven": "Keep paired diagnostics as design reference; do not import zero-fill, z=infinity or promoted decision"
+    }
+  },
+  "reviewed_source_refs": [
+    {
+      "path": "src/actio/pilot_measurement.py",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "5b5b49ff76f83102e64b94fdcb69cf15c0562fdd27e3f8b34887f5db6ead824d"
+    },
+    {
+      "path": "src/actio/pilot_contract.py",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "23a538069727c659f57cdd78720dfcd46a064c4f1c468a4a7fc875c0972cbd2b"
+    },
+    {
+      "path": "src/actio/pilot.py",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "b71a8f1d3aff2f1d706e7839fe7fa68f18ee3931b8a01d4dbcffd5e1601587d3"
+    },
+    {
+      "path": "src/actio/task_v2.py",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "8722409acd6cb0f5a78abb7b71e793ab11d4f069eac968186eb5e827ad3d3373"
+    },
+    {
+      "path": "src/actio/stream_audit.py",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "24567444fc497bf87a39eee3555941c933afeff05696c1b482d2ea7986033b8e"
+    },
+    {
+      "path": "docs/validation/phase1c2b2/evidence_manifest.json",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "ce853a7522504029cd9a61a1e1aff46242905e9e4e2e64219c0cc07adfb731f0"
+    },
+    {
+      "path": "docs/validation/phase1c2b2/preregistration.json",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "b3a6c3a9853c7fd3806308962681f0f4ef2f872c0510292a9bea9a9b07843dcf"
+    },
+    {
+      "path": "docs/validation/phase1c2b2/failure-review.json",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "680cf68a2c3ea04eccb212af367a02f7ee68d40bd2f2d2955f762bdad24f3d11"
+    },
+    {
+      "path": "docs/validation/phase1c2b2/samples/report.json",
+      "git_commit": "e89d8b370c6cc53de21f651b49e7b2626eb1a559",
+      "git_blob_sha256": "66f2c7d64f3ef87e6c55e602f5c8cc0023385098aff91fe531bd539779d37e9e"
+    }
+  ],
+  "findings": [
+    {
+      "id": "C0R1",
+      "kind": "confirmed_aggregate_denominator_bug",
+      "priority": "P2",
+      "source": "src/actio/pilot_measurement.py",
+      "symbol": "analyze_pilot",
+      "baseline_lines": [
+        85,
+        92
+      ],
+      "effect": "joint_by_feasibility excludes five not-started episodes before counting missing; total plan and raw actions remain intact.",
+      "required_action": "New version aggregates from complete plan; append corrected C2B2 sidecar without altering old report or reader."
+    },
+    {
+      "id": "C0R2",
+      "kind": "timeout_contract_and_failure_classification",
+      "source": "docs/validation/phase1c2b2/failure-review.json",
+      "effect": "Native stream idle timeout covers the pre-header interval; broad text/protocol wrapper does not distinguish this root cause.",
+      "required_action": "New finite timeout contract verified locally; separate root cause, action admission and unknown accounting; never retry the old attempt."
+    }
+  ],
+  "decision": {
+    "raw_input_integrity": "SUPPORTED_BY_REVIEW",
+    "historical_pilot_stop": "CONSISTENT_WITH_PREREGISTRATION",
+    "historical_total_plan_denominator": "COMPLETE",
+    "historical_stratified_joint_missing": "CORRECTION_REQUIRED",
+    "next_phase": "phase1c2c0-task-suite-and-evaluation-admission",
+    "next_live_plan": {
+      "task_families": 2,
+      "cards_per_family": 6,
+      "routes": 2,
+      "repeats": 1,
+      "planned_episodes": 24,
+      "maximum_solver_sends": 48,
+      "independent_research_units": 0,
+      "spending_policy": "uncapped"
+    },
+    "live_prerequisites": [
+      "versioned aggregate correction",
+      "finite deadline validation",
+      "two task families admitted offline",
+      "independent deterministic oracle and sensitivity checks",
+      "full-wire visibility invariance",
+      "implementation and preregistration published to main"
+    ],
+    "historical_unknown_action": "preserve without replay",
+    "billing_reconciliation": "UNVERIFIED",
+    "upstream_identity": "UNVERIFIED",
+    "human_calibration": "NOT_CALIBRATED",
+    "live_judge": "NOT_RUN",
+    "research_validity": "NOT_ESTABLISHED",
+    "evolution_promotion": "BLOCKED",
+    "binary_source_mapping": "unproven",
+    "full_controller_recovery": "unsupported"
+  },
+  "new_activity": {
+    "model_requests": 0,
+    "authenticated_provider_requests": 0,
+    "local_http_requests": 0,
+    "dsh_workers": 0,
+    "upstream_logic_tests": 27,
+    "unauthenticated_github_raw_gets": 3
+  },
+  "historical_cumulative": {
+    "generation_attempts": 76,
+    "direct_diagnostic_generation_attempts": 14,
+    "phase1c2b1_generation_attempts": 8,
+    "phase1c2b2_generation_attempts": 54,
+    "catalog_gets_separate": 1
+  },
+  "limitations": [
+    "31 published current tests were source/evidence checked, not rerun.",
+    "27 upstream logic tests do not admit the entire simulation stack.",
+    "Service joins were historical records; Job and port state were checked during review.",
+    "Publication-before-intent uses local recorded evidence, not an independently signed timestamp.",
+    "Matching hashes and a reproducible reader do not prove provider billing or upstream weights.",
+    "The suggested 60-second deadlines have not been implemented or validated by this review.",
+    "The new implementation, historical correction reader and live pilot belong to the next session."
+  ],
+  "documents": [
+    {
+      "path": "docs/reviews/phase1c2b2_review_and_c2c0_plan.md",
+      "normalized_lf_sha256": "7c8e477b02478ee3ebee54239214e64df704e849dbf59e03f9378cbb267ec01d"
+    },
+    {
+      "path": "docs/prompts/phase1c2c0_task_suite_and_evaluation_admission.md",
+      "normalized_lf_sha256": "134db1c9a001cec133b88cb21a8c476dd498568008cb79d9c3c0683566534e7b"
+    }
+  ],
+  "delivery_validation": {
+    "markdown_links_validated": 3,
+    "document_hashes_valid": true,
+    "json_valid": true,
+    "exact_secret_scan_pass": true,
+    "token_boundary_scan_pass": true,
+    "credential_ignored_and_untracked": true,
+    "tracked_files_unchanged_before_staging": true,
+    "initial_scan_note": "Generic sk-prefix pattern matched the non-secret task-suite branch-name substring; corrected token-boundary pattern passed. Exact credential scan passed on both runs."
+  }
+}

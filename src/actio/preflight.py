@@ -98,6 +98,9 @@ def validate(config):
 def preflight(config):
     errors=[]
     try:
+        if type(config) is dict and config.get('schema')=='pilot-config.v7':
+            from .suite_contract import validate as validate_suite,plan
+            validate_suite(config);return plan()
         if type(config) is dict and config.get('schema')=='pilot-config.v6':
             from .pilot_contract import validate as validate_pilot,plan
             validate_pilot(config);return plan()

@@ -131,7 +131,7 @@ def social(store,key,a,b,short_root,*,as_of=UNSET,replay=None,illegal=UNSET,runt
 
 def run_engine(store,run,manifest,short_root,runtime_type):
     from .task_contract import CONTRACT,actor_observation,resolved_text,task_result
-    transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2')
+    transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1')
     scheduling=manifest.get('input_contract')==CONTRACT or transport
     import concordia
     pin=json.loads((PACKAGE/'pins/concordia.json').read_text(encoding='utf-8'))
@@ -160,7 +160,7 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             self.port=runtime_type(store,run,who,short_root)
             self.port.start()
             task={'observations':self.observations,'memory':manifest['memory'][who],'action_spec':action_spec.to_dict()}
-            if manifest.get('input_contract')=='scheduling-tokenkey.v2':
+            if manifest.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1'):
                 from .task_v2 import payload
                 task=payload(manifest,self.label,self.observations)
             if not transport:

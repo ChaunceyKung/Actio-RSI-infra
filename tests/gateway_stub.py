@@ -52,6 +52,7 @@ class GatewayStub:
                            'response':{'status':status,'raw':body,'sha256':hashlib.sha256(body.encode()).hexdigest()},'case':case}
                     owner.receives.append(value);write_json(owner.root/'receives.json',owner.receives)
                 try:
+                    if plan.get('headers_delay'):owner.stop.wait(plan['headers_delay'])
                     if case=='delayed':owner.stop.wait(3.5)
                     if case=='no-first':owner.stop.wait(100);return
                     self.send_response(status);self.send_header('Content-Type',kind);self.end_headers()
@@ -60,6 +61,9 @@ class GatewayStub:
                         if case=='stall':owner.stop.wait(100);return
                         while not owner.stop.wait(1):self.wfile.write(b': heartbeat\n\n');self.wfile.flush()
                         return
+                    if plan.get('terminal_delay'):
+                        prefix,ending=body.rsplit('data: ',1)
+                        self.wfile.write(prefix.encode());self.wfile.flush();owner.stop.wait(plan['terminal_delay']);self.wfile.write(('data: '+ending).encode());self.wfile.flush();return
                     if plan.get('utf8'):
                         for byte in body.encode():self.wfile.write(bytes([byte]));self.wfile.flush()
                     else:self.wfile.write(body.encode());self.wfile.flush()

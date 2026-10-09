@@ -63,7 +63,7 @@ def closure(store, target):
     terminal=rows('SELECT * FROM scenario_terminal WHERE run=?',(rid,)) if store.version else []
     request=rows('SELECT * FROM request_identity WHERE run=?',(rid,)) if store.version else []
     workers=rows('SELECT * FROM worker WHERE run=? ORDER BY id',(rid,))
-    data={'contract':'phase1c2b2.pilot.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v2' else 'phase1c2b1.gateway.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v1' else 'phase1c2b0.priced.v1' if manifest.get('input_contract')=='scheduling-priced.v1' else 'phase1c2a1.transport.v1' if manifest.get('input_contract')=='scheduling-transport.v1' else 'phase1b1.fixture.v1','live_budget':None if manifest.get('execution_mode') in ('tokenkey_live','tokenkey_pilot_live') else 0,'mappers':['v1','v2'],'run':run,
+    data={'contract':'phase1c2c0.suite.v1' if manifest.get('input_contract')=='finite-suite-tokenkey.v1' else 'phase1c2b2.pilot.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v2' else 'phase1c2b1.gateway.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v1' else 'phase1c2b0.priced.v1' if manifest.get('input_contract')=='scheduling-priced.v1' else 'phase1c2a1.transport.v1' if manifest.get('input_contract')=='scheduling-transport.v1' else 'phase1b1.fixture.v1','live_budget':None if manifest.get('execution_mode') in ('tokenkey_live','tokenkey_pilot_live','tokenkey_suite_live') else 0,'mappers':['v1','v2'],'run':run,
           'agents':agents,'request_identity':request[0] if request else None,
           'operations':operations,'domain_receipts':receipts,'terminal':terminal[0] if terminal else None,
           'streams':[{k:v for k,v in s.items() if k!='path'} for s in streams],

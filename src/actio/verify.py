@@ -60,9 +60,9 @@ def analyze(data, source):
             result['task_outcome']=run['task']
         require(source['run']==run['id'] and source['schema'] in (0,2),'source run/schema mismatch')
         require(digest(manifest)==run['input_hash'],'frozen manifest hash mismatch')
-        transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2')
-        require(data['contract']==(('phase1c2b2.pilot.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v2' else 'phase1c2b1.gateway.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v1' else 'phase1c2b0.priced.v1' if manifest.get('input_contract')=='scheduling-priced.v1' else 'phase1c2a1.transport.v1') if transport else 'phase1b1.fixture.v1') and data['live_budget']==(None if manifest.get('execution_mode') in ('tokenkey_live','tokenkey_pilot_live') else 0),'unsupported execution contract')
-        if manifest.get('input_contract') in ('scheduling-tokenkey.v1','scheduling-tokenkey.v2'):
+        transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1')
+        require(data['contract']==(('phase1c2c0.suite.v1' if manifest.get('input_contract')=='finite-suite-tokenkey.v1' else 'phase1c2b2.pilot.v1' if manifest.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1') else 'phase1c2b1.gateway.v1' if manifest.get('input_contract')=='scheduling-tokenkey.v1' else 'phase1c2b0.priced.v1' if manifest.get('input_contract')=='scheduling-priced.v1' else 'phase1c2a1.transport.v1') if transport else 'phase1b1.fixture.v1') and data['live_budget']==(None if manifest.get('execution_mode') in ('tokenkey_live','tokenkey_pilot_live','tokenkey_suite_live') else 0),'unsupported execution contract')
+        if manifest.get('input_contract') in ('scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1'):
             result['source_trust_limits']=[TRUST[0],'TokenKey gateway labels do not independently prove upstream identity, billed cost or model quality.','GM and task data are synthetic; solver mode is recorded separately.']
         result['execution_mode']=manifest['execution_mode'] if transport else 'fixture'
         require(data['mappers']==['v1','v2'],'unknown mapper contract')
@@ -86,7 +86,7 @@ def analyze(data, source):
             require(req['run']==run['id'] and parse(req['request'])==manifest['request'] and req['request_hash']==digest(manifest['request']),'normalized request mismatch')
         elif source['schema']==2 and data.get('terminal'):
             missing.append('request_identity')
-        if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2'):
+        if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1'):
             from .task_contract import validate_manifest
             validate_manifest(manifest)
         elif manifest['scenario']=='assistant':
@@ -161,7 +161,7 @@ def analyze(data, source):
             intent=[parse(a['body']) for a in data['audit'] if a['op']==op['id'] and a['kind']=='dispatch_intent']
             require(len(intent)==1 and digest(intent[0])==op['input_hash'],'operation intent missing/hash mismatch')
             expected_memory=manifest['memory'][s['agent']]
-            if manifest.get('input_contract')=='scheduling-tokenkey.v2':
+            if manifest.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1'):
                 from .task_v2 import visible_memory
                 expected_memory=visible_memory(expected_memory)
             require(intent[0]['memory']==expected_memory,'dispatch memory differs from frozen snapshot')
@@ -181,7 +181,7 @@ def analyze(data, source):
             require(len(accepted)==1 and accepted[0]['seq']<end,'native accepted receipt does not delimit turn')
             message=next(m for m in accepted[0]['data']['inserted'] if m.get('id')==op['receipt'])
             task=parse(''.join(c.get('text','') for c in message['content'] if c.get('type')=='text'))
-            require(('op' not in task) if manifest.get('input_contract')=='scheduling-tokenkey.v2' else task.get('op')==op['id'],'native task operation mismatch')
+            require(('op' not in task) if manifest.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1') else task.get('op')==op['id'],'native task operation mismatch')
             normalized={k:v for k,v in task.items() if k not in ('op','callId')}
             if normalized.get('tool'):
                 normalized['args']={k:v for k,v in normalized['args'].items() if k!='op'}

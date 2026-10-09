@@ -13,7 +13,7 @@ from .verify import verify_bundle
 
 def analyze(dataset,ledger,receives):
     verify_snapshot(ledger)
-    cfg=ledger['meta']['config'];is_gateway=gateway(cfg);live=is_gateway and cfg['mode'] in ('tokenkey_live','tokenkey_pilot_live')
+    cfg=ledger['meta']['config'];is_gateway=gateway(cfg);live=is_gateway and cfg['mode'] in ('tokenkey_live','tokenkey_pilot_live','tokenkey_suite_live')
     if live:require(receives is None,'live supplier receives must remain null without independent logs')
     received=[] if live else receives
     d=unseal(dataset);require(set(d)=={'schema','campaign','registrations','sources'} and d['schema']=='transport-dataset.v1','transport dataset schema')
@@ -22,9 +22,9 @@ def analyze(dataset,ledger,receives):
     audits={};operation_rows={};states={}
     for run,source in d['sources'].items():
         capture={};v=verify_bundle(snapshot=source['files'],capture=capture)
-        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal','tokenkey_pilot_live','tokenkey_pilot_rehearsal'),'transport bundle rejected: '+str(v['errors']))
+        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal','tokenkey_pilot_live','tokenkey_pilot_rehearsal','tokenkey_suite_live','tokenkey_suite_rehearsal'),'transport bundle rejected: '+str(v['errors']))
         data=capture['evidence'];m=json.loads(data['run']['input'])
-        require(data['run']['id']==run and m['input_contract']==('scheduling-tokenkey.v2' if pilot(cfg) else 'scheduling-tokenkey.v1' if is_gateway else 'scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
+        require(data['run']['id']==run and m['input_contract']==('finite-suite-tokenkey.v1' if cfg.get('schema')=='pilot-config.v7' else 'scheduling-tokenkey.v2' if pilot(cfg) else 'scheduling-tokenkey.v1' if is_gateway else 'scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
         require([r for r in d['registrations'] if r['run']==run]==sorted([
             {'id':run+':'+seat,'run':run,'seat':seat,'manifest_hash':digest(m),'task_hash':m['task']['sha256']} for seat in ('A','B')],key=lambda r:r['id']),'dataset seat/view/manifest binding')
         for row in data['audit']:

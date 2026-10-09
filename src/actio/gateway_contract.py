@@ -65,7 +65,10 @@ def wire_binding(scope,request,c):
     for m in messages:
         require(len(m['content'])==1 and m['content'][0]['type']=='text','pure text messages')
         text.append(m['content'][0]['text'])
-    require(text[0]==scope['persona']==PERSONA and json.loads(text[1])==scope['task'],'actor visible context binding')
+    persona=PERSONA
+    if c.get('schema')=='pilot-config.v7':
+        from .suite_contract import PERSONA as persona
+    require(text[0]==scope['persona']==persona and json.loads(text[1])==scope['task'],'actor visible context binding')
     require(raw=={'model':c['model'],'messages':[{'role':r,'content':t} for r,t in zip(('system','user'),text)],
                  'stream':True,'stream_options':{'include_usage':True},'max_tokens':512},'official pi-ai wire differs from frozen parameters')
     return {'wire_hash':sha(request['raw']),'prepared_hash':digest(p),'mapping':'official pi-ai pure text system/user; exact versioned fields'}
@@ -75,7 +78,7 @@ def trusted_usage(response,native,c):
     require(len(response['raw'].encode())<=c['bounds']['response_bytes'],'gateway response byte bound')
     values=[s[6:] for s in response['raw'].splitlines() if s.startswith('data: ')]
     require(values and values[-1]=='[DONE]' and values.count('[DONE]')==1,'gateway missing/extra DONE')
-    if c.get('schema')=='pilot-config.v6':
+    if c.get('schema') in ('pilot-config.v6','pilot-config.v7'):
         from .stream_audit import strict_json
         rows=[strict_json(s) for s in values[:-1]]
     else:rows=[json.loads(s,parse_float=Decimal) for s in values[:-1]]

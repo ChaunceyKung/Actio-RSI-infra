@@ -13,10 +13,12 @@ from .transport_contract import validate_config,require,PROFILE,PROVIDER,MODEL,M
 def sha(raw):return hashlib.sha256(raw.encode()).hexdigest()
 
 
-def pilot(c):return c is not None and c.get('schema')=='pilot-config.v6'
+def suite(c):return c is not None and c.get('schema')=='pilot-config.v7'
+
+def pilot(c):return c is not None and c.get('schema') in ('pilot-config.v6','pilot-config.v7')
 
 
-def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6')
+def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6','pilot-config.v7')
 
 
 def metered(c):return priced(c) or gateway(c)
@@ -37,6 +39,9 @@ def priced(c):return c is not None and c.get('schema')=='pilot-config.v4'
 
 
 def validate_budget_config(c):
+    if suite(c):
+        from .suite_contract import validate
+        return validate(c)
     if pilot(c):
         from .pilot_contract import validate
         return validate(c)
@@ -50,6 +55,9 @@ def validate_budget_config(c):
 
 
 def profile_for(c):
+    if suite(c):
+        from .suite_contract import PROFILE
+        return PROFILE
     if pilot(c):
         from .pilot_contract import PROFILE
         return PROFILE
@@ -161,7 +169,7 @@ class Ledger:
         if config is not None:
             validate_budget_config(config);require(not self.path.exists(),'new budget database required')
             if metered(config):
-                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal'),'C2B0 cannot create live execution ledger')
+                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal','tokenkey_suite_live','tokenkey_suite_rehearsal'),'C2B0 cannot create live execution ledger')
                 authority=Path(config['authority']['root']);authority.mkdir(parents=True,exist_ok=True)
                 anchor=authority/(config['authority']['id']+'.json')
                 # Exclusive authority binding survives controller/Worker death and DB removal.

@@ -24,6 +24,8 @@ def run_unit(root,cfg,secret,*,receives=None,runtime_type=None):
     from .budget import Ledger
     from .transport import transport_spec,scheduling_transport
     from .task_v2 import card
+    if cfg.get('schema')=='pilot-config.v7':
+        from .suite_tasks import card
     from .evidence import export_bundle
     from .transport_campaign import export_campaign
     root=Path(root);root.mkdir(parents=True,exist_ok=False);started=time.monotonic()
@@ -57,24 +59,26 @@ def run_unit(root,cfg,secret,*,receives=None,runtime_type=None):
     return entry,result
 
 
-def frozen_publication(project,pre):
+def frozen_publication(project,pre,contract=None):
     """Resolve publication from trusted Git, never artifact-selected executable source."""
     import subprocess
-    project=Path(project).resolve();validate_preregistration(pre)
+    project=Path(project).resolve();(contract.validate_preregistration if contract else validate_preregistration)(pre)
     def git(*args):return subprocess.check_output(['git',*args],cwd=project,text=True,encoding='utf8').strip()
     require(git('remote','get-url','origin')=='https://github.com/ChaunceyKung/Actio-RSI-infra','publication remote')
     require(not git('status','--porcelain'),'freeze requires clean checkout')
-    head=git('rev-parse','HEAD');branch='phase1c2b2-measurement-integrity-and-pilot'
+    head=git('rev-parse','HEAD');branch=contract.BRANCH if contract else 'phase1c2b2-measurement-integrity-and-pilot'
     refs={r.split()[1]:r.split()[0] for r in git('ls-remote','origin','refs/heads/main','refs/heads/'+branch).splitlines()}
     require(refs=={'refs/heads/main':head,'refs/heads/'+branch:head},'freeze must be published on both branches')
-    require(json.loads(git('show',head+':docs/validation/phase1c2b2/preregistration.json'))==pre,'published preregistration differs')
+    require(json.loads(git('show',head+':docs/validation/'+(contract.PHASE if contract else 'phase1c2b2')+'/preregistration.json'))==pre,'published preregistration differs')
     return {'commit':head,'remote_main':head,'remote_branch':head,'preregistration_hash':pre['sha256'],'verified_utc':now()}
 
 
-def execute(root,pre,secret,*,freeze=None,endpoint=None,authority_root,operation_authorization,receives=None,runtime_type=None):
+def execute(root,pre,secret,*,freeze=None,endpoint=None,authority_root,operation_authorization,receives=None,runtime_type=None,contract=None):
     from .gateway import scan
     from .pilot_measurement import analyze_pilot
-    p=validate_preregistration(pre);require(operation_authorization==AUTH,'explicit C2B2 operator instruction required')
+    if contract:
+        from .suite_measurement import analyze_pilot
+    p=(contract.validate_preregistration if contract else validate_preregistration)(pre);require(operation_authorization==AUTH,'explicit C2B2 operator instruction required')
     live=endpoint is None;root=Path(root).resolve();require(not root.exists(),'new experiment root required')
     require(not live or freeze and freeze['preregistration_hash']==pre['sha256'] and freeze['commit']==freeze['remote_main']==freeze['remote_branch'],'published preregistration required')
     authority=Path(authority_root).resolve();authority.mkdir(parents=True,exist_ok=True)
@@ -88,9 +92,9 @@ def execute(root,pre,secret,*,freeze=None,endpoint=None,authority_root,operation
     create(root/'intent.json',{'preregistration_hash':pre['sha256'],'freeze':f,'entries':entries})
     try:
         for i,u in enumerate(p['units']):
-            cfg=config(u['id'],authority={'id':uid(),'root':str(authority)},**({'mode':'tokenkey_pilot_rehearsal','endpoint':endpoint} if not live else {}))
+            cfg=(contract.config if contract else config)(u['id'],authority={'id':uid(),'root':str(authority)},**({'mode':contract.REHEARSAL if contract else 'tokenkey_pilot_rehearsal','endpoint':endpoint} if not live else {}))
             entry,result=run_unit(root/u['id'],cfg,secret,receives=receives,runtime_type=runtime_type);entries[i]=entry
-            snapshot=seal({'schema':'pilot-evidence.v1','preregistration':pre,'freeze':f,'entries':entries,'phase_state':'first-block' if i==1 else 'stopped'})
+            snapshot=seal({'schema':contract.EVIDENCE if contract else 'pilot-evidence.v1','preregistration':pre,'freeze':f,'entries':entries,'phase_state':'first-block' if i==1 else 'stopped'})
             report=analyze_pilot(snapshot)
             create(root/('checkpoint-'+u['id']+'.json'),{'observed_through':u['id'],'counts':report['counts'],'error':result['error']})
             if result['error'] or any(s['protocol_error'] for s in report['rows'][i]['seats']):
@@ -104,7 +108,7 @@ def execute(root,pre,secret,*,freeze=None,endpoint=None,authority_root,operation
     finally:
         for e in entries:
             if e['evidence'] is None:e['reason']=reason or 'not_started'
-        evidence=seal({'schema':'pilot-evidence.v1','preregistration':pre,'freeze':f,'entries':entries,'phase_state':state})
+        evidence=seal({'schema':contract.EVIDENCE if contract else 'pilot-evidence.v1','preregistration':pre,'freeze':f,'entries':entries,'phase_state':state})
         create(root/'pilot.json',evidence)
         report=analyze_pilot(evidence);create(root/'report.json',report)
         create(root/'credential-scan.json',scan(root,secret))

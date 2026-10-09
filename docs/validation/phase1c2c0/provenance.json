@@ -1,0 +1,126 @@
+{
+  "schema": "suite-provenance.v1",
+  "verified_utc": "2026-10-09T07:40:40.261471+00:00",
+  "sources": [
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "LICENSE",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/LICENSE",
+      "git_blob_sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac"
+    },
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "examples/games/haggling/simulation.py",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling/simulation.py",
+      "git_blob_sha256": "b4dcc8c21bd044d07fd2706f1f90e4ebdabc09c2f2e0c750aa5f8c7a1940676c"
+    },
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "examples/games/haggling/haggling_logic_test.py",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling/haggling_logic_test.py",
+      "git_blob_sha256": "977dd486aee20f942b923044056220fdc1528836b15cb02875fe40c8ee83afd7"
+    },
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "examples/games/haggling_multi_item/simulation.py",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling_multi_item/simulation.py",
+      "git_blob_sha256": "67eb43c96d913bc1730d093475233b2f689dfb6842db2c280c3ff82befd6c4ac"
+    },
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "examples/games/haggling_multi_item/haggling_multi_item_logic_test.py",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling_multi_item/haggling_multi_item_logic_test.py",
+      "git_blob_sha256": "a15ec06273d8130e46ff9d1a851af554accff0035847975109e5ac6fdd959b7b"
+    },
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "examples/games/haggling/sequential_bargain_payoff.py",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/haggling/sequential_bargain_payoff.py",
+      "git_blob_sha256": "156f1530273ca9a1052ed7ead22c17be273d7d009b88f768cab191b2c8af4b0d"
+    },
+    {
+      "asset": "concordia",
+      "commit": "b71d202750e23444ce1bf28d9f114bcd88aa41db",
+      "path": "examples/games/pub_coordination/pub_coordination_logic_test.py",
+      "github_url": "https://github.com/google-deepmind/concordia/blob/b71d202750e23444ce1bf28d9f114bcd88aa41db/examples/games/pub_coordination/pub_coordination_logic_test.py",
+      "git_blob_sha256": "22dbbba5ec9fdf50516e22343394cf666b112f7ac4ab97687794ed4886a7bb67"
+    },
+    {
+      "asset": "raven",
+      "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+      "path": "LICENSE",
+      "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/LICENSE",
+      "git_blob_sha256": "548514ced381fbde2164196f44680dbd27593e23e0773fba12b42bddb1ce6437"
+    },
+    {
+      "asset": "raven",
+      "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+      "path": "evolver/orchestrator/gates/paired.py",
+      "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/gates/paired.py",
+      "git_blob_sha256": "1b7b65aa4c42cca345b044f308e5ac33abe73864bd46efda4992a878dc8beb8c"
+    },
+    {
+      "asset": "sotopia",
+      "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+      "path": "LICENSE",
+      "github_url": "https://github.com/sotopia-lab/sotopia/blob/a0aaafb440e570e5e61b7c44a44e5e417c545383/LICENSE",
+      "git_blob_sha256": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e"
+    },
+    {
+      "asset": "sotopia",
+      "commit": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+      "path": "sotopia/database/persistent_profile.py",
+      "github_url": "https://github.com/sotopia-lab/sotopia/blob/a0aaafb440e570e5e61b7c44a44e5e417c545383/sotopia/database/persistent_profile.py",
+      "git_blob_sha256": "a78a30b5175982431120661906b201e84fd073bae7245865179ae30d0ad7cd8a"
+    }
+  ],
+  "mapping": [
+    {
+      "upstream": "Concordia haggling_multi_item/simulation.py generate_price_options, MultiItemHagglingPayoff",
+      "local": "src/actio/suite_tasks.py options/result",
+      "reuse": "finite catalog and value-price/price-cost formulas; narrow adaptation",
+      "changes": [
+        "exact domain membership, no re.match suffix acceptance",
+        "frozen buyer/seller roles",
+        "null incomplete/invalid",
+        "no unknown item defaults",
+        "public and budget constraints; blocked violating transactions",
+        "toy integer utility"
+      ]
+    },
+    {
+      "upstream": "Concordia haggling*/logic_test.py",
+      "local": "tests/test_suite.py",
+      "reuse": "profit, zero-profit, rejection, invalid item and arithmetic test-vector ideas; independently enumerated finite oracle"
+    },
+    {
+      "upstream": "Concordia sequential_bargain_payoff.py",
+      "local": "src/actio/scenarios.py existing Sequential",
+      "reuse": "actual public offer precedes responder input; no prefab stack imported"
+    },
+    {
+      "upstream": "Concordia pub_coordination_logic_test.py",
+      "local": "src/actio/suite_tasks.py scheduling cards",
+      "reuse": "public closures and private preferences as mechanism reference"
+    },
+    {
+      "upstream": "SOTOPIA persistent_profile.py",
+      "local": "task provenance/private metadata",
+      "reuse": "reference only; no evaluator, Redis, dataset or human data import"
+    },
+    {
+      "upstream": "Raven paired.py",
+      "local": "suite_contract paired blocks",
+      "reuse": "reference only; no zero-fill, infinite z or promotion code copied"
+    }
+  ],
+  "license": "Concordia Apache-2.0, adjacent CONCORDIA_LICENSE; Actio-authored synthetic cards CC0-1.0; no new human labels",
+  "upstream_tests": "27 original tests passed in preceding review; no redundant rerun, new adaptations tested separately",
+  "model_calls": 0
+}

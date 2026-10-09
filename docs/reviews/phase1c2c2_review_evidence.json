@@ -1,0 +1,1177 @@
+{
+  "schema": "actio-review-evidence.v1",
+  "review_phase": "phase1c2c2-to-phase1c2c3",
+  "recorded_utc": "2026-10-09T16:03:09.587900+00:00",
+  "product_baseline": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+  "documentation_baseline": "f89f39c0b9f001764c3eefad6b993ec46d6eca56",
+  "remote_baseline": {
+    "main": "f89f39c0b9f001764c3eefad6b993ec46d6eca56",
+    "phase1c2c2-live-candidate-pairing": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+    "method": "git ls-remote over HTTPS"
+  },
+  "scope": "Review and next-session documentation; immutable local evidence checks, guarded controlled delivery recomputation, two existing pure tests and retrospective descriptive diagnostics. No implementation, Worker or live execution.",
+  "input_records": [
+    {
+      "local_ignored_path": ".local/phase1c2c2-review/integrity.json",
+      "sha256": "2f5cc2aae7d2b6cff2374a230e33159f3187938263dae106d55269de357a8c2b"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c2-review/offline.json",
+      "sha256": "f79bbbd0f33844d7842bf57035a3be63cde978be8391192b2345b1aa8f14e9b3"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c2-review/pure-tests.json",
+      "sha256": "623d4fc7a06cbe19a26976b52ee6470e8bc2040d1b434429086a8c485d793380"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c2-review/diagnosis.json",
+      "sha256": "c42965d61afadd0a545acba9d7e7b4065db6ad7b1960d04923fc50976e295f31"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c2-review/cleanup.json",
+      "sha256": "2fd44c1bda339758d2e181ba8566a6899b04e45967ce4f08281881c9274a2dba"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c2-review/ports.json",
+      "sha256": "610de9e85573d0bb1e2e7820eae958458734671bfb602d79f90f0a5a1ff8f27b"
+    }
+  ],
+  "integrity_review": {
+    "baseline": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+    "checked_utc": "2026-10-09T15:54:59.505263+00:00",
+    "manifest_sha256": "30d5d75157f3508af0a0c5a8028e06eb9b8c867e1875b0b620538d8e173d9de4",
+    "checks": {
+      "artifacts": 42,
+      "implementation": 66,
+      "entry_hashes": 4,
+      "tooling_hashes": 103,
+      "raw_archives": {
+        "count": 14,
+        "members": 5873,
+        "uncompressed_bytes": 480269501
+      },
+      "installed_sources": 66,
+      "published_tests": {
+        "current_source_bound_pass": 20,
+        "rerun_all": false,
+        "acceptance_failed_attempts_field": [],
+        "development_cli_failure_retained": true
+      },
+      "freeze": {
+        "commit": "3bef7e15b0eb21beeb10888eb508056592b977b0",
+        "preregistration_hash": "05ec305c272dcf3a5c4173ff58a1c2bc224d91a7f5bb5f399b692bdcbcc96707",
+        "product_unchanged": true,
+        "local_order_valid": true,
+        "independently_signed_time": false
+      },
+      "ledger_census": {
+        "database_hashes": 219,
+        "recounted_ledgers": 101,
+        "unchanged": true,
+        "by_scope": {
+          "live_matrix": {
+            "sent": 48,
+            "unknown": 0,
+            "unresolved": 0,
+            "usage": 48
+          },
+          "development_admission": {
+            "sent": 149,
+            "unknown": 2,
+            "unresolved": 0,
+            "usage": 147
+          }
+        }
+      },
+      "controlled_delivery": {
+        "file_sha256": "8f6f641a43498ca13f20e0b711f1f50d5c6e4bd62528f445decdd0d2657adf88",
+        "reader_source": "3bef7e15b0eb21beeb10888eb508056592b977b0",
+        "hash_match": true,
+        "raw_content_published": false
+      }
+    },
+    "working_tree_differences": [
+      {
+        "path": "AGENTS.md",
+        "kind": "line endings only"
+      },
+      {
+        "path": "README.md",
+        "kind": "post-delivery documentation upgrade; fixed Git blob matches historical hash"
+      }
+    ],
+    "new_model_requests": 0
+  },
+  "offline_delivery_review": {
+    "valid": true,
+    "reader_source": "3bef7e15b0eb21beeb10888eb508056592b977b0",
+    "report_exact_recompute": true,
+    "plan_matches": true,
+    "guard": [
+      "network",
+      "subprocess",
+      "runtime import",
+      "key",
+      "env",
+      "write"
+    ],
+    "counts": {
+      "planned_episodes": 24,
+      "observed_episodes": 24,
+      "not_run_episodes": 0,
+      "technical_complete_episodes": 24,
+      "execution_resolved_episodes": 24,
+      "assigned": 48,
+      "sent": 48,
+      "response": 48,
+      "terminal": 48,
+      "admitted": 48,
+      "not_run": 0,
+      "protocol_error": 0,
+      "attempted": 48,
+      "usage_responses": 48,
+      "unknown": 0,
+      "task_predecessor_invalid": 0
+    },
+    "pair_coverage": {
+      "unit": "arm_pair_execution",
+      "assigned": 12,
+      "eligible": 12,
+      "not_applicable": 0,
+      "defined": 12,
+      "missing": 0,
+      "true": 12,
+      "false": 0,
+      "reasons": {}
+    },
+    "metric_pair_coverage": {
+      "format_A": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "local_hard_A": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "format_B": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "local_hard_B": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "b_response_rule": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "joint": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "utility_A": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "utility_B": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "pareto": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "regret": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "text_verified_A": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "domain_executable_A": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "text_verified_B": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      },
+      "domain_executable_B": {
+        "unit": "arm_pair",
+        "assigned": 12,
+        "eligible": 12,
+        "not_applicable": 0,
+        "defined": 12,
+        "missing": 0,
+        "true": 12,
+        "false": 0,
+        "reasons": {}
+      }
+    },
+    "all_12_pair_deltas_zero": true,
+    "wire_invariants_recomputed": true,
+    "lineage": {
+      "valid": true,
+      "legacy": {
+        "valid": true,
+        "candidates": 6,
+        "rejected": 4,
+        "decisions": 6,
+        "activation": false
+      },
+      "evaluations": 2,
+      "evaluation_decisions": 1,
+      "activation": false
+    },
+    "candidate_decision": "insufficient_evidence",
+    "activation": false,
+    "new_model_requests": 0,
+    "cumulative_real_generation_attempts": 139
+  },
+  "executed_tests": {
+    "tests": [
+      "test_evaluation_candidate.EvaluationPure.test_versions_identities_denominators_policy",
+      "test_suite.SuitePure.test_01_exhaustive_independent_truth_and_sensitivity"
+    ],
+    "tests_run": 2,
+    "failures": 0,
+    "errors": 0,
+    "new_model_calls": 0,
+    "scope": "two pure existing policy/denominator and finite-oracle sensitivity tests; no Worker"
+  },
+  "retrospective_diagnosis": {
+    "kind": "retrospective_descriptive_diagnosis",
+    "summary": {
+      "pairs": 12,
+      "identical_A_B_actions": 12,
+      "zero_conditional_offer_gap": 12,
+      "matches_own_rule_control": 11,
+      "joint_feasible_cards": 10,
+      "joint_achieved_cards": 5,
+      "feasible_but_not_agreed_cards": [
+        "S1",
+        "S3",
+        "H1",
+        "H3",
+        "H4"
+      ],
+      "positive_omniscient_regret_cards": [
+        "S1",
+        "S3",
+        "S6",
+        "H1",
+        "H3"
+      ]
+    },
+    "cards": [
+      {
+        "card": "S1",
+        "family": "scheduling",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "propose:morning",
+          "B": "decline"
+        },
+        "own_legal_actions": [
+          "propose:afternoon",
+          "propose:morning"
+        ],
+        "conditional_offer_score": 3,
+        "maximum_conditional_offer_score": 3,
+        "conditional_argmax_set": [
+          "propose:morning"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": false,
+        "omniscient_regret": 6
+      },
+      {
+        "card": "S2",
+        "family": "scheduling",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "propose:morning",
+          "B": "accept"
+        },
+        "own_legal_actions": [
+          "propose:afternoon",
+          "propose:evening",
+          "propose:morning"
+        ],
+        "conditional_offer_score": 5,
+        "maximum_conditional_offer_score": 5,
+        "conditional_argmax_set": [
+          "propose:morning"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": true,
+        "omniscient_regret": 0
+      },
+      {
+        "card": "S3",
+        "family": "scheduling",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "propose:morning",
+          "B": "decline"
+        },
+        "own_legal_actions": [
+          "propose:afternoon",
+          "propose:morning"
+        ],
+        "conditional_offer_score": 5,
+        "maximum_conditional_offer_score": 5,
+        "conditional_argmax_set": [
+          "propose:morning"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": false,
+        "omniscient_regret": 6
+      },
+      {
+        "card": "S4",
+        "family": "scheduling",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "propose:afternoon",
+          "B": "accept"
+        },
+        "own_legal_actions": [
+          "propose:afternoon",
+          "propose:evening"
+        ],
+        "conditional_offer_score": 4,
+        "maximum_conditional_offer_score": 4,
+        "conditional_argmax_set": [
+          "propose:afternoon"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": true,
+        "omniscient_regret": 0
+      },
+      {
+        "card": "S5",
+        "family": "scheduling",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "propose:morning",
+          "B": "decline"
+        },
+        "own_legal_actions": [
+          "propose:morning"
+        ],
+        "conditional_offer_score": 4,
+        "maximum_conditional_offer_score": 4,
+        "conditional_argmax_set": [
+          "propose:morning"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": false,
+        "joint_achieved": false,
+        "omniscient_regret": 0
+      },
+      {
+        "card": "S6",
+        "family": "scheduling",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "propose:morning",
+          "B": "accept"
+        },
+        "own_legal_actions": [
+          "propose:afternoon",
+          "propose:evening",
+          "propose:morning"
+        ],
+        "conditional_offer_score": 5,
+        "maximum_conditional_offer_score": 5,
+        "conditional_argmax_set": [
+          "propose:morning"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": true,
+        "omniscient_regret": 3
+      },
+      {
+        "card": "H1",
+        "family": "bargaining",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "apple for 1 coins",
+          "B": "reject"
+        },
+        "own_legal_actions": [
+          "apple for 1 coins",
+          "apple for 2 coins",
+          "apple for 3 coins",
+          "apple for 4 coins",
+          "apple for 5 coins",
+          "banana for 1 coins"
+        ],
+        "conditional_offer_score": 4,
+        "maximum_conditional_offer_score": 4,
+        "conditional_argmax_set": [
+          "apple for 1 coins"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": false,
+        "omniscient_regret": 3
+      },
+      {
+        "card": "H2",
+        "family": "bargaining",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "apple for 1 coins",
+          "B": "accept"
+        },
+        "own_legal_actions": [
+          "apple for 1 coins",
+          "apple for 2 coins",
+          "apple for 3 coins",
+          "apple for 4 coins",
+          "apple for 5 coins",
+          "banana for 1 coins",
+          "banana for 2 coins",
+          "banana for 3 coins",
+          "banana for 4 coins"
+        ],
+        "conditional_offer_score": 4,
+        "maximum_conditional_offer_score": 4,
+        "conditional_argmax_set": [
+          "apple for 1 coins"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": true,
+        "omniscient_regret": 0
+      },
+      {
+        "card": "H3",
+        "family": "bargaining",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "apple for 1 coins",
+          "B": "reject"
+        },
+        "own_legal_actions": [
+          "apple for 1 coins",
+          "apple for 2 coins",
+          "apple for 3 coins",
+          "apple for 4 coins",
+          "apple for 5 coins",
+          "banana for 1 coins",
+          "banana for 2 coins",
+          "banana for 3 coins",
+          "banana for 4 coins"
+        ],
+        "conditional_offer_score": 4,
+        "maximum_conditional_offer_score": 4,
+        "conditional_argmax_set": [
+          "apple for 1 coins"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": false,
+        "omniscient_regret": 3
+      },
+      {
+        "card": "H4",
+        "family": "bargaining",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "apple for 1 coins",
+          "B": "reject"
+        },
+        "own_legal_actions": [
+          "apple for 1 coins",
+          "apple for 2 coins",
+          "apple for 3 coins",
+          "banana for 1 coins",
+          "banana for 2 coins"
+        ],
+        "conditional_offer_score": 2,
+        "maximum_conditional_offer_score": 2,
+        "conditional_argmax_set": [
+          "apple for 1 coins"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": false,
+        "omniscient_regret": 0
+      },
+      {
+        "card": "H5",
+        "family": "bargaining",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "apple for 1 coins",
+          "B": "reject"
+        },
+        "own_legal_actions": [
+          "apple for 1 coins",
+          "apple for 2 coins",
+          "banana for 1 coins",
+          "banana for 2 coins"
+        ],
+        "conditional_offer_score": 1,
+        "maximum_conditional_offer_score": 1,
+        "conditional_argmax_set": [
+          "apple for 1 coins",
+          "banana for 1 coins"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": false,
+        "joint_feasible": false,
+        "joint_achieved": false,
+        "omniscient_regret": 0
+      },
+      {
+        "card": "H6",
+        "family": "bargaining",
+        "actions_equal_across_arms": true,
+        "actions": {
+          "A": "banana for 2 coins",
+          "B": "accept"
+        },
+        "own_legal_actions": [
+          "banana for 2 coins",
+          "banana for 3 coins"
+        ],
+        "conditional_offer_score": 3,
+        "maximum_conditional_offer_score": 3,
+        "conditional_argmax_set": [
+          "banana for 2 coins"
+        ],
+        "conditional_offer_gap": 0,
+        "matches_own_rule_control": true,
+        "joint_feasible": true,
+        "joint_achieved": true,
+        "omniscient_regret": 0
+      }
+    ],
+    "existing_control_policy_sensitivity": [
+      {
+        "card": "S1",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S1",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S1",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S1",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S2",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S2",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      },
+      {
+        "card": "S2",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S2",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      },
+      {
+        "card": "S3",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S3",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S3",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S3",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S4",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S4",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      },
+      {
+        "card": "S4",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S4",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      },
+      {
+        "card": "S5",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S5",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S5",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S5",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S6",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S6",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "S6",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "S6",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      },
+      {
+        "card": "H1",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H1",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H1",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H1",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H2",
+        "policy": "first_option",
+        "a_hard": false,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H2",
+        "policy": "always_accept",
+        "a_hard": false,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H2",
+        "policy": "always_reject",
+        "a_hard": false,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H2",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      },
+      {
+        "card": "H3",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H3",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H3",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H3",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H4",
+        "policy": "first_option",
+        "a_hard": false,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H4",
+        "policy": "always_accept",
+        "a_hard": false,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H4",
+        "policy": "always_reject",
+        "a_hard": false,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H4",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H5",
+        "policy": "first_option",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H5",
+        "policy": "always_accept",
+        "a_hard": true,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H5",
+        "policy": "always_reject",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H5",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H6",
+        "policy": "first_option",
+        "a_hard": false,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H6",
+        "policy": "always_accept",
+        "a_hard": false,
+        "b_rule": false,
+        "joint": false
+      },
+      {
+        "card": "H6",
+        "policy": "always_reject",
+        "a_hard": false,
+        "b_rule": true,
+        "joint": false
+      },
+      {
+        "card": "H6",
+        "policy": "own_rule",
+        "a_hard": true,
+        "b_rule": true,
+        "joint": true
+      }
+    ],
+    "counterfactual_witness": {
+      "kind": "synthetic_not_observed",
+      "worlds": [
+        {
+          "B_available": [
+            "morning"
+          ],
+          "A_observation_hash": "8f5f09d4740afe31f4fbc0c3a937ed421a0d0b5eb87fc7e534f3c75e23994ff0",
+          "joint_feasible_actions": [
+            "propose:morning"
+          ]
+        },
+        {
+          "B_available": [
+            "afternoon"
+          ],
+          "A_observation_hash": "8f5f09d4740afe31f4fbc0c3a937ed421a0d0b5eb87fc7e534f3c75e23994ff0",
+          "joint_feasible_actions": [
+            "propose:afternoon"
+          ]
+        }
+      ],
+      "equal_A_visible_input": true,
+      "disjoint_joint_feasible_actions": true
+    },
+    "limits": [
+      "Conditional-offer score assumes acceptance; it is not expected realized utility, a calibrated optimal policy or a new error criterion.",
+      "No prior over hidden states or strategic risk preference is specified.",
+      "Matching the deterministic control on these cards does not show provider substitution, model equivalence or general capability.",
+      "All data are previously inspected development cards; no held-out or independent research units."
+    ],
+    "model_calls": 0
+  },
+  "cleanup_review": {
+    "jobs_read_only_checked": 197,
+    "active": 0,
+    "historical_service_join_records": 8
+  },
+  "ports_review": {
+    "registered_ports": 8,
+    "remaining_listeners": 0
+  },
+  "source_refs": [
+    {
+      "path": "src/actio/suite_tasks.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "1a17f589660e1ca6d58750c5697b8ea474d634ec55ddbb261ed380b5ad616009"
+    },
+    {
+      "path": "src/actio/suite_oracle.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "9709fb633ffac22c99d6eb969c69828c8722a112b6786087fe821fbcda5c52f7"
+    },
+    {
+      "path": "src/actio/suite_contract.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "7b2752f14223ec61f17021079e7666c83c06fed314a78292a185c44ed5151603"
+    },
+    {
+      "path": "src/actio/candidate_contract.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "311646888eaad302d699f9250f25971cbe057341078bccda76dfdbcce2393f7f"
+    },
+    {
+      "path": "src/actio/evaluation_measurement.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "f8dcc6344f83d706084a928e25fe28fabd7b84ae511ecb410dc205c4f5a98df4"
+    },
+    {
+      "path": "src/actio/candidate_tasks.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "955e8a69168314a2c4940af4dd9e5ae57213811e9128dd4e240fd6048a47e492"
+    },
+    {
+      "path": "tests/test_suite.py",
+      "commit": "6466e2be6f31e0ac5861a379d761d2e7bf39c5eb",
+      "git_blob_sha256": "125f8373a261ff226bbd338d18d28bf85caf4a8912cb388ac8ed3b78ea4148e5"
+    }
+  ],
+  "findings": [
+    {
+      "id": "C3R1",
+      "type": "observed_ceiling_and_prompt_overlap",
+      "observation": "C1 repeats public/own rules, visible-context and exact-option requirements already present in the base Persona. Both arms have zero observed constraint violations.",
+      "limit": "Semantic overlap and this observation do not prove prompts equivalent or duplication ineffective."
+    },
+    {
+      "id": "C3R2",
+      "type": "partial_observability_and_unspecified_uncertainty_objective",
+      "observation": "A cannot see B private conditions; joint results and omniscient regret are not direct actor error metrics. All observed A actions maximize conditional-offer score on own-legal options.",
+      "limit": "Conditional-offer score ignores acceptance probability and is not expected realized utility. No hidden-state prior or risk objective has been specified."
+    },
+    {
+      "id": "C3R3",
+      "type": "metric_dependence_and_tie_semantics",
+      "observation": "Fourteen report metrics include directly related engineering and behavior fields. H5 has multiple conditional-argmax actions; concrete own_rule action matching is 11/12, argmax-set membership 12/12.",
+      "limit": "Do not turn the control policy tie-break into a unique normative answer or combine related fields into independent evidence."
+    },
+    {
+      "id": "C3R4",
+      "type": "reuse_existing_finite_checks_add_diagnostic_interface",
+      "observation": "Current tests already cover finite oracle truth and control sensitivity. The next gap is a visible-only reference interface, explicit observation classes/order mappings, portable diagnosis and scoped provenance.",
+      "limit": "No new upstream runtime needed, no new solver conclusions from synthetic controls."
+    }
+  ],
+  "next_phase": {
+    "name": "phase1c2c3-task-diagnostics-and-observability",
+    "kind": "offline_engineering_implementation",
+    "deliverables": [
+      "retrospective C2C2 sidecar",
+      "visible-only reference strategy contract",
+      "metric dependence map",
+      "finite diagnostic dataset",
+      "portable plan/analyze/verify CLI",
+      "next finite experiment draft"
+    ],
+    "diagnostic_dataset": {
+      "families": 2,
+      "groups_per_family": 4,
+      "groups": 8,
+      "hidden_worlds_per_group": 2,
+      "worlds": 16,
+      "presentations_per_world": 2,
+      "presentations": 32,
+      "syntactically_legal_action_combinations": 416,
+      "split": "diagnostic_development",
+      "independent_research_units": 0,
+      "human_labels": 0
+    },
+    "new_model_requests": 0,
+    "new_workers": 0,
+    "activation": false,
+    "candidate_mutation": false,
+    "authorization": "Existing uncapped TokenKey authorization remains; zero calls are the selected phase scope, not a reinstated spending cap or permission requirement.",
+    "history_preserved": true,
+    "next_live_execution": "Not in C2C3; produce a bounded C2C4 draft based on diagnostics, do not run it automatically."
+  },
+  "limits": [
+    "All 20 current published PASS/source records checked; only two selected pure tests rerun.",
+    "Raw archive hashes and controlled delivery were checked locally; no raw reasoning copied into these artifacts.",
+    "Previously published five candidate pure regressions remain tied to an earlier source snapshot.",
+    "The local-acceptance failed_attempts_retained array is empty, but a development CLI failure is retained separately; no claim of zero historical failures.",
+    "Eight service joins are historical records; 197 named Jobs and eight ports were queried read-only now.",
+    "The synthetic counterfactual is an authored diagnostic witness, not observed provider output or a new live experiment.",
+    "No new upstream fetching or testing; reuse is grounded in current code, pinned provenance and prior asset review.",
+    "No independent research units, model rankings, candidate improvement, billing verification or provider-weight identity established."
+  ],
+  "activity": {
+    "new_model_requests": 0,
+    "new_provider_requests": 0,
+    "new_local_http_requests": 0,
+    "new_dsh_workers": 0,
+    "pure_tests_run": 2,
+    "retrospective_card_pairs": 12,
+    "synthetic_information_witnesses": 1,
+    "historical_real_generation_attempts": 139,
+    "historical_catalog_get": 1
+  },
+  "documents": [
+    {
+      "path": "docs/reviews/phase1c2c2_review_and_c2c3_plan.md",
+      "normalized_lf_sha256": "85cf46bcd50d3306144f1dc2ff16a95e2153ed45a81e36df0b50a8f09cf4eb15"
+    },
+    {
+      "path": "docs/prompts/phase1c2c3_task_diagnostics_and_observability.md",
+      "normalized_lf_sha256": "489b4eac9390eb2fdb4fe182c625def3816e4492c512cf82ad6505a3a9f47721"
+    }
+  ],
+  "delivery_validation": {
+    "checked_utc": "2026-10-09T16:04:07.538773+00:00",
+    "utf8_json_links_fences_whitespace": "PASS",
+    "local_links_checked": 69,
+    "source_record_and_document_hashes": "PASS",
+    "diagnostic_counts_and_prompt_constraints": "PASS",
+    "exact_credential_and_pattern_scan": "PASS",
+    "credential_ignored_untracked": true,
+    "scope": "Three new documentation artifacts and one README navigation paragraph; no product change. Staged bytes are checked separately."
+  }
+}

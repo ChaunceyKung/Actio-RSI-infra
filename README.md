@@ -1,8 +1,8 @@
 # Actio-RSI · Phase 1C2C1
 
-双通道审计与单 seat 候选谱系已实现，当前发布冻结本机计划。主矩阵结果将在冻结后追加，真实 provider 请求保持 0。
+双通道审计、单 A scaffold 候选、SQLite 谱系和独立准入闭环已交付。真实 DSH/Concordia loopback 主矩阵 24 episodes / 48 sends / 12 arm pairs 完整，unknown=0、not_run=0、全部 delta=0。工程 PASS，能力 insufficient_evidence，所有候选 activation=false。
 
-入口：[合同](docs/validation/phase1c2c1/CONTRACT.md) · [结果](docs/validation/phase1c2c1/RESULTS.md) · [Gate](docs/validation/phase1c2c1/GATES.md) · [CLI](docs/validation/phase1c2c1/CLI.md)。
+入口：[结果](docs/validation/phase1c2c1/RESULTS.md) · [合同](docs/validation/phase1c2c1/CONTRACT.md) · [Gate](docs/validation/phase1c2c1/GATES.md) · [CLI](docs/validation/phase1c2c1/CLI.md) · [manifest](docs/validation/phase1c2c1/evidence_manifest.json)。新增 provider 请求 0；历史生成尝试 91、目录 GET 1 不变。
 
 ## Phase 1C2C0 历史交付
 

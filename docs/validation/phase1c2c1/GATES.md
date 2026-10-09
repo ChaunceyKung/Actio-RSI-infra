@@ -1,3 +1,19 @@
-# C2C1 冻结阶段 Gate
+# C2C1 Gate
 
-channel_audit、candidate_contract、lineage_durability 和本机小规模 runtime 验收见 local-acceptance.json；主矩阵 paired_execution 等待冻结发布后执行。provider_compatibility 无新增 live 证据，capability_admission 未决定，production_activation=false。
+| Gate | 结论 |
+|---|---|
+| channel_audit | PASS_LOCAL |
+| candidate_contract | PASS |
+| paired_execution | PASS_24_EPISODES_12_ARM_PAIRS |
+| lineage_durability | PASS_LOCAL_SQLITE |
+| offline_verification | PASS |
+| provider_compatibility | NO_NEW_LIVE_EVIDENCE |
+| capability_admission | insufficient_evidence |
+| production_activation | BLOCKED_FALSE |
+| billing_reconciliation | UNVERIFIED |
+| upstream_identity | UNVERIFIED |
+| human_calibration | NOT_CALIBRATED |
+| binary_source_mapping | unproven |
+| full_controller_recovery | unsupported |
+
+工程 PASS 不等于候选能力准入或 provider 稳定性证据。所有登记候选 activation=false；未创建 active pointer。

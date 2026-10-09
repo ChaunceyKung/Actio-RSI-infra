@@ -12,7 +12,15 @@
 - 不原位刷新历史报告、源码 pins 或预注册身份。发现错误时追加带来源的更正，并链接回原记录。
 - 同步更新根 README 的当前阶段、能力表与下一步事项；详细证据仍以 `docs/validation/<phase>/` 为准。
 
-## 当前交付：Phase 1C2C2
+## 当前交付：Phase 1C2C3
+
+离线任务诊断已交付：仅可见信息的条件得分/argmax集合、C2C2回顾性sidecar、8组/16世界/32展示诊断集、416合法组合真值及可移植CLI。两family合成控制敏感性和隐藏世界不相容见证通过；真实solver判别力NOT_RUN，研究有效性UNESTABLISHED。
+
+本轮真实模型/provider/目录/MCP/DSH Worker均0，未创建受管Job或服务。历史生成尝试139、目录GET1不变；C2C2的24/48/12、delta=0、C1 insufficient_evidence及activation=false原样保留。7项纯测试、8条guard内CLI、最小安装+4条literal命令通过。设计先文本冻结，首次机器封存前开发探针及guard失败保留，不宣称完全盲化预注册。
+
+[结果](docs/validation/phase1c2c3/RESULTS.md) · [合同](docs/validation/phase1c2c3/CONTRACT.md) · [Gate](docs/validation/phase1c2c3/GATES.md) · [CLI](docs/validation/phase1c2c3/CLI.md) · [manifest](docs/validation/phase1c2c3/evidence_manifest.json) · [下一问题草案](docs/validation/phase1c2c3/NEXT_EXPERIMENT.md)。停止于C2C3，未执行C2C4。
+
+## Phase 1C2C2 历史交付
 
 有限真实 B0/C1 配对已交付。实际 48 次发送、48 份 usage、unknown=0、not_run=0；工程 PASS，候选决策 insufficient_evidence，全部 activation=false。
 

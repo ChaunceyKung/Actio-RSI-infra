@@ -12,7 +12,11 @@ ROOT=Path(__file__).resolve().parents[1];DOC=ROOT/'docs/validation/phase1c2c2'
 
 
 def write(name,value):
-    with (DOC/name).open('x',encoding='utf8',newline='\n') as f:f.write(canonical(value))
+    target=DOC/name;raw=canonical(value)
+    if target.exists():
+        assert target.read_text(encoding='utf8')==raw,'immutable rendering differs: '+name
+        return
+    with target.open('x',encoding='utf8',newline='\n') as f:f.write(raw)
 
 
 def main():
@@ -32,7 +36,28 @@ def main():
     write('controlled-delivery.json',{'schema':'controlled-delivery-reference.v1','path':str((a.root/'delivery.json').resolve()),
         'file_sha256':file_hash(a.root/'delivery.json'),'body_sha256':value['sha256'],'reader_source':freeze['commit'],
         'access':'local controlled archive; raw reasoning is required for independent dual-channel verification and excluded from public reports',
-        'guarded_cli':'evidence/cli-*.json','public_projection':'samples/report.json','raw_archives_census':str(a.census.relative_to(DOC))})
+        'guarded_cli':'evidence/cli-*.json','public_projection':'samples/report.json','raw_archives_census':a.census.resolve().relative_to(DOC).as_posix()})
+    claims=ROOT/'.local/phase1c2c2-claims'
+    claim_files={p.name:{'sha256':file_hash(p),'body':json.loads(p.read_bytes())} for p in sorted(claims.glob('*.json'))}
+    assert len(claim_files)==2+len(report['execution_refs']) and claim_files['live-once.json']['body']['root']==str(a.root.resolve())
+    assert file_hash(Path(admission['legacy_source']['database']))==admission['legacy_source']['database_sha256']
+    write('execution-claims.json',{'namespace':str(claims),'files':claim_files,'claims_reclaimed':False,'legacy_source_unchanged':True})
+    from actio.candidate_measurement import source
+    from actio.channel_audit import audit,native_content
+    observations=[]
+    for entry in campaign['body']['entries']:
+        if entry['evidence'] is None:continue
+        data=source(entry)
+        for attempt in entry['evidence']['ledger']['attempts']:
+            op=next(o for o in data['operations'] if o['id']==attempt['id'])
+            if attempt['text_integrity']['status']=='verified':
+                checked_channel=audit(attempt['response'],op['answer'],require_bytes=True,native_blocks=native_content(data,op['stream']))
+                observations.append({'unit':entry['unit']['id'],'seat':attempt['scope']['seat'],
+                    'audit':{k:v for k,v in checked_channel.items() if k!='text'}})
+    write('provider-protocol.json',{'profile':'single-choice-dual-channel-audit.v2','reader_commit':freeze['commit'],
+        'observations':observations,'reasoning_present':sum(o['audit']['reasoning_present'] for o in observations),
+        'native_channels_checked':sum(o['audit']['native_reasoning_checked'] for o in observations),
+        'reasoning_bodies_published':False,'upstream_weights_identity_verified':False,'extra_provider_requests':0})
     complete=report['technical_evidence_complete']
     gates={'candidate_static_contract':'PASS','evaluation_lineage':'PASS','intervention_integrity':'PASS_OBSERVED_PREFIX',
         'measurement_integrity':'PASS_FULL_PLAN_DENOMINATORS','live_execution':'PASS' if complete else 'STOPPED_TECHNICAL_INCOMPLETE',
@@ -52,6 +77,14 @@ def main():
         f'开发/验收本机发送 {census["census"]["development_admission"]["sent"]}、usage {census["census"]["development_admission"]["usage"]}、unknown {census["census"]["development_admission"]["unknown"]}，单列而不拼入 live。','',
         '| 指标配对 | assigned | defined | missing | not_applicable |','|---|---|---|---|---|']
     lines += ['| '+name+' | '+' | '.join(str(v[k]) for k in ('assigned','defined','missing','not_applicable'))+' |' for name,v in report['metric_pair_coverage'].items()]
+    deltas=[v['delta'] for pair in report['pairs'] for v in pair['metrics'].values()]
+    lines += ['', '本次所有逐卡指标 delta 均为 0。这里只描述本轮观测，不证明候选等效、无效或可泛化。' if all(v==0 for v in deltas) else '逐卡非零及不可比较差值均保留在报告，不作整体得分或排名。', '',
+        '| family | arm | format A/B true/defined | hard A/B true/defined | joint true/defined |', '|---|---|---|---|---|']
+    for row in report['strata']:
+        if row['feasible'] is not None:continue
+        m=row['metrics']
+        ratio=lambda name:str(m[name]['true'])+'/'+str(m[name]['defined'])
+        lines.append('| '+row['family']+' | '+row['arm']+' | '+ratio('format_A')+' / '+ratio('format_B')+' | '+ratio('local_hard_A')+' / '+ratio('local_hard_B')+' | '+ratio('joint')+' |')
     lines += ['',f'arm pair 执行完成 {report["pair_coverage"]["defined"]}/12；与每个指标能否比较分开。各卡原值/delta/null/原因、全部 seat、family/arm/feasibility 分层见 [report](samples/report.json) 和 [bindings](bindings.json)。',
         f'C1 已观察约束违反 {len(report["violations"]["candidate"])} 项；B0 参照诊断 {len(report["violations"]["baseline"])} 项。任一方格式错误不删除整对；缺失效用不补 0。','',
         '三个前置边界：schema 4 新 evaluation 追加历史，保留旧 candidate decided/decision；技术完成与行为/指标适用性分离；v9 独立 live/rehearsal 接线，旧 v8 仍 local-only。每份 B 输入按本臂实际 A 正向重算，非历史字段及 hidden 反事实保持允许边界。',
@@ -64,6 +97,8 @@ def main():
         '停止于 C2C2；binary_source_mapping=unproven，full_controller_recovery=unsupported。']
     (DOC/'RESULTS.md').write_text('\n'.join(lines)+'\n',encoding='utf8',newline='\n')
     rootread=ROOT/'README.md';old=rootread.read_text(encoding='utf8')
+    if old.startswith('# Actio-RSI · Phase 1C2C2'):
+        old='# Actio-RSI · Phase 1C2C1\n'+old.partition('## Phase 1C2C1 历史交付\n\n')[2]
     rootread.write_text('# Actio-RSI · Phase 1C2C2\n\n'+f'有限真实 B0/C1 配对已交付。实际 {counts["sent"]} 次发送、{counts["usage_responses"]} 份 usage、unknown={counts["unknown"]}、not_run={counts["not_run"]}；工程 {report["engineering"]}，候选决策 {report["candidate_decision"]}，全部 activation=false。\n\n'+
         '[结果](docs/validation/phase1c2c2/RESULTS.md) · [合同](docs/validation/phase1c2c2/CONTRACT.md) · [Gate](docs/validation/phase1c2c2/GATES.md) · [CLI](docs/validation/phase1c2c2/CLI.md) · [manifest](docs/validation/phase1c2c2/evidence_manifest.json)。\n\n## Phase 1C2C1 历史交付\n\n'+old.split('\n',1)[1],encoding='utf8',newline='\n')
     write('installation.json',{'platform':platform.platform(),'python':sys.version,'venv':'.local/phase1c2c2-runtime-venv',
@@ -76,7 +111,7 @@ def main():
         'counts':counts,'metric_pair_coverage':report['metric_pair_coverage'],'gates':gates,'lineage':checked['lineage'],
         'census':a.census.resolve().relative_to(DOC).as_posix(),'census_sha256':file_hash(a.census),'implementation':contract.implementation(),
         'historical_generation_attempts':91,'new_external_sends':counts['sent'],'cumulative_real_generation_attempts':report['cumulative_real_generation_attempts'],
-        'activation':False,'publication_scan':scan,'artifacts':{p.relative_to(DOC).as_posix():file_hash(p) for p in sorted(DOC.rglob('*')) if p.is_file()},
+        'activation':False,'publication_scan':scan,'artifacts':{p.relative_to(DOC).as_posix():file_hash(p) for p in sorted(DOC.rglob('*')) if p.is_file() and p.name!='evidence_manifest.json'},
         'entry_hashes':{n:file_hash(ROOT/n) for n in ('README.md','AGENTS.md','.gitattributes','pyproject.toml')},
         'tooling_hashes':{p.relative_to(ROOT).as_posix():file_hash(p) for folder in ('scripts','tests') for p in sorted((ROOT/folder).rglob('*')) if p.suffix in ('.py','.mjs')}})
     print(canonical({'status':'PASS','counts':counts,'decision':report['candidate_decision'],'cumulative_real_generation_attempts':report['cumulative_real_generation_attempts']}))

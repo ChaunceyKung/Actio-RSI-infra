@@ -1,4 +1,11 @@
-# Actio-RSI · Phase 1C2C1
+# Actio-RSI · Phase 1C2C2
+
+有限真实 B0/C1 配对已交付。实际 48 次发送、48 份 usage、unknown=0、not_run=0；工程 PASS，候选决策 insufficient_evidence，全部 activation=false。
+
+[结果](docs/validation/phase1c2c2/RESULTS.md) · [合同](docs/validation/phase1c2c2/CONTRACT.md) · [Gate](docs/validation/phase1c2c2/GATES.md) · [CLI](docs/validation/phase1c2c2/CLI.md) · [manifest](docs/validation/phase1c2c2/evidence_manifest.json)。
+
+## Phase 1C2C1 历史交付
+
 
 双通道审计、单 A scaffold 候选、SQLite 谱系和独立准入闭环已交付。真实 DSH/Concordia loopback 主矩阵 24 episodes / 48 sends / 12 arm pairs 完整，unknown=0、not_run=0、全部 delta=0。工程 PASS，能力 insufficient_evidence，所有候选 activation=false。
 

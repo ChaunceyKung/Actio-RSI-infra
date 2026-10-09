@@ -1,0 +1,697 @@
+{
+  "schema": "actio-review-evidence.v1",
+  "review_phase": "phase1c2c0-to-phase1c2c1",
+  "baseline": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+  "recorded_utc": "2026-10-09T12:22:03.306654+00:00",
+  "scope": "Documentation-only delivery after read-only evidence review, offline guarded reader and four pure tests. No product edits or new model/provider calls.",
+  "input_records": [
+    {
+      "local_ignored_path": ".local/phase1c2c0-review/integrity.json",
+      "sha256": "06bad979265c47889b0ce82f99293143f2af707f9222a622e6cc663d5c4596da"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c0-review/offline.json",
+      "sha256": "dc847b8af4fe548b3b1da8a25b19ddadcbef8f086c3d574b8ea27500c431b349"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c0-review/pure-tests.json",
+      "sha256": "f8f2e551259393ea256f6c75580c5f32a3e30f4115166f697674651eaaa62b25"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c0-review/cleanup.json",
+      "sha256": "fff944782bcfc43fffe122525294352e01a92ee5fa468791d00a027ab26b87e1"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c0-review/ports.json",
+      "sha256": "90c3146ca6634b91903f9e09e051d52e5f62f2a038f8fe62477c15afaa95574c"
+    },
+    {
+      "local_ignored_path": ".local/phase1c2c0-review/assets.json",
+      "sha256": "4063cad391424640d7497a3ed221c49c251a17bfc31f3ea4c63386794ec16fd4"
+    }
+  ],
+  "integrity_review": {
+    "baseline": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+    "checked_utc": "2026-10-09T12:12:55.135559+00:00",
+    "manifest_sha256": "3ad41bb2694d26d63b5fcc0d0992cef3017a0993660da6b157d05b74eb166cb1",
+    "checks": {
+      "artifacts": 37,
+      "source_hashes": 52,
+      "entry_hashes": 4,
+      "tooling_hashes": 86,
+      "archives": {
+        "count": 15,
+        "raw": 7,
+        "source": 8,
+        "members": 3420,
+        "uncompressed_bytes": 157934730
+      },
+      "installed_sources": 52,
+      "published_tests": {
+        "evidence_source_bound": 27,
+        "rerun": false,
+        "failed_validation_records": 1,
+        "test_status_and_product_source_verified": 27
+      },
+      "freeze": {
+        "commit": "2e5f77b69b98f85c61df87e18d7e3ffad28e8cba",
+        "preregistration_hash": "6c0ac05265bac98ef03f1676c51984cfd7a107b5644cab9664b5e6a40ec6ff5e",
+        "product_unchanged": true,
+        "local_record_order_valid": true,
+        "independently_signed_time": false
+      },
+      "ledger_census": {
+        "database_hashes": 86,
+        "recounted_ledgers": 43,
+        "unchanged": true,
+        "counts_by_mode": {
+          "tokenkey_suite_live": {
+            "registered": 16,
+            "sent": 15,
+            "unknown": 0,
+            "unresolved": 0,
+            "usage_responses": 15
+          },
+          "tokenkey_suite_rehearsal": {
+            "registered": 70,
+            "sent": 63,
+            "unknown": 6,
+            "unresolved": 0,
+            "usage_responses": 57
+          }
+        }
+      }
+    },
+    "line_ending_only": [
+      "docs/validation/phase1c2c0/CLI.md",
+      "docs/validation/phase1c2c0/CONCORDIA_LICENSE",
+      "docs/validation/phase1c2c0/CONTRACT.md",
+      "docs/validation/phase1c2c0/GATES.md",
+      "docs/validation/phase1c2c0/RESULTS.md",
+      "docs/validation/phase1c2c0/evidence/20261009T073820Z-8ae55304.json",
+      "docs/validation/phase1c2c0/evidence/20261009T074344Z-d8ebb80e.json",
+      "docs/validation/phase1c2c0/evidence/20261009T075322Z-e6f9bede.json",
+      "docs/validation/phase1c2c0/evidence/20261009T075355Z-cea4b77b.json",
+      "docs/validation/phase1c2c0/evidence/20261009T075411Z-0133f701.json",
+      "docs/validation/phase1c2c0/evidence/20261009T075411Z-ec7b1ca1.json",
+      "docs/validation/phase1c2c0/evidence/20261009T075412Z-51e15b85.json",
+      "docs/validation/phase1c2c0/evidence/20261009T075415Z-0c3095b1.json",
+      "docs/validation/phase1c2c0/evidence/baseline.json",
+      "docs/validation/phase1c2c0/evidence/delivery-path-failure.json",
+      "docs/validation/phase1c2c0/provenance.json",
+      "AGENTS.md"
+    ],
+    "new_model_requests": 0
+  },
+  "offline_review": {
+    "valid": true,
+    "reader_commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+    "report_exact_recompute": true,
+    "plan_side_effects": 0,
+    "guard": [
+      "network",
+      "subprocess",
+      "runtime import",
+      "key",
+      "env",
+      "write"
+    ],
+    "counts": {
+      "planned_episodes": 24,
+      "observed_episodes": 8,
+      "complete_episodes": 7,
+      "not_run_episodes": 16,
+      "assigned": 48,
+      "sent": 15,
+      "response": 15,
+      "terminal": 15,
+      "admitted": 14,
+      "not_run": 33,
+      "protocol_error": 1,
+      "attempted": 15,
+      "usage_responses": 15,
+      "unknown": 0
+    },
+    "usage": {
+      "input_tokens": 6171,
+      "output_tokens": 121,
+      "cost_fields": 3,
+      "estimated_cost": null,
+      "billed_cost": null
+    },
+    "pair_coverage": {
+      "unit": "pair",
+      "assigned": 12,
+      "eligible": 12,
+      "not_applicable": 0,
+      "defined": 3,
+      "missing": 9,
+      "true": 3,
+      "false": 0,
+      "reasons": {
+        "incomplete_route_pair": 9
+      }
+    },
+    "strata": [
+      {
+        "family": "scheduling",
+        "route": "gpt-5.6",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 4,
+          "missing": 8,
+          "true": 4,
+          "false": 0,
+          "reasons": {
+            "not_started": 8
+          }
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 2,
+          "missing": 4,
+          "true": 1,
+          "false": 1,
+          "reasons": {
+            "not_started": 4
+          }
+        },
+        "joint_by_feasibility": [
+          {
+            "feasible": true,
+            "unit": "episode",
+            "assigned": 5,
+            "eligible": 5,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 4,
+            "true": 1,
+            "false": 0,
+            "reasons": {
+              "not_started": 4
+            }
+          },
+          {
+            "feasible": false,
+            "unit": "episode",
+            "assigned": 1,
+            "eligible": 1,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 0,
+            "true": 0,
+            "false": 1,
+            "reasons": {}
+          }
+        ]
+      },
+      {
+        "family": "scheduling",
+        "route": "claude-sonnet-4-6",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 4,
+          "missing": 8,
+          "true": 4,
+          "false": 0,
+          "reasons": {
+            "not_started": 8
+          }
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 2,
+          "missing": 4,
+          "true": 1,
+          "false": 1,
+          "reasons": {
+            "not_started": 4
+          }
+        },
+        "joint_by_feasibility": [
+          {
+            "feasible": true,
+            "unit": "episode",
+            "assigned": 5,
+            "eligible": 5,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 4,
+            "true": 1,
+            "false": 0,
+            "reasons": {
+              "not_started": 4
+            }
+          },
+          {
+            "feasible": false,
+            "unit": "episode",
+            "assigned": 1,
+            "eligible": 1,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 0,
+            "true": 0,
+            "false": 1,
+            "reasons": {}
+          }
+        ]
+      },
+      {
+        "family": "bargaining",
+        "route": "gpt-5.6",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 2,
+          "missing": 10,
+          "true": 2,
+          "false": 0,
+          "reasons": {
+            "raw_text_untrusted": 1,
+            "not_run": 1,
+            "not_started": 8
+          }
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 1,
+          "missing": 5,
+          "true": 0,
+          "false": 1,
+          "reasons": {
+            "raw_text_untrusted": 1,
+            "not_started": 4
+          }
+        },
+        "joint_by_feasibility": [
+          {
+            "feasible": true,
+            "unit": "episode",
+            "assigned": 5,
+            "eligible": 5,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 4,
+            "true": 0,
+            "false": 1,
+            "reasons": {
+              "not_started": 4
+            }
+          },
+          {
+            "feasible": false,
+            "unit": "episode",
+            "assigned": 1,
+            "eligible": 1,
+            "not_applicable": 0,
+            "defined": 0,
+            "missing": 1,
+            "true": 0,
+            "false": 0,
+            "reasons": {
+              "raw_text_untrusted": 1
+            }
+          }
+        ]
+      },
+      {
+        "family": "bargaining",
+        "route": "claude-sonnet-4-6",
+        "format": {
+          "unit": "seat",
+          "assigned": 12,
+          "eligible": 12,
+          "not_applicable": 0,
+          "defined": 4,
+          "missing": 8,
+          "true": 4,
+          "false": 0,
+          "reasons": {
+            "not_started": 8
+          }
+        },
+        "joint": {
+          "unit": "episode",
+          "assigned": 6,
+          "eligible": 6,
+          "not_applicable": 0,
+          "defined": 2,
+          "missing": 4,
+          "true": 1,
+          "false": 1,
+          "reasons": {
+            "not_started": 4
+          }
+        },
+        "joint_by_feasibility": [
+          {
+            "feasible": true,
+            "unit": "episode",
+            "assigned": 5,
+            "eligible": 5,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 4,
+            "true": 1,
+            "false": 0,
+            "reasons": {
+              "not_started": 4
+            }
+          },
+          {
+            "feasible": false,
+            "unit": "episode",
+            "assigned": 1,
+            "eligible": 1,
+            "not_applicable": 0,
+            "defined": 1,
+            "missing": 0,
+            "true": 0,
+            "false": 1,
+            "reasons": {}
+          }
+        ]
+      }
+    ],
+    "reasoning_observation": {
+      "unit": "ep-07",
+      "card": "H5",
+      "route": "gpt-5.6",
+      "seat": "A",
+      "raw_delta_key_sets": [
+        [
+          "content"
+        ],
+        [
+          "reasoning_content"
+        ],
+        [
+          "role"
+        ]
+      ],
+      "adapter_blocks": [
+        {
+          "index": 0,
+          "kind": "reasoning"
+        },
+        {
+          "index": 1,
+          "kind": "text"
+        }
+      ],
+      "raw_content_equals_adapter_text_and_native_answer": true,
+      "raw_reasoning_equals_adapter_reasoning": true,
+      "text_block_end_matches_deltas": true,
+      "reasoning_block_end_matches_deltas": true,
+      "nonempty_answer": true,
+      "native_message_count": 1,
+      "old_verdict": {
+        "reason": "tools/refusal/reasoning delta unsupported",
+        "schema": "single-choice-text-audit.v1",
+        "status": "rejected"
+      },
+      "accounting_state": "settled",
+      "world_effects": 0,
+      "domain_receipts": 0,
+      "scope": "Read-only comparison of existing record; not a new audit contract or retroactive admission. No channel contents printed."
+    },
+    "new_model_requests": 0
+  },
+  "executed_pure_tests": {
+    "executed_tests": [
+      "test_01_exhaustive_independent_truth_and_sensitivity",
+      "test_02_hand_computable_boundary_vectors",
+      "test_04_layered_missing_invalid_and_task_failure",
+      "test_06_historical_correction_from_full_plan"
+    ],
+    "tests_run": 4,
+    "failures": 0,
+    "errors": 0,
+    "external_model_calls": 0,
+    "scope": "pure oracle/production truth cross-check, hand vectors, denominator semantics and historical correction; no runtime or network suite"
+  },
+  "cleanup_review": {
+    "named_jobs": 78,
+    "active": 0,
+    "read_only_query": true,
+    "service_joined_historical_records": 35
+  },
+  "ports_review": {
+    "registered_ports": 35,
+    "remaining_listeners": 0
+  },
+  "reuse_assets": {
+    "retrieved_utc": "2026-10-09T12:15:21.538495+00:00",
+    "source_files": [
+      {
+        "asset": "dsh",
+        "commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "path": "LICENSE",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\01_deepseek-harness\\repo\\LICENSE",
+        "git_blob_sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+        "github_url": "https://github.com/deepseek-ai/deepseek-harness/blob/5badb15009ae1756c3afe0ae0cef1faafc290ccc/LICENSE",
+        "working_matches_normalized_lf": true
+      },
+      {
+        "asset": "dsh",
+        "commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "path": "packages/llm/llm-pi-ai/src/stream.ts",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\01_deepseek-harness\\repo\\packages\\llm\\llm-pi-ai\\src\\stream.ts",
+        "git_blob_sha256": "e3563cc091cc2e6b0c2bdbd4c1614339d7cbb01f747a956931b43f3256e0c640",
+        "github_url": "https://github.com/deepseek-ai/deepseek-harness/blob/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-pi-ai/src/stream.ts",
+        "working_matches_normalized_lf": true
+      },
+      {
+        "asset": "dsh",
+        "commit": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+        "path": "packages/llm/llm-pi-ai/tests/convert.spec.ts",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\01_deepseek-harness\\repo\\packages\\llm\\llm-pi-ai\\tests\\convert.spec.ts",
+        "git_blob_sha256": "08175c982134af9f4003591e71793975f9cdfc8294d554575cd0116546aef279",
+        "github_url": "https://github.com/deepseek-ai/deepseek-harness/blob/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-pi-ai/tests/convert.spec.ts",
+        "working_matches_normalized_lf": true
+      },
+      {
+        "asset": "raven",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "LICENSE",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\LICENSE",
+        "git_blob_sha256": "548514ced381fbde2164196f44680dbd27593e23e0773fba12b42bddb1ce6437",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/LICENSE",
+        "working_matches_normalized_lf": true
+      },
+      {
+        "asset": "raven",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "evolver/orchestrator/gates/paired.py",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\evolver\\orchestrator\\gates\\paired.py",
+        "git_blob_sha256": "1b7b65aa4c42cca345b044f308e5ac33abe73864bd46efda4992a878dc8beb8c",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/gates/paired.py",
+        "working_matches_normalized_lf": true
+      },
+      {
+        "asset": "raven",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "evolver/orchestrator/archive.py",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\evolver\\orchestrator\\archive.py",
+        "git_blob_sha256": "ac767194a888d0b73efb668973f8f05170c5c730e39dd6c3ee9d8760d814343a",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/archive.py",
+        "working_matches_normalized_lf": true
+      },
+      {
+        "asset": "raven",
+        "commit": "3632e6040c7038a60ec418ce39ccae185c72c19f",
+        "path": "tests/test_evolver_gates.py",
+        "local_path": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\codebase\\02_Raven\\repo\\tests\\test_evolver_gates.py",
+        "git_blob_sha256": "fc395adbd0684062166fbedf698678b9e1d80013fb4a8a354d7441e406538d36",
+        "github_url": "https://github.com/EverMind-AI/Raven/blob/3632e6040c7038a60ec418ce39ccae185c72c19f/tests/test_evolver_gates.py",
+        "working_matches_normalized_lf": true
+      }
+    ],
+    "github_checks": [
+      {
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/5badb15009ae1756c3afe0ae0cef1faafc290ccc/packages/llm/llm-pi-ai/src/stream.ts",
+        "status": 200,
+        "matches_git_blob": true,
+        "credential_sent": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/EverMind-AI/Raven/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/gates/paired.py",
+        "status": 200,
+        "matches_git_blob": true,
+        "credential_sent": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/EverMind-AI/Raven/3632e6040c7038a60ec418ce39ccae185c72c19f/evolver/orchestrator/archive.py",
+        "status": 200,
+        "matches_git_blob": true,
+        "credential_sent": false
+      }
+    ],
+    "source_tests_executed_this_review": 0,
+    "reuse_decisions": {
+      "dsh": "Keep official translator; use existing reasoning/text block semantics to define a new bounded read-only audit. Source/binary mapping remains unproven.",
+      "raven_paired": "Narrow per-unit pairing/diagnostic reference with explicit missing; no promoted, zero-fill or infinite-z admission.",
+      "raven_archive": "Descriptor/parent provenance reference; canonical lineage in Actio SQLite; no best-effort JSON authority or automatic recombination."
+    }
+  },
+  "review_source_refs": [
+    {
+      "path": "src/actio/stream_audit.py",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "24567444fc497bf87a39eee3555941c933afeff05696c1b482d2ea7986033b8e"
+    },
+    {
+      "path": "src/actio/suite_measurement.py",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "2156676c12347aabbb649eea835832bdded45a866f521295d2cbbf4a728c0e20"
+    },
+    {
+      "path": "src/actio/suite_contract.py",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "7b2752f14223ec61f17021079e7666c83c06fed314a78292a185c44ed5151603"
+    },
+    {
+      "path": "src/actio/store.py",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "4845c66cc979e6a1c169d1100a3084fcc2fbd02ff277f27a4ea82766e107d21e"
+    },
+    {
+      "path": "src/actio/suite_oracle.py",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "9709fb633ffac22c99d6eb969c69828c8722a112b6786087fe821fbcda5c52f7"
+    },
+    {
+      "path": "docs/validation/phase1c2c0/failure-review.json",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "91ecdbbf27768fe0c02dec75a2c4c99e72d61902643744d4fb82c416c33ec2bb"
+    },
+    {
+      "path": "docs/validation/phase1c2c0/samples/report.json",
+      "commit": "e2e6691ef9bae5f61bccaaa97528e0478bd9a666",
+      "git_blob_sha256": "04120a0ffe4f15ae8b63e2eedb57d1430200ce40db8ec2f4ed7c570158287279"
+    }
+  ],
+  "findings": [
+    {
+      "id": "C1R1",
+      "kind": "supported_profile_gap_not_observed_content_contradiction",
+      "source": "src/actio/stream_audit.py",
+      "symbol": "audit",
+      "observation": "Historical pure-text v1 rejects reasoning_content; the observed raw content/adapter text/native answer and raw reasoning/adapter reasoning are separately consistent.",
+      "required_action": "Versioned bounded dual-channel audit and historical compatibility sidecar; preserve old verdict and stopped denominator."
+    },
+    {
+      "id": "C1R2",
+      "kind": "failure_and_censoring_semantics",
+      "source": "src/actio/suite_measurement.py",
+      "symbol": "failure_facts",
+      "observation": "Any root cause currently marks censored=true; unsupported channel grouped under text_integrity despite complete response and native terminal.",
+      "required_action": "Distinguish protocol capability, content mismatch, incomplete stream, admission and per-clock observation/censoring in new version."
+    },
+    {
+      "id": "C1R3",
+      "kind": "next_domain_capability",
+      "source": "src/actio/store.py",
+      "symbol": "Store.agent",
+      "observation": "Agent spec immutable; no candidate/decision/lineage domain registry implemented by C2C0.",
+      "required_action": "Preserve base identity/spec; add versioned A scaffold and canonical candidate registry, paired local execution and scoped four-state decision."
+    }
+  ],
+  "decision": {
+    "task_suite_admission": "SUPPORTED_WITH_EXISTING_ENGINEERING_SCOPE",
+    "measurement_denominators": "RECOMPUTED_COMPLETE",
+    "historical_stop": "CONSISTENT_WITH_FROZEN_CONTRACT",
+    "protocol_extension": "NOT_YET_IMPLEMENTED",
+    "next_phase": "phase1c2c1-channel-audit-and-candidate-lineage",
+    "next_mode": "offline_and_loopback",
+    "next_local_plan": {
+      "cards": 12,
+      "arms": 2,
+      "route_labels": 1,
+      "repeat": 1,
+      "episodes": 24,
+      "maximum_loopback_solver_sends": 48,
+      "response_policy": "same frozen fixture for both arms; main-matrix expected delta zero",
+      "independent_research_units": 0
+    },
+    "production_activation": false,
+    "capability_admission_for_fixture_only_candidate": "insufficient_evidence",
+    "monetary_authorization": "existing uncapped authorization preserved; provider calls outside this stage design",
+    "billing_reconciliation": "UNVERIFIED",
+    "upstream_identity": "UNVERIFIED",
+    "human_calibration": "NOT_CALIBRATED",
+    "research_validity": "NOT_ESTABLISHED",
+    "evolution_promotion": "BLOCKED",
+    "binary_source_mapping": "unproven",
+    "full_controller_recovery": "unsupported"
+  },
+  "new_activity": {
+    "model_requests": 0,
+    "provider_requests": 0,
+    "local_http_requests": 0,
+    "dsh_workers": 0,
+    "pure_tests_executed": 4,
+    "unauthenticated_github_raw_gets": 3
+  },
+  "historical_cumulative": {
+    "generation_attempts": 91,
+    "phase1c2c0_generation_attempts": 15,
+    "preceding_generation_attempts": 76,
+    "catalog_get_separate": 1
+  },
+  "review_helper_corrections": [
+    {
+      "issue": "Initial hash assertion compared working bytes only.",
+      "resolution": "GATES/RESULTS manifest hashes match committed Git blobs exactly; working differences are CRLF/LF only."
+    },
+    {
+      "issue": "Initial ledger recount assumed state columns instead of JSON bodies.",
+      "resolution": "Recount used declared registration/attempt body/event schema in read-only connections; counts and unchanged bytes verified."
+    }
+  ],
+  "limits": [
+    "27 published tests were PASS/source-bound checked; only four pure tests rerun this review.",
+    "No DSH/Raven upstream test suite rerun; seven pinned source/license files inspected and three GitHub raw blobs checked.",
+    "A single historical channel comparison does not validate the proposed audit profile or provider compatibility.",
+    "Reasoning channel contents are not printed or copied into this review.",
+    "Three complete cross-route blocks are distinct from seven complete within-episode actor pairs.",
+    "Service joins are historical records; Jobs and listening ports were inspected during review.",
+    "Local publication timing is not an independent signed timestamp."
+  ],
+  "documents": [
+    {
+      "path": "docs/reviews/phase1c2c0_review_and_c2c1_plan.md",
+      "normalized_lf_sha256": "5e22968801f5738464755a1ae370feb3944d27f7b329c0c6cc6566cd701ec9dd"
+    },
+    {
+      "path": "docs/prompts/phase1c2c1_channel_audit_and_candidate_lineage.md",
+      "normalized_lf_sha256": "5591678d9377e00acc1df7d11330d9dd6720cbc17004bcd3588832ee31fcba45"
+    }
+  ],
+  "delivery_validation": {
+    "markdown_links_valid": 4,
+    "document_hashes_valid": true,
+    "json_and_counts_valid": true,
+    "secret_scan_pass": true,
+    "credential_ignored_untracked": true,
+    "tracked_product_and_history_unchanged_before_staging": true
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "local-failure-note.v1",
+  "failed_evidence": "20261009T023138Z-9254e552.json",
+  "rerun_evidence": "20261009T023927Z-ea732826.json",
+  "root": "D:\\actio-c2a1-tests\\0744c6ddcd9c\\500",
+  "sending": 1,
+  "received": 0,
+  "response": {
+    "status": 0,
+    "raw": "",
+    "chunks": [
+      {
+        "type": "finish",
+        "reason": {
+          "kind": "error",
+          "failure": {
+            "message": "DeepSeek stream idle timeout after 1500ms",
+            "code": "TIMEOUT"
+          }
+        }
+      }
+    ],
+    "error": "TimeoutReason: LLM_STREAM_IDLE_TIMEOUT after 1500ms"
+  },
+  "states": [
+    {
+      "seat": "A",
+      "state": "unknown",
+      "reason": "no complete native terminal"
+    }
+  ],
+  "cause": "Observed original v3 1500 ms stream idle timeout before service receive. Concurrent load is a possible explanation, not a proven root cause. Old timeout parameters unchanged.",
+  "retained_files": {
+    "D:\\actio-c2a1-tests\\0744c6ddcd9c\\500\\w3524b84c8fd3\\transport-response.json": "4bef9c07ddbf2236263dc3c82bbf279c17c86bf21653f55e2728cdba913898b7",
+    "D:\\actio-c2a1-tests\\0744c6ddcd9c\\500\\w3524b84c8fd3\\host.jsonl": "1c7db324b8b6b052509c1fbcece6f5185d186e7e845496fcfcd39f8ffbade3b2",
+    "D:\\actio-c2a1-tests\\0744c6ddcd9c\\500\\result.json": "47615d07c4ae1031134187af4bf89b9248823913a70b5f99eb612a18966f13ff"
+  },
+  "model_requests": 0,
+  "real_cost": 0
+}

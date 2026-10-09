@@ -11,6 +11,7 @@ export async function apply(ctx,config) {
   const ipc=value=>{
     const p=spawnSync(config.python,['-I','-B','-m','actio.budget',config.ledger],{
       input:JSON.stringify(value),encoding:'utf8',timeout:5000,maxBuffer:65536,windowsHide:true,
+      ...(config.helper_env?{env:config.helper_env}:{}),
     })
     if(p.error || p.status!==0) throw new Error('budget IPC failed: '+(p.stdout||p.error||p.stderr))
     const result=JSON.parse(p.stdout)
@@ -31,10 +32,16 @@ export async function apply(ctx,config) {
     log({kind:'sending',op:a.op,wire_hash:wireHash})
     try {
       const headers=new Headers(options.headers)
-      if(headers.get('authorization')!=='Bearer actio-loopback-fake-key') throw new Error('unexpected credential')
+      const expected=config.credential_env?process.env[config.credential_env]:'actio-loopback-fake-key'
+      if(!expected || headers.get('authorization')!=='Bearer '+expected) throw new Error('unexpected credential')
       headers.set('X-Actio-Attempt',a.op)
-      const response=await original(url,{...options,headers,redirect:'error',
-        signal:AbortSignal.any([...(options.signal?[options.signal]:[]),AbortSignal.timeout(3000)])})
+      const first=new AbortController()
+      const timer=config.first_ms?setTimeout(()=>first.abort('first-response deadline'),config.first_ms):null
+      let response
+      try {
+        response=await original(url,{...options,headers,redirect:'error',
+          signal:AbortSignal.any([...(options.signal?[options.signal]:[]),first.signal,AbortSignal.timeout(config.total_ms??3000)])})
+      } finally {if(timer) clearTimeout(timer)}
       a.response.status=response.status
       // The official Response is returned unchanged. A bounded tee only retains audit bytes.
       a.capture=(async()=>{

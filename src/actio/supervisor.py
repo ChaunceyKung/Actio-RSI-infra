@@ -161,7 +161,7 @@ class Supervisor:
         self.execution_deadline = None
 
     def start(self):
-        self.execution_deadline = time.monotonic()+75
+        self.execution_deadline = time.monotonic()+getattr(self,'total_seconds',75)
         self.log = (self.root/'stderr.log').open('wb')
         self.proc = subprocess.Popen([sys.executable,'-m',self.module,str(self.root)],
             stdin=subprocess.PIPE, stdout=self.log, stderr=self.log, cwd=self.root,
@@ -173,7 +173,9 @@ class Supervisor:
             self.proc.wait(timeout=5)
             self.log.close()
             raise
-        self.send({'kind': 'go'})
+        credential=getattr(self,'launch_credential',None)
+        try:self.send({'kind':'go',**({'credential':credential} if credential else {})})
+        finally:self.launch_credential=None
 
     def send(self, value):
         from .common import canonical

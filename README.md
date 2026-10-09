@@ -1,4 +1,12 @@
-# Actio-RSI · Phase 1C2A.1
+# Actio-RSI · Phase 1C2B0
+
+真实 solver 接入的本机准备工程已完成，Gate 为 **CONDITIONAL_GO（仅 local_readiness_engineering）**。新增 `pilot-config.v4` / `scheduling-priced.v1`，沿用固定官方 Chat Completions adapter、DSH `0.1.5rc1`、真实 Concordia 与持久 Ledger，验证 USD 整数报价估算、内存假凭据注入、分层超时、未知占额和只读导出。v2/v3 原语义及历史证据保留。
+
+真实模型请求、外部 provider 请求、真实费用均为 **0**。供应商兼容性和账单对账仍 **UNVERIFIED**；live 授权及执行均 **BLOCKED**。候选为 `deepseek-flash`，精确计费输入上界、1M 单位和额外费用仍未核实，预算建议不是批准。执行入口在读取凭据前拒绝；未进入 C2B1。
+
+当前入口：[结果与本轮计数](docs/validation/phase1c2b0/02_results.md) · [Gate](docs/validation/phase1c2b0/03_gate.md) · [CLI](docs/validation/phase1c2b0/04_usage.md) · [合同](docs/validation/phase1c2b0/01_contract.md) · [费用、凭据与超时](docs/validation/phase1c2b0/05_cost_credentials_timeouts.md) · [未批准的具体批准包](docs/validation/phase1c2b0/approval_package.json) · [manifest](docs/validation/phase1c2b0/evidence_manifest.json)。`python -m actio.readiness plan` 零凭据/网络/Worker；本机预演为 `scripts/phase1c2b0_rehearsal.py`；离线核验为 `python -m actio.readiness verify <campaign目录>`。本轮仅推送 `phase1c2b0-solver-live-readiness`。
+
+## Phase 1C2A.1 历史交付
 
 固定 DSH `0.1.5rc1` 的官方 Chat Completions 本机链路已达 **CONDITIONAL_GO（仅 transport_stub 工程）**：无预置答案双 seat、真实 Concordia 两步调度、发送前 SQLite 持久预算、异常保守占额与只读 campaign 对账已验收。配置为 `pilot-config.v3` / `chat-completions.v1`，旧 v2 Messages 语义及历史 NO_GO 证据保留。
 

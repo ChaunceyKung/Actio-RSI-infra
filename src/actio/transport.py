@@ -6,24 +6,32 @@ import sys
 from .common import canonical,digest,write_json,ContractError
 from .runtime import RuntimePort,PACKAGE,pins,synthetic_spec,CONCORDIA
 from .transport_contract import (validate_config,validate_manifest,INPUT,PROFILE,PROTOCOL,PROVIDER,MODEL,SOURCE,payload)
-from .budget import Ledger
+from .budget import Ledger,priced,profile_for,validate_budget_config,endpoint_for
 
 
-def transport_pins():
+def transport_pins(config=None):
+    if priced(config):
+        return {**pins(),'provider':PROVIDER,'model':config['model'],'profile':profile_for(config),'protocol':PROTOCOL,
+                'policy':'sqlite-priced-attempt.v1','connection_mode':config['mode'],'registry':digest([]),'reviewed_dsh_source':SOURCE}
     return {**pins(),'provider':PROVIDER,'model':MODEL,'profile':PROFILE,'protocol':PROTOCOL,
             'policy':'sqlite-attempt.v1','registry':digest([]),'reviewed_dsh_source':SOURCE}
 
 
-def transport_spec(name):
-    return {**synthetic_spec(name),'pins':transport_pins(),'prompt_version':INPUT}
+def transport_spec(name,config=None):
+    return {**synthetic_spec(name),'pins':transport_pins(config),'prompt_version':'scheduling-priced.v1' if priced(config) else INPUT}
 
 
 class TransportPort(RuntimePort):
-    @staticmethod
-    def expected_pins():return transport_pins()
+    def expected_pins(self):return transport_pins(self.candidate_config)
 
-    def __init__(self,*args,ledger,**kwargs):
+    def __init__(self,*args,ledger,credential=None,**kwargs):
         self.ledger_path=Path(ledger).resolve();self.accounted=False
+        self.candidate_config=json.loads(args[1]['input'])['transport']['config'];self.credential=credential
+        if priced(self.candidate_config):
+            validate_budget_config(self.candidate_config)
+            if self.candidate_config['mode']!='priced_rehearsal' or type(credential) is not str or not credential.startswith('ACTIO_FAKE_'):
+                raise ContractError('C2B0 permits only explicit in-memory fake rehearsal credential')
+            kwargs['deadlines']={k:self.candidate_config['timeouts'][k] for k in ('ready','result','drained','closed')}
         super().__init__(*args,**kwargs)
 
     def prepare(self):
@@ -38,7 +46,7 @@ class TransportPort(RuntimePort):
         patch=json.loads((self.root/'profile.patch.yml').read_bytes())
         patch=[x for x in patch if x.get('id')!='llm-deepseek']
         patch[-1]['insert']=[x for x in patch[-1]['insert'] if x['id']=='actio-policy']
-        solver=self.config['roles']['solver'];endpoint=solver['endpoint']
+        endpoint=endpoint_for(self.config)
         patch[-1]['insert'].append({'id':'actio-transport','name':(PACKAGE/'plugins/transport.mjs').as_uri(),
             'config':{'python':sys.executable,'ledger':str(self.ledger_path),'endpoint':endpoint,
                       'active':str(self.root/'active.json'),'capture':str(self.root/'transport.jsonl'),
@@ -50,13 +58,25 @@ class TransportPort(RuntimePort):
         write_json(self.root/'profile.patch.yml',patch)
         c=json.loads((self.root/'host-config.json').read_bytes())
         c['sdk'].update(provider=PROVIDER,model=MODEL,max_tokens=64,reasoning_effort='off',env={'ACTIO_STUB_KEY':'actio-loopback-fake-key'})
+        if priced(self.config):
+            from .common import clean_env
+            t=self.config['timeouts'];ref=self.config['credential_ref']
+            gate=next(x for item in patch for x in item.get('insert',[]) if x['id']=='actio-transport')
+            gate['config'].update(credential_env=ref,helper_env=clean_env(self.root),first_ms=t['first_response']*1000,total_ms=t['request']*1000)
+            adapter=next(x for x in patch if x.get('id')=='llm-deepseek')
+            adapter['config'].update(apiKeyEnv=ref,streamIdleTimeoutMs=t['idle']*1000)
+            c['sdk'].pop('env',None);c['sdk'].update(model=self.config['model'],request_timeout_seconds=t['rpc'])
+            c['credential_ref']=ref
+            self.supervisor.launch_credential={'ref':ref,'value':self.credential};self.credential=None
+            self.supervisor.total_seconds=t['worker']
+            write_json(self.root/'profile.patch.yml',patch)
         write_json(self.root/'host-config.json',c)
 
     def prepare_dispatch(self,task):
         m=json.loads(self.run['input']);scope={'campaign':m['transport']['campaign'],'run':self.run['id'],'op':self.op,
             'registration':self.run['id']+':'+self.seat,'seat':self.seat,'stream':self.stream['id'],'epoch':self.epoch,
-            'worker':self.stream['worker'],'config_hash':m['transport']['config_hash'],'profile':PROFILE,
-            'endpoint':self.config['roles']['solver']['endpoint'],'persona':self.spec['persona'],'task':task}
+            'worker':self.stream['worker'],'config_hash':m['transport']['config_hash'],'profile':profile_for(self.config),
+            'endpoint':endpoint_for(self.config),'persona':self.spec['persona'],'task':task}
         ledger=Ledger(self.ledger_path)
         try:ledger.authorize(scope)
         finally:ledger.close()
@@ -76,6 +96,10 @@ class TransportPort(RuntimePort):
                 if not complete:
                     try:Facts(self.s).collect(self.stream['id'])
                     except (ContractError,OSError):pass
+                    if priced(self.config):
+                        events=[json.loads(r['raw']) for r in self.s.rows('SELECT raw FROM occurrence WHERE stream=? ORDER BY seq',(self.stream['id'],))]
+                        finals=[e for e in events if e['type']=='assistant/message']
+                        native_usage=finals[-1]['data'].get('usage') if finals else None
                 p=self.root/'transport-response.json';response=json.loads(p.read_bytes()) if p.exists() else None
                 if response is not None:
                     response['chunks_json']=json.dumps(response.pop('chunks'),separators=(',',':'),allow_nan=False)
@@ -90,35 +114,35 @@ class TransportPort(RuntimePort):
                 finally:ledger.close()
 
 
-def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_type=TransportPort):
+def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_type=TransportPort,credential=None):
     from .scenarios import snapshot,run_engine,failed
     from .terminal import seal_terminal
     from .task_contract import validate_task
-    validate_config(config);t=validate_task(task)
-    if t['mode']!='transport_stub':raise ContractError('explicit transport task required')
+    validate_budget_config(config);t=validate_task(task);mode='priced_rehearsal' if priced(config) else 'transport_stub'
+    if t['mode']!=mode:raise ContractError('explicit transport task required')
     for seat in t['seats'].values():
         a=store.agent(seat['agent'])
-        if a['spec_hash']!=seat['spec_hash'] or a['spec']['pins']!=transport_pins():raise ContractError('transport identity/spec mismatch')
+        if a['spec_hash']!=seat['spec_hash'] or a['spec']['pins']!=transport_pins(config):raise ContractError('transport identity/spec mismatch')
     ledger=Ledger(ledger_path)
     try:
         if ledger.meta['config_hash']!=digest(config):raise ContractError('config not frozen in ledger')
         campaign=ledger.meta['campaign']
         entities={s:t['seats'][s]['agent'] for s in ('A','B')}
         request={'scenario':'social','task_hash':task['sha256'],'a':entities['A'],'b':entities['B'],
-                 'config_hash':digest(config),'campaign':campaign,'mode':'transport_stub'}
+                 'config_hash':digest(config),'campaign':campaign,'mode':mode}
         def freeze():
-            m={'input_contract':INPUT,'execution_mode':'transport_stub','scenario':'social','task':task,'entities':entities,
+            m={'input_contract':'scheduling-priced.v1' if priced(config) else INPUT,'execution_mode':mode,'scenario':'social','task':task,'entities':entities,
                'agents':{s['agent']:s['spec_hash'] for s in t['seats'].values()},'memory':{a:snapshot(store,a,'social') for a in entities.values()},
-               'pins':transport_pins(),'engine':'concordia.Sequential','source':CONCORDIA,'order':['A','B'],'max_steps':2,'seed':0,'world':[],
+               'pins':transport_pins(config),'engine':'concordia.Sequential','source':CONCORDIA,'order':['A','B'],'max_steps':2,'seed':0,'world':[],
                'observation_policy':'scheduling-own-plus-public.v2','gm_private':'SCHEDULING_GM_PRIVATE_AUDIT_ONLY',
-               'request':request,'replay_of':None,'transport':{'config':config,'config_hash':digest(config),'campaign':campaign,'profile':PROFILE}}
+               'request':request,'replay_of':None,'transport':{'config':config,'config_hash':digest(config),'campaign':campaign,'profile':profile_for(config)}}
             validate_manifest(m);return m
         run,fresh=store.begin(key,freeze,request=request)
         if not fresh:return run
         ledger.register(run['id'],json.loads(run['input']))
     finally:ledger.close()
     try:
-        def port(*args,**kwargs):return runtime_type(*args,ledger=ledger_path,**kwargs)
+        def port(*args,**kwargs):return runtime_type(*args,ledger=ledger_path,**({'credential':credential} if priced(config) else {}),**kwargs)
         outcome=run_engine(store,run,json.loads(run['input']),short_root,port)
         seal_terminal(store,run['id'],run['epoch'],outcome)
         return store.finish(run['id'],run['epoch'],task=outcome)

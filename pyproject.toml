@@ -20,5 +20,5 @@ actio-eval = "actio.evaluation:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-actio = ["*.sql", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]
+actio = ["*.sql", "*.json", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]
 "actio._vendor" = ["*.json", "SOTOPIA_LICENSE"]

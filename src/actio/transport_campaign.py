@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from .common import canonical,digest,file_hash,uid,write_json,ContractError
-from .budget import Ledger,verify_snapshot,sha
+from .budget import Ledger,verify_snapshot,sha,priced
 from .eval_contract import seal,unseal
 from .evaluation import publish,read_json,source_bundle
 from .transport_contract import require,INPUT
@@ -19,9 +19,9 @@ def analyze(dataset,ledger,receives):
     audits={};operation_rows={};states={}
     for run,source in d['sources'].items():
         capture={};v=verify_bundle(snapshot=source['files'],capture=capture)
-        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode']=='transport_stub','transport bundle rejected: '+str(v['errors']))
+        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal'),'transport bundle rejected: '+str(v['errors']))
         data=capture['evidence'];m=json.loads(data['run']['input'])
-        require(data['run']['id']==run and m['input_contract']==INPUT and m['transport']['config']==ledger['meta']['config'],'source run/config')
+        require(data['run']['id']==run and m['input_contract']==('scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
         require([r for r in d['registrations'] if r['run']==run]==sorted([
             {'id':run+':'+seat,'run':run,'seat':seat,'manifest_hash':digest(m),'task_hash':m['task']['sha256']} for seat in ('A','B')],key=lambda r:r['id']),'dataset seat/view/manifest binding')
         for row in data['audit']:
@@ -49,9 +49,10 @@ def analyze(dataset,ledger,receives):
     counts={'registered':len(d['registrations']),'attempted':len(audits),'not_run':len(d['registrations'])-len(audits),
             'send_attempts':sum(e['kind']=='sending' for e in ledger['events']),'received':len(receives),
             **{k:sum(a['state']==k for a in audits.values()) for k in ('settled','unknown','denied','released')},
-            'real_model_requests':0,'real_cost':0}
+            'real_model_requests':0 if ledger['meta']['config'].get('mode') in (None,'priced_rehearsal') else None,'real_cost':0 if ledger['meta']['config'].get('mode') in (None,'priced_rehearsal') else None}
     return {'schema':'transport-report.v1','campaign':d['campaign'],'counts':counts,'totals':ledger['totals'],'runs':states,
-            'usage_basis':'synthetic; no real tokenizer/billing bound','independent_units':0}
+            'usage_basis':'simulated usage; USD frozen-quote estimate; not a supplier bill' if priced(ledger['meta']['config']) else 'synthetic; no real tokenizer/billing bound',
+            'supplier_received':None,'supplier_bill_minor':None,'billing_reconciliation':'UNVERIFIED','independent_units':0}
 
 
 def export_campaign(ledger_path,bundles,receives,destination):

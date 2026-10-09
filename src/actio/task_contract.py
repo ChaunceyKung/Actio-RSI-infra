@@ -37,7 +37,7 @@ def action_spec(seat):
 
 def task_card(variant,bindings,mode='fixture'):
     require(variant in ('compatible','conflict'),'unknown scheduling card')
-    require(mode in ('fixture','transport_stub'),'unknown task execution mode')
+    require(mode in ('fixture','transport_stub','priced_rehearsal'),'unknown task execution mode')
     return sealed({'schema':SCHEMA,'version':1,'id':'cleanup-'+variant,'family':FAMILY,'variant':variant,
         'provenance':{'kind':'Actio_authored_synthetic_fixture','license':'CC0-1.0','upstream_dataset':None},
         'public':{'scenario':'Two adult neighbors arrange a one-hour shared park cleanup. A proposes a time; B responds.',
@@ -77,14 +77,14 @@ def task_result(t,actions):
 
 def actor_observation(m,seat,public_actions):
     t=m['task']['body']
-    return canonical({**({'role':t['seats'][seat]['role']} if m.get('execution_mode')=='transport_stub' else {}),
-        'schema':'scheduling-observation.v2' if m.get('execution_mode')=='transport_stub' else 'scheduling-observation.v1','task_hash':m['task']['sha256'],'seat':seat,
+    return canonical({**({'role':t['seats'][seat]['role']} if m.get('execution_mode') in ('transport_stub','priced_rehearsal') else {}),
+        'schema':'scheduling-observation.v2' if m.get('execution_mode') in ('transport_stub','priced_rehearsal') else 'scheduling-observation.v1','task_hash':m['task']['sha256'],'seat':seat,
         'public':t['public'],'own':t['seats'][seat]['private'],'initial_relationship':t['relationships'][seat],
         'public_actions':[{'seat':t['order'][i],'action':a} for i,a in enumerate(public_actions)]})
 
 
 def validate_manifest(m):
-    if m.get('input_contract')=='scheduling-transport.v1':
+    if m.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1'):
         from .transport_contract import validate_manifest as transport_manifest
         return transport_manifest(m)
     t=validate_task(m['task']);require(m['input_contract']==CONTRACT and m['scenario']=='social','task input contract mismatch')

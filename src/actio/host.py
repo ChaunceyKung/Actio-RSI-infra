@@ -9,16 +9,35 @@ from .common import ContractError, Lines
 
 
 def main(root):
-    if json.loads(sys.stdin.buffer.readline(65537)) != {'kind':'go'}:
+    launch=json.loads(sys.stdin.buffer.readline(65537))
+    if not isinstance(launch,dict) or launch.get('kind')!='go' or set(launch) not in ({'kind'},{'kind','credential'}):
         raise ContractError('missing launch gate')
     from deepseek_harness import DeepSeekHarness
     from deepseek_harness.api import final_response, finish_reason
     config = json.loads((root/'host-config.json').read_text())
+    secret=None
+    if 'credential_ref' in config:
+        credential=launch.pop('credential',{})
+        if set(credential)!={'ref','value'} or credential['ref']!=config['credential_ref'] or not credential['value'].startswith('ACTIO_FAKE_'):
+            raise ContractError('C2B0 rehearsal credential gate rejected')
+        secret=credential['value']
+        config['sdk']['env']={credential['ref']:secret}
+        # SDK stderr stays in memory. Redact before host diagnostics reach any disk sink.
+        class DiagnosticStream:
+            def __init__(self,stream):self.stream=stream
+            def write(self,value):return self.stream.write(value.replace(secret,'[credential omitted]'))
+            def flush(self):return self.stream.flush()
+        sys.stderr=DiagnosticStream(sys.stderr)
+        sys.stdout=DiagnosticStream(sys.stdout)
+    elif 'credential' in launch:
+        raise ContractError('unexpected credential for fixture host')
     limits = config['limits']
     count = total = 0
     def emit(row):
         nonlocal count,total
-        data = (json.dumps(row,ensure_ascii=False,allow_nan=False)+'\n').encode()
+        text=json.dumps(row,ensure_ascii=False,allow_nan=False)
+        if secret:text=text.replace(secret,'[credential omitted]')
+        data = (text+'\n').encode()
         count += 1; total += len(data)
         if len(data)>limits['item'] or count>limits['count'] or total>limits['total']:
             (root/'host.jsonl.limit').write_text('data_limit_exceeded')

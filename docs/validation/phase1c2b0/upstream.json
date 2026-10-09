@@ -1,0 +1,151 @@
+{
+  "dsh_source": {
+    "source": "183f08e9c6dde7e36cd2318eaee70b0da08fb35e",
+    "tag": "dsh-v0.1.5-rc.1",
+    "license": "MIT; Copyright (c) 2026 DeepSeek",
+    "files": [
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/LICENSE",
+        "status": 200,
+        "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+        "bytes": 1065
+      },
+      {
+        "path": "packages/llm/llm-deepseek/package.json",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/package.json",
+        "status": 200,
+        "sha256": "3324d9ff2ccdc5d67f821d1c2fe108e93453cc583453118ce76577aded2c2bf2",
+        "bytes": 2513
+      },
+      {
+        "path": "packages/llm/llm-deepseek/README.md",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/README.md",
+        "status": 200,
+        "sha256": "235aeaf0e877dac90f60012e1ec3c180a39d3de2d7a69ba436b0e95731e9fc2e",
+        "bytes": 20380
+      },
+      {
+        "path": "packages/llm/llm-deepseek/src/adapter.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/src/adapter.ts",
+        "status": 200,
+        "sha256": "bd97f822363f45fae28e4aa1b7a4412305865979e22889c6c771989dcee87a32",
+        "bytes": 30632
+      },
+      {
+        "path": "packages/llm/llm-deepseek/src/index.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/src/index.ts",
+        "status": 200,
+        "sha256": "9e5dfc22dee524cf0fa31897e83b22a6c7b167041ba19b261fae486118446ce1",
+        "bytes": 25348
+      },
+      {
+        "path": "packages/llm/llm-deepseek/tests/mock-server.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/tests/mock-server.ts",
+        "status": 200,
+        "sha256": "bf91b0ccf6b0f3956616eb615a726c8329e1979bc712defdaa4da0be6e9b9932",
+        "bytes": 6960
+      },
+      {
+        "path": "packages/bundle/sdk-minimal/cordis.patch.yml",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/bundle/sdk-minimal/cordis.patch.yml",
+        "status": 200,
+        "sha256": "31805d5b233c33eabc57f4bac562b2d2db00e8a7bb1f205926f43e5f84749680",
+        "bytes": 5248
+      },
+      {
+        "path": "python/sdk-runtime/pyproject.toml",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/python/sdk-runtime/pyproject.toml",
+        "status": 200,
+        "sha256": "b75140f05147af762694a8aa042ee4fdd70713135834b44d30d76ff8edb4b5b7",
+        "bytes": 1113
+      },
+      {
+        "path": "packages/llm/llm-deepseek/src/serialize.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/src/serialize.ts",
+        "status": 200,
+        "sha256": "36ff023acb53f11af7eb7550e533907489e928a81037f8b4e447804a16910162",
+        "bytes": 17106
+      },
+      {
+        "path": "packages/llm/llm-deepseek/src/translate.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/src/translate.ts",
+        "status": 200,
+        "sha256": "66e8b1f96a90404d4e5ca67fc85b9e37a96bbee78ed52521e7b8fdc3f336ba32",
+        "bytes": 8735
+      },
+      {
+        "path": "packages/llm/llm-deepseek/src/sse.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/src/sse.ts",
+        "status": 200,
+        "sha256": "621f53b6641a9fb5c652a755f477045f0616f42d5a559b9bea4754836552d705",
+        "bytes": 1821
+      },
+      {
+        "path": "packages/llm/llm/src/index.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm/src/index.ts",
+        "status": 200,
+        "sha256": "e9790c58a9ab112eb41165a4cab474df751dfe7bd13fd8ade68564ca11f7c4d5",
+        "bytes": 50286
+      },
+      {
+        "path": "packages/llm/llm-retry/src/index.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-retry/src/index.ts",
+        "status": 200,
+        "sha256": "d33553781ed2118aab3b249c159fae550d359627565e4714c9ea599e474b8093",
+        "bytes": 9263
+      },
+      {
+        "path": "packages/llm/llm-deepseek/tests/adapter.spec.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/tests/adapter.spec.ts",
+        "status": 200,
+        "sha256": "0ae41ccd3ff090804214c0d98ed2e19c94066e1906a299d63d98700b03461674",
+        "bytes": 95898
+      },
+      {
+        "path": "packages/llm/llm-deepseek/tests/sse.spec.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/tests/sse.spec.ts",
+        "status": 200,
+        "sha256": "8f1bae11a305828fe0e0b8814fb0e429bca8624a93a8857e32032de3d8c292d4",
+        "bytes": 2746
+      },
+      {
+        "path": "packages/llm/llm-deepseek/tests/translate.spec.ts",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-deepseek/tests/translate.spec.ts",
+        "status": 200,
+        "sha256": "cd7e09778d1f5215b781f4e54cb01e71a826299aa2562f5dc767d6733ca907a4",
+        "bytes": 18794
+      }
+    ],
+    "source_acquisition": "review downloaded immutable GitHub raw URLs; this phase rechecked all local byte hashes",
+    "binary_source_mapping": "unproven",
+    "upstream_tests_executed": false,
+    "adopted": "unmodified binary serializer/SSE translator; test event shapes adapted; scoped llm/stream observation and final fetch gate",
+    "not_adopted": [
+      "Files",
+      "images",
+      "live e2e",
+      "provider replacement",
+      "model loop replacement"
+    ]
+  },
+  "sdk_evidence": {
+    "api.py": {
+      "sha256": "9e24adee62987e38e0577c4ba051b15b015f61cd5d5412dc56882094f5e52c2b",
+      "basis": "installed hash-locked 0.1.5rc1 wheel"
+    },
+    "client.py": {
+      "sha256": "78193d6b88d49b87dc0057ec92cbc512426e7712f75c3e700f0fc7e0046d28fc",
+      "basis": "installed hash-locked 0.1.5rc1 wheel"
+    }
+  },
+  "interpretation": {
+    "rpc": "client.request waits for JSON-RPC response; session_prompt returns receipt; subscription.next has independent blocking queue without request_timeout_seconds",
+    "sdk_env": "client.start copies sanitized host environment then merges explicit config.env; process args contain no key",
+    "provider": "tag adapter uses global fetch; llm service waterfall observes request, native serializer and translator unchanged",
+    "idle": "official watchdog spans stream iterator; request whole deadline supplied by narrow fetch gate",
+    "context": "old tag defaults/model catalogue are not evidence for current Flash exact billable token bound"
+  },
+  "source_mapping": "unproven",
+  "external_provider_requests": 0
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "delivery_only",
+  "argv": [
+    "scripts/phase1c2c0_finalize.py",
+    "--census",
+    "docs/validation/phase1c2c0/evidence/census-20261009T080701Z-aa38cd07.json"
+  ],
+  "exit_code": 1,
+  "reason": "relative census path passed to relative_to absolute DOC; documents generated, manifest not yet created",
+  "source_archive": "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2c0-source-history\\finalize-before-path-fix.py",
+  "sha256": "b42095a948fa263be957a1ac7ed8519172deeecfde421dec57da15c0530538e0",
+  "repair": "resolve census path; identical existing generated JSON accepted; no product or preregistration change",
+  "extra_model_calls": 0
+}

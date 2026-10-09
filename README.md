@@ -1,8 +1,10 @@
-# Actio-RSI · Phase 1C2B2
+# Actio-RSI · Phase 1C2C0
 
-Phase 1C2B2 已完成测量完整性修复与预注册工程 pilot：计划 32 episodes / 64 seats，实际发送 54，admitted 53，not_run 10，unknown 1。raw→adapter→native 文本绑定和 actor own/public 输入边界已验证；独立集合谓词测量与完整分母可离线复核。
+任务集与独立评估准入已交付：2 families / 12 张卡，完整分层分母、新有限期限及只读评估器。正式 pilot stopped，计划 24 episodes / 48 seats，sent=15，usage=15，not_run=33，unknown=0。
 
-入口：[结果](docs/validation/phase1c2b2/RESULTS.md) · [Gate](docs/validation/phase1c2b2/GATES.md) · [合同](docs/validation/phase1c2b2/CONTRACT.md) · [CLI](docs/validation/phase1c2b2/CLI.md) · [预注册](docs/validation/phase1c2b2/preregistration.json) · [manifest](docs/validation/phase1c2b2/evidence_manifest.json)。费用/账单与上游权重身份仍 UNVERIFIED；本轮不构成研究能力排名、judge 校准或演化晋升。
+入口：[结果](docs/validation/phase1c2c0/RESULTS.md) · [Gate](docs/validation/phase1c2c0/GATES.md) · [CLI](docs/validation/phase1c2c0/CLI.md) · [manifest](docs/validation/phase1c2c0/evidence_manifest.json)。费用/上游身份 UNVERIFIED，human_labels=0，无研究排名或晋升。
+
+C2B2 历史：[结果](docs/validation/phase1c2b2/RESULTS.md) · [追加分母纠正](docs/validation/phase1c2c0/c2b2-correction.json)。
 
 ## Phase 1C2B1 历史交付
 

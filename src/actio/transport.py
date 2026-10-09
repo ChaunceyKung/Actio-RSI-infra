@@ -6,7 +6,7 @@ import sys
 from .common import canonical,digest,write_json,ContractError
 from .runtime import RuntimePort,PACKAGE,pins,synthetic_spec,CONCORDIA
 from .transport_contract import (validate_config,validate_manifest,INPUT,PROFILE,PROTOCOL,PROVIDER,MODEL,SOURCE,payload)
-from .budget import Ledger,priced,gateway,metered,profile_for,validate_budget_config,endpoint_for
+from .budget import Ledger,priced,gateway,pilot,metered,profile_for,validate_budget_config,endpoint_for
 
 
 def transport_pins(config=None):
@@ -24,6 +24,8 @@ def transport_pins(config=None):
 def transport_spec(name,config=None):
     if gateway(config):
         from .gateway_contract import PERSONA,INPUT as gateway_input
+        if pilot(config):
+            from .task_v2 import INPUT as gateway_input
         return {**synthetic_spec(name),'persona':PERSONA,'persona_hash':digest(PERSONA),'pins':transport_pins(config),'prompt_version':gateway_input}
     return {**synthetic_spec(name),'pins':transport_pins(config),'prompt_version':'scheduling-priced.v1' if priced(config) else INPUT}
 
@@ -41,7 +43,7 @@ class TransportPort(RuntimePort):
             kwargs['deadlines']={k:self.candidate_config['timeouts'][k] for k in ('ready','result','drained','closed')}
         if gateway(self.candidate_config):
             validate_budget_config(self.candidate_config)
-            if type(credential) is not str or not credential or (self.candidate_config['mode']=='tokenkey_rehearsal' and not credential.startswith('ACTIO_FAKE_')):
+            if type(credential) is not str or not credential or (self.candidate_config['mode'] in ('tokenkey_rehearsal','tokenkey_pilot_rehearsal') and not credential.startswith('ACTIO_FAKE_')):
                 raise ContractError('explicit gateway credential required')
             kwargs['deadlines']={k:self.candidate_config['timeouts'][k] for k in ('ready','result','drained','closed')}
         super().__init__(*args,**kwargs)
@@ -97,7 +99,7 @@ class TransportPort(RuntimePort):
             {'id':'actio-transport','name':(PACKAGE/'plugins/transport.mjs').as_uri(),'config':{
                 'python':sys.executable,'ledger':str(self.ledger_path),'endpoint':cfg['endpoint'],
                 'active':str(self.root/'active.json'),'capture':str(self.root/'transport.jsonl'),'response':str(self.root/'transport-response.json'),
-                'limits':self.supervisor.limits,'gateway':True,'credential_env':ref,'helper_env':clean_env(self.root),
+                'limits':self.supervisor.limits,'gateway':True,'measurement':pilot(cfg),'credential_env':ref,'helper_env':clean_env(self.root),
                 'first_ms':t['first_response']*1000,'total_ms':t['request']*1000,'max_bytes':cfg['bounds']['response_bytes'],'max_chunks':cfg['bounds']['chunks']}},
             {'id':'llm-pi-ai','name':adapter,'config':{'providers':{ROUTE:{'apiKeyEnv':ref,'api':'openai-completions','baseURL':cfg['endpoint'],
                 'models':[{'id':cfg['model'],'contextWindow':32768,'maxTokens':512,'reasoningEfforts':False}],
@@ -109,6 +111,9 @@ class TransportPort(RuntimePort):
         host['credential_ref']=ref;host['gateway_contract']=cfg
         self.supervisor.launch_credential={'ref':ref,'value':self.credential};self.credential=None
         self.supervisor.total_seconds=t['worker'];write_json(self.root/'host-config.json',host)
+
+    def bind_task(self,task):
+        return task if pilot(self.candidate_config) else super().bind_task(task)
 
     def prepare_dispatch(self,task):
         m=json.loads(self.run['input']);scope={'campaign':m['transport']['campaign'],'run':self.run['id'],'op':self.op,
@@ -149,6 +154,10 @@ class TransportPort(RuntimePort):
                     if exists:
                         a=ledger.finish(self.op,response,native_usage,complete)
                         self.s.audit(self.run['id'],self.op,'transport_attempt',a);self.accounted=True
+                        if pilot(self.config) and (a['text_integrity'] or {}).get('status')!='verified':raise ContractError('pilot text evidence rejected; batch frozen')
+                        if pilot(self.config) and complete:
+                            from .stream_audit import audit
+                            audit(response,result['answer'],require_bytes=True)
                         if gateway(self.config) and a['state']=='unknown':raise ContractError('gateway usage/identity incomplete; batch frozen')
                 finally:ledger.close()
 
@@ -170,10 +179,10 @@ def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_
         request={'scenario':'social','task_hash':task['sha256'],'a':entities['A'],'b':entities['B'],
                  'config_hash':digest(config),'campaign':campaign,'mode':mode}
         def freeze():
-            m={'input_contract':'scheduling-tokenkey.v1' if gateway(config) else 'scheduling-priced.v1' if priced(config) else INPUT,'execution_mode':mode,'scenario':'social','task':task,'entities':entities,
+            m={'input_contract':'scheduling-tokenkey.v2' if pilot(config) else 'scheduling-tokenkey.v1' if gateway(config) else 'scheduling-priced.v1' if priced(config) else INPUT,'execution_mode':mode,'scenario':'social','task':task,'entities':entities,
                'agents':{s['agent']:s['spec_hash'] for s in t['seats'].values()},'memory':{a:snapshot(store,a,'social') for a in entities.values()},
                'pins':transport_pins(config),'engine':'concordia.Sequential','source':CONCORDIA,'order':['A','B'],'max_steps':2,'seed':0,'world':[],
-               'observation_policy':'scheduling-own-plus-public.v2','gm_private':'SCHEDULING_GM_PRIVATE_AUDIT_ONLY',
+               'observation_policy':'scheduling-own-plus-public.v3' if pilot(config) else 'scheduling-own-plus-public.v2','gm_private':'SCHEDULING_GM_PRIVATE_AUDIT_ONLY',
                'request':request,'replay_of':None,'transport':{'config':config,'config_hash':digest(config),'campaign':campaign,'profile':profile_for(config)}}
             validate_manifest(m);return m
         run,fresh=store.begin(key,freeze,request=request)

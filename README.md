@@ -1,4 +1,10 @@
-# Actio-RSI · Phase 1C2B1
+# Actio-RSI · Phase 1C2B2
+
+当前阶段为测量完整性与预注册工程 pilot。实现新增严格 raw→adapter→native 文本绑定、actor own/public 输入白名单、独立集合谓词测量及 32 episodes / 最多 64 sends 的完整冻结计划。首次真实调用前先验证并发布实现与预注册。
+
+入口：[测量合同](docs/validation/phase1c2b2/CONTRACT.md) · [CLI](docs/validation/phase1c2b2/CLI.md) · [路由与价格证据](docs/validation/phase1c2b2/route-cost-registry.json)。
+
+## Phase 1C2B1 历史交付
 
 TokenKey → 官方 DSH `0.1.5rc1` / `llm-pi-ai` → 真实 Concordia 的多模型 solver 闭环已完成，工程 Gate 为 **CONDITIONAL_GO**。`gpt-5.6` 与 `claude-sonnet-4-6` 各完成 compatible、conflict 两个 A→B episode：共 **8 次正式请求、8 份可信 usage，4,100 输入 / 40 输出 token**，无自动重试或新 unknown。compatible 达成调度，conflict 合法拒绝并完整记录 task_failure。
 

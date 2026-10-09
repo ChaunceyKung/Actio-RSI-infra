@@ -21,9 +21,9 @@ def main(root):
         if set(credential)!={'ref','value'} or credential['ref']!=config['credential_ref'] or type(credential['value']) is not str or not credential['value']:
             raise ContractError('C2B0 rehearsal credential gate rejected')
         if 'gateway_contract' in config:
-            from .gateway_contract import validate
+            from .budget import validate_budget_config as validate
             cfg=validate(config['gateway_contract'])
-            if cfg['mode']=='tokenkey_rehearsal' and not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('fake key required')
+            if cfg['mode'] in ('tokenkey_rehearsal','tokenkey_pilot_rehearsal') and not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('fake key required')
         elif not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('C2B0 fake key required')
         secret=credential['value']
         config['sdk']['env']={credential['ref']:secret}

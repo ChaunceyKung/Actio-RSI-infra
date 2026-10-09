@@ -36,6 +36,7 @@ export async function apply(ctx,config) {
       if(!expected || headers.get('authorization')!=='Bearer '+expected) throw new Error('unexpected credential')
       headers.set('X-Actio-Attempt',a.op)
       if(config.gateway)a.started=Date.now()
+      if(config.measurement)a.response.started_utc=new Date(a.started).toISOString()
       const first=new AbortController()
       const timer=config.first_ms?setTimeout(()=>first.abort('first-response deadline'),config.first_ms):null
       let response
@@ -45,6 +46,7 @@ export async function apply(ctx,config) {
       } finally {if(timer) clearTimeout(timer)}
       a.response.status=response.status
       if(config.gateway){a.response.http_request_id=response.headers.get('x-request-id')??response.headers.get('request-id');a.response.timings.headers_ms=Date.now()-a.started}
+      if(config.measurement)a.response.http_date=response.headers.get('date')
       // The official Response is returned unchanged. A bounded tee only retains audit bytes.
       a.capture=(async()=>{
         const reader=response.clone().body.getReader();let size=0;const chunks=[]
@@ -56,7 +58,7 @@ export async function apply(ctx,config) {
           }
           a.response.raw=Buffer.concat(chunks).toString('utf8')
         } catch(e) {a.response.raw=Buffer.concat(chunks).toString('utf8');a.response.error=String(e)}
-        finally {reader.releaseLock()}
+        finally {if(config.measurement)a.response.raw_base64=Buffer.concat(chunks).toString('base64');reader.releaseLock()}
       })()
       return response
     } catch(e) {a.response.error=String(e);throw e}
@@ -66,7 +68,7 @@ export async function apply(ctx,config) {
     const binding=JSON.parse(readFileSync(config.active,'utf8'))
     const a={op:binding.op,used:false,capture:null,
       prepared:{provider:request.provider,model:request.model,purpose:request.purpose??null,messages:request.messages,tools:request.tools??[]},
-      response:{status:0,raw:'',chunks:[],error:null,...(config.gateway?{http_request_id:null,timings:{headers_ms:null,first_token_ms:null,total_ms:null}}:{})}}
+      response:{status:0,raw:'',chunks:[],error:null,...(config.measurement?{raw_base64:'',started_utc:null,http_date:null}:{}),...(config.gateway?{http_request_id:null,timings:{headers_ms:null,first_token_ms:null,total_ms:null}}:{})}}
     if(!a.op || a.op==='not-dispatched') throw new Error('no active operation')
     active=a;log({kind:'hook',op:a.op})
     try {

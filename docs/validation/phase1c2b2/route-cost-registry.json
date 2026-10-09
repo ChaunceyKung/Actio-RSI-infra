@@ -1,0 +1,70 @@
+{
+  "schema": "route-cost-registry.v1",
+  "public_evidence": [
+    {
+      "kind": "provider_claim",
+      "url": "https://tokenkey.dev/home",
+      "text": "每一次请求都直达官方 API，不降级、不掺水、不路由到第三方。",
+      "coverage": "supplier statement only; no independent upstream identity evidence",
+      "retrieved_utc": "2026-10-09T05:56:41.513730+00:00",
+      "evidence_method": "Codex browser rendered accessibility/DOM read",
+      "evidence_sha256": "fec77b825e930a3a20af131452176a833d58928eb499492f74f5df571d7635bd",
+      "credential_sent": false
+    },
+    {
+      "kind": "quote",
+      "url": "https://tokenkey.dev/models?view=pricing&model=claude-sonnet-4-6",
+      "text": "正在查看所有分组 · 更新于 2026/10/8 21:40:04\nclaude-sonnet-4-6 anthropic 输入 $3 / 1M tokens 输出 $15 / 1M tokens 缓存读取 $0.3 缓存写入 $3.75 上下文 1,000,000 最大输出 64,000",
+      "model": "claude-sonnet-4-6",
+      "symbol": "$",
+      "currency": null,
+      "input_per_million": "3",
+      "output_per_million": "15",
+      "cache_read_display": "0.3",
+      "cache_write_display": "3.75",
+      "reasoning_basis": null,
+      "valid_from": null,
+      "valid_until": null,
+      "account_group_match": null,
+      "coverage": "public all-group catalog only; ISO currency, account applicability and request-level billing not established",
+      "retrieved_utc": "2026-10-09T05:56:41.513730+00:00",
+      "evidence_method": "Codex browser rendered accessibility/DOM read",
+      "evidence_sha256": "4747c98e09faeda552572828851ef7199d1cf16c02e2d1c996cf1432e3a37faf",
+      "credential_sent": false
+    },
+    {
+      "kind": "quote_missing",
+      "url": "https://tokenkey.dev/models?view=pricing&model=claude-sonnet-4-6",
+      "text": "搜索 gpt-5.6; 精准（全名）; 0 个模型; 没有匹配的模型。可切换到模糊搜索或缩短关键词。",
+      "model": "gpt-5.6",
+      "coverage": "exact requested route absent; gpt-5.6-sol/terra/luna listings cannot substitute for it",
+      "retrieved_utc": "2026-10-09T05:56:41.513730+00:00",
+      "evidence_method": "Codex browser rendered accessibility/DOM read",
+      "evidence_sha256": "42e42cc9c5014320d09dd0c8cb79a8584127c2495eb909e33afd40d718b07e62",
+      "credential_sent": false
+    },
+    {
+      "kind": "documentation",
+      "url": "https://tokenkey.dev/quickstart",
+      "text": "以下配置使用占位示例。地址 https://api.callmodel.io",
+      "coverage": "public guide displays a different base origin; no credential sent there; frozen user-authorized api.tokenkey.dev unchanged",
+      "retrieved_utc": "2026-10-09T05:56:41.513730+00:00",
+      "evidence_method": "Codex browser rendered accessibility/DOM read",
+      "evidence_sha256": "09f86e339f897b3fbf5549b0eac600e0cff656d361554483586702e442fb7a92",
+      "credential_sent": false
+    }
+  ],
+  "observed_labels": "per-seat pilot report plus raw response/native evidence",
+  "raw_usage_cost": "retain Decimal text as reported; unit/currency unknown",
+  "estimated_cost": null,
+  "billed_cost": null,
+  "billing_reconciliation": "UNVERIFIED",
+  "bill_source_available": false,
+  "tax_fx_account_scope": null,
+  "upstream_identity": "UNVERIFIED",
+  "cost_normalized_ranking": "PROHIBITED",
+  "model_generation_diagnostics": 0,
+  "investigation_stop": "public home, catalog exact route lookup, guide; no account login or guessed management endpoints",
+  "direct_authenticated_model_catalog_requests": 0,
+  "public_browser_subrequests": "not counted as solver sends; public pages only"
+}

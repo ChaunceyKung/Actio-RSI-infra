@@ -55,7 +55,11 @@ def task_card(variant,bindings,mode='fixture'):
 
 def validate_task(value):
     require(type(value) is dict and set(value)=={'body','sha256'},'sealed TaskSpec required')
-    t=value['body'];require(digest(t)==value['sha256'],'TaskSpec hash mismatch')
+    t=value['body']
+    if t.get('schema')=='actio-task.v2':
+        from .task_v2 import validate
+        return validate(value)
+    require(digest(t)==value['sha256'],'TaskSpec hash mismatch')
     try:
         bindings={s:{k:t['seats'][s][k] for k in ('agent','spec_hash')} for s in ('A','B')}
         require(all(type(v['agent']) is str and re.fullmatch('[A-Za-z0-9_-]{1,64}',v['agent']) and
@@ -76,6 +80,9 @@ def task_result(t,actions):
 
 
 def actor_observation(m,seat,public_actions):
+    if m.get('input_contract')=='scheduling-tokenkey.v2':
+        from .task_v2 import observation
+        return observation(m,seat,public_actions)
     t=m['task']['body']
     return canonical({**({'role':t['seats'][seat]['role']} if m.get('execution_mode') in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal') else {}),
         'schema':'scheduling-observation.v2' if m.get('execution_mode') in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal') else 'scheduling-observation.v1','task_hash':m['task']['sha256'],'seat':seat,
@@ -84,7 +91,7 @@ def actor_observation(m,seat,public_actions):
 
 
 def validate_manifest(m):
-    if m.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1'):
+    if m.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2'):
         from .transport_contract import validate_manifest as transport_manifest
         return transport_manifest(m)
     t=validate_task(m['task']);require(m['input_contract']==CONTRACT and m['scenario']=='social','task input contract mismatch')

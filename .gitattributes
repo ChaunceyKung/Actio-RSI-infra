@@ -48,3 +48,7 @@
 /docs/validation/phase1c2b1/**/*.jsonl -text !eol whitespace=cr-at-eol
 /docs/validation/phase1c2b1/evidence_manifest.json -text !eol whitespace=cr-at-eol
 /docs/validation/phase1c2b1/DSH_LICENSE.txt -text !eol whitespace=cr-at-eol
+
+/docs/validation/phase1c2b2/** text eol=lf
+/docs/validation/phase1c2b2/**/*.json -text !eol whitespace=cr-at-eol
+/docs/validation/phase1c2b2/**/*.jsonl -text !eol whitespace=cr-at-eol

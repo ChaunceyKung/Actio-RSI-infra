@@ -13,13 +13,16 @@ from .transport_contract import validate_config,require,PROFILE,PROVIDER,MODEL,M
 def sha(raw):return hashlib.sha256(raw.encode()).hexdigest()
 
 
-def gateway(c):return c is not None and c.get('schema')=='pilot-config.v5'
+def pilot(c):return c is not None and c.get('schema')=='pilot-config.v6'
+
+
+def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6')
 
 
 def metered(c):return priced(c) or gateway(c)
 
 
-def schema_for(c):return 3 if gateway(c) else 2 if priced(c) else 1
+def schema_for(c):return 4 if pilot(c) else 3 if gateway(c) else 2 if priced(c) else 1
 
 
 def ledger_contract(c):return 'attempt-ledger.v'+str(schema_for(c))
@@ -34,6 +37,9 @@ def priced(c):return c is not None and c.get('schema')=='pilot-config.v4'
 
 
 def validate_budget_config(c):
+    if pilot(c):
+        from .pilot_contract import validate
+        return validate(c)
     if gateway(c):
         from .gateway_contract import validate
         return validate(c)
@@ -44,6 +50,9 @@ def validate_budget_config(c):
 
 
 def profile_for(c):
+    if pilot(c):
+        from .pilot_contract import PROFILE
+        return PROFILE
     if gateway(c):
         from .gateway_contract import PROFILE as p
         return p
@@ -152,7 +161,7 @@ class Ledger:
         if config is not None:
             validate_budget_config(config);require(not self.path.exists(),'new budget database required')
             if metered(config):
-                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live'),'C2B0 cannot create live execution ledger')
+                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal'),'C2B0 cannot create live execution ledger')
                 authority=Path(config['authority']['root']);authority.mkdir(parents=True,exist_ok=True)
                 anchor=authority/(config['authority']['id']+'.json')
                 # Exclusive authority binding survives controller/Worker death and DB removal.
@@ -169,7 +178,7 @@ class Ledger:
             finally:db.close()
         require(self.path.exists(),'budget DB missing')
         self.db=sqlite3.connect(self.path.as_uri()+('?mode=ro' if readonly else '?mode=rw'),uri=True,isolation_level=None,timeout=5)
-        require(self.db.execute('PRAGMA user_version').fetchone()[0] in (1,2,3),'budget schema version')
+        require(self.db.execute('PRAGMA user_version').fetchone()[0] in (1,2,3,4),'budget schema version')
         if not readonly:self.db.execute('PRAGMA synchronous=FULL')
         self.meta=json.loads(self.db.execute('SELECT body FROM meta').fetchone()[0])
         validate_budget_config(self.meta['config']);require(self.meta['config_hash']==digest(self.meta['config']),'ledger config hash')
@@ -200,6 +209,8 @@ class Ledger:
         with self.tx():
             if gateway(self.meta['config']):
                 c=self.meta['config'];regs=self.rows('registration');index=len(regs)//2
+                if pilot(c):
+                    require(manifest['task']['body']['id']==c['experiment']['unit']['card'],'unit/card binding')
                 require(index<len(c['plan']) and manifest['task']['body']['variant']==c['plan'][index],'episode not in ordered batch plan')
             for seat in ('A','B'):
                 value={'id':run+':'+seat,'run':run,'seat':seat,'manifest_hash':digest(manifest),'task_hash':manifest['task']['sha256']}
@@ -213,6 +224,7 @@ class Ledger:
             require(row is not None and json.loads(row[0])['run']==scope['run'],'attempt registration')
             require(not any(a['scope']['registration']==scope['registration'] for a in self.rows('attempt')),'one attempt per seat; no retry')
             a={'id':scope['op'],'scope':scope,'state':'authorized','request':None,'binding':None,'reservation':None,'response':None,'usage':None,'native_usage':None,'reason':None}
+            if pilot(self.meta['config']):a['text_integrity']=None
             self.db.execute('INSERT INTO attempt VALUES(?,?)',(a['id'],canonical(a)));self.event(a['id'],'authorized',scope)
 
     def reserve(self,attempt,request):
@@ -256,8 +268,11 @@ class Ledger:
             except (ContractError,KeyError,TypeError,ValueError,AttributeError,RecursionError) as e:reason=str(e)
             state='settled' if usage else 'unknown'
             if a['state']=='authorized':state='released';reason='no durable reserve, therefore no send permission'
+            if pilot(self.meta['config']):
+                from .stream_audit import verdict
+                a['text_integrity']=verdict(response)
             a.update(state=state,response=response,native_usage=native_usage,usage=usage,reason=reason);self.save(a)
-            self.event(attempt,state,{'response':response,'native_usage':native_usage,'usage':usage,'reason':reason})
+            self.event(attempt,state,{k:a[k] for k in terminal_keys(self.meta['config'])})
             return a
 
     def release(self,attempt):
@@ -274,6 +289,10 @@ class Ledger:
             attempts=self.rows('attempt')
             return {'meta':self.meta,'registrations':self.rows('registration'),'attempts':attempts,'events':events,'totals':totals(attempts)}
         finally:self.db.rollback()
+
+
+def terminal_keys(c):
+    return ('response','native_usage','usage','reason')+(('text_integrity',) if pilot(c) else ())
 
 
 def totals(attempts):
@@ -314,7 +333,10 @@ def verify_snapshot(s):
         if a['state']=='settled':require(a['usage']==trusted_usage(a['response'],a['native_usage'],m['config']),'settled usage mismatch')
         else:require(a['usage'] is None,'nonsettled cannot charge zero/usage')
         if a['state'] in ('settled','unknown'):
-            require(ev[-1]['body']=={k:a[k] for k in ('response','native_usage','usage','reason')},'terminal budget event')
+            require(ev[-1]['body']=={k:a[k] for k in terminal_keys(m['config'])},'terminal budget event')
+        if pilot(m['config']) and a['state'] in ('settled','unknown'):
+            from .stream_audit import verdict
+            require(a['text_integrity']==verdict(a['response']),'text audit recomputation mismatch')
         if a['state']=='denied':require(ev[-1]['body']=={'reason':a['reason']},'denial reason mismatch')
     require(len(registered)==len(set(registered)),'multiple attempts per registration')
     replay={};cap=caps(m['config'])
@@ -344,8 +366,15 @@ def verify_run_attempts(data,m):
         require(scope=={'campaign':m['transport']['campaign'],'run':data['run']['id'],'op':op['id'],
                 'registration':data['run']['id']+':'+seat,'seat':seat,'stream':op['stream'],'epoch':op['epoch'],
                 'worker':stream['worker'],'config_hash':m['transport']['config_hash'],'profile':profile_for(m['transport']['config']),
-                'endpoint':endpoint_for(m['transport']['config']),'persona':agents[stream['agent']]['persona'],'task':{**intent,'op':op['id']}},'run/actor/attempt ownership mismatch')
+                'endpoint':endpoint_for(m['transport']['config']),'persona':agents[stream['agent']]['persona'],'task':intent if pilot(m['transport']['config']) else {**intent,'op':op['id']}},'run/actor/attempt ownership mismatch')
         if a['request'] is not None:require(a['binding']==wire_binding(scope,a['request'],m['transport']['config']),'run wire mapping')
+        if pilot(m['transport']['config']):
+            from .stream_audit import verdict,audit
+            expected=verdict(a['response'])
+            require(a['text_integrity']==expected or a['text_integrity'] is None and a['response'] is None and a['state'] in ('denied','released'),'run text audit mismatch')
+            integrity=(a['text_integrity'] or {}).get('status')=='verified'
+            if integrity and op['answer'] is not None:audit(a['response'],op['answer'],require_bytes=True)
+            if not integrity:require(not any(r['op']==op['id'] for r in data['domain_receipts']),'rejected text cannot mutate world')
         require(a['state'] in ('denied','released','unknown','settled'),'unresolved active budget state')
         if a['state']=='settled':
             require((op['terminal']=='completed' and op['barrier']) or (metered(m['transport']['config']) and a['usage']['finish']=='max-tokens'),'settlement without native terminal')

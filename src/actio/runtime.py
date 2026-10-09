@@ -134,7 +134,7 @@ class RuntimePort:
     def submit(self, task):
         self.s.fence(self.run['id'],self.epoch)
         self.op=self.s.intent(self.run['id'],self.epoch,self.stream['id'],task)
-        task={**task,'op':self.op}
+        task=self.bind_task(task)
         if task.get('tool'):
             task={**task,'callId':task.get('callId',uid()),'args':{**task['args'],'op':self.op}}
         try:
@@ -157,6 +157,9 @@ class RuntimePort:
                 e.add_note('failure ledger update failed: '+str(record_error))
             self.cleanup_after_error(e)
             raise
+
+    def bind_task(self,task):
+        return {**task,'op':self.op}
 
     def prepare_dispatch(self,task):
         write_json(self.root/'active.json',{**self.binding,'op':self.op})

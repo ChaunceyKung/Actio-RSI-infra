@@ -75,7 +75,10 @@ def trusted_usage(response,native,c):
     require(len(response['raw'].encode())<=c['bounds']['response_bytes'],'gateway response byte bound')
     values=[s[6:] for s in response['raw'].splitlines() if s.startswith('data: ')]
     require(values and values[-1]=='[DONE]' and values.count('[DONE]')==1,'gateway missing/extra DONE')
-    rows=[json.loads(s,parse_float=Decimal) for s in values[:-1]]
+    if c.get('schema')=='pilot-config.v6':
+        from .stream_audit import strict_json
+        rows=[strict_json(s) for s in values[:-1]]
+    else:rows=[json.loads(s,parse_float=Decimal) for s in values[:-1]]
     usage=[r['usage'] for r in rows if r.get('usage') is not None]
     require(len(usage)==1,'gateway usage missing/ambiguous')
     u=usage[0]

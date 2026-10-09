@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from .common import canonical,digest,file_hash,uid,write_json,ContractError
-from .budget import Ledger,verify_snapshot,sha,priced,gateway
+from .budget import Ledger,verify_snapshot,sha,priced,gateway,pilot
 from .eval_contract import seal,unseal
 from .evaluation import publish,read_json,source_bundle
 from .transport_contract import require,INPUT
@@ -13,7 +13,7 @@ from .verify import verify_bundle
 
 def analyze(dataset,ledger,receives):
     verify_snapshot(ledger)
-    cfg=ledger['meta']['config'];is_gateway=gateway(cfg);live=is_gateway and cfg['mode']=='tokenkey_live'
+    cfg=ledger['meta']['config'];is_gateway=gateway(cfg);live=is_gateway and cfg['mode'] in ('tokenkey_live','tokenkey_pilot_live')
     if live:require(receives is None,'live supplier receives must remain null without independent logs')
     received=[] if live else receives
     d=unseal(dataset);require(set(d)=={'schema','campaign','registrations','sources'} and d['schema']=='transport-dataset.v1','transport dataset schema')
@@ -22,9 +22,9 @@ def analyze(dataset,ledger,receives):
     audits={};operation_rows={};states={}
     for run,source in d['sources'].items():
         capture={};v=verify_bundle(snapshot=source['files'],capture=capture)
-        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal'),'transport bundle rejected: '+str(v['errors']))
+        require(v['bundle_integrity']=='valid' and v['facts_consistency']!='invalid' and v['execution_mode'] in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal','tokenkey_pilot_live','tokenkey_pilot_rehearsal'),'transport bundle rejected: '+str(v['errors']))
         data=capture['evidence'];m=json.loads(data['run']['input'])
-        require(data['run']['id']==run and m['input_contract']==('scheduling-tokenkey.v1' if is_gateway else 'scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
+        require(data['run']['id']==run and m['input_contract']==('scheduling-tokenkey.v2' if pilot(cfg) else 'scheduling-tokenkey.v1' if is_gateway else 'scheduling-priced.v1' if priced(ledger['meta']['config']) else INPUT) and m['transport']['config']==ledger['meta']['config'],'source run/config')
         require([r for r in d['registrations'] if r['run']==run]==sorted([
             {'id':run+':'+seat,'run':run,'seat':seat,'manifest_hash':digest(m),'task_hash':m['task']['sha256']} for seat in ('A','B')],key=lambda r:r['id']),'dataset seat/view/manifest binding')
         for row in data['audit']:
@@ -51,7 +51,7 @@ def analyze(dataset,ledger,receives):
             if not live:require(a['id'] in ids,'settled without receive')
             if is_gateway:
                 chunks=json.loads(a['response']['chunks_json']);text=''.join(x['block']['text'] for x in chunks if x['type']=='block-end' and x['block']['type']=='text')
-                require(text==operation_rows[a['id']]['answer'],'gateway text/native answer mismatch')
+                if not pilot(cfg) or a['text_integrity']['status']=='verified':require(text==operation_rows[a['id']]['answer'],'gateway text/native answer mismatch')
         if a['state'] in ('denied','released'):require(a['id'] not in ids,'unsent state had receive')
     counts={'registered':len(d['registrations']),'attempted':len(audits),'not_run':len(d['registrations'])-len(audits),
             'send_attempts':sum(e['kind']=='sending' for e in ledger['events']),'received':None if live else len(received),

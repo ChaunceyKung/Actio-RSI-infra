@@ -17,6 +17,9 @@ def planned(plan,index):
     for line in body.splitlines():
         if not line.startswith('data: ') or line=='data: [DONE]':continue
         v=json.loads(line[6:]);v.update(id='rehearsal-'+str(index),model=plan.get('model','gpt-5.6'),system_fingerprint='synthetic-fingerprint')
+        if plan.get('pilot'):v.update(object='chat.completion.chunk',created=1791504000)
+        if plan.get('pilot_multichoice') and v.get('choices') and v['choices'][0].get('delta',{}).get('content'):
+            v['choices'].append({'index':1,'delta':{'content':'OTHER_CHOICE'}})
         if case=='model-change':v['model']='unexpected-model'
         if case=='gateway-cost' and v.get('usage'):v['usage']['cost']=0.000123
         if case=='length' and v.get('usage'):v['choices'][0]['finish_reason']='length'
@@ -24,7 +27,7 @@ def planned(plan,index):
             v['usage'].pop('prompt_cache_hit_tokens',None);v['usage'].pop('prompt_cache_miss_tokens',None)
         if case=='input-over' and v.get('usage'):
             v['usage'].update(prompt_tokens=1048577,prompt_cache_hit_tokens=0,prompt_cache_miss_tokens=1048577,total_tokens=1048582)
-        rows.append('data: '+json.dumps(v,separators=(',',':'))+'\n\n')
+        rows.append('data: '+json.dumps(v,separators=(',',':'),ensure_ascii=not plan.get('utf8'))+'\n\n')
     return status,''.join(rows)+('data: [DONE]\n\n' if case!='missing-done' else ''),kind
 
 
@@ -57,7 +60,9 @@ class GatewayStub:
                         if case=='stall':owner.stop.wait(100);return
                         while not owner.stop.wait(1):self.wfile.write(b': heartbeat\n\n');self.wfile.flush()
                         return
-                    self.wfile.write(body.encode());self.wfile.flush()
+                    if plan.get('utf8'):
+                        for byte in body.encode():self.wfile.write(bytes([byte]));self.wfile.flush()
+                    else:self.wfile.write(body.encode());self.wfile.flush()
                 except (BrokenPipeError,ConnectionError,OSError):pass
         self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
         self.thread=threading.Thread(target=self.server.serve_forever)

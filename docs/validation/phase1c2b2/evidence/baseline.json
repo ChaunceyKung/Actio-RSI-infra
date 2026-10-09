@@ -1,0 +1,13 @@
+{
+  "head": "6436fc7bc4d25570ee93fb44ab2428635bf6b218",
+  "origin_main": "6436fc7bc4d25570ee93fb44ab2428635bf6b218",
+  "upstream": "1e00535408e3a3dd12356dbb2cdf934134fb68e4",
+  "ancestor": true,
+  "checked_utc": "2026-10-09T06:02:51.925788+00:00",
+  "branch": "phase1c2b2-measurement-integrity-and-pilot",
+  "pre_hardening_source_archive": {
+    "file": ".local/phase1c2b2-before-reader-hardening.zip",
+    "sha256": "c642004bbd2a56d54c0b42360ae7983dd92f94e18b84ee2f74f619f3198b2452"
+  },
+  "hardening_reason": "offline unsent attempts cannot claim verified text without raw evidence; freeze validated even when zero live units start; no extra live calls"
+}

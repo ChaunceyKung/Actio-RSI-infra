@@ -6,7 +6,7 @@
 
 `single-choice-text-audit.v1` 仅审计官方 pi-ai adapter 的事实，不替代生产翻译。上限为 262144 raw bytes、1024 events/chunks；严格 UTF-8、唯一 JSON 键、有限数值、单 choice index=0、assistant role、文本 content、唯一 finish、唯一 usage、唯一最终 DONE。支持普通分片、空增量、CRLF、SSE 注释心跳、附在终态或 trailing choices=[] 的 usage。拒绝多行 data、非文本、工具/refusal/reasoning 分支、额外 SSE 字段、终态后内容及多终态。raw bytes→raw delta.content→adapter deltas/block→native answer 必须一致；length 可记 usage，未完成的原生行动不可进入测量或世界。
 
-账务 settlement 与 measurement admission 分开。可核对 usage 不能消除文本矛盾；被拒绝文本不能产生 domain receipt。未知调用占据原一次性资格，不自动重试。
+账务 settlement 与 measurement admission 分开。可核对 usage 不能消除文本矛盾；被拒绝文本不能产生 domain receipt。Ledger.text_integrity 的 native_answer_checked=false 标识先行 raw/adapter 审计；admitted=true 还要求 reader 将 raw 文本与有 receipt/barrier 的原生 answer 再次比较。SDK prepared 消息的随机 occurrence ID 留在外部元数据，反事实测试将其固定并证明实际 wire 不含这些 ID；HTTP X-Actio-Attempt 是 uuid4 审计标识，不含隐藏任务派生值。未知调用占据原一次性资格，不自动重试。
 
 actor payload 白名单只有 observations、空 memory、ActionSpec。观察只含 seat/role、公共任务、自己的 available/preferred/goal、自己的初始 relationship、实际公开历史。完整 task、config、spec、memory、分组 hash 与 op/run/worker ID 在 Control Plane、manifest、Ledger、native marker 外部层绑定，不进入模型消息。prepared 与 wire 全文的反事实比较覆盖 A 不变/B 私有改变；B 的隐藏反事实固定自身信息和真实 A 行动。
 

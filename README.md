@@ -1,8 +1,8 @@
 # Actio-RSI · Phase 1C2B2
 
-当前阶段为测量完整性与预注册工程 pilot。实现新增严格 raw→adapter→native 文本绑定、actor own/public 输入白名单、独立集合谓词测量及 32 episodes / 最多 64 sends 的完整冻结计划。首次真实调用前先验证并发布实现与预注册。
+Phase 1C2B2 已完成测量完整性修复与预注册工程 pilot：计划 32 episodes / 64 seats，实际发送 54，admitted 53，not_run 10，unknown 1。raw→adapter→native 文本绑定和 actor own/public 输入边界已验证；独立集合谓词测量与完整分母可离线复核。
 
-入口：[测量合同](docs/validation/phase1c2b2/CONTRACT.md) · [CLI](docs/validation/phase1c2b2/CLI.md) · [路由与价格证据](docs/validation/phase1c2b2/route-cost-registry.json)。
+入口：[结果](docs/validation/phase1c2b2/RESULTS.md) · [Gate](docs/validation/phase1c2b2/GATES.md) · [合同](docs/validation/phase1c2b2/CONTRACT.md) · [CLI](docs/validation/phase1c2b2/CLI.md) · [预注册](docs/validation/phase1c2b2/preregistration.json) · [manifest](docs/validation/phase1c2b2/evidence_manifest.json)。费用/账单与上游权重身份仍 UNVERIFIED；本轮不构成研究能力排名、judge 校准或演化晋升。
 
 ## Phase 1C2B1 历史交付
 

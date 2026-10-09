@@ -21,7 +21,7 @@ def validate_inputs(manifest, streams, operations, audit):
     """
     scenario = manifest['scenario']
     version = manifest.get('input_contract', 'fixture-input.v1')
-    if version in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1'):
+    if version in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1'):
         from .transport_contract import validate_inputs as transport_inputs
         return transport_inputs(manifest,streams,operations,audit)
     if version=='scheduling-input.v1':
@@ -92,7 +92,7 @@ def terminal_body(run, streams, operations, receipts, world, audit, outcome):
         require(receipt['seq'] <= marker.get('through', -1), 'domain receipt outside barrier')
     ordered = [by_op[k] for k in order]
     task_details=None
-    if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1'):
+    if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1'):
         from .task_contract import terminal_details
         require(all(w['run']==run['id'] for w in world),'task world run scope mismatch')
         task_details=terminal_details(manifest,ordered,by_receipt,world,audit,by_stream,outcome)
@@ -162,7 +162,7 @@ def validate_sources(store, run):
         message=next(m for m in accepted['data']['inserted'] if m.get('id')==op['receipt'])
         task=json.loads(''.join(c.get('text','') for c in message['content'] if c.get('type')=='text'))
         intent=store.rows("SELECT body FROM audit WHERE op=? AND kind='dispatch_intent'",(op['id'],))
-        pilot=json.loads(store.run(run)['input']).get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1')
+        pilot=json.loads(store.run(run)['input']).get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1')
         require(len(intent)==1 and (('op' not in task) if pilot else task.get('op')==op['id']), 'native dispatch binding missing')
         normalized={k:v for k,v in task.items() if k not in ('op','callId')}
         if normalized.get('tool'): normalized['args']={k:v for k,v in normalized['args'].items() if k!='op'}

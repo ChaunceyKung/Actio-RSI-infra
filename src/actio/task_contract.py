@@ -56,6 +56,9 @@ def task_card(variant,bindings,mode='fixture'):
 def validate_task(value):
     require(type(value) is dict and set(value)=={'body','sha256'},'sealed TaskSpec required')
     t=value['body']
+    if t.get('schema')=='actio-task.v5':
+        from .evaluation_tasks import validate
+        return validate(value)
     if t.get('schema')=='actio-task.v4':
         from .candidate_tasks import validate
         return validate(value)
@@ -77,7 +80,7 @@ def validate_task(value):
 
 
 def task_result(t,actions):
-    if t.get('schema') in ('actio-task.v3','actio-task.v4'):
+    if t.get('schema') in ('actio-task.v3','actio-task.v4','actio-task.v5'):
         from .suite_tasks import result
         return result(t,actions)
     legal=all(a in t['action_specs'][s]['options'] for s,a in zip(t['order'],actions))
@@ -89,10 +92,10 @@ def task_result(t,actions):
 
 
 def actor_observation(m,seat,public_actions):
-    if m.get('input_contract') in ('finite-suite-tokenkey.v1','finite-candidate-loopback.v1'):
+    if m.get('input_contract') in ('finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1'):
         from .suite_tasks import observation
         return observation(m,seat,public_actions)
-    if m.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1'):
+    if m.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1'):
         from .task_v2 import observation
         return observation(m,seat,public_actions)
     t=m['task']['body']
@@ -103,7 +106,7 @@ def actor_observation(m,seat,public_actions):
 
 
 def validate_manifest(m):
-    if m.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1'):
+    if m.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1'):
         from .transport_contract import validate_manifest as transport_manifest
         return transport_manifest(m)
     t=validate_task(m['task']);require(m['input_contract']==CONTRACT and m['scenario']=='social','task input contract mismatch')

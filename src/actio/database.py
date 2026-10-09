@@ -26,17 +26,74 @@ def structure(db):
 
 def inspect(db):
     version = db.execute('PRAGMA user_version').fetchone()[0]
-    if version not in (0, VERSION, 3):
+    if version not in (0, VERSION, 3, 4):
         raise ContractError('unsupported database schema version: ' + str(version))
     with sqlite3.connect(':memory:') as expected:
         expected.executescript(Path(__file__).with_name('legacy_schema.sql' if version == 0 else 'schema.sql').read_text())
-        if version == 3:
+        if version in (3,4):
             expected.executescript(Path(__file__).with_name('candidate_schema.sql').read_text())
+        if version == 4:
+            expected.executescript(Path(__file__).with_name('evaluation_schema.sql').read_text())
         if structure(db) != structure(expected):
             raise ContractError('unknown or incomplete database structure')
     if not db.execute("SELECT value FROM meta WHERE key='store'").fetchone():
         raise ContractError('database store identity missing')
     return version
+
+
+def migrate_evaluation_copy(source, destination):
+    """Copy v3 facts and attach a historical evaluation; original is read-only."""
+    import json
+    from .common import canonical, digest
+    from .store import Store
+    from . import evaluation_store as evaluation
+    from .evaluation_campaign import LEGACY_READER, baseline, candidate
+    source,destination=Path(source).resolve(),Path(destination).resolve()
+    backup=destination.with_name(destination.name+'.backup.sqlite')
+    record=destination.with_name(destination.name+'.migration.json')
+    stage=destination.with_name(destination.name+'.migrating-'+uid())
+    if source==destination or any(p.exists() for p in (destination,backup,record)):
+        raise ContractError('new evaluation migration destination required')
+    src=Store(source,readonly=True)
+    try:
+        if src.version!=3 or src.db.execute('PRAGMA quick_check').fetchone()[0]!='ok':
+            raise ContractError('evaluation migration requires intact v3')
+        old=src.candidate_lineage();before=file_hash(source)
+        with backup.open('xb'):pass
+        saved=sqlite3.connect(backup)
+        try:src.db.backup(saved);saved.execute('PRAGMA journal_mode=DELETE')
+        finally:saved.close()
+        target=sqlite3.connect(stage,isolation_level=None)
+        saved=connect(backup,readonly=True)
+        try:
+            saved.backup(target)
+            target.executescript('BEGIN IMMEDIATE;\n'+Path(__file__).with_name('evaluation_schema.sql').read_text()+'\nCOMMIT;')
+            inspect(target)
+        finally:target.close();saved.close()
+        result={'from':3,'to':4,'source':str(source),'destination':str(destination),
+            'source_sha256':before,'backup_sha256':file_hash(backup),'legacy_lineage_hash':old['sha256'],'reader':LEGACY_READER}
+        target=Store(stage)
+        try:
+            with target.tx():
+                target.db.execute('INSERT INTO evaluation_migration VALUES(1,?)',(canonical(result),))
+                body={'schema':'historical-evaluation-reference.v1','id':evaluation.LEGACY_ID,'evidence_kind':'local_fixture','reader':LEGACY_READER,'lineage_hash':old['sha256']}
+                target.db.execute('INSERT INTO evaluation VALUES(?,?)',(evaluation.LEGACY_ID,canonical(body)))
+                for role,proposal in [('baseline',baseline()),('candidate',candidate())]:
+                    cid=digest(proposal)
+                    binding={'legacy_binding':target.row('SELECT * FROM campaign_binding WHERE candidate=?',(cid,)),
+                             'legacy_decision':target.row('SELECT * FROM decision WHERE candidate=?',(cid,))}
+                    if any(v is None for v in binding.values()):raise ContractError('old assessment missing')
+                    target.db.execute('INSERT INTO evaluation_binding VALUES(?,?,?,?)',(evaluation.LEGACY_ID,cid,role,canonical(binding)))
+                evaluation.event(target,evaluation.LEGACY_ID,'imported',{'legacy_lineage_hash':old['sha256']})
+            evaluation.export(target)
+            target.db.execute('PRAGMA wal_checkpoint(TRUNCATE)');target.db.execute('PRAGMA journal_mode=DELETE')
+        finally:target.close()
+        if file_hash(source)!=before or src.candidate_lineage()!=old:raise ContractError('source changed during migration')
+        stage.rename(destination);write_json(record,{'status':'migrated',**result});return result
+    except BaseException as error:
+        if backup.exists():write_json(record,{'status':'failed','reason':str(error),'backup':str(backup),'retained_stage':str(stage)})
+        raise
+    finally:src.close()
 
 
 def create(path, *, lineage=False):

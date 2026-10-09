@@ -16,6 +16,7 @@ eval = ["pydantic==2.13.5", "json-repair==0.48.0"]
 actio = "actio.cli:main"
 actio-eval = "actio.evaluation:main"
 actio-candidate = "actio.candidate:main"
+actio-candidate-evaluation = "actio.candidate_evaluation:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

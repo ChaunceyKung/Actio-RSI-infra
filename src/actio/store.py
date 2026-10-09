@@ -48,6 +48,22 @@ class Store:
         from .candidate_store import export
         return export(self)
 
+    def evaluation(self, plan):
+        from .evaluation_store import register
+        return register(self, plan)
+
+    def claim_evaluation(self, eid, claim):
+        from .evaluation_store import claim as register_claim
+        return register_claim(self, eid, claim)
+
+    def decide_evaluation(self, eid, campaign, report):
+        from .evaluation_store import decide
+        return decide(self, eid, campaign, report)
+
+    def evaluation_lineage(self):
+        from .evaluation_store import export
+        return export(self)
+
     @contextmanager
     def tx(self):
         self.db.execute('BEGIN IMMEDIATE')

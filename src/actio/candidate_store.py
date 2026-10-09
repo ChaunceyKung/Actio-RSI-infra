@@ -13,7 +13,7 @@ def event(s, cid, state, body):
 
 
 def register(s, proposal):
-    require(s.version==3,'explicit candidate Store schema required')
+    require(s.version in (3,4),'explicit candidate Store schema required')
     cid=digest(proposal)
     with s.tx():
         old=s.row('SELECT * FROM candidate WHERE id=?',(cid,))
@@ -57,7 +57,7 @@ def record_decision(s,cid,decision):
 def export(s):
     s.db.execute('BEGIN')
     try:
-        require(s.version==3 and not s.db.execute('PRAGMA foreign_key_check').fetchall(),'candidate Store integrity')
+        require(s.version in (3,4) and not s.db.execute('PRAGMA foreign_key_check').fetchall(),'candidate Store integrity')
         body={'schema':'candidate-lineage.v1','store':s.row("SELECT value FROM meta WHERE key='store'")['value'],
               'tables':{t:s.rows('SELECT * FROM '+t+' ORDER BY '+('seq' if t=='candidate_event' else 'child' if t=='lineage_edge' else 'candidate' if t in ('campaign_binding','decision') else 'id')) for t in TABLES},
               'full_controller_recovery':'unsupported','active_pointer':None}

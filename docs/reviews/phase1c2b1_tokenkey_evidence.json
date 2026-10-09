@@ -1,0 +1,1028 @@
+{
+  "schema": "tokenkey-direct-diagnostics.v1",
+  "packaged_utc": "2026-10-09T03:25:44.791029+00:00",
+  "date_local": "2026-10-09",
+  "timezone": "Asia/Shanghai",
+  "review_start_sha": "d98591acbad61fbe67adc596e35b11c2e6c429a7",
+  "product_baseline_sha": "f65045a11d1a4728b98b5564623e4827365f91c8",
+  "scope": "Direct TokenKey credential, protocol and synthetic action diagnostics; prompt/document update. No C2B1 product implementation.",
+  "gates": {
+    "credential_and_direct_gpt56_api": "PASS",
+    "candidate_probe": "PARTIAL_PASS",
+    "dsh_live_integration": "NOT_RUN",
+    "supplier_bill": "UNVERIFIED",
+    "upstream_model_identity": "UNVERIFIED",
+    "binary_source_mapping": "unproven",
+    "full_controller_recovery": "unsupported",
+    "live_judge": "BLOCKED",
+    "human_calibration": "BLOCKED",
+    "research_promotion": "BLOCKED"
+  },
+  "authorization": {
+    "basis": "explicit_user_instruction_2026_10_09",
+    "user_instruction": "api key 不设置预算上限，以推进项目为准",
+    "provider_base_url": "https://api.tokenkey.dev/v1",
+    "user_example_model": "gpt-5.6",
+    "scope": "Necessary project key checks, model validation, C2B1 solver baseline and evidence-based diagnostics",
+    "supersedes": "Earlier first-call reconfirmation and zero/fixed monetary budgets",
+    "monetary_cap": null,
+    "account_settings_changed": false,
+    "product_uncapped_mode_implemented_in_this_review": false
+  },
+  "credential_handling": {
+    "source_path": "D:\\调研\\CausalEngine\\api_key\\token_key.txt",
+    "ignored_project_copy": ".local/credentials/token_key.txt",
+    "copy_matches_source_bytes": true,
+    "git_ignored": true,
+    "git_tracked": false,
+    "contents_prefix_length_or_key_digest_published": false,
+    "destination_origin": "https://api.tokenkey.dev",
+    "authentication_headers_recorded": false
+  },
+  "execution": {
+    "automatic_retries": 0,
+    "follow_redirects": false,
+    "trust_env": false,
+    "tls_verification": true,
+    "synthetic_prompts_only": true,
+    "model_workers_max": 2,
+    "per_model_order": "A then B with actual A action; B not_run if A fails",
+    "comparison_max_tokens": 256,
+    "comparison_stream": false,
+    "comparison_temperature_seed_reasoning": "Not explicitly set",
+    "comparison_system_instruction": "You are one actor in a synthetic scheduling task. Respect your own availability. Return only one JSON object with exactly one key action; its value must be an exact listed action. No explanation or private details.",
+    "comparison_user_serialization": "json.dumps(payload,separators=(comma,colon))",
+    "smoke_user_message": "Reply with exactly OK.",
+    "stream_wire_bytes_retained": false
+  },
+  "counts": {
+    "model_catalog_http_attempts": 1,
+    "generation_attempts": 14,
+    "completed_generations": 12,
+    "http_400_unsupported_model": 1,
+    "read_timeouts": 1,
+    "tokenkey_http_attempts": 15,
+    "usage_bearing_completed_responses": 12,
+    "completed_responses_with_gateway_cost_field": 5,
+    "catalog_model_ids": 109,
+    "automatic_retries": 0,
+    "supplier_received": null,
+    "dsh_workers": 0,
+    "concordia_episodes": 0,
+    "live_judge_calls": 0,
+    "independent_research_units": 0
+  },
+  "usage_and_cost": {
+    "observed_prompt_tokens": 1362,
+    "observed_completion_tokens": 364,
+    "observed_total_tokens": 1726,
+    "aggregation": "Mechanical sum of reported top-level values for completed generations only; no extra addition of reasoning/cache detail fields",
+    "gateway_cost_field_path": "usage.cost",
+    "gateway_cost_value_interpretation": "Preserved SDK/JSON-decoded reported numeric values; currency, unit and completeness unverified",
+    "gateway_cost_currency": null,
+    "gateway_cost_sum_as_usd": null,
+    "supplier_billed_cost": null,
+    "supplier_bill_reconciled": false,
+    "failed_or_timeout_usage_cost": "unknown, not zero",
+    "product_ledger_used": false
+  },
+  "field_notes": {
+    "diagnostic_request_id": "Existing probe field request_id is the response body id (SDK response.id), not an HTTP request header; stream ids also come from event bodies. Header request IDs were not retained.",
+    "model_ids": "Gateway labels do not independently establish upstream weights or vendor identity.",
+    "durations": "Observed end-to-end client time, not first-token latency. Single small sample, concurrent probes and uncontrolled service/cache conditions.",
+    "raw_usage": "SDK/JSON-decoded observations, not authenticated provider billing or byte-for-byte response archives.",
+    "generation_success": "Completed content/stop observations; not research validity or DSH integration.",
+    "source_hashes": "DSH source file sha256 values matched the exact saved bytes. Local snapshot hashes are exact local bytes; text document hashes explicitly normalize CRLF to LF."
+  },
+  "recommendations": {
+    "primary_solver": "gpt-5.6",
+    "first_cross_model_candidate": "claude-sonnet-4-6",
+    "later_candidates": [
+      "gpt-5.6-luna",
+      "qwen3.8-flash"
+    ],
+    "investigate_before_strict_comparison": {
+      "deepseek-flash": [
+        "Response model labels differed across the two completed calls",
+        "One stream attempt with thinking disabled timed out before headers"
+      ],
+      "gemini-3.1-pro": [
+        "Catalog-visible but unsupported_model under the tested Chat Completions request"
+      ]
+    },
+    "basis": "Small task compatibility and observed streaming support; no broad quality or price ranking."
+  },
+  "model_inventory": {
+    "started_utc": "2026-10-09T03:11:10.776625+00:00",
+    "base_url": "https://api.tokenkey.dev/v1",
+    "credential_copy": ".local/credentials/token_key.txt",
+    "credential_ignored_by_git": true,
+    "request_kind": "GET /models",
+    "external_requests": 1,
+    "model_generation_requests": 0,
+    "status": "AUTH_AND_MODEL_LIST_OK",
+    "model_ids": [
+      "ark-code-latest",
+      "claude-fable-5",
+      "claude-fable-5-1",
+      "claude-haiku-4-5",
+      "claude-haiku-4-5-20251001",
+      "claude-opus-4-5",
+      "claude-opus-4-6",
+      "claude-opus-4-7",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-opus-5-5",
+      "claude-sonnet-4-5",
+      "claude-sonnet-4-6",
+      "claude-sonnet-5",
+      "claude-sonnet-5-5",
+      "codex-auto-review",
+      "composer-2.5",
+      "deepseek-chat",
+      "deepseek-flash",
+      "deepseek-v4-flash",
+      "deepseek-v4-flash-0731",
+      "deepseek-v4-pro",
+      "deepseek-v4-pro-0813",
+      "deepseek-v4.1-flash",
+      "doubao-embedding-vision",
+      "doubao-seed-2.0-lite",
+      "doubao-seed-2.0-mini",
+      "doubao-seed-2.1-lite",
+      "doubao-seed-2.1-pro",
+      "doubao-seed-asr-2.0",
+      "doubao-seed-evolving",
+      "doubao-seed-tts-2.0",
+      "doubao-seedance-2-0-260128",
+      "doubao-seedance-2-0-fast-260128",
+      "doubao-seedance-2-5-260628",
+      "doubao-seedream-5-0-pro",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-lite",
+      "gemini-2.5-pro",
+      "gemini-3-flash",
+      "gemini-3-flash-preview",
+      "gemini-3-pro-image",
+      "gemini-3.1-flash-image",
+      "gemini-3.1-flash-image-preview",
+      "gemini-3.1-flash-lite",
+      "gemini-3.1-pro",
+      "gemini-3.1-pro-preview",
+      "gemini-3.5-flash-lite",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "gemini-embedding-001",
+      "glm-4.5-air",
+      "glm-4.7",
+      "glm-5.1",
+      "glm-5.2",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5",
+      "gpt-5-mini",
+      "gpt-5.1",
+      "gpt-5.2",
+      "gpt-5.3-codex-spark",
+      "gpt-5.4",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-5.6",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6",
+      "gpt-6-astra",
+      "gpt-6-luna",
+      "gpt-6-sol",
+      "gpt-6.1",
+      "gpt-6.1-sol",
+      "gpt-image-2",
+      "gpt-image-2.5",
+      "gpt-image-2.5-flare",
+      "gpt-image-2.5-sunburst",
+      "grok-4.5",
+      "grok-4.6",
+      "kimi-k2.6",
+      "kimi-k2.7-code",
+      "kimi-k3",
+      "minimax-m2.7",
+      "minimax-m3",
+      "muse-spark-1.3",
+      "nano-2",
+      "nano-banana-2",
+      "nano-banana-pro",
+      "nano-pro",
+      "qwen-audio-3.0-tts-plus",
+      "qwen-max",
+      "qwen-plus",
+      "qwen-turbo",
+      "qwen3-235b-a22b",
+      "qwen3-32b",
+      "qwen3-8b",
+      "qwen3.6-27b",
+      "qwen3.6-flash",
+      "qwen3.7-flash",
+      "qwen3.7-max",
+      "qwen3.7-plus",
+      "qwen3.8-flash",
+      "qwen3.8-max",
+      "veo-3.1-generate-001",
+      "wan2.7-image",
+      "wan2.7-image-pro"
+    ],
+    "count": 109,
+    "duration_seconds": 2.921
+  },
+  "credential_generation_smoke": {
+    "kind": "credential_generation_smoke",
+    "provider": "TokenKey",
+    "base_url": "https://api.tokenkey.dev/v1",
+    "requested_model": "gpt-5.6",
+    "started_utc": "2026-10-09T03:11:52.470433+00:00",
+    "parameters": {
+      "max_tokens": 64,
+      "stream": false
+    },
+    "model_generation_attempts": 1,
+    "automatic_retries": 0,
+    "supplier_billed_cost": null,
+    "status": "API_MODEL_OK",
+    "response_model": "gpt-5.6",
+    "request_id": "resp_0a143d02cb0de750016ac85b7a47048194aed3a86ece0c5e12",
+    "text": "OK",
+    "finish_reason": "stop",
+    "usage": {
+      "completion_tokens": 5,
+      "prompt_tokens": 11,
+      "total_tokens": 16,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null,
+      "cost": 0.000144
+    },
+    "duration_seconds": 3.39
+  },
+  "model_comparison": {
+    "provider": "TokenKey",
+    "base_url": "https://api.tokenkey.dev/v1",
+    "method": "two synthetic deterministic actor cases per available model; B sees actual A output; no retry",
+    "models": [
+      {
+        "model": "claude-sonnet-4-6",
+        "observations": [
+          {
+            "requested_model": "claude-sonnet-4-6",
+            "seat": "A",
+            "started_utc": "2026-10-09T03:13:12.850855+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time. Available public slots: morning, afternoon.",
+              "own_available": [
+                "afternoon"
+              ],
+              "own_goal": "Propose a cleanup time I can attend.",
+              "action_options": [
+                "propose:morning",
+                "propose:afternoon"
+              ],
+              "public_actions": []
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "claude-sonnet-4-6",
+            "request_id": "msg_75cd359b-8176-466e-beeb-d7f5d5e3ddb0",
+            "text": "{\"action\": \"propose:afternoon\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 10,
+              "prompt_tokens": 96,
+              "total_tokens": 106,
+              "completion_tokens_details": null,
+              "prompt_tokens_details": null
+            },
+            "strict_action_json": true,
+            "action": "propose:afternoon",
+            "duration_seconds": 2.062,
+            "constraint_correct": true
+          },
+          {
+            "requested_model": "claude-sonnet-4-6",
+            "seat": "B",
+            "started_utc": "2026-10-09T03:13:14.917234+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time.",
+              "own_available": [
+                "morning"
+              ],
+              "own_goal": "Accept only if I can attend the proposed time.",
+              "action_options": [
+                "accept",
+                "decline"
+              ],
+              "public_actions": [
+                {
+                  "seat": "A",
+                  "action": "propose:afternoon"
+                }
+              ]
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "claude-sonnet-4-6",
+            "request_id": "msg_594e9d52-7217-42e5-abfc-78ed394dc3bf",
+            "text": "{\"action\":\"decline\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 6,
+              "prompt_tokens": 95,
+              "total_tokens": 101,
+              "completion_tokens_details": null,
+              "prompt_tokens_details": null
+            },
+            "strict_action_json": true,
+            "action": "decline",
+            "duration_seconds": 1.266,
+            "constraint_correct": true
+          }
+        ],
+        "summary": {
+          "attempts": 2,
+          "responses": 2,
+          "strict_json": 2,
+          "constraint_correct": 2,
+          "seconds_total": 3.328
+        },
+        "not_a_research_evaluation": true
+      },
+      {
+        "model": "deepseek-flash",
+        "observations": [
+          {
+            "requested_model": "deepseek-flash",
+            "seat": "A",
+            "started_utc": "2026-10-09T03:13:06.335699+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time. Available public slots: morning, afternoon.",
+              "own_available": [
+                "afternoon"
+              ],
+              "own_goal": "Propose a cleanup time I can attend.",
+              "action_options": [
+                "propose:morning",
+                "propose:afternoon"
+              ],
+              "public_actions": []
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "deepseek-v4.1-flash",
+            "request_id": "chatcmpl-06caf54b-6abd-42bc-93a9-320db81752c3",
+            "text": "{\"action\":\"propose:afternoon\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 60,
+              "prompt_tokens": 138,
+              "total_tokens": 198,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": null,
+                "reasoning_tokens": 50,
+                "rejected_prediction_tokens": null,
+                "text_tokens": 9
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": null,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "text_tokens": 138
+              }
+            },
+            "strict_action_json": true,
+            "action": "propose:afternoon",
+            "duration_seconds": 2.375,
+            "constraint_correct": true
+          },
+          {
+            "requested_model": "deepseek-flash",
+            "seat": "B",
+            "started_utc": "2026-10-09T03:13:08.716471+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time.",
+              "own_available": [
+                "morning"
+              ],
+              "own_goal": "Accept only if I can attend the proposed time.",
+              "action_options": [
+                "accept",
+                "decline"
+              ],
+              "public_actions": [
+                {
+                  "seat": "A",
+                  "action": "propose:afternoon"
+                }
+              ]
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "deepseek-v4-flash-ga-260731",
+            "request_id": "021791515591175a33e1c11db957129a03bedef34588f5769496e",
+            "text": "{\"action\":\"decline\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 29,
+              "prompt_tokens": 190,
+              "total_tokens": 219,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": null,
+                "reasoning_tokens": 22,
+                "rejected_prediction_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": null,
+                "cache_write_tokens": null,
+                "cached_tokens": 0
+              },
+              "cost": 9.682388059701494e-05
+            },
+            "strict_action_json": true,
+            "action": "decline",
+            "duration_seconds": 4.531,
+            "constraint_correct": true
+          }
+        ],
+        "summary": {
+          "attempts": 2,
+          "responses": 2,
+          "strict_json": 2,
+          "constraint_correct": 2,
+          "seconds_total": 6.906
+        },
+        "not_a_research_evaluation": true
+      },
+      {
+        "model": "gemini-3.1-pro",
+        "observations": [
+          {
+            "requested_model": "gemini-3.1-pro",
+            "seat": "A",
+            "started_utc": "2026-10-09T03:13:13.822247+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time. Available public slots: morning, afternoon.",
+              "own_available": [
+                "afternoon"
+              ],
+              "own_goal": "Propose a cleanup time I can attend.",
+              "action_options": [
+                "propose:morning",
+                "propose:afternoon"
+              ],
+              "public_actions": []
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "ERROR",
+            "exception_type": "BadRequestError",
+            "http_status": 400,
+            "error_fields": {
+              "code": "unsupported_model",
+              "type": "invalid_request_error"
+            },
+            "duration_seconds": 0.782,
+            "constraint_correct": false
+          }
+        ],
+        "summary": {
+          "attempts": 1,
+          "responses": 0,
+          "strict_json": 0,
+          "constraint_correct": 0,
+          "seconds_total": 0.782
+        },
+        "not_a_research_evaluation": true
+      },
+      {
+        "model": "gpt-5.6",
+        "observations": [
+          {
+            "requested_model": "gpt-5.6",
+            "seat": "A",
+            "started_utc": "2026-10-09T03:12:56.418423+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time. Available public slots: morning, afternoon.",
+              "own_available": [
+                "afternoon"
+              ],
+              "own_goal": "Propose a cleanup time I can attend.",
+              "action_options": [
+                "propose:morning",
+                "propose:afternoon"
+              ],
+              "public_actions": []
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "gpt-5.6",
+            "request_id": "resp_097ecea6a459e846016ac85bbb01f08199a50093728c6f22be",
+            "text": "{\"action\":\"propose:afternoon\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 13,
+              "prompt_tokens": 154,
+              "total_tokens": 167,
+              "completion_tokens_details": null,
+              "prompt_tokens_details": null
+            },
+            "strict_action_json": true,
+            "action": "propose:afternoon",
+            "duration_seconds": 5.797,
+            "constraint_correct": true
+          },
+          {
+            "requested_model": "gpt-5.6",
+            "seat": "B",
+            "started_utc": "2026-10-09T03:13:02.212024+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time.",
+              "own_available": [
+                "morning"
+              ],
+              "own_goal": "Accept only if I can attend the proposed time.",
+              "action_options": [
+                "accept",
+                "decline"
+              ],
+              "public_actions": [
+                {
+                  "seat": "A",
+                  "action": "propose:afternoon"
+                }
+              ]
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "gpt-5.6",
+            "request_id": "resp_02fcbba0056d2f46016ac85bbe7aa4819a92995c0de42ae21b",
+            "text": "{\"action\":\"decline\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 10,
+              "prompt_tokens": 108,
+              "total_tokens": 118,
+              "completion_tokens_details": null,
+              "prompt_tokens_details": null,
+              "cost": 0.000632
+            },
+            "strict_action_json": true,
+            "action": "decline",
+            "duration_seconds": 3.625,
+            "constraint_correct": true
+          }
+        ],
+        "summary": {
+          "attempts": 2,
+          "responses": 2,
+          "strict_json": 2,
+          "constraint_correct": 2,
+          "seconds_total": 9.422
+        },
+        "not_a_research_evaluation": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "observations": [
+          {
+            "requested_model": "gpt-5.6-luna",
+            "seat": "A",
+            "started_utc": "2026-10-09T03:12:56.444802+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time. Available public slots: morning, afternoon.",
+              "own_available": [
+                "afternoon"
+              ],
+              "own_goal": "Propose a cleanup time I can attend.",
+              "action_options": [
+                "propose:morning",
+                "propose:afternoon"
+              ],
+              "public_actions": []
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "gpt-5.6-luna",
+            "request_id": "resp_0118416a99d9d063016ac85bc48a2c819aa7707a2778c659d9",
+            "text": "{\"action\":\"propose:afternoon\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 13,
+              "prompt_tokens": 154,
+              "total_tokens": 167,
+              "completion_tokens_details": null,
+              "prompt_tokens_details": null
+            },
+            "strict_action_json": true,
+            "action": "propose:afternoon",
+            "duration_seconds": 13.266,
+            "constraint_correct": true
+          },
+          {
+            "requested_model": "gpt-5.6-luna",
+            "seat": "B",
+            "started_utc": "2026-10-09T03:13:09.715999+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time.",
+              "own_available": [
+                "morning"
+              ],
+              "own_goal": "Accept only if I can attend the proposed time.",
+              "action_options": [
+                "accept",
+                "decline"
+              ],
+              "public_actions": [
+                {
+                  "seat": "A",
+                  "action": "propose:afternoon"
+                }
+              ]
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "gpt-5.6-luna",
+            "request_id": "resp_03ee8c1969aa251c016ac85bc612b481949f45dfe7645eb09b",
+            "text": "{\"action\":\"decline\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 31,
+              "prompt_tokens": 108,
+              "total_tokens": 139,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": null,
+                "reasoning_tokens": 19,
+                "rejected_prediction_tokens": null
+              },
+              "prompt_tokens_details": null,
+              "cost": 5.879999999999999e-05
+            },
+            "strict_action_json": true,
+            "action": "decline",
+            "duration_seconds": 2.594,
+            "constraint_correct": true
+          }
+        ],
+        "summary": {
+          "attempts": 2,
+          "responses": 2,
+          "strict_json": 2,
+          "constraint_correct": 2,
+          "seconds_total": 15.86
+        },
+        "not_a_research_evaluation": true
+      },
+      {
+        "model": "qwen3.8-flash",
+        "observations": [
+          {
+            "requested_model": "qwen3.8-flash",
+            "seat": "A",
+            "started_utc": "2026-10-09T03:13:14.985255+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time. Available public slots: morning, afternoon.",
+              "own_available": [
+                "afternoon"
+              ],
+              "own_goal": "Propose a cleanup time I can attend.",
+              "action_options": [
+                "propose:morning",
+                "propose:afternoon"
+              ],
+              "public_actions": []
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "qwen3.8-flash",
+            "request_id": "chatcmpl-b35e86df-1494-458f-b151-3a5504e02a26",
+            "text": "{\"action\":\"propose:afternoon\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 73,
+              "prompt_tokens": 149,
+              "total_tokens": 222,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": null,
+                "reasoning_tokens": 61,
+                "rejected_prediction_tokens": null,
+                "text_tokens": 73
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": null,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "text_tokens": 149
+              }
+            },
+            "strict_action_json": true,
+            "action": "propose:afternoon",
+            "duration_seconds": 2.375,
+            "constraint_correct": true
+          },
+          {
+            "requested_model": "qwen3.8-flash",
+            "seat": "B",
+            "started_utc": "2026-10-09T03:13:17.365099+00:00",
+            "input": {
+              "scenario": "Two adult neighbors choose a cleanup time.",
+              "own_available": [
+                "morning"
+              ],
+              "own_goal": "Accept only if I can attend the proposed time.",
+              "action_options": [
+                "accept",
+                "decline"
+              ],
+              "public_actions": [
+                {
+                  "seat": "A",
+                  "action": "propose:afternoon"
+                }
+              ]
+            },
+            "parameters": {
+              "max_tokens": 256,
+              "stream": false
+            },
+            "attempts": 1,
+            "status": "RESPONSE",
+            "response_model": "qwen3.8-flash",
+            "request_id": "chatcmpl-fe36db5c-da18-463c-b3c5-54c53d913b48",
+            "text": "{\"action\":\"decline\"}",
+            "finish_reason": "stop",
+            "usage": {
+              "completion_tokens": 109,
+              "prompt_tokens": 148,
+              "total_tokens": 257,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": null,
+                "reasoning_tokens": 100,
+                "rejected_prediction_tokens": null,
+                "text_tokens": 109
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": null,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "text_tokens": 148
+              }
+            },
+            "strict_action_json": true,
+            "action": "decline",
+            "duration_seconds": 3.938,
+            "constraint_correct": true
+          }
+        ],
+        "summary": {
+          "attempts": 2,
+          "responses": 2,
+          "strict_json": 2,
+          "constraint_correct": 2,
+          "seconds_total": 6.313
+        },
+        "not_a_research_evaluation": true
+      }
+    ],
+    "limitations": [
+      "Two cases per model; no significance or general capability ranking",
+      "Direct Chat Completions, not DSH/Concordia integration",
+      "Gateway identifiers do not independently prove upstream model identity",
+      "No provider billing statement queried"
+    ],
+    "automatic_retries": 0
+  },
+  "stream_probes": [
+    {
+      "kind": "direct_stream_probe_not_DSH",
+      "requested_model": "gpt-5.6",
+      "started_utc": "2026-10-09T03:14:47.027329+00:00",
+      "request": {
+        "model": "gpt-5.6",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Reply with exactly OK."
+          }
+        ],
+        "max_tokens": 128,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "attempts": 1,
+      "automatic_retries": 0,
+      "http_status": 200,
+      "status": "RESPONSE",
+      "done": true,
+      "done_count": 1,
+      "event_count": 4,
+      "models": [
+        "gpt-5.6"
+      ],
+      "ids": [
+        "resp_0e01948764718675016ac85c2827908190a6688791aabf759c"
+      ],
+      "usage": [
+        {
+          "prompt_tokens": 11,
+          "completion_tokens": 5,
+          "total_tokens": 16,
+          "cost": 0.000144
+        }
+      ],
+      "finish": [
+        "stop"
+      ],
+      "text": "OK",
+      "duration_seconds": 2.734
+    },
+    {
+      "kind": "direct_stream_probe_not_DSH",
+      "requested_model": "deepseek-flash",
+      "started_utc": "2026-10-09T03:14:49.762251+00:00",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Reply with exactly OK."
+          }
+        ],
+        "max_tokens": 128,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "attempts": 1,
+      "automatic_retries": 0,
+      "status": "ERROR",
+      "exception_type": "ReadTimeout",
+      "duration_seconds": 45.969
+    }
+  ],
+  "dsh_reuse": {
+    "source_commit": "183f08e9c6dde7e36cd2318eaee70b0da08fb35e",
+    "source_tag": "dsh-v0.1.5-rc.1",
+    "official_candidate_package": "@deepseek-ai/dsh-llm-pi-ai",
+    "package_version": "0.1.5-rc.1",
+    "fixed_binary_load_verified": false,
+    "next_action": "Verify same-version official plugin loader, dependencies, explicit gateway/credential route, retry policy and guard with loopback before live use",
+    "tree_inventory": {
+      "url": "https://api.github.com/repos/deepseek-ai/deepseek-harness/git/trees/183f08e9c6dde7e36cd2318eaee70b0da08fb35e?recursive=1",
+      "sha256": "16ad723e41b9d258ef9728ab6ae423deae37a98eef88235225c4f8b94d71101f",
+      "paths": [
+        "packages/llm/deepseek-llm-api-extensions/package.json",
+        "packages/llm/llm-deepseek/package.json",
+        "packages/llm/llm-pi-ai/package.json",
+        "packages/llm/llm-retry/package.json",
+        "packages/llm/llm/package.json",
+        "packages/llm/plugin-package-inventory-deepseek/package.json",
+        "packages/llm/token-meter/package.json"
+      ],
+      "truncated": false
+    },
+    "sources": [
+      {
+        "path": "packages/llm/llm-pi-ai/package.json",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/package.json",
+        "sha256": "35bd3c2db925a89b71e57a3a748a2cb2847193eb452f629da1bfc154630e3964"
+      },
+      {
+        "path": "packages/llm/llm-pi-ai/README.md",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/llm/llm-pi-ai/README.md",
+        "sha256": "1bd87a72987985f810b76fba63fb484045a49603461990c3ce4cfe9e4eb93a88"
+      },
+      {
+        "path": "packages/bundle/sdk-minimal/cordis.patch.yml",
+        "url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/183f08e9c6dde7e36cd2318eaee70b0da08fb35e/packages/bundle/sdk-minimal/cordis.patch.yml",
+        "sha256": "31805d5b233c33eabc57f4bac562b2d2db00e8a7bb1f205926f43e5f84749680"
+      }
+    ]
+  },
+  "official_reference_pages": [
+    {
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "applies_to": "OpenAI official GPT-5.6 Sol alias/capabilities, not TokenKey routing identity"
+    },
+    {
+      "url": "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create",
+      "applies_to": "Official parameter semantics; TokenKey compatibility must be observed separately"
+    }
+  ],
+  "source_snapshots": [
+    {
+      "path": ".local/tokenkey-check-20261009/model_inventory.json",
+      "sha256_exact_local_bytes": "08931d6d520b7d9f3f70511a6b0456880d08b51dad940a921ae801b8393eb088",
+      "inlined": true
+    },
+    {
+      "path": ".local/tokenkey-check-20261009/gpt56_smoke.json",
+      "sha256_exact_local_bytes": "1d0972ec55bd2785a76c152ddce8f70b107eeee1dc55d083e725d977ef18e1a6",
+      "inlined": true
+    },
+    {
+      "path": ".local/tokenkey-check-20261009/comparison.json",
+      "sha256_exact_local_bytes": "1ba0efaba6c629ed867622d15dc18ec1d857d1b7f26ec75fb9b561ee5fb3356b",
+      "inlined": true
+    },
+    {
+      "path": ".local/tokenkey-check-20261009/stream_probes.json",
+      "sha256_exact_local_bytes": "f9d54782b2f54ef1f9ac390ee631fc7c4d898bf49a1cfd6205268a2533735aa7",
+      "inlined": true
+    },
+    {
+      "path": ".local/tokenkey-check-20261009/dsh_adapter_inventory.json",
+      "sha256_exact_local_bytes": "f9e2ba192f1423924041a81d48f45d70fa293b49c0adf4a8a7d2f39737f8191a",
+      "inlined": true
+    },
+    {
+      "path": ".local/tokenkey-check-20261009/dsh_reuse_sources.json",
+      "sha256_exact_local_bytes": "c13e2c08532d74d57491046a54badf0b643d08e606e4cd23765ec1bae383d0eb",
+      "inlined": true
+    }
+  ],
+  "associated_documents": [
+    {
+      "path": "AGENTS.md",
+      "sha256_utf8_lf": "392efbf870975d6cec95480799819f731181a0a013587ee1f828844259b4bc4e"
+    },
+    {
+      "path": "docs/prompts/phase1c2b1_gated_solver_smoke.md",
+      "sha256_utf8_lf": "6a5f761cd24a8f188eddc9f65dbee3ca98248fa683663058e5c27e49c0f9abca"
+    },
+    {
+      "path": "docs/reviews/phase1c2b1_key_check_and_prompt_update.md",
+      "sha256_utf8_lf": "296c57a86870b6104585c314c83e37ff4990abffaff5b5e2bbd15cb19ba6e71d"
+    }
+  ],
+  "cleanup": {
+    "diagnostic_http_clients_closed": true,
+    "comparison_thread_pool_joined": true,
+    "local_http_server_started": false,
+    "dsh_job_started": false,
+    "product_regression_suites_rerun_in_this_review": false
+  },
+  "limitations": [
+    "No independently observed supplier receive logs or bill",
+    "No stable upstream identity proof",
+    "No DSH/Concordia live integration in this review",
+    "Each model had at most two synthetic action calls, not a benchmark",
+    "Full SSE bytes and HTTP headers were not retained",
+    "Gemini failure and DeepSeek timeout are retained and not automatically retried"
+  ]
+}

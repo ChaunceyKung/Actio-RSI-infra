@@ -1,174 +1,144 @@
-# Codex 执行 Prompt：Phase 1C2B1 受控 solver 连接 smoke
+# Codex 执行 Prompt：Phase 1C2B1 TokenKey 多模型真实 solver 闭环
 
-在 Actio-RSI-infra 执行 **Phase 1C2B1**：先完成真实 solver 的受控执行入口、本机验收与具体批准包；**首次真实调用前向用户确认**。得到明确确认且条件满足后，最多执行一个 baseline episode / 两次 solver 发送，再完成对账与交付。
+在 Actio-RSI-infra 完成 **Phase 1C2B1**：接入用户指定的 TokenKey OpenAI-compatible 服务，复用官方 DSH 与真实 Concordia，完成真实双 seat 场景、必要诊断和模型适用性记录，然后提交并推送 main。当前 session 的目标是实施，不要只重写一份准备方案。
 
-用户本轮已选择：“先完成执行入口和批准包，下一 session 首次真实调用前再确认”。因此不能一开始只问预算，也不能把本 Prompt 当成付费调用授权。先把可独立完成的准备工作做完、验证并推送；到具体的首次真实调用边界才提确认。用户不回复或拒绝时，保留完整准备成果与 AWAITING_APPROVAL，真实请求仍为 0。
+用户 2026-10-09 最新要求：“check 我们的 api key 是否可用……api key 不设置预算上限，以推进项目为准”，并指定了凭据文件、TokenKey base URL 和 gpt-5.6 示例。**项目必要的凭据读取、模型验证、solver 基线和有依据的诊断已获授权；无需再次等待首次调用或固定费用批准。** 这覆盖旧 Prompt 的零预算、1 USD、严格两次请求和 AWAITING_APPROVAL 门槛。
 
-## 0. 基线与发布要求
+无金额上限不等于无限循环。按 C2B1 里程碑推进，保留请求级长度/期限、记账、幂等、隐私和进程清理。研究晋升、真人校准、部署及供应商账户修改仍不在本轮范围。
+
+## 0. 已验证连接与起点
 
 - 仓库：`D:\调研\RSI_AI训AI\agentic_evolution_infrastructure\workingspace\Actio-RSI-infra`。
-- 已验证产品基线：**`f65045a11d1a4728b98b5564623e4827365f91c8`**，C2B0 已快进推送到 main。
-- 最新审阅与本 Prompt 在远端 main；读 AGENTS.md、git status/remote，fetch 并记录实际起始 main HEAD，确认 f65045a 为祖先且已包含本 Prompt。不能从旧 C1 或 C2A.1 开始。已有同任务分支先检查再继续，保护无关修改。
-- 推荐工作分支：`phase1c2b1-gated-solver-smoke`。用户最新要求是**验证完成后发布到 origin/main**，覆盖历史 Prompt 的“仅任务分支/不推 main”默认。
-- 每次完成一个可交付状态：检查 → commit → 保留/普通 push 任务分支 → 安全合入 main → 普通 push origin/main → 核对远端 main SHA 等于本地 main。主线无分叉时快进；并发更新时先整合并跑相关检查，不强推、不覆盖他人工作。BLOCKED/NO_GO 的诚实交付同样推送。网络/权限阻塞保留本地提交并精确报告。
-- main 发布授权不等于真实费用、模型选择、凭据读取、部署或进一步实验授权。不部署。
-- 固定 Windows x64 / Python 3.12 / DSH SDK-runtime `0.1.5rc1` / exe hash `7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6` / Concordia `b71d202750e23444ce1bf28d9f114bcd88aa41db`。
-- 新运行使用隔离短路径、新身份/spec/数据库。复用官方 SDK、TS adapter/loop、Concordia、现有 Ledger/campaign；不升级 DSH，不装新版 Messages 插件，不换 Strands，不自写另一 solver 或通用计费/审批平台。
-- 真实调用获准前，仅允许公开官方资料/GitHub/锁定依赖准备、Git push、本机 fake credential 服务与离线工作。不读真实 key，不请求外部鉴权/model-list/余额/模型 API，不自动登录或充值。
+- 产品基线：`f65045a11d1a4728b98b5564623e4827365f91c8`；前轮审阅：`d98591acbad61fbe67adc596e35b11c2e6c429a7`。从包含本 Prompt 最新修订的 origin/main 开始，记录实际 HEAD 并核对基线祖先关系。
+- 用户明确的服务：**`https://api.tokenkey.dev/v1`**；Chat Completions 为 **`https://api.tokenkey.dev/v1/chat/completions`**。不要追加第二个 /v1，不将 key 发到 api.openai.com、api.deepseek.com 或其他猜测域名。
+- 用户源凭据文件：`D:\调研\CausalEngine\api_key\token_key.txt`。
+- 项目副本：**`.local/credentials/token_key.txt`**，已复制并确认被 Git 忽略。只在内存读取；可注入专用 `ACTIO_SOLVER_KEY`，不要写入系统全局环境、配置或日志。副本不存在时从指定源文件复制，已有不同凭据时先核对，不覆盖不明内容。
+- Key 检查与模型探索见 `docs/reviews/phase1c2b1_key_check_and_prompt_update.md` 和 `phase1c2b1_tokenkey_evidence.json`。它是直接 API 诊断，不是 DSH/Concordia 完整运行。
+- 最新实测：GET /models 鉴权成功，返回 109 个标识；gpt-5.6 短 completion 与 SSE/usage/DONE 成功。不要因为列表可见就认为每个模型可调用：gemini-3.1-pro 返回 HTTP 400 unsupported_model。
+- 当前主选 **gpt-5.6**；跨模型对照候选 **claude-sonnet-4-6**；gpt-5.6-luna、qwen3.8-flash 可作为后续吞吐/多样性候选。deepseek-flash 已见跨请求返回型号变化和一次 SSE ReadTimeout，先调查路由稳定性，不能默认为最稳主选。
 
-## 1. 先承接事实，避免重复建设
+先读 AGENTS.md、git status/remote 和适用规则；保护用户无关修改，已有同任务分支先检查再继续。推荐分支 `phase1c2b1-gated-solver-smoke`。每轮验证后 commit → 普通 push 任务分支 → 安全合入 main → 普通 push origin/main → 核对远端 SHA。无分叉时快进，有并发更新先整合和检查。不 force push、不覆盖他人工作；BLOCKED/NO_GO 的已完成材料也交付。不要再次询问是否 push main。
 
-必读：
+## 1. 保持架构，先查官方可复用适配器
 
-- `docs/reviews/phase1c2b0_review_and_c2b1_plan.md` 和 `phase1c2b0_review_evidence.json`。
-- `docs/validation/phase1c2b0/` 的 contract/results/gate/usage/cost_credentials_timeouts、manifest、candidate、approval_package、sources/upstream 和四个公开 sample。
-- readiness_contract/readiness/transport/transport_contract/budget/plugins/transport/host/supervisor，以及 task_contract/scenarios/terminal/verify/transport_campaign 的版本分派。
-- readiness/readiness_config 测试、rehearsal/CLI/release/legacy 脚本。
+固定 Windows x64、Python 3.12、DSH SDK/runtime `0.1.5rc1`，exe hash `7ff077cfa28b81aa33f96aca97911969f8b6499bc1f85e4a6d3ddd16b8aa67d6`，Concordia `b71d202750e23444ce1bf28d9f114bcd88aa41db`。Python Control Plane → 官方 SDK → DSH TS loop → Concordia Engine 保持。
 
-当前已完成 68 组本机验收；正式阶段全部尝试为 162 sending / 158 receives，实际模型/外部 provider/费用 0。旧 v3 超时和原参数重跑均保留，根因未证。审阅又完成 11 个配置测试、四个 sample、C0/C1/C2A.1 固定旧版复核和原始材料核对，但没有重跑全部 runtime。
+必读 C2B0 合同/结果/用法/manifest/费用说明、readiness_contract/readiness、budget、transport/transport_contract/plugins/transport、host/supervisor、task_contract/scenarios/terminal/verify/transport_campaign 和对应测试。C2B0 execute 仍无条件拒绝，运行链只允许 fake/rehearsal，真实入口尚需实现。
 
-C2B0 execute **无条件拒绝**，TransportPort/host/Ledger 只允许 rehearsal/fake key，因此 live 执行入口仍需实现。v4 的报价算法、authority 独占绑定、未知占额、内存凭据和分层超时可直接复用。
+已查到固定源码 tag **dsh-v0.1.5-rc.1 → 183f08e9c6dde7e36cd2318eaee70b0da08fb35e** 中存在官方 **`@deepseek-ai/dsh-llm-pi-ai`**。README 明确支持多 provider 与手工声明的 OpenAI-compatible gateway，配置包含 providers、apiKeyEnv、api=openai-completions、baseURL、models、compat、retryPolicy。源码与 hash 见新审阅证据；本机摘录在 `.local/tokenkey-check-20261009/`。
 
-历史 40 个文本路径有 checkout CRLF 差异，Git 内容未变。必要时用明确列出的 LF Git blob 比对解释，不全局忽略 hash，不修改旧 manifest 或重封历史记录。
+按以下顺序复用：
 
-## 2. 固定本次最小范围
+1. 先核对该固定 tag 的 llm-pi-ai README、配置 catalog/types、入口及 sdk-minimal profile，查清必需服务。先用假 key/loopback 验证当前固定 binary 能否加载并实际选中它。
+2. sdk-minimal 默认挂载 llm-deepseek，**源码包存在不等于当前 binary 已包含/可加载**。不要沿用之前 Messages 插件不存在时的错误推断。
+3. 若可用，建立显式 TokenKey route，例如 provider=actio-tokenkey、api=openai-completions、baseURL=https://api.tokenkey.dev/v1、apiKeyEnv=ACTIO_SOLVER_KEY、明确少数 model entries。显式关闭所有自动 retry，README 默认可能是五次；关闭旧 llm-deepseek 路由及不适用的 DeepSeek 专有扩展/inventory producer。
+4. 若 loader 缺包，记录真实错误，再评估安装/构建**同 tag 同版本官方 package 及必要依赖**。这属于有依据的最小复用，不静默升级 runtime。保留 MIT 归属和依赖闭包。
+5. 只有官方固定版本路径经验证确实不可用时，提出最小 adapter 修复：复用官方协议/转换模块并保持 DSH loop。不要偷偷以 Python OpenAI SDK 完成“生产 solver”后声称 DSH 闭环完成，不建设通用多模型网关。
+6. current `deepseek-official` 是旧 adapter route 标识，不代表 TokenKey/GPT 的供应商身份。新记录分别保存 gateway、adapter package/route、requested_model、response_model、upstream_identity_verified=false；不可把 TokenKey 调用标为直连官方 DeepSeek/OpenAI。
 
-只准备以下具体试运行方案，**仍是提案，未经确认不得执行**：
+切换 adapter 后，旧 wire 固定字段、usage/finish 映射、profile/inventory 校验需要新版本分派和真实本机证据。不能只改 URL/模型名并全局放松旧检查。默认 reasoning、max_tokens/max_completion_tokens 和专有 thinking 字段逐模型核对，不从 DeepSeek 原样套给所有模型。
 
-- 官方 DeepSeek Chat Completions，候选 `deepseek-flash`；
-- 精确 URL `https://api.deepseek.com/chat/completions`，POST、stream、include_usage、thinking disabled、max_tokens 64；
-- **compatible 卡、1 episode、A→B 两 seat、每 seat 最多一次请求**；不同时执行 conflict 卡，不做模型比较；
-- GM deterministic，judge/retries/title/compaction/tools/MCP/Files/image/其他模型 producer 关闭；
-- 只有合成角色、任务、私有约束与冻结 memory，B 只看到 A 实际发生的公共行动，无预置答案/测试服务响应计划；
-- 首 seat 本身就是连接检查，不另开不计账的健康探针。所有实际模型发送尝试包括诊断都计入批准额度；
-- 沿用已验证的有限 timeout 作为首选，不在一次付费失败后自动加长并重跑；
-- 候选 credential reference 是 `ACTIO_SOLVER_KEY`；只记录引用，不要求用户把 secret 发到聊天或写进批准包；
-- 当前约定的保守估算为单次 $0.314649600、两次 $0.629299200。可建议 **1 USD 本地预算**，但 actual_budget 在人类确认前仍为空/0。
+## 2. 新授权与费用策略
 
-用户可以在确认时变更选项；变更后先重新验证/生成合同，不擅自扩成两个 episode 或增加请求。一次连接 smoke 不能证明模型推理、研究效度、校准或演化收益。
+新增显式 live config/schema，保留 v2/v3/v4 及历史 limited/SYNTHETIC 语义。建议表达：
 
-## 3. S0：划清发送条件与实验待观察项
+- spending_policy=uncapped_for_phase1c2b1；
+- cost_limit_minor=null；
+- authorization_basis=explicit_user_instruction_2026_10_09；
+- credential_ref=file:.local/credentials/token_key.txt（解析到内存中的专用变量）；
+- gateway、model、实际任务范围、实现 hash、运行计划和停止策略。
 
-复查以下公开页面，记录来源/日期/hash/摘录：
+字段名可按仓库惯例选择。`null` 只在明确 uncapped 策略和真实用户授权同时存在时表示无金额限制；未配置、未知 schema、0、负数、NaN、Infinity 或巨大整数不能冒充该策略。不要新建暗中的总金额/总 token/两次调用限制来卡住必要诊断；每个实际批次仍必须是有限且登记清楚的任务计划。
 
-- https://api-docs.deepseek.com/quick_start/pricing/
-- https://api-docs.deepseek.com/api/create-chat-completion/
-- https://api-docs.deepseek.com/quick_start/token_usage/
+保留 SQLite 原子 intent/reserve/sending、一次性资格、wire hash、并发与归属校验。uncapped 的 reserve 可代表在途请求登记/估算，不必为了发送先证明精确最大可计费输入；这不是删除 Ledger 或把未知费用补零。
 
-固定官方 DSH 源码 tag 为 `dsh-v0.1.5-rc.1` → `183f08e9c6dde7e36cd2318eaee70b0da08fb35e`；只读按需核对 adapter/serializer/translator/SDK 凭据路径，保留 MIT attribution。旧本地较新 checkout 不是固定 binary 的依据。
+计价规则必须改为 **TokenKey 的来源与返回值**。官方 OpenAI/DeepSeek 零售价只能作为另标来源的参考，不能冒充 TokenKey 实际账单。本次部分响应带 usage.cost，其他没有；币种/单位和完整覆盖尚未证明，记录 gateway_reported_cost_raw 与其来源，不把缺失 cost 当 0，不将浮点 cost 直接当整数 USD 入账。单位确认后使用 Decimal/明确整数精度转换。
 
-不要继续把所有未知放进永久固定的 BLOCKERS 列表：
+分别记录发送尝试、可信 usage、估算/未知/网关报值、供应商实际账单。缺最新报价或精确 tokenizer 时保留 usage 并注明待估价；在已授权无金额上限模式下，不能因无法证明有限预算上界再次阻断所有 live。
 
-1. **发送前条件**：具体人类授权、合同和实现匹配、未过期的报价/批准、预算可容纳一次保守预留、明确计价依据、指定 credential reference、可信 profile、持久 authority/一次性资格、场景/隐私和清理边界。
-2. **本 smoke 要验证的项目**：供应商是否接受固定 adapter 字段、实际 response model/id/usage、正常原生终态、延迟与双 seat 闭环。它们起初 UNVERIFIED，不能同时成为“必须先真实验证才允许首请求”的循环条件。
-3. **仍然不解决的项目**：完整 controller 恢复、二进制可复现构建、人工标签/judge、研究/演化晋升。继续明确 unsupported/unproven/BLOCKED，不扩大本轮工程。
+不设置或修改 TokenKey 账户侧预算、余额/充值、权限或其他供应商账户。API 返回余额/配额限制时如实报告外部阻塞。
 
-对费用上界只能采用有依据的方法：
+## 3. 入口、凭据与模型身份
 
-- 若获得当前模型确切可计费输入上界，引用证据并据此计算；
-- 若仍只有“1M”，保留当前覆盖十进制/二进制常见解释的 1,048,576 输入及峰值 cache-miss 包络，标成 **conservative_assumption**，不能改成 verified；
-- 精确 tokenizer 与经证明的最大上下文上界是替代方法，不要求两者都必须获得。通用 tokenizer、字符比例或 65,536 bytes 不可冒充证明；
-- 如果采用有残余假设的方案，批准包要清楚说明单价时效、单位、额外/错误费用和账单不受本地程序完全控制，**请求用户明确接受这一具体试运行假设**。没有这种接受就不执行；
-- 用户若要求绝对供应商账单硬上限，必须有供应商侧可核实的额度保证；本地 1 USD ledger 不能冒充该保证。不自动设置收费账户/充值；
-- 不能靠延长 quote 日期、置 input_bound_verified=true 或删除 blocker 来获得批准。新来源、计价策略或实现改变必须改变合同 hash。
+- plan/preflight/verify 默认无网络、无 key 读取；明确 live execute 才解析指定文件并发送。
+- 用户最新指令是授权依据；生成绑定当前实现/任务的执行说明，替代旧未批准的批准包。不因合同 hash 或有依据的配置修复改变而重复请求同一费用授权。
+- 仅读取给定凭据，不打印值/前后缀/长度/key hash；复制前后可以在内存比较，不公开摘要。文件保持 Git ignored，公开样例不包含实际 key。
+- 保留受管 stdin → SDK 显式 env 内存注入，clean_env 不继承无关 provider/proxy，helper 不带 key。明确 TokenKey route 的 apiKeyEnv，禁止 ambient OAuth/provider fallback。
+- 对新 adapter/resolver 先用 fake sentinel 检查配置、native/cache、诊断/stderr、数据库、导出包及分段输出。检测泄漏先修复，保留安全失败证据，不事后删日志冒充无泄漏。
+- TLS 正常验证、禁止 redirect；key 只去用户指定 origin。第三方网关的 model ID/response model 是路由标签，不能独立证明上游权重版本。
+- 每个请求记录 requested_model/response_model、响应正文 response_id，以及可取得的 HTTP request_id/fingerprint；未返回的字段为 null，不编造，不将正文 id 冒充供应商请求头。本次直接诊断旧字段 request_id 实际存放正文 id，reader 必须遵循新证据里的字段说明。深度比较需要稳定 route/cohort；型号变化不能静默合并到同一独立实验单位。
+- 不需要一次接入全部 109 模型。先实现 gpt-5.6，再对一个已通过直接调用的跨模型候选验证相同合同；为下一阶段保留可解释选择依据。
 
-保持 USD nano 整数算法、缓存只计一次、峰值 reserve、向上取整和四类量分列：sending、usage、估算/预留、供应商实际账单。尚无账单就 null/UNVERIFIED。
+## 4. 真实任务计划与工程边界
 
-## 4. S1：实现真正可获批的最小入口
+先完成一个 compatible 的 A→B episode，正常后再做一个 conflict episode。GM deterministic、judge 禁用；不运行训练/演化或正式模型评审研究。准备多模型角色时只记录未来 judge 候选，不在本轮开放 judge Gate。
 
-为 live 增加明确的新 schema/mode（例如新 config 版本与 `live_solver_smoke`），不静默改 v4 live_candidate 或 priced_rehearsal 的已发布语义。保持无授权默认拒绝与本机测试模式隔离。
+冻结具体 task/agent/spec/memory 与有序 episode/seat 计划。B 实际输入依赖 A 真正输出，批准的是可见性/构造规则，不是预置答案。actor payload 仅含自身合成信息、公共场景/行动历史、冻结 memory、ActionSpec；不含对手私有数据、judge 内容或测试响应计划。
 
-### 授权与实际 task 的绑定
+单个正式 seat 只发一次模型请求，原始输出不通过“重试到合法”挑选。行动非法是观察结果；区分任务失败与基础设施失败。A 失败/不完整时 B not_run，保留已发生事实。
 
-- 批准对象绑定源实现/运行 pin、quote、model/origin/path/method、参数、限额、UTC 有时区期限、数据范围、**有序 episode 队列**、具体身份/spec/memory hash 和 credential reference。
-- 审阅用占位 PROPOSED_A/B 卡不能直接当成批准后的实际身份。先冻结具体计划；不要把两张候选卡的集合当成任意顺序/次数的运行许可。
-- B 的实际输入依赖 A 尚未产生的行动。批准的是冻结的可见性/构造规则、有限 ActionSpec 与单次 B continuation；不要为预演/批准构造答案。实际请求仍在发送前绑定 wire hash。
-- 单纯 JSON `approved=true`、正预算、approval_ref、已有 key 或 GitHub/main 授权不能解锁。可信人类回复由执行本任务的 agent 核对范围后记录为操作许可；CLI 同时要求显式执行动作及完全匹配的本地许可记录。不要建设签名服务，也不要声称本机文件抵御恶意管理员。
-- 同一许可绑定唯一 authority、ledger 和 episode 队列。复制/换库、重复 invocation、重启或新 Worker 不能重新花一份批准。
-- 授权过期、撤回/stop_requested、实现/quote/config 不一致、已有 pending/unknown、预算不足都在启动/发送前拒绝。reserve 和 sending **分别复核**；记录 UTC 决策时间/有效期供离线核验。当前本地时间不是第三方可信时间戳。
-- 只有确认已完成且本地发送前条件满足后，才解析指定 credential reference；读不到时零请求退出，不扫描备用变量/配置/账户。
+每请求 max output/bytes/chunks/time 保持有界。先依据模型 profile 选择足够的输出额度，记下是否包含 reasoning；本次 qwen/DeepSeek/luna 的部分 usage 含 reasoning，不能将思考 token 当额外重复费用，也不能用过小上限错误判断模型不可用。
 
-### 凭据、传输和停止规则
+沿用 C2B0 分层 timeout 思路，但要适配网关实测，不能机械继承官方 DeepSeek 的 6 秒首响应。记录首 headers、首 token、流 idle、总时长；本次非流式总耗时不能冒充首响应耗时。根据证据做有限调整并验收，不取消总期限。
 
-- 延用受控 stdin → SDK 显式 env 注入内存，真实 key 不进入 CLI 参数、host-config、profile、SQLite、native/诊断日志或归档；预算 helper 不带 key。
-- 本机假 key 测试与 live key 解析要有明确模式区分，不能只去掉 ACTIO_FAKE_ 前缀检查就开放 live。
-- 新解析入口和日志路径补 fake sentinel 验收，覆盖异常与分段诊断输出；只能假凭据测试。检测到落盘先修并保留失败证据，不事后删日志冒充无泄漏。
-- 精确 HTTPS URL、正常 TLS、禁 redirect、禁环境 proxy/provider fallback。官方 serializer/SSE translator 保持；不新写 provider HTTP solver。
-- trusted profile 所有实际发送均经过现有持久 gate。global fetch wrapper 不被描述成恶意插件沙箱。
-- 查验响应 id/model 的有限允许值及官方 raw/native 映射；只在批准前有依据地设置 allowlist。第一请求返回未知型号/缺 identity 就记录并冻结，不能自动学习 allowlist 后补跑。
-- 检查 64 输出 token 与 adapter event/chunk 上限是否相容；若需修改，批准前以本机可解释边界验收，保留 byte/count/time 限制。
-- 预算 settled、场景成功、campaign 可继续是三种不同判断。length、unknown、协议/身份错误或停止请求都应阻止后续模型发送；可信 usage 即使能结算也不能把 run 自动解冻。
-- A 原生执行完整、ActionSpec 合法、账务可信且无停止条件后才能发 B；否则 B 为 not_run。已发生世界效果保留。任务合法失败可以作为完整失败样本，不补答案/反复尝试。
+默认关闭 SDK/provider 自动重试、title/compaction/tools/MCP/Files/image 等额外 producer。网络发送资格在 actual fetch 前核对；adapter 改变后重新证明门控仍覆盖实际请求，hook 次数不是发送数。
 
-## 5. S2：补 live 证据合同与本机验收
+## 5. 未知账务与推进原则
 
-现有 campaign 的 receives 是本机服务日志。为 live 使用新证据版本/明确分派：
+首个 unknown、协议/身份异常或超时先停止受影响 episode，保留响应、native/usage 和已发生世界效果；不退款、不补 0、不重用原 attempt。
 
-- 记录批准摘要/hash、预算事件、发送尝试、官方 SDK/native 观察、HTTP 状态/安全 response 元数据、provider request id/model/usage、估算费用、原生终态和领域效果；
-- **不能生成假服务端接收日志**。无独立供应商接收证据时 supplier_received=null；本地 send_attempts、observed_responses、带 usage 请求数分开；
-- 客户端发送可能没有到达供应商，发送失败仍不退款。真实供应商实际计费没有证据时保留未知，不把估算当账单、不硬编码 real_cost=0；
-- 显式本机 rehearsal 的 actual/model cost 仍为 0。不同模式金额/计数不可相加；
-- 注册所有计划 seat、失败、not_run、unknown，不只导出成功条目；
-- 离线 verify 不读 key、不发网络、不启动 Worker/evaluator，核对批准/quote/time/config/authority/episode 与账务的绑定；
-- 保存原始事实语义，不能为脱敏重写已封存事实。预先不采集 Authorization；若发现敏感输出，阻断公开发布该材料，仅提交安全摘要并说明限制。
+在用户已选择 uncapped 的条件下，历史 unknown 不应成为永久全项目死锁。确认旧 Worker 回收、定位原因后，可登记新的诊断批次继续；每次写明假设、输入变化、结束条件和与旧失败的关系。不得通过另建库抹掉累计发送/未知费用，不能重放可能有不确定外部效果的原操作。
 
-新增本机验收只覆盖这些变化，不再重新铺一套通用 fixture：
+有界处理故障：
 
-| 项目 | 核心行为 |
+- 401/403/402：按实际鉴权/权限/余额类型停止该路径，不能自动换账户或充值；
+- 400 unsupported_model：模型列表不代表该协议可用；查服务说明/必要时选择已证可用模型，保留原失败；
+- 429：遵守 Retry-After，有限等待，所有尝试记账；
+- timeout/length/usage 映射：定位具体层，必要本机测试后以新 run 验证；
+- 同一故障无新增证据时停止无目的请求，交付精确阻塞。无预算上限不是无限重试。
+
+## 6. 本机验收、证据与历史兼容
+
+重点验收真实改变：
+
+| 面向 | 要求 |
 |---|---|
-| 人类许可 | 未批/过期/不匹配/仅字符串或 flag/仅 Git 授权均零发送、零真实 key 读取 |
-| 执行计划 | 一份许可只允许具体 episode 的 A→B；多余 episode/seat/换身份/换 memory 拒绝 |
-| 最终发送检查 | reserve 后批准过期/stop 或合同改变时发送拒绝，资格不能重用；时间事件可离线核验 |
-| 成本与未知 | 最后一次/最后金额争抢受控；unknown 阻断；超限 usage 保留异常、不补零、不退款 |
-| 生命周期 | 入口到实际 SDK/TS/Concordia 能跑完假服务成功；异常仍清理 Job/服务；不实现自动恢复 |
-| 停止 | A 协议异常/length/未知时 B not_run；任务结果与费用结果独立 |
-| 凭据 | 新 resolver 仅指定引用、无回退、无磁盘/日志泄漏、helper 不继承 |
-| 证据 | live 形状的本机测试证据标注 simulation；无假 supplier receives；估算/实际账单区分 |
-| 回归 | 修改范围相关的 task/runtime/budget/transport/验证和凭据测试；固定 C0/C1/C2A.1/C2B0 reader 验证历史 |
+| adapter | 固定官方包能加载，route/model/参数实际生效；无隐式 retry/fallback |
+| uncapped | 显式策略不触发金额耗尽；未配置/伪造策略拒绝；旧有限额行为不退化 |
+| 记账/幂等 | 一次性发送、并发一致、累计完整、unknown 保留，新诊断不重播 |
+| 凭据 | 只去指定 origin，helper/日志/磁盘不泄漏 |
+| 双 seat | 输入隔离、A→B 实际行动传递、失败/not_run/世界效果正确 |
+| 协议 | raw/SSE/usage/stop/DONE 与官方 adapter/native 一致，缺失和差异显式处理 |
+| 生命周期 | 分层 timeout 有界，异常后 Job/服务/端口可清理 |
+| 离线 reader | 不读 key、不发网络、不启 Worker/evaluator，按新版本核对 source/wire/usage/计划 |
 
-C2B0 四个 sample 用固定受信 **f65045a** reader；C2A.1 固定 b086cba，C0/C1 原 SHA。artifact 不可选择代码版本。固定旧文件/失败/manifest 不改。新阶段 source pin 改变后，不能为旧记录通过而删除校验。
+live 记录 sending、observed_responses、usage-bearing responses；无独立服务端日志时 supplier_received=null，不伪造本机 receives。estimated/unknown/gateway-reported/supplier-billed cost 分开。HTTP200 不直接等于任务成功或账单核对。
 
-构建、依赖准备和带紧 deadline 的真实 runtime suites 顺序执行，避免争用；这只是减少干扰，不能声称已证明旧失败根因。保存全部失败与命令实际 argv。最终干净安装、源码/安装一致、pip check、公开 CLI 验收及本轮全部 Job/端口清理通过后，停止扩大测试。
+本机 simulation 与真实 API 诊断/正式 DSH episode 分组计数；新模型探索不是独立研究单位，不当作正式质量排名。所有失败和 not_run 保留。
 
-## 6. S3：先交付具体批准包并发布 main
+C0/C1 reader 固定原 SHA，C2A.1 固定 b086cba，C2B0 固定 f65045a。artifact 不指定执行源码；旧 manifest/spec/失败保持不变。顺序构建、安装和紧 deadline 的 runtime suite，保存真实 argv。必要回归、干净安装、源码/安装一致、pip check、CLI 与清理通过后停止扩大测试。
 
-交付 `docs/validation/phase1c2b1/`：
+## 7. 模型探索与选择
 
-- 合同/复用来源、实现说明、结果、Gate、evidence_manifest、CLI；
-- 单 episode 的 **未批准** operation proposal，含具体任务/spec/memory/quote/code hash、预计发送上限、每次 reserve 与全程预算、计价假设与停止规则；
-- plan/preflight、默认拒绝、本机 rehearsal、只读 verify 的可复制命令；尚未获准的真实 execute 命令必须明确标注为“仅批准后执行”；
-- 逐次本机与外部计数、失败、清理和归档 hash，README 当前入口。
+以本轮证据为起点，不重复全部可用性探针：
 
-准备完成后的状态可以是 `local_execution_engineering=CONDITIONAL_GO`、`live=AWAITING_APPROVAL`；provider_compatibility/billing_reconciliation 仍 UNVERIFIED，真实请求/费用 0。把已验证准备成果提交、推送任务分支与 main，确认远端一致。
+- **gpt-5.6**：用户示例模型；直接普通/流式调用与两步结构化任务均通过，优先做正式 solver 基线。
+- **claude-sonnet-4-6**：两步约束任务通过，可作为跨供应商标签的对照；不能仅凭一次较低延迟宣称整体最快或更优。
+- **gpt-5.6-luna**：两步通过；候选轻量/吞吐组，但需在 TokenKey 上独立量测吞吐、质量和计价，本轮曾有较长单次耗时。
+- **qwen3.8-flash**：两步通过，候选另一模型族；注意 reasoning usage 与终态合同。
+- **deepseek-flash**：普通调用通过但实际响应型号不同，流式诊断一次 ReadTimeout；先稳定 route/参数/期限后再纳入严格对照。
+- **gemini-3.1-pro**：列表可见却在 Chat Completions 返回 unsupported_model；此路径暂不选，不能说整个 Gemini 家族或 key 无效。
 
-**随后才向用户展示一份具体的首次调用确认**，包括：
+上述每模型只有两个小任务或更少，不能证明广泛推理/社交能力。后续正式选型应预注册固定任务、重复次数、seed/参数、模型/路由身份、延迟/格式/约束/成本/不确定性指标，并把模型族与 gateway 路由混杂单列。本轮只完成必要接入与有限候选验证，不做大规模 benchmark 或未经校准的 live judge。
 
-- 运行目标、候选模型和精确 URL；
-- compatible 1 episode / 最多 2 次发送，包含所有诊断，无 retry；
-- 最终批准对象 hash、报价窗口及批准期限；
-- 单次与总保守费用测算，建议实际本地预算 1 USD（或最终有依据的其他提案），并明确这不是供应商绝对计费保证；
-- 未核实的上界/价格/额外费用假设，请求明确接受或选择继续零调用；
-- credential reference 与不提供 secret 到聊天的说明；
-- 首个 unknown/协议错误/停止/上限触发即停，账单仍需单独核对。
+## 8. 交付与停止点
 
-说明需要确认的来源是**用户 2026-10-09 在审阅会话明确要求首次真实调用前再确认**，以及尚未授权本次具体费用；不是 Git push 需要重新批准。若有异步提问工具可使用。没有回复就结束在准备完成/待批准，不持续空等，不把时间经过当成批准。
+交付 `docs/validation/phase1c2b1/`：合同/用户授权依据、adapter 复用与真实加载证据、uncapped 记账语义、结果/Gate、manifest、CLI、模型选择说明、失败及清理、归档 hash。README 更新当前入口。
 
-## 7. S4：仅在获得上述确认后执行
+最终目标是 TokenKey → 官方 DSH → Concordia 的真实单/双场景闭环。直接 OpenAI SDK 成功只能作为 key/协议诊断，不满足此目标。固定 adapter 若真实受阻，先窄修复；无法解决时准确交付 NO_GO 和可复用进展，不能假冒完整集成。
 
-核对回复确实批准具体 model/数据/请求数/预算/残余假设。如果回复修改参数，重新冻结并核对范围；实质扩大范围再次确认。最终合同/报价在等待期间过期则先复查，不能沿用旧批准。
+真实模型请求已有发生，不能再写“所有真实请求与费用均为 0”；实际费用未知时明确未知。分别报告诊断/本机/正式运行计数、usage 完整性、gateway cost 是否有单位证据、账单未核对状态、每个 gate。继续保留 binary_source_mapping=unproven、full_controller_recovery=unsupported，judge/人工校准/研究晋升不自动开放。
 
-只在批准后读取指定凭据并运行同一冻结版本。首 seat A 即唯一连接检查；若 A 的传输、身份、终态、账务任一异常立即停止，不额外 ping provider，不 retry。满足 continuation 条件才发 B。所有尝试共享一个已批准 authority/账本，完整记录 sending 与可观察响应的区别。
+只 stage 本轮安全文件，commit、普通 push 任务分支、安全合入并 push main，核对 `git rev-parse main` 与 `git ls-remote origin refs/heads/main`。密钥副本必须仍被忽略且未被跟踪；公开材料做 secret 扫描但不打印匹配内容。推送失败保留本地提交和精确原因，不强推。
 
-如果用户选择继续零调用、凭据缺失、上界假设不被接受或技术条件不满足，保留已交付工程与具体 BLOCKED 原因；不换 provider、不静默降低安全边界、不扩大模型调用数。
-
-执行后记录实际观察：provider 请求/响应、raw/native usage、估算、供应商实际账单是否可核对、任务结果与未运行 seat、清理。不要登录用户账单后台或读取其他无关数据；无账单证据继续 UNVERIFIED。失败也是应交付结果。
-
-只公开合成输入及经过检查的必要输出/安全元数据；密钥、Authorization、账户信息不进 Git。完成增量检查，再 commit、普通 push 任务分支，安全合入并 push main，核对远端 SHA。停止于这一 episode，不自动冲突卡、第二 episode、judge、人工校准或演化阶段。
-
-## 8. 最终报告
-
-中文简明报告必须分开“入口工程完成”“是否有人类批准”“是否真正执行”“实测兼容范围”“实际账单是否核对”。
-
-包含：各 Gate、版本/quote/授权对象 hash、测试及未验证范围、本机/真实 send_attempts 与 observed_responses 分开计数、provider received 未知情况、估算/预留/实际账单区分、失败与 not_run、Job/服务/端口清理、GitHub main 和任务提交链接、结果/manifest/CLI/批准包入口。
-
-没有首次真实调用确认时，明确 **准备已完成并推送 main，等待用户批准；真实调用 0**。收到确认并做完允许的运行后，报告实际结果及停止点，不能把一次 smoke 升格为研究效度。
+最终中文报告给出 Gate、真实闭环/模型探索及其限制、请求/usage/费用账务、失败/清理、main 提交与结果/manifest/CLI 链接。停止于 C2B1，按新发现提出下一步，不无限续跑。

@@ -1,0 +1,315 @@
+{
+  "schema": "phase1c2c3-review.v1",
+  "review_date": "2026-10-10",
+  "assembled_utc": "2026-10-10T01:56:52.739622+00:00",
+  "scope": "documentation and read-only offline review; C2C4 not implemented or executed",
+  "baseline_commit": "b50b6da28c25ef34da6a620b2b45a576ead5330f",
+  "remote_baseline_observation": {
+    "method": "git -c http.version=HTTP/1.1 ls-remote; subsequent ordinary fetch origin also succeeded",
+    "refs": {
+      "refs/heads/main": "b50b6da28c25ef34da6a620b2b45a576ead5330f",
+      "refs/heads/phase1c2c3-task-diagnostics-and-observability": "b50b6da28c25ef34da6a620b2b45a576ead5330f"
+    },
+    "earlier_failures": "two schannel TLS handshake failures retained in session; ordinary retry succeeded",
+    "tls_verification_disabled": false,
+    "scope": "baseline observed before this documentation commit; final publication is verified after commit separately"
+  },
+  "integrity_review": {
+    "baseline": "b50b6da28c25ef34da6a620b2b45a576ead5330f",
+    "checked_utc": "2026-10-10T01:36:40.923291+00:00",
+    "manifest_sha256": "8b09b7ea5900c8f1ef93b2cd4e7ab99b265869f60518119bf4e6c02de444c9bc",
+    "checks": {
+      "artifacts": 28,
+      "source": 14,
+      "entry_files": 5,
+      "tooling": 9,
+      "installed_sources": 14,
+      "published_acceptance": {
+        "tests-d4dd34039d2b.json": {
+          "source_bound": true,
+          "status": "PASS",
+          "tests_run": 7,
+          "records": 0
+        },
+        "cli-b6e40881b375.json": {
+          "source_bound": true,
+          "status": "PASS",
+          "tests_run": null,
+          "records": 8
+        },
+        "literal-cli-027c3161315a.json": {
+          "source_bound": true,
+          "status": "PASS",
+          "tests_run": null,
+          "records": 5
+        }
+      },
+      "development_cli_failure_retained": true,
+      "fixed_historical_reader": {
+        "commit": "3bef7e15b0eb21beeb10888eb508056592b977b0",
+        "runner_hash_match": true,
+        "source_files_checked": 67
+      },
+      "historical_delivery_recomputed": {
+        "valid": true,
+        "report_exact": true,
+        "counts": {
+          "planned_episodes": 24,
+          "observed_episodes": 24,
+          "not_run_episodes": 0,
+          "technical_complete_episodes": 24,
+          "execution_resolved_episodes": 24,
+          "assigned": 48,
+          "sent": 48,
+          "response": 48,
+          "terminal": 48,
+          "admitted": 48,
+          "not_run": 0,
+          "protocol_error": 0,
+          "attempted": 48,
+          "usage_responses": 48,
+          "unknown": 0,
+          "task_predecessor_invalid": 0
+        },
+        "lineage": {
+          "valid": true,
+          "legacy": {
+            "valid": true,
+            "candidates": 6,
+            "rejected": 4,
+            "decisions": 6,
+            "activation": false
+          },
+          "evaluations": 2,
+          "evaluation_decisions": 1,
+          "activation": false
+        },
+        "guard": [
+          "key",
+          "env",
+          "network",
+          "process",
+          "runtime import",
+          "write"
+        ]
+      }
+    },
+    "line_endings_only": [
+      "AGENTS.md"
+    ],
+    "new_model_requests": 0,
+    "new_workers": 0
+  },
+  "offline_recomputation": {
+    "valid": true,
+    "counts": {
+      "groups": 8,
+      "historical_live_pairs": 0,
+      "independent_research_units": 0,
+      "invalid_missing_vectors": 128,
+      "legal_action_combinations": 416,
+      "policy_controls": 160,
+      "presentations": 32,
+      "worlds": 16
+    },
+    "gates": {
+      "control_sensitivity": "PASS",
+      "diagnostic_dataset_integrity": "PASS",
+      "oracle_consistency": "PASS",
+      "visible_information_boundary": "PASS",
+      "historical_source_assurance": "PASS_LOCAL_FIXED_READER",
+      "retrospective_diagnostic_reproducibility": "PASS",
+      "offline_portability": "PASS_INTERNAL_RECOMPUTATION",
+      "live_solver_discrimination": "NOT_RUN",
+      "research_validity": "UNESTABLISHED",
+      "capability_admission": "insufficient_evidence",
+      "production_activation": "BLOCKED_FALSE",
+      "billing_upstream_identity": "UNVERIFIED",
+      "binary_source_mapping": "unproven",
+      "full_controller_recovery": "unsupported"
+    },
+    "report_manifest_equal": true,
+    "plan_equal": true,
+    "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+    "retrospective": {
+      "A_in_conditional_argmax": 12,
+      "feasible_but_not_agreed": [
+        "S1",
+        "S3",
+        "H1",
+        "H3",
+        "H4"
+      ],
+      "historical_live_pairs": 12,
+      "identical_A_B_actions": 12,
+      "joint_achieved_cards": 5,
+      "joint_feasible_cards": 10,
+      "matches_legacy_own_rule": 11,
+      "positive_omniscient_regret": [
+        "S1",
+        "S3",
+        "S6",
+        "H1",
+        "H3"
+      ]
+    },
+    "raw_authentication_repeated": false,
+    "source_assurance": "fixed_reader_local_attested",
+    "guard": [
+      "key",
+      "env",
+      "network",
+      "process",
+      "runtime import",
+      "write"
+    ],
+    "A_visible_views": {
+      "presentations": 32,
+      "distinct_exact_views": 16,
+      "multiplicities": {
+        "2": 16
+      }
+    },
+    "order_transformations": 16,
+    "nonempty_disjoint_groups": [
+      "S-public",
+      "S-hidden",
+      "H-hidden"
+    ],
+    "new_model_requests": 0,
+    "new_workers": 0
+  },
+  "pure_tests_rerun": {
+    "tests": [
+      "test_task_diagnostics.TaskDiagnostics.test_visible_reference_ties_gap_and_absence",
+      "test_task_diagnostics.TaskDiagnostics.test_policy_only_visible_strict_fields_and_no_oracle",
+      "test_task_diagnostics.TaskDiagnostics.test_independent_paths_and_explicit_denominators"
+    ],
+    "tests_run": 3,
+    "failures": 0,
+    "errors": 0,
+    "new_model_requests": 0,
+    "new_workers": 0
+  },
+  "historical_reader": {
+    "receipt": "docs/validation/phase1c2c3/historical-source.json",
+    "argv": [
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2c2-runtime-venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-I",
+      "-S",
+      "-B",
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\.local\\phase1c2c3-history\\reader.py",
+      "D:\\调研\\RSI_AI训AI\\agentic_evolution_infrastructure\\workingspace\\Actio-RSI-infra\\docs\\validation\\phase1c2c2",
+      "D:\\actio-c2c2-live-v1\\delivery.json"
+    ],
+    "runner_sha256": "475560776e3e42558d0dcc52a0f53a62c3b0d22b595c700eaf3d143101c554b2",
+    "reader_commit": "3bef7e15b0eb21beeb10888eb508056592b977b0",
+    "archived_source_entries_checked": 67,
+    "controlled_delivery_file_sha256": "8f6f641a43498ca13f20e0b711f1f50d5c6e4bd62528f445decdd0d2657adf88",
+    "actual_execution_result_exactly_matches_receipt": true,
+    "public_package_alone_reauthenticates_raw": false
+  },
+  "input_files_sha256": {
+    "docs/validation/phase1c2c3/evidence_manifest.json": "8b09b7ea5900c8f1ef93b2cd4e7ab99b265869f60518119bf4e6c02de444c9bc",
+    "docs/validation/phase1c2c3/preservation.json": "aa59c4fbfa0542029bfc5a90a0a1ca7579c84e64aa50320405f728cb02c32673",
+    "docs/validation/phase1c2c3/CONTRACT.md": "063441287bbedcc6ef545dade33dd4eb23ab7aa7abab15e7feeb8a4b7ac60d9c",
+    "docs/validation/phase1c2c3/DEVELOPMENT.md": "8cecedab27e7705e22b2e01acb1ec5fed9734d5220fd390101f2673fcde7b583",
+    "docs/validation/phase1c2c3/NEXT_EXPERIMENT.md": "f7a22097a7941d22c490e2def9a4ea0d76173edb5adbcc0323f54c13f6118f06",
+    "docs/validation/phase1c2c3/historical-source.json": "891be5df8d4d43b279d141b49d31b39dc666ea141f012f72fbeb371a065ee14f",
+    "docs/validation/phase1c2c3/frozen-design/dataset.json": "b2dad6617fa694623a4fa7cffca175f0ed5f00a0e5be40109a41c892fe09c050",
+    "docs/validation/phase1c2c3/package/manifest.json": "0923b0786ba58405753c35d2f3c86a9f676454d8d7a881a7d4b3e94698a3ba62",
+    "docs/validation/phase1c2c2/preregistration.json": "ee763a901fe58a5a089a4955e7f473e8ea6d902877a8793e94e1b25a1a6554be",
+    "src/actio/evaluation_store.py": "e5496b5e93f03e0ffc1fe7b6092108468a1a0ebb5420277456556880bbaa07d0",
+    "src/actio/database.py": "006af4c9cb525e0d87324aa84fbfa707c4bf520b28fa67abceecaca2b7c40d03",
+    "src/actio/evaluation_campaign.py": "9e2753324aa1a2f1c21c538b4f426ecee234065ba40c5c639b7899776efabbcf",
+    "src/actio/evaluation_tasks.py": "66af772f8255745f6c718f1347d1b4c45302bfe3f4482daa83c4da603ffc2e74",
+    "src/actio/candidate_evaluation.py": "4a7945f4a0144f720deb1fa2ccba6dd3b6980da9d4a66674d45ee99f147d286d",
+    "tests/test_task_diagnostics.py": "27539c9b4ce09e3ae51278b9db1e89c30e7db1d9309bccb5414c0143f2b096a0"
+  },
+  "c2c3_product_source_sha256": {
+    "__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "common.py": "572cf56e7353e30fdf41a1c30e9329d0ddcbca14a60f91b6cda657bfdde92dcd",
+    "eval_contract.py": "de7636aeb3f694a5df92ea47ed9415b7bc65b9f9cbff493ffed6b60f27f3d34e",
+    "suite_oracle.py": "9709fb633ffac22c99d6eb969c69828c8722a112b6786087fe821fbcda5c52f7",
+    "suite_tasks.py": "1a17f589660e1ca6d58750c5697b8ea474d634ec55ddbb261ed380b5ad616009",
+    "task_contract.py": "706e9f1b84a79a2de10cf5f435319d30d79bcd5ac90f72f57f02772da7e35fa1",
+    "task_diagnostic_analysis.py": "c17dec2e1c3763c3215307d2cc9afe512084461eb52e11be9176fa851db4de65",
+    "task_diagnostic_data.py": "38d9cc6c594b96b190382fa6d88345c278adee9ea41e36d089c4fec2a9a2ecc7",
+    "task_diagnostic_policy.py": "86367a482ee28b495cc3ef488636f1cca2ef7c49e8ec884fdf8ec837809eea71",
+    "task_diagnostic_trust.json": "50a0f66a33787518f3606c478e2f6db698646f492b45f87e359d9077c9d4cab7",
+    "task_diagnostics.py": "5adce970b536da84a5f970707bd13e8e4a5b0402a0c54a09714b940d9177cddc",
+    "task_v2.py": "8722409acd6cb0f5a78abb7b71e793ab11d4f069eac968186eb5e827ad3d3373",
+    "terminal.py": "a0d322be9813bff5337a72181f48c6dbc603e0aa74f7c969178f9e7ada0a4728",
+    "verify.py": "475c3d299f70bdecbd1066ba8e17932e51c15a72ca930c4e1f7788b0e9d3c67b"
+  },
+  "fixed_content_pins": {
+    "dataset": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+    "package_manifest": "03f8da8e0318d49a77ab2ad6bdd235604c7cdf902881e2577a793ab74e098091",
+    "baseline_proposal": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+    "baseline_scaffold": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+    "candidate_proposal": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2",
+    "candidate_scaffold": "1458fb1db9310b9c54a03c72f32f09045293f789a0f93e3ef9e4cad2fad15c95"
+  },
+  "preservation_scope": {
+    "published_record_checked": true,
+    "all_historical_databases_and_claims_independently_rechecked": false,
+    "current_os_cleanup_independently_rechecked": false,
+    "product_changed_this_turn": false
+  },
+  "proposed_c2c4": {
+    "status": "planned_only",
+    "dataset": "unchanged C2C3 diagnostic development",
+    "route": "gpt-5.6",
+    "repeats": 1,
+    "groups": 8,
+    "worlds": 16,
+    "presentations": 32,
+    "arms": 2,
+    "planned_episodes": 64,
+    "maximum_seat_sends": 128,
+    "baseline_candidate_pairs": 32,
+    "within_world_arm_order_contrasts": 32,
+    "within_group_presentation_arm_hidden_world_contrasts": 32,
+    "distinct_exact_A_visible_views_before_arm": 16,
+    "A_input_conditions_with_two_arms": 32,
+    "A_occurrences_per_input_condition_due_to_hidden_worlds": 2,
+    "schedule_seed": 20261013,
+    "spending_policy": "explicit uncapped for phase",
+    "first_technical_failure": "stop entire campaign, preserve full denominator, no retry/replacement/second batch",
+    "lineage_source": "consistent copy of C2C2 v4, preserving C1 and C2 facts before appending C4",
+    "research_units": 0,
+    "human_labels": 0,
+    "activation": false,
+    "prerequisites": [
+      "new versioned diagnostic task runtime admission",
+      "trusted historical evaluation version dispatch and append-only lineage",
+      "actual prepared/full-wire boundary and exact comparison groups",
+      "source-bound local acceptance and pre-live publication"
+    ]
+  },
+  "counters_this_turn": {
+    "model_requests": 0,
+    "provider_requests": 0,
+    "catalog_get": 0,
+    "workers": 0
+  },
+  "historical_counters": {
+    "generation_attempts": 139,
+    "catalog_get": 1
+  },
+  "documentation_sha256_lf": {
+    "README.md": "e309bcc3660fbe5fc843504872c61ef21bb0ea22c0a0cd7ab61628847074e294",
+    "docs/reviews/phase1c2c3_review_and_c2c4_plan.md": "5852c67241fed327eb86a5cbd4a98841be9ae38a5adcc20a1c931ca088989ac2",
+    "docs/prompts/phase1c2c4_visible_rule_robustness.md": "0c6925d88961a25ea509b642e71896464a7f53ac03235c8e1f5c913ac3d0d21a"
+  },
+  "limitations": [
+    "local self-recorded evidence is not provider attestation or an independent signed timestamp",
+    "published full acceptance reviewed; only three pure tests rerun in this review",
+    "C2C3 pre-machine-freeze development chronology retained",
+    "billing and upstream weights identity unverified",
+    "binary_source_mapping=unproven",
+    "full_controller_recovery=unsupported"
+  ]
+}

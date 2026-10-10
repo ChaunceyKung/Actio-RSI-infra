@@ -323,7 +323,7 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 以下是基于当前交付整理的待办方向，**不是已冻结的新阶段执行计划**。C2C3已完成，下一阶段需明确新任务的runtime准入与有限计划。
 
-最新建议为 **C2C4：先测试可见规则的真实solver鲁棒性**。保留原B0/C1与信息结构，拟以32展示做最多128次seat发送的有限开发试验；当前仅为草案、未执行，不自动续跑。选择理由和失败条件见 [NEXT_EXPERIMENT](docs/validation/phase1c2c3/NEXT_EXPERIMENT.md)。[C2C2审阅](docs/reviews/phase1c2c2_review_and_c2c3_plan.md)和[C2C3执行Prompt](docs/prompts/phase1c2c3_task_diagnostics_and_observability.md)保留为历史过程材料。
+最新建议为 **C2C4：可见规则的真实 solver 鲁棒性验证**。保留原 B0/C1 与信息结构，以原 32 展示规划 64 episodes、最多 128 次 seat 发送；先完成新任务接线、C2C2 评估历史保全和实际输入核验，冻结发布后执行一次有限开发试验。当前未执行 C2C4，不自动续跑。详见 [C2C3 审阅与下一步方案](docs/reviews/phase1c2c3_review_and_c2c4_plan.md)、[完整 C2C4 执行 Prompt](docs/prompts/phase1c2c4_visible_rule_robustness.md) 和 [原阶段草案](docs/validation/phase1c2c3/NEXT_EXPERIMENT.md)。[C2C2 审阅](docs/reviews/phase1c2c2_review_and_c2c3_plan.md)与 [C2C3 执行 Prompt](docs/prompts/phase1c2c3_task_diagnostics_and_observability.md)保留为历史过程材料。
 
 | 优先级 | 待办 | 需要交付的证据或完成条件 |
 |---|---|---|

@@ -319,11 +319,11 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 以下是基于当前交付整理的待办方向，**不是已冻结的新阶段执行计划**。本轮停止于 C2C4，不自动启动 C2C5、搜索候选或第二批真实调用。
 
-若观察到可信可见规则错误，后续先定位具体条件；若零违规/零差值，则保留开发观测，另行设计信息获取或期望效用合同，不为寻找候选正收益重跑。C2C4 的来源见 [C2C3 审阅](docs/reviews/phase1c2c3_review_and_c2c4_plan.md)、[执行 Prompt](docs/prompts/phase1c2c4_visible_rule_robustness.md) 和 [原阶段草案](docs/validation/phase1c2c3/NEXT_EXPERIMENT.md)。
+下一步建议 **C2C5：供应商流错误诊断与本机故障验收**。C2C4 停止响应含明确 error 对象、缺 DONE/原始 usage，不能仅放宽 SSE 字段后补跑。先交付错误观察、官方链路本机故障测试及停止证据，再生成能较早完成三类对照的未来分块计划；C2C5 规划新增真实调用为0，不续跑旧campaign。详见 [C2C4 审阅与下一步方案](docs/reviews/phase1c2c4_review_and_c2c5_plan.md) 和 [完整 C2C5 Prompt](docs/prompts/phase1c2c5_stream_failure_diagnostics.md)。历史 [C2C4 执行 Prompt](docs/prompts/phase1c2c4_visible_rule_robustness.md)保留，两项同分行动导致的正负结果差异仍仅作开发集描述，不支持晋升。
 
 | 优先级 | 待办 | 需要交付的证据或完成条件 |
 |---|---|---|
-| P0 · 后续问题界定 | 依据 C2C4 实际结果定位规则条件，或另定信息获取/期望效用合同 | 新阶段另行准入；不把合成控制或单次展示差异解释为泛化收益，不补样 |
+| P0 · 失败诊断与后续计划 | C2C5 结构化流错误、本机故障闭环、未来分块顺序 | 成功准入不放宽、unknown不变成零费用、原C4事实保留；本机验证不证明provider恢复，不补样 |
 | P0 · 测量有效性 | 设计真正独立的数据、分组、开发/留出隔离及必要的重复；完善人工校准方案 | 独立单位定义、预注册分析、标签来源和一致性证据；需要时另行准入 judge |
 | P0 · 成本与来源 | 核实 TokenKey cost 币种/单位、可信价格、实际账单和路由来源 | 可核对的记录；无法验证的上游身份继续明确标记，不从 model 名称推断 |
 | P1 · 恢复与状态 | 推进 controller 中断后的跨 owner 一致性、world/memory/ledger 检查点 | 故障注入与状态不重复执行证据；仅本地 reconcile 不等同完整恢复 |

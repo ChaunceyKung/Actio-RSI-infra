@@ -66,7 +66,7 @@ def wire_binding(scope,request,c):
         require(len(m['content'])==1 and m['content'][0]['type']=='text','pure text messages')
         text.append(m['content'][0]['text'])
     persona=PERSONA
-    if c.get('schema') in ('pilot-config.v7','pilot-config.v8','pilot-config.v9'):
+    if c.get('schema') in ('pilot-config.v7','pilot-config.v8','pilot-config.v9','pilot-config.v10'):
         from .suite_contract import PERSONA as persona
     require(text[0]==scope['persona']==persona and json.loads(text[1])==scope['task'],'actor visible context binding')
     require(raw=={'model':c['model'],'messages':[{'role':r,'content':t} for r,t in zip(('system','user'),text)],
@@ -78,7 +78,7 @@ def trusted_usage(response,native,c):
     require(len(response['raw'].encode())<=c['bounds']['response_bytes'],'gateway response byte bound')
     values=[s[6:] for s in response['raw'].splitlines() if s.startswith('data: ')]
     require(values and values[-1]=='[DONE]' and values.count('[DONE]')==1,'gateway missing/extra DONE')
-    if c.get('schema') in ('pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9'):
+    if c.get('schema') in ('pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9','pilot-config.v10'):
         from .stream_audit import strict_json
         rows=[strict_json(s) for s in values[:-1]]
     else:rows=[json.loads(s,parse_float=Decimal) for s in values[:-1]]

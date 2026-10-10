@@ -62,3 +62,5 @@
 /docs/validation/phase1c2c2/**/*.json -text !eol whitespace=cr-at-eol
 /docs/validation/phase1c2c3/** text eol=lf
 /docs/validation/phase1c2c3/**/*.json -text !eol whitespace=cr-at-eol
+/docs/validation/phase1c2c4/** text eol=lf
+/docs/validation/phase1c2c4/**/*.json -text !eol whitespace=cr-at-eol

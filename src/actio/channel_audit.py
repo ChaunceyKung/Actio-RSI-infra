@@ -155,7 +155,7 @@ def verdict(response, *, require_bytes=True):
 
 
 def for_config(config):
-    if config.get('schema') in ('pilot-config.v8','pilot-config.v9'):
+    if config.get('schema') in ('pilot-config.v8','pilot-config.v9','pilot-config.v10'):
         from . import channel_audit
         return channel_audit
     from . import stream_audit

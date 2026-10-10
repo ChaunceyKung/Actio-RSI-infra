@@ -56,7 +56,7 @@ def normalized_request(attempt,m,seat,actions):
     return expected,wire,prepared
 
 
-def intervention(entries,rows):
+def intervention(entries,rows,contract=contract):
     validated={};refs=[]
     for e,r in zip(entries,rows):
         if not e['evidence']:continue
@@ -76,7 +76,7 @@ def intervention(entries,rows):
     for field in ('run','ledger_campaign','authority'):
         require(len({r[field] for r in refs})==len(refs),'execution identity reused')
     pairs=[]
-    for block in range(12):
+    for block in range(len(rows)//2):
         group={r['unit']['arm']:r for r in rows if r['unit']['block']==block}
         require(set(group)=={'baseline','candidate'},'two assigned arms required')
         br,cr=group['baseline'],group['candidate'];require(br['unit']['pair']==cr['unit']['pair'],'pair identity')
@@ -118,7 +118,7 @@ def intervention(entries,rows):
     return pairs,refs
 
 
-def analyze_pilot(value):
+def analyze_pilot(value,*,contract=contract,card_get=get,metrics=metric_cells):
     b=unseal(value);require(set(b)=={'schema','preregistration','freeze','entries','phase_state'} and b['schema']==contract.EVIDENCE,'evaluation evidence envelope')
     pre=b['preregistration'];p=contract.validate_preregistration(pre)
     require([e['unit'] for e in b['entries']]==p['units'],'complete ordered evaluation plan')
@@ -129,7 +129,7 @@ def analyze_pilot(value):
         r=measure(e,pre,configuration=contract.config,predicate=lambda t,a:evaluate(t['parameters'],a),reader=audit)
         actions={s['seat']:s['action'] if s['admitted'] else None for s in r['seats']}
         reasons={s['seat']:'protocol_rejected' if s['protocol_error'] else 'not_run' if s['not_run'] else 'unobserved' for s in r['seats']}
-        m,cs=metric_cells(get(e['unit']['card']),actions,reasons)
+        m,cs=metrics(card_get(e['unit']['card']),actions,reasons)
         for s in r['seats']:
             seat=s['seat'];skip=seat=='B' and m['format']['A'] is False
             s.update(text_verified=s['admitted'],format_valid=m['format'][seat],domain_executable=s['admitted'] and m['format'][seat] is True,
@@ -159,8 +159,8 @@ def analyze_pilot(value):
         failed=[i for i in observed if not rows[i]['technical_evidence_complete'] or not rows[i]['execution_resolved']]
         require(not failed or failed==[observed[-1]] and b['phase_state']=='stopped','continued after technical failure')
         require(b['phase_state']!='completed' or not seen and not failed,'false completed state')
-    pairs,refs=intervention(b['entries'],rows);seats=[s for r in rows for s in r['seats']];usage=[s['usage'] for s in seats if s['usage'] is not None]
-    counts={'planned_episodes':24,'observed_episodes':len(refs),'not_run_episodes':24-len(refs),
+    pairs,refs=intervention(b['entries'],rows,contract);seats=[s for r in rows for s in r['seats']];usage=[s['usage'] for s in seats if s['usage'] is not None]
+    counts={'planned_episodes':p['planned_episodes'],'observed_episodes':len(refs),'not_run_episodes':p['planned_episodes']-len(refs),
         'technical_complete_episodes':sum(r['technical_evidence_complete'] for r in rows),'execution_resolved_episodes':sum(r['execution_resolved'] for r in rows),
         **{k:sum(s[k] for s in seats) for k in ('assigned','sent','response','terminal','admitted','not_run','protocol_error')},
         'attempted':sum(s['operation'] is not None for s in seats),'usage_responses':len(usage),'unknown':sum(s.get('accounting_state')=='unknown' for s in seats),
@@ -181,7 +181,7 @@ def analyze_pilot(value):
         'candidate_decision':decision_state(True,complete,violations['candidate']),'baseline_role':'reference_only',
         'evidence_kind':'live_development_exploratory' if live else 'local_fixture','split':'development_exploratory',
         'external_provider_requests':counts['sent'] if live else 0,'loopback_sends':0 if live else counts['sent'],
-        'historical_generation_attempts':91,'cumulative_real_generation_attempts':91+(counts['sent'] if live else 0),'catalog_get':1,
+        'historical_generation_attempts':p['historical_generation_attempts'],'cumulative_real_generation_attempts':p['historical_generation_attempts']+(counts['sent'] if live else 0),'catalog_get':1,
         'usage':{'responses':len(usage),'input_tokens':sum(u['input_tokens'] for u in usage),'output_tokens':sum(u['output_tokens'] for u in usage),
             'raw_costs':[u['gateway_reported_cost_raw'] for u in usage],'currency':None,'estimated_cost':None,'billed_cost':None,'billing_reconciled':False},
         'human_labels':0,'independent_research_units':0,'activation':False,'binary_source_mapping':'unproven','full_controller_recovery':'unsupported'}

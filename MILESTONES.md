@@ -12,7 +12,15 @@
 - 不原位刷新历史报告、源码 pins 或预注册身份。发现错误时追加带来源的更正，并链接回原记录。
 - 同步更新根 README 的当前阶段、能力表与下一步事项；详细证据仍以 `docs/validation/<phase>/` 为准。
 
-## 当前交付：Phase 1C2C3
+## 当前阶段：Phase 1C2C4 发布前冻结
+
+本机准入 PASS：新 v10/v6 显式接线、原32展示与完整64/128计划、三类各32对照、固定历史 reader/v4一致快照已完成。全矩阵真实DSH/Concordia loopback为64 episodes/128 sent/unknown0；开发错误分支另计145 sent/unknown2。10项必要测试、公开CLI及只读guard和六项篡改拒绝通过，原历史证据保全。
+
+本轮真实发送0、live NOT_RUN；历史生成139、目录GET1另列。此提交先发布实现/预注册/本机证据，再由专用execute独立核对main与任务分支、干净工作树及安装源码，随后才允许唯一有限真实campaign。无晋升或激活，研究有效性UNESTABLISHED；不自动启动下一阶段或第二批。
+
+[结果](docs/validation/phase1c2c4/RESULTS.md) · [合同](docs/validation/phase1c2c4/CONTRACT.md) · [Gate](docs/validation/phase1c2c4/GATES.md) · [CLI](docs/validation/phase1c2c4/CLI.md) · [manifest](docs/validation/phase1c2c4/evidence_manifest.json)。
+
+## Phase 1C2C3 历史交付
 
 离线任务诊断已交付：仅可见信息的条件得分/argmax集合、C2C2回顾性sidecar、8组/16世界/32展示诊断集、416合法组合真值及可移植CLI。两family合成控制敏感性和隐藏世界不相容见证通过；真实solver判别力NOT_RUN，研究有效性UNESTABLISHED。
 

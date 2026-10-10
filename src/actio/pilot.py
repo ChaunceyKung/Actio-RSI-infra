@@ -35,8 +35,10 @@ def run_unit(root,cfg,secret,*,receives=None,runtime_type=None):
     try:
         for name in ('ACTOR_A','ACTOR_B'):s.agent(name,transport_spec(name,cfg))
         bindings={seat:{'agent':name,'spec_hash':s.agent(name)['spec_hash']} for seat,name in [('A','ACTOR_A'),('B','ACTOR_B')]}
-        if cfg.get('schema') in ('pilot-config.v8','pilot-config.v9'):
-            if cfg['schema']=='pilot-config.v9':
+        if cfg.get('schema') in ('pilot-config.v8','pilot-config.v9','pilot-config.v10'):
+            if cfg['schema']=='pilot-config.v10':
+                from .robustness_tasks import card
+            elif cfg['schema']=='pilot-config.v9':
                 from .evaluation_tasks import card
             else:
                 from .candidate_tasks import card
@@ -102,25 +104,25 @@ def execute(root,pre,secret,*,freeze=None,endpoint=None,authority_root,operation
         for i,u in enumerate(p['units']):
             cfg=(contract.config if contract else config)(u['id'],authority={'id':uid(),'root':str(authority)},**({'mode':contract.REHEARSAL if contract else 'tokenkey_pilot_rehearsal','endpoint':endpoint} if not live else {}))
             entry,result=run_unit(root/u['id'],cfg,secret,receives=receives,runtime_type=runtime_type);entries[i]=entry
-            if contract and contract.CONFIG=='pilot-config.v9':
+            if contract and contract.CONFIG in ('pilot-config.v9','pilot-config.v10'):
                 create(root/('entry-'+u['id']+'.json'),entry)
             snapshot=seal({'schema':contract.EVIDENCE if contract else 'pilot-evidence.v1','preregistration':pre,'freeze':f,'entries':entries,'phase_state':'first-block' if i==1 else 'stopped'})
             report=analyze_pilot(snapshot)
             create(root/('checkpoint-'+u['id']+'.json'),{'observed_through':u['id'],'counts':report['counts'],'error':result['error']})
-            if result['error'] or any(s['protocol_error'] for s in report['rows'][i]['seats']) or contract and contract.CONFIG=='pilot-config.v9' and not report['rows'][i]['execution_resolved']:
+            if result['error'] or any(s['protocol_error'] for s in report['rows'][i]['seats']) or contract and contract.CONFIG in ('pilot-config.v9','pilot-config.v10') and not report['rows'][i]['execution_resolved']:
                 reason='infrastructure stop at '+u['id'];break
             if i==1:create(root/'first-pair-check.json',{'basis':'integrity/cleanup only; behavioral scores not consulted','passed':True,'continues_same_preregistration':True})
         else:state='completed'
     except Exception as e:
         reason=type(e).__name__+': '+str(e).replace(secret,'[credential omitted]')[:1024]
         create(root/'controller-failure.json',{'reason':reason,'current_unit':u['id'],'raw_directory_retained':str(root/u['id'])})
-        if not contract or contract.CONFIG!='pilot-config.v9':raise
+        if not contract or contract.CONFIG not in ('pilot-config.v9','pilot-config.v10'):raise
     finally:
         for e in entries:
             if e['evidence'] is None:e['reason']=reason or 'not_started'
         evidence=seal({'schema':contract.EVIDENCE if contract else 'pilot-evidence.v1','preregistration':pre,'freeze':f,'entries':entries,'phase_state':state})
         create(root/'pilot.json',evidence)
-        if contract and contract.CONFIG=='pilot-config.v9':
+        if contract and contract.CONFIG in ('pilot-config.v9','pilot-config.v10'):
             # Persist raw accounting before any verifier can fail. This inventory
             # is a projection, not permission to reclaim or retry a child.
             from .budget import Ledger

@@ -11,10 +11,16 @@ LEGACY_ID='phase1c2c1-local-assessment'
 
 
 def plan(pre,kind):
-    p=contract.validate_preregistration(pre)
+    from . import evaluation_history
+    if pre.get('sha256')==evaluation_history.PLAN:
+        return evaluation_history.plan(pre,kind)
+    selected=contract
+    if pre.get('body',{}).get('schema')=='robustness-execution-plan.v1':
+        from . import robustness_campaign as selected
+    p=selected.validate_preregistration(pre)
     require(kind in ('live_development_exploratory','local_fixture'),'evaluation evidence kind')
     return {'schema':'candidate-evaluation.v1','id':p['evaluation_namespace']+':'+kind,
-        'evidence_kind':kind,'plan':pre,'policy':contract.POLICY,'policy_hash':digest(contract.POLICY),
+        'evidence_kind':kind,'plan':pre,'policy':selected.POLICY,'policy_hash':digest(selected.POLICY),
         'dataset_hash':p['cards_hash'],'source_hash':digest(p['implementation']),
         'baseline':digest(contract.baseline()),'candidate':digest(contract.candidate()),
         'claim_namespace':p['evaluation_namespace']+':'+kind,'eligible_for_activation':False}
@@ -64,6 +70,8 @@ def decision_for(body,campaign,report):
 
 def decide(s,eid,campaign,report):
     from .evaluation_measurement import analyze_pilot
+    if campaign.get('body',{}).get('schema')=='robustness-campaign-evidence.v1':
+        from .robustness_measurement import analyze_pilot
     require(report==analyze_pilot(campaign),'decision requires verified campaign')
     with s.tx():
         body=json.loads(s.row('SELECT body FROM evaluation WHERE id=?',(eid,))['body'])
@@ -119,4 +127,7 @@ def verify(value):
             for r in decs:
                 d=json.loads(r['body']);require(r['candidate']==body['candidate'] and d['evaluation_id']==eid and d['candidate']==body['candidate'] and d['baseline']==body['baseline'] and d['policy_hash']==body['policy_hash'] and d['dataset_hash']==body['dataset_hash'] and d['plan_hash']==body['plan']['sha256'] and d['state'] in ('reject','infrastructure_failure','insufficient_evidence') and d['eligible_for_activation'] is False and es[2]==('decided',{'decision_hash':digest(d)}),'evaluation decision binding')
     require(LEGACY_ID in ev,'old assessment missing')
+    if any(body.get('plan',{}).get('body',{}).get('schema')=='robustness-execution-plan.v1' for body in ev.values()):
+        from .evaluation_history import preserve
+        preserve(value)
     return {'valid':True,'legacy':old,'evaluations':len(ev),'evaluation_decisions':len(t['evaluation_decision']),'activation':False}

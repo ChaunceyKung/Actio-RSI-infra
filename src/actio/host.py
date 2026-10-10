@@ -23,7 +23,7 @@ def main(root):
         if 'gateway_contract' in config:
             from .budget import validate_budget_config as validate
             cfg=validate(config['gateway_contract'])
-            if cfg['mode'] in ('tokenkey_rehearsal','tokenkey_pilot_rehearsal','tokenkey_suite_rehearsal','candidate_loopback','candidate_rehearsal') and not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('fake key required')
+            if cfg['mode'] in ('tokenkey_rehearsal','tokenkey_pilot_rehearsal','tokenkey_suite_rehearsal','candidate_loopback','candidate_rehearsal','robustness_rehearsal') and not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('fake key required')
         elif not credential['value'].startswith('ACTIO_FAKE_'):raise ContractError('C2B0 fake key required')
         secret=credential['value']
         config['sdk']['env']={credential['ref']:secret}

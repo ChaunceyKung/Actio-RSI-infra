@@ -13,12 +13,12 @@ from .transport_contract import validate_config,require,PROFILE,PROVIDER,MODEL,M
 def sha(raw):return hashlib.sha256(raw.encode()).hexdigest()
 
 
-def suite(c):return c is not None and c.get('schema') in ('pilot-config.v7','pilot-config.v8','pilot-config.v9')
+def suite(c):return c is not None and c.get('schema') in ('pilot-config.v7','pilot-config.v8','pilot-config.v9','pilot-config.v10')
 
-def pilot(c):return c is not None and c.get('schema') in ('pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9')
+def pilot(c):return c is not None and c.get('schema') in ('pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9','pilot-config.v10')
 
 
-def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9')
+def gateway(c):return c is not None and c.get('schema') in ('pilot-config.v5','pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9','pilot-config.v10')
 
 
 def metered(c):return priced(c) or gateway(c)
@@ -39,6 +39,9 @@ def priced(c):return c is not None and c.get('schema')=='pilot-config.v4'
 
 
 def validate_budget_config(c):
+    if c is not None and c.get('schema')=='pilot-config.v10':
+        from .robustness_campaign import validate
+        return validate(c)
     if c is not None and c.get('schema')=='pilot-config.v9':
         from .evaluation_campaign import validate
         return validate(c)
@@ -61,6 +64,9 @@ def validate_budget_config(c):
 
 
 def profile_for(c):
+    if c is not None and c.get('schema')=='pilot-config.v10':
+        from .robustness_campaign import PROFILE
+        return PROFILE
     if c is not None and c.get('schema')=='pilot-config.v9':
         from .evaluation_campaign import PROFILE
         return PROFILE
@@ -181,7 +187,7 @@ class Ledger:
         if config is not None:
             validate_budget_config(config);require(not self.path.exists(),'new budget database required')
             if metered(config):
-                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal','tokenkey_suite_live','tokenkey_suite_rehearsal','candidate_loopback','candidate_live','candidate_rehearsal'),'C2B0 cannot create live execution ledger')
+                require(config['mode'] in ('priced_rehearsal','tokenkey_rehearsal','tokenkey_live','tokenkey_pilot_live','tokenkey_pilot_rehearsal','tokenkey_suite_live','tokenkey_suite_rehearsal','candidate_loopback','candidate_live','candidate_rehearsal','robustness_live','robustness_rehearsal'),'C2B0 cannot create live execution ledger')
                 authority=Path(config['authority']['root']);authority.mkdir(parents=True,exist_ok=True)
                 anchor=authority/(config['authority']['id']+'.json')
                 # Exclusive authority binding survives controller/Worker death and DB removal.
@@ -395,7 +401,7 @@ def verify_run_attempts(data,m):
             require(a['text_integrity']==expected or a['text_integrity'] is None and a['response'] is None and a['state'] in ('denied','released'),'run text audit mismatch')
             integrity=(a['text_integrity'] or {}).get('status')=='verified'
             if integrity and op['answer'] is not None:
-                reader.audit(a['response'],op['answer'],require_bytes=True,**({'native_blocks':native_content(data,op['stream'])} if m['transport']['config']['schema'] in ('pilot-config.v8','pilot-config.v9') else {}))
+                reader.audit(a['response'],op['answer'],require_bytes=True,**({'native_blocks':native_content(data,op['stream'])} if m['transport']['config']['schema'] in ('pilot-config.v8','pilot-config.v9','pilot-config.v10') else {}))
             if not integrity:require(not any(r['op']==op['id'] for r in data['domain_receipts']),'rejected text cannot mutate world')
         require(a['state'] in ('denied','released','unknown','settled'),'unresolved active budget state')
         if a['state']=='settled':

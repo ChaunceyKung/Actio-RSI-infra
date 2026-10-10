@@ -96,6 +96,52 @@ def migrate_evaluation_copy(source, destination):
     finally:src.close()
 
 
+def snapshot_evaluation_copy(source, destination):
+    """Consistent schema4 SQLite backup, preserving WAL-visible rows and old facts."""
+    from .common import digest
+    from .store import Store
+    from .evaluation_history import lineage as historical
+    source,destination=Path(source).resolve(),Path(destination).resolve()
+    backup=destination.with_name(destination.name+'.backup.sqlite')
+    record=destination.with_name(destination.name+'.snapshot.json')
+    stage=destination.with_name(destination.name+'.copying-'+uid())
+    if source==destination or any(p.exists() for p in (destination,backup,record)):
+        raise ContractError('new snapshot destination required; previous attempts retained')
+    src=Store(source,readonly=True)
+    def files():
+        return {p.name:file_hash(p) for p in (source,Path(str(source)+'-wal')) if p.exists()}
+    try:
+        if src.version!=4 or src.db.execute('PRAGMA quick_check').fetchone()[0]!='ok':
+            raise ContractError('intact schema4 required')
+        before=files();old=src.evaluation_lineage()
+        if old!=historical():raise ContractError('source is not authenticated C2C2 authority')
+        with backup.open('xb'):pass
+        saved=sqlite3.connect(backup)
+        try:src.db.backup(saved);saved.execute('PRAGMA journal_mode=DELETE')
+        finally:saved.close()
+        saved=connect(backup,readonly=True);target=sqlite3.connect(stage,isolation_level=None)
+        try:
+            saved.backup(target)
+            if inspect(target)!=4 or list(saved.iterdump())!=list(target.iterdump()):
+                raise ContractError('snapshot semantic mismatch')
+            semantic=digest(list(saved.iterdump()))
+        finally:target.close();saved.close()
+        check=Store(stage,readonly=True)
+        try:
+            if check.evaluation_lineage()!=old:raise ContractError('snapshot lineage changed')
+        finally:check.close()
+        if files()!=before or src.evaluation_lineage()!=old:raise ContractError('source changed during backup')
+        stage.rename(destination)
+        result={'status':'copied','from':4,'to':4,'source':str(source),'destination':str(destination),
+                'source_files_before':before,'source_files_after':files(),'backup_sha256':file_hash(backup),
+                'snapshot_semantic_hash':semantic,'lineage_hash':old['sha256'],'all_rows_equal':True,'source_unchanged':True}
+        write_json(record,result);return result
+    except BaseException as error:
+        if backup.exists():write_json(record,{'status':'failed','reason':str(error),'backup':str(backup),'retained_stage':str(stage)})
+        raise
+    finally:src.close()
+
+
 def create(path, *, lineage=False):
     path = Path(path).resolve()
     # Exclusive reservation distinguishes initialization from accidental lookup.

@@ -23,3 +23,5 @@
 [中断清理核对](evidence/interruption-39c22b063622.json)确认128个具名Job全部reaped/inactive、控制进程退出、原loopback端口59337无监听、active发送状态0。服务因控制进程被终止，没有join收据；保留这个缺口，不伪造join。该128次本机发送归入失败开发预演，最终通过的主预演另列。unknown/claim与失败目录均不删除，full_controller_recovery仍unsupported。
 
 只修正验收包装器：本机完整execute不再加与逐请求/Worker期限无关的整体截止时间，运行前先记录实际argv和包装器source hash。产品源码、任务、计划、费用规则和所有逐请求期限均未改变。受影响的完整CLI验收使用新目录 `D:/actio-c2c4-rehearsal-v2` 重新执行；旧失败不覆盖。清理辅助脚本首版误用了表名candidate_decision，SQLite拒绝；[工具失败记录](evidence/tooling-failure-5be3035617c6.json)保留当时源码与错误，随后按真实decision表核验通过。该工具错误没有发送或修改产品/权威库。
+
+首次真实启动尝试在冻结提交 `2cebb025ad0424aafbe0d7c76bab1da48b162442` 下，于发送前的发布核对失败：包装器 clean_env 的 PATH 只有 System32，找不到 Git。未创建 live root/claim，未进入 solver 凭据解析或 campaign execute，真实发送0。[失败收据](evidence/launch-gate-failure-e87861a29554.json)保留实际 argv、原包装器源码与错误。修正仅在包装器隔离 PATH 加入本机解析的 Git 目录，不继承 provider 环境、不改变产品合同；相同隔离环境的 Git/version 与两个远端读取[验收通过](evidence/launch-git-admission.json)。重新提交并发布冻结后才允许首次 campaign；这次发送前失败不伪称已执行，也不删除任何 claim。

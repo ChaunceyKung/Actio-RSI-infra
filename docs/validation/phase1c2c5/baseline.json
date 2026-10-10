@@ -1,0 +1,19 @@
+{
+  "head_before_work": "d7563a39a1164a68c6fbb60cdb55063b2f28e93c",
+  "origin_main": "d7563a39a1164a68c6fbb60cdb55063b2f28e93c",
+  "initial_worktree": "clean",
+  "branch": "phase1c2c5-stream-failure-diagnostics",
+  "remote": "https://github.com/ChaunceyKung/Actio-RSI-infra",
+  "ancestors": {
+    "70fce468a229d82f7de1f697b2619a95f8503f4b": true,
+    "3750954ea7cc8dff64115039e27bb671fa618d01": true
+  },
+  "reference_checkout": "5badb15009ae1756c3afe0ae0cef1faafc290ccc",
+  "reference_files": {
+    "packages/llm/llm-pi-ai/src/stream.ts": "e3563cc091cc2e6b0c2bdbd4c1614339d7cbb01f747a956931b43f3256e0c640",
+    "LICENSE": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+  },
+  "reference_license": "MIT Copyright 2026 DeepSeek",
+  "binary_source_mapping": "unproven",
+  "provider_requests": 0
+}

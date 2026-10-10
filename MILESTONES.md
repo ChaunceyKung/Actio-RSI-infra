@@ -12,7 +12,17 @@
 - 不原位刷新历史报告、源码 pins 或预注册身份。发现错误时追加带来源的更正，并链接回原记录。
 - 同步更新根 README 的当前阶段、能力表与下一步事项；详细证据仍以 `docs/validation/<phase>/` 为准。
 
-## 当前交付：Phase 1C2C4
+## 当前交付：Phase 1C2C5
+
+失败观察、官方链路本机故障验收、可移址合成包与未来顺序已交付。设计先提交b37463d，9场景/12发送上限及实际源码先冻结于196e8a6。实际loopback12 sends、5 usage/admitted/settled、7 unknown、6 not_run；12本轮Jobs inactive，9服务join。原诊断FAIL保留；修复native压缩delta读取、A/B查找和FAIL退出码后，仅以最终诊断离线重算9场景PASS，没有重发。
+
+12组纯测试、20项CLI验收和无runtime依赖新环境3项移址guard核验PASS。固定C2/C3/C4历史认证及19份C4claims前后不变；sidecar只观察供应商声明，保留原unknown和旧拒绝。真实新增0、累计172、历史目录GET1；C4仍INCOMPLETE，C1仍infrastructure_failure，研究UNESTABLISHED、activation=false。
+
+只读未来顺序保留原64/128与三类各32关系，每16个假设完整episode新增三类各8对；完整0..64曲线可重算，不创建evaluation/claim、不执行。停止于C5，后续仅审阅决策草案。
+
+[结果](docs/validation/phase1c2c5/RESULTS.md) · [合同](docs/validation/phase1c2c5/CONTRACT.md) · [Gate](docs/validation/phase1c2c5/GATES.md) · [CLI](docs/validation/phase1c2c5/CLI.md) · [开发与失败](docs/validation/phase1c2c5/DEVELOPMENT.md) · [manifest](docs/validation/phase1c2c5/evidence_manifest.json)。
+
+## Phase 1C2C4 历史交付
 
 固定32展示 × B0/C1 的唯一有限真实验证已结束。工程 **INCOMPLETE**；实际 attempted/sent/response/usage/admitted 为 33/33/33/32/32，技术完整 16/64 episodes，unknown=1，protocol_error=1，not_run=95，可信非法A导致B跳过=0。候选配对执行完整 8/32；候选、隐藏世界、展示三类对照各assigned32，分母分别保留。
 

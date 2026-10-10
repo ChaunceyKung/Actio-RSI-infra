@@ -3,6 +3,7 @@ import base64
 import codecs
 import hashlib
 import json
+from pathlib import Path
 from decimal import Decimal
 from .common import canonical, digest, ContractError
 from .eval_contract import seal, unseal
@@ -75,6 +76,26 @@ def usage_mapping(value):
     if 'prompt_cache_hit_tokens' in value:require(n(value['prompt_cache_hit_tokens'])==cache,'raw cache conflict')
     if 'prompt_cache_miss_tokens' in value:require(n(value['prompt_cache_miss_tokens'])==p-cache,'raw cache miss conflict')
     return {'inputTokens':p-cache,'outputTokens':o,'totalTokens':t,**({'cacheReadTokens':cache} if cache else {})}
+
+
+def native_chunks(stream):
+    """Expand recorded official delta compaction without dropping any record."""
+    require(type(stream) is list and len(stream)<=1024,'native stream bound')
+    chunks=[]
+    for item in stream:
+        require(type(item) is dict,'native stream record')
+        if item.get('type')=='chunk':
+            require(set(item)=={'type','time','chunk'} and type(item['time']) is int,'native chunk fields')
+            chunks.append(item['chunk'])
+        else:
+            require(item.get('type') in ('text-chunks','reasoning-chunks') and set(item)=={'type','time0','index','dt','texts'},'unsupported native stream record')
+            require(type(item['index']) is int and 0<=item['index']<=1023 and type(item['time0']) is int,'native delta identity')
+            texts=item['texts'];dt=item['dt']
+            require(type(texts) is list and 0<len(texts)<=1024 and all(type(t) is str for t in texts),'native delta texts')
+            require(type(dt) is list and len(dt)==len(texts)-1 and all(type(t) is int and t>=0 for t in dt),'native delta times')
+            chunks.extend({'type':item['type'].removesuffix('-chunks')+'-delta','index':item['index'],'text':t} for t in texts)
+        require(len(chunks)<=1024,'expanded native chunk bound')
+    return chunks
 
 
 def protocol(response):
@@ -267,12 +288,16 @@ def from_entry(entry,origin):
     """Authenticate controlled source before extracting a data-only observation."""
     bounded(entry)
     require(origin in ('historical_c4','local_official_runtime'),'entry origin')
+    source_reader=C4_READER if origin=='historical_c4' else 'current-code-owned-runtime-verifier'
     if origin=='historical_c4':require(digest(entry)==C4_ENTRY,'C4 archived entry differs')
     else:
-        from .transport_campaign import analyze
         cfg=entry['evidence']['ledger']['meta']['config']
         require(cfg['mode']=='robustness_rehearsal','diagnostic live input denied')
-        analyze(entry['evidence']['dataset'],entry['evidence']['ledger'],entry['evidence']['receives'])
+        pin=json.loads((Path(__file__).parent/'pins/c5_runtime.json').read_bytes())
+        if digest(entry) in pin['entries'].values():source_reader=pin['reader_commit']
+        else:
+            from .transport_campaign import analyze
+            analyze(entry['evidence']['dataset'],entry['evidence']['ledger'],entry['evidence']['receives'])
     evidence=entry['evidence'];ledger=evidence['ledger'];dataset=unseal(evidence['dataset'])
     source=next(iter(dataset['sources'].values()));data=parse(source['files']['evidence.json'],LIMITS['input_bytes'])
     observations=[]
@@ -294,7 +319,7 @@ def from_entry(entry,origin):
                 if x['type']=='turn/end':
                     code=(x['data'].get('reason',{}).get('error') or {}).get('code')
                     if code is not None:codes.append(code)
-            native={'stream':scope['stream'],'chunks':[x['chunk'] for x in stream if 'chunk' in x],
+            native={'stream':scope['stream'],'chunks':native_chunks(stream),
                 'content':event.get('message',{}).get('content'),'terminal':op['terminal'],'codes':codes,
                 'usage':event.get('usage')}
         receipts=[r for r in data['domain_receipts'] if r['op']==op['id']]
@@ -303,7 +328,7 @@ def from_entry(entry,origin):
         reason_code=reason if reason in ('gateway missing/extra DONE','gateway response incomplete','gateway usage missing/ambiguous','unsupported gateway terminal') else 'other_recorded_reason' if reason else None
         body={'schema':INPUT,'origin':origin,
             'source':{'entry_sha256':digest(entry),'dataset_sha256':evidence['dataset']['sha256'],'ledger_sha256':digest(ledger),
-                'reader':C4_READER if origin=='historical_c4' else 'current-code-owned-runtime-verifier',
+                'reader':source_reader,
                 'config_schema':ledger['meta']['config']['schema'],'native_occurrences_sha256':digest(occurrences)},
             'identity':{'attempt':attempt['id'],'run':scope['run'],'stream':scope['stream'],'seat':scope['seat'],
                 'config_hash':scope['config_hash'],'request_hash':attempt['binding']['wire_hash']},

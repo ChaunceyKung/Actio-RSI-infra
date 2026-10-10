@@ -6,9 +6,9 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 当前已经实现 Windows 单机上的 Python 控制面、官方 DSH 运行时接入、Concordia 双人任务、持久化账本与离线核验，并完成一个人工候选的真实配对试验。长期目标中的完整心智模型、开放式自主演化、训练和生产版本激活仍待建设。
 
-**当前交付：Phase 1C2C4。** 原32展示 × B0/C1 的有限真实验证已结束：16/64 episodes 技术完整，实际 sent=33（上限128），unknown=1，not_run=95。工程 INCOMPLETE，C1 为 `infrastructure_failure`，候选配对执行完整 8/32，至少一项 defined 指标 delta 非零的候选对 2/32。这是合成诊断开发集的描述性观测，研究有效性 UNESTABLISHED、activation=false；停止于 C2C4。
+**当前交付：Phase 1C2C5。** 已实现多层失败观察、固定官方 DSH/Concordia 本机故障验收、可移址合成包和未来分块只读计划。9场景共12次loopback发送；首次诊断FAIL保留，修正后离线重算PASS，无重发。新增真实调用0，累计172。C4仍为16/64完整episodes、33 sent、unknown1、not_run95，C1仍 `infrastructure_failure`；研究有效性UNESTABLISHED、activation=false，停止于C5。
 
-[当前结果](docs/validation/phase1c2c4/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c4/GATES.md) · [当前 CLI](docs/validation/phase1c2c4/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
+[当前结果](docs/validation/phase1c2c5/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c5/GATES.md) · [当前 CLI](docs/validation/phase1c2c5/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
 
 ## 阅读导航
 
@@ -175,7 +175,8 @@ C2C4 本机验收覆盖格式错误、非法 A 跳 B、unknown/timeout 停止、
 | 1C2C1 | 双通道审计、单候选与谱系、本机配对和独立准入 | [C1 结果](docs/validation/phase1c2c1/RESULTS.md) |
 | 1C2C2 | 有限真实配对、跨评估历史、行为失败与技术缺失分离 | [真实结果](docs/validation/phase1c2c2/RESULTS.md) |
 | 1C2C3 | 可见信息诊断、有限合成对照集、可移植独立核验 | [离线诊断](docs/validation/phase1c2c3/RESULTS.md) |
-| **1C2C4** | **固定诊断任务有限真实验证、历史保全与三类比较** | [当前结果](docs/validation/phase1c2c4/RESULTS.md) |
+| 1C2C4 | 固定诊断任务有限真实验证、历史保全与三类比较 | [历史结果](docs/validation/phase1c2c4/RESULTS.md) |
+| **1C2C5** | **失败观察、本机官方故障验收、可移址合成包与未来分块计划** | [当前结果](docs/validation/phase1c2c5/RESULTS.md) |
 
 完整摘要和历史命令保存在 [MILESTONES.md](MILESTONES.md)。早期文档中的“预算 0”“live BLOCKED”等描述属于当时阶段；读取时应结合阶段版本，不能覆盖后续合同。
 
@@ -208,14 +209,14 @@ py -3.12 -X utf8 scripts/bootstrap.py --venv D:\actio-env-offline --offline-whee
 
 ### 2. 先查看计划与离线核验
 
-当前公开入口为 `python -m actio.robustness`。在安装当前源码的环境和仓库根目录中执行：
+当前公开入口为 `python -m actio.transport_diagnostics`。在安装当前源码的环境和仓库根目录中执行：
 
 ```powershell
-& $ActioPython -I -B -m actio.robustness plan
-& $ActioPython -I -B -m actio.robustness preflight
+& $ActioPython -I -B -m actio.transport_diagnostics plan
+& $ActioPython -I -B -m actio.transport_diagnostics verify docs/validation/phase1c2c5/package.json
 ```
 
-两条命令输出 C2C4 完整冻结计划及零凭据读取、零网络、零 Worker 信息。**preflight 是离线计划检查，不证明账户、远端发布或真实执行条件已就绪**。C2C4 的 `analyze`、`verify`、`lineage` 读取受控完整材料，实际命令与边界见 [当前 CLI](docs/validation/phase1c2c4/CLI.md)。写入新目录的 `execute` 是单独的显式入口。
+两条命令生成只读诊断/未来顺序计划并核验公开合成包，无凭据读取、网络或Worker。公开包不冒充历史raw认证；控制包和明确local-only运行入口见 [当前 CLI](docs/validation/phase1c2c5/CLI.md)。也可用 `scripts/install_failure_diagnostics.py NEW_VENV` 创建无DSH/Concordia依赖的纯诊断环境。未来顺序只是草案，不启动provider请求。
 
 旧阶段证据必须使用对应固定 reader。C2C3 为 `0a66334d61a0de302bbf8f5e15ee1db1b9d2e8fb`；在该固定版本的独立 checkout 中运行 `scripts/install_task_diagnostics.py NEW_VENV`，才能为原 package 安装匹配的纯模块。不要用当前源码重新安装后声称旧 package 的 pins 仍匹配。[C2C3 CLI](docs/validation/phase1c2c3/CLI.md) 的原命令与可移植范围保留；它不会重新认证旧 live 原始协议。
 
@@ -258,16 +259,15 @@ $DemoDb = '.local/readme-demo.sqlite'
 
 ### 4. 本机验证与真实执行的区别
 
-验证前必须安装当前源码，runner 会检查 installed package 与源码的逐文件一致性。当前候选评估的本机验证入口是：
+验证前必须安装当前源码并核对 installed package 与源码。当前失败诊断的纯验证入口是：
 
 ```powershell
-& $ActioPython -X utf8 scripts/validate.py robustness phase1c2c4
-& $ActioPython -X utf8 scripts/validate.py robustness_runtime phase1c2c4
+& $ActioPython -B -X utf8 scripts/phase1c2c5_validate.py
 ```
 
-这些命令会追加验证记录，runtime suite 会启动真实 DSH / Concordia 和 loopback 服务，使用假凭据及合成响应。应串行运行，保留失败记录、原始材料和清理结果；它们不构成新的真实模型能力试验。
+该命令追加纯测试和CLI记录，不启动模型路径。C5正式9场景的官方DSH/Concordia实测与后续离线修复已有独立证据，见[开发记录](docs/validation/phase1c2c5/DEVELOPMENT.md)。本机runtime使用假凭据和合成响应，需预先冻结新源码与fixture并保留全部失败；不能把旧freeze刷新成当前源码或无理由重跑矩阵。
 
-当前真实调用由专用 `actio.robustness execute` 入口管理，受 C2C4 项目本地 live-once claim 与计划双重限制。C2C2 的旧资格保持消耗；C2C4 也不能通过删除 claim、换输出目录或重新安装取得第二批资格。执行前核验本机准入、冻结提交、main/任务分支远端一致、干净工作树及 installed source。执行合同与实际命令见 [C2C4 CLI](docs/validation/phase1c2c4/CLI.md)，不作为可反复运行的入门示例。
+C4历史真实调用由冻结版本的 `actio.robustness execute` 管理，受本地live-once claim与计划限制。C2C2/C4旧资格不能通过删除claim、换目录或重新安装恢复。C5没有真实调用入口，不补旧后缀；未来真实验证需要另冻结完整合同。历史命令见 [C2C4 CLI](docs/validation/phase1c2c4/CLI.md)，不作为可反复运行的入门示例。
 
 当前项目真实实验沿用 TokenKey `https://api.tokenkey.dev/v1` 和阶段显式无金额上限授权；请求数、输出长度、期限、一次发送和停止条件仍由计划限定。密钥仅从 Git 忽略的 `.local/credentials/token_key.txt` 读取并在内存注入，不写入配置、日志或版本库。该项目授权不代表其他使用者默认同意支出；费用、usage 和供应商账单也分别记录，未知费用不填 0。
 
@@ -307,7 +307,7 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 | 阅读目标 | 推荐入口 |
 |---|---|
 | 理解整体方向与取舍 | [规划总览](docs/planning/README.md) → [目标架构](docs/planning/03_target_architecture.md) → [ADR](docs/planning/13_architecture_decisions.md) |
-| 了解当前执行合同 | [C2C4 CONTRACT](docs/validation/phase1c2c4/CONTRACT.md) → [GATES](docs/validation/phase1c2c4/GATES.md) → [CLI](docs/validation/phase1c2c4/CLI.md) |
+| 了解当前执行合同 | [C2C5 CONTRACT](docs/validation/phase1c2c5/CONTRACT.md) → [GATES](docs/validation/phase1c2c5/GATES.md) → [CLI](docs/validation/phase1c2c5/CLI.md) |
 | 审阅当前状态与实际结果 | [RESULTS](docs/validation/phase1c2c4/RESULTS.md) → [指标覆盖](docs/validation/phase1c2c4/MEASUREMENTS.md) → [三类比较](docs/validation/phase1c2c4/COMPARISONS.md) |
 | 查验历史来源与失败 | [C4 DEVELOPMENT](docs/validation/phase1c2c4/DEVELOPMENT.md) → [固定历史核验](docs/validation/phase1c2c4/history.json) → [C2 controlled delivery](docs/validation/phase1c2c2/controlled-delivery.json) |
 | 重算任务与信息诊断 | [C2C3结果](docs/validation/phase1c2c3/RESULTS.md) → [package](docs/validation/phase1c2c3/package/manifest.json) → [开发限制](docs/validation/phase1c2c3/DEVELOPMENT.md) |
@@ -317,9 +317,9 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 ## 后续 TODO
 
-以下是基于当前交付整理的待办方向，**不是已冻结的新阶段执行计划**。本轮停止于 C2C4，不自动启动 C2C5、搜索候选或第二批真实调用。
+以下是基于当前交付整理的待办方向，**不是已冻结的新阶段执行计划**。本轮停止于 C2C5，不自动搜索候选或启动第二批真实调用。
 
-下一步建议 **C2C5：供应商流错误诊断与本机故障验收**。C2C4 停止响应含明确 error 对象、缺 DONE/原始 usage，不能仅放宽 SSE 字段后补跑。先交付错误观察、官方链路本机故障测试及停止证据，再生成能较早完成三类对照的未来分块计划；C2C5 规划新增真实调用为0，不续跑旧campaign。详见 [C2C4 审阅与下一步方案](docs/reviews/phase1c2c4_review_and_c2c5_plan.md) 和 [完整 C2C5 Prompt](docs/prompts/phase1c2c5_stream_failure_diagnostics.md)。历史 [C2C4 执行 Prompt](docs/prompts/phase1c2c4_visible_rule_robustness.md)保留，两项同分行动导致的正负结果差异仍仅作开发集描述，不支持晋升。
+下一步只保留一个[决策草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)：先审阅C5分类和本机故障证据；若再做真实验证，另冻结并发布新合同/evaluation/claim和完整分块计划，不接续C4缺失后缀，不合并新旧数据。C4的结构化错误不证明上游责任或免账单；C5未重测provider可用性。未来计划每16个完整episode闭合三类各8对，但时间聚集和开发集限制仍在，不能推断晋升或因果收益。
 
 | 优先级 | 待办 | 需要交付的证据或完成条件 |
 |---|---|---|
@@ -356,4 +356,4 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 历史 manifest 的 README 等入口文件 hash 绑定对应阶段的固定提交；阅读升级后的入口时，不应把这些旧 hash 刷新成当前文档的 hash。
 
-本版 README 对齐 [C2C4 合同与证据](docs/validation/phase1c2c4/evidence_manifest.json)。旧 C2C2 交付仍为 [`6466e2b`](https://github.com/ChaunceyKung/Actio-RSI-infra/commit/6466e2be6f31e0ac5861a379d761d2e7bf39c5eb)，历史事实和固定 reader 独立保留。
+本版 README 对齐 [C2C5 合同与证据](docs/validation/phase1c2c5/evidence_manifest.json)。C2/C3/C4原结果与固定reader独立保留；C5新增源码不刷新历史pins。

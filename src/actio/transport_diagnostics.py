@@ -72,7 +72,7 @@ def main():
             from .diagnostic_runtime import run
             result=run(a.root,a.project,a.freeze)
         else:raise ContractError('unknown diagnostic command; no live mode')
-        print(canonical(result));return 0
+        print(canonical(result));return 2 if result.get('status') in ('FAIL','INCOMPLETE') else 0
     except (ContractError,OSError,ValueError,KeyError,TypeError,IndexError,AttributeError):
         # Untrusted message text and filesystem contents never enter error output.
         print(canonical({'valid':False,'error':'diagnostic input or execution rejected; inspect controlled receipts'}));return 2

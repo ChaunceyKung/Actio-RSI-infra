@@ -30,6 +30,8 @@ def fixture(case):
 
 
 def review_entry(entry,case):
+    pin=json.loads((Path(__file__).parent/'pins/c5_runtime.json').read_bytes())
+    if digest(entry) in pin['entries'].values():require(digest(entry)==pin['entries'][case['id']],'frozen local case identity mismatch')
     observations=from_entry(entry,'local_official_runtime')
     ledger=entry['evidence']['ledger'];attempts=ledger['attempts']
     data=json.loads(next(iter(unseal(entry['evidence']['dataset'])['sources'].values()))['files']['evidence.json'])
@@ -41,6 +43,7 @@ def review_entry(entry,case):
         'not_run':2-len(attempts),'active':sum(s in ('authorized','reserved','sending') for s in states)}
     checks={k:counts[k]==case[k] for k in ('sends','settled','unknown','admitted') if k!='sends'}
     checks.update(sent=counts['sent']==counts['received']==counts['responses']==case['sends'],
+        fake_credential_matched=all(r['credential_matched'] is True for r in entry['evidence']['receives']),
         no_retry=len(attempts)==case['sends'],active_zero=counts['active']==0,
         full_suffix=counts['not_run']==2-case['sends'],usage_source=counts['usage']==case['settled'],
         effects=len(data['world'])==len(data['domain_receipts'])==case['admitted'],
@@ -51,7 +54,8 @@ def review_entry(entry,case):
         slots.append({'seat':seat,'state':'not_run' if ob is None else ob['accounting']['original_state'],
             'attempt':ob['identity']['attempt'] if ob else None})
     if len(attempts)==2:
-        a=next(o for o in data['operations'] if o['id']==attempts[0]['id'])['answer']
+        a_id=next(t['id'] for t in attempts if t['scope']['seat']=='A')
+        a=next(o for o in data['operations'] if o['id']==a_id)['answer']
         b=next(t for t in attempts if t['scope']['seat']=='B')
         checks['B_actual_A_history']=all(MARKER not in canonical(b['scope']['task'][k]) for k in b['scope']['task']) and any(
             json.loads(o).get('public_actions')==[{'seat':'A','action':a}] for o in b['scope']['task']['observations'])

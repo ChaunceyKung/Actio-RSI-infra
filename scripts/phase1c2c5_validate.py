@@ -35,6 +35,10 @@ def main():
     jobs.append((['analyze',str(envelope)],0))
     if a.runtime_root:
         jobs.extend((['analyze',str(f)],0) for f in sorted(a.runtime_root.glob('*/entry.json')))
+        original=json.loads(next(a.runtime_root.glob('*/entry.json')).read_bytes())['body']
+        original['entry']['evidence']['ledger']['attempts'][0]['scope']['seat']='forged-seat'
+        tamper=scratch/'tampered-local.json';tamper.write_text(canonical(seal(original)),encoding='utf8')
+        jobs.append((['verify',str(tamper)],2))
     for argv,expected in jobs:
         guarded=argv[0]!='run-local'
         cmd=[sys.executable,'-X','utf8','-B','-I',*([str(runner)] if guarded else ['-m','actio.transport_diagnostics']),*argv]

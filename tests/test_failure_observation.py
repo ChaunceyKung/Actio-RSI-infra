@@ -2,15 +2,33 @@ import base64
 import copy
 import json
 import unittest
+from unittest.mock import patch
+import io
 from actio.common import ContractError,canonical,digest
 from actio.eval_contract import seal
-from actio.failure_observation import observe,protocol,segmented_utf8,parse,LIMITS
+from actio.failure_observation import observe,protocol,segmented_utf8,parse,LIMITS,native_chunks
 from actio.failure_fixtures import vector,mutate,frame,error,chunk,portable_vectors
 from actio.future_schedule import plan
 from actio.transport_diagnostics import portable,analyze
 
 
 class FailureObservation(unittest.TestCase):
+    def test_failed_suite_cli_exit_is_nonzero(self):
+        from actio.transport_diagnostics import main
+        with patch('sys.argv',['diagnostics','run-local','--root','unused-new-root','--project','.','--freeze','unused']),\
+             patch('actio.diagnostic_runtime.run',return_value={'status':'FAIL'}),patch('sys.stdout',new_callable=io.StringIO):
+            self.assertEqual(main(),2)
+
+    def test_official_compacted_native_delta_expansion(self):
+        records=[{'type':'chunk','time':1,'chunk':{'type':'block-start','index':0,'blockType':'text'}},
+            {'type':'text-chunks','time0':2,'index':0,'dt':[1],'texts':['a','b']},
+            {'type':'reasoning-chunks','time0':4,'index':1,'dt':[],'texts':['synthetic']}]
+        out=native_chunks(records);self.assertEqual([x['type'] for x in out],['block-start','text-delta','text-delta','reasoning-delta'])
+        self.assertEqual([x['text'] for x in out[1:]],['a','b','synthetic'])
+        for change in (lambda r:r[1].update(type='unknown'),lambda r:r[1].update(dt=[]),lambda r:r[1].update(index=-1)):
+            bad=copy.deepcopy(records);change(bad)
+            with self.assertRaises(ContractError):native_chunks(bad)
+
     def test_fixture_expected_and_no_authority(self):
         for v in portable_vectors():
             r=observe(v['input']);self.assertEqual(r['classification'],v['expected']['classification'])

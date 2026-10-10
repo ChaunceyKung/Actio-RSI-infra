@@ -55,3 +55,5 @@ execute先核验已提交计划、两个远端SHA、clean checkout、installed s
 历史核验分别使用 C2C2 reader `3bef7e15b0eb21beeb10888eb508056592b977b0` 和 C2C3 reader `0a66334d61a0de302bbf8f5e15ee1db1b9d2e8fb`，实际 argv、源码清单、只读 guard 和原库 hash 见 [history.json](history.json)。当前代码不得通过刷新旧 pins 来冒充这些 reader。
 
 首次 v1 预演在128次本机发送全部完成后，因验收包装器7200秒整体时限终止于目录扫描，整包验收失败。旧目录/claim/报告和失败收据保留；上述v2为修正包装器后使用的新目录。仅移除包装器整体截止时间，产品逐请求和Worker期限不变；不宣称旧服务有join收据。见 [DEVELOPMENT](DEVELOPMENT.md)。
+
+本轮真实execute已消耗唯一批次资格：33发送后于ep-16技术停止，unknown1、not_run95。不得再次执行live命令或清除claim。冻结后最终验收仅运行离线包装器，10条命令及6项篡改拒绝通过，见 [实际CLI收据](evidence/cli-bfc248772b61.json)；[停止原因](stop.json)和[RESULTS](RESULTS.md)保留完整分母。

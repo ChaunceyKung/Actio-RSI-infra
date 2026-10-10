@@ -12,13 +12,19 @@
 - 不原位刷新历史报告、源码 pins 或预注册身份。发现错误时追加带来源的更正，并链接回原记录。
 - 同步更新根 README 的当前阶段、能力表与下一步事项；详细证据仍以 `docs/validation/<phase>/` 为准。
 
-## 当前阶段：Phase 1C2C4 发布前冻结
+## 当前交付：Phase 1C2C4
 
-本机准入 PASS：新 v10/v6 显式接线、原32展示与完整64/128计划、三类各32对照、固定历史 reader/v4一致快照已完成。全矩阵真实DSH/Concordia loopback为64 episodes/128 sent/unknown0；开发错误分支另计145 sent/unknown2。10项必要测试、公开CLI及只读guard和六项篡改拒绝通过，原历史证据保全。
+固定32展示 × B0/C1 的唯一有限真实验证已结束。工程 **INCOMPLETE**；实际 attempted/sent/response/usage/admitted 为 33/33/33/32/32，技术完整 16/64 episodes，unknown=1，protocol_error=1，not_run=95，可信非法A导致B跳过=0。候选配对执行完整 8/32；候选、隐藏世界、展示三类对照各assigned32，分母分别保留。
 
-本轮真实发送0、live NOT_RUN；历史生成139、目录GET1另列。此提交先发布实现/预注册/本机证据，再由专用execute独立核对main与任务分支、干净工作树及安装源码，随后才允许唯一有限真实campaign。无晋升或激活，研究有效性UNESTABLISHED；不自动启动下一阶段或第二批。
+第33次发送（ep-16，baseline的A）收到含 `event: error` 的HTTP200 SSE，冻结审计拒绝并停止全批；unknown保留，无重试或第二批。[停止证据](docs/validation/phase1c2c4/stop.json)。
 
-[结果](docs/validation/phase1c2c4/RESULTS.md) · [合同](docs/validation/phase1c2c4/CONTRACT.md) · [Gate](docs/validation/phase1c2c4/GATES.md) · [CLI](docs/validation/phase1c2c4/CLI.md) · [manifest](docs/validation/phase1c2c4/evidence_manifest.json)。
+C1 新评估为 **infrastructure_failure**，原约束违规记录 0 项；baseline 0 项单列。至少一项defined指标delta非零的候选对 2/32。schema4 权威副本追加 C4，保留六份原 candidate decision 与旧 C1/C2C2 评估；本轮3 evaluations / 2 evaluation decisions。无capability pass或激活，研究有效性UNESTABLISHED。
+
+首次真实发送前冻结提交 `3750954ea7cc8dff64115039e27bb671fa618d01` 已发布到main与任务分支，execute在首个intent/send前再次核对。10项必要测试、完整真实DSH/Concordia loopback 128 sends、五种literal与五种guard CLI、六项篡改拒绝通过；额外开发/失败预演 145 sends/unknown2 独立保留。具名Job全部inactive/reaped，相关端口无监听；5个服务有join收据，1个失败预演服务因包装器整体时限终止而无join收据，缺口保留。原历史claim/库/证据不变。
+
+历史生成139 + 本轮sent 33 = 累计 **172**，历史目录GET1另列。费用币种/单位、账单和上游权重身份UNVERIFIED；binary_source_mapping=unproven，full_controller_recovery=unsupported。停止于C2C4，没有第二批、补样、C2C5、搜索、训练、judge或部署。
+
+[结果](docs/validation/phase1c2c4/RESULTS.md) · [指标与分母](docs/validation/phase1c2c4/MEASUREMENTS.md) · [三类比较](docs/validation/phase1c2c4/COMPARISONS.md) · [具体违规](docs/validation/phase1c2c4/VIOLATIONS.md) · [合同](docs/validation/phase1c2c4/CONTRACT.md) · [Gate](docs/validation/phase1c2c4/GATES.md) · [CLI](docs/validation/phase1c2c4/CLI.md) · [manifest](docs/validation/phase1c2c4/evidence_manifest.json)。
 
 ## Phase 1C2C3 历史交付
 

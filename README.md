@@ -6,7 +6,7 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 当前已经实现 Windows 单机上的 Python 控制面、官方 DSH 运行时接入、Concordia 双人任务、持久化账本与离线核验，并完成一个人工候选的真实配对试验。长期目标中的完整心智模型、开放式自主演化、训练和生产版本激活仍待建设。
 
-**当前阶段：Phase 1C2C4。** 将 C2C3 固定的 8 组 / 16 世界 / 32 展示接入原 DSH/Concordia 链路，保留原 B0/C1，计划 64 episodes、最多 128 次 seat 发送。本机准入已 PASS（完整预演 64/128），真实 campaign 为 NOT_RUN；首次真实发送前须完成冻结提交和两分支发布核对。历史 C2C2 的 24/48/12、delta=0 与 C1 `insufficient_evidence` 保持不变，activation=false。
+**当前交付：Phase 1C2C4。** 原32展示 × B0/C1 的有限真实验证已结束：16/64 episodes 技术完整，实际 sent=33（上限128），unknown=1，not_run=95。工程 INCOMPLETE，C1 为 `infrastructure_failure`，候选配对执行完整 8/32，至少一项 defined 指标 delta 非零的候选对 2/32。这是合成诊断开发集的描述性观测，研究有效性 UNESTABLISHED、activation=false；停止于 C2C4。
 
 [当前结果](docs/validation/phase1c2c4/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c4/GATES.md) · [当前 CLI](docs/validation/phase1c2c4/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
 
@@ -150,14 +150,14 @@ flowchart TD
 | 持久身份、SQLite 事实、memory revision、单 run 导出 | 已实现并验收 | 尚无完整信念、情绪、关系等 MentalState 系统 |
 | 官方 DSH / MCP / 进程隔离与有界清理 | 固定 Windows x64 栈通过 | native resume/fork/catchup、semantic cancel、完整 world restore 不支持 |
 | 助手与社会场景共享基础设施 | fixture 双场景通过；社会任务已接真实 solver | 通用生产助手和大规模社会仿真尚未交付 |
-| 真实模型传输 | C2B1/C2C2 历史保留；C2C4 单 `gpt-5.6` TokenKey 有限计划，当前 NOT_RUN | 仅证明实际观察到的协议路径，上游权重身份未验证 |
+| 真实模型传输 | C2B1/C2C2 历史保留；C2C4 单 `gpt-5.6` TokenKey 实际 33 sends，工程 INCOMPLETE | 仅证明实际观察到的协议路径，上游权重身份未验证 |
 | 输入与双通道审计 | raw / adapter / native、隐藏信息边界与实际 A → B 历史已验收 | 协议之外的真实性或模型思维过程不由这些检查证明 |
 | 任务与独立测量 | 两个 family、32 个固定诊断展示、416 合法 / 128 非法向量、类型化分母和独立 oracle | 真人标签 0；独立研究单位 0；尚无外部效度结论 |
 | 可见信息与任务诊断 | 条件最优集合、完整 TaskSpec v6、实际 full wire 和三类各 32 组比较 | 隐藏世界 A 输入相同是 Gate，输出可不同；条件得分不是期望收益 |
 | 候选评估与谱系 | 单 A scaffold 候选、schema 4 一致快照、固定历史分派、追加 C4 evaluation | 六份原 candidate decision 与旧 evaluation 保留；无能力通过或自动激活 |
 | 账务与发送记录 | 发送、usage、unknown、有限计划和一次资格持续记录 | 费用币种/单位、可信报价与供应商账单未核实 |
 
-C2C2 实际发送 48 次，unknown=0、not_run=0；全部 12 个配对的逐卡指标 delta=0。历史与本轮累计真实生成尝试为 **139**，目录 GET 另计 1，开发/验收的本机发送另列。它们是操作计数，不能当成模型质量排名或独立统计样本。
+历史 C2C2 仍为48 sends、12 pairs、逐卡 delta=0，其证据与决定不变。C2C4 实际 33 sends，候选原约束违规记录 0 项、baseline 0 项（相关谓词不作独立证据相加）。历史139 + 本轮33 = 累计 **172** 次真实生成尝试，目录 GET 另计1；本机开发/预演发送另列。这些是操作计数，不是质量排名或独立统计样本。
 
 C2C4 本机验收覆盖格式错误、非法 A 跳 B、unknown/timeout 停止、完整后缀、controller/verifier 故障、真实 A 历史继承和全矩阵预演；合成案例与真实试验结果分开。验证版本、失败记录和实际执行范围见 [开发记录](docs/validation/phase1c2c4/DEVELOPMENT.md) 与 [manifest](docs/validation/phase1c2c4/evidence_manifest.json)。
 
@@ -175,7 +175,7 @@ C2C4 本机验收覆盖格式错误、非法 A 跳 B、unknown/timeout 停止、
 | 1C2C1 | 双通道审计、单候选与谱系、本机配对和独立准入 | [C1 结果](docs/validation/phase1c2c1/RESULTS.md) |
 | 1C2C2 | 有限真实配对、跨评估历史、行为失败与技术缺失分离 | [真实结果](docs/validation/phase1c2c2/RESULTS.md) |
 | 1C2C3 | 可见信息诊断、有限合成对照集、可移植独立核验 | [离线诊断](docs/validation/phase1c2c3/RESULTS.md) |
-| **1C2C4** | **固定诊断任务真实链路接线、历史保全、三类比较与有限执行准入** | [当前结果](docs/validation/phase1c2c4/RESULTS.md) |
+| **1C2C4** | **固定诊断任务有限真实验证、历史保全与三类比较** | [当前结果](docs/validation/phase1c2c4/RESULTS.md) |
 
 完整摘要和历史命令保存在 [MILESTONES.md](MILESTONES.md)。早期文档中的“预算 0”“live BLOCKED”等描述属于当时阶段；读取时应结合阶段版本，不能覆盖后续合同。
 
@@ -308,7 +308,7 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 |---|---|
 | 理解整体方向与取舍 | [规划总览](docs/planning/README.md) → [目标架构](docs/planning/03_target_architecture.md) → [ADR](docs/planning/13_architecture_decisions.md) |
 | 了解当前执行合同 | [C2C4 CONTRACT](docs/validation/phase1c2c4/CONTRACT.md) → [GATES](docs/validation/phase1c2c4/GATES.md) → [CLI](docs/validation/phase1c2c4/CLI.md) |
-| 审阅当前状态与实际结果 | [RESULTS](docs/validation/phase1c2c4/RESULTS.md) → [manifest](docs/validation/phase1c2c4/evidence_manifest.json) |
+| 审阅当前状态与实际结果 | [RESULTS](docs/validation/phase1c2c4/RESULTS.md) → [指标覆盖](docs/validation/phase1c2c4/MEASUREMENTS.md) → [三类比较](docs/validation/phase1c2c4/COMPARISONS.md) |
 | 查验历史来源与失败 | [C4 DEVELOPMENT](docs/validation/phase1c2c4/DEVELOPMENT.md) → [固定历史核验](docs/validation/phase1c2c4/history.json) → [C2 controlled delivery](docs/validation/phase1c2c2/controlled-delivery.json) |
 | 重算任务与信息诊断 | [C2C3结果](docs/validation/phase1c2c3/RESULTS.md) → [package](docs/validation/phase1c2c3/package/manifest.json) → [开发限制](docs/validation/phase1c2c3/DEVELOPMENT.md) |
 | 理解演进过程 | [MILESTONES](MILESTONES.md) → [阶段审阅](docs/reviews/) → [执行 Prompt](docs/prompts/) |

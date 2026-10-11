@@ -4,19 +4,32 @@ import json
 import unittest
 from unittest.mock import patch
 import io
-from actio.common import ContractError,canonical,digest
-from actio.eval_contract import seal
-from actio.failure_observation import observe,protocol,segmented_utf8,parse,LIMITS,native_chunks
-from actio.failure_fixtures import vector,mutate,frame,error,chunk,portable_vectors
-from actio.future_schedule import plan
-from actio.transport_diagnostics import portable,analyze
+from actio.common import ContractError
+from actio.common import canonical
+from actio.common import digest
+from actio.evidence.eval_contract import seal
+from actio.evidence.failure_observation import observe
+from actio.evidence.failure_observation import protocol
+from actio.evidence.failure_observation import segmented_utf8
+from actio.evidence.failure_observation import parse
+from actio.evidence.failure_observation import LIMITS
+from actio.evidence.failure_observation import native_chunks
+from actio.evidence.failure_fixtures import vector
+from actio.evidence.failure_fixtures import mutate
+from actio.evidence.failure_fixtures import frame
+from actio.evidence.failure_fixtures import error
+from actio.evidence.failure_fixtures import chunk
+from actio.evidence.failure_fixtures import portable_vectors
+from actio.evidence.future_schedule import plan
+from actio.evidence.transport_diagnostics import portable
+from actio.evidence.transport_diagnostics import analyze
 
 
 class FailureObservation(unittest.TestCase):
     def test_failed_suite_cli_exit_is_nonzero(self):
-        from actio.transport_diagnostics import main
+        from actio.interfaces.transport_diagnostics import main
         with patch('sys.argv',['diagnostics','run-local','--root','unused-new-root','--project','.','--freeze','unused']),\
-             patch('actio.diagnostic_runtime.run',return_value={'status':'FAIL'}),patch('sys.stdout',new_callable=io.StringIO):
+             patch('actio.application.diagnostic_runtime.run',return_value={'status':'FAIL'}),patch('sys.stdout',new_callable=io.StringIO):
             self.assertEqual(main(),2)
 
     def test_official_compacted_native_delta_expansion(self):
@@ -122,6 +135,15 @@ class FailureObservation(unittest.TestCase):
 
     def test_portable_recomputation_and_tamper(self):
         p=portable();self.assertTrue(analyze(p)['valid']);self.assertFalse(analyze(p)['historical_raw_authenticated'])
+        from actio.evidence.failure_observation import parse
+        from actio.evidence.failure_observation import bounded
+        from actio.adapters.filesystem.identity import implementation
+        inventory=implementation()
+        self.assertGreater(len(inventory),128)
+        self.assertEqual(bounded({'implementation':inventory},source_manifest=inventory),{'implementation':inventory})
+        with self.assertRaises(ContractError):bounded({'forged':dict(inventory,forged='0'*64)},source_manifest=inventory)
+        with self.assertRaises(ContractError):bounded(inventory)
+        self.assertEqual(parse(canonical(p),64*1024*1024),p)  # Full source inventory respects existing JSON bounds.
         for field in ('sources','fixtures','observations','future'):
             b=copy.deepcopy(p['body']);b[field]={}
             with self.assertRaises((ContractError,ValueError)):analyze(seal(b))

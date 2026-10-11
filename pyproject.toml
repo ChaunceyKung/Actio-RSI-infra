@@ -25,4 +25,6 @@ where = ["src"]
 actio = ["*.sql", "*.json", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]
 "actio._vendor" = ["*.json", "SOTOPIA_LICENSE"]
 
-"actio.adapters.transport" = ["DSH_LICENSE.txt"]
+"actio.adapters.transport" = ["DSH_LICENSE.txt", "plugins/*.mjs", "fixtures/*.mjs"]
+
+"actio.adapters.persistence" = ["*.sql"]

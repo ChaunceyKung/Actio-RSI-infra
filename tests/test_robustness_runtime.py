@@ -3,14 +3,15 @@ from pathlib import Path
 import unittest
 import uuid
 from unittest.mock import patch
-from actio import robustness_campaign as c
-from actio.robustness import verify
+from actio.profiles import robustness_campaign as c
+from actio.interfaces.robustness import verify
 from actio.tasks.robustness import get
 from actio.tasks.diagnostic import visible
 from actio.tasks.controls import control
-from actio.pilot import execute,run_unit
+from actio.interfaces.pilot import execute
+from actio.interfaces.pilot import run_unit
 from actio.common import write_json
-from actio.eval_contract import seal
+from actio.evidence.eval_contract import seal
 from gateway_stub import GatewayStub
 from test_robustness import empty
 
@@ -69,7 +70,7 @@ class RobustnessRuntime(unittest.TestCase):
         self.evidence.update(counts=r['counts'],deadline='actual frozen headers60; no extended total',joined=not service.thread.is_alive())
 
     def test_04_controller_and_verifier_failure_preserve_inventory(self):
-        with patch('actio.pilot.run_unit',side_effect=RuntimeError('controlled pre-send failure')),patch.object(c,'analyze',side_effect=ValueError('controlled verifier failure')):
+        with patch('actio.application.pilot.run_unit',side_effect=RuntimeError('controlled pre-send failure')),patch('actio.evidence.robustness_measurement.analyze_pilot',side_effect=ValueError('controlled verifier failure')):
             r=execute(self.root/'matrix',self.pre,self.secret,endpoint='http://127.0.0.1:18080/v1',authority_root=self.root/'claims',operation_authorization=c.AUTH,contract=c)
         self.assertFalse(r['valid'])
         for name in ('pilot.json','raw-attempt-inventory.json','controller-failure.json','verification-failure.json','credential-scan.json'):

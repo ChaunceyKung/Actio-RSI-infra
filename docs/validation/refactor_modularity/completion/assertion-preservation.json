@@ -1,0 +1,662 @@
+{
+  "status": "PASS",
+  "scope": "Original assertion calls retained across all maintained files; no added skips; original 163 method names independently checked",
+  "files": [
+    {
+      "file": "test_budget.py",
+      "before": {
+        "assertEqual": 13,
+        "assertTrue": 4,
+        "assertIsNone": 2,
+        "assertIsNotNone": 1,
+        "assertNotEqual": 1,
+        "assertFalse": 2,
+        "assertRaises": 3
+      },
+      "after": {
+        "assertEqual": 13,
+        "assertTrue": 4,
+        "assertIsNone": 2,
+        "assertIsNotNone": 1,
+        "assertNotEqual": 1,
+        "assertFalse": 2,
+        "assertRaises": 3
+      }
+    },
+    {
+      "file": "test_candidate.py",
+      "before": {
+        "assertEqual": 22,
+        "assertTrue": 5,
+        "assertRaises": 8,
+        "assertFalse": 3,
+        "assertNotIn": 1
+      },
+      "after": {
+        "assertEqual": 22,
+        "assertTrue": 5,
+        "assertRaises": 8,
+        "assertFalse": 3,
+        "assertNotIn": 1
+      }
+    },
+    {
+      "file": "test_candidate_runtime.py",
+      "before": {
+        "assertIsNone": 2,
+        "assertTrue": 3,
+        "assertEqual": 6,
+        "assertFalse": 2,
+        "assertNotIn": 4,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertIsNone": 2,
+        "assertTrue": 3,
+        "assertEqual": 6,
+        "assertFalse": 2,
+        "assertNotIn": 4,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_contract.py",
+      "before": {
+        "assertFalse": 1,
+        "assertEqual": 20,
+        "assertTrue": 1,
+        "assertRaisesRegex": 16,
+        "assertRaises": 10
+      },
+      "after": {
+        "assertFalse": 1,
+        "assertEqual": 20,
+        "assertTrue": 1,
+        "assertRaisesRegex": 16,
+        "assertRaises": 10
+      }
+    },
+    {
+      "file": "test_entry_concurrency.py",
+      "before": {
+        "assertEqual": 13,
+        "assertIn": 1,
+        "assertRaisesRegex": 1
+      },
+      "after": {
+        "assertEqual": 13,
+        "assertIn": 1,
+        "assertRaisesRegex": 1
+      }
+    },
+    {
+      "file": "test_evaluation.py",
+      "before": {
+        "assertFalse": 4,
+        "assertNotEqual": 2,
+        "assertEqual": 31,
+        "assertTrue": 8,
+        "assertIn": 1,
+        "assertRaisesRegex": 2,
+        "assertIsNone": 2,
+        "assertNotIn": 1,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertFalse": 4,
+        "assertNotEqual": 2,
+        "assertEqual": 31,
+        "assertTrue": 8,
+        "assertIn": 1,
+        "assertRaisesRegex": 2,
+        "assertIsNone": 2,
+        "assertNotIn": 1,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_evaluation_candidate.py",
+      "before": {
+        "assertEqual": 24,
+        "assertIs": 1,
+        "assertIsNone": 1,
+        "assertTrue": 4,
+        "assertFalse": 2,
+        "assertRaises": 7
+      },
+      "after": {
+        "assertEqual": 24,
+        "assertIs": 1,
+        "assertIsNone": 1,
+        "assertTrue": 4,
+        "assertFalse": 2,
+        "assertRaises": 7
+      }
+    },
+    {
+      "file": "test_evaluation_candidate_runtime.py",
+      "before": {
+        "assertIsNone": 1,
+        "assertTrue": 5,
+        "assertEqual": 12,
+        "assertFalse": 1,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertIsNone": 1,
+        "assertTrue": 5,
+        "assertEqual": 12,
+        "assertFalse": 1,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_evidence.py",
+      "before": {
+        "assertEqual": 26,
+        "assertNotIn": 1,
+        "assertTrue": 1,
+        "assertFalse": 1,
+        "assertNotEqual": 1,
+        "assertIn": 2,
+        "assertRaisesRegex": 1
+      },
+      "after": {
+        "assertEqual": 26,
+        "assertNotIn": 1,
+        "assertTrue": 1,
+        "assertFalse": 1,
+        "assertNotEqual": 1,
+        "assertIn": 2,
+        "assertRaisesRegex": 1
+      }
+    },
+    {
+      "file": "test_failures.py",
+      "before": {
+        "assertNotEqual": 6,
+        "assertIsNotNone": 1,
+        "assertFalse": 1,
+        "assertEqual": 13,
+        "assertGreater": 1,
+        "assertTrue": 9,
+        "assertRaisesRegex": 1,
+        "assertRaises": 5,
+        "assertLess": 1
+      },
+      "after": {
+        "assertNotEqual": 6,
+        "assertIsNotNone": 1,
+        "assertFalse": 1,
+        "assertEqual": 13,
+        "assertGreater": 1,
+        "assertTrue": 9,
+        "assertRaisesRegex": 1,
+        "assertRaises": 5,
+        "assertLess": 1
+      }
+    },
+    {
+      "file": "test_failure_observation.py",
+      "before": {
+        "assertEqual": 23,
+        "assertNotIn": 2,
+        "assertTrue": 4,
+        "assertFalse": 7,
+        "assertIsNone": 1,
+        "assertIn": 2,
+        "assertRaises": 10,
+        "assertNotEqual": 1
+      },
+      "after": {
+        "assertEqual": 25,
+        "assertNotIn": 2,
+        "assertTrue": 4,
+        "assertFalse": 7,
+        "assertIsNone": 1,
+        "assertIn": 2,
+        "assertGreater": 1,
+        "assertRaises": 12,
+        "assertNotEqual": 1
+      }
+    },
+    {
+      "file": "test_gateway.py",
+      "before": {
+        "assertTrue": 2,
+        "assertIsNone": 3,
+        "assertEqual": 11,
+        "assertIsNotNone": 1,
+        "assertIn": 1,
+        "assertRaises": 4,
+        "assertNotIn": 3
+      },
+      "after": {
+        "assertTrue": 2,
+        "assertIsNone": 3,
+        "assertEqual": 11,
+        "assertIsNotNone": 1,
+        "assertIn": 1,
+        "assertRaises": 4,
+        "assertNotIn": 3
+      }
+    },
+    {
+      "file": "test_gateway_lifecycle.py",
+      "before": {
+        "assertEqual": 6,
+        "assertIsNone": 1,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertEqual": 6,
+        "assertIsNone": 1,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_input_binding.py",
+      "before": {
+        "assertEqual": 6,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertEqual": 6,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_modularity.py",
+      "before": {
+        "assertNotIn": 3,
+        "assertEqual": 4,
+        "assertIn": 2
+      },
+      "after": {
+        "assertNotIn": 5,
+        "assertEqual": 4,
+        "assertIn": 3,
+        "assertFalse": 2
+      }
+    },
+    {
+      "file": "test_pilot.py",
+      "before": {
+        "assertEqual": 14,
+        "assertNotEqual": 2,
+        "assertTrue": 1,
+        "assertNotIn": 3,
+        "assertFalse": 1,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertEqual": 14,
+        "assertNotEqual": 2,
+        "assertTrue": 1,
+        "assertNotIn": 3,
+        "assertFalse": 1,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_pilot_runtime.py",
+      "before": {
+        "assertTrue": 2,
+        "assertEqual": 24,
+        "assertGreaterEqual": 1,
+        "assertNotEqual": 1,
+        "assertFalse": 1,
+        "assertIn": 1,
+        "assertIsNotNone": 2,
+        "assertIsNone": 3,
+        "assertNotIn": 3,
+        "assertRaises": 3
+      },
+      "after": {
+        "assertTrue": 2,
+        "assertEqual": 24,
+        "assertGreaterEqual": 1,
+        "assertNotEqual": 1,
+        "assertFalse": 1,
+        "assertIn": 1,
+        "assertIsNotNone": 2,
+        "assertIsNone": 3,
+        "assertNotIn": 3,
+        "assertRaises": 3
+      }
+    },
+    {
+      "file": "test_preflight.py",
+      "before": {
+        "assertTrue": 4,
+        "assertEqual": 5,
+        "assertFalse": 9,
+        "assertIsNone": 1,
+        "assertIn": 1,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertTrue": 4,
+        "assertEqual": 5,
+        "assertFalse": 9,
+        "assertIsNone": 1,
+        "assertIn": 1,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_processes.py",
+      "before": {
+        "assertEqual": 21,
+        "assertIsNone": 3,
+        "assertGreaterEqual": 1,
+        "assertIsNotNone": 1,
+        "assertFalse": 1,
+        "assertTrue": 1,
+        "assertGreater": 1,
+        "assertRaisesRegex": 1
+      },
+      "after": {
+        "assertEqual": 21,
+        "assertIsNone": 3,
+        "assertGreaterEqual": 1,
+        "assertIsNotNone": 1,
+        "assertFalse": 1,
+        "assertTrue": 1,
+        "assertGreater": 1,
+        "assertRaisesRegex": 1
+      }
+    },
+    {
+      "file": "test_readiness.py",
+      "before": {
+        "assertTrue": 3,
+        "assertIsNotNone": 1,
+        "assertEqual": 17,
+        "assertNotIn": 3,
+        "assertIsNone": 1,
+        "assertGreaterEqual": 1,
+        "assertFalse": 1,
+        "assertRaises": 4,
+        "assertIn": 1
+      },
+      "after": {
+        "assertTrue": 3,
+        "assertIsNotNone": 1,
+        "assertEqual": 19,
+        "assertNotIn": 3,
+        "assertIsNone": 1,
+        "assertGreaterEqual": 1,
+        "assertFalse": 1,
+        "assertRaises": 4,
+        "assertIn": 1
+      }
+    },
+    {
+      "file": "test_readiness_config.py",
+      "before": {
+        "assertEqual": 8,
+        "assertTrue": 2,
+        "assertIsNone": 1,
+        "assert_not_called": 1,
+        "assertFalse": 1,
+        "assertNotEqual": 1,
+        "assertRaises": 5
+      },
+      "after": {
+        "assertEqual": 9,
+        "assertTrue": 2,
+        "assertIsNone": 1,
+        "assert_not_called": 1,
+        "assertFalse": 1,
+        "assertNotEqual": 2,
+        "assertRaises": 10
+      }
+    },
+    {
+      "file": "test_reliability.py",
+      "before": {
+        "assertIsNone": 3,
+        "assertEqual": 13,
+        "assertTrue": 2,
+        "assertIn": 1,
+        "assertRaisesRegex": 9,
+        "assertFalse": 1,
+        "assert_not_called": 1,
+        "assert_called_once": 1,
+        "assertRaises": 3
+      },
+      "after": {
+        "assertIsNone": 3,
+        "assertEqual": 13,
+        "assertTrue": 2,
+        "assertIn": 1,
+        "assertRaisesRegex": 9,
+        "assertFalse": 1,
+        "assert_not_called": 1,
+        "assert_called_once": 1,
+        "assertRaises": 3
+      }
+    },
+    {
+      "file": "test_robustness.py",
+      "before": {
+        "assertEqual": 23,
+        "assertTrue": 6,
+        "assertFalse": 3,
+        "assertRaises": 5,
+        "assertNotIn": 1
+      },
+      "after": {
+        "assertEqual": 23,
+        "assertTrue": 6,
+        "assertFalse": 3,
+        "assertRaises": 5,
+        "assertNotIn": 1
+      }
+    },
+    {
+      "file": "test_robustness_runtime.py",
+      "before": {
+        "assertTrue": 5,
+        "assertEqual": 8,
+        "assertFalse": 3,
+        "assertIsNone": 2,
+        "assertRaises": 1
+      },
+      "after": {
+        "assertTrue": 5,
+        "assertEqual": 8,
+        "assertFalse": 3,
+        "assertIsNone": 2,
+        "assertRaises": 1
+      }
+    },
+    {
+      "file": "test_runtime.py",
+      "before": {
+        "assertEqual": 16,
+        "assertNotEqual": 2,
+        "assertIsNone": 1,
+        "assertTrue": 1,
+        "assertGreater": 1,
+        "assertIn": 2,
+        "assertNotIn": 3,
+        "assertRaisesRegex": 1
+      },
+      "after": {
+        "assertEqual": 16,
+        "assertNotEqual": 2,
+        "assertIsNone": 1,
+        "assertTrue": 1,
+        "assertGreater": 1,
+        "assertIn": 2,
+        "assertNotIn": 3,
+        "assertRaisesRegex": 1
+      }
+    },
+    {
+      "file": "test_schema.py",
+      "before": {
+        "assertFalse": 4,
+        "assertEqual": 19,
+        "assertTrue": 1,
+        "assertRaisesRegex": 6
+      },
+      "after": {
+        "assertFalse": 4,
+        "assertEqual": 19,
+        "assertTrue": 1,
+        "assertRaisesRegex": 6
+      }
+    },
+    {
+      "file": "test_sotopia.py",
+      "before": {
+        "assertEqual": 10,
+        "assertNotIn": 1,
+        "assertIn": 1,
+        "assertIs": 1
+      },
+      "after": {
+        "assertEqual": 10,
+        "assertNotIn": 1,
+        "assertIn": 1,
+        "assertIs": 1
+      }
+    },
+    {
+      "file": "test_suite.py",
+      "before": {
+        "assertTrue": 6,
+        "assertEqual": 20,
+        "assertFalse": 2,
+        "assertIsNone": 1,
+        "assertNotEqual": 2,
+        "assertRaises": 1,
+        "assertNotIn": 2
+      },
+      "after": {
+        "assertTrue": 6,
+        "assertEqual": 20,
+        "assertFalse": 2,
+        "assertIsNone": 1,
+        "assertNotEqual": 2,
+        "assertRaises": 1,
+        "assertNotIn": 2
+      }
+    },
+    {
+      "file": "test_suite_evidence.py",
+      "before": {
+        "assertTrue": 2,
+        "assertFalse": 1
+      },
+      "after": {
+        "assertTrue": 2,
+        "assertFalse": 1
+      }
+    },
+    {
+      "file": "test_suite_runtime.py",
+      "before": {
+        "assertTrue": 3,
+        "assertEqual": 21,
+        "assertIsNone": 3,
+        "assertGreater": 1,
+        "assertFalse": 4,
+        "assertIsNotNone": 2,
+        "assertNotIn": 3,
+        "assertRaises": 3
+      },
+      "after": {
+        "assertTrue": 3,
+        "assertEqual": 21,
+        "assertIsNone": 3,
+        "assertGreater": 1,
+        "assertFalse": 4,
+        "assertIsNotNone": 2,
+        "assertNotIn": 3,
+        "assertRaises": 3
+      }
+    },
+    {
+      "file": "test_task.py",
+      "before": {
+        "assertEqual": 25,
+        "assertIsNone": 3,
+        "assertTrue": 9,
+        "assertFalse": 6,
+        "assertNotIn": 5,
+        "assertRaises": 5,
+        "assertIn": 1
+      },
+      "after": {
+        "assertEqual": 25,
+        "assertIsNone": 3,
+        "assertTrue": 9,
+        "assertFalse": 6,
+        "assertNotIn": 5,
+        "assertRaises": 5,
+        "assertIn": 1
+      }
+    },
+    {
+      "file": "test_task_diagnostics.py",
+      "before": {
+        "assertEqual": 29,
+        "assertTrue": 7,
+        "assertIsNone": 2,
+        "assertFalse": 8,
+        "assertRaises": 4,
+        "assertNotIn": 3,
+        "assertIsNotNone": 1
+      },
+      "after": {
+        "assertEqual": 29,
+        "assertTrue": 7,
+        "assertIsNone": 2,
+        "assertFalse": 8,
+        "assertRaises": 4,
+        "assertNotIn": 3,
+        "assertIsNotNone": 1
+      }
+    },
+    {
+      "file": "test_transport.py",
+      "before": {
+        "assertTrue": 3,
+        "assertEqual": 23,
+        "assertRaises": 4,
+        "assertIsNone": 1,
+        "assertGreaterEqual": 1,
+        "assertNotIn": 2
+      },
+      "after": {
+        "assertTrue": 3,
+        "assertEqual": 23,
+        "assertRaises": 4,
+        "assertIsNone": 1,
+        "assertGreaterEqual": 1,
+        "assertNotIn": 2
+      }
+    },
+    {
+      "file": "test_transport_config.py",
+      "before": {
+        "assertTrue": 3,
+        "assertEqual": 4,
+        "assertFalse": 3,
+        "assertRaises": 2,
+        "assertIsNone": 1
+      },
+      "after": {
+        "assertTrue": 3,
+        "assertEqual": 4,
+        "assertFalse": 3,
+        "assertRaises": 2,
+        "assertIsNone": 1
+      }
+    }
+  ]
+}

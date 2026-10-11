@@ -8,11 +8,24 @@ import shutil
 import unittest
 from unittest.mock import patch
 
-from actio.common import canonical,digest,ContractError,clean_env
-from actio.eval_contract import make_spec,seal,strict_response,deterministic
-from actio.evaluation import evaluate,verify_record,source_bundle,prepare,execute_worker,campaign
-from actio.verify import sha
-from test_input_binding import SAMPLES,mutate_bundle,frozen_edit
+from actio.common import canonical
+from actio.common import digest
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.evidence.eval_contract import make_spec
+from actio.evidence.eval_contract import seal
+from actio.evidence.eval_contract import strict_response
+from actio.evidence.eval_contract import deterministic
+from actio.interfaces.evaluation import evaluate
+from actio.evidence.evaluation import verify_record
+from actio.evidence.evaluation import source_bundle
+from actio.evidence.evaluation import prepare
+from actio.interfaces.evaluation import execute_worker
+from actio.interfaces.evaluation import campaign
+from actio.evidence.verify import sha
+from test_input_binding import SAMPLES
+from test_input_binding import mutate_bundle
+from test_input_binding import frozen_edit
 
 
 def synthetic():
@@ -64,17 +77,17 @@ class Evaluation(unittest.TestCase):
     def test_admission_before_evaluator_and_orthogonal_outcomes(self):
         records={}
         for name in ('partial','unknown'):
-            with patch('actio.evaluation.execute_worker',side_effect=AssertionError('must not call')) as worker:
+            with patch('actio.interfaces.evaluation.execute_worker',side_effect=AssertionError('must not call')) as worker:
                 record,_=evaluate(self.det,source_bundle(SAMPLES/name)[0],self.root)
                 self.assertEqual(worker.call_count,0)
                 r=record['body'];self.assertEqual(r['admission']['status'],'insufficient')
                 self.assertEqual(r['task_outcome'],'infrastructure_failure');self.assertIsNone(r['measurement']['results'])
                 self.assertTrue(verify_record(record)['valid']);records[name]=r['measurement']
         bad=self.root/'contradiction';mutate_bundle(bad,lambda d:frozen_edit(d,lambda m:m['observations'].update(A='edited')))
-        with patch('actio.evaluation.execute_worker') as worker:
+        with patch('actio.interfaces.evaluation.execute_worker') as worker:
             record,_=evaluate(self.det,source_bundle(bad)[0],self.root);self.assertEqual(worker.call_count,0)
             self.assertEqual(record['body']['admission']['status'],'rejected')
-        with patch('actio.evaluation.execute_worker') as worker:
+        with patch('actio.interfaces.evaluation.execute_worker') as worker:
             record,_=evaluate(self.ctl,source_bundle(SAMPLES/'social')[0],self.root)
             self.assertEqual(worker.call_count,0);self.assertEqual(record['body']['admission']['status'],'insufficient')
             self.assertIn('goals',record['body']['admission']['reasons'][0])
@@ -95,7 +108,7 @@ class Evaluation(unittest.TestCase):
             spec=self.det
             if case=='missing_context':
                 source=copy.deepcopy(self.syn);source['input']['body']['relationships'].pop('north');source['input']=seal(source['input']['body']);spec=self.ctl
-            with patch('actio.evaluation.execute_worker') as worker:
+            with patch('actio.interfaces.evaluation.execute_worker') as worker:
                 record,_=evaluate(spec,source,self.root);self.assertEqual(worker.call_count,0)
             r=record['body'];self.assertEqual(r['admission']['status'],'rejected' if case=='corrupt' else 'insufficient')
             self.assertTrue(verify_record(record)['valid']);results[case]={'admission':r['admission'],'measurement':r['measurement']}
@@ -141,7 +154,7 @@ class Evaluation(unittest.TestCase):
         raw=changed['files']['export.json'].encode()
         next(e for e in m['files'] if e['path']=='export.json').update(bytes=len(raw),sha256=sha(raw))
         changed['files']['manifest.json']=canonical(m)
-        with patch('actio.evaluation.execute_worker') as worker:
+        with patch('actio.interfaces.evaluation.execute_worker') as worker:
             same,reused=evaluate(self.det,changed,self.root);self.assertTrue(reused);self.assertEqual(same,first);self.assertEqual(worker.call_count,0)
         spec2=make_spec('deterministic',digest('synthetic-dataset-test'),revision=2)
         second,reused=evaluate(spec2,source,self.root);self.assertFalse(reused);self.assertNotEqual(second['sha256'],first['sha256'])
@@ -162,11 +175,11 @@ class Evaluation(unittest.TestCase):
         results={}
         for name,error in [('internal',RuntimeError('fixed internal bug')),('timeout',TimeoutError('fixed deadline'))]:
             folder=self.root/name
-            with patch('actio.evaluation.execute_worker',side_effect=error):
+            with patch('actio.interfaces.evaluation.execute_worker',side_effect=error):
                 record,_=evaluate(self.ctl,self.syn,folder,canonical(response()))
             m=record['body']['measurement'];self.assertEqual(m['status'],'timeout' if name=='timeout' else 'measurement_error')
             self.assertTrue(verify_record(record)['valid']);results[name]=record
-            with patch('actio.evaluation.execute_worker') as worker:
+            with patch('actio.interfaces.evaluation.execute_worker') as worker:
                 retry,reused=evaluate(self.ctl,self.syn,folder,canonical(response()));self.assertTrue(reused);self.assertEqual(worker.call_count,0)
             for pointer in folder.glob('*.request.json'):pointer.unlink()
             with self.assertRaisesRegex(ContractError,'claimed or interrupted'):evaluate(self.ctl,self.syn,folder,canonical(response()))
@@ -174,7 +187,7 @@ class Evaluation(unittest.TestCase):
         original=subprocess.run
         def hung(*args,**kwargs):
             return original([sys.executable,'-I','-c','import time; time.sleep(20)'],**kwargs)
-        with patch('actio.evaluation.subprocess.run',side_effect=hung):
+        with patch('actio.adapters.runtime.evaluator.subprocess.run',side_effect=hung):
             with self.assertRaises(TimeoutError):execute_worker({},1)
         self.evidence={'failures':results,'real_child_deadline':'killed and waited after 1 second; no retry'}
 
@@ -194,10 +207,10 @@ def audit(event,args):
         if not p.is_relative_to(base) and not p.is_relative_to(pathlib.Path(sys.base_prefix)):raise RuntimeError('original/source path denied')
 sys.addaudithook(audit)
 '''
-        runner=portable/'verify.py';runner.write_text(guard+"from actio.evaluation import verify_record\nprint(json.dumps(verify_record(json.loads((base/'record.json').read_bytes()))))\n",encoding='utf8')
+        runner=portable/'verify.py';runner.write_text(guard+"from actio.application.evaluation import verify_record\nprint(json.dumps(verify_record(json.loads((base/'record.json').read_bytes()))))\n",encoding='utf8')
         p=subprocess.run([sys.executable,'-I','-S','-B',str(runner)],cwd=portable,env=clean_env(portable),capture_output=True,text=True,timeout=15)
         self.assertEqual(p.returncode,0,p.stderr);self.assertTrue(json.loads(p.stdout)['valid'],p.stdout)
-        worker=portable/'worker.py';worker.write_text(guard+"from actio.eval_worker import main\nmain()\n",encoding='utf8')
+        worker=portable/'worker.py';worker.write_text(guard+"from actio.adapters.runtime.eval_worker import main\nmain()\n",encoding='utf8')
         payload={'mode':'controlled_response','view':record['body']['input']['body']['view'],'raw_response':canonical(response())}
         result=subprocess.run([sys.executable,'-I','-S','-B',str(worker)],input=canonical(payload),cwd=portable,env=clean_env(portable),capture_output=True,text=True,timeout=15)
         actual=json.loads(result.stdout);self.assertEqual(actual['status'],'measurement_error')
@@ -206,9 +219,9 @@ sys.addaudithook(audit)
 
     def test_worker_audit_hook_enforces_denials_in_real_child(self):
         script='''import sys, socket, subprocess, json
-from actio.eval_worker import lockdown
+from actio.adapters.runtime.eval_worker import lockdown
 counts=lockdown()
-for probe in (lambda: socket.socket(),lambda: subprocess.run([sys.executable,'-c','pass']),lambda: __import__('actio.runtime')):
+for probe in (lambda: socket.socket(),lambda: subprocess.run([sys.executable,'-c','pass']),lambda: __import__('actio.adapters.runtime.runtime')):
     try:probe()
     except RuntimeError:pass
     else:raise AssertionError('audit hook failed to deny')

@@ -4,16 +4,24 @@
   "history_files": 957,
   "historical_tool_files": 91,
   "all_file_bytes_unchanged": true,
-  "trust_and_schema_resources": {
-    "src/actio/_vendor/sotopia_provenance.json": true,
-    "src/actio/candidate_schema.sql": true,
-    "src/actio/evaluation_history.json": true,
-    "src/actio/evaluation_schema.sql": true,
-    "src/actio/legacy_schema.sql": true,
-    "src/actio/pins/c5_runtime.json": true,
-    "src/actio/pins/concordia.json": true,
-    "src/actio/readiness_quote.json": true,
-    "src/actio/schema.sql": true,
-    "src/actio/task_diagnostic_trust.json": true
-  }
+  "resource_moves_bytes_unchanged": {
+    "schema.sql": "adapters/persistence/schema.sql",
+    "candidate_schema.sql": "adapters/persistence/candidate_schema.sql",
+    "evaluation_schema.sql": "adapters/persistence/evaluation_schema.sql",
+    "legacy_schema.sql": "adapters/persistence/legacy_schema.sql",
+    "plugins/common.mjs": "adapters/transport/plugins/common.mjs",
+    "plugins/guard.mjs": "adapters/transport/plugins/guard.mjs",
+    "plugins/transport.mjs": "adapters/transport/plugins/transport.mjs",
+    "fixtures/provider.mjs": "adapters/transport/fixtures/provider.mjs",
+    "readiness_quote.json": "readiness_quote.json",
+    "evaluation_history.json": "evaluation_history.json",
+    "task_diagnostic_trust.json": "task_diagnostic_trust.json",
+    "pins/c5_runtime.json": "pins/c5_runtime.json",
+    "pins/concordia.json": "pins/concordia.json",
+    "_vendor/sotopia_provenance.json": "_vendor/sotopia_provenance.json"
+  },
+  "receipt": "completion/installation-and-history.json",
+  "claims": 19,
+  "fixed_reader_receipt": "history-b78111dcff0b.json",
+  "c5_fixed_reader_receipt": "runtime-recomputed-7f0cbe404cc2.json"
 }

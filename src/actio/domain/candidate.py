@@ -1,5 +1,7 @@
 """One manually authored, finite data-only scaffold seat. No proposer runtime."""
-from actio.contracts.json import canonical, digest, ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.contracts.json import ContractError
 from actio.contracts.json import require
 
 ARTIFACT = 'scaffold-artifact.v1'

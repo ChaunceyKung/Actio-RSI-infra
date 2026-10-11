@@ -4,12 +4,15 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError, write_json
-from actio.facts import Facts
-from actio.runtime import RuntimePort, synthetic_spec
-from actio.scenarios import assistant,social
-from actio.store import Store
-from actio.terminal import check_terminal
+from actio.common import ContractError
+from actio.common import write_json
+from actio.adapters.runtime.facts import Facts
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.application.scenarios import assistant
+from actio.application.scenarios import social
+from actio.interfaces.store import Store
+from actio.application.terminal import check_terminal
 
 
 class Reliability(unittest.TestCase):
@@ -43,16 +46,16 @@ class Reliability(unittest.TestCase):
         self.assertIsNone(self.s.row('SELECT * FROM scenario_terminal'))
 
     def test_disk_scan_handles_atomic_rename_without_hiding_limits_or_errors(self):
-        from actio.supervisor import Supervisor
+        from actio.adapters.runtime.supervisor import Supervisor
         folder=self.root/'disk-scan';folder.mkdir()
         existing=folder/'session.v3.jsonl';existing.write_bytes(b'1234')
         supervisor=Supervisor(folder,'test-no-launch',limits={'disk':4})
         # Reproduce an os.walk entry whose atomic-rename temp has already gone.
-        with patch('actio.supervisor.os.walk',return_value=[(str(folder),[],['session.v3.jsonl.123.tmp',existing.name])]):
+        with patch('actio.adapters.runtime.supervisor.os.walk',return_value=[(str(folder),[],['session.v3.jsonl.123.tmp',existing.name])]):
             supervisor.check_disk()
             supervisor.limits['disk']=3
             with self.assertRaisesRegex(ContractError,'disk_limit_exceeded'):supervisor.check_disk()
-        with patch('actio.supervisor.os.walk',return_value=[(str(folder),[],[existing.name])]):
+        with patch('actio.adapters.runtime.supervisor.os.walk',return_value=[(str(folder),[],[existing.name])]):
             with patch.object(Path,'stat',side_effect=PermissionError('denied')):
                 with self.assertRaises(PermissionError):supervisor.check_disk()
         self.evidence['mode']='CONTROLLED_DISK_SCAN_ATOMIC_RENAME_NO_RUNTIME_LAUNCH'
@@ -131,7 +134,7 @@ class Reliability(unittest.TestCase):
         self.s.finish(historical['id'],historical['epoch'],task='unknown')
         run,_=self.s.begin('active',{})
         worker=self.s.allocate_worker(run['id'],run['epoch'],str(self.root/'unused'),'Local\\Actio-test-'+uuid.uuid4().hex,'A')
-        with patch('actio.supervisor.reap_named_job') as reap:
+        with patch('actio.adapters.runtime.supervisor.reap_named_job') as reap:
             for target in ('missing','history'):
                 with self.assertRaises(ContractError):self.s.recover(target)
             with self.assertRaisesRegex(ContractError,'still alive'):self.s.recover('active')
@@ -140,10 +143,10 @@ class Reliability(unittest.TestCase):
         def changed(name):
             self.s.db.execute('UPDATE lease SET epoch=epoch+1')
             return {'active':0}
-        with patch('actio.supervisor.process_birth',return_value=None),patch('actio.supervisor.reap_named_job',side_effect=changed):
+        with patch('actio.adapters.runtime.supervisor.process_birth',return_value=None),patch('actio.adapters.runtime.supervisor.reap_named_job',side_effect=changed):
             with self.assertRaisesRegex(ContractError,'changed'):self.s.recover('active')
         self.assertEqual(self.s.row('SELECT state FROM worker')['state'],'waiting')
         self.s.db.execute('UPDATE lease SET epoch=?',(before['epoch'],))
-        with patch('actio.supervisor.process_birth',return_value=None),patch('actio.supervisor.reap_named_job',return_value={'active':0}) as reap:
+        with patch('actio.adapters.runtime.supervisor.process_birth',return_value=None),patch('actio.adapters.runtime.supervisor.reap_named_job',return_value={'active':0}) as reap:
             self.s.recover('active');reap.assert_called_once()
         self.evidence['mode']='CONTROLLED_SQLITE_RECOVERY_INTERLEAVING; REAL_OWNER_DEATH_IN_PROCESSES_SUITE'

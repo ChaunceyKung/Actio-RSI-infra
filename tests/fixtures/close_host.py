@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 import threading
 from deepseek_harness import DeepSeekHarness
-from actio.host import main
+from actio.adapters.runtime.host import main
 
 root=Path(sys.argv[1])
 def hang(self):

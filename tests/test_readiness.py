@@ -7,13 +7,21 @@ import sys
 import unittest
 import uuid
 
-from actio.common import canonical,write_json,clean_env,ContractError
-from actio.budget import Ledger,verify_snapshot
-from actio.readiness_contract import rehearsal,reservation
-from actio.transport import TransportPort,PACKAGE
-from actio.transport_campaign import export_campaign,analyze
-from actio.eval_contract import unseal
-from readiness_stub import ReadyStub,scan_secret
+from actio.common import canonical
+from actio.common import write_json
+from actio.common import clean_env
+from actio.common import ContractError
+from actio.adapters.persistence.ledger import Ledger
+from actio.evidence.accounting import verify_snapshot
+from actio.profiles.readiness_contract import rehearsal
+from actio.profiles.readiness_contract import reservation
+from actio.adapters.transport.transport import TransportPort
+from actio.adapters.transport.transport import PACKAGE
+from actio.interfaces.transport_export import export_campaign
+from actio.evidence.transport_campaign import analyze
+from actio.evidence.eval_contract import unseal
+from readiness_stub import ReadyStub
+from readiness_stub import scan_secret
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tests'))
 from support.priced_case import run
@@ -47,6 +55,8 @@ class Readiness(unittest.TestCase):
             v=self.case(name,[{'text':'propose:morning','case':case},{'text':second}],variant=variant)
             self.assertIsNone(v['result']['error']);self.assertEqual(len(v['receives']),2)
             self.assertTrue(all(a['state']=='settled' for a in v['budget']['attempts']))
+            self.assertEqual(v['budget']['meta']['config']['clock'],{'mode':'fixed','instant':'2026-10-09T00:00:00Z'})
+            self.assertEqual(sum(e['kind']=='sending' for e in v['budget']['events']),2)
             self.assertEqual(v['budget']['totals']['cost_minor'],18024 if name=='no-cache' else 16848)
             body=json.loads(v['receives'][1]['raw']);payload=json.loads(body['messages'][1]['content'])
             self.assertEqual(set(payload),{'observations','memory','action_spec','op'})
@@ -109,10 +119,10 @@ r=run(root,cfg,root.parent/'budget.sqlite',secret);write_json(root/'child-result
         for case,needle in [('reserved','const wireHash='),('sending',"log({kind:'sending'"),('before-settle',"a.response.chunks.push(chunk);yield chunk")]:
             class Interrupted(TransportPort):
                 def prepare(port):
-                    super().prepare();source=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8')
+                    super().prepare();source=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8')
                     if case=='before-settle':change="if(chunk.type==='finish') process.exit(97)\n        "+needle
                     else:change='process.exit(97)\n    '+needle
-                    source=source.replace(needle,change).replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                    source=source.replace(needle,change).replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                     fault=port.root/'fault.mjs';fault.write_text(source,encoding='utf8')
                     patch=json.loads((port.root/'profile.patch.yml').read_bytes())
                     for item in patch:
@@ -132,8 +142,8 @@ r=run(root,cfg,root.parent/'budget.sqlite',secret);write_json(root/'child-result
     def test_06_runtime_stderr_credential_is_filtered_before_disk(self):
         class StderrExit(TransportPort):
             def prepare(port):
-                super().prepare();source=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8')
-                source=source.replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                super().prepare();source=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8')
+                source=source.replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                 source=source.replace("  log({kind:'profile'", "  console.error(process.env[config.credential_env]);process.exit(97)\n  log({kind:'profile'")
                 fault=port.root/'stderr-test.mjs';fault.write_text(source,encoding='utf8')
                 patch=json.loads((port.root/'profile.patch.yml').read_bytes())
@@ -165,12 +175,12 @@ r=run(root,cfg,root.parent/'budget.sqlite',secret);write_json(root/'child-result
 sys.path.insert(0,str(pathlib.Path(__file__).parent))
 def audit(e,a):
  if e.startswith('socket.') or e=='subprocess.Popen':raise RuntimeError('network/process denied')
- if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.runtime','actio.transport')):raise RuntimeError('runtime denied')
+ if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.adapters.runtime.runtime','actio.adapters.transport.transport')):raise RuntimeError('runtime denied')
  if e=='open':
   p,m,f=a
   if isinstance(m,str) and any(c in m for c in 'wax+') or isinstance(f,int) and f&(1|2|64|512|1024):raise RuntimeError('writes denied')
 sys.addaudithook(audit)
-from actio.transport_campaign import verify_campaign
+from actio.evidence.transport_campaign import verify_campaign
 r=verify_campaign(sys.argv[1]);print(json.dumps(r));sys.exit(0 if r['valid'] else 2)
 """,encoding='utf8')
         p=subprocess.run([sys.executable,'-X','utf8','-I','-S','-B',str(script),str(root/'campaign')],cwd=portable,env=clean_env(portable),capture_output=True,text=True,encoding='utf8',timeout=30)

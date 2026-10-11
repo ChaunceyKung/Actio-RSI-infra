@@ -6,12 +6,22 @@ import sys
 import unittest
 import uuid
 
-from actio.common import canonical,write_json,clean_env,ContractError
-from actio.budget import Ledger,verify_snapshot
-from actio.transport_contract import config
-from actio.transport_campaign import export_campaign,analyze
-from actio.evaluation import read_json,source_bundle,evaluate,prepare
-from actio.eval_contract import unseal,seal,make_spec
+from actio.common import canonical
+from actio.common import write_json
+from actio.common import clean_env
+from actio.common import ContractError
+from actio.adapters.persistence.ledger import Ledger
+from actio.evidence.accounting import verify_snapshot
+from actio.profiles.transport import config
+from actio.interfaces.transport_export import export_campaign
+from actio.evidence.transport_campaign import analyze
+from actio.evidence.evaluation import read_json
+from actio.evidence.evaluation import source_bundle
+from actio.interfaces.evaluation import evaluate
+from actio.evidence.evaluation import prepare
+from actio.evidence.eval_contract import unseal
+from actio.evidence.eval_contract import seal
+from actio.evidence.eval_contract import make_spec
 from chat_stub import ChatStub
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -120,12 +130,12 @@ class Transport(unittest.TestCase):
 base=pathlib.Path(__file__).parent;sys.path.insert(0,str(base))
 def audit(e,a):
  if e.startswith('socket.') or e=='subprocess.Popen':raise RuntimeError('no network/worker')
- if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.runtime','actio.transport')):raise RuntimeError('no runtime')
+ if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.adapters.runtime.runtime','actio.adapters.transport.transport')):raise RuntimeError('no runtime')
  if e=='open':
   path,mode,flags=a
   if isinstance(mode,str) and any(c in mode for c in 'wax+') or isinstance(flags,int) and flags&(1|2|64|512|1024):raise RuntimeError('no writes')
 sys.addaudithook(audit)
-from actio.transport_campaign import verify_campaign
+from actio.evidence.transport_campaign import verify_campaign
 r=verify_campaign(base/'campaign');print(json.dumps(r));sys.exit(0 if r['valid'] else 2)
 ''',encoding='utf8')
         p=subprocess.run([sys.executable,'-I','-S','-B',str(script)],cwd=portable,env=clean_env(portable),capture_output=True,text=True,encoding='utf8',timeout=30)

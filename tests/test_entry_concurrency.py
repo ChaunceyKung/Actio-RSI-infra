@@ -6,10 +6,14 @@ import time
 import unittest
 import uuid
 
-from actio.common import ContractError,Lines,clean_env,write_json
-from actio.runtime import synthetic_spec
-from actio.scenarios import assistant,social
-from actio.store import Store
+from actio.common import ContractError
+from actio.common import Lines
+from actio.common import clean_env
+from actio.common import write_json
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.application.scenarios import assistant
+from actio.application.scenarios import social
+from actio.interfaces.store import Store
 
 
 class EntryConcurrency(unittest.TestCase):

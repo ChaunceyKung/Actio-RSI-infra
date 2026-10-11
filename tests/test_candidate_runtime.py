@@ -3,16 +3,19 @@ import json
 from pathlib import Path
 import unittest
 import uuid
-from actio import candidate_campaign as contract
+from actio.profiles import candidate_campaign as contract
+from actio.profiles.gateway_base import AUTH
 from actio.common import write_json
-from actio.eval_contract import seal
-from actio.pilot import run_unit,execute
-from actio.candidate import verify
-from actio.candidate_measurement import source
+from actio.evidence.eval_contract import seal
+from actio.interfaces.pilot import run_unit
+from actio.interfaces.pilot import execute
+from actio.interfaces.candidate import verify
+from actio.evidence.candidate_measurement import source
 from actio.tasks.candidate import payload
-from actio.tasks.finite import observation,get
+from actio.tasks.finite import observation
+from actio.tasks.finite import get
 from actio.measurement.oracle import fixture_policy
-from actio.gateway import scan
+from actio.adapters.filesystem.credentials import scan
 from gateway_stub import GatewayStub
 
 
@@ -48,9 +51,9 @@ class CandidateRuntime(unittest.TestCase):
     def test_incomplete_stops_and_claim_is_not_reclaimed(self):
         u=self.pre['body']['units'][0];a=fixture_policy(get(u['card']),'own_rule')['A']
         with GatewayStub(self.root,[{'pilot':True,'model':'gpt-5.6','text':a,'reasoning':'Synthetic channel marker.','case':'missing-done'}],self.secret) as service:
-            report=execute(self.root/'stopped',self.pre,self.secret,endpoint=service.endpoint,authority_root=self.root/'claims',operation_authorization=contract.AUTH,receives=service.receives,contract=contract)
+            report=execute(self.root/'stopped',self.pre,self.secret,endpoint=service.endpoint,authority_root=self.root/'claims',operation_authorization=AUTH,receives=service.receives,contract=contract)
             self.assertEqual(report['counts']['sent'],1);self.assertEqual(report['counts']['not_run'],47);self.assertEqual(report['counts']['unknown'],1)
-            with self.assertRaises(FileExistsError):execute(self.root/'repeat',self.pre,self.secret,endpoint=service.endpoint,authority_root=self.root/'claims',operation_authorization=contract.AUTH,receives=service.receives,contract=contract)
+            with self.assertRaises(FileExistsError):execute(self.root/'repeat',self.pre,self.secret,endpoint=service.endpoint,authority_root=self.root/'claims',operation_authorization=AUTH,receives=service.receives,contract=contract)
         self.evidence.update(counts=report['counts'],decision=report['decision'],scan=scan(self.root,self.secret))
 
     def test_actual_arm_pair_prepared_full_wire_and_tamper(self):

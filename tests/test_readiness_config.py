@@ -1,5 +1,6 @@
 import copy
-from datetime import datetime,timezone
+from datetime import datetime
+from datetime import timezone
 import json
 from pathlib import Path
 import subprocess
@@ -8,9 +9,19 @@ import tempfile
 import unittest
 from unittest.mock import Mock
 
-from actio.common import ContractError,clean_env,digest
-from actio.readiness_contract import template,validate,plan,execute,amount,reservation,quote_current,QUOTE
-from actio.transport_contract import config as old_config,validate_config
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.common import digest
+from actio.profiles.readiness_contract import template
+from actio.profiles.readiness_contract import validate
+from actio.profiles.readiness_contract import plan
+from actio.profiles.readiness_contract import execute
+from actio.profiles.readiness_contract import amount
+from actio.profiles.readiness_contract import reservation
+from actio.profiles.readiness_contract import quote_current
+from actio.profiles.readiness_contract import QUOTE
+from actio.profiles.transport import config as old_config
+from actio.profiles.transport import validate_config
 
 
 class ReadinessConfig(unittest.TestCase):
@@ -47,6 +58,38 @@ class ReadinessConfig(unittest.TestCase):
         with self.assertRaises(ContractError):validate(altered)
         self.assertEqual(validate_config(old_config('http://127.0.0.1:19999'))['schema'],'pilot-config.v3')
 
+    def test_clock_boundaries_and_system_expiration(self):
+        from actio.profiles.readiness_contract import rehearsal
+        from actio.domain.clock import ClockSpec
+        with tempfile.TemporaryDirectory() as folder:
+            c=rehearsal('http://127.0.0.1:19999',folder,'a'*32)
+            outcomes=[]
+            for instant,allowed in [('2026-10-08T15:59:59Z',False),
+                                    ('2026-10-08T16:00:00Z',True),
+                                    ('2026-10-09T00:00:00Z',True),
+                                    ('2026-10-10T16:00:00Z',False),
+                                    ('2026-10-10T16:00:01Z',False)]:
+                value=copy.deepcopy(c);value['clock']=ClockSpec('fixed',instant).as_dict()
+                validate(value)
+                if allowed:quote_current(value)
+                else:
+                    with self.assertRaises(ContractError):quote_current(value)
+                self.assertNotEqual(digest(value),digest(template()))
+                outcomes.append({'instant':instant,'allowed':allowed})
+            live=template()
+            self.assertEqual(live['clock'],{'mode':'system','instant':None})
+            with self.assertRaises(ContractError):quote_current(live)
+            with self.assertRaises(ContractError):quote_current(live,datetime(2026,10,9,tzinfo=timezone.utc))
+            live['clock']=c['clock']
+            with self.assertRaises(ContractError):validate(live)
+            for invalid in ({'mode':'fixed','instant':'2026-10-09T00:00:00+00:00'},
+                            {'mode':'system','instant':'2026-10-09T00:00:00Z'},
+                            {'mode':'fixed','instant':'invalidZ'}):
+                value=copy.deepcopy(c);value['clock']=invalid
+                with self.assertRaises(ContractError):validate(value)
+            self.evidence={'boundaries':outcomes,'system_expired_rejected':True,
+                           'schema':c['schema'],'clock':c['clock']}
+
     def test_plan_cli_under_no_network_process_or_credential_access_guard(self):
         with tempfile.TemporaryDirectory() as name:
             root=Path(name)
@@ -58,7 +101,7 @@ class NoEnvironment(dict):
  def get(self,*a):raise RuntimeError('environment access forbidden')
  def __getitem__(self,k):raise RuntimeError('environment access forbidden')
 os.environ=NoEnvironment()
-from actio.readiness_contract import plan,template,execute
+from actio.profiles.readiness_contract import plan,template,execute
 r=plan(template());assert r['credential_reads']==0
 try:execute(template(),credential_resolver=lambda r:1/0)
 except ValueError:pass

@@ -3,13 +3,15 @@
 Event shapes adapted from DeepSeek MIT mock-server.ts @ 183f08e9.
 Copyright (c) 2026 DeepSeek; see docs/validation/phase1c2a1/DSH_LICENSE.txt.
 """
-from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler
+from http.server import ThreadingHTTPServer
 import hashlib
 import json
 import threading
 import time
 
-from actio.common import canonical,write_json
+from actio.common import canonical
+from actio.common import write_json
 
 
 

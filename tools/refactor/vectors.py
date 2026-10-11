@@ -7,7 +7,10 @@ if len(sys.argv)>1:
     sys.path.insert(0,str(Path(sys.argv[1])/'src'))
 from actio.common import canonical,digest,ContractError
 from actio.verify import parse
-from actio.eval_contract import seal,unseal
+if len(sys.argv)>1:
+    from actio.eval_contract import seal,unseal
+else:
+    from actio.contracts.json import seal,unseal
 if len(sys.argv)>1:
     from actio.suite_tasks import cards,card,options,result,observation,payload
     from actio.suite_oracle import evaluate
@@ -20,8 +23,12 @@ else:
     from actio.tasks.diagnostic import dataset,visible
     from actio.tasks.controls import control
     from actio.domain.candidate import baseline,candidate,validate_artifact
-from actio.failure_fixtures import portable_vectors,mutate
-from actio.failure_observation import observe
+if len(sys.argv)>1:
+    from actio.failure_fixtures import portable_vectors,mutate
+    from actio.failure_observation import observe
+else:
+    from actio.evidence.failure_fixtures import portable_vectors,mutate
+    from actio.evidence.failure_observation import observe
 from actio.budget import totals
 
 rows=[]

@@ -2,11 +2,12 @@
 import copy
 import re
 from actio.contracts.json import digest
-from actio.tasks.scheduling import sealed
+from actio.tasks.core import sealed
 from actio.contracts.json import require
-from actio.tasks.diagnostic import dataset, task
-from actio.domain.candidate import baseline, candidate
-from actio.tasks.candidate import payload, binding
+from actio.tasks.diagnostic import dataset
+from actio.tasks.diagnostic import task
+from actio.domain.candidate import baseline
+from actio.domain.candidate import candidate
 
 DATASET_HASH = '3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a'
 INPUT = 'visible-robustness-tokenkey.v1'

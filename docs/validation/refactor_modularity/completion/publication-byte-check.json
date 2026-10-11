@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "all wheel product file bytes equal staged Git index; excludes dist-info metadata",
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "files": 179,
+  "architecture_checker_unchanged": true
+}

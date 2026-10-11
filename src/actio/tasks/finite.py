@@ -5,9 +5,10 @@ Limited, Apache-2.0. Modifications 2026 Actio: exact finite grammar, explicit
 roles, null incomplete outcomes, public/hard rules and toy integer utility.
 """
 import re
-from actio.contracts.json import canonical, digest
-from actio.tasks.scheduling import sealed, require
-from actio.tasks.scheduling_v2 import visible_memory
+from actio.contracts.json import canonical
+from actio.tasks.core import sealed
+from actio.tasks.core import require
+from actio.tasks.core import visible_memory
 
 INPUT='finite-suite-tokenkey.v1'
 SCHEMA='actio-task.v3'

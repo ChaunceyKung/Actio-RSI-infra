@@ -4,11 +4,14 @@ import hashlib
 import json
 from pathlib import Path
 import sys
-from actio.contracts.json import canonical,digest
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
 from actio.adapters.filesystem.common import file_hash
-from actio.transport_diagnostics import sources
-from actio.diagnostic_runtime import fixture,TOOLS
-from actio.failure_fixtures import CASES,portable_vectors
+from actio.evidence.transport_diagnostics import sources
+from actio.application.diagnostic_runtime import fixture
+from actio.application.diagnostic_runtime import TOOLS
+from actio.evidence.failure_fixtures import CASES
+from actio.evidence.failure_fixtures import portable_vectors
 ROOT=Path(__file__).resolve().parents[2]
 
 def main():

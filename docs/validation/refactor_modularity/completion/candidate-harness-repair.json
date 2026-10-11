@@ -1,0 +1,23 @@
+{
+  "status": "PASS_ON_ISOLATED_RECHECK",
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "original_error": "candidate_runtime referenced removed implicit candidate_campaign.AUTH export",
+  "change": "Import AUTH from its owner actio.profiles.gateway_base; pass the identical value into the same application execute function",
+  "authorization_value_unchanged": true,
+  "test_before_sha256": "8583710531b5a6fe7c6042e02571debc0f30a5954abcbb3bc158b418309b55d0",
+  "test_after_sha256": "33f492004c5dd9782c7f999c64847e638e1f46d9cc3353984f6d6b1fc173451a",
+  "assertions_unchanged": true,
+  "product_source_unchanged": true,
+  "original_log_sha256": "caecd67555662dbb75e3579448a588918f779fc2738b2bc8921ea8a6363da820",
+  "recheck": {
+    "suite": "candidate_runtime",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "PASS",
+    "started": "2026-10-11T11:27:23.215920+00:00",
+    "log_sha256": "670df42a286403764764cbcaf146628967d4741662266307d2ad32f557e50797"
+  },
+  "recheck_receipt_sha256": "9972319c476806c06ee44f78b16b2eb4f189e12baf37340c00bd4f102b8a4d3a"
+}

@@ -5,16 +5,22 @@ import subprocess
 import sys
 import unittest
 import uuid
-from actio.common import canonical,write_json,ContractError,clean_env
-from actio.eval_contract import seal
-from actio import suite_contract as contract
-from actio.tasks.finite import get,observation,payload
+from actio.common import canonical
+from actio.common import write_json
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.evidence.eval_contract import seal
+from actio.profiles import suite_contract as contract
+from actio.tasks.finite import get
+from actio.tasks.finite import observation
+from actio.tasks.finite import payload
 from actio.measurement.oracle import fixture_policy
-from actio.suite_measurement import verify
-from actio.pilot import run_unit,execute
-from actio.transport import TransportPort
-from actio.budget import Ledger
-from actio.gateway import scan
+from actio.evidence.suite_measurement import verify
+from actio.interfaces.pilot import run_unit
+from actio.interfaces.pilot import execute
+from actio.adapters.transport.transport import TransportPort
+from actio.adapters.persistence.ledger import Ledger
+from actio.adapters.filesystem.credentials import scan
 from gateway_stub import GatewayStub
 from test_suite import GUARD
 
@@ -61,7 +67,7 @@ class SuiteRuntime(unittest.TestCase):
                 self.assertFalse(any('hash' in k.lower() for k in rec['headers']))
         value=self.snapshot(entries);r=verify(value);self.assertTrue(r['valid'],r);self.assertEqual(r['report']['counts']['sent'],48)
         self.assertEqual(r['report']['counts']['complete_episodes'],24);write_json(self.root/'pilot.json',value);write_json(self.root/'report.json',r)
-        code=GUARD+"\nfrom actio.suite_measurement import verify\nr=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print(json.dumps(r['report']['counts']))"
+        code=GUARD+"\nfrom actio.evidence.suite_measurement import verify\nr=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print(json.dumps(r['report']['counts']))"
         p=subprocess.run([sys.executable,'-I','-B','-c',code,str(self.root/'pilot.json')],capture_output=True,text=True,env=clean_env(self.root),timeout=60)
         self.assertEqual(p.returncode,0,p.stderr);self.evidence.update(portable_counts=json.loads(p.stdout),full_wire_counterfactuals=comparisons,projection='actual official serialization plus hidden-counterfactual substitution; independent UUID fixed, all headers inspected')
 
@@ -89,7 +95,7 @@ class SuiteRuntime(unittest.TestCase):
             r=execute(self.root/'experiment',self.pre,self.secret,endpoint=service.endpoint,authority_root=self.root/'authority',operation_authorization=contract.AUTH,receives=service.receives,contract=contract)
             self.assertEqual(r['counts']['sent'],1);self.assertEqual(r['counts']['unknown'],1);self.assertEqual(r['counts']['not_run'],47)
             with self.assertRaises(FileExistsError):execute(self.root/'different-root',self.pre,self.secret,endpoint=service.endpoint,authority_root=self.root/'authority',operation_authorization=contract.AUTH,receives=service.receives,contract=contract)
-        code="from actio.pilot import create\nimport sys\ntry:create(sys.argv[1],{'claim':True});print('claimed')\nexcept FileExistsError:print('denied')"
+        code="from actio.application.pilot import create\nimport sys\ntry:create(sys.argv[1],{'claim':True});print('claimed')\nexcept FileExistsError:print('denied')"
         ps=[subprocess.Popen([sys.executable,'-I','-B','-c',code,str(self.root/'claim.json')],stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=clean_env(self.root)) for _ in range(2)]
         out=[p.communicate(timeout=30) for p in ps];self.assertEqual(sorted(o[0].decode().strip() for o in out),['claimed','denied'])
         self.evidence['counts']=r['counts']

@@ -6,10 +6,15 @@ import json
 from pathlib import Path
 import unittest
 
-from pydantic import create_model,field_validator
-from actio._vendor.sotopia import (LLMBaseModel,LLMEvalBaseModel,PositiveReasoningScore,
-                                  BidirectionalReasoningScore,PydanticOutputParser,EvaluationForAgents)
-from actio.eval_worker import controlled
+from pydantic import create_model
+from pydantic import field_validator
+from actio._vendor.sotopia import LLMBaseModel
+from actio._vendor.sotopia import LLMEvalBaseModel
+from actio._vendor.sotopia import PositiveReasoningScore
+from actio._vendor.sotopia import BidirectionalReasoningScore
+from actio._vendor.sotopia import PydanticOutputParser
+from actio._vendor.sotopia import EvaluationForAgents
+from actio.adapters.runtime.eval_worker import controlled
 
 
 class Sotopia(unittest.TestCase):

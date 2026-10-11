@@ -1,5 +1,5 @@
 """Visible-only controls. This module never imports oracle/world evaluators."""
-from actio.tasks.scheduling import require
+from actio.tasks.core import require
 from actio.tasks.diagnostic import validate_view
 
 VERSION = 'task-diagnostic-policies.v1'

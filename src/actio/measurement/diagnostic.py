@@ -2,11 +2,23 @@
 import copy
 import itertools
 
-from actio.contracts.json import canonical, digest
-from actio.tasks.finite import options, result, observation, payload
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.tasks.finite import options
+from actio.tasks.finite import result
+from actio.tasks.finite import observation
+from actio.tasks.finite import payload
 from actio.measurement.oracle import evaluate
-from actio.tasks.diagnostic import task, visible, validate_dataset
-from actio.tasks.controls import a_reference, b_reference, diagnose_a, control, CONTROLS, cell, aggregate
+from actio.tasks.diagnostic import task
+from actio.tasks.diagnostic import visible
+from actio.tasks.diagnostic import validate_dataset
+from actio.tasks.controls import a_reference
+from actio.tasks.controls import b_reference
+from actio.tasks.controls import diagnose_a
+from actio.tasks.controls import control
+from actio.tasks.controls import CONTROLS
+from actio.tasks.controls import cell
+from actio.tasks.controls import aggregate
 
 VERSION = 'task-diagnostic-report.v1'
 

@@ -1,0 +1,40 @@
+{
+  "status": "PASS_ON_ISOLATED_RECHECK",
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "suite": "failures",
+  "first_error": "artifact subcase: TimeoutError ready deadline",
+  "cascade": "registry/rewrite subcases: active lease; TTL cannot authorize takeover",
+  "assertions_and_deadlines_unchanged": true,
+  "root": "D:\\actio-p1b-tests\\82626909779d",
+  "worker_state": "reaped",
+  "worker_cleanup": {
+    "before": {
+      "total": 6,
+      "active": 6,
+      "terminated": 0
+    },
+    "after": {
+      "total": 6,
+      "active": 0,
+      "terminated": 0
+    }
+  },
+  "stderr_bytes": 0,
+  "bridge_evidence": "guard-ready present; host ready was not observed before deadline",
+  "overlap": "Separate formal05 runtime/scan overlapped; contention is possible, not proven",
+  "original_log_sha256": "c8cd1e6fa04c345ffeba54c67e990a512b71ed1f7fa26a2ffe3ddd6e86f4cfa9",
+  "retry_policy": "One isolated full-suite recheck after the all-local runner completes; no code/timeout/assertion changes",
+  "recheck": [
+    {
+      "suite": "failures",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "started": "2026-10-11T11:24:57.236636+00:00",
+      "log_sha256": "f2fd90acebd3572f98b99d2b129b5f13221958b802473747f402d20bb079cbc4"
+    }
+  ],
+  "recheck_receipt_sha256": "9972319c476806c06ee44f78b16b2eb4f189e12baf37340c00bd4f102b8a4d3a"
+}

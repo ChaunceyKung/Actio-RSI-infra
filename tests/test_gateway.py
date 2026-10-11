@@ -6,11 +6,20 @@ import sys
 import unittest
 import uuid
 from unittest.mock import patch
-from actio.common import ContractError,write_json,clean_env,digest
-from actio.gateway_contract import template,validate,plan,AUTH
-from actio.gateway import execute,scan
-from actio.budget import Ledger,verify_snapshot
-from actio.transport import TransportPort,PACKAGE
+from actio.common import ContractError
+from actio.common import write_json
+from actio.common import clean_env
+from actio.common import digest
+from actio.profiles.gateway_base import template
+from actio.profiles.gateway_contract import validate
+from actio.profiles.gateway_contract import plan
+from actio.profiles.gateway_base import AUTH
+from actio.interfaces.gateway import execute
+from actio.adapters.filesystem.credentials import scan
+from actio.adapters.persistence.ledger import Ledger
+from actio.evidence.accounting import verify_snapshot
+from actio.adapters.transport.transport import TransportPort
+from actio.adapters.transport.transport import PACKAGE
 from gateway_stub import GatewayStub
 
 class Gateway(unittest.TestCase):
@@ -45,7 +54,7 @@ class NoEnv(dict):
  def get(self,*a):raise RuntimeError('env lookup')
  def __getitem__(self,*a):raise RuntimeError('env lookup')
 os.environ=NoEnv()
-from actio.gateway_contract import template,plan
+from actio.profiles.gateway_contract import template,plan
 from actio.common import canonical
 print(canonical(plan(template())))
 """
@@ -85,7 +94,7 @@ print(canonical(plan(template())))
             self.assertEqual(sum(a['state']=='unknown' for a in v['ledger']['attempts']),0 if name=='delayed' else 1)
         class SplitStderr(TransportPort):
             def prepare(port):
-                super().prepare();s=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8').replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                super().prepare();s=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8').replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                 s=s.replace("  log({kind:'profile'","  const k=process.env[config.credential_env];process.stderr.write(k.slice(0,12));await new Promise(r=>setTimeout(r,25));process.stderr.write(k.slice(12)+'\\n');process.exit(97)\n  log({kind:'profile'")
                 p=port.root/'split-test.mjs';p.write_text(s,encoding='utf8');cfg=json.loads((port.root/'profile.patch.yml').read_bytes())
                 for item in cfg:
@@ -98,7 +107,7 @@ print(canonical(plan(template())))
     def test_05_offline_reader_rehash_and_send_boundaries(self):
         class Boundary(TransportPort):
             def prepare(port):
-                super().prepare();s=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8').replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                super().prepare();s=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8').replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                 s=s.replace("  log({kind:'profile'","  for(const url of ['https://api.openai.com/v1/chat/completions',config.endpoint+'/models']){try{await globalThis.fetch(url,{method:'POST',body:'{}'});throw Error('UNEXPECTED_SEND')}catch(e){if(String(e).includes('UNEXPECTED_SEND'))throw e}}\n  log({kind:'profile'")
                 s=s.replace('      active=null',"      try{await globalThis.fetch(config.endpoint+'/chat/completions',{method:'POST',body:'{}'});throw Error('DUPLICATE_SEND')}catch(e){if(String(e).includes('DUPLICATE_SEND'))throw e}\n      active=null")
                 p=port.root/'boundary.mjs';p.write_text(s,encoding='utf8');cfg=json.loads((port.root/'profile.patch.yml').read_bytes())
@@ -120,7 +129,7 @@ def audit(e,a):
  if e=='import' and a[0].split('.')[0] in ('deepseek_harness','concordia'):raise RuntimeError('runtime denied')
  if e=='open' and ((isinstance(a[1],str) and any(c in a[1] for c in 'wax+')) or (isinstance(a[2],int) and a[2]&(1|2|64|512|1024))):raise RuntimeError('write denied')
 sys.addaudithook(audit)
-from actio.transport_campaign import verify_campaign
+from actio.evidence.transport_campaign import verify_campaign
 from actio.common import canonical
 r=verify_campaign(sys.argv[1]);print(canonical(r));assert r['valid']
 """

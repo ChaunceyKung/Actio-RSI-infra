@@ -5,14 +5,24 @@ import subprocess
 import sys
 import unittest
 import uuid
-from actio.common import canonical,digest,write_json,ContractError,clean_env
-from actio.eval_contract import seal,unseal
-from actio.pilot_contract import preregistration,config,AUTH
-from actio.pilot import run_unit,execute,create
-from actio.pilot_measurement import verify
-from actio.gateway import scan
-from actio.budget import Ledger
-from actio.transport import TransportPort,PACKAGE
+from actio.common import canonical
+from actio.common import digest
+from actio.common import write_json
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.evidence.eval_contract import seal
+from actio.evidence.eval_contract import unseal
+from actio.profiles.pilot_contract import preregistration
+from actio.profiles.pilot_contract import config
+from actio.profiles.pilot_contract import AUTH
+from actio.interfaces.pilot import run_unit
+from actio.interfaces.pilot import execute
+from actio.adapters.filesystem.publication import create
+from actio.evidence.pilot_measurement import verify
+from actio.adapters.filesystem.credentials import scan
+from actio.adapters.persistence.ledger import Ledger
+from actio.adapters.transport.transport import TransportPort
+from actio.adapters.transport.transport import PACKAGE
 from gateway_stub import GatewayStub
 
 
@@ -73,7 +83,7 @@ class PilotRuntime(unittest.TestCase):
         code='''import sys,os,json
 def audit(e,a):
  if e.startswith('socket.') or e=='subprocess.Popen':raise RuntimeError('network/process denied')
- if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.runtime','actio.transport','actio.gateway','actio.eval_worker')):raise RuntimeError('runtime denied')
+ if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.adapters.runtime.runtime','actio.adapters.transport.transport','actio.application.gateway','actio.adapters.runtime.eval_worker')):raise RuntimeError('runtime denied')
  if e=='open':
   if 'token_key' in str(a[0]):raise RuntimeError('credential denied')
   if isinstance(a[1],str) and any(c in a[1] for c in 'wax+') or isinstance(a[2],int) and a[2]&(1|2|64|512|1024):raise RuntimeError('write denied')
@@ -82,7 +92,7 @@ class NoEnv(dict):
  def get(self,*a):raise RuntimeError('env denied')
  def __getitem__(self,*a):raise RuntimeError('env denied')
 os.environ=NoEnv()
-from actio.pilot_measurement import verify
+from actio.evidence.pilot_measurement import verify
 r=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print(json.dumps(r['report']['counts']))
 '''
         r=subprocess.run([sys.executable,'-I','-B','-c',code,str(self.root/'pilot.json')],cwd=self.root,env=clean_env(self.root),capture_output=True,text=True,timeout=60)
@@ -93,7 +103,7 @@ r=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print
         self.assertNotEqual(original,attempt['response']['raw'])
         import base64
         attempt['response']['raw_base64']=base64.b64encode(attempt['response']['raw'].encode()).decode()
-        from actio.stream_audit import verdict
+        from actio.evidence.stream_audit import verdict
         attempt['text_integrity']=verdict(attempt['response'])
         for ev in ledger['events']:
             if ev['attempt']==attempt['id'] and ev['kind']=='settled':ev['body'].update(response=attempt['response'],text_integrity=attempt['text_integrity'])
@@ -136,7 +146,7 @@ r=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print
 
     def test_04_atomic_experiment_claim_race(self):
         code='''import sys,pathlib
-from actio.pilot import create
+from actio.application.pilot import create
 try:create(pathlib.Path(sys.argv[1]),{'claim':True});print('claimed')
 except FileExistsError:print('denied')
 '''

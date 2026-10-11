@@ -3,15 +3,19 @@ from pathlib import Path
 import unittest
 import uuid
 from unittest.mock import patch
-from actio import evaluation_campaign as c
+from actio.profiles import evaluation_campaign as c
 from actio.common import write_json
-from actio.pilot import execute,run_unit
-from actio.candidate_evaluation import prepare_store,finalize,verify
+from actio.interfaces.pilot import execute
+from actio.interfaces.pilot import run_unit
+from actio.interfaces.candidate_evaluation import prepare_store
+from actio.interfaces.candidate_evaluation import finalize
+from actio.interfaces.candidate_evaluation import verify
 from actio.tasks.finite import get
 from actio.measurement.oracle import fixture_policy
-from actio.eval_contract import seal
+from actio.evidence.eval_contract import seal
 from gateway_stub import GatewayStub
-from test_evaluation_candidate import SOURCE,empty
+from test_evaluation_candidate import SOURCE
+from test_evaluation_candidate import empty
 
 
 class EvaluationRuntime(unittest.TestCase):
@@ -68,7 +72,7 @@ class EvaluationRuntime(unittest.TestCase):
         self.evidence.update(counts=report['counts'],state=report['candidate_decision'])
 
     def test_04_controller_failure_keeps_inventory_when_verifier_fails(self):
-        with patch('actio.pilot.run_unit',side_effect=RuntimeError('controlled pre-send controller failure')),patch.object(c,'analyze',side_effect=ValueError('controlled verifier failure')):
+        with patch('actio.application.pilot.run_unit',side_effect=RuntimeError('controlled pre-send controller failure')),patch('actio.evidence.evaluation_measurement.analyze_pilot',side_effect=ValueError('controlled verifier failure')):
             r=execute(self.root/'stopped',self.pre,self.secret,endpoint='http://127.0.0.1:1/v1',authority_root=self.root/'claims',operation_authorization=c.AUTH,contract=c)
         self.assertFalse(r['valid'])
         for name in ('pilot.json','raw-attempt-inventory.json','controller-failure.json','verification-failure.json','credential-scan.json'):self.assertTrue((self.root/'stopped'/name).is_file())

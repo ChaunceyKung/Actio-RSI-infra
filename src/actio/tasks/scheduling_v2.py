@@ -1,7 +1,10 @@
 """C2B2 finite scheduling cards and actor-visible whitelist."""
 import re
-from actio.contracts.json import canonical, digest
-from actio.tasks.scheduling import task_card as old_card, sealed, require
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.tasks.scheduling import task_card as old_card
+from actio.tasks.core import sealed
+from actio.tasks.core import require
 
 INPUT='scheduling-tokenkey.v2'
 SCHEMA='actio-task.v2'
@@ -39,9 +42,7 @@ def observation(m,seat,actions):
         'initial_relationship':t['relationships'][seat],
         'public_actions':[{'seat':t['order'][i],'action':a} for i,a in enumerate(actions)]})
 
-def visible_memory(snapshot):
-    require(snapshot['items']==[] and snapshot['as_of']==0,'pilot resets memory; nonempty history rejected')
-    return []
+from actio.tasks.core import visible_memory
 
 def payload(m,seat,observations):
     return {'observations':observations,'memory':visible_memory(m['memory'][m['entities'][seat]]),

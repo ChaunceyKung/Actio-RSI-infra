@@ -9,19 +9,38 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError,canonical,digest,file_hash,clean_env,Lines
-from actio.runtime import RuntimePort,synthetic_spec
-from actio.store import Store
-from actio.scenarios import scheduling
-from actio.tasks.scheduling import task_card,actor_observation
-from actio.evidence import export_bundle
-from actio.verify import verify_bundle,sha
-from actio.terminal import terminal_body
-from actio.eval_contract import make_spec,seal
-from actio.evaluation import prepare,evaluate,source_bundle,verify_record
-from actio.campaign import GROUP_RULE,source_group,run_campaign,verify_campaign,validate_dataset
-from actio.calibration import export_annotations,import_labels
-from actio.preflight import template,preflight,stub_config
+from actio.common import ContractError
+from actio.common import canonical
+from actio.common import digest
+from actio.common import file_hash
+from actio.common import clean_env
+from actio.common import Lines
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.interfaces.store import Store
+from actio.application.scenarios import scheduling
+from actio.tasks.registry import task_card
+from actio.tasks.registry import actor_observation
+from actio.interfaces.export import export_bundle
+from actio.evidence.verify import verify_bundle
+from actio.evidence.verify import sha
+from actio.evidence.terminal import terminal_body
+from actio.evidence.eval_contract import make_spec
+from actio.evidence.eval_contract import seal
+from actio.evidence.evaluation import prepare
+from actio.interfaces.evaluation import evaluate
+from actio.evidence.evaluation import source_bundle
+from actio.evidence.evaluation import verify_record
+from actio.evidence.campaign import GROUP_RULE
+from actio.evidence.campaign import source_group
+from actio.interfaces.campaign import run_campaign
+from actio.evidence.campaign import verify_campaign
+from actio.evidence.campaign import validate_dataset
+from actio.evidence.calibration import export_annotations
+from actio.evidence.calibration import import_labels
+from actio.domain.roles import template
+from actio.interfaces.preflight import preflight
+from actio.domain.roles import stub_config
 from test_evaluation import response
 
 
@@ -130,7 +149,7 @@ class TaskContract(unittest.TestCase):
         for field in ('seats','relationships','visibility','action_specs'):
             bad=copy.deepcopy(self.tasks['compatible']);bad['body'].pop(field);bad=seal(bad['body'])
             with self.assertRaises(ContractError):scheduling(self.s,'bad-'+field,self.root,task=bad)
-        with patch('actio.scenarios.run_engine',side_effect=AssertionError('must not rerun')):
+        with patch('actio.application.scenarios.run_engine',side_effect=AssertionError('must not rerun')):
             self.assertEqual(scheduling(self.s,'success',self.root,task=self.tasks['compatible'])['id'],self.runs['success']['id'])
         with self.assertRaises(ContractError):scheduling(self.s,'success',self.root,task=self.tasks['conflict'])
         for kw in ({'task':self.tasks['compatible']},{'script':{'A':'propose:morning','B':'accept'}}):
@@ -186,7 +205,7 @@ class TaskContract(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)/'campaign';run_campaign(dataset,root)
             before={p.relative_to(root).as_posix():file_hash(p) for p in root.rglob('*') if p.is_file()}
-            with patch('actio.campaign.evaluate',side_effect=AssertionError('readonly')),patch('actio.evaluation.execute_worker',side_effect=AssertionError('readonly')):
+            with patch('actio.interfaces.evaluation.evaluate',side_effect=AssertionError('readonly')),patch('actio.interfaces.evaluation.execute_worker',side_effect=AssertionError('readonly')):
                 result=verify_campaign(root);self.assertTrue(result['valid'],result)
             self.assertEqual(before,{p.relative_to(root).as_posix():file_hash(p) for p in root.rglob('*') if p.is_file()})
             rejected={}
@@ -247,7 +266,7 @@ class TaskContract(unittest.TestCase):
         config=stub_config('http://127.0.0.1:23456')
         config['authorization_ref']='synthetic positive-config fixture, not spend permission'
         runner='''import json,sys,os
-from actio.preflight import preflight
+from actio.interfaces.preflight import preflight
 config=json.loads(sys.stdin.read())
 'codec warmup'.encode('utf-16be')
 def audit(event,args):

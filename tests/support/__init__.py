@@ -3,8 +3,9 @@ from pathlib import Path
 import shutil
 import sysconfig
 
-from actio.common import file_hash,write_json
-from actio.runtime import RuntimePort
+from actio.common import file_hash
+from actio.common import write_json
+from actio.adapters.runtime.runtime import RuntimePort
 
 FIXTURES=Path(__file__).parent.parent/'fixtures'
 

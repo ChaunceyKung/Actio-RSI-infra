@@ -2,9 +2,26 @@ from contextlib import contextmanager
 import json
 from pathlib import Path
 import sqlite3
-from actio.contracts.json import canonical, digest, require, ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.contracts.json import require
+from actio.contracts.json import ContractError
 from actio.adapters.filesystem.common import uid
-from actio.budget import validate_budget_config, metered, schema_for, ledger_contract, profile_for, gateway, pilot, endpoint_for, wire_binding, priced, reserve_amount, totals, cap_allows, trusted_usage, terminal_keys
+from actio.profiles.registry import validate_budget_config
+from actio.profiles.registry import metered
+from actio.profiles.registry import schema_for
+from actio.profiles.registry import ledger_contract
+from actio.profiles.registry import profile_for
+from actio.profiles.registry import gateway
+from actio.profiles.registry import pilot
+from actio.profiles.registry import endpoint_for
+from actio.profiles.registry import wire_binding
+from actio.profiles.registry import priced
+from actio.profiles.registry import reserve_amount
+from actio.profiles.registry import totals
+from actio.profiles.registry import cap_allows
+from actio.profiles.registry import trusted_usage
+from actio.profiles.registry import terminal_keys
 
 class Ledger:
     def __init__(self,path,*,config=None,campaign=None,readonly=False):
@@ -84,7 +101,7 @@ class Ledger:
             try:
                 binding=wire_binding(a['scope'],request,self.meta['config'])
                 if priced(self.meta['config']):
-                    from actio.readiness_contract import quote_current
+                    from actio.profiles.registry import quote_current
                     quote_current(self.meta['config'])
                 require(not any(x['state'] in ('reserved','sending','unknown') for x in self.rows('attempt')),
                         'unsettled reservation blocks budget; no automatic recovery')
@@ -102,7 +119,7 @@ class Ledger:
         with self.tx():
             a=self.get(attempt);require(a['state']=='reserved' and a['binding']['wire_hash']==wire_hash,'send ticket mismatch/reuse')
             if priced(self.meta['config']):
-                from actio.readiness_contract import quote_current
+                from actio.profiles.registry import quote_current
                 quote_current(self.meta['config'])
             a['state']='sending';self.save(a);self.event(attempt,'sending',{'wire_hash':wire_hash})
         return {'allowed':True}
@@ -120,8 +137,8 @@ class Ledger:
             state='settled' if usage else 'unknown'
             if a['state']=='authorized':state='released';reason='no durable reserve, therefore no send permission'
             if pilot(self.meta['config']):
-                from actio.channel_audit import for_config
-                a['text_integrity']=for_config(self.meta['config']).verdict(response)
+                from actio.profiles.registry import text_verdict
+                a['text_integrity']=text_verdict(self.meta['config'],response)
             a.update(state=state,response=response,native_usage=native_usage,usage=usage,reason=reason);self.save(a)
             self.event(attempt,state,{k:a[k] for k in terminal_keys(self.meta['config'])})
             return a

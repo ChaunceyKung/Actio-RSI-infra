@@ -9,12 +9,19 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError,clean_env,file_hash,write_json,digest
-from actio.evidence import export_bundle
-from actio.runtime import RuntimePort,synthetic_spec
-from actio.scenarios import assistant,social
-from actio.store import Store
-from actio.verify import verify_bundle,sha
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.common import file_hash
+from actio.common import write_json
+from actio.common import digest
+from actio.interfaces.export import export_bundle
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.application.scenarios import assistant
+from actio.application.scenarios import social
+from actio.interfaces.store import Store
+from actio.evidence.verify import verify_bundle
+from actio.evidence.verify import sha
 
 
 class Evidence(unittest.TestCase):
@@ -120,12 +127,13 @@ class Evidence(unittest.TestCase):
         portable=self.root/'portable';portable.mkdir()
         bundle=portable/'bundle';shutil.copytree(self.bundles['social'],bundle)
         library=portable/'actio';library.mkdir()
-        import actio.verify
-        installed=Path(actio.verify.__file__).parent
-        for name in ('__init__.py','common.py','terminal.py','verify.py'):shutil.copyfile(installed/name,library/name)
+        import actio.evidence.verify
+        installed=Path(actio.evidence.verify.__file__).parents[1]
+        shutil.copyfile(installed/'__init__.py',library/'__init__.py')
         shutil.copytree(installed/'contracts',library/'contracts',ignore=shutil.ignore_patterns('__pycache__'))
-        (library/'adapters').mkdir();shutil.copyfile(installed/'adapters/__init__.py',library/'adapters/__init__.py')
-        shutil.copytree(installed/'adapters/filesystem',library/'adapters/filesystem',ignore=shutil.ignore_patterns('__pycache__'))
+        (library/'evidence').mkdir()
+        for name in ('__init__.py','terminal.py','verify.py'):
+            shutil.copyfile(installed/'evidence'/name,library/'evidence'/name)
         runner=portable/'check.py'
         runner.write_text('''import sys, pathlib, json
 base=pathlib.Path(__file__).parent.resolve()
@@ -138,7 +146,7 @@ def guard(event,args):
         if not p.is_relative_to(base) and not p.is_relative_to(pathlib.Path(sys.base_prefix)):
             raise RuntimeError('author/source file access denied: '+str(p))
 sys.addaudithook(guard)
-from actio.verify import verify_bundle
+from actio.evidence.verify import verify_bundle
 print(json.dumps(verify_bundle(base/'bundle')))
 ''',encoding='utf8')
         command=[sys.executable,'-I','-S',str(runner)]
@@ -168,7 +176,7 @@ print(json.dumps(verify_bundle(base/'bundle')))
         try:self.assertEqual(before,list(s.db.iterdump()))
         finally:s.close()
         failure=self.root/'never-published'
-        with patch('actio.evidence.MAX_ROWS',1):
+        with patch('actio.application.export.MAX_ROWS',1):
             with self.assertRaisesRegex(ContractError,'limit'):export_bundle(self.db,'social',failure)
         self.assertFalse(failure.exists())
         attempts=list(self.root.glob('.never-published.staging-*'))

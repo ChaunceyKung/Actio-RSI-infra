@@ -6,12 +6,23 @@ import subprocess
 import sys
 import unittest
 from unittest.mock import patch
-from actio.common import ContractError,canonical,digest,clean_env
-from actio.eval_contract import seal
-from actio.pilot_contract import preregistration,validate_preregistration,config,validate
-from actio.pilot_measurement import predicates,verify
-from actio.tasks.scheduling_v2 import cards,card,observation,payload
-from actio.stream_audit import audit,verdict
+from actio.common import ContractError
+from actio.common import canonical
+from actio.common import digest
+from actio.common import clean_env
+from actio.evidence.eval_contract import seal
+from actio.profiles.pilot_contract import preregistration
+from actio.profiles.pilot_contract import validate_preregistration
+from actio.profiles.pilot_contract import config
+from actio.profiles.pilot_contract import validate
+from actio.evidence.pilot_measurement import predicates
+from actio.evidence.pilot_measurement import verify
+from actio.tasks.scheduling_v2 import cards
+from actio.tasks.scheduling_v2 import card
+from actio.tasks.scheduling_v2 import observation
+from actio.tasks.scheduling_v2 import payload
+from actio.evidence.stream_audit import audit
+from actio.evidence.stream_audit import verdict
 
 ROOT=Path(__file__).resolve().parents[1]
 BINDINGS={s:{'agent':'ACTOR_'+s,'spec_hash':'0'*64} for s in ('A','B')}
@@ -127,7 +138,7 @@ class PilotPure(unittest.TestCase):
         code='''import sys,os
 def audit(e,a):
  if e.startswith('socket.') or e=='subprocess.Popen':raise RuntimeError('network/process denied')
- if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.runtime','actio.transport','actio.gateway')):raise RuntimeError('runtime denied')
+ if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.adapters.runtime.runtime','actio.adapters.transport.transport','actio.application.gateway')):raise RuntimeError('runtime denied')
  if e=='open':
   if 'token_key' in str(a[0]):raise RuntimeError('credential denied')
   if isinstance(a[1],str) and any(c in a[1] for c in 'wax+') or isinstance(a[2],int) and a[2]&(1|2|64|512|1024):raise RuntimeError('write denied')
@@ -136,9 +147,9 @@ class NoEnv(dict):
  def get(self,*a):raise RuntimeError('env denied')
  def __getitem__(self,*a):raise RuntimeError('env denied')
 os.environ=NoEnv()
-from actio.pilot_contract import plan
-from actio.pilot_measurement import verify
-from actio.eval_contract import seal
+from actio.profiles.pilot_contract import plan
+from actio.evidence.pilot_measurement import verify
+from actio.evidence.eval_contract import seal
 p=plan()['preregistration']
 b={'schema':'pilot-evidence.v1','preregistration':p,'freeze':None,'phase_state':'local_validation','entries':[{'unit':u,'evidence':None,'reason':'local','episode_ms':None} for u in p['body']['units']]}
 assert verify(seal(b))['valid']

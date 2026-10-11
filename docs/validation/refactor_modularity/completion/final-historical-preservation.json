@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "After final regression and isolated recheck; original raw delivery/DB bytes, claims and 1048 historical files",
+  "raw_files": {
+    "D:\\actio-c2c2-live-v1\\delivery.json": "8f6f641a43498ca13f20e0b711f1f50d5c6e4bd62528f445decdd0d2657adf88",
+    "D:\\actio-c2c2-live-v1\\candidates.sqlite": "94c3f753c689e9256fa771a864e79fc179d49cfec07911c83849a732041016bc",
+    "D:\\actio-c2c4-live-v1\\delivery.json": "e39d7e0221e75ef4e6f3e396284e475a102c4b6a75424b0c5feb07de1a918a36",
+    "D:\\actio-c2c4-live-v1\\candidates.sqlite": "dc15355731bb7a4ce07ec1e26a9a1ce8cf3639c3eea3b057050c98cc8eef9b02"
+  },
+  "claims": 19,
+  "historical_files": 1048,
+  "original_reader_receipt": "history-b78111dcff0b.json",
+  "credential_reads": 0
+}

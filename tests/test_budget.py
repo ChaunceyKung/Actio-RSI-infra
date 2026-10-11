@@ -5,11 +5,16 @@ import sys
 import unittest
 import uuid
 
-from actio.common import canonical,write_json,clean_env,ContractError
-from actio.budget import Ledger,verify_snapshot
-from actio.transport import TransportPort,PACKAGE
-from actio.transport_contract import config
-from actio.transport_campaign import export_campaign
+from actio.common import canonical
+from actio.common import write_json
+from actio.common import clean_env
+from actio.common import ContractError
+from actio.adapters.persistence.ledger import Ledger
+from actio.evidence.accounting import verify_snapshot
+from actio.adapters.transport.transport import TransportPort
+from actio.adapters.transport.transport import PACKAGE
+from actio.profiles.transport import config
+from actio.interfaces.transport_export import export_campaign
 from chat_stub import ChatStub
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -66,12 +71,12 @@ write_json(root/'child-result.json',r)
             class Interrupted(TransportPort):
                 def prepare(self):
                     super().prepare()
-                    original=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8')
+                    original=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8')
                     if case=='before-settle':changed=original.replace(needle,"if(chunk.type==='finish') process.exit(97)\n        "+needle)
                     else:changed=original.replace(needle,'process.exit(97)\n    '+needle)
                     self_test.assertNotEqual(original,changed)
                     # Test-owned plugin, unshipped. Reuse the unchanged hash/writer helpers.
-                    changed=changed.replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                    changed=changed.replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                     fault=self.root/'fault.mjs';fault.write_text(changed,encoding='utf8')
                     patch=json.loads((self.root/'profile.patch.yml').read_bytes())
                     for item in patch:
@@ -130,8 +135,8 @@ write_json(root/'child-result.json',r)
     def test_04_real_gate_blocks_unbound_egress_and_duplicate_fetch(self):
         class BoundaryPort(TransportPort):
             def prepare(self):
-                super().prepare();source=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8')
-                source=source.replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                super().prepare();source=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8')
+                source=source.replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                 injection="""for(const url of [config.endpoint+'/files','https://provider.invalid','http://localhost:1']) {
                     try {await globalThis.fetch(url,{method:'POST',body:'{}'});throw new Error('TEST_UNEXPECTED_SEND')}
                     catch(e){if(String(e).includes('TEST_UNEXPECTED_SEND')) throw e;log({kind:'test-egress-rejected',url})}

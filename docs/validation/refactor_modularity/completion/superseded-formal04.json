@@ -1,0 +1,288 @@
+{
+  "status": "SUPERSEDED_PASS",
+  "reason": "Trailing blank lines normalized before commit; source identity changed, final05 has independent freeze and runtime evidence.",
+  "root": "D:\\ar-complete-20261011\\formal-completion04",
+  "wheel_sha256": "0a2d36df5776a5f7296b95ba2408b456bf2f41bbcda07b51f4e8a2a8d3141c8f",
+  "totals": {
+    "active": 0,
+    "admitted": 5,
+    "assigned": 18,
+    "not_run": 6,
+    "received": 12,
+    "responses": 12,
+    "sent": 12,
+    "settled": 5,
+    "unknown": 7,
+    "usage": 5
+  },
+  "cleanup": {
+    "jobs": [
+      {
+        "active": 0,
+        "job": "Local\\Actio-7f18669c924e42769f08fd51afdd3bff",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\text-success\\episode\\w5a0127c8c900",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-37aeb1c1cfff40b7837782dfe0a2ca38",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\text-success\\episode\\w1f511d9f25f4",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-a3cbd144eaa148378da185a8869cac57",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\dual-success\\episode\\wffc066a9d555",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-c1575f3d0e434385a36db672a08ceef6",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\dual-success\\episode\\wfe75545961e9",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-79ba410c8dd045f5a9cb5929bb31e875",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\c4-substitute\\episode\\wc9ad862b0a06",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-795dc72fd7544d728094767f4f97a7a0",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\data-error\\episode\\w2ec07f8b8b70",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-2beb827314044d2db6d819da766de844",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\prefix-error\\episode\\w251a936711a6",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-2f5677feb30c42e1a7c5c6d49352a2b8",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\b-error\\episode\\wc7383e127669",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-876cfe5fa2664806856fba464a1867d9",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\b-error\\episode\\wea0e4a41b91b",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-6657af1ec1874fac9be620d79386ff3e",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\http429\\episode\\w89370de48563",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-abed9509f11144d29b0a2a678f239963",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\http503\\episode\\wce43af6f0302",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-da86ef475fca43da9883ab931dffa5ab",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion04\\truncated\\episode\\w3ea6b4ecad3a",
+        "state": "reaped"
+      }
+    ],
+    "new_named_jobs_only": true,
+    "ports": [
+      {
+        "listening": false,
+        "port": 50889,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 55877,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 63495,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 52260,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 59058,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 61095,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 51665,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 59199,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 56030,
+        "probe": "literal loopback connect_ex"
+      }
+    ],
+    "status": "PASS"
+  },
+  "excluded_from_final_and_historical_denominators": true
+}

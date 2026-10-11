@@ -1,3 +1,9 @@
 """Compatibility imports; new implementation imports its owning module directly."""
-from .contracts.json import ContractError, canonical, digest
-from .adapters.filesystem.common import file_hash, uid, write_json, Lines, clean_env
+from actio.contracts.json import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import uid
+from actio.adapters.filesystem.common import write_json
+from actio.adapters.filesystem.common import Lines
+from actio.adapters.filesystem.common import clean_env

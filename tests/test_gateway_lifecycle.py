@@ -4,15 +4,18 @@ import subprocess
 import sys
 import unittest
 import uuid
-from actio.common import clean_env,write_json
-from actio.gateway import scan
-from actio.gateway_contract import template
-from actio.budget import Ledger
-from actio.store import Store
-from actio.transport import transport_spec,TransportPort,PACKAGE
-from actio.tasks.scheduling import task_card
-from actio.evidence import export_bundle
-from actio.transport_campaign import export_campaign
+from actio.common import clean_env
+from actio.common import write_json
+from actio.adapters.filesystem.credentials import scan
+from actio.profiles.gateway_base import template
+from actio.adapters.persistence.ledger import Ledger
+from actio.interfaces.store import Store
+from actio.adapters.transport.transport import transport_spec
+from actio.adapters.transport.transport import TransportPort
+from actio.adapters.transport.transport import PACKAGE
+from actio.tasks.registry import task_card
+from actio.interfaces.export import export_bundle
+from actio.interfaces.transport_export import export_campaign
 from gateway_stub import GatewayStub
 import test_gateway
 
@@ -30,8 +33,8 @@ class GatewayLifecycle(unittest.TestCase):
             task=task_card('compatible',{a:{'agent':a,'spec_hash':s.agent(a)['spec_hash']} for a in ('A','B')},c['mode']);s.close()
             write_json(self.root/'input.json',{'config':c,'task':task})
             code="""import sys,json,pathlib
-from actio.store import Store
-from actio.transport import scheduling_transport
+from actio.interfaces.store import Store
+from actio.application.transport import scheduling_transport
 root=pathlib.Path(sys.argv[1]);data=json.loads((root/'input.json').read_bytes());secret=sys.stdin.readline().strip();s=Store(root/'ledger.sqlite')
 try:
  r=scheduling_transport(s,'shared',root,task=data['task'],config=data['config'],ledger_path=root/'budget.sqlite',credential=secret)
@@ -50,7 +53,7 @@ finally:s.close()
                     if child.poll() is None:child.kill();child.wait(10)
         self.assertEqual(outputs[0]['run'],outputs[1]['run']);self.assertEqual(len(server.receives),2)
         s=Store(self.root/'ledger.sqlite')
-        from actio.transport import scheduling_transport
+        from actio.application.transport import scheduling_transport
         before=s.rows('SELECT * FROM worker');r=scheduling_transport(s,'shared',self.root,task=task,config=c,ledger_path=self.root/'budget.sqlite',credential=self.secret)
         self.assertEqual(s.rows('SELECT * FROM worker'),before);s.close()
         export_bundle(self.root/'ledger.sqlite','shared',self.root/'bundle')
@@ -61,7 +64,7 @@ finally:s.close()
         for name,needle in [('reserved','const wireHash='),('sending',"log({kind:'sending'"),('before-settle',"a.response.chunks.push(chunk);yield chunk")]:
             class Interrupted(TransportPort):
                 def prepare(port):
-                    super().prepare();source=(PACKAGE/'plugins/transport.mjs').read_text(encoding='utf8').replace("'./common.mjs'",repr((PACKAGE/'plugins/common.mjs').as_uri()))
+                    super().prepare();source=(PACKAGE/'adapters/transport/plugins/transport.mjs').read_text(encoding='utf8').replace("'./common.mjs'",repr((PACKAGE/'adapters/transport/plugins/common.mjs').as_uri()))
                     source=source.replace(needle,("if(chunk.type==='finish') process.exit(97)\n        " if name=='before-settle' else 'process.exit(97)\n    ')+needle)
                     p=port.root/'interrupt.mjs';p.write_text(source,encoding='utf8');cfg=json.loads((port.root/'profile.patch.yml').read_bytes())
                     for item in cfg:

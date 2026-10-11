@@ -5,12 +5,19 @@ import sys
 import unittest
 import uuid
 
-from actio.common import ContractError,Lines,clean_env,file_hash,write_json
-from actio.facts import Facts
-from actio.memory import Memory,namespace
-from actio.runtime import RuntimePort,TOOL,synthetic_spec
-from actio.scenarios import final_source
-from actio.store import Store
+from actio.common import ContractError
+from actio.common import Lines
+from actio.common import clean_env
+from actio.common import file_hash
+from actio.common import write_json
+from actio.adapters.runtime.facts import Facts
+from actio.application.memory import Memory
+from actio.application.memory import namespace
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import TOOL
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.adapters.environment.concordia import final_source
+from actio.interfaces.store import Store
 
 
 class RuntimeTests(unittest.TestCase):

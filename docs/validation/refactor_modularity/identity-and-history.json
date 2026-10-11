@@ -1,27 +1,28 @@
 {
-  "status": "INCOMPLETE",
-  "data_identity": "schema, canonical and task rules unchanged; differential 555 exact vectors",
-  "current_source_identity": "full installed Python/MJS/SQL/JSON plus evaluation/task-diagnostics license closure; complete wheel hash and frozen tool hashes separately recorded",
-  "historical_identity": "unchanged fixed Git readers, old algorithm, existing trust registries; no artifact executable selector",
-  "field_differences": {
-    "implementation.*": "moved/added/edited source content and paths; current records only",
-    "pins.source.*": "expanded entire product closure, current evaluator specs only",
-    "plan.source.*": "expanded current task diagnostics closure, historical package read with fixed reader",
-    "UUID/time/path": "new runtime evidence unique identifiers, wall timestamps and isolated roots; never ignored during source authentication",
-    "profile_for(v3)": "baseline UnboundLocalError fixed by aliasing version-local PROFILE imports; restores existing intended v3 profile constant; explicit regression and baseline reproduction",
-    "CLI --help imports": "runtime imports deferred; help and pure verify no longer require MCP installation",
-    "source file LF/CRLF": "wheel09/10 used CRLF working files while Git recorded LF. Wheel11 now uses LF and all 105 product files match Git/wheel/installed bytes; fresh freeze11 and formal11 replace final identity without editing old freezes."
+  "status": "PASS",
+  "refactor_identity": "actio-modularity-r7-r10-20261011",
+  "baseline": "8ab5b5afe6e07029ad499bc462f194a5d03de7c2",
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "source_manifest": "completion/installation-and-history.json",
+  "freeze": "completion/freeze.json",
+  "schemas": {
+    "clock_config": "pilot-config.v4-clock.v1",
+    "clock_profile": "sdk-minimal+actio-priced-memory.v2",
+    "portable_package": "transport-diagnostic-package.v2-refactor",
+    "current_entry_reader": "current-code-owned-runtime-verifier.refactor.v2"
   },
-  "unresolved": "current profiles still probe source identity themselves; no explicit outer identity injection yet",
-  "historical_files_preserved": true,
-  "final_product_commit": "d64264f",
-  "post_23a92c4_changes": [
-    "robustness rehearsal composition uses installed GatewayStub",
-    "three trailing blank lines removed"
-  ],
-  "post_fb71070_changes": [
-    "Normalize working Python bytes to repository LF; logical source unchanged",
-    "Build rejects CRLF Python before freezing",
-    "Preserve evidence and non-execution harness bytes in Git attributes"
-  ]
+  "changes": {
+    "clock": "fixed UTC only priced_rehearsal, persisted config hash/meta/snapshot; system mode never overridden",
+    "source_inventory": "full Python/JSON/SQL/MJS closure; package list representation; entry reader permits only exact code-owned current manifest beyond generic 128-field bound; node/depth/byte limits and arbitrary-map rejection retained",
+    "paths": "SQL/MJS resources moved byte-for-byte; private imports moved to documented owners",
+    "source_identity": "new source/wheel identity, no historical hash normalization",
+    "profile_identity": "version constructors read filesystem identity; pure validation module consumes expected config; identity read is not falsely described as pure"
+  },
+  "historical_files_preserved": 1048,
+  "claims_preserved": 19,
+  "old_quote_pins_manifest_decisions_unchanged": true,
+  "old_denominators_unchanged": true,
+  "credential_reads": 0,
+  "external_requests": 0,
+  "validation": "34 suites and 164 unique methods on final-regression05 wheel; original ready timeout and same-wheel isolated failures-suite recheck preserved in completion/regression.json"
 }

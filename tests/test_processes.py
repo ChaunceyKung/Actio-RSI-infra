@@ -9,12 +9,19 @@ import time
 import unittest
 import uuid
 
-from actio.common import ContractError,Lines,clean_env,file_hash,write_json
-from actio.facts import Facts
-from actio.memory import Memory,namespace
-from actio.scenarios import assistant
-from actio.store import Store
-from actio.supervisor import Job,kernel,process_birth
+from actio.common import ContractError
+from actio.common import Lines
+from actio.common import clean_env
+from actio.common import file_hash
+from actio.common import write_json
+from actio.adapters.runtime.facts import Facts
+from actio.application.memory import Memory
+from actio.application.memory import namespace
+from actio.application.scenarios import assistant
+from actio.interfaces.store import Store
+from actio.adapters.runtime.supervisor import Job
+from actio.adapters.runtime.supervisor import kernel
+from actio.adapters.runtime.supervisor import process_birth
 
 DRIVER=Path(__file__).with_name('child_case.py')
 

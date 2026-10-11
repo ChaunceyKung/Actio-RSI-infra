@@ -8,15 +8,20 @@ import tempfile
 import unittest
 import uuid
 from unittest.mock import patch
-from actio import evaluation_campaign as c
-from actio import evaluation_store as es
-from actio.domain.candidate import baseline,candidate
-from actio.common import ContractError,digest,file_hash,write_json
-from actio.database import migrate_evaluation_copy
-from actio.eval_contract import seal
-from actio.evaluation_measurement import metric_cells,decision_state
-from actio.candidate_evaluation import verify
-from actio.store import Store
+from actio.profiles import evaluation_campaign as c
+from actio.application import evaluation_store as es
+from actio.domain.candidate import baseline
+from actio.domain.candidate import candidate
+from actio.common import ContractError
+from actio.common import digest
+from actio.common import file_hash
+from actio.common import write_json
+from actio.interfaces.migration import migrate_evaluation_copy
+from actio.evidence.eval_contract import seal
+from actio.evidence.evaluation_measurement import metric_cells
+from actio.evidence.evaluation_measurement import decision_state
+from actio.interfaces.candidate_evaluation import verify
+from actio.interfaces.store import Store
 from actio.tasks.finite import get
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -35,7 +40,7 @@ class EvaluationPure(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/'empty.json';write_json(path,empty(c.preregistration()))
             for args in (['plan'],['preflight'],['verify',str(path)]):
-                code=GUARD+"\nfrom actio.candidate_evaluation import main\nsys.argv=['actio-candidate-evaluation',*sys.argv[1:]]\nraise SystemExit(main())"
+                code=GUARD+"\nfrom actio.interfaces.candidate_evaluation import main\nsys.argv=['actio-candidate-evaluation',*sys.argv[1:]]\nraise SystemExit(main())"
                 argv=[sys.executable,'-X','utf8','-I','-B','-c',code,*args]
                 proc=subprocess.run(argv,capture_output=True,text=True,encoding='utf8',timeout=60)
                 self.assertEqual(proc.returncode,0,proc.stderr)
@@ -51,7 +56,7 @@ class EvaluationPure(unittest.TestCase):
         for family in ('scheduling','bargaining'):
             first=[u['arm'] for u in c.preregistration()['body']['units'] if u['family']==family and u['order']%2==0]
             self.assertEqual(first.count('baseline'),3)
-        from actio import candidate_campaign as old
+        from actio.profiles import candidate_campaign as old
         with self.assertRaises(ContractError):old.validate(old.config('ep-00',endpoint=c.ENDPOINT))
         c.validate(c.config('ep-00'))
         with self.assertRaises(ContractError):c.validate(c.config('ep-00',endpoint='https://example.com/v1'))

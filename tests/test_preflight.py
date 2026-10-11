@@ -6,8 +6,14 @@ import sys
 import tempfile
 import unittest
 
-from actio.common import canonical,ContractError,clean_env
-from actio.preflight import template,stub_config,preflight,parse_config,budget
+from actio.common import canonical
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.domain.roles import template
+from actio.domain.roles import stub_config
+from actio.interfaces.preflight import preflight
+from actio.domain.roles import parse_config
+from actio.domain.roles import budget
 
 
 class Preflight(unittest.TestCase):
@@ -71,10 +77,10 @@ class Preflight(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);env=clean_env(root);p=root/'config.json'
             p.write_text('{"schema":"pilot-config.v2","schema":"pilot-config.v2"}',encoding='utf8')
-            result=subprocess.run([sys.executable,'-X','utf8','-I','-B','-m','actio.preflight',str(p)],cwd=root,env=env,capture_output=True,text=True,encoding='utf8',timeout=15)
+            result=subprocess.run([sys.executable,'-X','utf8','-I','-B','-m','actio.interfaces.preflight',str(p)],cwd=root,env=env,capture_output=True,text=True,encoding='utf8',timeout=15)
             self.assertEqual(result.returncode,2);self.assertIn('duplicate JSON key',result.stdout)
             script='''import os,sys,json
-from actio.preflight import preflight
+from actio.interfaces.preflight import preflight
 value=json.loads(sys.stdin.read())
 'codec warmup'.encode('utf-16be')
 def audit(event,args):

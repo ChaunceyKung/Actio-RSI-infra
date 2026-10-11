@@ -1,16 +1,17 @@
 """Scheduling TaskSpec v1 and pure semantics shared by runtime, seal and offline readers."""
-import json
 import re
 
-from actio.contracts.json import ContractError, canonical, digest
+from actio.contracts.json import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
 
 CONTRACT='scheduling-input.v1'
 SCHEMA='actio-task.v1'
 FAMILY='adult-neighbors-scheduling.v1'
 RULE='common-slot-accept.v1'
-VISIBILITY={'actor':'public scenario + own private constraints/goals + prior public actions',
-            'judge':'public scenario + both goals/constraints + initial relationships + actual actions',
-            'memory':'own social namespace at frozen revision; not shared with judge'}
+from actio.tasks.core import VISIBILITY
+from actio.tasks.core import sealed
+from actio.tasks.core import require
 RUBRIC={'schema':'scheduling-rubric.v1','calibration':'NOT_CALIBRATED',
         'goal':{'range':[0,10],'anchors':{'0':'No progress toward own frozen scheduling goal.',
                 '5':'Engaged with the actual proposal but no compatible agreement.',
@@ -21,13 +22,6 @@ RUBRIC={'schema':'scheduling-rubric.v1','calibration':'NOT_CALIBRATED',
                 '5':'Clear substantial improvement supported by interaction.'},
                 'context':['initial relationship','public background','actual ordered actions'],
                 'cannot_judge':'Two symbolic actions may provide insufficient relational evidence.'}}
-
-
-def require(ok,reason):
-    if not ok:raise ContractError(reason)
-
-
-def sealed(body):return {'body':json.loads(canonical(body)),'sha256':digest(body)}
 
 
 def action_spec(seat):
@@ -56,21 +50,6 @@ def task_card(variant,bindings,mode='fixture'):
 def validate_task(value):
     require(type(value) is dict and set(value)=={'body','sha256'},'sealed TaskSpec required')
     t=value['body']
-    if t.get('schema')=='actio-task.v6':
-        from actio.tasks.robustness import validate
-        return validate(value)
-    if t.get('schema')=='actio-task.v5':
-        from actio.tasks.evaluation import validate
-        return validate(value)
-    if t.get('schema')=='actio-task.v4':
-        from actio.tasks.candidate import validate
-        return validate(value)
-    if t.get('schema')=='actio-task.v3':
-        from actio.tasks.finite import validate
-        return validate(value)
-    if t.get('schema')=='actio-task.v2':
-        from actio.tasks.scheduling_v2 import validate
-        return validate(value)
     require(digest(t)==value['sha256'],'TaskSpec hash mismatch')
     try:
         bindings={s:{k:t['seats'][s][k] for k in ('agent','spec_hash')} for s in ('A','B')}
@@ -83,9 +62,6 @@ def validate_task(value):
 
 
 def task_result(t,actions):
-    if t.get('schema') in ('actio-task.v3','actio-task.v4','actio-task.v5','actio-task.v6'):
-        from actio.tasks.finite import result
-        return result(t,actions)
     legal=all(a in t['action_specs'][s]['options'] for s,a in zip(t['order'],actions))
     if not legal:return {'rule':RULE,'status':'illegal_action','agreed_slot':None,'complete':True}
     if len(actions)!=2:return {'rule':RULE,'status':'incomplete','agreed_slot':None,'complete':False}
@@ -95,21 +71,11 @@ def task_result(t,actions):
 
 
 def actor_observation(m,seat,public_actions):
-    if m.get('input_contract') in ('finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1'):
-        from actio.tasks.finite import observation
-        return observation(m,seat,public_actions)
-    if m.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1'):
-        from actio.tasks.scheduling_v2 import observation
-        return observation(m,seat,public_actions)
     t=m['task']['body']
     return canonical({**({'role':t['seats'][seat]['role']} if m.get('execution_mode') in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal') else {}),
         'schema':'scheduling-observation.v2' if m.get('execution_mode') in ('transport_stub','priced_rehearsal','tokenkey_live','tokenkey_rehearsal') else 'scheduling-observation.v1','task_hash':m['task']['sha256'],'seat':seat,
         'public':t['public'],'own':t['seats'][seat]['private'],'initial_relationship':t['relationships'][seat],
         'public_actions':[{'seat':t['order'][i],'action':a} for i,a in enumerate(public_actions)]})
-
-
-
-
 
 
 def resolved_text(t,actions):return canonical({'public_actions':actions,'task_result':task_result(t,actions)})

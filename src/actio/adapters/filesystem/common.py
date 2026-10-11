@@ -5,7 +5,8 @@ import os
 from pathlib import Path
 import sys
 import uuid
-from actio.contracts.json import ContractError, canonical
+from actio.contracts.json import ContractError
+from actio.contracts.json import canonical
 
 def file_hash(path):
     with Path(path).open('rb') as f:

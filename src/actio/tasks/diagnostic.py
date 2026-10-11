@@ -5,10 +5,14 @@ suite_tasks); these new synthetic card values are CC0-1.0.
 """
 import copy
 
-from actio.contracts.json import canonical, digest
-from actio.contracts.json import seal, unseal
-from actio.tasks.scheduling import require
-from actio.tasks.finite import cards, options, SLOTS, ITEMS
+from actio.contracts.json import canonical
+from actio.contracts.json import seal
+from actio.contracts.json import unseal
+from actio.tasks.core import require
+from actio.tasks.finite import cards
+from actio.tasks.finite import options
+from actio.tasks.finite import SLOTS
+from actio.tasks.finite import ITEMS
 
 DATASET = 'task-diagnostic-dataset.v1'
 GENERATOR = 'task-diagnostic-generator.v1'

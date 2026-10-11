@@ -4,11 +4,13 @@ import os
 from pathlib import Path
 import sys
 
-from actio.common import ContractError,write_json
-from actio.memory import Memory
-from actio.runtime import RuntimePort,synthetic_spec
-from actio.scenarios import assistant
-from actio.store import Store
+from actio.common import ContractError
+from actio.common import write_json
+from actio.application.memory import Memory
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.application.scenarios import assistant
+from actio.interfaces.store import Store
 from support import fault_type
 
 mode,root=sys.argv[1],Path(sys.argv[2])
@@ -54,7 +56,7 @@ elif mode=='D':
             receipt=super().write(*args,**kwargs)
             write_json(root/'crash-marker.json',{'window':'D','effect':receipt})
             os._exit(84)  # The domain caller never receives the memory acknowledgement.
-    import actio.scenarios as scenarios
+    import actio.application.scenarios as scenarios
     scenarios.Memory=BeforeAck
     scenarios.assistant(s,'crash-D','A',root)
 else:

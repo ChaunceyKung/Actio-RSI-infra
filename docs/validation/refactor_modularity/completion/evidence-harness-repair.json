@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "wheel_sha256": "0a2d36df5776a5f7296b95ba2408b456bf2f41bbcda07b51f4e8a2a8d3141c8f",
+  "product_source_unchanged": true,
+  "scope": "Only portable test copy paths changed; contracts/evidence copied instead of removed root modules; isolation and equality assertions preserved",
+  "failed_suite_log_sha256": "4f3ff89ff40aface44cbd9e5800bed2ccf1faaf9a8a9281f993695f2143b8957",
+  "repaired_suite": [
+    {
+      "suite": "evidence",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "started": "2026-10-11T10:20:03.192759+00:00",
+      "log_sha256": "3e276ea969455381fe9c69a4842091cc6e99acf07f10209297f8b28d73897a05"
+    }
+  ],
+  "repaired_receipt_sha256": "16a41d3ab84d2f156d715401836e2e6399381ebc3b83c9bf188fb2d1106252af"
+}

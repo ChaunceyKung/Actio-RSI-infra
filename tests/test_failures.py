@@ -5,11 +5,17 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError,Lines,file_hash,write_json
-from actio.facts import Facts
-from actio.runtime import RuntimePort,TOOL,synthetic_spec
-from actio.store import Store
-from actio.supervisor import Supervisor,owned_root
+from actio.common import ContractError
+from actio.common import Lines
+from actio.common import file_hash
+from actio.common import write_json
+from actio.adapters.runtime.facts import Facts
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import TOOL
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.interfaces.store import Store
+from actio.adapters.runtime.supervisor import Supervisor
+from actio.adapters.runtime.supervisor import owned_root
 from support import fault_type
 
 
@@ -123,7 +129,7 @@ class Failures(unittest.TestCase):
             self.assertNotEqual(self.finish(port)['trajectory'],'complete')
         root=owned_root(self.root,'job-assignment-test')
         supervisor=Supervisor(root,'Local\\Actio-test-'+uuid.uuid4().hex)
-        with patch('actio.supervisor.Job',side_effect=OSError('injected assignment rejection')):
+        with patch('actio.adapters.runtime.supervisor.Job',side_effect=OSError('injected assignment rejection')):
             with self.assertRaises(OSError):supervisor.start()
         self.assertIsNotNone(supervisor.proc.poll())
         self.assertFalse((root/'host.jsonl').exists())

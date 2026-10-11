@@ -1,0 +1,285 @@
+{
+  "status": "SUPERSEDED_FAILED_VALIDATION",
+  "root": "D:\\ar-complete-20261011\\formal-completion",
+  "wheel_sha256": "472c638d7f1a8ab5e194bf2f83c313172ec5f88fad3a80d76e559a6745f14f08",
+  "original_report_status": "FAIL",
+  "original_report_sha256": "97c5f058b581999f80a2a8424c705122acc1e4fc30cca1dcc5baf3fdf1f27232",
+  "failure": "Diagnostic entry reader generic 128-field bound rejected expanded implementation map after runtime completed. Original observations and report retained; no failure erased.",
+  "actual_counts_from_original_ledger_events": {
+    "sent": 12,
+    "settled": 5,
+    "unknown": 7,
+    "not_run": 6
+  },
+  "report_totals_limitation": "Original report shows zero because no observation row completed; this separate census preserves actual sends.",
+  "cleanup": {
+    "jobs": [
+      {
+        "active": 0,
+        "job": "Local\\Actio-38824a7f8d4d4f52a21dbbd202c3c9b2",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\text-success\\episode\\wc6250d32646b",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-32df7a87afff45b0aa59e0269be99cb3",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\text-success\\episode\\w9db2e05693ad",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-9510c79d5a154108bacea1a95c7e5f17",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\dual-success\\episode\\w4df7596e9a3e",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-2cd97d7761cb4d16aba8612a86686b72",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\dual-success\\episode\\w945a03e2b57f",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-3332326964fd4863823447a2e7279d3d",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\c4-substitute\\episode\\w634e4fdc2f93",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-2cd2228c722d4769bcad5d10c11f55d4",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\data-error\\episode\\w8312031d5a7b",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-61a3c64a6d344f29a1168a0828a938dd",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\prefix-error\\episode\\w6c9eb1f15cb8",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-efe1a7e4847a43d9aea5818e3396b4f6",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 3,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\b-error\\episode\\wf4386aac66e6",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-be877d2e471b4058b87228ca652ced9a",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\b-error\\episode\\wd5a05d2878bb",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-771ca7e65abd466599e3edfa0404ba1a",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\http429\\episode\\wa2ac2901995a",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-987630ed17a340829cfec58e7b2b9836",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 11
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 11
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\http503\\episode\\w8d7d2017f43b",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-d003da4227c147baa887e80f461e0b18",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-complete-20261011\\formal-completion\\truncated\\episode\\w248e31f3345f",
+        "state": "reaped"
+      }
+    ],
+    "new_named_jobs_only": true,
+    "ports": [
+      {
+        "listening": false,
+        "port": 53097,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 60637,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 53036,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 50801,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 54150,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 54922,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 50471,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 58493,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 60903,
+        "probe": "literal loopback connect_ex"
+      }
+    ],
+    "status": "PASS"
+  },
+  "scope": "Additional development validation, excluded from final 12 sends and all historical denominators"
+}

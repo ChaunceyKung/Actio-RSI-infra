@@ -7,17 +7,27 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from actio.common import digest, ContractError, clean_env, file_hash
-from actio.eval_contract import seal
-from actio import candidate_campaign as campaign
-from actio.domain.candidate import baseline, candidate, rejected_fixtures, validate_proposal, decide, POLICY_HASH
-from actio.candidate import binding_plan, verify
-from actio.candidate_store import verify as verify_lineage
-from actio.candidate_measurement import classify
-from actio.channel_audit import audit, verdict
-from actio.stream_audit import verdict as old_verdict
-from actio.store import Store
-from actio.database import migrate_lineage_copy
+from actio.common import digest
+from actio.common import ContractError
+from actio.common import clean_env
+from actio.common import file_hash
+from actio.evidence.eval_contract import seal
+from actio.profiles import candidate_campaign as campaign
+from actio.domain.candidate import baseline
+from actio.domain.candidate import candidate
+from actio.domain.candidate import rejected_fixtures
+from actio.domain.candidate import validate_proposal
+from actio.domain.candidate import decide
+from actio.domain.candidate import POLICY_HASH
+from actio.interfaces.candidate import binding_plan
+from actio.interfaces.candidate import verify
+from actio.application.candidate_store import verify as verify_lineage
+from actio.evidence.candidate_measurement import classify
+from actio.evidence.channel_audit import audit
+from actio.evidence.channel_audit import verdict
+from actio.evidence.stream_audit import verdict as old_verdict
+from actio.interfaces.store import Store
+from actio.adapters.persistence.database import migrate_lineage_copy
 from test_suite import GUARD
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -75,7 +85,7 @@ class CandidatePure(unittest.TestCase):
         self.evidence={'accepted':cases,'rejected':malformed,'native_mismatch_rejected':True,'old_v1_unchanged':True}
 
     def test_historical_channel_compatibility_and_clock_semantics(self):
-        from actio.channel_audit import native_content
+        from actio.evidence.channel_audit import native_content
         path=ROOT/'docs/validation/phase1c2c0/samples/pilot.json';p=json.loads(path.read_bytes());e=p['body']['entries'][7]
         a=e['evidence']['ledger']['attempts'][0];d=json.loads(next(iter(e['evidence']['dataset']['body']['sources'].values()))['files']['evidence.json']);op=d['operations'][0]
         self.assertEqual(old_verdict(a['response']),a['text_integrity'])
@@ -148,7 +158,7 @@ class CandidatePure(unittest.TestCase):
             self.evidence={'injected_rollback_points':failures,'reopen_equal':True,'corruption_rejected':True,'cycle_rejected':True,'migration':{k:v for k,v in migration.items() if k not in ('source','destination')},'lineage':verify_lineage(saved)}
 
     def test_portable_guarded_cli(self):
-        code=GUARD+"\nfrom actio.candidate_campaign import plan\nfrom actio.candidate import verify\nfrom actio.domain.candidate import baseline\nprint(json.dumps({'units':len(plan()['preregistration']['body']['units']),'invalid':verify({'body':{},'sha256':'bad'})['valid']}))"
+        code=GUARD+"\nfrom actio.profiles.candidate_campaign import plan\nfrom actio.interfaces.candidate import verify\nfrom actio.domain.candidate import baseline\nprint(json.dumps({'units':len(plan()['preregistration']['body']['units']),'invalid':verify({'body':{},'sha256':'bad'})['valid']}))"
         p=subprocess.run([sys.executable,'-I','-B','-c',code],capture_output=True,text=True,timeout=45,env=clean_env(ROOT/'.local'))
         self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(json.loads(p.stdout),{'units':24,'invalid':False})
         self.evidence={'guard':'network/env/key/subprocess/runtime/writes denied','result':json.loads(p.stdout)}

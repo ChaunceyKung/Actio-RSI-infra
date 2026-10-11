@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "readiness_methods": 6,
+  "boundaries": {
+    "boundaries": [
+      {
+        "instant": "2026-10-08T15:59:59Z",
+        "allowed": false
+      },
+      {
+        "instant": "2026-10-08T16:00:00Z",
+        "allowed": true
+      },
+      {
+        "instant": "2026-10-09T00:00:00Z",
+        "allowed": true
+      },
+      {
+        "instant": "2026-10-10T16:00:00Z",
+        "allowed": false
+      },
+      {
+        "instant": "2026-10-10T16:00:01Z",
+        "allowed": false
+      }
+    ],
+    "system_expired_rejected": true,
+    "schema": "pilot-config.v4-clock.v1",
+    "clock": {
+      "mode": "fixed",
+      "instant": "2026-10-09T00:00:00Z"
+    }
+  },
+  "fixed_clock_child_ipc": [
+    {
+      "case": "delayed",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "config_hash": "81dad05ff5b8bcfa1827a2de213c6d927d1c76b35650c1462a11c4d2045f9af6",
+      "ledger_hash": "23f0001269ea2dfaf81f00d820eddb9829d3688f4df6c53514de5658a67f6701",
+      "sending_events": 2,
+      "settled": 2,
+      "received": 2
+    },
+    {
+      "case": "no-cache",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "config_hash": "3fb894fc81d68b049f5ff876fa76c43e34154bbc3e2bc0d554f63c90a5f36aa5",
+      "ledger_hash": "af6d24c462ff25f0706b99c49b0df07d1fd6abd4c44b175030e357b8d1ce4613",
+      "sending_events": 2,
+      "settled": 2,
+      "received": 2
+    },
+    {
+      "case": "illegal",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "config_hash": "0ab04140bc8a73c3c8cf35793a8089c5897e581bddacc7811aae5954ab19a3a8",
+      "ledger_hash": "a6b51dbee41756a94522ea2f9acdd7655c63a14a83adf36246575453132c5fda",
+      "sending_events": 2,
+      "settled": 2,
+      "received": 2
+    }
+  ],
+  "ipc": "Official TS transport plugin -> python -I -B -m actio.budget -> persisted Ledger config",
+  "quote_unchanged": true,
+  "overrides": "No environment clock, global datetime monkeypatch or quote bypass; explicit now must equal persisted fixed instant and cannot override system mode."
+}

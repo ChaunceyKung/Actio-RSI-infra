@@ -1,0 +1,27 @@
+{
+  "status": "INCOMPLETE",
+  "data_identity": "schema, canonical and task rules unchanged; differential 555 exact vectors",
+  "current_source_identity": "full installed Python/MJS/SQL/JSON plus evaluation/task-diagnostics license closure; complete wheel hash and frozen tool hashes separately recorded",
+  "historical_identity": "unchanged fixed Git readers, old algorithm, existing trust registries; no artifact executable selector",
+  "field_differences": {
+    "implementation.*": "moved/added/edited source content and paths; current records only",
+    "pins.source.*": "expanded entire product closure, current evaluator specs only",
+    "plan.source.*": "expanded current task diagnostics closure, historical package read with fixed reader",
+    "UUID/time/path": "new runtime evidence unique identifiers, wall timestamps and isolated roots; never ignored during source authentication",
+    "profile_for(v3)": "baseline UnboundLocalError fixed by aliasing version-local PROFILE imports; restores existing intended v3 profile constant; explicit regression and baseline reproduction",
+    "CLI --help imports": "runtime imports deferred; help and pure verify no longer require MCP installation",
+    "source file LF/CRLF": "wheel09/10 used CRLF working files while Git recorded LF. Wheel11 now uses LF and all 105 product files match Git/wheel/installed bytes; fresh freeze11 and formal11 replace final identity without editing old freezes."
+  },
+  "unresolved": "current profiles still probe source identity themselves; no explicit outer identity injection yet",
+  "historical_files_preserved": true,
+  "final_product_commit": "d64264f",
+  "post_23a92c4_changes": [
+    "robustness rehearsal composition uses installed GatewayStub",
+    "three trailing blank lines removed"
+  ],
+  "post_fb71070_changes": [
+    "Normalize working Python bytes to repository LF; logical source unchanged",
+    "Build rejects CRLF Python before freezing",
+    "Preserve evidence and non-execution harness bytes in Git attributes"
+  ]
+}

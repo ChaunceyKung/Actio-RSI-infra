@@ -1,7 +1,9 @@
 """Bounded TS-to-Python budget IPC."""
 import json
 import sys
-from actio.contracts.json import canonical, require, ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import require
+from actio.contracts.json import ContractError
 from actio.adapters.persistence.ledger import Ledger
 
 def main():

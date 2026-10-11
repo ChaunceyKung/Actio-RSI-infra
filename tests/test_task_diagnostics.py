@@ -6,13 +6,28 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from actio.common import canonical, digest, ContractError
-from actio.eval_contract import seal
-from actio.tasks.finite import get, card, validate, cards, options
+from actio.common import canonical
+from actio.common import digest
+from actio.common import ContractError
+from actio.evidence.eval_contract import seal
+from actio.tasks.finite import get
+from actio.tasks.finite import card
+from actio.tasks.finite import validate
+from actio.tasks.finite import cards
+from actio.tasks.finite import options
 from actio.measurement.oracle import fixture_policy
-from actio.tasks.diagnostic import dataset, visible, validate_dataset
-from actio.tasks.controls import a_reference, b_reference, diagnose_a, control, aggregate, cell
-from actio.measurement.diagnostic import synthetic_analysis, metric_cells, legacy_control
+from actio.tasks.diagnostic import dataset
+from actio.tasks.diagnostic import visible
+from actio.tasks.diagnostic import validate_dataset
+from actio.tasks.controls import a_reference
+from actio.tasks.controls import b_reference
+from actio.tasks.controls import diagnose_a
+from actio.tasks.controls import control
+from actio.tasks.controls import aggregate
+from actio.tasks.controls import cell
+from actio.measurement.diagnostic import synthetic_analysis
+from actio.measurement.diagnostic import metric_cells
+from actio.measurement.diagnostic import legacy_control
 from actio import task_diagnostics as cli
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -128,7 +143,7 @@ class TaskDiagnostics(unittest.TestCase):
             with self.assertRaises(ContractError):
                 cli.analyze(OLD, first)
             shutil.copytree(first, moved); shutil.rmtree(first)
-            with patch('actio.task_diagnostics.load_history', side_effect=AssertionError('original source unavailable')):
+            with patch('actio.evidence.task_diagnostics.load_history', side_effect=AssertionError('original source unavailable')):
                 self.assertTrue(cli.verify(moved)['valid'])
             for path in moved.iterdir():
                 text = path.read_text(encoding='utf8')

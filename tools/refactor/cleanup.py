@@ -8,7 +8,8 @@ import sqlite3
 import subprocess
 from urllib.parse import urlsplit
 
-from actio.supervisor import Job, kernel
+from actio.adapters.runtime.supervisor import Job
+from actio.adapters.runtime.supervisor import kernel
 
 
 def main():

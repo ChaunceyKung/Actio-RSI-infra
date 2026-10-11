@@ -14,10 +14,10 @@ def main():
  run('export',['-m','actio.transport_diagnostics','export',str(a.output/'export')]);run('repeat-export',['-m','actio.transport_diagnostics','export',str(a.output/'export')],2)
  for command in ('plan','verify','analyze'):run(command,[str(probe),command,*([str(a.output/'export/package.json')] if command!='plan' else [])])
  for mod in ('actio','actio.evaluation','actio.candidate','actio.candidate_evaluation'):run(mod.replace('.','-'),['-m',mod,'--help'])
- run('pure-import',['-c',"import sys; from actio.contracts.json import canonical,seal; from actio.tasks.diagnostic import dataset; from actio.measurement.oracle import evaluate; assert not any(n in sys.modules for n in ('sqlite3','actio.runtime','deepseek_harness','concordia','actio.eval_contract','actio.verify')); assert dataset()['body']['cards']; print('PASS')"])
+ run('pure-import',['-c',"import sys; from actio.contracts.json import canonical,seal; from actio.tasks.diagnostic import dataset; from actio.measurement.oracle import evaluate; assert not any(n in sys.modules for n in ('sqlite3','actio.adapters.runtime.runtime','deepseek_harness','concordia','actio.evidence.eval_contract','actio.evidence.verify')); assert dataset()['body']['cards']; print('PASS')"])
  run('no-optional-runtime',['-c',"import importlib.util; assert importlib.util.find_spec('deepseek_harness') is None; assert importlib.util.find_spec('concordia') is None; print('PASS')"])
  with zipfile.ZipFile(a.wheel) as z:
-  required=['actio/schema.sql','actio/evaluation_history.json','actio/plugins/transport.mjs','actio/_vendor/SOTOPIA_LICENSE','actio/adapters/transport/DSH_LICENSE.txt'];assert all(n in z.namelist() for n in required)
+  required=['actio/adapters/persistence/schema.sql','actio/evaluation_history.json','actio/adapters/transport/plugins/transport.mjs','actio/_vendor/SOTOPIA_LICENSE','actio/adapters/transport/DSH_LICENSE.txt'];assert all(n in z.namelist() for n in required)
  result={'status':'PASS' if all(j['exit']==j['expected'] for j in jobs) else 'FAIL','jobs':jobs,'wheel_sha256':hashlib.sha256(a.wheel.read_bytes()).hexdigest(),'resources':required,'scope':'minimal wheel; no DSH/Concordia; -I external cwd; not full dependency pip-check'}
  (a.output/'receipt.json').write_text(json.dumps(result,indent=2),encoding='utf8');print(json.dumps(result));return 0 if result['status']=='PASS' else 1
 if __name__=='__main__':raise SystemExit(main())

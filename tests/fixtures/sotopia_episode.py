@@ -1,10 +1,15 @@
 # Test-only original SOTOPIA evaluator definitions. MIT. Never a product evaluator.
 import abc
 import logging
-from typing import Any, Generic, TypeVar
+from typing import Any
+from typing import Generic
+from typing import TypeVar
 import gin
-from pydantic import BaseModel, validate_call
-from actio._vendor.sotopia import LLMEvalBaseModel, EvaluationForAgents, PydanticOutputParser
+from pydantic import BaseModel
+from pydantic import validate_call
+from actio._vendor.sotopia import LLMEvalBaseModel
+from actio._vendor.sotopia import EvaluationForAgents
+from actio._vendor.sotopia import PydanticOutputParser
 T_eval_dim = TypeVar("T_eval_dim", bound=BaseModel)
 log = logging.getLogger("evaluators")
 # Test-side message seam replaces the simulator message dependency.

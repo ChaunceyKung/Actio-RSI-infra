@@ -7,9 +7,14 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError, file_hash, write_json, clean_env, canonical, digest
-from actio import database
-from actio.store import Store
+from actio.common import ContractError
+from actio.common import file_hash
+from actio.common import write_json
+from actio.common import clean_env
+from actio.common import canonical
+from actio.common import digest
+from actio.adapters.persistence import database as database
+from actio.interfaces.store import Store
 
 
 class Schema(unittest.TestCase):
@@ -32,7 +37,7 @@ class Schema(unittest.TestCase):
     def test_process_interruption_before_version_commit_retains_backup(self):
         path,db=self.legacy();out=self.root/'interrupted.sqlite'
         code='''import os,sys
-from actio import database
+from actio.adapters.persistence import database
 original=database.inspect
 def crash(db):
     if db.execute('PRAGMA user_version').fetchone()[0]==2:os._exit(85)
@@ -55,8 +60,8 @@ database.migrate_copy(sys.argv[1],sys.argv[2])
         finally:db.close()
 
     def test_migration_preserves_incompatible_spec_and_execution_refuses_it(self):
-        from actio.runtime import synthetic_spec
-        from actio.scenarios import assistant
+        from actio.adapters.runtime.runtime import synthetic_spec
+        from actio.application.scenarios import assistant
         path,db=self.legacy();out=self.root/'old-spec.sqlite'
         spec=synthetic_spec('OLD');spec['pins']['code']={'historic.py':'old-source-pin'}
         db.execute('UPDATE agent SET spec=?,spec_hash=?',(canonical(spec),digest(spec)));db.close()
@@ -102,7 +107,7 @@ database.migrate_copy(sys.argv[1],sys.argv[2])
                 raise RuntimeError('injected after DDL before commit')
             return real(conn)
         try:
-            with patch('actio.database.inspect',side_effect=reject_new):
+            with patch('actio.adapters.persistence.database.inspect',side_effect=reject_new):
                 with self.assertRaisesRegex(RuntimeError,'injected'):
                     database.migrate_copy(path,out)
             self.assertFalse(out.exists())

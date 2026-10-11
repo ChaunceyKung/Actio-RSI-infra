@@ -7,7 +7,8 @@ import sys
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 import mcp.types as types
-from actio.mcp_server import SCHEMA,DESCRIPTION
+from actio.adapters.runtime.mcp_server import SCHEMA
+from actio.adapters.runtime.mcp_server import DESCRIPTION
 
 root=Path(sys.argv[1]);server=Server('hold',version='1')
 @server.list_tools()

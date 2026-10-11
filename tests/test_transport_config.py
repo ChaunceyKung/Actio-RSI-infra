@@ -7,8 +7,11 @@ import sys
 import tempfile
 from actio.common import clean_env
 from actio.common import ContractError
-from actio.preflight import preflight,parse_config,stub_config
-from actio.transport_contract import config,validate_config
+from actio.interfaces.preflight import preflight
+from actio.domain.roles import parse_config
+from actio.domain.roles import stub_config
+from actio.profiles.transport import config
+from actio.profiles.transport import validate_config
 
 
 class TransportConfig(unittest.TestCase):

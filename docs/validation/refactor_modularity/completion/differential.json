@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "count": 555,
+  "sha256": "4adbd55c971166d229938fbf65f206a4ab577c0b0a10b0a9053bf4161601d053",
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "comparison": "complete JSON equality, separate interpreters, no excluded fields"
+}

@@ -10,7 +10,7 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 [当前结果](docs/validation/phase1c2c5/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c5/GATES.md) · [当前 CLI](docs/validation/phase1c2c5/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
 
-**当前工程优先级：完成模块化重构，暂停实验迭代。** 已开始实施纯合同/任务/oracle、Ledger与fixture拆分；整体仍 **INCOMPLETE**，尚有 23/7/3/2/2 节点循环、54 个根实现模块和 readiness rehearsal 时钟问题。实际证据见[本轮验收](docs/validation/refactor_modularity/RESULTS.md)；下一步见[续作计划](docs/architecture/CONTINUATION_PLAN.md)和[完成 Prompt](docs/prompts/modular_architecture_completion.md)。历史 C5 结果保持不变。
+**当前工程交付：模块化重构完成，实验迭代继续暂停。** 架构 SCC=0、未迁移根实现=0、违规=0；同一最终 wheel 完成34 suite、164个测试方法（原163+Clock边界1），readiness6/6；一次启动超时按原条件隔离复核通过，原失败保留。新正式本机矩阵12 sends、5 settled、7 unknown、6 not_run。见[本轮验收](docs/validation/refactor_modularity/RESULTS.md)与[模块设计](docs/architecture/README.md)。历史 C5 结果不变，不进入C6。
 
 ## 阅读导航
 

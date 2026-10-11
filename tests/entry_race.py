@@ -5,9 +5,10 @@ from pathlib import Path
 import sys
 
 from actio.common import ContractError
-from actio.runtime import RuntimePort
-from actio.scenarios import assistant,social
-from actio.store import Store
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.application.scenarios import assistant
+from actio.application.scenarios import social
+from actio.interfaces.store import Store
 
 root,scenario=Path(sys.argv[1]),sys.argv[2]
 class GatedStore(Store):

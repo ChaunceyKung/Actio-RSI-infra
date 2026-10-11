@@ -1,152 +1,136 @@
 {
-  "status": "INCOMPLETE",
-  "modules": 89,
-  "edges": 403,
+  "status": "PASS",
+  "modules": 163,
+  "edges": 594,
   "violations": [],
-  "strong_components": [
-    [
-      "actio.adapters.persistence.ledger",
-      "actio.budget",
-      "actio.candidate_campaign",
-      "actio.candidate_measurement",
-      "actio.eval_contract",
-      "actio.evaluation",
-      "actio.evaluation_campaign",
-      "actio.evaluation_measurement",
-      "actio.gateway_contract",
-      "actio.interfaces.budget",
-      "actio.pilot_contract",
-      "actio.pilot_measurement",
-      "actio.preflight",
-      "actio.readiness_contract",
-      "actio.robustness_campaign",
-      "actio.robustness_measurement",
-      "actio.suite_contract",
-      "actio.suite_measurement",
-      "actio.task_evidence",
-      "actio.terminal",
-      "actio.transport_campaign",
-      "actio.transport_contract",
-      "actio.verify"
-    ],
-    [
-      "actio.tasks.candidate",
-      "actio.tasks.diagnostic",
-      "actio.tasks.evaluation",
-      "actio.tasks.finite",
-      "actio.tasks.robustness",
-      "actio.tasks.scheduling",
-      "actio.tasks.scheduling_v2"
-    ],
-    [
-      "actio.gateway",
-      "actio.pilot",
-      "actio.transport"
-    ],
-    [
-      "actio.database",
-      "actio.store"
-    ],
-    [
-      "actio.diagnostic_runtime",
-      "actio.transport_diagnostics"
-    ]
-  ],
-  "unmigrated_root_modules": [
+  "strong_components": [],
+  "unmigrated_root_modules": [],
+  "shims": [
     "actio.budget",
-    "actio.calibration",
-    "actio.campaign",
     "actio.candidate",
-    "actio.candidate_campaign",
     "actio.candidate_evaluation",
-    "actio.candidate_measurement",
-    "actio.candidate_store",
-    "actio.channel_audit",
     "actio.cli",
-    "actio.database",
-    "actio.diagnostic_runtime",
-    "actio.eval_contract",
+    "actio.common",
     "actio.eval_worker",
     "actio.evaluation",
-    "actio.evaluation_campaign",
-    "actio.evaluation_history",
-    "actio.evaluation_measurement",
-    "actio.evaluation_store",
-    "actio.evidence",
-    "actio.facts",
-    "actio.failure_fixtures",
-    "actio.failure_observation",
-    "actio.future_schedule",
     "actio.gateway",
-    "actio.gateway_contract",
     "actio.host",
     "actio.mcp_server",
-    "actio.memory",
     "actio.pilot",
-    "actio.pilot_contract",
-    "actio.pilot_measurement",
     "actio.preflight",
     "actio.readiness",
-    "actio.readiness_contract",
     "actio.robustness",
-    "actio.robustness_campaign",
-    "actio.robustness_measurement",
-    "actio.runtime",
-    "actio.scenarios",
-    "actio.store",
-    "actio.stream_audit",
     "actio.suite",
-    "actio.suite_contract",
-    "actio.suite_measurement",
-    "actio.supervisor",
     "actio.task_diagnostics",
-    "actio.task_evidence",
-    "actio.terminal",
-    "actio.transport",
     "actio.transport_campaign",
-    "actio.transport_contract",
     "actio.transport_diagnostics",
     "actio.verify"
   ],
-  "shims": [
-    "actio.common"
-  ],
   "dynamic_imports": [
     {
-      "module": "actio.campaign",
-      "line": 109,
+      "module": "actio.evidence.campaign",
+      "line": 72,
       "literal": "hashlib"
     },
     {
-      "module": "actio.failure_observation",
-      "line": 39,
+      "module": "actio.evidence.failure_observation",
+      "line": 45,
       "literal": "math"
     },
     {
       "module": "actio.adapters.transport.fixture",
-      "line": 88,
+      "line": 89,
       "literal": "pathlib"
     }
   ],
   "dependencies": {
     "actio": [],
     "actio.__main__": [
-      "actio.cli"
+      "actio.interfaces.cli"
     ],
     "actio._vendor": [],
     "actio._vendor.sotopia": [],
     "actio.adapters": [],
+    "actio.adapters.environment": [],
+    "actio.adapters.environment.concordia": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.runtime.facts",
+      "actio.adapters.runtime.runtime",
+      "actio.contracts.json",
+      "actio.contracts.wire",
+      "actio.evidence.transport_contract",
+      "actio.tasks.registry"
+    ],
     "actio.adapters.filesystem": [],
+    "actio.adapters.filesystem.artifacts": [
+      "actio.contracts.json"
+    ],
     "actio.adapters.filesystem.common": [
       "actio.contracts.json"
     ],
+    "actio.adapters.filesystem.credentials": [
+      "actio.contracts.json"
+    ],
+    "actio.adapters.filesystem.identity": [
+      "actio.adapters.filesystem.common"
+    ],
+    "actio.adapters.filesystem.publication": [
+      "actio.contracts.json",
+      "actio.profiles.pilot_contract"
+    ],
     "actio.adapters.persistence": [],
+    "actio.adapters.persistence.database": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json"
+    ],
     "actio.adapters.persistence.ledger": [
       "actio.adapters.filesystem.common",
-      "actio.budget",
-      "actio.channel_audit",
       "actio.contracts.json",
-      "actio.readiness_contract"
+      "actio.profiles.registry"
+    ],
+    "actio.adapters.persistence.migration": [
+      "actio.adapters.persistence.database"
+    ],
+    "actio.adapters.persistence.store": [
+      "actio.adapters.persistence.database",
+      "actio.contracts.json"
+    ],
+    "actio.adapters.runtime": [],
+    "actio.adapters.runtime.cleanup": [
+      "actio.adapters.runtime.supervisor",
+      "actio.contracts.json"
+    ],
+    "actio.adapters.runtime.eval_worker": [
+      "actio._vendor.sotopia",
+      "actio.contracts.json",
+      "actio.evidence.eval_contract"
+    ],
+    "actio.adapters.runtime.evaluator": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json",
+      "actio.evidence.eval_contract"
+    ],
+    "actio.adapters.runtime.facts": [
+      "actio.contracts.json",
+      "actio.contracts.wire"
+    ],
+    "actio.adapters.runtime.host": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json",
+      "actio.profiles.registry"
+    ],
+    "actio.adapters.runtime.mcp_server": [],
+    "actio.adapters.runtime.runtime": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.runtime.facts",
+      "actio.adapters.runtime.mcp_server",
+      "actio.adapters.runtime.supervisor",
+      "actio.contracts.json",
+      "actio.contracts.wire"
+    ],
+    "actio.adapters.runtime.supervisor": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json"
     ],
     "actio.adapters.transport": [],
     "actio.adapters.transport.fixture": [
@@ -154,249 +138,595 @@
       "actio.adapters.transport.responses"
     ],
     "actio.adapters.transport.responses": [],
-    "actio.budget": [
+    "actio.adapters.transport.transport": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.publication",
       "actio.adapters.persistence.ledger",
-      "actio.candidate_campaign",
-      "actio.channel_audit",
+      "actio.adapters.runtime.facts",
+      "actio.adapters.runtime.runtime",
       "actio.contracts.json",
-      "actio.domain.accounting",
-      "actio.evaluation_campaign",
-      "actio.gateway_contract",
-      "actio.interfaces.budget",
-      "actio.pilot_contract",
-      "actio.readiness_contract",
-      "actio.robustness_campaign",
-      "actio.suite_contract",
-      "actio.transport_contract"
+      "actio.contracts.transport",
+      "actio.evidence.channel_audit",
+      "actio.evidence.transport_contract",
+      "actio.profiles.candidate_campaign",
+      "actio.profiles.evaluation_campaign",
+      "actio.profiles.finite_defaults",
+      "actio.profiles.gateway_base",
+      "actio.profiles.registry",
+      "actio.profiles.robustness_campaign",
+      "actio.tasks.finite",
+      "actio.tasks.scheduling_v2"
     ],
-    "actio.calibration": [
-      "actio.campaign",
+    "actio.application": [],
+    "actio.application.campaign": [
+      "actio.adapters.filesystem.artifacts",
+      "actio.adapters.filesystem.common",
+      "actio.application.evaluation",
       "actio.contracts.json",
-      "actio.evaluation"
+      "actio.evidence.campaign",
+      "actio.evidence.eval_contract",
+      "actio.evidence.evaluation",
+      "actio.evidence.verify"
     ],
-    "actio.campaign": [
+    "actio.application.candidate_evaluation": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.publication",
+      "actio.contracts.json",
+      "actio.evidence.candidate_evaluation",
+      "actio.evidence.evaluation_lineage",
+      "actio.profiles.evaluation_campaign"
+    ],
+    "actio.application.candidate_store": [
+      "actio.contracts.json",
+      "actio.domain.candidate",
+      "actio.evidence.candidate_lineage"
+    ],
+    "actio.application.diagnostic_runtime": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.publication",
+      "actio.application.pilot",
+      "actio.contracts.endpoint",
+      "actio.contracts.json",
+      "actio.evidence.failure_fixtures",
+      "actio.evidence.failure_observation",
+      "actio.evidence.transport_diagnostics",
+      "actio.profiles.robustness_campaign",
+      "actio.tasks.controls",
+      "actio.tasks.diagnostic",
+      "actio.tasks.robustness"
+    ],
+    "actio.application.evaluation": [
+      "actio.adapters.filesystem.artifacts",
+      "actio.contracts.json",
+      "actio.evidence.eval_contract",
+      "actio.evidence.evaluation",
+      "actio.evidence.verify"
+    ],
+    "actio.application.evaluation_store": [
+      "actio.application.candidate_store",
+      "actio.contracts.json",
+      "actio.evidence.evaluation_lineage",
+      "actio.evidence.evaluation_measurement",
+      "actio.evidence.robustness_measurement",
+      "actio.profiles.evaluation_campaign"
+    ],
+    "actio.application.export": [
       "actio.adapters.filesystem.common",
       "actio.contracts.json",
-      "actio.eval_contract",
-      "actio.evaluation",
-      "actio.verify"
+      "actio.evidence.verify"
     ],
-    "actio.candidate": [
-      "actio.candidate_campaign",
-      "actio.candidate_measurement",
-      "actio.candidate_store",
+    "actio.application.gateway": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.credentials",
+      "actio.application.export",
+      "actio.application.transport",
+      "actio.application.transport_export",
       "actio.contracts.json",
-      "actio.domain.candidate",
-      "actio.store"
+      "actio.evidence.accounting",
+      "actio.profiles.gateway_base",
+      "actio.profiles.gateway_contract",
+      "actio.tasks.registry"
     ],
-    "actio.candidate_campaign": [
-      "actio.candidate_measurement",
-      "actio.channel_audit",
-      "actio.contracts.json",
-      "actio.domain.candidate",
-      "actio.gateway_contract",
-      "actio.measurement.oracle",
-      "actio.pilot_contract",
-      "actio.preflight",
-      "actio.suite_contract",
-      "actio.tasks.finite"
-    ],
-    "actio.candidate_evaluation": [
+    "actio.application.memory": [
       "actio.adapters.filesystem.common",
       "actio.contracts.json",
-      "actio.database",
-      "actio.evaluation_campaign",
-      "actio.evaluation_measurement",
-      "actio.evaluation_store",
-      "actio.gateway",
-      "actio.pilot",
-      "actio.store"
+      "actio.domain.memory"
     ],
-    "actio.candidate_measurement": [
-      "actio.candidate_campaign",
-      "actio.channel_audit",
+    "actio.application.migration": [
+      "actio.adapters.filesystem.common",
+      "actio.application.evaluation_store",
       "actio.contracts.json",
-      "actio.domain.candidate",
-      "actio.measurement.oracle",
-      "actio.pilot_measurement",
-      "actio.stream_audit",
-      "actio.suite_measurement",
-      "actio.tasks.finite"
+      "actio.evidence.evaluation_history",
+      "actio.profiles.evaluation_campaign"
     ],
-    "actio.candidate_store": [
+    "actio.application.pilot": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.credentials",
+      "actio.adapters.filesystem.publication",
+      "actio.application.export",
+      "actio.application.transport",
+      "actio.application.transport_export",
       "actio.contracts.json",
-      "actio.domain.candidate"
+      "actio.evidence.campaign_registry",
+      "actio.evidence.pilot_measurement",
+      "actio.evidence.suite_measurement",
+      "actio.profiles.pilot_contract",
+      "actio.tasks.candidate",
+      "actio.tasks.evaluation",
+      "actio.tasks.finite",
+      "actio.tasks.robustness",
+      "actio.tasks.scheduling_v2"
     ],
-    "actio.channel_audit": [
+    "actio.application.robustness": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.publication",
       "actio.contracts.json",
-      "actio.stream_audit"
+      "actio.evidence.evaluation_lineage",
+      "actio.evidence.robustness",
+      "actio.profiles.robustness_campaign"
     ],
-    "actio.cli": [
+    "actio.application.scenarios": [
+      "actio.application.memory",
+      "actio.application.terminal",
       "actio.contracts.json",
       "actio.contracts.scenarios",
-      "actio.database",
-      "actio.evaluation",
-      "actio.evidence",
-      "actio.facts",
-      "actio.memory",
-      "actio.runtime",
-      "actio.scenarios",
-      "actio.store",
-      "actio.tasks.scheduling",
-      "actio.verify"
+      "actio.contracts.wire",
+      "actio.evidence.task_evidence",
+      "actio.evidence.terminal",
+      "actio.tasks.registry"
+    ],
+    "actio.application.store": [
+      "actio.adapters.filesystem.common",
+      "actio.application.candidate_store",
+      "actio.application.evaluation_store",
+      "actio.application.terminal",
+      "actio.contracts.json",
+      "actio.domain.episode"
+    ],
+    "actio.application.task_diagnostics": [
+      "actio.contracts.json",
+      "actio.evidence.task_diagnostics",
+      "actio.tasks.diagnostic",
+      "actio.tasks.registry"
+    ],
+    "actio.application.terminal": [
+      "actio.contracts.json",
+      "actio.evidence.terminal"
+    ],
+    "actio.application.transport": [
+      "actio.application.scenarios",
+      "actio.application.terminal",
+      "actio.contracts.json",
+      "actio.contracts.transport",
+      "actio.evidence.transport_contract",
+      "actio.profiles.registry",
+      "actio.tasks.candidate",
+      "actio.tasks.registry"
+    ],
+    "actio.application.transport_export": [
+      "actio.adapters.filesystem.artifacts",
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json",
+      "actio.evidence.evaluation",
+      "actio.evidence.transport_campaign"
+    ],
+    "actio.budget": [
+      "actio.adapters.persistence.ledger",
+      "actio.evidence.accounting",
+      "actio.interfaces.budget",
+      "actio.profiles.registry"
+    ],
+    "actio.candidate": [
+      "actio.interfaces.candidate"
+    ],
+    "actio.candidate_evaluation": [
+      "actio.interfaces.candidate_evaluation"
+    ],
+    "actio.cli": [
+      "actio.interfaces.cli"
     ],
     "actio.common": [
       "actio.adapters.filesystem.common",
       "actio.contracts.json"
     ],
     "actio.contracts": [],
+    "actio.contracts.endpoint": [],
+    "actio.contracts.hashing": [],
     "actio.contracts.json": [],
+    "actio.contracts.ports": [],
     "actio.contracts.scenarios": [],
+    "actio.contracts.transport": [],
     "actio.contracts.versions": [],
-    "actio.database": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.evaluation_campaign",
-      "actio.evaluation_history",
-      "actio.evaluation_store",
-      "actio.store"
-    ],
-    "actio.diagnostic_runtime": [
-      "actio.adapters.filesystem.common",
-      "actio.adapters.persistence.ledger",
-      "actio.adapters.transport.fixture",
-      "actio.contracts.json",
-      "actio.failure_fixtures",
-      "actio.failure_observation",
-      "actio.pilot",
-      "actio.preflight",
-      "actio.robustness_campaign",
-      "actio.runtime",
-      "actio.store",
-      "actio.supervisor",
-      "actio.tasks.controls",
-      "actio.tasks.diagnostic",
-      "actio.tasks.robustness",
-      "actio.transport_diagnostics"
-    ],
+    "actio.contracts.wire": [],
     "actio.domain": [],
     "actio.domain.accounting": [],
     "actio.domain.candidate": [
       "actio.contracts.json"
     ],
+    "actio.domain.clock": [
+      "actio.contracts.json"
+    ],
+    "actio.domain.episode": [
+      "actio.contracts.json"
+    ],
     "actio.domain.memory": [
       "actio.contracts.json"
     ],
-    "actio.eval_contract": [
+    "actio.domain.roles": [
+      "actio.contracts.endpoint",
+      "actio.contracts.json"
+    ],
+    "actio.eval_worker": [
+      "actio.adapters.runtime.eval_worker"
+    ],
+    "actio.evaluation": [
+      "actio.evidence.evaluation",
+      "actio.interfaces.evaluation"
+    ],
+    "actio.evidence": [],
+    "actio.evidence.accounting": [
+      "actio.contracts.json",
+      "actio.domain.accounting",
+      "actio.evidence.channel_audit",
+      "actio.profiles.registry"
+    ],
+    "actio.evidence.calibration": [
+      "actio.contracts.json",
+      "actio.evidence.campaign",
+      "actio.evidence.evaluation"
+    ],
+    "actio.evidence.campaign": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json",
+      "actio.evidence.eval_contract",
+      "actio.evidence.evaluation",
+      "actio.evidence.verify"
+    ],
+    "actio.evidence.campaign_registry": [
+      "actio.evidence.candidate_measurement",
+      "actio.evidence.evaluation_measurement",
+      "actio.evidence.robustness_measurement"
+    ],
+    "actio.evidence.candidate": [
+      "actio.contracts.json",
+      "actio.domain.candidate",
+      "actio.evidence.candidate_lineage",
+      "actio.evidence.candidate_measurement",
+      "actio.profiles.candidate_campaign"
+    ],
+    "actio.evidence.candidate_evaluation": [
+      "actio.contracts.json",
+      "actio.evidence.evaluation_lineage",
+      "actio.evidence.evaluation_measurement",
+      "actio.profiles.evaluation_campaign"
+    ],
+    "actio.evidence.candidate_lineage": [
+      "actio.contracts.json",
+      "actio.domain.candidate"
+    ],
+    "actio.evidence.candidate_measurement": [
+      "actio.contracts.json",
+      "actio.domain.candidate",
+      "actio.evidence.channel_audit",
+      "actio.evidence.pilot_measurement",
+      "actio.evidence.stream_audit",
+      "actio.evidence.suite_measurement",
+      "actio.measurement.oracle",
+      "actio.profiles.candidate_campaign",
+      "actio.tasks.finite"
+    ],
+    "actio.evidence.channel_audit": [
+      "actio.contracts.json",
+      "actio.evidence.stream_audit"
+    ],
+    "actio.evidence.eval_contract": [
       "actio.adapters.filesystem.common",
       "actio.contracts.json",
       "actio.contracts.versions",
-      "actio.task_evidence",
-      "actio.tasks.scheduling"
+      "actio.evidence.task_evidence",
+      "actio.tasks.registry"
     ],
-    "actio.eval_worker": [
-      "actio._vendor.sotopia",
+    "actio.evidence.evaluation": [
       "actio.contracts.json",
-      "actio.eval_contract"
+      "actio.evidence.eval_contract",
+      "actio.evidence.verify"
     ],
-    "actio.evaluation": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.eval_contract",
-      "actio.verify"
-    ],
-    "actio.evaluation_campaign": [
-      "actio.channel_audit",
-      "actio.contracts.json",
-      "actio.domain.candidate",
-      "actio.evaluation_measurement",
-      "actio.gateway_contract",
-      "actio.measurement.oracle",
-      "actio.pilot_contract",
-      "actio.preflight",
-      "actio.suite_contract",
-      "actio.tasks.finite"
-    ],
-    "actio.evaluation_history": [
+    "actio.evidence.evaluation_history": [
       "actio.contracts.json"
     ],
-    "actio.evaluation_measurement": [
-      "actio.candidate_measurement",
-      "actio.channel_audit",
+    "actio.evidence.evaluation_lineage": [
       "actio.contracts.json",
-      "actio.evaluation_campaign",
+      "actio.evidence.candidate_lineage",
+      "actio.evidence.evaluation_history",
+      "actio.profiles.evaluation_campaign",
+      "actio.profiles.robustness_campaign"
+    ],
+    "actio.evidence.evaluation_measurement": [
+      "actio.contracts.json",
+      "actio.evidence.candidate_measurement",
+      "actio.evidence.channel_audit",
+      "actio.evidence.pilot_measurement",
+      "actio.evidence.suite_measurement",
       "actio.measurement.oracle",
-      "actio.pilot_measurement",
-      "actio.suite_measurement",
+      "actio.profiles.evaluation_campaign",
       "actio.tasks.candidate",
       "actio.tasks.finite"
     ],
-    "actio.evaluation_store": [
-      "actio.candidate_store",
+    "actio.evidence.failure_fixtures": [
       "actio.contracts.json",
-      "actio.evaluation_campaign",
-      "actio.evaluation_history",
-      "actio.evaluation_measurement",
-      "actio.robustness_campaign",
-      "actio.robustness_measurement"
+      "actio.evidence.failure_observation"
     ],
-    "actio.evidence": [
-      "actio.adapters.filesystem.common",
+    "actio.evidence.failure_observation": [
+      "actio.adapters.filesystem.identity",
       "actio.contracts.json",
-      "actio.store",
-      "actio.verify"
+      "actio.evidence.channel_audit",
+      "actio.evidence.stream_audit",
+      "actio.evidence.transport_campaign"
     ],
-    "actio.facts": [
+    "actio.evidence.future_schedule": [
+      "actio.contracts.json",
+      "actio.profiles.robustness_campaign"
+    ],
+    "actio.evidence.pilot_measurement": [
+      "actio.contracts.json",
+      "actio.evidence.stream_audit",
+      "actio.evidence.transport_campaign",
+      "actio.profiles.pilot_contract"
+    ],
+    "actio.evidence.robustness": [
+      "actio.contracts.json",
+      "actio.evidence.evaluation_lineage",
+      "actio.evidence.robustness_measurement",
+      "actio.profiles.robustness_campaign"
+    ],
+    "actio.evidence.robustness_measurement": [
+      "actio.contracts.json",
+      "actio.evidence.candidate_measurement",
+      "actio.evidence.evaluation_measurement",
+      "actio.measurement.robustness_definitions",
+      "actio.profiles.robustness_campaign",
+      "actio.tasks.candidate",
+      "actio.tasks.controls",
+      "actio.tasks.diagnostic",
+      "actio.tasks.finite",
+      "actio.tasks.robustness"
+    ],
+    "actio.evidence.stream_audit": [
       "actio.contracts.json"
     ],
-    "actio.failure_fixtures": [
+    "actio.evidence.suite_measurement": [
       "actio.contracts.json",
-      "actio.failure_observation"
+      "actio.evidence.pilot_measurement",
+      "actio.measurement.oracle",
+      "actio.profiles.suite_contract",
+      "actio.tasks.finite"
     ],
-    "actio.failure_observation": [
-      "actio.channel_audit",
+    "actio.evidence.task_diagnostics": [
       "actio.contracts.json",
-      "actio.stream_audit",
-      "actio.transport_campaign"
+      "actio.measurement.diagnostic",
+      "actio.tasks.controls",
+      "actio.tasks.diagnostic",
+      "actio.tasks.finite",
+      "actio.tasks.registry"
     ],
-    "actio.future_schedule": [
+    "actio.evidence.task_evidence": [
       "actio.contracts.json",
-      "actio.robustness_campaign"
+      "actio.evidence.transport_contract",
+      "actio.tasks.registry"
+    ],
+    "actio.evidence.terminal": [
+      "actio.contracts.json",
+      "actio.evidence.task_evidence",
+      "actio.evidence.transport_contract"
+    ],
+    "actio.evidence.transport_campaign": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.hashing",
+      "actio.contracts.json",
+      "actio.contracts.transport",
+      "actio.evidence.accounting",
+      "actio.evidence.evaluation",
+      "actio.evidence.verify",
+      "actio.profiles.registry"
+    ],
+    "actio.evidence.transport_contract": [
+      "actio.contracts.json",
+      "actio.profiles.gateway_base",
+      "actio.profiles.readiness_contract",
+      "actio.profiles.registry",
+      "actio.profiles.transport",
+      "actio.tasks.candidate",
+      "actio.tasks.registry",
+      "actio.tasks.scheduling_v2"
+    ],
+    "actio.evidence.transport_diagnostics": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.json",
+      "actio.evidence.failure_fixtures",
+      "actio.evidence.failure_observation",
+      "actio.evidence.future_schedule"
+    ],
+    "actio.evidence.verify": [
+      "actio.contracts.json",
+      "actio.contracts.versions",
+      "actio.evidence.accounting",
+      "actio.evidence.task_evidence",
+      "actio.evidence.terminal",
+      "actio.evidence.transport_contract",
+      "actio.tasks.scheduling_v2"
     ],
     "actio.gateway": [
-      "actio.adapters.filesystem.common",
-      "actio.adapters.persistence.ledger",
-      "actio.budget",
-      "actio.contracts.json",
-      "actio.evidence",
-      "actio.gateway_contract",
-      "actio.preflight",
-      "actio.store",
-      "actio.tasks.scheduling",
-      "actio.transport",
-      "actio.transport_campaign"
-    ],
-    "actio.gateway_contract": [
-      "actio.adapters.filesystem.common",
-      "actio.budget",
-      "actio.contracts.json",
-      "actio.preflight",
-      "actio.stream_audit",
-      "actio.suite_contract",
-      "actio.tasks.scheduling",
-      "actio.transport_contract"
+      "actio.interfaces.gateway"
     ],
     "actio.host": [
-      "actio.adapters.filesystem.common",
-      "actio.budget",
-      "actio.contracts.json"
+      "actio.adapters.runtime.host"
     ],
     "actio.interfaces": [],
     "actio.interfaces.budget": [
       "actio.adapters.persistence.ledger",
       "actio.contracts.json"
     ],
-    "actio.mcp_server": [],
+    "actio.interfaces.campaign": [
+      "actio.application.campaign",
+      "actio.contracts.json",
+      "actio.evidence.campaign",
+      "actio.evidence.evaluation",
+      "actio.interfaces.evaluation"
+    ],
+    "actio.interfaces.candidate": [
+      "actio.contracts.json",
+      "actio.domain.candidate",
+      "actio.evidence.candidate",
+      "actio.evidence.candidate_lineage",
+      "actio.evidence.candidate_measurement",
+      "actio.interfaces.store",
+      "actio.profiles.candidate_campaign"
+    ],
+    "actio.interfaces.candidate_evaluation": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.credentials",
+      "actio.application.candidate_evaluation",
+      "actio.contracts.json",
+      "actio.evidence.candidate_evaluation",
+      "actio.evidence.evaluation_lineage",
+      "actio.evidence.evaluation_measurement",
+      "actio.interfaces.migration",
+      "actio.interfaces.pilot",
+      "actio.interfaces.store",
+      "actio.profiles.evaluation_campaign"
+    ],
+    "actio.interfaces.cli": [
+      "actio.adapters.filesystem.artifacts",
+      "actio.adapters.persistence.database",
+      "actio.adapters.runtime.facts",
+      "actio.adapters.runtime.runtime",
+      "actio.application.memory",
+      "actio.application.scenarios",
+      "actio.contracts.json",
+      "actio.contracts.scenarios",
+      "actio.evidence.evaluation",
+      "actio.evidence.verify",
+      "actio.interfaces.export",
+      "actio.interfaces.store",
+      "actio.tasks.registry"
+    ],
+    "actio.interfaces.evaluation": [
+      "actio.adapters.filesystem.artifacts",
+      "actio.adapters.runtime.evaluator",
+      "actio.application.evaluation",
+      "actio.contracts.json",
+      "actio.evidence.eval_contract",
+      "actio.evidence.evaluation"
+    ],
+    "actio.interfaces.export": [
+      "actio.application.export",
+      "actio.interfaces.store"
+    ],
+    "actio.interfaces.gateway": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.credentials",
+      "actio.adapters.persistence.ledger",
+      "actio.application.gateway",
+      "actio.contracts.json",
+      "actio.domain.roles",
+      "actio.evidence.transport_campaign",
+      "actio.interfaces.store",
+      "actio.profiles.gateway_base",
+      "actio.profiles.gateway_contract"
+    ],
+    "actio.interfaces.migration": [
+      "actio.adapters.persistence.migration",
+      "actio.application.migration",
+      "actio.interfaces.store"
+    ],
+    "actio.interfaces.pilot": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.credentials",
+      "actio.adapters.filesystem.publication",
+      "actio.adapters.persistence.ledger",
+      "actio.application.pilot",
+      "actio.contracts.json",
+      "actio.evidence.pilot_measurement",
+      "actio.interfaces.store",
+      "actio.profiles.pilot_contract"
+    ],
+    "actio.interfaces.preflight": [
+      "actio.contracts.json",
+      "actio.domain.roles",
+      "actio.profiles.candidate_campaign",
+      "actio.profiles.evaluation_campaign",
+      "actio.profiles.gateway_contract",
+      "actio.profiles.pilot_contract",
+      "actio.profiles.readiness_contract",
+      "actio.profiles.robustness_campaign",
+      "actio.profiles.suite_contract",
+      "actio.profiles.transport"
+    ],
+    "actio.interfaces.readiness": [
+      "actio.contracts.json",
+      "actio.domain.roles",
+      "actio.evidence.transport_campaign",
+      "actio.interfaces.transport_export",
+      "actio.profiles.readiness_contract"
+    ],
+    "actio.interfaces.robustness": [
+      "actio.adapters.filesystem.common",
+      "actio.adapters.filesystem.credentials",
+      "actio.adapters.transport.fixture",
+      "actio.application.robustness",
+      "actio.contracts.json",
+      "actio.evidence.evaluation_lineage",
+      "actio.evidence.robustness",
+      "actio.evidence.robustness_measurement",
+      "actio.interfaces.migration",
+      "actio.interfaces.pilot",
+      "actio.interfaces.store",
+      "actio.profiles.robustness_campaign"
+    ],
+    "actio.interfaces.store": [
+      "actio.adapters.persistence.store",
+      "actio.application.store",
+      "actio.interfaces.wiring"
+    ],
+    "actio.interfaces.suite": [
+      "actio.adapters.filesystem.credentials",
+      "actio.adapters.filesystem.publication",
+      "actio.contracts.json",
+      "actio.evidence.suite_measurement",
+      "actio.interfaces.pilot",
+      "actio.profiles.suite_contract"
+    ],
+    "actio.interfaces.task_diagnostics": [
+      "actio.application.task_diagnostics",
+      "actio.contracts.json",
+      "actio.evidence.task_diagnostics",
+      "actio.tasks.registry"
+    ],
+    "actio.interfaces.transport_diagnostics": [
+      "actio.application.diagnostic_runtime",
+      "actio.contracts.json",
+      "actio.evidence.transport_diagnostics",
+      "actio.interfaces.store",
+      "actio.interfaces.wiring"
+    ],
+    "actio.interfaces.transport_export": [
+      "actio.adapters.persistence.ledger",
+      "actio.application.transport_export"
+    ],
+    "actio.interfaces.wiring": [
+      "actio.adapters.environment.concordia",
+      "actio.adapters.persistence.ledger",
+      "actio.adapters.runtime.cleanup",
+      "actio.adapters.runtime.facts",
+      "actio.adapters.runtime.runtime",
+      "actio.adapters.runtime.supervisor",
+      "actio.adapters.transport.fixture",
+      "actio.adapters.transport.transport",
+      "actio.contracts.ports"
+    ],
+    "actio.mcp_server": [
+      "actio.adapters.runtime.mcp_server"
+    ],
     "actio.measurement": [],
     "actio.measurement.diagnostic": [
       "actio.contracts.json",
@@ -408,289 +738,202 @@
     "actio.measurement.oracle": [
       "actio.tasks.finite"
     ],
-    "actio.memory": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.domain.memory"
+    "actio.measurement.robustness_definitions": [
+      "actio.measurement.diagnostic"
     ],
     "actio.pilot": [
-      "actio.adapters.filesystem.common",
-      "actio.adapters.persistence.ledger",
-      "actio.contracts.json",
-      "actio.evidence",
-      "actio.gateway",
-      "actio.pilot_contract",
-      "actio.pilot_measurement",
-      "actio.store",
-      "actio.suite_measurement",
-      "actio.tasks.candidate",
-      "actio.tasks.evaluation",
-      "actio.tasks.finite",
-      "actio.tasks.robustness",
-      "actio.tasks.scheduling_v2",
-      "actio.transport",
-      "actio.transport_campaign"
-    ],
-    "actio.pilot_contract": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.gateway_contract",
-      "actio.preflight",
-      "actio.tasks.scheduling_v2"
-    ],
-    "actio.pilot_measurement": [
-      "actio.contracts.json",
-      "actio.pilot_contract",
-      "actio.stream_audit",
-      "actio.transport_campaign"
+      "actio.interfaces.pilot"
     ],
     "actio.preflight": [
-      "actio.candidate_campaign",
-      "actio.contracts.json",
-      "actio.evaluation_campaign",
-      "actio.gateway_contract",
-      "actio.pilot_contract",
-      "actio.readiness_contract",
-      "actio.robustness_campaign",
-      "actio.suite_contract",
-      "actio.transport_contract"
+      "actio.interfaces.preflight"
     ],
-    "actio.readiness": [
-      "actio.contracts.json",
-      "actio.preflight",
-      "actio.readiness_contract",
-      "actio.transport_campaign"
-    ],
-    "actio.readiness_contract": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.preflight",
-      "actio.tasks.scheduling",
-      "actio.transport_contract"
-    ],
-    "actio.robustness": [
-      "actio.adapters.filesystem.common",
-      "actio.adapters.transport.fixture",
-      "actio.contracts.json",
-      "actio.database",
-      "actio.evaluation_store",
-      "actio.gateway",
-      "actio.pilot",
-      "actio.robustness_campaign",
-      "actio.robustness_measurement",
-      "actio.store"
-    ],
-    "actio.robustness_campaign": [
-      "actio.channel_audit",
+    "actio.profiles": [],
+    "actio.profiles.candidate_campaign": [
+      "actio.adapters.filesystem.identity",
+      "actio.contracts.endpoint",
       "actio.contracts.json",
       "actio.domain.candidate",
-      "actio.gateway_contract",
+      "actio.evidence.channel_audit",
       "actio.measurement.oracle",
-      "actio.pilot_contract",
-      "actio.preflight",
-      "actio.robustness_measurement",
-      "actio.suite_contract",
+      "actio.profiles.finite_defaults",
+      "actio.profiles.gateway_base",
+      "actio.profiles.validation",
+      "actio.tasks.finite"
+    ],
+    "actio.profiles.evaluation_campaign": [
+      "actio.adapters.filesystem.identity",
+      "actio.contracts.endpoint",
+      "actio.contracts.json",
+      "actio.domain.candidate",
+      "actio.evidence.channel_audit",
+      "actio.measurement.oracle",
+      "actio.profiles.finite_defaults",
+      "actio.profiles.gateway_base",
+      "actio.profiles.validation",
+      "actio.tasks.finite"
+    ],
+    "actio.profiles.finite_defaults": [],
+    "actio.profiles.gateway_base": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.transport"
+    ],
+    "actio.profiles.gateway_contract": [
+      "actio.contracts.endpoint",
+      "actio.contracts.hashing",
+      "actio.contracts.json",
+      "actio.evidence.stream_audit",
+      "actio.profiles.finite_defaults",
+      "actio.profiles.gateway_base",
+      "actio.profiles.validation",
+      "actio.tasks.registry"
+    ],
+    "actio.profiles.pilot_contract": [
+      "actio.adapters.filesystem.identity",
+      "actio.contracts.endpoint",
+      "actio.contracts.json",
+      "actio.profiles.gateway_base",
+      "actio.profiles.validation",
+      "actio.tasks.scheduling_v2"
+    ],
+    "actio.profiles.readiness_contract": [
+      "actio.adapters.filesystem.common",
+      "actio.contracts.endpoint",
+      "actio.contracts.json",
+      "actio.contracts.transport",
+      "actio.domain.clock",
+      "actio.profiles.validation",
+      "actio.tasks.registry"
+    ],
+    "actio.profiles.registry": [
+      "actio.contracts.hashing",
+      "actio.contracts.json",
+      "actio.contracts.transport",
+      "actio.domain.accounting",
+      "actio.domain.clock",
+      "actio.evidence.channel_audit",
+      "actio.profiles.candidate_campaign",
+      "actio.profiles.evaluation_campaign",
+      "actio.profiles.finite_defaults",
+      "actio.profiles.gateway_base",
+      "actio.profiles.gateway_contract",
+      "actio.profiles.pilot_contract",
+      "actio.profiles.readiness_contract",
+      "actio.profiles.robustness_campaign",
+      "actio.profiles.suite_contract",
+      "actio.profiles.transport"
+    ],
+    "actio.profiles.robustness_campaign": [
+      "actio.adapters.filesystem.identity",
+      "actio.contracts.endpoint",
+      "actio.contracts.json",
+      "actio.domain.candidate",
+      "actio.evidence.channel_audit",
+      "actio.measurement.oracle",
+      "actio.measurement.robustness_definitions",
+      "actio.profiles.finite_defaults",
+      "actio.profiles.gateway_base",
+      "actio.profiles.validation",
       "actio.tasks.controls",
       "actio.tasks.diagnostic",
       "actio.tasks.robustness"
     ],
-    "actio.robustness_measurement": [
-      "actio.candidate_measurement",
+    "actio.profiles.suite_contract": [
+      "actio.adapters.filesystem.identity",
+      "actio.contracts.endpoint",
       "actio.contracts.json",
-      "actio.evaluation_measurement",
-      "actio.measurement.diagnostic",
       "actio.measurement.oracle",
-      "actio.robustness_campaign",
-      "actio.tasks.candidate",
-      "actio.tasks.controls",
-      "actio.tasks.diagnostic",
-      "actio.tasks.finite",
+      "actio.profiles.gateway_base",
+      "actio.profiles.validation",
+      "actio.tasks.finite"
+    ],
+    "actio.profiles.transport": [
+      "actio.contracts.json",
+      "actio.contracts.transport",
+      "actio.domain.roles"
+    ],
+    "actio.profiles.validation": [
+      "actio.contracts.endpoint",
+      "actio.contracts.json",
+      "actio.domain.clock",
       "actio.tasks.robustness"
     ],
-    "actio.runtime": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.facts",
-      "actio.mcp_server",
-      "actio.supervisor"
+    "actio.readiness": [
+      "actio.interfaces.readiness"
     ],
-    "actio.scenarios": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.contracts.scenarios",
-      "actio.facts",
-      "actio.memory",
-      "actio.runtime",
-      "actio.task_evidence",
-      "actio.tasks.scheduling",
-      "actio.terminal",
-      "actio.transport_contract"
-    ],
-    "actio.store": [
-      "actio.adapters.filesystem.common",
-      "actio.candidate_store",
-      "actio.contracts.json",
-      "actio.database",
-      "actio.evaluation_store",
-      "actio.supervisor",
-      "actio.terminal"
-    ],
-    "actio.stream_audit": [
-      "actio.contracts.json"
+    "actio.robustness": [
+      "actio.interfaces.robustness"
     ],
     "actio.suite": [
-      "actio.contracts.json",
-      "actio.gateway",
-      "actio.pilot",
-      "actio.suite_contract",
-      "actio.suite_measurement"
-    ],
-    "actio.suite_contract": [
-      "actio.contracts.json",
-      "actio.gateway_contract",
-      "actio.measurement.oracle",
-      "actio.pilot_contract",
-      "actio.preflight",
-      "actio.tasks.finite"
-    ],
-    "actio.suite_measurement": [
-      "actio.contracts.json",
-      "actio.measurement.oracle",
-      "actio.pilot_measurement",
-      "actio.suite_contract",
-      "actio.tasks.finite"
-    ],
-    "actio.supervisor": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json"
+      "actio.interfaces.suite"
     ],
     "actio.task_diagnostics": [
-      "actio.contracts.json",
-      "actio.measurement.diagnostic",
-      "actio.tasks.controls",
-      "actio.tasks.diagnostic",
-      "actio.tasks.finite",
-      "actio.tasks.scheduling"
-    ],
-    "actio.task_evidence": [
-      "actio.contracts.json",
-      "actio.tasks.scheduling",
-      "actio.transport_contract"
+      "actio.application.task_diagnostics",
+      "actio.evidence.task_diagnostics",
+      "actio.interfaces.task_diagnostics"
     ],
     "actio.tasks": [],
     "actio.tasks.candidate": [
       "actio.contracts.json",
       "actio.domain.candidate",
-      "actio.tasks.finite",
-      "actio.tasks.scheduling"
+      "actio.tasks.core",
+      "actio.tasks.finite"
     ],
     "actio.tasks.controls": [
-      "actio.tasks.diagnostic",
-      "actio.tasks.scheduling"
+      "actio.tasks.core",
+      "actio.tasks.diagnostic"
+    ],
+    "actio.tasks.core": [
+      "actio.contracts.json"
     ],
     "actio.tasks.diagnostic": [
       "actio.contracts.json",
-      "actio.tasks.finite",
-      "actio.tasks.scheduling"
+      "actio.tasks.core",
+      "actio.tasks.finite"
     ],
     "actio.tasks.evaluation": [
       "actio.contracts.json",
       "actio.domain.candidate",
       "actio.tasks.candidate",
-      "actio.tasks.finite",
-      "actio.tasks.scheduling"
+      "actio.tasks.core",
+      "actio.tasks.finite"
     ],
     "actio.tasks.finite": [
       "actio.contracts.json",
+      "actio.tasks.core"
+    ],
+    "actio.tasks.registry": [
+      "actio.contracts.json",
+      "actio.tasks.candidate",
+      "actio.tasks.evaluation",
+      "actio.tasks.finite",
+      "actio.tasks.robustness",
       "actio.tasks.scheduling",
       "actio.tasks.scheduling_v2"
     ],
     "actio.tasks.robustness": [
       "actio.contracts.json",
       "actio.domain.candidate",
-      "actio.tasks.candidate",
-      "actio.tasks.diagnostic",
-      "actio.tasks.scheduling"
+      "actio.tasks.core",
+      "actio.tasks.diagnostic"
     ],
     "actio.tasks.scheduling": [
       "actio.contracts.json",
-      "actio.tasks.candidate",
-      "actio.tasks.evaluation",
-      "actio.tasks.finite",
-      "actio.tasks.robustness",
-      "actio.tasks.scheduling_v2"
+      "actio.tasks.core"
     ],
     "actio.tasks.scheduling_v2": [
       "actio.contracts.json",
+      "actio.tasks.core",
       "actio.tasks.scheduling"
     ],
-    "actio.terminal": [
-      "actio.contracts.json",
-      "actio.facts",
-      "actio.task_evidence",
-      "actio.transport_contract"
-    ],
-    "actio.transport": [
-      "actio.adapters.filesystem.common",
-      "actio.adapters.persistence.ledger",
-      "actio.budget",
-      "actio.candidate_campaign",
-      "actio.channel_audit",
-      "actio.contracts.json",
-      "actio.evaluation_campaign",
-      "actio.facts",
-      "actio.gateway_contract",
-      "actio.pilot",
-      "actio.robustness_campaign",
-      "actio.runtime",
-      "actio.scenarios",
-      "actio.suite_contract",
-      "actio.tasks.candidate",
-      "actio.tasks.finite",
-      "actio.tasks.scheduling",
-      "actio.tasks.scheduling_v2",
-      "actio.terminal",
-      "actio.transport_contract"
-    ],
     "actio.transport_campaign": [
-      "actio.adapters.filesystem.common",
-      "actio.adapters.persistence.ledger",
-      "actio.budget",
-      "actio.contracts.json",
-      "actio.evaluation",
-      "actio.transport_contract",
-      "actio.verify"
-    ],
-    "actio.transport_contract": [
-      "actio.candidate_campaign",
-      "actio.contracts.json",
-      "actio.evaluation_campaign",
-      "actio.gateway_contract",
-      "actio.pilot_contract",
-      "actio.preflight",
-      "actio.readiness_contract",
-      "actio.robustness_campaign",
-      "actio.suite_contract",
-      "actio.tasks.candidate",
-      "actio.tasks.scheduling",
-      "actio.tasks.scheduling_v2"
+      "actio.evidence.transport_campaign"
     ],
     "actio.transport_diagnostics": [
-      "actio.adapters.filesystem.common",
-      "actio.contracts.json",
-      "actio.diagnostic_runtime",
-      "actio.failure_fixtures",
-      "actio.failure_observation",
-      "actio.future_schedule"
+      "actio.evidence.transport_diagnostics",
+      "actio.interfaces.transport_diagnostics"
     ],
     "actio.verify": [
-      "actio.budget",
-      "actio.contracts.json",
-      "actio.contracts.versions",
-      "actio.task_evidence",
-      "actio.tasks.scheduling_v2",
-      "actio.terminal",
-      "actio.transport_contract"
+      "actio.evidence.verify"
     ]
   },
   "scope": "all current Python including local imports; no ignored subgraph; package target DAG still required"

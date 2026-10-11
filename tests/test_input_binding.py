@@ -5,9 +5,13 @@ import shutil
 import tempfile
 import unittest
 
-from actio.common import canonical, digest, ContractError
-from actio.terminal import terminal_body
-from actio.verify import verify_bundle, sha, VERIFIER
+from actio.common import canonical
+from actio.common import digest
+from actio.common import ContractError
+from actio.evidence.terminal import terminal_body
+from actio.evidence.verify import verify_bundle
+from actio.evidence.verify import sha
+from actio.evidence.verify import VERIFIER
 
 SAMPLES=Path(__file__).resolve().parents[1]/'docs/validation/phase1b1/samples'
 

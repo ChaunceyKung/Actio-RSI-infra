@@ -13,8 +13,9 @@ PIN='196e8a6f3327b9d17ee0c0ba3bc45c93c38334e0'
 sys.path.insert(0,str(ROOT/'tests'))
 from test_suite import GUARD
 from actio.common import canonical,file_hash,digest
-from actio.diagnostic_runtime import review_entry,cleanup
-from actio.failure_fixtures import CASES
+from actio.application.diagnostic_runtime import review_entry
+from actio.adapters.runtime.cleanup import cleanup
+from actio.evidence.failure_fixtures import CASES
 from actio.transport_diagnostics import sources
 
 

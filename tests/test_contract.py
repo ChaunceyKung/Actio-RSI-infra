@@ -3,11 +3,16 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from actio.common import ContractError,Lines,canonical,digest
-from actio.facts import Facts
-from actio.memory import Memory,namespace
-from actio.runtime import RuntimePort,synthetic_spec
-from actio.store import Store
+from actio.common import ContractError
+from actio.common import Lines
+from actio.common import canonical
+from actio.common import digest
+from actio.adapters.runtime.facts import Facts
+from actio.application.memory import Memory
+from actio.application.memory import namespace
+from actio.adapters.runtime.runtime import RuntimePort
+from actio.adapters.runtime.runtime import synthetic_spec
+from actio.interfaces.store import Store
 
 
 class Contracts(unittest.TestCase):

@@ -3,7 +3,8 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-from validate import hashes, SUITES
+from validate import hashes
+from validate import SUITES
 
 ROOT = Path(__file__).resolve().parents[2]
 

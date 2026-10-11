@@ -1,4 +1,4 @@
-"""Exact secret and raw reasoning exclusion; never logs any credential property."""
+"""Credential-pattern and controlled raw exclusion; never reads real credentials."""
 import argparse
 import json
 from pathlib import Path
@@ -26,10 +26,6 @@ def main():
     paths=[ROOT/n for n in sorted(names) if (ROOT/n).is_file()]
     data=[p.read_bytes() for p in paths]
     assert not any(re.search(rb'\bsk-[A-Za-z0-9_-]{16,}|Bearer [A-Za-z0-9_-]{24,}',v) for v in data),'credential pattern detected'
-    # User explicitly requests an exact publication scan. This read is only for
-    # in-memory comparison, separate from execute's later provider injection.
-    secret=(ROOT/'.local/credentials/token_key.txt').read_text(encoding='utf-8-sig').strip().encode()
-    assert secret and not any(secret in v for v in data),'exact credential publication blocked'
     texts=[];protected_requests=[];protected_messages=[]
     roots=[Path('D:/actio-c2c2-live-v1')]+([a.live_root] if a.live_root else [])
     for root in roots:
@@ -60,8 +56,8 @@ def main():
     assert not git('ls-files','.local/credentials/token_key.txt')
     subprocess.run(['git','diff','--check'],cwd=ROOT,check=True)
     subprocess.run(['git','diff','--cached','--check'],cwd=ROOT,check=True)
-    result={'status':'PASS','argv':sys.orig_argv,'files_scanned':len(paths),'exact_secret_scan':'PASS',
-        'raw_reasoning_copies':0,'credential_ignored_untracked':True,'credential_read_scope':'in-memory publication scan only',
+    result={'status':'PASS','argv':sys.orig_argv,'files_scanned':len(paths),'exact_secret_scan':'NOT_RUN: real credential reads prohibited','credential_pattern_scan':'PASS','credential_reads':0,
+        'raw_reasoning_copies':0,'credential_ignored_untracked':True,'credential_read_scope':'none',
         'new_provider_requests':0,'file_hash_kind':'SHA256 file bytes',
         'file_hashes':{p.relative_to(ROOT).as_posix():file_hash(p) for p in paths}}
     if a.verify_only:

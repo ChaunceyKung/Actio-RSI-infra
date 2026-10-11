@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "product_commit": "d64264f67191d99b94598d79c67bdb7eb7b92a37",
+  "wheel_sha256": "475dbbd2beedb25ab31096be1b99e879d95a5f5273a048488458be725f8e0de2",
+  "package_files": 105,
+  "frozen_source_files": 103,
+  "wheel_checkout_installed_exact": true,
+  "git_product_bytes_equal": true,
+  "historical_files_checked": 1048,
+  "protected_resources": {
+    "src/actio/_vendor/sotopia_provenance.json": true,
+    "src/actio/candidate_schema.sql": true,
+    "src/actio/evaluation_history.json": true,
+    "src/actio/evaluation_schema.sql": true,
+    "src/actio/legacy_schema.sql": true,
+    "src/actio/pins/c5_runtime.json": true,
+    "src/actio/pins/concordia.json": true,
+    "src/actio/readiness_quote.json": true,
+    "src/actio/schema.sql": true,
+    "src/actio/task_diagnostic_trust.json": true
+  },
+  "post_freeze_non_execution_harness_changes": {},
+  "external_requests": 0,
+  "line_endings": "LF per repository source attributes; supersedes wheel10 CRLF materialization"
+}

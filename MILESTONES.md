@@ -226,3 +226,10 @@ python -X utf8 scripts/bootstrap.py --offline-wheels --concordia-source ../../co
 支持持久身份/spec/query、新 native session、当前 host 内串行 turn、只读 MCP、显式停止、只读 reconcile 和冻结起点重执行。RuntimePort 位于 [runtime.py](src/actio/runtime.py)，Memory 控制入口位于 [memory.py](src/actio/memory.py)。运行 freeze memory 内容、实际选中 ID/revision、顺序、截断和 namespace；A→social 的共享在 spec 中显式授权，B 无权检索 A 的 private namespace。
 
 强制结束 Job 不是 semantic cancel 或效果回滚。native reopen/resume/fork、在线 catchup、完整 world restore、动态逐调用审批、任意写工具、evaluator/live provider 明确 unsupported。没有 Web/UI/HTTP 服务，没有完整心智/演化/训练栈。外部 `.mjs` 是受信固定闭包，不承诺恶意插件沙箱安全。二进制到源码构建映射仍未证明。
+
+
+## 2026-10-11 模块化重构工程检查点（INCOMPLETE）
+
+从6ba6573开始；C5产品基线c5aeec2。提取纯contracts/domain/tasks/measurement部分、filesystem、SQLite Ledger与安装内loopback fixture；原SQL schema/多表事务保持，正式入口不再导入tests或monkeypatch服务。四个console scripts及预算IPC保留。555个差分向量相同；固定C2/C3/C4、19claims和原C5重算通过。新d64264f冻结wheel下9场景12本机sends、5settled/usage/admitted、7unknown、6not_run，12Worker/9服务清理，扫描20251文件通过。
+
+整体架构及完整回归未通过，不能称完成重构。旧priced报价过期拒绝发送；Store/ports/profiles/application/evidence拆分仍有缺口，详见[验收结果](docs/validation/refactor_modularity/RESULTS.md)。真实调用0；累计172/目录GET1、C4 INCOMPLETE、C1 infrastructure_failure、研究UNESTABLISHED、activation=false保持。没有推进C6。

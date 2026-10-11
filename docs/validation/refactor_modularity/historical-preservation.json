@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "base": "6ba6573dc2057b12624477c3b3a90cbf246f8f63",
+  "history_files": 957,
+  "historical_tool_files": 91,
+  "all_file_bytes_unchanged": true,
+  "trust_and_schema_resources": {
+    "src/actio/_vendor/sotopia_provenance.json": true,
+    "src/actio/candidate_schema.sql": true,
+    "src/actio/evaluation_history.json": true,
+    "src/actio/evaluation_schema.sql": true,
+    "src/actio/legacy_schema.sql": true,
+    "src/actio/pins/c5_runtime.json": true,
+    "src/actio/pins/concordia.json": true,
+    "src/actio/readiness_quote.json": true,
+    "src/actio/schema.sql": true,
+    "src/actio/task_diagnostic_trust.json": true
+  }
+}

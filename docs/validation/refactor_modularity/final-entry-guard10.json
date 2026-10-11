@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "b-error",
+      "exit": 0,
+      "entry_sha256": "1efdf0191c8c2b25e643883452b052ba358fa355ede76f901a9d2968301ffc71",
+      "stdout_sha256": "aa15e274437cfd69f2fa35f3c77f31f2fe35c6251e47a830ab0359c5e98e6c73",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "c4-substitute",
+      "exit": 0,
+      "entry_sha256": "0bce6041b29a0c37850c92e4435825bf77fec1831b7ef2039ab4df59331b7250",
+      "stdout_sha256": "f738e7269e0fd8bfeb3fe42d99117ffca4c80d6fc148674bcc5dc867ec7c2fa4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "data-error",
+      "exit": 0,
+      "entry_sha256": "5769d41e28ee6acbc822d47d171eb5093593eb0c7e9da7ebcff31e7376d41482",
+      "stdout_sha256": "3fb1ade0a9f9e37bfc3fe9daf7a7476187b99037e40910ba88070a3ae3a4b20f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "dual-success",
+      "exit": 0,
+      "entry_sha256": "506ad9c93be0e3a1bb278e2eabcda52476e11bc079c49ff0c41bd6e89bc2c705",
+      "stdout_sha256": "00cfa2826291532902b77887c115fd4a330ad360cf155e35fde907f0fcf11a24",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "http429",
+      "exit": 0,
+      "entry_sha256": "6c405c2a5e7cc1fbfe6120c256480e3f3a22efda4b3c599dd21e89bfef76bbad",
+      "stdout_sha256": "c03c0a77f3842e7f2a86be3ed4f2e2c16591611d8241cf8dd8374e8dedea1b59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "http503",
+      "exit": 0,
+      "entry_sha256": "f54e973b6232b9b3d1e55d3b8ecb77fb5bec49374e23bedf02ccd2fd5b410b2b",
+      "stdout_sha256": "9e3214a584ca01418f0ef4cae0e14a287bb9c6ea9d3e18948741e838c9e9a551",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "prefix-error",
+      "exit": 0,
+      "entry_sha256": "1b7059b807a7128f6a75071dc5d418bbee75106af7f3e659b92c4f730fe6e90e",
+      "stdout_sha256": "b0f8c3d58df23e3b5278fdb15eb7877b382fb206a58032cad61ded074fc23a66",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "text-success",
+      "exit": 0,
+      "entry_sha256": "73009e2f90121c07aaeb835f5b7f9746308308aad5493e3011b7335b1b9d2d5d",
+      "stdout_sha256": "1f925ce49ccda90a908004011d31cb50db04124031a9eed473d87d7c40cab642",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "truncated",
+      "exit": 0,
+      "entry_sha256": "fcd2c134c0dc634170184cffc115c70e0b8b514dd5ce75c9fae238b8f08e8e3d",
+      "stdout_sha256": "301583d532727f85576536a070fc4ed9f293ff1fa81e54bcabf5b49481bee872",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tampered_resealed_exit": 2,
+  "guard": [
+    "key",
+    "env",
+    "network",
+    "process",
+    "runtime import",
+    "write"
+  ],
+  "environment": "minimal wheel; no DSH/Concordia",
+  "external_requests": 0,
+  "loopback_sends": 0
+}

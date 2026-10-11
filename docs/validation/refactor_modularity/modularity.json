@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "tests": 4,
+  "log_sha256": "b948adff1d8c030f4d9ae541c88c22a1ae1532800638a76097cc41fb151f4543",
+  "scope": "pure package direction, fixture independence, legacy profile/unknown accounting, budget IPC import; not whole DAG"
+}

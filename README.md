@@ -10,7 +10,7 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 [当前结果](docs/validation/phase1c2c5/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c5/GATES.md) · [当前 CLI](docs/validation/phase1c2c5/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
 
-**当前工程优先级：模块化重构，暂停实验迭代。** 已完成代码结构审阅和设计，尚未实施重构。先读三篇简明文档：[整体架构](docs/architecture/README.md) → [模块与流程](docs/architecture/MODULES.md) → [迁移与验收](docs/architecture/REFACTOR_PLAN.md)。另一个 session 可使用[完整重构 Prompt](docs/prompts/modular_architecture_refactor.md)实施；历史 C5 结果保持不变。
+**当前工程优先级：模块化重构，暂停实验迭代。** 已开始实施纯合同/任务/oracle、Ledger与fixture拆分；整体仍 **INCOMPLETE**，尚未完成九层依赖DAG与全部回归。实际证据见[本轮验收](docs/validation/refactor_modularity/RESULTS.md)。先读三篇简明文档：[整体架构](docs/architecture/README.md) → [模块与流程](docs/architecture/MODULES.md) → [迁移与验收](docs/architecture/REFACTOR_PLAN.md)。完整要求见[重构 Prompt](docs/prompts/modular_architecture_refactor.md)；历史 C5 结果保持不变。
 
 ## 阅读导航
 

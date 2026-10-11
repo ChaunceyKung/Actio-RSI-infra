@@ -1,0 +1,668 @@
+{
+  "console_scripts": {
+    "actio": "actio.cli:main",
+    "actio-eval": "actio.evaluation:main",
+    "actio-candidate": "actio.candidate:main",
+    "actio-candidate-evaluation": "actio.candidate_evaluation:main"
+  },
+  "retained_module_entrypoints": [
+    "actio",
+    "actio.verify",
+    "actio.evaluation",
+    "actio.candidate",
+    "actio.candidate_evaluation",
+    "actio.task_diagnostics",
+    "actio.transport_diagnostics",
+    "actio.budget",
+    "actio.host",
+    "actio.mcp_server",
+    "actio.eval_worker",
+    "actio.preflight",
+    "actio.pilot",
+    "actio.robustness",
+    "actio.suite",
+    "actio.gateway",
+    "actio.readiness",
+    "actio.transport_campaign"
+  ],
+  "public_readers": [
+    "actio.verify.verify_bundle",
+    "actio.task_diagnostics.verify",
+    "actio.transport_diagnostics.analyze",
+    "actio.failure_observation.from_entry"
+  ],
+  "ipc": {
+    "module": "actio.budget",
+    "implementation": "actio.interfaces.budget",
+    "protocol": "stdin bounded JSON reserve/sending; stdout JSON; existing exit codes"
+  },
+  "change": {
+    "run-local --project": "optional, omission verifies installed freeze; explicit argument still checks source mirror",
+    "private_modules_removed": {
+      "candidate_contract": "domain/candidate",
+      "task_contract": "tasks/scheduling",
+      "task_v2": "tasks/scheduling_v2",
+      "suite_tasks": "tasks/finite",
+      "candidate_tasks": "tasks/candidate",
+      "evaluation_tasks": "tasks/evaluation",
+      "robustness_tasks": "tasks/robustness",
+      "task_diagnostic_data": "tasks/diagnostic",
+      "task_diagnostic_policy": "tasks/controls",
+      "suite_oracle": "measurement/oracle",
+      "task_diagnostic_analysis": "measurement/diagnostic"
+    }
+  },
+  "callers": [
+    {
+      "file": "src/actio/evaluation.py",
+      "line": 92,
+      "text": "        command=[sys.executable,'-I','-B','-m','actio.eval_worker']"
+    },
+    {
+      "file": "src/actio/runtime.py",
+      "line": 104,
+      "text": "                     'args':['-m','actio.mcp_server',str(self.root)],'cwd':str(self.root),'toolCallTimeoutMs':10000,'failOnStartupError':True,'reconnect':{'enabled':False}}},"
+    },
+    {
+      "file": "src/actio/task_diagnostics.py",
+      "line": 208,
+      "text": "            raise ContractError('usage: python -m actio.task_diagnostics plan | analyze --source DIR --output NEW_DIR [--source-receipt FILE] [--dataset FILE] | verify DIR')"
+    },
+    {
+      "file": "src/actio/plugins/transport.mjs",
+      "line": 12,
+      "text": "    const p=spawnSync(config.python,['-I','-B','-m','actio.budget',config.ledger],{"
+    },
+    {
+      "file": "tests/test_preflight.py",
+      "line": 74,
+      "text": "            result=subprocess.run([sys.executable,'-X','utf8','-I','-B','-m','actio.preflight',str(p)],cwd=root,env=env,capture_output=True,text=True,encoding='utf8',timeout=15)"
+    },
+    {
+      "file": "scripts/phase1b1_smoke.py",
+      "line": 50,
+      "text": "        command=[sys.executable,'-m','actio.verify',str(package)]"
+    },
+    {
+      "file": "scripts/phase1c0_campaign.py",
+      "line": 54,
+      "text": "    command=[sys.executable,'-I','-m','actio.evaluation','campaign',str(path),'--output',str(destination)]"
+    },
+    {
+      "file": "scripts/phase1c0_release.py",
+      "line": 85,
+      "text": "        spec_result=command(['-m','actio.evaluation','spec','--mode','deterministic','--dataset-hash',report['dataset_hash'],'--output',str(local/'specs')])"
+    },
+    {
+      "file": "scripts/phase1c0_release.py",
+      "line": 87,
+      "text": "        run_args=['-m','actio.evaluation','run','--spec',str(det_path),'--bundle',str(ROOT/'docs/validation/phase1b1/samples/assistant'),'--output',str(local/'records')]"
+    },
+    {
+      "file": "scripts/phase1c0_release.py",
+      "line": 89,
+      "text": "        command(['-m','actio.evaluation','verify-record',first['record']])"
+    },
+    {
+      "file": "scripts/phase1c0_release.py",
+      "line": 91,
+      "text": "        control=['-m','actio.evaluation','run','--spec',str(DOC/'campaign/specs'/(report['specs']['controlled_response']+'.json')),"
+    },
+    {
+      "file": "scripts/phase1c0_release.py",
+      "line": 94,
+      "text": "        command(['-m','actio.evaluation','verify-record',actual['record']])"
+    },
+    {
+      "file": "scripts/phase1c0_release.py",
+      "line": 97,
+      "text": "        command(['-m','actio.evaluation','verify-record',actual['record']])"
+    },
+    {
+      "file": "scripts/phase1c1_artifacts.py",
+      "line": 42,
+      "text": "            bundle=dest/'samples'/variant;command([*cli,'export',run['id'],'--output',bundle]);command(['-m','actio.verify',bundle])"
+    },
+    {
+      "file": "scripts/phase1c1_artifacts.py",
+      "line": 80,
+      "text": "        campaign=command(['-m','actio.campaign','run',datafile,'--output',root/'campaign'])"
+    },
+    {
+      "file": "scripts/phase1c1_artifacts.py",
+      "line": 82,
+      "text": "        log['campaign_verification']=command(['-m','actio.campaign','verify-campaign',DOC/'campaign'])"
+    },
+    {
+      "file": "scripts/phase1c1_artifacts.py",
+      "line": 85,
+      "text": "        log['annotations']=command(['-m','actio.calibration','export',*records,'--output',DOC/'annotations'])"
+    },
+    {
+      "file": "scripts/phase1c1_artifacts.py",
+      "line": 86,
+      "text": "        log['empty_import']=command(['-m','actio.calibration','import-labels',DOC/'annotations/internal.json',DOC/'annotations/blank-labels.jsonl','--raters','pending_rater_1','pending_rater_2'],2)"
+    },
+    {
+      "file": "scripts/phase1c1_artifacts.py",
+      "line": 87,
+      "text": "        config=dest/'pilot-config.json';config.write_text(canonical(template()),encoding='utf8');log['preflight']=command(['-m','actio.preflight',config],2)"
+    },
+    {
+      "file": "scripts/phase1c1_release.py",
+      "line": 50,
+      "text": "        result=json.loads(command([sys.executable,'-X','utf8','-I','-B','-m','actio.campaign','verify-campaign',DOC/'campaign']))"
+    },
+    {
+      "file": "scripts/phase1c1_release.py",
+      "line": 52,
+      "text": "        command([sys.executable,'-X','utf8','-I','-B','-m','actio.preflight',DOC/'pilot-config.json'],2)"
+    },
+    {
+      "file": "scripts/phase1c2a1_cli.py",
+      "line": 37,
+      "text": "            value=json.loads(command([*cli,'-m','actio.preflight',path],2))"
+    },
+    {
+      "file": "scripts/phase1c2a1_cli.py",
+      "line": 41,
+      "text": "        value=json.loads(command([*cli,'-m','actio.preflight',duplicate],2))"
+    },
+    {
+      "file": "scripts/phase1c2a1_release.py",
+      "line": 135,
+      "text": "            result=json.loads(command([sys.executable,'-X','utf8','-I','-B','-m','actio.transport_campaign',dest]))"
+    },
+    {
+      "file": "scripts/phase1c2a_release.py",
+      "line": 77,
+      "text": "            value=json.loads(command([sys.executable,'-X','utf8','-I','-B','-m','actio.preflight',DOC/name],2))"
+    },
+    {
+      "file": "scripts/phase1c2a_release.py",
+      "line": 82,
+      "text": "        cli['duplicate_key']=json.loads(command([sys.executable,'-X','utf8','-I','-B','-m','actio.preflight',duplicate],2))"
+    },
+    {
+      "file": "scripts/phase1c2b0_cli.py",
+      "line": 37,
+      "text": "            value=json.loads(command([*cli,'-m','actio.preflight',path],2))"
+    },
+    {
+      "file": "scripts/phase1c2b0_cli.py",
+      "line": 41,
+      "text": "        value=json.loads(command([*cli,'-m','actio.preflight',duplicate],2))"
+    },
+    {
+      "file": "scripts/phase1c2b0_cli.py",
+      "line": 43,
+      "text": "        proposal=json.loads(command([*cli,'-m','actio.readiness','plan',DOC/'candidate.json']))"
+    },
+    {
+      "file": "scripts/phase1c2b0_cli.py",
+      "line": 46,
+      "text": "            blocked=json.loads(command([*cli,'-m','actio.readiness',sub,DOC/'candidate.json'],2))"
+    },
+    {
+      "file": "scripts/phase1c2b0_cli.py",
+      "line": 52,
+      "text": "        report=json.loads(command([*cli,'-m','actio.readiness','verify',Path(smoke['root'])/'campaign']))"
+    },
+    {
+      "file": "scripts/phase1c2b0_cli.py",
+      "line": 54,
+      "text": "        exported=json.loads(command([*cli,'-m','actio.readiness','export',Path(smoke['root'])/'budget.sqlite',Path(smoke['root'])/'receives.json',root/'exported',Path(smoke['root'])/'bundle']))"
+    },
+    {
+      "file": "scripts/phase1c2b0_release.py",
+      "line": 130,
+      "text": "            result=json.loads(command([sys.executable,'-X','utf8','-I','-B','-m','actio.transport_campaign',dest]))"
+    },
+    {
+      "file": "scripts/phase1c2b1_cli.py",
+      "line": 26,
+      "text": "            r=json.loads(command([*cli,'-m','actio.gateway',sub,'--config',config]));assert r['credential_reads']==0 and r['network_requests']==0"
+    },
+    {
+      "file": "scripts/phase1c2b1_cli.py",
+      "line": 27,
+      "text": "        missing=json.loads(command([*cli,'-m','actio.gateway','execute',config,'--root',root/'never-created','--project',root],2))"
+    },
+    {
+      "file": "scripts/phase1c2b1_cli.py",
+      "line": 29,
+      "text": "        blocked=json.loads(command([*cli,'-m','actio.readiness','execute'],2));assert blocked['credential_reads']==0"
+    },
+    {
+      "file": "scripts/phase1c2b1_cli.py",
+      "line": 31,
+      "text": "        verified=json.loads(command([*cli,'-m','actio.gateway','verify',Path(smoke['root'])/'run/campaign']));assert verified['valid']"
+    },
+    {
+      "file": "scripts/phase1c2b1_live.py",
+      "line": 38,
+      "text": "        command=[sys.executable,'-X','utf8','-I','-B','-m','actio.gateway','execute',str(path),'--root',str(root),'--project',str(ROOT),'--authorized-phase1c2b1']"
+    },
+    {
+      "file": "scripts/phase1c2b2_cli.py",
+      "line": 23,
+      "text": "        for args in (['-m','pip','--isolated','check'],['-m','actio.pilot','plan'],['-m','actio.pilot','preflight'],['-m','actio.pilot','verify',str(a.sample.resolve())]):"
+    },
+    {
+      "file": "scripts/phase1c2c0_cli.py",
+      "line": 23,
+      "text": "        for args in (['-m','pip','--isolated','check'],['-m','actio.suite','plan'],['-m','actio.suite','preflight'],['-m','actio.suite','verify',str(a.sample.resolve())]):"
+    },
+    {
+      "file": "scripts/phase1c2c1_cli.py",
+      "line": 21,
+      "text": "    commands=[['-m','pip','--isolated','check'],['-m','actio.candidate','plan'],['-m','actio.candidate','preflight'],"
+    },
+    {
+      "file": "scripts/phase1c2c1_cli.py",
+      "line": 22,
+      "text": "              ['-m','actio.candidate','verify',str(root/'delivery.json')],['-m','actio.candidate','lineage',str(root/'candidates.sqlite')]]"
+    },
+    {
+      "file": "scripts/phase1c2c2_cli.py",
+      "line": 21,
+      "text": "    commands=[['-m','pip','--isolated','check'],['-m','actio.candidate_evaluation','plan'],['-m','actio.candidate_evaluation','preflight'],"
+    },
+    {
+      "file": "scripts/phase1c2c2_cli.py",
+      "line": 22,
+      "text": "              ['-m','actio.candidate_evaluation','verify',str(root/'delivery.json')],['-m','actio.candidate_evaluation','lineage',str(root/'candidates.sqlite')]]"
+    },
+    {
+      "file": "scripts/phase1c2c3_public_cli.py",
+      "line": 20,
+      "text": "    commands += [[python, '-X', 'utf8', '-I', '-B', '-m', 'actio.task_diagnostics', *args] for args in ["
+    },
+    {
+      "file": "scripts/phase1c2c4_cli.py",
+      "line": 37,
+      "text": "            result=run(['-m','actio.robustness','execute','--rehearsal','--project',str(ROOT),'--root',str(root),"
+    },
+    {
+      "file": "scripts/phase1c2c4_cli.py",
+      "line": 44,
+      "text": "        for cmd in commands:run(['-m','actio.robustness',*cmd])"
+    },
+    {
+      "file": "scripts/phase1c2c4_live.py",
+      "line": 21,
+      "text": "    argv=[sys.executable,'-X','utf8','-I','-B','-m','actio.robustness','execute','--project',str(ROOT),"
+    },
+    {
+      "file": "scripts/phase1c2c5_validate.py",
+      "line": 44,
+      "text": "        cmd=[sys.executable,'-X','utf8','-B','-I',*([str(runner)] if guarded else ['-m','actio.transport_diagnostics']),*argv]"
+    },
+    {
+      "file": "scripts/phase1c2c5_validate.py",
+      "line": 53,
+      "text": "        cmd=[sys.executable,'-X','utf8','-B','-I','-m','actio.transport_diagnostics','export',str(target)]"
+    },
+    {
+      "file": "docs/architecture/REFACTOR_PLAN.md",
+      "line": 38,
+      "text": "**\u516c\u5171\u63a5\u53e3\u9700\u8981\u767b\u8bb0\uff0c\u79c1\u6709 import \u4e0d\u5e94\u6210\u4e3a\u6c38\u4e45\u5305\u88b1\u3002** \u4ece pyproject\u3001\u6240\u6709 `__main__`\u3001README/CLI \u6587\u6863\u3001`subprocess -m` \u548c TS \u63d2\u4ef6\u63d0\u53d6\u8c03\u7528\u6e05\u5355\uff1b\u81f3\u5c11\u8986\u76d6\u56db\u4e2a console scripts\u3001\u73b0\u6709 `python -m actio...`\u3001host/eval_worker/mcp_server/budget IPC\u3001\u516c\u5f00\u7eaf reader\u3002\u6e05\u5355\u8bb0\u5f55\u4fdd\u7559\u8def\u5f84\u3001\u53c2\u6570\u3001stdout JSON\u3001\u9000\u51fa\u7801\u3001\u65b0\u5b9e\u73b0\u548c\u9a8c\u8bc1\u9879\u3002"
+    },
+    {
+      "file": "docs/prompts/phase1c2c3_task_diagnostics_and_observability.md",
+      "line": 106,
+      "text": "\u8bbe\u8ba1\u6700\u5c0f\u516c\u5f00\u5165\u53e3\uff0c\u4f8b\u5982 `python -m actio.task_diagnostics plan/analyze/verify`\uff1b\u5177\u4f53\u540d\u79f0\u53ef\u4ee5\u8c03\u6574\uff0c\u4f46\u6587\u6863\u547d\u4ee4\u5fc5\u987b\u5b9e\u9645\u6267\u884c\u3002\u5efa\u8bae\u804c\u8d23\uff1a"
+    },
+    {
+      "file": "docs/validation/phase1b1/04_bundle_format.md",
+      "line": 3,
+      "text": "\u516c\u5f00\u5165\u53e3\uff1a`actio --db DB export RUN --output NEW_DIRECTORY`\u3001`actio verify DIRECTORY`\u3001`python -m actio.verify DIRECTORY`\u3002\u6700\u540e\u4e00\u79cd\u5165\u53e3\u4ec5\u5bfc\u5165\u6807\u51c6\u5e93\u53ca `actio.common/terminal/verify`\uff1b\u4e0d\u8981\u6c42\u539f DB\u3001DSH home\u3001Concordia\u3001\u53d1\u884c\u7269\u7f13\u5b58\u6216\u4f5c\u8005\u76ee\u5f55\u53ef\u7528\u3002\u683c\u5f0f\u8349\u6848\u89c1 [example](format_example.json)\uff0c\u5b9e\u9645\u53ef\u9a8c\u5305\u89c1 [samples](samples/README.md)\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c0/04_usage.md",
+      "line": 23,
+      "text": "\u516c\u5f00\u5165\u53e3 `python -m actio.evaluation` \u6216\u5b89\u88c5\u540e\u7684 `actio-eval`\u3002\u8be5\u5165\u53e3\u4e0d\u5bfc\u5165 runtime/DB\uff1b`python -m actio.verify` \u4ecd\u662f\u6807\u51c6\u5e93\u5305\u6838\u9a8c\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c0/04_usage.md",
+      "line": 28,
+      "text": ".local/phase1c0-release-venv/Scripts/python.exe -m actio.evaluation spec --mode deterministic --dataset-hash 7843afb624ca1b783b90b87822fb85efdd82985889a8463225a88837719ea9af --output .local/c0-specs"
+    },
+    {
+      "file": "docs/validation/phase1c0/04_usage.md",
+      "line": 29,
+      "text": ".local/phase1c0-release-venv/Scripts/python.exe -m actio.evaluation run --spec SPEC_PATH --bundle docs/validation/phase1b1/samples/assistant --output .local/c0-records"
+    },
+    {
+      "file": "docs/validation/phase1c0/04_usage.md",
+      "line": 30,
+      "text": ".local/phase1c0-release-venv/Scripts/python.exe -m actio.evaluation verify-record RECORD_PATH"
+    },
+    {
+      "file": "docs/validation/phase1c0/04_usage.md",
+      "line": 38,
+      "text": ".local/phase1c0-release-venv/Scripts/python.exe -m actio.evaluation campaign docs/validation/phase1c0/campaign/datasets/7843afb624ca1b783b90b87822fb85efdd82985889a8463225a88837719ea9af.json --output .local/c0-campaign-reproduction"
+    },
+    {
+      "file": "docs/validation/phase1c1/04_usage.md",
+      "line": 18,
+      "text": "& $pythonC1 -X utf8 -m actio.verify \"$rootC1/bundle\""
+    },
+    {
+      "file": "docs/validation/phase1c1/04_usage.md",
+      "line": 26,
+      "text": "& $pythonC1 -X utf8 -I -B -m actio.campaign verify-campaign docs/validation/phase1c1/campaign"
+    },
+    {
+      "file": "docs/validation/phase1c1/04_usage.md",
+      "line": 30,
+      "text": "& $pythonC1 -X utf8 -I -B -m actio.campaign run $datasetC1 --output \"$rootC1/campaign\""
+    },
+    {
+      "file": "docs/validation/phase1c1/04_usage.md",
+      "line": 38,
+      "text": "& $pythonC1 -X utf8 -I -B -m actio.calibration import-labels docs/validation/phase1c1/annotations/internal.json docs/validation/phase1c1/annotations/blank-labels.jsonl --raters rater_1 rater_2"
+    },
+    {
+      "file": "docs/validation/phase1c1/04_usage.md",
+      "line": 40,
+      "text": "& $pythonC1 -X utf8 -I -B -m actio.preflight docs/validation/phase1c1/pilot-config.json"
+    },
+    {
+      "file": "docs/validation/phase1c1/06_pilot.md",
+      "line": 3,
+      "text": "\u5f53\u524d live provider **BLOCKED**\uff0c\u9884\u7b97\u4e0e\u8bf7\u6c42\u4e3a 0\u3002\u914d\u7f6e\u6a21\u677f\u5728 [pilot-config.json](pilot-config.json)\uff0c\u6267\u884c `python -m actio.preflight <config>` \u59cb\u7ec8\u9000\u51fa 2\u3002\u5373\u4f7f\u6240\u6709\u5b57\u6bb5\u975e\u7a7a\u4e14\u9884\u7b97\u6b63\u6570\uff0c\u4e5f\u53ea\u53ef\u80fd configuration_valid=true\uff0cprovider_compatibility=UNVERIFIED\u3001live_ready=false\u3002\u5f53\u524d\u6a21\u5757\u6ca1\u6709 transport\u3001\u5bc6\u94a5\u8bfb\u53d6\u3001provider SDK\u3001\u5ba2\u6237\u7aef\u521b\u5efa\u6216 Worker \u542f\u52a8\u8def\u5f84\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c2a/03_gate.md",
+      "line": 24,
+      "text": "\u76ee\u524d\u552f\u4e00\u53ef\u590d\u5236\u547d\u4ee4\u662f `python -m actio.preflight <\u5ba1\u6838\u540e\u7684\u914d\u7f6e.json>`\uff0c\u5b83\u4ecd\u8fd4\u56de BLOCKED/2\u3002\u6ca1\u6709\u53ef\u6267\u884c live smoke \u547d\u4ee4\uff1b\u4e0b\u4e00\u8f6e\u5148\u5b8c\u6210\u660e\u786e\u7248\u672c\u7684\u6267\u884c\u5408\u540c\u518d\u53d1\u5e03\u8be5\u547d\u4ee4\u3002\u8fde\u63a5 smoke \u53ef\u4ee5\u5148\u4e8e\u793e\u4f1a\u8bc4\u5206\u4eba\u5de5\u6821\u51c6\uff0c\u4f46\u53ea\u80fd\u8bc1\u660e\u8fde\u63a5\u4e0e\u5de5\u7a0b\u884c\u4e3a\uff0c\u4e0d\u80fd\u652f\u6301\u80fd\u529b\u7ed3\u8bba\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c2a/04_usage.md",
+      "line": 14,
+      "text": ".local/phase1c2a-delivery-venv/Scripts/python.exe -X utf8 -I -B -m actio.preflight docs/validation/phase1c2a/stub-config.json"
+    },
+    {
+      "file": "docs/validation/phase1c2a/04_usage.md",
+      "line": 15,
+      "text": ".local/phase1c2a-delivery-venv/Scripts/python.exe -X utf8 -I -B -m actio.preflight docs/validation/phase1c2a/future-live-config.json"
+    },
+    {
+      "file": "docs/validation/phase1c2a1/04_usage.md",
+      "line": 17,
+      "text": ".local/c2a1-repro-venv/Scripts/python.exe -X utf8 -I -B -m actio.transport_campaign docs/validation/phase1c2a1/samples/success"
+    },
+    {
+      "file": "docs/validation/phase1c2a1/04_usage.md",
+      "line": 18,
+      "text": ".local/c2a1-repro-venv/Scripts/python.exe -X utf8 -I -B -m actio.transport_campaign docs/validation/phase1c2a1/samples/missing-done"
+    },
+    {
+      "file": "docs/validation/phase1c2a1/04_usage.md",
+      "line": 19,
+      "text": ".local/c2a1-repro-venv/Scripts/python.exe -X utf8 -I -B -m actio.transport_campaign docs/validation/phase1c2a1/samples/last-call"
+    },
+    {
+      "file": "docs/validation/phase1c2a1/04_usage.md",
+      "line": 28,
+      "text": ".local/c2a1-repro-venv/Scripts/python.exe -X utf8 -I -B -m actio.preflight docs/validation/phase1c2a1/stub-config.json"
+    },
+    {
+      "file": "docs/validation/phase1c2a1/04_usage.md",
+      "line": 29,
+      "text": ".local/c2a1-repro-venv/Scripts/python.exe -X utf8 -I -B -m actio.preflight docs/validation/phase1c2a/stub-config.json"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 9,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness plan docs/validation/phase1c2b0/candidate.json"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 10,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness preflight docs/validation/phase1c2b0/candidate.json"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 11,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness execute docs/validation/phase1c2b0/candidate.json"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 14,
+      "text": "plan \u9000\u51fa 0 \u8868\u793a\u5df2\u751f\u6210 proposal\uff0c\u4f46\u5176\u72b6\u6001\u4e3a BLOCKED\uff1bpreflight/execute \u9000\u51fa 2\u3002\u4e09\u8005\u5747\u4e0d\u8bfb secret\u3001\u4e0d\u53d1\u7f51\u7edc\u8bf7\u6c42\u3001\u4e0d\u521b\u5efa SDK client/Worker\u3002`python -m actio.preflight candidate.json` \u4e5f\u660e\u786e\u5206\u6d3e v4\uff1bv2/v3 \u4ecd\u6309\u539f\u8bed\u4e49\u9759\u6001\u68c0\u67e5\u3002\u9ed8\u8ba4\u9884\u7b97 0\uff0c\u6279\u51c6\u4e3a\u7a7a\uff0cquote/token \u672a\u51b3\u9879\u663e\u793a\u5728\u8f93\u51fa\u3002\u968f\u6e90\u7801/\u62a5\u4ef7\u6539\u53d8\uff0c\u65e7\u5408\u540c\u53ca\u6279\u51c6 hash \u5931\u6548\uff1b\u4e0d\u80fd\u624b\u5de5\u6539 hash \u7ed5\u8fc7\u672a\u9a8c\u8bc1\u9879\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 27,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness verify docs/validation/phase1c2b0/samples/success"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 28,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness verify docs/validation/phase1c2b0/samples/stall"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 29,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness verify docs/validation/phase1c2b0/samples/length"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 30,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness verify docs/validation/phase1c2b0/samples/last-money"
+    },
+    {
+      "file": "docs/validation/phase1c2b0/04_usage.md",
+      "line": 38,
+      "text": ".local/c2b0-repro/Scripts/python.exe -X utf8 -I -B -m actio.readiness export D:/actio-c2b0-smoke/<ID>/budget.sqlite D:/actio-c2b0-smoke/<ID>/receives.json D:/actio-c2b0-smoke/<ID>/exported D:/actio-c2b0-smoke/<ID>/bundle"
+    },
+    {
+      "file": "docs/validation/phase1c2b1/04_usage.md",
+      "line": 20,
+      "text": ".local/phase1c2b1-release-venv/Scripts/python.exe -I -B -m actio.gateway plan --model gpt-5.6"
+    },
+    {
+      "file": "docs/validation/phase1c2b1/04_usage.md",
+      "line": 21,
+      "text": ".local/phase1c2b1-release-venv/Scripts/python.exe -I -B -m actio.gateway preflight --config docs/validation/phase1c2b1/claude-sonnet-4-6-proposal.json"
+    },
+    {
+      "file": "docs/validation/phase1c2b1/04_usage.md",
+      "line": 22,
+      "text": ".local/phase1c2b1-release-venv/Scripts/python.exe -I -B -m actio.gateway verify docs/validation/phase1c2b1/samples/gpt56"
+    },
+    {
+      "file": "docs/validation/phase1c2b1/04_usage.md",
+      "line": 23,
+      "text": ".local/phase1c2b1-release-venv/Scripts/python.exe -I -B -m actio.gateway verify docs/validation/phase1c2b1/samples/claude"
+    },
+    {
+      "file": "docs/validation/phase1c2b2/CLI.md",
+      "line": 6,
+      "text": "& .local/phase1c2b2-release-venv/Scripts/python.exe -I -B -m actio.pilot plan"
+    },
+    {
+      "file": "docs/validation/phase1c2b2/CLI.md",
+      "line": 7,
+      "text": "& .local/phase1c2b2-release-venv/Scripts/python.exe -I -B -m actio.pilot preflight"
+    },
+    {
+      "file": "docs/validation/phase1c2b2/CLI.md",
+      "line": 8,
+      "text": "& .local/phase1c2b2-release-venv/Scripts/python.exe -I -B -m actio.pilot verify docs/validation/phase1c2b2/samples/pilot.json"
+    },
+    {
+      "file": "docs/validation/phase1c2b2/CLI.md",
+      "line": 16,
+      "text": "& .local/phase1c2b2-release-venv/Scripts/python.exe -I -B -m actio.pilot execute --project . --preregistration docs/validation/phase1c2b2/preregistration.json --root D:/actio-c2b2-live/registered-pilot --authorized-phase1c2b2"
+    },
+    {
+      "file": "docs/validation/phase1c2c0/CLI.md",
+      "line": 6,
+      "text": "& .local/phase1c2c0-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.suite plan"
+    },
+    {
+      "file": "docs/validation/phase1c2c0/CLI.md",
+      "line": 7,
+      "text": "& .local/phase1c2c0-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.suite preflight"
+    },
+    {
+      "file": "docs/validation/phase1c2c0/CLI.md",
+      "line": 8,
+      "text": "& .local/phase1c2c0-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.suite verify docs/validation/phase1c2c0/samples/pilot.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c0/CLI.md",
+      "line": 16,
+      "text": "& .local/phase1c2c0-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.suite execute --project . --preregistration docs/validation/phase1c2c0/preregistration.json --root D:/actio-c2c0-live/registered-pilot --authorized-phase1c2c0"
+    },
+    {
+      "file": "docs/validation/phase1c2c1/CLI.md",
+      "line": 9,
+      "text": "& .local/phase1c2c1-runtime-venv/Scripts/python.exe -m actio.candidate plan"
+    },
+    {
+      "file": "docs/validation/phase1c2c1/CLI.md",
+      "line": 10,
+      "text": "& .local/phase1c2c1-runtime-venv/Scripts/python.exe -m actio.candidate preflight"
+    },
+    {
+      "file": "docs/validation/phase1c2c1/CLI.md",
+      "line": 24,
+      "text": "& .local/phase1c2c1-runtime-venv/Scripts/python.exe -I -B -m actio.candidate verify docs/validation/phase1c2c1/samples/delivery.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c1/CLI.md",
+      "line": 25,
+      "text": "& .local/phase1c2c1-runtime-venv/Scripts/python.exe -I -B -m actio.candidate lineage D:/actio-c2c1-main-v1/candidates.sqlite"
+    },
+    {
+      "file": "docs/validation/phase1c2c2/CLI.md",
+      "line": 9,
+      "text": "& .local/phase1c2c2-runtime-venv/Scripts/python.exe -I -B -m actio.candidate_evaluation plan"
+    },
+    {
+      "file": "docs/validation/phase1c2c2/CLI.md",
+      "line": 10,
+      "text": "& .local/phase1c2c2-runtime-venv/Scripts/python.exe -I -B -m actio.candidate_evaluation preflight"
+    },
+    {
+      "file": "docs/validation/phase1c2c2/CLI.md",
+      "line": 17,
+      "text": "& .local/phase1c2c2-runtime-venv/Scripts/python.exe -X utf8 -m actio.candidate_evaluation execute --project . --root D:/actio-c2c2-live-v1 --source-database D:/actio-c2c1-main-v1/candidates.sqlite --authorized-phase1c2c2"
+    },
+    {
+      "file": "docs/validation/phase1c2c2/CLI.md",
+      "line": 23,
+      "text": "& .local/phase1c2c2-runtime-venv/Scripts/python.exe -I -B -m actio.candidate_evaluation verify D:/actio-c2c2-live-v1/delivery.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c2/CLI.md",
+      "line": 24,
+      "text": "& .local/phase1c2c2-runtime-venv/Scripts/python.exe -I -B -m actio.candidate_evaluation lineage D:/actio-c2c2-live-v1/candidates.sqlite"
+    },
+    {
+      "file": "docs/validation/phase1c2c3/CLI.md",
+      "line": 3,
+      "text": "Windows x64 / Python3.12\uff0c\u4ed3\u5e93\u6839\u76ee\u5f55\u3002\u7eaf\u8bca\u65ad\u4e0d\u9700\u8981\u65e7runtime\u4f9d\u8d56\u3001TokenKey\u51ed\u636e\u3001DSH\u6216Concordia\u5b89\u88c5\u3002\u516c\u5f00\u5165\u53e3\u4e3a `python -m actio.task_diagnostics`\uff0c\u4e0e\u65e7candidate execute\u5206\u5f00\uff0c\u6ca1\u6709live\u5b50\u547d\u4ee4\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c2c3/CLI.md",
+      "line": 11,
+      "text": "& .local/phase1c2c3-public-env/Scripts/python.exe -X utf8 -I -B -m actio.task_diagnostics plan"
+    },
+    {
+      "file": "docs/validation/phase1c2c3/CLI.md",
+      "line": 12,
+      "text": "& .local/phase1c2c3-public-env/Scripts/python.exe -X utf8 -I -B -m actio.task_diagnostics analyze --source docs/validation/phase1c2c2 --output .local/phase1c2c3-public-analysis --source-receipt docs/validation/phase1c2c3/historical-source.json --dataset docs/validation/phase1c2c3/frozen-design/dataset.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c3/CLI.md",
+      "line": 13,
+      "text": "& .local/phase1c2c3-public-env/Scripts/python.exe -X utf8 -I -B -m actio.task_diagnostics verify .local/phase1c2c3-public-analysis"
+    },
+    {
+      "file": "docs/validation/phase1c2c3/CLI.md",
+      "line": 14,
+      "text": "& .local/phase1c2c3-public-env/Scripts/python.exe -X utf8 -I -B -m actio.task_diagnostics verify docs/validation/phase1c2c3/package"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 3,
+      "text": "Windows x64\u3001Python3.12\uff0c\u4ed3\u5e93\u6839\u76ee\u5f55\u3002\u56fa\u5b9a\u5b98\u65b9SDK/runtime 0.1.5rc1\uff0cConcordia\u56fa\u5b9a\u6e90\u7801\u95ed\u5305\uff1b\u4e0d\u5347\u7ea7\u4e0a\u6e38\u3002\u5f53\u524d\u6a21\u5757\u5165\u53e3\u4e3a `python -m actio.robustness`\uff0c\u6ca1\u6709\u4f9d\u8d56\u672a\u6ce8\u518c\u7684console\u547d\u4ee4\u3002"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 16,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness plan"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 17,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness preflight"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 18,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness analyze D:/actio-c2c4-live-v1/matrix/pilot.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 19,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness verify D:/actio-c2c4-live-v1/delivery.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 20,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness lineage D:/actio-c2c4-live-v1/candidates.sqlite"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 34,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness execute --rehearsal --project . --root D:/actio-c2c4-rehearsal-v2 --source-database D:/actio-c2c2-live-v1/candidates.sqlite"
+    },
+    {
+      "file": "docs/validation/phase1c2c4/CLI.md",
+      "line": 40,
+      "text": "& .local/phase1c2c4-runtime-venv/Scripts/python.exe -X utf8 -I -B -m actio.robustness execute --project . --root D:/actio-c2c4-live-v1 --source-database D:/actio-c2c2-live-v1/candidates.sqlite --authorized-phase1c2c4"
+    },
+    {
+      "file": "docs/validation/phase1c2c5/CLI.md",
+      "line": 7,
+      "text": "& $C5Python -X utf8 -I -B -m actio.transport_diagnostics plan"
+    },
+    {
+      "file": "docs/validation/phase1c2c5/CLI.md",
+      "line": 8,
+      "text": "& $C5Python -X utf8 -I -B -m actio.transport_diagnostics verify docs/validation/phase1c2c5/package.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c5/CLI.md",
+      "line": 9,
+      "text": "& $C5Python -X utf8 -I -B -m actio.transport_diagnostics analyze docs/validation/phase1c2c5/package.json"
+    },
+    {
+      "file": "docs/validation/phase1c2c5/CLI.md",
+      "line": 19,
+      "text": "& $C5Python -X utf8 -I -B -m actio.transport_diagnostics export D:/c5-new-export"
+    },
+    {
+      "file": "docs/validation/phase1c2c5/CLI.md",
+      "line": 27,
+      "text": "& $C5Python -B -X utf8 -m actio.transport_diagnostics run-local --root D:/actio-c2c5-formal-v1 --project . --freeze docs/validation/phase1c2c5/freeze.json"
+    },
+    {
+      "file": "docs/validation/phase1b1/samples/README.md",
+      "line": 16,
+      "text": ".local/phase1b1-delivery-venv/Scripts/python.exe -m actio.verify docs/validation/phase1b1/samples/social"
+    },
+    {
+      "file": "docs/validation/phase1b1/samples/README.md",
+      "line": 17,
+      "text": ".local/phase1b1-delivery-venv/Scripts/python.exe -m actio.verify docs/validation/phase1b1/samples/partial"
+    }
+  ],
+  "status": "scoped CLI smoke; full G4 IPC matrix recorded separately"
+}

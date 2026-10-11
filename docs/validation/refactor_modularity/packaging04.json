@@ -1,0 +1,91 @@
+{
+  "status": "FAIL",
+  "jobs": [
+    {
+      "name": "export",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "01c89c00ce9c871cca5ab4105b7c3ec931a1e4e530adcc32acabdd6df69c6bf6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "repeat-export",
+      "exit": 2,
+      "expected": 2,
+      "stdout_sha256": "9062a98ad626d12f9c997bd4466c0d6fed097f58507e77b204c902bade3c29c7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "plan",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "2d348b34d3a9b96132d59229af229fe5f6e7a2e343e9c038a94cfb7787819116",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "verify",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "76403bf9f97cdbbba0bfce56b2c722356e7d26facf5d2e729255d580d293c310",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "analyze",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "76403bf9f97cdbbba0bfce56b2c722356e7d26facf5d2e729255d580d293c310",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actio",
+      "exit": 1,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b0061618ea51a31f3a2ff94d7a7708ade7c1d129bad3973de1e77f633031959c"
+    },
+    {
+      "name": "actio-evaluation",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "bc9ae8fa1bb2cf6f52c154bf2617517cea2465ac2a8785fd86a477b8d3c89688",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actio-candidate",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "6dadc00875654bd521842aa2e60ff97fcd64e182323beacc0be122f7f089c966",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actio-candidate_evaluation",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "e2bf49234e21110502aa3b4ca8320a0ade91d3fd3d3f8b2079313a909cb4cb45",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "pure-import",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "no-optional-runtime",
+      "exit": 0,
+      "expected": 0,
+      "stdout_sha256": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "wheel_sha256": "d80bdddee23c8dcde31d9b36849eaabd24d4176bd5d97afc9163b486ee402b8c",
+  "resources": [
+    "actio/schema.sql",
+    "actio/evaluation_history.json",
+    "actio/plugins/transport.mjs",
+    "actio/_vendor/SOTOPIA_LICENSE",
+    "actio/adapters/transport/DSH_LICENSE.txt"
+  ],
+  "scope": "minimal wheel; no DSH/Concordia; -I external cwd; not full dependency pip-check"
+}

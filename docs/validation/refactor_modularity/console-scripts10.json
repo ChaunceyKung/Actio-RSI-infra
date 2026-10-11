@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "console_scripts": [
+    {
+      "console": "actio",
+      "exit": 0,
+      "stdout_sha256": "9d60b86767fd18dd43fcd12784539849b0b969456f428035fccb298b9e604674"
+    },
+    {
+      "console": "actio-eval",
+      "exit": 0,
+      "stdout_sha256": "0649bece5cfa3a41b3bdaab23ed76643ad23feb1d32f3a7e7698cc786654184c"
+    },
+    {
+      "console": "actio-candidate",
+      "exit": 0,
+      "stdout_sha256": "dca0e3a98a34406cb3acc0379fd1d32e93c20b9ff39665d4430e1afb38730e56"
+    },
+    {
+      "console": "actio-candidate-evaluation",
+      "exit": 0,
+      "stdout_sha256": "76bbb258bf0fea9c1251cae70cdc383bbdc58db54745a997e1a342d5dfb87dbe"
+    }
+  ],
+  "pip_check": "No broken requirements found.",
+  "cwd": "D:/ar-mod-20261011",
+  "wheel": "wheels10/actio_rsi-0.1.0-py3-none-any.whl",
+  "product_commit": "fb71070"
+}

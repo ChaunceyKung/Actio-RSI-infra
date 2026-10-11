@@ -1,0 +1,18 @@
+{
+  "baseline": "c5aeec2",
+  "scope": "fixed baseline source, synthetic config only, no sends",
+  "reproduced": [
+    {
+      "case": "v3_profile",
+      "status": "FAIL",
+      "type": "UnboundLocalError",
+      "reason": "cannot access local variable 'PROFILE' where it is not associated with a value"
+    },
+    {
+      "case": "original_quote_now",
+      "status": "FAIL",
+      "type": "ContractError",
+      "reason": "quote review window expired/not yet valid"
+    }
+  ]
+}

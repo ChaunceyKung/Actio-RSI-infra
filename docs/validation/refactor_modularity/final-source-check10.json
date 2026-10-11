@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "product_commit": "fb71070a6158f4cb6e547d0913b55ea00f5742aa",
+  "wheel_sha256": "5851afd51ae64d86084a291ff1750bf07c7d2b17205e56f8764b3b61a09a79f3",
+  "package_files": 105,
+  "frozen_source_files": 103,
+  "wheel_checkout_installed_exact": true,
+  "historical_files_checked": 1048,
+  "protected_resources": {
+    "src/actio/_vendor/sotopia_provenance.json": true,
+    "src/actio/candidate_schema.sql": true,
+    "src/actio/evaluation_history.json": true,
+    "src/actio/evaluation_schema.sql": true,
+    "src/actio/legacy_schema.sql": true,
+    "src/actio/pins/c5_runtime.json": true,
+    "src/actio/pins/concordia.json": true,
+    "src/actio/readiness_quote.json": true,
+    "src/actio/schema.sql": true,
+    "src/actio/task_diagnostic_trust.json": true
+  },
+  "post_freeze_non_execution_harness_changes": {
+    "tools/refactor/publication_scan.py": {
+      "frozen_sha256": "053493909781e8a34ce1df809ad95aeaa29e05856ec9513c7900472c9348a156",
+      "current_sha256": "d84822e66f8b8847d2468a1a31b4f6d03ede694406b8274e83f163fabecf75af"
+    },
+    "tools/refactor/summarize.py": {
+      "frozen_sha256": "8d9d83943b99a5d4a2fe1234b14cde6a9c82d177b54cf5488b9964958bd34f2c",
+      "current_sha256": "bc3c9df40af4d2072876ae3d38763d95e5ac4a14da0d8fcd67b110e6dabee8ce"
+    }
+  },
+  "harness_change_scope": "publication scanner and result summarizer only; installed runtime tool closure remains empty; cleanup audit added outside runtime",
+  "external_requests": 0
+}

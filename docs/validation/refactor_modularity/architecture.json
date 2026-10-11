@@ -1,15 +1,8 @@
 {
   "status": "INCOMPLETE",
   "modules": 89,
-  "edges": 402,
-  "violations": [
-    {
-      "module": "actio.robustness",
-      "line": 99,
-      "target": "gateway_stub",
-      "reason": "product depends on tests/tools"
-    }
-  ],
+  "edges": 403,
+  "violations": [],
   "strong_components": [
     [
       "actio.adapters.persistence.ledger",
@@ -477,6 +470,7 @@
     ],
     "actio.robustness": [
       "actio.adapters.filesystem.common",
+      "actio.adapters.transport.fixture",
       "actio.contracts.json",
       "actio.database",
       "actio.evaluation_store",

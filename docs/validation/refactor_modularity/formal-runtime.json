@@ -1,0 +1,3084 @@
+{
+  "status": "PASS",
+  "totals": {
+    "active": 0,
+    "admitted": 5,
+    "assigned": 18,
+    "not_run": 6,
+    "received": 12,
+    "responses": 12,
+    "sent": 12,
+    "settled": 5,
+    "unknown": 7,
+    "usage": 5
+  },
+  "sources": {
+    "__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_vendor/sotopia.py": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+    "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "adapters/__init__.py": "5406bb59e061a48a6bacfcdea930b374ec622b6149077d363dd1614add7c82b6",
+    "adapters/filesystem/__init__.py": "7101ae658218c79139d6c14be5cf997e21c9d1eafc806e2f68575bbc37695c7c",
+    "adapters/filesystem/common.py": "456ae9736e31616ab8a5ccf1b2c2dff9204e8efd577324c2b143256965269f28",
+    "adapters/persistence/__init__.py": "ce318cd88a28b8510a6c194c4147ebd166f0174568edc911029d351a4345fd30",
+    "adapters/persistence/ledger.py": "cde85d7ae0d44128e3d5e1650394d2ccff4a3de4b6884485f5c88c03714f689c",
+    "adapters/transport/__init__.py": "4349c250320a896cce18deb58a6b776b8ce41761185f19a784fcdcc987ac721e",
+    "adapters/transport/fixture.py": "ec3a719313df0cc16d8babfb36d6b07dd515f6df454902eec9b3f54bb738cc39",
+    "adapters/transport/responses.py": "57cd7d74efb0fba011a743d5dc56690594c0d22ffa0efa8dc03c156a21dc2036",
+    "budget.py": "fcd34d43b73226ed80fc1da9bcd65e1b2f5b94fb301ad1acbfdd61d7f82dccc3",
+    "calibration.py": "2d1e81a960846d0ab99c1939751308451a3335e36154010c300a2f03f66127fa",
+    "campaign.py": "1bafc194c016e96561f7477e3bc392b69f7ebc85a1556508b0fc00cd0dc68482",
+    "candidate.py": "af5265611c15e3f05f4f3280c81be1e26e6c080e33efac76e52edf38a80e3faf",
+    "candidate_campaign.py": "0109533852cc2eebd5d35015c85e4fb55ed071a40215dd26eb64ec7f50827e3f",
+    "candidate_evaluation.py": "103116320f1fae0f5b3ef38597b8791398bd72d1984b976d878c555e6b82a657",
+    "candidate_measurement.py": "b9d9ff464613b8bc9bcabd9116684aadc931852733ca7f2879083c0ada6209a8",
+    "candidate_schema.sql": "4e9113b08ffe019fd13348ac9cfd66822a1d65d84bb3c9d9db9be1f704ddda5a",
+    "candidate_store.py": "2ad0ec30868d8fffb724a39c282ed2815367b017c9ba250f1d3450dcd6731271",
+    "channel_audit.py": "ca240a1124594b169aa14153687c525c885fdfd354e2c070dfaf0ba7bcbcfe1b",
+    "cli.py": "bc4996940bab3ba0719e3f3072a1af0e9592da755b185f73c954d90ea5c02a60",
+    "common.py": "1394100cb1a625a74218a7247af9c31f405242f86934fad4bab5dfe14c34e273",
+    "contracts/__init__.py": "894a9a34a40f5e137ef57c3d8d953a88b2468ee9ea12509bbffac10376533aff",
+    "contracts/json.py": "2932541daa6111ec97edab7f6851a56513f5b6de900d7c209336a79e32335c25",
+    "contracts/scenarios.py": "7f7aaaea7be1ef2aca0fbe8bf2b80b5b6bb2ff1a53310d1b1c1bb1794738ebeb",
+    "contracts/versions.py": "8bade6aa6d1f59308e5f37ed0d33993fa0b2571d84902b4e718332e99b306193",
+    "database.py": "1fa8174c20ca1d4a370d1f8838d1adb0960e8cf46e3f9a98bc5320489b25b88b",
+    "diagnostic_runtime.py": "0d9737b8b2f37306b0aa466679122993972a59bd82c1d9003a3ab0dac3e300c3",
+    "domain/__init__.py": "6b308b2efb483eeaffe32ab90ea9e76c43e05faf5e44d97e49c53b91b6c0fdda",
+    "domain/accounting.py": "dada7db827e2fdbb14b5c15b1a94e7bb66e744b9429b1d63ca9737b31a25cc09",
+    "domain/candidate.py": "46587ab71490bbb5e2923a53abd28f12b10ee5af2ba99ada4b79bd0cdc3c043f",
+    "domain/memory.py": "f85a86dc55e90b85e416f1f64f250e0decaeb617c6f74b7a2eeefeed8956e575",
+    "eval_contract.py": "480e01b59f35e0fd4af771605873bb6e97958c55b2723c37ad39f0764e6d5bc9",
+    "eval_worker.py": "fb3b5fc6a29c5347ddcf154b56c5599982debcc29f070a1ebb0e685b0569fc24",
+    "evaluation.py": "4236ef27071fd386271805807624c8436c4d984c352999c962f47093459293de",
+    "evaluation_campaign.py": "d6855fcf295e9b16d5fc9f6172263875d7e0498325bff8d9a721b888a5c8c0d5",
+    "evaluation_history.json": "5cbf1c60d85931c80f5e86ac281604e51ac997baf2bfa7e7194b01b463b2aea2",
+    "evaluation_history.py": "be370371018ab1d6939c93f2f8a52ec8ca9d9dcf7a152b77c8a954e1d1e42f6a",
+    "evaluation_measurement.py": "2cfad291192ae8b3eb8f4b976255c214817d215c5925edaf34f544f65a9fa33b",
+    "evaluation_schema.sql": "347967c717a35dd59e884a1742af9b650d64ff6d6f0b745d57438a1c367b8a4c",
+    "evaluation_store.py": "f591ea8b5372acfeb30d02bc51e8cf81796e9b698933de9cac427bc27fdb7e94",
+    "evidence.py": "becbd0cb5f1ac28187a803b93bbd6b5acf7aef098992062beeb68db45a8383e6",
+    "facts.py": "a189cbfb8470a9264e2504c305ec52a85ab666ca5e0dddd1ca7b2acfcf146daa",
+    "failure_fixtures.py": "65ea41c8efbefb1f8c826faee211ba0b281b15e2d9167f4ee8339aae5f351c72",
+    "failure_observation.py": "c33a6b92f00d81ea5b89d82285d05c208d85fa884aeba17eddc46837d40eb0fe",
+    "fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "future_schedule.py": "aba822ea5ad4d95515dca298c848756c195527f5495518450fb20d7804ea34dd",
+    "gateway.py": "a8924da90a97d1ac1ea74a6673e568a95f85da12f688b8b32e12468e1892a84b",
+    "gateway_contract.py": "dbd61b16b0335dbf581888726fbb0845f323a764b4f502d07f662ebc34124623",
+    "host.py": "2e3a79b35a28090047624492e0b49170abf7ca0965b118f98a279df7a6961eda",
+    "interfaces/__init__.py": "04ba2bc887f953bec5942cbd2f19cc48a56dfbe16a0eadb5b8a5f5c6af7388fb",
+    "interfaces/budget.py": "6a36518ae8a46c9858ebe0608f5f7ab3cc16527cf6a47f619212e64835212822",
+    "legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "measurement/__init__.py": "537b0e142453eb0cef573931531ac7e10be46b116578ff609bbd5e89019370e2",
+    "measurement/diagnostic.py": "e5e95ae2351f0eb647e540e4e04ff012cfc336564e3ade03bd4f4fa64c4a3ef6",
+    "measurement/oracle.py": "4ee52aaba0a72fca8604bf5dda674e54b43fefa0ea987cf71e918a54f5f26ab1",
+    "memory.py": "31ad0e1e16a491c346c2c3d740291ffc4e3ade0c5d72f96cc06254b8858f79f0",
+    "pilot.py": "92f0c5eff367a2f5973b2e25d3e4cfa3bd2c28d5ab2403ad04e2a1cfb68fab25",
+    "pilot_contract.py": "398f3adcdec3e9caa2a7a006a0c7cc94154bd9ef4711312936f9fd54149ffe7d",
+    "pilot_measurement.py": "529419a2ca3bdd6b7cb4aa25dc4e3b0a5047296ee8ee9c4ebca9fef138f4e97b",
+    "pins/c5_runtime.json": "b5b5caf0c5b2e4662d5131b6106f2dc5e6af945a46c8c4515172a207335ad851",
+    "pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "plugins/transport.mjs": "08e4e806bef12ea75aead2ca844d115556a32aa1ff4cb04ca19eb8e5e79c876f",
+    "preflight.py": "d43f4cdfe7290c83a21b0911b26d25e515850bbaf9c1b6ef0b76600df894b3d5",
+    "readiness.py": "ab90398bca6e12e6fc789c0ba8df3c15a49136a37ce9f624fa4c639091a0a860",
+    "readiness_contract.py": "7283fb6c54b87cade04cf561d29fae04d6fec6957bb95082bd086254eb0ba0df",
+    "readiness_quote.json": "e9f8298e1a6edb4ef177e1e9c881506b937305fb4c949be0880888112be190e7",
+    "robustness.py": "632a4a2df79ec2ce914dc2a83cd832b3d7a35418f7f5e3e76b1995234001ca9e",
+    "robustness_campaign.py": "26a38ddfb7d5d8d3c9a1bb98bf669561bb1f4b7619b0681b48086686f746fc8a",
+    "robustness_measurement.py": "e7107613a7c448c45e29500152c27f73bb3e1e8d22f375a331397a3e744dfb49",
+    "runtime.py": "3b87dac1eb91a49bc67cacbf6c550565364c60d866cb2fd3b33be6e10fded038",
+    "scenarios.py": "6d71543d0546dfbde0b187ee1ddd0b1dc30ac7ba5a983c64581cf4479088abef",
+    "schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "store.py": "85b3bbedd14143f37b237f542ddc9ba8c3bf571fca3eb3f557313814355dd2fc",
+    "stream_audit.py": "29383d195f4f3150232eace770ee2d17b10d1760af0727b210885c4f8cbe5575",
+    "suite.py": "ce746bd612e06c3a3be175ebd1a55f7c1f7c35084180e1900942b058dcadd31e",
+    "suite_contract.py": "4763ac3b659fd81e147b36b8ea808af14ee260fb1556a59c6b5fe13170717fb9",
+    "suite_measurement.py": "a14bf395e5ca0650cfd5bac4581ead39f2575b278d5f7eb2d5470ad8fe93e508",
+    "supervisor.py": "6cf48a3891e4fd095df1698c3c0a241a82809e44849dc81ce0869c4c9981ebf4",
+    "task_diagnostic_trust.json": "50a0f66a33787518f3606c478e2f6db698646f492b45f87e359d9077c9d4cab7",
+    "task_diagnostics.py": "5ca68292629ad318ed6af236661a009a876da1bfd7d9a2a31953dceec5853934",
+    "task_evidence.py": "9b7791d68d92c57699d8ad35578f86e1e25d3eb08db529d1a456cb8a2f5e1937",
+    "tasks/__init__.py": "a7b6efe8e84c61800df5f52d3bb5de44695d2beed3739eb01fbf1ad8a8f8e4ee",
+    "tasks/candidate.py": "f21f898f5f5b1f7833bb4eafef3de8f93db1f3c00be4a19162b2c440595ec875",
+    "tasks/controls.py": "021b83b4e7e7efa93e9837df8629508bb48d67c10e80181b74e44cf699f67728",
+    "tasks/diagnostic.py": "2a9321ac00b8a444b312ee87df54bae883e6120d4373878c2ec174ed4b76e618",
+    "tasks/evaluation.py": "2557b4c4b2c683324319e4d4aed8685a1ddd8d141f4c96c0a535b3798ad0aaca",
+    "tasks/finite.py": "a35e4f1082114158cd13c6a258a5d4fa6b64a95d5ba631a7f933eefcd64531a0",
+    "tasks/robustness.py": "13a708f47cba627f10fa70a78fedbe027977308163cea387acb68410d73dc15b",
+    "tasks/scheduling.py": "205e3106d875e6c80d82e1e692bdc8050b0fab6e2cf31899c0bf74e6674f6a6f",
+    "tasks/scheduling_v2.py": "72f70ce5b2399e3bc03ccdd5bc7e1d37cae60d8360be6c0e95a29b52809d1a04",
+    "terminal.py": "02bea8d7b67a0b2e9eb38d1bd93f6525783ff825b11f90ca1dd4035f46832669",
+    "transport.py": "a13be11403d84eabf2478b3bf09faa3c9ad366ae9ff2bdc3bb86dca2e01c2553",
+    "transport_campaign.py": "a24e19e2593553b30c3aa459f5407db06df0db969fac00709d25584362b57f89",
+    "transport_contract.py": "f189a7d2d1dbb8887e882bad246a1b15a7470826a57381c4cf62fd7afca703b3",
+    "transport_diagnostics.py": "717a90db90e5393a3396552507b0c1d7c425c276e0cd0018637d5577eb6a811b",
+    "verify.py": "1bcfb2151af18df59cfb352be57ced87027b0282d415e6b37c60b6256b173da0"
+  },
+  "rows": [
+    {
+      "case": "text-success",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "B_actual_A_history": true,
+        "B_admission": true,
+        "B_classification": true,
+        "B_native": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "b855b7623afcffbab92d7cced1189f7e08848000ffaffc19a8d40ec20aa46e0f",
+      "expected": {
+        "admitted": 2,
+        "family": "scheduling",
+        "fault": null,
+        "id": "text-success",
+        "sends": 2,
+        "settled": 2,
+        "unknown": 0
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": null,
+            "native_usage_present": true,
+            "original_state": "settled",
+            "raw_adapter_usage_consistent": true,
+            "raw_usage_frames": 1,
+            "raw_usage_numeric_mapping": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "verified_usage_preserved": {
+              "billing_reconciled": false,
+              "calls": 1,
+              "cost_minor": null,
+              "cost_source": "SSE usage.cost; numeric spelling preserved via Decimal",
+              "cost_unit": null,
+              "currency": null,
+              "estimated_cost": null,
+              "finish": "stop",
+              "gateway_reported_cost_raw": null,
+              "input_tokens": 12,
+              "native": {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              },
+              "output_tokens": 5,
+              "provider_identity": {
+                "adapter": "@deepseek-ai/dsh-llm-pi-ai",
+                "gateway": "TokenKey",
+                "http_request_id": null,
+                "requested_model": "gpt-5.6",
+                "response_id": "rehearsal-1",
+                "response_model": "gpt-5.6",
+                "system_fingerprints": [
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint"
+                ],
+                "upstream_identity_verified": false
+              },
+              "raw": {
+                "completion_tokens": 5,
+                "prompt_cache_hit_tokens": 4,
+                "prompt_cache_miss_tokens": 8,
+                "prompt_tokens": 12,
+                "total_tokens": 17
+              },
+              "supplier_bill_minor": null
+            }
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": null,
+                "kind": "stop"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "content_prefix_present": true,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "completed",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": true,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 1,
+            "original_audit": {
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "verified"
+            },
+            "trusted_complete_text": true
+          },
+          "bindings": {
+            "accounting": "b5b80d80f5aae173f58b456d55c0fdf31f35741ea3a9241ecdfdfaa9f43fa57c",
+            "identity": "946f63d884b3f7a8d5497e98f393cd0dfc076cfa274ce1da2199e4cf0dca54ba",
+            "native": "707d228e054994a910f814797672dedfd87db54c16153f2139c318944c8dfebb",
+            "operation": "bf3df23f2d65706fbcb9683de4e07bee44e13956f5370902045c0fafd011d8b7",
+            "request": "424681cb8c4ae7744faab8899e8f6371b20b14879d1c8b7c863a5f49caa22048",
+            "response": "26e07ddf9f0fda6b3a31580c65e3e3dee575ef1c151b9541c5121ce347000e8c",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "success_control",
+          "identity": {
+            "attempt": "50322d2673bf4d9da78d72f6e0419a4e",
+            "config_hash": "30a74f5fc5c8af808697136f83fb9769dae8f819077da75193c704d3b4a28db6",
+            "request_hash": "643ff8901692208e861238904fecf97cb9ce8a3c4964fcbf16c642b59a2876bc",
+            "run": "7b728965b3b64d18abf19304013fbcce",
+            "seat": "B",
+            "stream": "2d1ae235d5d54f348e76f416e44ed746"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [
+              2
+            ],
+            "empty_frames": 1,
+            "errors": [],
+            "finishes": [
+              {
+                "frame": 1,
+                "kind": "stop"
+              }
+            ],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "done",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 2,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [],
+            "usage_positions": [
+              1
+            ]
+          },
+          "provider_declared_errors": [],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "00df48ce1a2a997e29719c3f745e4fe404936f3ad000302eb0c14c0fa2da87a6",
+            "entry_sha256": "b855b7623afcffbab92d7cced1189f7e08848000ffaffc19a8d40ec20aa46e0f",
+            "ledger_sha256": "824458a1c0becd7d284b99f2e7641d66f46b37485f622535731e09d86137860a",
+            "native_occurrences_sha256": "3f7524531ef190502ef3757b64d072b4a84034eb19359540ead6de8192d6dd4f",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        },
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": null,
+            "native_usage_present": true,
+            "original_state": "settled",
+            "raw_adapter_usage_consistent": true,
+            "raw_usage_frames": 1,
+            "raw_usage_numeric_mapping": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "verified_usage_preserved": {
+              "billing_reconciled": false,
+              "calls": 1,
+              "cost_minor": null,
+              "cost_source": "SSE usage.cost; numeric spelling preserved via Decimal",
+              "cost_unit": null,
+              "currency": null,
+              "estimated_cost": null,
+              "finish": "stop",
+              "gateway_reported_cost_raw": null,
+              "input_tokens": 12,
+              "native": {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              },
+              "output_tokens": 5,
+              "provider_identity": {
+                "adapter": "@deepseek-ai/dsh-llm-pi-ai",
+                "gateway": "TokenKey",
+                "http_request_id": null,
+                "requested_model": "gpt-5.6",
+                "response_id": "rehearsal-0",
+                "response_model": "gpt-5.6",
+                "system_fingerprints": [
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint"
+                ],
+                "upstream_identity_verified": false
+              },
+              "raw": {
+                "completion_tokens": 5,
+                "prompt_cache_hit_tokens": 4,
+                "prompt_cache_miss_tokens": 8,
+                "prompt_tokens": 12,
+                "total_tokens": 17
+              },
+              "supplier_bill_minor": null
+            }
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": null,
+                "kind": "stop"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "content_prefix_present": true,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "completed",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": true,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 1,
+            "original_audit": {
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "verified"
+            },
+            "trusted_complete_text": true
+          },
+          "bindings": {
+            "accounting": "a4c4de34665253ebdc8cc132881edd3801ee2d7a07954e62946561c9aaf2e612",
+            "identity": "348303b3c8bed9551f33bd192e39dfc2e4a6334b9e4d910c360b6e775ea7d6e0",
+            "native": "6d9baef24e0b3ae218dead39cf4474d7b4243e54723a17905babc97cd4df7965",
+            "operation": "0aa4a11affb9b79ba1d6553945c7098ec9a9908e02e2e6eafd6037c7a2eefc3b",
+            "request": "751181b040ea9e3ccdee980a98987ce3108d9cf1c8ebb7296047dfb9e6243703",
+            "response": "d42fe39deb28ec00be67b71be02e16d365f9f3463f39b99eb6d6746afa6b7f9d",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "success_control",
+          "identity": {
+            "attempt": "ac750e67bc274c989caba5788698525d",
+            "config_hash": "30a74f5fc5c8af808697136f83fb9769dae8f819077da75193c704d3b4a28db6",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "7b728965b3b64d18abf19304013fbcce",
+            "seat": "A",
+            "stream": "947531e86cff4437a50c76cd33338b60"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [
+              2
+            ],
+            "empty_frames": 1,
+            "errors": [],
+            "finishes": [
+              {
+                "frame": 1,
+                "kind": "stop"
+              }
+            ],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "done",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 2,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [],
+            "usage_positions": [
+              1
+            ]
+          },
+          "provider_declared_errors": [],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "00df48ce1a2a997e29719c3f745e4fe404936f3ad000302eb0c14c0fa2da87a6",
+            "entry_sha256": "b855b7623afcffbab92d7cced1189f7e08848000ffaffc19a8d40ec20aa46e0f",
+            "ledger_sha256": "824458a1c0becd7d284b99f2e7641d66f46b37485f622535731e09d86137860a",
+            "native_occurrences_sha256": "9371abe5cf8b14b0e5d76f710ec400cff5846bfdf052014034de2e929e8322eb",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 2,
+        "assigned": 2,
+        "not_run": 0,
+        "received": 2,
+        "responses": 2,
+        "sent": 2,
+        "settled": 2,
+        "unknown": 0,
+        "usage": 2
+      },
+      "scenario_stop": "complete",
+      "slots": [
+        {
+          "attempt": "ac750e67bc274c989caba5788698525d",
+          "seat": "A",
+          "state": "settled"
+        },
+        {
+          "attempt": "50322d2673bf4d9da78d72f6e0419a4e",
+          "seat": "B",
+          "state": "settled"
+        }
+      ],
+      "solver_success": true,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "dual-success",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "B_actual_A_history": true,
+        "B_admission": true,
+        "B_classification": true,
+        "B_native": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "c312b3748ccd2cbeea98fd961114ad8a506794827ae529bb111a2580135cd215",
+      "expected": {
+        "admitted": 2,
+        "family": "bargaining",
+        "fault": null,
+        "id": "dual-success",
+        "sends": 2,
+        "settled": 2,
+        "unknown": 0
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": null,
+            "native_usage_present": true,
+            "original_state": "settled",
+            "raw_adapter_usage_consistent": true,
+            "raw_usage_frames": 1,
+            "raw_usage_numeric_mapping": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "verified_usage_preserved": {
+              "billing_reconciled": false,
+              "calls": 1,
+              "cost_minor": null,
+              "cost_source": "SSE usage.cost; numeric spelling preserved via Decimal",
+              "cost_unit": null,
+              "currency": null,
+              "estimated_cost": null,
+              "finish": "stop",
+              "gateway_reported_cost_raw": null,
+              "input_tokens": 12,
+              "native": {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              },
+              "output_tokens": 5,
+              "provider_identity": {
+                "adapter": "@deepseek-ai/dsh-llm-pi-ai",
+                "gateway": "TokenKey",
+                "http_request_id": null,
+                "requested_model": "gpt-5.6",
+                "response_id": "rehearsal-0",
+                "response_model": "gpt-5.6",
+                "system_fingerprints": [
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint"
+                ],
+                "upstream_identity_verified": false
+              },
+              "raw": {
+                "completion_tokens": 5,
+                "prompt_cache_hit_tokens": 4,
+                "prompt_cache_miss_tokens": 8,
+                "prompt_tokens": 12,
+                "total_tokens": 17
+              },
+              "supplier_bill_minor": null
+            }
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": null,
+                "kind": "stop"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "content_prefix_present": true,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "completed",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": true
+          },
+          "admission": {
+            "actually_admitted": true,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 1,
+            "original_audit": {
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "verified"
+            },
+            "trusted_complete_text": true
+          },
+          "bindings": {
+            "accounting": "16fbe062d6588f7ae01b9b95f1e6205352ad1e1659e134e91f90962fb70c7c2b",
+            "identity": "228ab66057e718220cd267044a58e47a12d398cd6e46566f89141458a71e5ec7",
+            "native": "731c4eb01b52251ed6bff7ee0e67d105fe185dcabb677f9245b011c1c9f90641",
+            "operation": "78a80113f6a30ec58f712d49ed1939ea06a251a582ca2f83b92eab4516f13d39",
+            "request": "34e3dd40f0de23dcb6368c6fa5b776fdede8fc8f30a753e822e512e7150aeee9",
+            "response": "2b20205ddf63661fe72b2de9d106bbe12e2d1f78ab9d6af3ad5594b19c3b910b",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "success_control",
+          "identity": {
+            "attempt": "0bc4e180bfa74a888ddfdf53445eef5d",
+            "config_hash": "8e8d03a7715c0837eda13746b198878fdf22ccc4b72d1c71346dcd6a396c33dc",
+            "request_hash": "7f8119fc3fa6812ea718d9b42fedba17ad2f6495dc888c38f6b5cceb11a38c55",
+            "run": "df61fae5ec35401281bfcd5dbb93b0c4",
+            "seat": "A",
+            "stream": "c8d3c3e1f8e245ba92145e4a1b7a5ba0"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [
+              3
+            ],
+            "empty_frames": 1,
+            "errors": [],
+            "finishes": [
+              {
+                "frame": 2,
+                "kind": "stop"
+              }
+            ],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 2,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "done",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 3,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [],
+            "usage_positions": [
+              2
+            ]
+          },
+          "provider_declared_errors": [],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "52afe226f42b57a217f120f64b1d694f63155f4dab48794997c26e625b540255",
+            "entry_sha256": "c312b3748ccd2cbeea98fd961114ad8a506794827ae529bb111a2580135cd215",
+            "ledger_sha256": "216d5faa8a7f75fb0737a93654eee7bcdfdb28274bf1c42653166e1c26496d44",
+            "native_occurrences_sha256": "24b007d37ddbafb4f00c6520713566afd008c82489611aa50085d63f1b9ad5c7",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        },
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": null,
+            "native_usage_present": true,
+            "original_state": "settled",
+            "raw_adapter_usage_consistent": true,
+            "raw_usage_frames": 1,
+            "raw_usage_numeric_mapping": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "verified_usage_preserved": {
+              "billing_reconciled": false,
+              "calls": 1,
+              "cost_minor": null,
+              "cost_source": "SSE usage.cost; numeric spelling preserved via Decimal",
+              "cost_unit": null,
+              "currency": null,
+              "estimated_cost": null,
+              "finish": "stop",
+              "gateway_reported_cost_raw": null,
+              "input_tokens": 12,
+              "native": {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              },
+              "output_tokens": 5,
+              "provider_identity": {
+                "adapter": "@deepseek-ai/dsh-llm-pi-ai",
+                "gateway": "TokenKey",
+                "http_request_id": null,
+                "requested_model": "gpt-5.6",
+                "response_id": "rehearsal-1",
+                "response_model": "gpt-5.6",
+                "system_fingerprints": [
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint"
+                ],
+                "upstream_identity_verified": false
+              },
+              "raw": {
+                "completion_tokens": 5,
+                "prompt_cache_hit_tokens": 4,
+                "prompt_cache_miss_tokens": 8,
+                "prompt_tokens": 12,
+                "total_tokens": 17
+              },
+              "supplier_bill_minor": null
+            }
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": null,
+                "kind": "stop"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "content_prefix_present": true,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "completed",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": true
+          },
+          "admission": {
+            "actually_admitted": true,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 1,
+            "original_audit": {
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "verified"
+            },
+            "trusted_complete_text": true
+          },
+          "bindings": {
+            "accounting": "76b147ed90969c1cfcf4808a5cc3dee2608f1d6861f1bceb5201dc68e86ebd3d",
+            "identity": "8eca51598206208b1bc40ceb58ec8f807a3bad81b6c2f28407d9517868e142ee",
+            "native": "7476747483c8fb5b7e9bf3fa4d77f7257d9c3f909a7af26ffe77e455f81ee902",
+            "operation": "a2720d0f5f0630d0a297db4ef494b24b5a3b5c6f19c686455e73cc7ab8008e82",
+            "request": "d36c14a06ed57542301f7dd218f9b360b62842877f6e83b4323bf76dbc521314",
+            "response": "91e65ded89c5da8553ed673efe3cad8407d720e50bd46a24c6f93b767bbc7c95",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "success_control",
+          "identity": {
+            "attempt": "d7fe2ad4f9874327ad64c36b4b72c18c",
+            "config_hash": "8e8d03a7715c0837eda13746b198878fdf22ccc4b72d1c71346dcd6a396c33dc",
+            "request_hash": "88e49d3eb6f4399486f71eb5fc54c5edc70b03177a90fe7d71352b8edb52c658",
+            "run": "df61fae5ec35401281bfcd5dbb93b0c4",
+            "seat": "B",
+            "stream": "916887d505354dcab702b537a0f651f0"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [
+              3
+            ],
+            "empty_frames": 1,
+            "errors": [],
+            "finishes": [
+              {
+                "frame": 2,
+                "kind": "stop"
+              }
+            ],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 2,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "done",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 3,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [],
+            "usage_positions": [
+              2
+            ]
+          },
+          "provider_declared_errors": [],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "52afe226f42b57a217f120f64b1d694f63155f4dab48794997c26e625b540255",
+            "entry_sha256": "c312b3748ccd2cbeea98fd961114ad8a506794827ae529bb111a2580135cd215",
+            "ledger_sha256": "216d5faa8a7f75fb0737a93654eee7bcdfdb28274bf1c42653166e1c26496d44",
+            "native_occurrences_sha256": "f821ca254c20228f65b44d7376ab8f4105c734c5c25bbb82a52c9daa2068a6c9",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 2,
+        "assigned": 2,
+        "not_run": 0,
+        "received": 2,
+        "responses": 2,
+        "sent": 2,
+        "settled": 2,
+        "unknown": 0,
+        "usage": 2
+      },
+      "scenario_stop": "complete",
+      "slots": [
+        {
+          "attempt": "0bc4e180bfa74a888ddfdf53445eef5d",
+          "seat": "A",
+          "state": "settled"
+        },
+        {
+          "attempt": "d7fe2ad4f9874327ad64c36b4b72c18c",
+          "seat": "B",
+          "state": "settled"
+        }
+      ],
+      "solver_success": true,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "c4-substitute",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "A_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "d2c863999189db1a1396ccd548db902e59642162e786a7d8c8f75b9c4afa3b7f",
+      "expected": {
+        "admitted": 0,
+        "family": "scheduling",
+        "fault": "c4",
+        "id": "c4-substitute",
+        "sends": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway missing/extra DONE",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "PI_AI_ERROR",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": false,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "unsupported_protocol/channel",
+              "reason": "unsupported SSE field",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5a277c9e1408350030b12cd28a0658263e3bcbd6afda64bf0f52e6653a92c858",
+            "identity": "74f1fac9800185f92c2662a37be6cb24cb4df03971a7860b1635cd2647aae143",
+            "native": "8178585ae12c9afccf172d115915eecd2e540e343be1cbece20033d822c81c7d",
+            "operation": "090551f402b93031c5c11b20d5ab9ee5ec98131848e617090c7a265691e107dc",
+            "request": "cc5de63b5be2292d2e0c7537005beb7e219de776baaaa495b6df8207ebf3ae47",
+            "response": "965c7d2b481ff59177063a386405791cd921a51513474d9cfaffbfe0bcf5713e",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "provider_error_observed",
+          "identity": {
+            "attempt": "bc097c8c469d4a43b64f8e8e34fd1cc9",
+            "config_hash": "93a62b8a8ed980efe5635344277e7dfd2281e6c410e9e01626b5e004d1ef09d3",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "5456539528c0439fb3906e23e9d94f9b",
+            "seat": "A",
+            "stream": "a8463d040d784277abb4b9b11150dbf5"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 1,
+            "errors": [
+              {
+                "code": null,
+                "frame": 1,
+                "message_present": true,
+                "source": "data.error",
+                "type": "api_error",
+                "unknown_fields_present": false
+              },
+              {
+                "code": "upstream_stream_truncated",
+                "frame": 2,
+                "message_present": true,
+                "source": "data.error",
+                "type": "upstream_error",
+                "unknown_fields_present": false
+              }
+            ],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [
+                  "error"
+                ],
+                "index": 2,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [
+              "multiple_provider_errors",
+              "missing_DONE",
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [
+            {
+              "code": null,
+              "frame": 1,
+              "message_present": true,
+              "source": "data.error",
+              "type": "api_error",
+              "unknown_fields_present": false
+            },
+            {
+              "code": "upstream_stream_truncated",
+              "frame": 2,
+              "message_present": true,
+              "source": "data.error",
+              "type": "upstream_error",
+              "unknown_fields_present": false
+            }
+          ],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_usage_without_raw_source",
+            "missing_DONE",
+            "missing_raw_usage",
+            "multiple_provider_errors"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "1cb1ab4a0289bb2b42980b427284b49f1395b567def137177143e7436da09277",
+            "entry_sha256": "d2c863999189db1a1396ccd548db902e59642162e786a7d8c8f75b9c4afa3b7f",
+            "ledger_sha256": "74822ee7a07637d19d614c0e6a40ac6378d3cebc0b3bcdaf31b22e986792b800",
+            "native_occurrences_sha256": "c3a44c8d02ac8b13b5d8889fb6aec2f856d74712ee3630aad90d175cdff818c8",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "PI_AI_ERROR"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 0,
+        "assigned": 2,
+        "not_run": 1,
+        "received": 1,
+        "responses": 1,
+        "sent": 1,
+        "settled": 0,
+        "unknown": 1,
+        "usage": 0
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "bc097c8c469d4a43b64f8e8e34fd1cc9",
+          "seat": "A",
+          "state": "unknown"
+        },
+        {
+          "attempt": null,
+          "seat": "B",
+          "state": "not_run"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "data-error",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "A_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "420f296b8cf44a289e5457a16f2fe0635b07e8cace4a8266d5a46479d2a7a173",
+      "expected": {
+        "admitted": 0,
+        "family": "scheduling",
+        "fault": "data",
+        "id": "data-error",
+        "sends": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway missing/extra DONE",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "PI_AI_ERROR",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": false,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "incomplete_stream",
+              "reason": "unterminated/oversized SSE",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5a277c9e1408350030b12cd28a0658263e3bcbd6afda64bf0f52e6653a92c858",
+            "identity": "510ba893d8703f3a8bb60bea39b19cbc2483aeaff12dcd4effdb55c8b2f33442",
+            "native": "5daf03c2f9a73ed7d7950e9a94b391c7d66420a3e5d15b7102eff80b16d15686",
+            "operation": "f7d14d084ac207e40f1e8e5b0f9711649f9176de7a1acc00998d2e144b383721",
+            "request": "f2137d396bae9dad3cd0a4c3e8c69e5bb695ad711ad9a5a3fb2239d12f6a5f1b",
+            "response": "2286a42f8a46f3cfaf3d0dcca469d92d6a22caa2e1c5203ca1a4ce23b8ceaaa8",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "provider_error_observed",
+          "identity": {
+            "attempt": "bd0431ff0642428d92c7042c1f9fb4ac",
+            "config_hash": "eb67b12ae91c383fb0219fed6b608e16aa6273d3c7c174ed09de006cbb64eb09",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "18f951478e734d1fae240479afb2ae3f",
+            "seat": "A",
+            "stream": "acf1c6f02aa147cb99761bf5e768e10f"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 1,
+            "errors": [
+              {
+                "code": null,
+                "frame": 0,
+                "message_present": true,
+                "source": "data.error",
+                "type": "api_error",
+                "unknown_fields_present": false
+              }
+            ],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": null,
+            "signals": [
+              "missing_DONE",
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [
+            {
+              "code": null,
+              "frame": 0,
+              "message_present": true,
+              "source": "data.error",
+              "type": "api_error",
+              "unknown_fields_present": false
+            }
+          ],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_usage_without_raw_source",
+            "missing_DONE",
+            "missing_raw_usage"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "b4a5583abf1d1b1082612fcdfbcbd60cb1aaef8c489b4e078b05aad5aa9492a2",
+            "entry_sha256": "420f296b8cf44a289e5457a16f2fe0635b07e8cace4a8266d5a46479d2a7a173",
+            "ledger_sha256": "d45999a16734cf16d136267b89bf8547801d5bdad7db9219539800797bc53947",
+            "native_occurrences_sha256": "b1adb90ba4d972cde4ac97ed1ad0877705836c47b98f181e017a48a603c39734",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "PI_AI_ERROR"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 0,
+        "assigned": 2,
+        "not_run": 1,
+        "received": 1,
+        "responses": 1,
+        "sent": 1,
+        "settled": 0,
+        "unknown": 1,
+        "usage": 0
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "bd0431ff0642428d92c7042c1f9fb4ac",
+          "seat": "A",
+          "state": "unknown"
+        },
+        {
+          "attempt": null,
+          "seat": "B",
+          "state": "not_run"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "prefix-error",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "A_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "5e4c8b03a59f3483af7c063619e2ee41482095c629c63dd577406ce86ffb1cb6",
+      "expected": {
+        "admitted": 0,
+        "family": "scheduling",
+        "fault": "prefix",
+        "id": "prefix-error",
+        "sends": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway missing/extra DONE",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "PI_AI_ERROR",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": true,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "incomplete_stream",
+              "reason": "missing/duplicate/nonfinal DONE",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5a277c9e1408350030b12cd28a0658263e3bcbd6afda64bf0f52e6653a92c858",
+            "identity": "336597f473417a2d585c2ddc499b9556a2c77fcc1124c654eebc144c4d47d9ba",
+            "native": "10386643771fa6d1ff4066394d079798f4c0491e3704b274fdb371b3bacd08df",
+            "operation": "bbcebcf35fc0b1fcf96746b80aa1a2a45549a74cd1d1a59a95893943701a0049",
+            "request": "e968df3e82aada683b823fa6dc07882b59bf016028c03b1635389ad5dc9d15cb",
+            "response": "4d21f0ce3acc0ec77e3bc84c25df031650458a88cbc3db5d55a9d85cce1e9da8",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "provider_error_observed",
+          "identity": {
+            "attempt": "2e0c610b22ce4b85adbb7f14b61dd711",
+            "config_hash": "77bdbb7069dc586c728130a75ced1fae1443dcaa63992a465a286b9b06046527",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "4be5a1a9a55c45a7972db3d33bf9c4b1",
+            "seat": "A",
+            "stream": "52eda21fd42f4b7a813790169ab33826"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 1,
+            "errors": [
+              {
+                "code": null,
+                "frame": 1,
+                "message_present": true,
+                "source": "data.error",
+                "type": "api_error",
+                "unknown_fields_present": false
+              }
+            ],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [
+              "missing_DONE",
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [
+            {
+              "code": null,
+              "frame": 1,
+              "message_present": true,
+              "source": "data.error",
+              "type": "api_error",
+              "unknown_fields_present": false
+            }
+          ],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_usage_without_raw_source",
+            "missing_DONE",
+            "missing_raw_usage"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "62ebaf1be4be1cc507c3aea48eedcfa6808e50d53481eae4e2d4dc111884833e",
+            "entry_sha256": "5e4c8b03a59f3483af7c063619e2ee41482095c629c63dd577406ce86ffb1cb6",
+            "ledger_sha256": "61c1c3c48515b4d778a0e62697e3b2a5554022b560ad5ea003eff13262d943bb",
+            "native_occurrences_sha256": "ca4afb412e7a08cff631e2a64b1bb35fd702873c1beb9cba103ae882237c42e9",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "PI_AI_ERROR"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 0,
+        "assigned": 2,
+        "not_run": 1,
+        "received": 1,
+        "responses": 1,
+        "sent": 1,
+        "settled": 0,
+        "unknown": 1,
+        "usage": 0
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "2e0c610b22ce4b85adbb7f14b61dd711",
+          "seat": "A",
+          "state": "unknown"
+        },
+        {
+          "attempt": null,
+          "seat": "B",
+          "state": "not_run"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "b-error",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "B_actual_A_history": true,
+        "B_admission": true,
+        "B_classification": true,
+        "B_native": true,
+        "B_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "02b7e16d839bf16bef39f90234f5d37f5d89efea579e7559610b6e4aae2db52c",
+      "expected": {
+        "admitted": 1,
+        "family": "scheduling",
+        "fault": "data",
+        "id": "b-error",
+        "sends": 2,
+        "settled": 1,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": null,
+            "native_usage_present": true,
+            "original_state": "settled",
+            "raw_adapter_usage_consistent": true,
+            "raw_usage_frames": 1,
+            "raw_usage_numeric_mapping": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "verified_usage_preserved": {
+              "billing_reconciled": false,
+              "calls": 1,
+              "cost_minor": null,
+              "cost_source": "SSE usage.cost; numeric spelling preserved via Decimal",
+              "cost_unit": null,
+              "currency": null,
+              "estimated_cost": null,
+              "finish": "stop",
+              "gateway_reported_cost_raw": null,
+              "input_tokens": 12,
+              "native": {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              },
+              "output_tokens": 5,
+              "provider_identity": {
+                "adapter": "@deepseek-ai/dsh-llm-pi-ai",
+                "gateway": "TokenKey",
+                "http_request_id": null,
+                "requested_model": "gpt-5.6",
+                "response_id": "rehearsal-0",
+                "response_model": "gpt-5.6",
+                "system_fingerprints": [
+                  "synthetic-fingerprint",
+                  "synthetic-fingerprint"
+                ],
+                "upstream_identity_verified": false
+              },
+              "raw": {
+                "completion_tokens": 5,
+                "prompt_cache_hit_tokens": 4,
+                "prompt_cache_miss_tokens": 8,
+                "prompt_tokens": 12,
+                "total_tokens": 17
+              },
+              "supplier_bill_minor": null
+            }
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": null,
+                "kind": "stop"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "cacheReadTokens": 4,
+                "inputTokens": 8,
+                "outputTokens": 5,
+                "totalTokens": 17
+              }
+            ],
+            "content_prefix_present": true,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "completed",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": true,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 1,
+            "original_audit": {
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "verified"
+            },
+            "trusted_complete_text": true
+          },
+          "bindings": {
+            "accounting": "a4c4de34665253ebdc8cc132881edd3801ee2d7a07954e62946561c9aaf2e612",
+            "identity": "aeb4a2a0837aca0bcd56e09570fa98eaa1b71537df12e4bc8e4a2c8e689f11a4",
+            "native": "51afee70019aac1e8eb78a233781c5597ada323cf44397eedff6b8b8e03ff79c",
+            "operation": "7a2ae0d8aa8f1f011a30613e5de8d53b476625959c9e62993b83be17841d110b",
+            "request": "693eb93c87d5c5dd404bfce9db31b7fdd9e03bcad290e24700bedf4c5e11ae27",
+            "response": "ea64f7323c745e2fb3f622369faf322a2df8071a1bdc2eeedc9bbee1c9eee6a2",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "success_control",
+          "identity": {
+            "attempt": "33d7f563653f4bbab4e2f34844ec1658",
+            "config_hash": "32cbf7b0827c2c5e914767d8fb2125606421191b526ab365177cbbb5dee132be",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "486f35dd711f48eb9d8765013259a235",
+            "seat": "A",
+            "stream": "eb760c93ba4b4849a7ca0c0eb2c3e057"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [
+              2
+            ],
+            "empty_frames": 1,
+            "errors": [],
+            "finishes": [
+              {
+                "frame": 1,
+                "kind": "stop"
+              }
+            ],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 1,
+                "terminated": true,
+                "unsupported_fields": 0
+              },
+              {
+                "data_kind": "done",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 2,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [],
+            "usage_positions": [
+              1
+            ]
+          },
+          "provider_declared_errors": [],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "143e0f0c258d249b50d152ce7574a4295344ba6f93ed5efabe1e4aed129f9985",
+            "entry_sha256": "02b7e16d839bf16bef39f90234f5d37f5d89efea579e7559610b6e4aae2db52c",
+            "ledger_sha256": "2995f63c019a49d0234de8fea1160c7149ce8ef372b1485282da461fed3de16c",
+            "native_occurrences_sha256": "85f560eb9fbd0f65e699ab78f4434acaca080aebdcb02edbd6f6cd2095eeb7f8",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        },
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway missing/extra DONE",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "PI_AI_ERROR",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": false,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "incomplete_stream",
+              "reason": "unterminated/oversized SSE",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5a277c9e1408350030b12cd28a0658263e3bcbd6afda64bf0f52e6653a92c858",
+            "identity": "14082e2b7b65050ae45079aa6d8c49f271a5b9028a06d65b4e70e7b9a778e23a",
+            "native": "d3c85dbff1af292fe1820daeb09a49a02e1c9acdf565903d004780bc4a8dce4e",
+            "operation": "887d449039e213a1687a0e24e63d61bbcdd55e27864b2008e14c06d7a53241e4",
+            "request": "aaa2156c5e9d0a14ab91b1e644f644260f2e37d238f87f59f29ff3adf69507cc",
+            "response": "5c76903aacb75e3e9a0e0d1861fc7b03029ee3094dbee87960944401ab29a0ad",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "provider_error_observed",
+          "identity": {
+            "attempt": "b1517c04b5044bd6a295c554646f26f7",
+            "config_hash": "32cbf7b0827c2c5e914767d8fb2125606421191b526ab365177cbbb5dee132be",
+            "request_hash": "643ff8901692208e861238904fecf97cb9ce8a3c4964fcbf16c642b59a2876bc",
+            "run": "486f35dd711f48eb9d8765013259a235",
+            "seat": "B",
+            "stream": "eb0bf3991797413797379fb4eac1d5b9"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 1,
+            "errors": [
+              {
+                "code": null,
+                "frame": 0,
+                "message_present": true,
+                "source": "data.error",
+                "type": "api_error",
+                "unknown_fields_present": false
+              }
+            ],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": null,
+            "signals": [
+              "missing_DONE",
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [
+            {
+              "code": null,
+              "frame": 0,
+              "message_present": true,
+              "source": "data.error",
+              "type": "api_error",
+              "unknown_fields_present": false
+            }
+          ],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_usage_without_raw_source",
+            "missing_DONE",
+            "missing_raw_usage"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "143e0f0c258d249b50d152ce7574a4295344ba6f93ed5efabe1e4aed129f9985",
+            "entry_sha256": "02b7e16d839bf16bef39f90234f5d37f5d89efea579e7559610b6e4aae2db52c",
+            "ledger_sha256": "2995f63c019a49d0234de8fea1160c7149ce8ef372b1485282da461fed3de16c",
+            "native_occurrences_sha256": "b57447356b38640ce59a3a84ab74d7ff31c78a513b59a92e908df02fa031a08d",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "PI_AI_ERROR"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 1,
+        "assigned": 2,
+        "not_run": 0,
+        "received": 2,
+        "responses": 2,
+        "sent": 2,
+        "settled": 1,
+        "unknown": 1,
+        "usage": 1
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "33d7f563653f4bbab4e2f34844ec1658",
+          "seat": "A",
+          "state": "settled"
+        },
+        {
+          "attempt": "b1517c04b5044bd6a295c554646f26f7",
+          "seat": "B",
+          "state": "unknown"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "http429",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "A_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "09e86d046a8bf3d2fd23f19165ed23a82f8994f1ac749d7f7270e9c4ccc91c67",
+      "expected": {
+        "admitted": 0,
+        "family": "scheduling",
+        "fault": "429",
+        "id": "http429",
+        "sends": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway response incomplete",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "RATE_LIMIT",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": false,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "incomplete_stream",
+              "reason": "incomplete HTTP stream",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5798928c3954578e3f91e35267a383cf840e820a18fa33eb8c5cbde9e82c258a",
+            "identity": "7b969e3b3a6b76e5ce737126bf8b60964f94304f71a273df833124b9b4223356",
+            "native": "0ef8f476cc833307991bd59c171508293ffb02053cb9a75a46c92380d829b9bd",
+            "operation": "52594b006fe4fcdda0f0d466f4c669be9296a4ec21cc2b49a0a2c829be6c894a",
+            "request": "4d8ce947f7512cca5bce3d2bba846d786ad5683a01f0662208b80ee46de7f24a",
+            "response": "5d346e3662e9e6e8c06089f0f28989baf0fd81667e6377ad102c4d6723078f12",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "http_error_observed",
+          "identity": {
+            "attempt": "7d091450da254a83adc12452f4b7ce23",
+            "config_hash": "77cfc13a9dd532d144bcc38074bd6faa15c2502bee1764ae367e5c41e30653e3",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "a2d2725b7e72450b827ca510d2e2aed4",
+            "seat": "A",
+            "stream": "82217ebdcb0748dbac125c7bfaabd58e"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 0,
+            "errors": [
+              {
+                "code": "rate_limit_exceeded",
+                "frame": 0,
+                "message_present": true,
+                "source": "http_body",
+                "type": "rate_limit_error",
+                "unknown_fields_present": false
+              }
+            ],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "http_error_body",
+            "response_model_hash": null,
+            "signals": [
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [
+            {
+              "code": "rate_limit_exceeded",
+              "frame": 0,
+              "message_present": true,
+              "source": "http_body",
+              "type": "rate_limit_error",
+              "unknown_fields_present": false
+            }
+          ],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_usage_without_raw_source",
+            "missing_raw_usage"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "e432ea8b31c87ab20b3ae49c960ec1530d3a4c99a57cf98818d358eb2114c6ff",
+            "entry_sha256": "09e86d046a8bf3d2fd23f19165ed23a82f8994f1ac749d7f7270e9c4ccc91c67",
+            "ledger_sha256": "273b20a2d43915a86a5069620b382cea3da339a9386aab2bd89bb11fbba93554",
+            "native_occurrences_sha256": "4ebb3164d7e23fbe88dc829aea824e24308d8cfd3aa585f04c20ef97eeacc58c",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 429,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "RATE_LIMIT"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 0,
+        "assigned": 2,
+        "not_run": 1,
+        "received": 1,
+        "responses": 1,
+        "sent": 1,
+        "settled": 0,
+        "unknown": 1,
+        "usage": 0
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "7d091450da254a83adc12452f4b7ce23",
+          "seat": "A",
+          "state": "unknown"
+        },
+        {
+          "attempt": null,
+          "seat": "B",
+          "state": "not_run"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "http503",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "A_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "d95d2e86972623693be20319579fc83f4d9846efa56480971d6a6d5ee34e9c73",
+      "expected": {
+        "admitted": 0,
+        "family": "scheduling",
+        "fault": "503",
+        "id": "http503",
+        "sends": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway response incomplete",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "unclassified",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": false,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "incomplete_stream",
+              "reason": "incomplete HTTP stream",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5798928c3954578e3f91e35267a383cf840e820a18fa33eb8c5cbde9e82c258a",
+            "identity": "71a0bab948567fa2202785df6082da8e19e45a6ce2edeb4a1992a11c02066f7f",
+            "native": "7b3df08bacd4d4c105c530f903ca55199e8b8081f80e19b6a2d4065f24c41a09",
+            "operation": "578edf0fce84e950ab27f589415c9ea1d4ac6fa9c4ec21ee1761db0405d9b872",
+            "request": "247c400d717e2ee3b60c7a8781cf90f23cdabf453f937d3ce62d71a7db0cbc6f",
+            "response": "ff10ae9ece2d60e6e02e07767c071e8d157a200c06d15c1dc8a987f49943244d",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "http_error_observed",
+          "identity": {
+            "attempt": "d745a9fc252c4c9c94163c5be24bc768",
+            "config_hash": "43ddf4e3e67277c5e7fcb0630e29f8a30c4cf4ab7605cbda01625bdc2fe1fb6b",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "53d307d295814b769a135a6850d797c9",
+            "seat": "A",
+            "stream": "8fd5b175912b4e7dbf83fd21112f98ae"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 0,
+            "errors": [
+              {
+                "code": "service_unavailable",
+                "frame": 0,
+                "message_present": true,
+                "source": "http_body",
+                "type": "server_error",
+                "unknown_fields_present": false
+              }
+            ],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": true,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "http_error_body",
+            "response_model_hash": null,
+            "signals": [
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [
+            {
+              "code": "service_unavailable",
+              "frame": 0,
+              "message_present": true,
+              "source": "http_body",
+              "type": "server_error",
+              "unknown_fields_present": false
+            }
+          ],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_usage_without_raw_source",
+            "missing_raw_usage"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "76ef3e43883c96ab4774d71d035c228021fe46152ce7f9b7b213b183dfabb661",
+            "entry_sha256": "d95d2e86972623693be20319579fc83f4d9846efa56480971d6a6d5ee34e9c73",
+            "ledger_sha256": "c1d2ce505c6b7fea9f297f1f56be7063697d1f46ee148d63221c0cfdfc33a7c8",
+            "native_occurrences_sha256": "20faee14c6dff8698f7caecaaaf4fdadb32ab030c7d296ab6669d3a4d34a3994",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 503,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "unclassified"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 0,
+        "assigned": 2,
+        "not_run": 1,
+        "received": 1,
+        "responses": 1,
+        "sent": 1,
+        "settled": 0,
+        "unknown": 1,
+        "usage": 0
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "d745a9fc252c4c9c94163c5be24bc768",
+          "seat": "A",
+          "state": "unknown"
+        },
+        {
+          "attempt": null,
+          "seat": "B",
+          "state": "not_run"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    },
+    {
+      "case": "truncated",
+      "checks": {
+        "A_admission": true,
+        "A_classification": true,
+        "A_native": true,
+        "A_unknown": true,
+        "active_zero": true,
+        "admitted": true,
+        "effects": true,
+        "fake_credential_matched": true,
+        "full_suffix": true,
+        "no_retry": true,
+        "reasoning_absent_from_domain": true,
+        "sent": true,
+        "settled": true,
+        "unknown": true,
+        "usage_source": true
+      },
+      "entry_hash": "e83e2f81a2be21e07ec751971fb0b3372725983fc03b3519441fea1b9a3a4b47",
+      "expected": {
+        "admitted": 0,
+        "family": "scheduling",
+        "fault": "truncated",
+        "id": "truncated",
+        "sends": 1,
+        "settled": 0,
+        "unknown": 1
+      },
+      "observations": [
+        {
+          "accounting": {
+            "adapter_usage_present": true,
+            "adapter_zero_is_trusted_usage": false,
+            "bill": "UNVERIFIED",
+            "diagnosis_settles": false,
+            "ledger_reason_code": "gateway missing/extra DONE",
+            "native_usage_present": false,
+            "original_state": "unknown",
+            "raw_adapter_usage_consistent": null,
+            "raw_usage_frames": 0,
+            "raw_usage_numeric_mapping": null,
+            "verified_usage_preserved": null
+          },
+          "activation": false,
+          "adapter_native": {
+            "adapter_finish": [
+              {
+                "failure_code": "TRANSPORT",
+                "kind": "error"
+              }
+            ],
+            "adapter_usage_observations": [
+              {
+                "inputTokens": 0,
+                "outputTokens": 0,
+                "totalTokens": 0
+              }
+            ],
+            "content_prefix_present": false,
+            "native_chunks_equal": true,
+            "native_present": true,
+            "native_terminal": "error",
+            "raw_content_adapter_equal": true,
+            "reasoning_present": false
+          },
+          "admission": {
+            "actually_admitted": false,
+            "diagnosis_grants_admission": false,
+            "domain_receipts": 0,
+            "original_audit": {
+              "category": "incomplete_stream",
+              "reason": "unterminated/oversized SSE",
+              "schema": "single-choice-dual-channel-audit.v2",
+              "status": "rejected"
+            },
+            "trusted_complete_text": false
+          },
+          "bindings": {
+            "accounting": "5a277c9e1408350030b12cd28a0658263e3bcbd6afda64bf0f52e6653a92c858",
+            "identity": "565f7afce599f08d1475f1de3052a2eca63671186ab685bc35cd1e503a561f4b",
+            "native": "94a12b1de1b1cc164b13e637bdaf2d70fc0b67acd91b1832a1f3de3cfb70eb33",
+            "operation": "ad484f539b5088404512bb79f0d502fe6f6d8fbbfa0c9d1883b96f324a1a152c",
+            "request": "44787e6c142d60fbdd0b9a11603553007e3026b3aa771a9cb9a631a5780f5030",
+            "response": "2b3f86d6c5e43ffc1e110dbf00486f08c508b26f510c4a5571852a7366aaaa3f",
+            "transport": "5771a17874eb4f3077f8412976e8f16507375d38aa2326eafe90ffe1f2545e99"
+          },
+          "classification": "incomplete_or_unclassified",
+          "identity": {
+            "attempt": "834746d62b2749e298235db3b20ef5b6",
+            "config_hash": "824e46f489a0b212f15b8ac05b5e3ad80200722808a67c69deba84fbea962369",
+            "request_hash": "421de8bbe446165de16b3575eba5219b95ba48a1bcc4059ae8e8156387f5dcf5",
+            "run": "78d0599d722c4e21876253d72bf1d0e1",
+            "seat": "A",
+            "stream": "9ef9961f2aa544b280218fe48d40f917"
+          },
+          "limits": {
+            "adapter_bytes": 1048576,
+            "data_lines": 8,
+            "depth": 32,
+            "fields": 128,
+            "frame_bytes": 65536,
+            "frames": 1024,
+            "input_bytes": 16777216,
+            "items": 4096,
+            "nodes": 50000,
+            "raw_bytes": 262144,
+            "string": 1048576
+          },
+          "origin": "local_official_runtime",
+          "protocol": {
+            "bytes_verified": true,
+            "comments": 0,
+            "done_positions": [],
+            "empty_frames": 1,
+            "errors": [],
+            "finishes": [],
+            "frames": [
+              {
+                "data_kind": "dict",
+                "data_lines": 1,
+                "error_object": false,
+                "event_names": [],
+                "index": 0,
+                "terminated": true,
+                "unsupported_fields": 0
+              }
+            ],
+            "identity_consistent": true,
+            "kind": "sse",
+            "response_model_hash": "0dde55b5879bed17dcd783bb5b02bddb01147f7043e387fdb4412f5b5047c7b2",
+            "signals": [
+              "missing_DONE",
+              "missing_raw_usage"
+            ],
+            "usage_positions": []
+          },
+          "provider_declared_errors": [],
+          "retry_authorized": false,
+          "schema": "transport-failure-observation.v1",
+          "signals": [
+            "adapter_error_without_raw_error",
+            "adapter_usage_without_raw_source",
+            "missing_DONE",
+            "missing_raw_usage"
+          ],
+          "source": {
+            "config_schema": "pilot-config.v10",
+            "dataset_sha256": "5915690b413a295813652d9eeba1722f01b6fe80cad9ce5baf44d882e4a3e760",
+            "entry_sha256": "e83e2f81a2be21e07ec751971fb0b3372725983fc03b3519441fea1b9a3a4b47",
+            "ledger_sha256": "ce3c66e91a8b4f50a3a0b4a90ac2427ceb08197f6c144c30489b0b8649ee7ae1",
+            "native_occurrences_sha256": "ec2fff0519ca9556b1cc519429bc29a6ed1c19f9e4145ffd7b24fb471860e7dd",
+            "reader": "current-code-owned-runtime-verifier"
+          },
+          "transport": {
+            "capture_exception_present": false,
+            "deadline_trigger": null,
+            "http_status": 200,
+            "native_code_source": "recorded official runtime; may derive from adapter message classification",
+            "native_codes": [
+              "TRANSPORT"
+            ],
+            "sending_recorded": true,
+            "supplier_received_independently_verified": false
+          },
+          "upstream_identity": "UNVERIFIED"
+        }
+      ],
+      "observed": {
+        "active": 0,
+        "admitted": 0,
+        "assigned": 2,
+        "not_run": 1,
+        "received": 1,
+        "responses": 1,
+        "sent": 1,
+        "settled": 0,
+        "unknown": 1,
+        "usage": 0
+      },
+      "scenario_stop": "technical error",
+      "slots": [
+        {
+          "attempt": "834746d62b2749e298235db3b20ef5b6",
+          "seat": "A",
+          "state": "unknown"
+        },
+        {
+          "attempt": null,
+          "seat": "B",
+          "state": "not_run"
+        }
+      ],
+      "solver_success": false,
+      "status": "PASS",
+      "suite_continuation": "independent predeclared next fixture; no retry"
+    }
+  ],
+  "cleanup": {
+    "jobs": [
+      {
+        "active": 0,
+        "job": "Local\\Actio-a6b39e1c6f69484396caa43fa241185b",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\text-success\\episode\\wd831d0c98f62",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-7bc639240af04e32b8bb07d517131f57",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\text-success\\episode\\w2d4a8cd0c23a",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-6550a6f0865f496b86f555ac12acf984",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\dual-success\\episode\\wb8c993f3635c",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-00bd744ff3c74fe9ac633352c0ca71b5",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\dual-success\\episode\\w3471b8a1e1f8",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-a7d8313d439c4252bc6046d10fae7703",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\c4-substitute\\episode\\w7665fc23fec8",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-3782d1f51a424de494c6eda5319c4255",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\data-error\\episode\\w0b7b627aafb5",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-741d5459f370479b9f0ec49bdc27e04b",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\prefix-error\\episode\\w7884ec4b8b26",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-c6669ee956ca440f9af7981ee7397bf7",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\b-error\\episode\\w22c8a9307b0f",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-0d9a7511cd2241d1ad4af41760827ee3",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\b-error\\episode\\w0d658d59ab9c",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-9e26121aed1d431ab4c1d0e683ce5caf",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\http429\\episode\\wb787936dfd1a",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-c214cd8a1a184be1b5e7a7eba929ed61",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\http503\\episode\\wb8f650d6a995",
+        "state": "reaped"
+      },
+      {
+        "active": 0,
+        "job": "Local\\Actio-dd4e4adf0b4c440a9e04f4b6ac5a41bb",
+        "report": {
+          "after": {
+            "active": 0,
+            "terminated": 0,
+            "total": 10
+          },
+          "before": {
+            "active": 4,
+            "terminated": 0,
+            "total": 10
+          }
+        },
+        "root": "D:\\ar-mod-20261011\\formal11\\truncated\\episode\\wb2617baf4f52",
+        "state": "reaped"
+      }
+    ],
+    "new_named_jobs_only": true,
+    "ports": [
+      {
+        "listening": false,
+        "port": 56018,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 64916,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 61016,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 61031,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 58690,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 57238,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 58852,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 58646,
+        "probe": "literal loopback connect_ex"
+      },
+      {
+        "listening": false,
+        "port": 65231,
+        "probe": "literal loopback connect_ex"
+      }
+    ],
+    "status": "PASS"
+  },
+  "runtime_commit": "d64264f67191d99b94598d79c67bdb7eb7b92a37",
+  "freeze_sha256": "bf221b9adafeb9efd52ff828b32da0af5881c6c779d29897f852f669c2944449",
+  "wheel_sha256": "475dbbd2beedb25ab31096be1b99e879d95a5f5273a048488458be725f8e0de2",
+  "root": "D:\\ar-mod-20261011\\formal11",
+  "scan": {
+    "bytes_read": 34685626,
+    "credential_found": false,
+    "files": 20251,
+    "identical_hardlink_reuse": 0,
+    "inventory": "D:\\ar-mod-20261011\\formal11\\file-inventory.json",
+    "inventory_sha256": "e5a6f27dbb8a425daa13969b7970998728abbf8c1bd18a29b426f125226d5bc1",
+    "scope": "all generated paths including logs DB native and cache; no directory skipped",
+    "status": "PASS"
+  },
+  "controlled_files": {
+    "report.json": "d4b341a2cb09998360f9cf49cd1adb9aecbf0ca3d00b8632452ef661dbdad13d",
+    "suite-stop.json": "ce6dc61b628f967094edc5f2e6daede2c5e398737a96efb089fa6dcf045b4979",
+    "cleanup.json": "9cf8d6f6966c0e29c986919e82163687e88f80c852292cb17ec06232318cfb51",
+    "scan.json": "b3cbc28a4874a640fe34b9b0aced9d5e8cb757823943d5c1f20307ca735ac8a5",
+    "file-inventory.json": "e5a6f27dbb8a425daa13969b7970998728abbf8c1bd18a29b426f125226d5bc1"
+  },
+  "external_requests": 0,
+  "scope": "final Git-byte-matching installed wheel; repo-external -I -B, no --project/tests; finite local matrix only",
+  "previous_matrix": "formal-runtime09.json and formal-runtime10.json: 12 additional sends each, preserved; final11 repeated to match Git LF bytes"
+}

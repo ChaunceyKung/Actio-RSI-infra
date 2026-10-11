@@ -1,0 +1,1578 @@
+{
+  "schema": "actio-architecture-review.v1",
+  "date": "2026-10-11",
+  "baseline": "c5aeec2e4f99b99da4fda5cb6cc59476ce0be890",
+  "status": "PROPOSED_NOT_IMPLEMENTED",
+  "method": "AST static imports, including function-local; dynamic imports separately listed; not a runtime cycle claim",
+  "scope_note": "Physical Python file count; excludes pycache. Mapping lists ownership destinations, not mandatory final filenames/class signatures. CLI shims must be finalized by caller inventory. Static SCC includes local imports, not an import-time error claim.",
+  "counts": {
+    "src": 69,
+    "tests": 42,
+    "scripts": 88,
+    "root_python": 67,
+    "product_lines": 9182,
+    "product_assets": 14,
+    "static_internal_edges": 407,
+    "product_files_in_mapping": 84,
+    "additional_license_files": 1
+  },
+  "strong_components": [
+    [
+      "actio.diagnostic_runtime",
+      "actio.transport_diagnostics"
+    ],
+    [
+      "actio.gateway",
+      "actio.pilot",
+      "actio.transport"
+    ],
+    [
+      "actio.database",
+      "actio.store"
+    ],
+    [
+      "actio.budget",
+      "actio.candidate_campaign",
+      "actio.candidate_contract",
+      "actio.candidate_measurement",
+      "actio.candidate_tasks",
+      "actio.channel_audit",
+      "actio.eval_contract",
+      "actio.evaluation",
+      "actio.evaluation_campaign",
+      "actio.evaluation_measurement",
+      "actio.evaluation_tasks",
+      "actio.gateway_contract",
+      "actio.pilot_contract",
+      "actio.pilot_measurement",
+      "actio.preflight",
+      "actio.readiness_contract",
+      "actio.robustness_campaign",
+      "actio.robustness_measurement",
+      "actio.robustness_tasks",
+      "actio.stream_audit",
+      "actio.suite_contract",
+      "actio.suite_measurement",
+      "actio.suite_oracle",
+      "actio.suite_tasks",
+      "actio.task_contract",
+      "actio.task_diagnostic_analysis",
+      "actio.task_diagnostic_data",
+      "actio.task_diagnostic_policy",
+      "actio.task_v2",
+      "actio.terminal",
+      "actio.transport_campaign",
+      "actio.transport_contract",
+      "actio.verify"
+    ]
+  ],
+  "dynamic_imports": [
+    {
+      "path": "src/actio/campaign.py",
+      "line": 106,
+      "call": "__import__('hashlib')"
+    },
+    {
+      "path": "src/actio/failure_observation.py",
+      "line": 39,
+      "call": "__import__('math')"
+    }
+  ],
+  "console_scripts": {
+    "actio": "actio.cli:main",
+    "actio-eval": "actio.evaluation:main",
+    "actio-candidate": "actio.candidate:main",
+    "actio-candidate-evaluation": "actio.candidate_evaluation:main"
+  },
+  "module_entry_candidates": [
+    "actio.__main__",
+    "actio.budget",
+    "actio.calibration",
+    "actio.campaign",
+    "actio.candidate",
+    "actio.candidate_evaluation",
+    "actio.cli",
+    "actio.eval_worker",
+    "actio.evaluation",
+    "actio.gateway",
+    "actio.host",
+    "actio.mcp_server",
+    "actio.pilot",
+    "actio.preflight",
+    "actio.readiness",
+    "actio.robustness",
+    "actio.suite",
+    "actio.task_diagnostics",
+    "actio.transport_campaign",
+    "actio.transport_diagnostics",
+    "actio.verify"
+  ],
+  "review_checks": {
+    "scope": "Planning review only; no code refactor, historical raw reauthentication, official runtime rerun or provider calls",
+    "installed_source_byte_comparison": {
+      "status": "PASS",
+      "files": 83,
+      "extensions": [
+        ".py",
+        ".mjs",
+        ".sql",
+        ".json"
+      ]
+    },
+    "initial_overbroad_guard_trial": {
+      "tests": 12,
+      "pass": 11,
+      "error": 1,
+      "failure": "mocked run-local argparse/gettext reads os.environ under pure reader guard",
+      "interpretation": "review harness scope mismatch; not a product regression or a historical C5 failure",
+      "product_changes": 0
+    },
+    "c5_pure_tests": {
+      "command": ".local/phase1c2c5-runtime-venv/Scripts/python.exe -I -B -X utf8 -m unittest discover -s tests -p test_failure_observation.py",
+      "tests": 12,
+      "status": "PASS"
+    },
+    "c5_public_package_guard_verify": {
+      "status": "PASS",
+      "guard": "tests/test_suite.py:GUARD unchanged",
+      "synthetic_vectors": 7,
+      "historical_raw_authenticated": false,
+      "runtime_raw_authenticated": false
+    },
+    "new_provider_calls": 0,
+    "new_catalog_get": 0,
+    "new_runtime_workers": 0
+  },
+  "files": [
+    {
+      "source": "src/actio/__init__.py",
+      "lines": 2,
+      "sha256": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+      "targets": [
+        "src/actio/__init__.py"
+      ],
+      "action": "preserve",
+      "internal_imports": [],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/__main__.py",
+      "lines": 2,
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "targets": [
+        "src/actio/__main__.py",
+        "src/actio/interfaces/cli.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.cli"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/_vendor/SOTOPIA_LICENSE",
+      "sha256": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+      "targets": [
+        "src/actio/_vendor/SOTOPIA_LICENSE"
+      ],
+      "action": "preserve"
+    },
+    {
+      "source": "src/actio/_vendor/__init__.py",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "targets": [
+        "src/actio/_vendor/__init__.py"
+      ],
+      "action": "preserve",
+      "internal_imports": [],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/_vendor/sotopia.py",
+      "lines": 132,
+      "sha256": "207ad8c22c252e936b9f8239d8529fd7a279cea742edc3952fc8781763ab6d88",
+      "targets": [
+        "src/actio/_vendor/sotopia.py"
+      ],
+      "action": "preserve",
+      "internal_imports": [],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/_vendor/sotopia_provenance.json",
+      "sha256": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+      "targets": [
+        "src/actio/_vendor/sotopia_provenance.json"
+      ],
+      "action": "preserve"
+    },
+    {
+      "source": "src/actio/budget.py",
+      "lines": 433,
+      "sha256": "988691635ed03aa5b14dff7c1903ae9c5045b5dd690069c7155021b2682a0a98",
+      "targets": [
+        "src/actio/domain/attempt.py",
+        "src/actio/adapters/persistence/ledger.py",
+        "src/actio/profiles/registry.py",
+        "src/actio/interfaces/budget.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_campaign",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.evaluation_campaign",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.readiness_contract",
+        "actio.robustness_campaign",
+        "actio.suite_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/calibration.py",
+      "lines": 122,
+      "sha256": "6deff6c78948e7abbe88b655688fd29f282f810ef741501bdf6b9e622160d495",
+      "targets": [
+        "src/actio/application/calibration.py",
+        "src/actio/interfaces/calibration.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.campaign",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation",
+        "actio.terminal"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/campaign.py",
+      "lines": 145,
+      "sha256": "5fea639926117e3e4a4d1ffd0b1ff4daffb1bbb864088598f8918057f7c945a3",
+      "targets": [
+        "src/actio/application/campaign.py",
+        "src/actio/profiles/offline.py",
+        "src/actio/interfaces/campaign.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation",
+        "actio.terminal",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/candidate.py",
+      "lines": 68,
+      "sha256": "e6a43fca9799e6ce4b6abeea824b5bfbe8aac638fd7a338f0cde28a106298916",
+      "targets": [
+        "src/actio/application/candidates.py",
+        "src/actio/interfaces/candidate.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_campaign",
+        "actio.candidate_contract",
+        "actio.candidate_measurement",
+        "actio.candidate_store",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.store",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/candidate_campaign.py",
+      "lines": 89,
+      "sha256": "c6ac68c9277355a01a99d281e5c58fec0a019e509fd82be9c5f4029f4ea454d3",
+      "targets": [
+        "src/actio/profiles/candidate.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.candidate_measurement",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.preflight",
+        "actio.suite_contract",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/candidate_contract.py",
+      "lines": 96,
+      "sha256": "311646888eaad302d699f9250f25971cbe057341078bccda76dfdbcce2393f7f",
+      "targets": [
+        "src/actio/domain/candidates.py",
+        "src/actio/contracts/candidate.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/candidate_evaluation.py",
+      "lines": 119,
+      "sha256": "4a7945f4a0144f720deb1fa2ccba6dd3b6980da9d4a66674d45ee99f147d286d",
+      "targets": [
+        "src/actio/application/evaluation.py",
+        "src/actio/interfaces/candidate_evaluation.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.database",
+        "actio.eval_contract",
+        "actio.evaluation_campaign",
+        "actio.evaluation_measurement",
+        "actio.evaluation_store",
+        "actio.gateway",
+        "actio.pilot",
+        "actio.store",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/candidate_measurement.py",
+      "lines": 179,
+      "sha256": "934ebdf6e9324f777e9c9bf50aa78d3cef1dd52f74855e6cb7b8ed621ca708f8",
+      "targets": [
+        "src/actio/measurement/candidate_v1.py",
+        "src/actio/evidence/candidate_v1.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_campaign",
+        "actio.candidate_contract",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.pilot_measurement",
+        "actio.stream_audit",
+        "actio.suite_measurement",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/candidate_schema.sql",
+      "sha256": "4e9113b08ffe019fd13348ac9cfd66822a1d65d84bb3c9d9db9be1f704ddda5a",
+      "targets": [
+        "src/actio/adapters/persistence/sql/candidate_schema.sql"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/candidate_store.py",
+      "lines": 93,
+      "sha256": "ef78fb0cae60f5a79de85521ad491daeef503f59b416dee2c68eac9fcfb5dc63",
+      "targets": [
+        "src/actio/adapters/persistence/candidates.py",
+        "src/actio/domain/lineage.py",
+        "src/actio/evidence/candidate_lineage.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/candidate_tasks.py",
+      "lines": 34,
+      "sha256": "955e8a69168314a2c4940af4dd9e5ae57213811e9128dd4e240fd6048a47e492",
+      "targets": [
+        "src/actio/tasks/scaffold.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.common",
+        "actio.suite_tasks",
+        "actio.task_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/channel_audit.py",
+      "lines": 168,
+      "sha256": "12a34490d993cb0d2806ad96659969e10455ecde909a9cddcf61d409eb0ad2a9",
+      "targets": [
+        "src/actio/evidence/channels.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.common",
+        "actio.stream_audit"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/cli.py",
+      "lines": 93,
+      "sha256": "39211521b6e681ad72fcd88c39e43b36dbfb0b31ec3131735ab30626a95f2bba",
+      "targets": [
+        "src/actio/interfaces/cli.py",
+        "src/actio/interfaces/composition.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.database",
+        "actio.evaluation",
+        "actio.evidence",
+        "actio.facts",
+        "actio.memory",
+        "actio.runtime",
+        "actio.scenarios",
+        "actio.store",
+        "actio.task_contract",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/common.py",
+      "lines": 105,
+      "sha256": "572cf56e7353e30fdf41a1c30e9329d0ddcbca14a60f91b6cda657bfdde92dcd",
+      "targets": [
+        "src/actio/contracts/canonical.py",
+        "src/actio/contracts/errors.py",
+        "src/actio/adapters/filesystem/io.py",
+        "src/actio/adapters/runtime/environment.py"
+      ],
+      "action": "split",
+      "internal_imports": [],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/database.py",
+      "lines": 274,
+      "sha256": "e9f633128194ec09a9a8cb9cdffe03bee788a0dfe6c255643d3d4031d92ddbab",
+      "targets": [
+        "src/actio/adapters/persistence/schema.py",
+        "src/actio/adapters/persistence/migrations.py",
+        "src/actio/application/migration.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.evaluation_campaign",
+        "actio.evaluation_history",
+        "actio.evaluation_store",
+        "actio.store"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/diagnostic_runtime.py",
+      "lines": 206,
+      "sha256": "e34f9f4764b962835cfd532e1c9605f494b9efa7f2c050ce514d77da722f7af5",
+      "targets": [
+        "src/actio/application/diagnostics.py",
+        "src/actio/adapters/transport/loopback.py",
+        "src/actio/adapters/runtime/cleanup.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.failure_fixtures",
+        "actio.failure_observation",
+        "actio.pilot",
+        "actio.preflight",
+        "actio.robustness_campaign",
+        "actio.robustness_tasks",
+        "actio.runtime",
+        "actio.store",
+        "actio.supervisor",
+        "actio.task_diagnostic_data",
+        "actio.task_diagnostic_policy",
+        "actio.transport_contract",
+        "actio.transport_diagnostics"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/eval_contract.py",
+      "lines": 211,
+      "sha256": "de7636aeb3f694a5df92ea47ed9415b7bc65b9f9cbff493ffed6b60f27f3d34e",
+      "targets": [
+        "src/actio/contracts/evaluation.py",
+        "src/actio/measurement/evaluation.py",
+        "src/actio/evidence/evaluation.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.task_contract",
+        "actio.terminal",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/eval_worker.py",
+      "lines": 69,
+      "sha256": "8b808c9f23296d47d61aa529a213726621c111ee2233f5141732e9a3625a502f",
+      "targets": [
+        "src/actio/interfaces/eval_worker.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio._vendor.sotopia",
+        "actio.common",
+        "actio.eval_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/evaluation.py",
+      "lines": 240,
+      "sha256": "67c0c9efdc07d1575f90d0bd8f5a77d4243eaf01f53906f5857f8ed23683e6a8",
+      "targets": [
+        "src/actio/application/evaluation.py",
+        "src/actio/interfaces/evaluation.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.terminal",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/evaluation_campaign.py",
+      "lines": 102,
+      "sha256": "9e2753324aa1a2f1c21c538b4f426ecee234065ba40c5c639b7899776efabbcf",
+      "targets": [
+        "src/actio/profiles/evaluation.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation_measurement",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.preflight",
+        "actio.suite_contract",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/evaluation_history.json",
+      "sha256": "5cbf1c60d85931c80f5e86ac281604e51ac997baf2bfa7e7194b01b463b2aea2",
+      "targets": [
+        "src/actio/evidence/data/evaluation_history.json"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/evaluation_history.py",
+      "lines": 31,
+      "sha256": "e0deec11f03487b858777a4318199513bc6c567eccd1d0500a868329957fdb7f",
+      "targets": [
+        "src/actio/evidence/history.py",
+        "src/actio/adapters/filesystem/resources.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/evaluation_measurement.py",
+      "lines": 187,
+      "sha256": "a8c59cb285fd28b456cbd40e423f87257bbd50dd0b7f3e2cb890555a13722313",
+      "targets": [
+        "src/actio/measurement/candidate_v2.py",
+        "src/actio/evidence/candidate_v2.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_measurement",
+        "actio.candidate_tasks",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation_campaign",
+        "actio.pilot_measurement",
+        "actio.suite_measurement",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/evaluation_schema.sql",
+      "sha256": "347967c717a35dd59e884a1742af9b650d64ff6d6f0b745d57438a1c367b8a4c",
+      "targets": [
+        "src/actio/adapters/persistence/sql/evaluation_schema.sql"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/evaluation_store.py",
+      "lines": 133,
+      "sha256": "fc2029f9d0eeb27c988c70f452b417495acf2457dfdeb9bddf43bbb1699ccf27",
+      "targets": [
+        "src/actio/adapters/persistence/evaluations.py",
+        "src/actio/domain/lineage.py",
+        "src/actio/evidence/evaluation_lineage.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_store",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation_campaign",
+        "actio.evaluation_history",
+        "actio.evaluation_measurement",
+        "actio.robustness_campaign",
+        "actio.robustness_measurement",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/evaluation_tasks.py",
+      "lines": 21,
+      "sha256": "66af772f8255745f6c718f1347d1b4c45302bfe3f4482daa83c4da603ffc2e74",
+      "targets": [
+        "src/actio/tasks/evaluation.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.candidate_tasks",
+        "actio.suite_tasks",
+        "actio.task_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/evidence.py",
+      "lines": 123,
+      "sha256": "66013fc6bc42d6f15d5f5745af5e79dd1b859817be03817c541badc182a0411e",
+      "targets": [
+        "src/actio/application/export.py",
+        "src/actio/adapters/persistence/snapshot.py",
+        "src/actio/evidence/dataset.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.store",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/facts.py",
+      "lines": 126,
+      "sha256": "0237950261bc334c90785ed0d3bb957f9a84336aba0104afc9698e1dba6c76d6",
+      "targets": [
+        "src/actio/domain/facts.py",
+        "src/actio/application/facts.py",
+        "src/actio/adapters/persistence/facts.py",
+        "src/actio/adapters/runtime/journal.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/failure_fixtures.py",
+      "lines": 94,
+      "sha256": "9870135fe535a0411e3b11e41ec8ebcc06523841bc7128869563576b2e8cd10a",
+      "targets": [
+        "src/actio/profiles/diagnostic_fixtures.py",
+        "src/actio/adapters/transport/failure_fixtures.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.failure_observation"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/failure_observation.py",
+      "lines": 341,
+      "sha256": "ba3c7cdd759abe7e55a42f34511446029bb3186f066e3cf8a994d32186b4ae7d",
+      "targets": [
+        "src/actio/measurement/failures.py",
+        "src/actio/evidence/failure_binding.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.channel_audit",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.stream_audit",
+        "actio.transport_campaign",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/fixtures/provider.mjs",
+      "sha256": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+      "targets": [
+        "src/actio/adapters/transport/fixtures/provider.mjs"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/future_schedule.py",
+      "lines": 54,
+      "sha256": "f08c915734026318ecd05d812f2e33761571983024ec4cf7929949434f949083",
+      "targets": [
+        "src/actio/profiles/schedule_proposal.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.robustness_campaign",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/gateway.py",
+      "lines": 106,
+      "sha256": "ff6074f165d1c61980ff8bf518e773800d538c52ef918efc5c6d289e3030ff8b",
+      "targets": [
+        "src/actio/application/gateway.py",
+        "src/actio/interfaces/gateway.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.common",
+        "actio.evidence",
+        "actio.gateway_contract",
+        "actio.preflight",
+        "actio.store",
+        "actio.task_contract",
+        "actio.transport",
+        "actio.transport_campaign",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/gateway_contract.py",
+      "lines": 114,
+      "sha256": "c34e394253f1ce8e1c572e65ba7c7b760e2c27876bb78155b602d4998c48df17",
+      "targets": [
+        "src/actio/profiles/gateway.py",
+        "src/actio/contracts/transport.py",
+        "src/actio/evidence/usage.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.common",
+        "actio.preflight",
+        "actio.stream_audit",
+        "actio.suite_contract",
+        "actio.task_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/host.py",
+      "lines": 112,
+      "sha256": "6ed2c40f650007ba4d7ebc5f4c57dfddf65c96f3348c6ea08a5f4141ff0f3686",
+      "targets": [
+        "src/actio/adapters/runtime/dsh_host.py",
+        "src/actio/interfaces/host.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.common"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/legacy_schema.sql",
+      "sha256": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+      "targets": [
+        "src/actio/adapters/persistence/sql/legacy_schema.sql"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/mcp_server.py",
+      "lines": 38,
+      "sha256": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+      "targets": [
+        "src/actio/adapters/runtime/mcp.py",
+        "src/actio/interfaces/mcp_server.py"
+      ],
+      "action": "split",
+      "internal_imports": [],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/memory.py",
+      "lines": 99,
+      "sha256": "21e7110acb0fe8b944549c24cc42c4fcf4fa4a7ddd93a49548518e67fde94d4c",
+      "targets": [
+        "src/actio/domain/memory.py",
+        "src/actio/application/memory.py",
+        "src/actio/adapters/persistence/memory.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/pilot.py",
+      "lines": 175,
+      "sha256": "f36b47fd2cd9697967289a286ee35e48c9eda7a4c507e409d15ac5e0e750d1ec",
+      "targets": [
+        "src/actio/application/episode.py",
+        "src/actio/application/campaign.py",
+        "src/actio/interfaces/pilot.py",
+        "src/actio/adapters/filesystem/publication.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.candidate_tasks",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation_tasks",
+        "actio.evidence",
+        "actio.gateway",
+        "actio.pilot_contract",
+        "actio.pilot_measurement",
+        "actio.robustness_tasks",
+        "actio.store",
+        "actio.suite_measurement",
+        "actio.suite_tasks",
+        "actio.task_v2",
+        "actio.transport",
+        "actio.transport_campaign",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/pilot_contract.py",
+      "lines": 73,
+      "sha256": "23a538069727c659f57cdd78720dfcd46a064c4f1c468a4a7fc875c0972cbd2b",
+      "targets": [
+        "src/actio/profiles/pilot.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.gateway_contract",
+        "actio.preflight",
+        "actio.task_v2",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/pilot_measurement.py",
+      "lines": 110,
+      "sha256": "3f1dffac71de15f3aff1686dd93014e0376134901fcca79fa1679661d4d90392",
+      "targets": [
+        "src/actio/measurement/pilot.py",
+        "src/actio/evidence/pilot.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.pilot_contract",
+        "actio.stream_audit",
+        "actio.transport_campaign",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/pins/c5_runtime.json",
+      "sha256": "b5b5caf0c5b2e4662d5131b6106f2dc5e6af945a46c8c4515172a207335ad851",
+      "targets": [
+        "src/actio/evidence/data/c5_runtime.json"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/pins/concordia.json",
+      "sha256": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+      "targets": [
+        "src/actio/adapters/environment/pins/concordia.json"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/plugins/common.mjs",
+      "sha256": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+      "targets": [
+        "src/actio/adapters/transport/plugins/common.mjs"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/plugins/guard.mjs",
+      "sha256": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+      "targets": [
+        "src/actio/adapters/transport/plugins/guard.mjs"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/plugins/transport.mjs",
+      "sha256": "08e4e806bef12ea75aead2ca844d115556a32aa1ff4cb04ca19eb8e5e79c876f",
+      "targets": [
+        "src/actio/adapters/transport/plugins/transport.mjs"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/preflight.py",
+      "lines": 143,
+      "sha256": "12961dee4e4a358af8735fe09cbfe5da91cfefcc21e1a4194b156a498faf1c7b",
+      "targets": [
+        "src/actio/contracts/endpoints.py",
+        "src/actio/application/preflight.py",
+        "src/actio/interfaces/preflight.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_campaign",
+        "actio.common",
+        "actio.evaluation_campaign",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.readiness_contract",
+        "actio.robustness_campaign",
+        "actio.suite_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/readiness.py",
+      "lines": 33,
+      "sha256": "17e929971cd456cb7ecd3fe4cd35898e22b2fa48bae89ea332cb25137472b660",
+      "targets": [
+        "src/actio/application/readiness.py",
+        "src/actio/interfaces/readiness.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.preflight",
+        "actio.readiness_contract",
+        "actio.transport_campaign"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/readiness_contract.py",
+      "lines": 121,
+      "sha256": "2d4bb3ce17eea9c29387b8ac23dbbd3c17b8db24f05e45d2ec4bff247c6cf5b9",
+      "targets": [
+        "src/actio/profiles/priced.py",
+        "src/actio/domain/pricing.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.preflight",
+        "actio.task_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/readiness_quote.json",
+      "sha256": "e9f8298e1a6edb4ef177e1e9c881506b937305fb4c949be0880888112be190e7",
+      "targets": [
+        "src/actio/profiles/data/readiness_quote.json"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/robustness.py",
+      "lines": 127,
+      "sha256": "6d36ad70d80876ef0a17b1cb02bc2a2e3cf1d24141cfb8ff8bdcba89cae55a11",
+      "targets": [
+        "src/actio/application/robustness.py",
+        "src/actio/interfaces/robustness.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.database",
+        "actio.eval_contract",
+        "actio.evaluation_store",
+        "actio.gateway",
+        "actio.pilot",
+        "actio.robustness_campaign",
+        "actio.robustness_measurement",
+        "actio.store",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/robustness_campaign.py",
+      "lines": 110,
+      "sha256": "67e9339875ffda5aa072dd8479f9b5ae59f119abd0d5614113a72c642a32c1ae",
+      "targets": [
+        "src/actio/profiles/robustness.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.preflight",
+        "actio.robustness_measurement",
+        "actio.robustness_tasks",
+        "actio.suite_contract",
+        "actio.suite_oracle",
+        "actio.task_diagnostic_data",
+        "actio.task_diagnostic_policy",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/robustness_measurement.py",
+      "lines": 160,
+      "sha256": "5a1c11da0e8c53d677d84e2578b97997419278153c41270140d86806352f70d6",
+      "targets": [
+        "src/actio/measurement/robustness.py",
+        "src/actio/evidence/robustness.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_measurement",
+        "actio.candidate_tasks",
+        "actio.common",
+        "actio.evaluation_measurement",
+        "actio.robustness_campaign",
+        "actio.robustness_tasks",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.task_diagnostic_analysis",
+        "actio.task_diagnostic_data",
+        "actio.task_diagnostic_policy",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/robustness_tasks.py",
+      "lines": 51,
+      "sha256": "e4066d355757ad155820659ebf41df524e789edb0c265b890e63e7f603149ddf",
+      "targets": [
+        "src/actio/tasks/robustness.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.candidate_contract",
+        "actio.candidate_tasks",
+        "actio.common",
+        "actio.task_contract",
+        "actio.task_diagnostic_data",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/runtime.py",
+      "lines": 222,
+      "sha256": "b5e383a1ddbb33194b437de8287f21728822941af9a1f3f86634afa1a6a9fdfd",
+      "targets": [
+        "src/actio/application/ports.py",
+        "src/actio/adapters/runtime/dsh.py",
+        "src/actio/profiles/runtime.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.facts",
+        "actio.mcp_server",
+        "actio.supervisor"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/scenarios.py",
+      "lines": 299,
+      "sha256": "dbc33a389ad8c4ecc14da14769a8be8cf25c0fe03792efb5eeef54ef2be3d6c4",
+      "targets": [
+        "src/actio/application/scenarios.py",
+        "src/actio/adapters/environment/concordia.py",
+        "src/actio/tasks/assistant.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.facts",
+        "actio.memory",
+        "actio.runtime",
+        "actio.task_contract",
+        "actio.terminal",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/schema.sql",
+      "sha256": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+      "targets": [
+        "src/actio/adapters/persistence/sql/schema.sql"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/store.py",
+      "lines": 240,
+      "sha256": "d7700353d20aa4a2e757c1df162d22b19cf2adfd7ea3fb0b647561cd8810ee50",
+      "targets": [
+        "src/actio/adapters/persistence/store.py",
+        "src/actio/domain/identity.py",
+        "src/actio/application/identity.py",
+        "src/actio/application/lifecycle.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_store",
+        "actio.common",
+        "actio.database",
+        "actio.evaluation_store",
+        "actio.supervisor",
+        "actio.terminal"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/stream_audit.py",
+      "lines": 89,
+      "sha256": "24567444fc497bf87a39eee3555941c933afeff05696c1b482d2ea7986033b8e",
+      "targets": [
+        "src/actio/evidence/stream.py",
+        "src/actio/contracts/strict_json.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/suite.py",
+      "lines": 30,
+      "sha256": "0e683527b85caabec6d10cb797d9334a5da95b5a88a898d4d9f03bf01577e020",
+      "targets": [
+        "src/actio/application/suite.py",
+        "src/actio/interfaces/suite.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.gateway",
+        "actio.pilot",
+        "actio.suite_contract",
+        "actio.suite_measurement"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/suite_contract.py",
+      "lines": 91,
+      "sha256": "7b2752f14223ec61f17021079e7666c83c06fed314a78292a185c44ed5151603",
+      "targets": [
+        "src/actio/profiles/suite.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.preflight",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/suite_measurement.py",
+      "lines": 118,
+      "sha256": "2156676c12347aabbb649eea835832bdded45a866f521295d2cbbf4a728c0e20",
+      "targets": [
+        "src/actio/measurement/suite.py",
+        "src/actio/evidence/suite.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.pilot_measurement",
+        "actio.suite_contract",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/suite_oracle.py",
+      "lines": 51,
+      "sha256": "9709fb633ffac22c99d6eb969c69828c8722a112b6786087fe821fbcda5c52f7",
+      "targets": [
+        "src/actio/measurement/oracle.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.suite_tasks"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/suite_tasks.py",
+      "lines": 112,
+      "sha256": "1a17f589660e1ca6d58750c5697b8ea474d634ec55ddbb261ed380b5ad616009",
+      "targets": [
+        "src/actio/tasks/scheduling.py",
+        "src/actio/tasks/bargaining.py",
+        "src/actio/tasks/visibility.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.task_contract",
+        "actio.task_v2"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/supervisor.py",
+      "lines": 235,
+      "sha256": "5fb805cbb45865c80d06aa6e2f4f901353cf8acba6c83c5fe3c8e09614463ab7",
+      "targets": [
+        "src/actio/adapters/runtime/windows_job.py",
+        "src/actio/adapters/runtime/supervisor.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/task_contract.py",
+      "lines": 171,
+      "sha256": "2456bfb465ea6970c9fdedbc88e0209190859edd41687b5a3e2139615c737c21",
+      "targets": [
+        "src/actio/tasks/v1.py",
+        "src/actio/contracts/task.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_tasks",
+        "actio.common",
+        "actio.evaluation_tasks",
+        "actio.robustness_tasks",
+        "actio.suite_tasks",
+        "actio.task_v2",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/task_diagnostic_analysis.py",
+      "lines": 250,
+      "sha256": "c17dec2e1c3763c3215307d2cc9afe512084461eb52e11be9176fa851db4de65",
+      "targets": [
+        "src/actio/measurement/task_diagnostics.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.common",
+        "actio.suite_oracle",
+        "actio.suite_tasks",
+        "actio.task_diagnostic_data",
+        "actio.task_diagnostic_policy"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/task_diagnostic_data.py",
+      "lines": 134,
+      "sha256": "38d9cc6c594b96b190382fa6d88345c278adee9ea41e36d089c4fec2a9a2ecc7",
+      "targets": [
+        "src/actio/tasks/diagnostic_cards.py",
+        "src/actio/tasks/visibility.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.suite_tasks",
+        "actio.task_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/task_diagnostic_policy.py",
+      "lines": 104,
+      "sha256": "86367a482ee28b495cc3ef488636f1cca2ef7c49e8ec884fdf8ec837809eea71",
+      "targets": [
+        "src/actio/tasks/control_policies.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.task_contract",
+        "actio.task_diagnostic_data"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/task_diagnostic_trust.json",
+      "sha256": "50a0f66a33787518f3606c478e2f6db698646f492b45f87e359d9077c9d4cab7",
+      "targets": [
+        "src/actio/evidence/data/task_diagnostic_trust.json"
+      ],
+      "action": "move_bytes_unchanged"
+    },
+    {
+      "source": "src/actio/task_diagnostics.py",
+      "lines": 220,
+      "sha256": "5adce970b536da84a5f970707bd13e8e4a5b0402a0c54a09714b940d9177cddc",
+      "targets": [
+        "src/actio/application/task_diagnostics.py",
+        "src/actio/evidence/task_diagnostics.py",
+        "src/actio/interfaces/task_diagnostics.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.eval_contract",
+        "actio.suite_tasks",
+        "actio.task_contract",
+        "actio.task_diagnostic_analysis",
+        "actio.task_diagnostic_data",
+        "actio.task_diagnostic_policy",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/task_v2.py",
+      "lines": 48,
+      "sha256": "8722409acd6cb0f5a78abb7b71e793ab11d4f069eac968186eb5e827ad3d3373",
+      "targets": [
+        "src/actio/tasks/v2.py"
+      ],
+      "action": "move",
+      "internal_imports": [
+        "actio.common",
+        "actio.task_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/terminal.py",
+      "lines": 197,
+      "sha256": "68ee88c60a29d1cd563bde250ac9786376a0c81c45fa83502fc7e2475fa0c688",
+      "targets": [
+        "src/actio/domain/admission.py",
+        "src/actio/application/terminal.py",
+        "src/actio/evidence/terminal.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.facts",
+        "actio.task_contract",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/transport.py",
+      "lines": 218,
+      "sha256": "3e8296de3ebfea5dfbdfe354831e5a72ebafa015fc23feca359759666195fd2b",
+      "targets": [
+        "src/actio/adapters/transport/dsh_chat.py",
+        "src/actio/application/episode.py",
+        "src/actio/profiles/transport.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.candidate_campaign",
+        "actio.candidate_tasks",
+        "actio.channel_audit",
+        "actio.common",
+        "actio.evaluation_campaign",
+        "actio.facts",
+        "actio.gateway_contract",
+        "actio.pilot",
+        "actio.robustness_campaign",
+        "actio.runtime",
+        "actio.scenarios",
+        "actio.suite_contract",
+        "actio.suite_tasks",
+        "actio.task_contract",
+        "actio.task_v2",
+        "actio.terminal",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/transport_campaign.py",
+      "lines": 110,
+      "sha256": "2f9f6d3dec7d68c70cfe5e2aa4713abc16c50ea5244b4207258dc495503ecc17",
+      "targets": [
+        "src/actio/application/transport_campaign.py",
+        "src/actio/profiles/transport_campaign.py",
+        "src/actio/interfaces/transport_campaign.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.common",
+        "actio.eval_contract",
+        "actio.evaluation",
+        "actio.transport_contract",
+        "actio.verify"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/transport_contract.py",
+      "lines": 152,
+      "sha256": "b5779576c9d1236644f72b67ef2b50d7fe3de80d3c81fd1b23a64866c0b26dbc",
+      "targets": [
+        "src/actio/contracts/transport.py",
+        "src/actio/profiles/transport.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.candidate_campaign",
+        "actio.candidate_tasks",
+        "actio.common",
+        "actio.evaluation_campaign",
+        "actio.gateway_contract",
+        "actio.pilot_contract",
+        "actio.preflight",
+        "actio.readiness_contract",
+        "actio.robustness_campaign",
+        "actio.suite_contract",
+        "actio.task_contract",
+        "actio.task_v2"
+      ],
+      "public_module_entry_candidate": false
+    },
+    {
+      "source": "src/actio/transport_diagnostics.py",
+      "lines": 81,
+      "sha256": "196c973d0a268472bc9cfe6cd50b448e6862ea7edfe62f5ba4cda46a15b50128",
+      "targets": [
+        "src/actio/application/diagnostics.py",
+        "src/actio/evidence/diagnostic_package.py",
+        "src/actio/interfaces/transport_diagnostics.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.common",
+        "actio.diagnostic_runtime",
+        "actio.eval_contract",
+        "actio.failure_fixtures",
+        "actio.failure_observation",
+        "actio.future_schedule",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    },
+    {
+      "source": "src/actio/verify.py",
+      "lines": 346,
+      "sha256": "808c3114358075fcd58945621a63363217309ea7d1b9c00a429b584ba0b32030",
+      "targets": [
+        "src/actio/evidence/verify.py",
+        "src/actio/contracts/strict_json.py",
+        "src/actio/interfaces/verify.py"
+      ],
+      "action": "split",
+      "internal_imports": [
+        "actio.budget",
+        "actio.common",
+        "actio.task_contract",
+        "actio.task_v2",
+        "actio.terminal",
+        "actio.transport_contract"
+      ],
+      "public_module_entry_candidate": true
+    }
+  ]
+}

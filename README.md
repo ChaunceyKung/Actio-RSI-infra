@@ -10,10 +10,13 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 [当前结果](docs/validation/phase1c2c5/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c5/GATES.md) · [当前 CLI](docs/validation/phase1c2c5/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
 
+**当前工程优先级：模块化重构，暂停实验迭代。** 已完成代码结构审阅和设计，尚未实施重构。先读三篇简明文档：[整体架构](docs/architecture/README.md) → [模块与流程](docs/architecture/MODULES.md) → [迁移与验收](docs/architecture/REFACTOR_PLAN.md)。另一个 session 可使用[完整重构 Prompt](docs/prompts/modular_architecture_refactor.md)实施；历史 C5 结果保持不变。
+
 ## 阅读导航
 
 - [项目背景与目标](#项目背景与目标)
 - [架构与组织逻辑](#架构与组织逻辑)
+- [简明模块化设计与重构方案](docs/architecture/README.md)
 - [输入、执行与输出](#输入执行与输出)
 - [已经完成什么](#已经完成什么)
 - [使用方法](#使用方法)
@@ -306,9 +309,10 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 | 阅读目标 | 推荐入口 |
 |---|---|
+| 快速理解模块、流程与本轮重构 | [简明架构](docs/architecture/README.md) → [模块与流程](docs/architecture/MODULES.md) → [迁移与验收](docs/architecture/REFACTOR_PLAN.md)（目标设计，尚未实施） |
 | 理解整体方向与取舍 | [规划总览](docs/planning/README.md) → [目标架构](docs/planning/03_target_architecture.md) → [ADR](docs/planning/13_architecture_decisions.md) |
 | 了解当前执行合同 | [C2C5 CONTRACT](docs/validation/phase1c2c5/CONTRACT.md) → [GATES](docs/validation/phase1c2c5/GATES.md) → [CLI](docs/validation/phase1c2c5/CLI.md) |
-| 审阅当前状态与实际结果 | [RESULTS](docs/validation/phase1c2c4/RESULTS.md) → [指标覆盖](docs/validation/phase1c2c4/MEASUREMENTS.md) → [三类比较](docs/validation/phase1c2c4/COMPARISONS.md) |
+| 审阅当前状态与实际结果 | [C5 RESULTS](docs/validation/phase1c2c5/RESULTS.md)；此前真实 campaign 见 [C4 RESULTS](docs/validation/phase1c2c4/RESULTS.md)、[指标覆盖](docs/validation/phase1c2c4/MEASUREMENTS.md)、[三类比较](docs/validation/phase1c2c4/COMPARISONS.md) |
 | 查验历史来源与失败 | [C4 DEVELOPMENT](docs/validation/phase1c2c4/DEVELOPMENT.md) → [固定历史核验](docs/validation/phase1c2c4/history.json) → [C2 controlled delivery](docs/validation/phase1c2c2/controlled-delivery.json) |
 | 重算任务与信息诊断 | [C2C3结果](docs/validation/phase1c2c3/RESULTS.md) → [package](docs/validation/phase1c2c3/package/manifest.json) → [开发限制](docs/validation/phase1c2c3/DEVELOPMENT.md) |
 | 理解演进过程 | [MILESTONES](MILESTONES.md) → [阶段审阅](docs/reviews/) → [执行 Prompt](docs/prompts/) |
@@ -317,13 +321,13 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 ## 后续 TODO
 
-以下是基于当前交付整理的待办方向，**不是已冻结的新阶段执行计划**。本轮停止于 C2C5，不自动搜索候选或启动第二批真实调用。
+以下是基于当前交付整理的待办方向，**不是已冻结的新实验执行计划**。用户现已要求暂停实验迭代，优先落实[模块化重构与回归验收](docs/architecture/REFACTOR_PLAN.md)。代码仍为 C5 实现；本轮只交付设计，不执行下一真实批次。
 
-下一步只保留一个[决策草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)：先审阅C5分类和本机故障证据；若再做真实验证，另冻结并发布新合同/evaluation/claim和完整分块计划，不接续C4缺失后缀，不合并新旧数据。C4的结构化错误不证明上游责任或免账单；C5未重测provider可用性。未来计划每16个完整episode闭合三类各8对，但时间聚集和开发集限制仍在，不能推断晋升或因果收益。
+C5 的[未来实验草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)保留为历史提案，本次重构不执行。后续若恢复实验，需要新的合同/evaluation/claim，不接续 C4 缺失后缀、不合并新旧数据；C5 本机诊断不证明 provider 恢复或上游责任，也不证明免账单。
 
 | 优先级 | 待办 | 需要交付的证据或完成条件 |
 |---|---|---|
-| P0 · 失败诊断与后续计划 | C2C5 结构化流错误、本机故障闭环、未来分块顺序 | 成功准入不放宽、unknown不变成零费用、原C4事实保留；本机验证不证明provider恢复，不补样 |
+| **当前 P0 · 模块化重构** | 稳定职责分包、纯核验隔离、产品摆脱 tests 依赖、统一当前工具、简明设计文档 | 架构依赖约束、行为差分、事务和历史保全、独立 wheel、最终新源码 DSH/Concordia 本机验收；真实调用 0 |
 | P0 · 测量有效性 | 设计真正独立的数据、分组、开发/留出隔离及必要的重复；完善人工校准方案 | 独立单位定义、预注册分析、标签来源和一致性证据；需要时另行准入 judge |
 | P0 · 成本与来源 | 核实 TokenKey cost 币种/单位、可信价格、实际账单和路由来源 | 可核对的记录；无法验证的上游身份继续明确标记，不从 model 名称推断 |
 | P1 · 恢复与状态 | 推进 controller 中断后的跨 owner 一致性、world/memory/ledger 检查点 | 故障注入与状态不重复执行证据；仅本地 reconcile 不等同完整恢复 |

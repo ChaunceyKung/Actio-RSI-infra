@@ -1,0 +1,113 @@
+{
+  "schema": "directory-compatibility.v1",
+  "shims": {
+    "actio.budget": {
+      "targets": [
+        "actio.adapters.persistence.ledger",
+        "actio.evidence.audit.accounting",
+        "actio.interfaces.budget",
+        "actio.profiles.registry"
+      ]
+    },
+    "actio.candidate": {
+      "targets": [
+        "actio.interfaces.candidate"
+      ]
+    },
+    "actio.candidate_evaluation": {
+      "targets": [
+        "actio.interfaces.candidate_evaluation"
+      ]
+    },
+    "actio.cli": {
+      "targets": [
+        "actio.interfaces.cli"
+      ]
+    },
+    "actio.common": {
+      "targets": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json"
+      ]
+    },
+    "actio.evaluation": {
+      "targets": [
+        "actio.evidence.bundles.evaluation",
+        "actio.interfaces.evaluation"
+      ]
+    },
+    "actio.eval_worker": {
+      "targets": [
+        "actio.adapters.runtime.eval_worker"
+      ]
+    },
+    "actio.gateway": {
+      "targets": [
+        "actio.interfaces.gateway"
+      ]
+    },
+    "actio.host": {
+      "targets": [
+        "actio.adapters.runtime.host"
+      ]
+    },
+    "actio.mcp_server": {
+      "targets": [
+        "actio.adapters.runtime.mcp_server"
+      ]
+    },
+    "actio.pilot": {
+      "targets": [
+        "actio.interfaces.pilot"
+      ]
+    },
+    "actio.preflight": {
+      "targets": [
+        "actio.interfaces.preflight"
+      ]
+    },
+    "actio.readiness": {
+      "targets": [
+        "actio.interfaces.readiness"
+      ]
+    },
+    "actio.robustness": {
+      "targets": [
+        "actio.interfaces.robustness"
+      ]
+    },
+    "actio.suite": {
+      "targets": [
+        "actio.interfaces.suite"
+      ]
+    },
+    "actio.task_diagnostics": {
+      "targets": [
+        "actio.application.task_diagnostics",
+        "actio.evidence.diagnostics.task_diagnostics",
+        "actio.interfaces.task_diagnostics"
+      ]
+    },
+    "actio.transport_campaign": {
+      "targets": [
+        "actio.evidence.campaigns.transport_campaign"
+      ]
+    },
+    "actio.transport_diagnostics": {
+      "targets": [
+        "actio.evidence.diagnostics.transport_diagnostics",
+        "actio.interfaces.transport_diagnostics"
+      ]
+    },
+    "actio.verify": {
+      "targets": [
+        "actio.evidence.bundles.verify"
+      ]
+    },
+    "actio.evidence.failure_observation": {
+      "targets": [
+        "actio.evidence.diagnostics.failure_observation"
+      ]
+    }
+  }
+}

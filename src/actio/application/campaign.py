@@ -1,4 +1,4 @@
-from actio.evidence.campaign import source_group, validate_dataset, summarize, verify_campaign, GROUP_RULE
+from actio.evidence.campaigns.campaign import source_group, validate_dataset, summarize, verify_campaign, GROUP_RULE
 """Task-family campaign execution and independent, read-only completeness verification."""
 import json
 import os
@@ -9,17 +9,17 @@ from actio.contracts.json import ContractError
 from actio.contracts.json import canonical
 from actio.contracts.json import digest
 from actio.adapters.filesystem.common import file_hash
-from actio.evidence.eval_contract import make_spec
+from actio.evidence.bundles.eval_contract import make_spec
 from actio.contracts.json import seal
 from actio.contracts.json import unseal
-from actio.evidence.evaluation import read_json
+from actio.evidence.bundles.evaluation import read_json
 from actio.adapters.filesystem.artifacts import publish
-from actio.evidence.evaluation import prepare
+from actio.evidence.bundles.evaluation import prepare
 from actio.application.evaluation import evaluate
-from actio.evidence.evaluation import verify_record
+from actio.evidence.bundles.evaluation import verify_record
 from actio.contracts.json import require
-from actio.evidence.verify import verify_bundle
-from actio.evidence.verify import MAX_BYTES
+from actio.evidence.bundles.verify import verify_bundle
+from actio.evidence.bundles.verify import MAX_BYTES
 from actio.contracts.json import parse
 
 GROUP_RULE={'version':'family-group.v1','seed':0,'assignment':'all observed scheduling family variants/seats/repeats/replays remain development',

@@ -4,7 +4,7 @@ import json
 from actio.contracts.json import ContractError, digest
 from actio.contracts.transport import INPUT
 from actio.profiles.registry import validate_budget_config, gateway, priced, pilot, suite, profile_for
-from actio.evidence.transport_contract import validate_manifest
+from actio.evidence.audit.transport_contract import validate_manifest
 CONCORDIA='b71d202750e23444ce1bf28d9f114bcd88aa41db'
 
 def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_type=None,credential=None):

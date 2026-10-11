@@ -1,11 +1,11 @@
-from actio.evidence.eval_contract import LIMITS
+from actio.evidence.bundles.eval_contract import LIMITS
 """Evaluation CLI and local worker assembly."""
 import argparse
 import json
 from pathlib import Path
 from actio.contracts.json import ContractError, canonical, digest, seal, unseal, require, parse
-from actio.evidence.eval_contract import make_spec
-from actio.evidence.evaluation import read_json, source_bundle, verify_record
+from actio.evidence.bundles.eval_contract import make_spec
+from actio.evidence.bundles.evaluation import read_json, source_bundle, verify_record
 from actio.adapters.filesystem.artifacts import publish
 from actio.application import evaluation as use_cases
 

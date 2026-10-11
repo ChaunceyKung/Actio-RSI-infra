@@ -1,4 +1,4 @@
-from actio.evidence.task_diagnostics import plan, verify, ZERO
+from actio.evidence.diagnostics.task_diagnostics import plan, verify, ZERO
 from actio.application.task_diagnostics import analyze
 import sys
 from actio.contracts.json import canonical

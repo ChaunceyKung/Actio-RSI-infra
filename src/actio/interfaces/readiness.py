@@ -18,7 +18,7 @@ def main():
     a=p.parse_args()
     try:
         if a.command=='verify':
-            from actio.evidence.transport_campaign import verify_campaign
+            from actio.evidence.campaigns.transport_campaign import verify_campaign
             result=verify_campaign(a.directory);code=0 if result['valid'] else 2
         elif a.command=='export':
             from actio.interfaces.transport_export import export_campaign

@@ -21,7 +21,7 @@ from actio.domain.candidate import baseline
 from actio.domain.candidate import candidate
 from actio.domain.candidate import POLICY as STATIC_POLICY
 from actio.domain.candidate import POLICY_HASH as STATIC_HASH
-from actio.evidence.channel_audit import VERSION as AUDIT
+from actio.evidence.audit.channel_audit import VERSION as AUDIT
 from actio.tasks.robustness import cards
 from actio.tasks.robustness import get
 from actio.tasks.robustness import INPUT

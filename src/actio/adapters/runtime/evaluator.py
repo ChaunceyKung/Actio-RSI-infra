@@ -1,4 +1,4 @@
-from actio.evidence.eval_contract import LIMITS
+from actio.evidence.bundles.eval_contract import LIMITS
 """Bounded local child evaluation process; never a provider or plugin loader."""
 import subprocess
 import sys

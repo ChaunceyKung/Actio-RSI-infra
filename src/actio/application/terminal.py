@@ -1,4 +1,4 @@
-from actio.evidence.terminal import terminal_body
+from actio.evidence.bundles.terminal import terminal_body
 from actio.contracts.json import require
 import json
 from actio.contracts.json import canonical

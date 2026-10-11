@@ -66,11 +66,11 @@ def run_unit(root,cfg,secret,*,store_factory,ledger_factory,receives=None,runtim
 
 def execute(root,pre,secret,*,store_factory,ledger_factory,freeze=None,endpoint=None,authority_root,operation_authorization,receives=None,runtime_type=None,contract=None):
     from actio.adapters.filesystem.credentials import scan
-    from actio.evidence.pilot_measurement import analyze_pilot
+    from actio.evidence.campaigns.pilot_measurement import analyze_pilot
     if contract:
-        from actio.evidence.suite_measurement import analyze_pilot
+        from actio.evidence.campaigns.suite_measurement import analyze_pilot
         if contract.CONFIG in ('pilot-config.v8','pilot-config.v9','pilot-config.v10'):
-            from actio.evidence.campaign_registry import analyzer
+            from actio.evidence.campaigns.campaign_registry import analyzer
             analyze_pilot=analyzer(contract.CONFIG)
     p=(contract.validate_preregistration if contract else validate_preregistration)(pre);require(operation_authorization==AUTH,'explicit C2B2 operator instruction required')
     if contract and contract.CONFIG=='pilot-config.v8':require(endpoint is not None,'candidate campaign loopback only')

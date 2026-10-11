@@ -43,7 +43,7 @@ def main(argv=None):
             from actio.interfaces.export import export_bundle
             result=export_bundle(args.db,args.run,args.output)
         elif args.command=='verify':
-            from actio.evidence.verify import verify_bundle
+            from actio.evidence.bundles.verify import verify_bundle
             result=verify_bundle(args.bundle)
             print(json.dumps(result,ensure_ascii=False,indent=2))
             return 2 if result['bundle_integrity']!='valid' or result['facts_consistency']=='invalid' else 0
@@ -68,7 +68,7 @@ def main(argv=None):
                     task=task_card(args.variant,{s:{'agent':a,'spec_hash':store.agent(a)['spec_hash']} for s,a in [('A',args.a),('B',args.b)]})
                     result={'task':str(publish(args.output,task)),'task_hash':task['sha256']}
                 case 'schedule':
-                    from actio.evidence.evaluation import read_json
+                    from actio.evidence.bundles.evaluation import read_json
                     result=scheduling(store,args.key,args.short_root,task=read_json(args.task) if args.task else UNSET,
                                       script=read_json(args.script) if args.script else UNSET,replay=args.replay)
                 case 'query':

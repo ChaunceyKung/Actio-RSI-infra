@@ -21,7 +21,7 @@ from actio.domain.candidate import baseline
 from actio.domain.candidate import candidate
 from actio.domain.candidate import POLICY
 from actio.domain.candidate import POLICY_HASH
-from actio.evidence.channel_audit import VERSION as AUDIT
+from actio.evidence.audit.channel_audit import VERSION as AUDIT
 
 CONFIG='pilot-config.v8'
 PROFILE='sdk-minimal+actio-tokenkey.v4'

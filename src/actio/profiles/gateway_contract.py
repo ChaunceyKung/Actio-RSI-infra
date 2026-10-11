@@ -65,7 +65,7 @@ def trusted_usage(response,native,c):
     values=[s[6:] for s in response['raw'].splitlines() if s.startswith('data: ')]
     require(values and values[-1]=='[DONE]' and values.count('[DONE]')==1,'gateway missing/extra DONE')
     if c.get('schema') in ('pilot-config.v6','pilot-config.v7','pilot-config.v8','pilot-config.v9','pilot-config.v10'):
-        from actio.evidence.stream_audit import strict_json
+        from actio.evidence.audit.stream_audit import strict_json
         rows=[strict_json(s) for s in values[:-1]]
     else:rows=[json.loads(s,parse_float=Decimal) for s in values[:-1]]
     usage=[r['usage'] for r in rows if r.get('usage') is not None]

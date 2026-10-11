@@ -29,7 +29,7 @@ def run_episode(root,cfg,ledger_path,secret,variant,runtime_type=None,*,store_fa
     finally:s.close()
 
 def execute(c,root,secret,*,store_factory,ledger_factory,operation_authorization,runtime_type=None,receives=None):
-    from actio.evidence.accounting import verify_snapshot
+    from actio.evidence.audit.accounting import verify_snapshot
     from actio.application.transport_export import export_campaign
     validate(c);require(operation_authorization==AUTH,'independent explicit C2B1 operator instruction required')
     require(c['authority'] is not None,'execution authority not allocated')

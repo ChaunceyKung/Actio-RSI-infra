@@ -15,7 +15,7 @@ from test_suite import GUARD
 from actio.common import canonical,file_hash,digest
 from actio.application.diagnostic_runtime import review_entry
 from actio.adapters.runtime.cleanup import cleanup
-from actio.evidence.failure_fixtures import CASES
+from actio.evidence.diagnostics.failure_fixtures import CASES
 from actio.transport_diagnostics import sources
 
 

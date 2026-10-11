@@ -149,7 +149,7 @@ def terminal_keys(c):
 
 
 def text_verdict(config, response):
-    from actio.evidence.channel_audit import for_config
+    from actio.evidence.audit.channel_audit import for_config
     return for_config(config).verdict(response)
 
 

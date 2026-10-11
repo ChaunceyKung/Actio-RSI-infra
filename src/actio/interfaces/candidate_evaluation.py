@@ -1,4 +1,4 @@
-from actio.evidence.candidate_evaluation import verify
+from actio.evidence.lineage.candidate_evaluation import verify
 """Public C2C2 CLI. Credentials/network are reachable only from execute."""
 import argparse
 import json
@@ -11,8 +11,8 @@ from actio.contracts.json import seal
 from actio.contracts.json import unseal
 from actio.contracts.json import require
 from actio.profiles import evaluation_campaign as contract
-from actio.evidence import evaluation_lineage as lineage
-from actio.evidence.evaluation_measurement import analyze_pilot
+from actio.evidence.lineage import evaluation_lineage as lineage
+from actio.evidence.campaigns.evaluation_measurement import analyze_pilot
 
 
 def main():

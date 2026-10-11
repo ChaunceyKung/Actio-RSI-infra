@@ -53,7 +53,7 @@ def run_engine(store,run,manifest,short_root,runtime_type):
             self.port.start()
             task={'observations':self.observations,'memory':manifest['memory'][who],'action_spec':action_spec.to_dict()}
             if manifest.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1'):
-                from actio.evidence.transport_contract import payload
+                from actio.evidence.audit.transport_contract import payload
                 task=payload(manifest,self.label,self.observations)
             if not transport:
                 task['answer']=manifest['scripted_actions'][self.label] if scheduling else ('INVALID' if manifest['illegal'] and self.label=='B' else 'cooperate')

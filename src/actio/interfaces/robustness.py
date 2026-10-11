@@ -1,4 +1,4 @@
-from actio.evidence.robustness import verify
+from actio.evidence.lineage.robustness import verify
 """Public C2C4 CLI: pure readers; explicit rehearsal and once-only live execute."""
 import json
 import sys
@@ -10,8 +10,8 @@ from actio.contracts.json import seal
 from actio.contracts.json import unseal
 from actio.contracts.json import require
 from actio.profiles import robustness_campaign as contract
-from actio.evidence import evaluation_lineage as lineage
-from actio.evidence.robustness_measurement import analyze_pilot
+from actio.evidence.lineage import evaluation_lineage as lineage
+from actio.evidence.campaigns.robustness_measurement import analyze_pilot
 
 
 def offline(args):

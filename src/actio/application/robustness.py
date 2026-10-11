@@ -1,11 +1,11 @@
-from actio.evidence.robustness import verify
+from actio.evidence.lineage.robustness import verify
 import json
 from pathlib import Path
 from actio.adapters.filesystem.common import file_hash
 from actio.contracts.json import seal
 from actio.contracts.json import require
 from actio.profiles import robustness_campaign as contract
-from actio.evidence import evaluation_lineage as lineage
+from actio.evidence.lineage import evaluation_lineage as lineage
 
 def prepare_store(root,pre,source,kind,*,store_factory,migrate):
     from actio.adapters.filesystem.publication import create

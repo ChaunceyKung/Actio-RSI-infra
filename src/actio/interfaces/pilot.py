@@ -38,7 +38,7 @@ def main():
             from actio.profiles.pilot_contract import plan
             result=plan()
         elif a.command=='verify':
-            from actio.evidence.pilot_measurement import verify
+            from actio.evidence.campaigns.pilot_measurement import verify
             result=verify(json.loads(a.file.read_bytes()))
         else:
             from actio.adapters.filesystem.credentials import resolve_credential

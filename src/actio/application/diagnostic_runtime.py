@@ -9,11 +9,11 @@ from actio.adapters.filesystem.common import file_hash
 from actio.contracts.json import seal
 from actio.contracts.json import unseal
 from actio.contracts.json import require
-from actio.evidence.failure_fixtures import CASES
-from actio.evidence.failure_fixtures import fault_response
-from actio.evidence.failure_observation import from_entry
-from actio.evidence.transport_diagnostics import sources
-from actio.evidence.transport_diagnostics import SUITE
+from actio.evidence.diagnostics.failure_fixtures import CASES
+from actio.evidence.diagnostics.failure_fixtures import fault_response
+from actio.evidence.diagnostics.failure_observation import from_entry
+from actio.evidence.diagnostics.transport_diagnostics import sources
+from actio.evidence.diagnostics.transport_diagnostics import SUITE
 
 MARKER='C5_SYNTHETIC_REASONING_DO_NOT_PROPAGATE'
 TOOLS=()  # Execution closure is installed product code, not checkout test helpers.

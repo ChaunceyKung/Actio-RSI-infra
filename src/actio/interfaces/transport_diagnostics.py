@@ -1,4 +1,4 @@
-from actio.evidence.transport_diagnostics import analyze, plan, portable, read
+from actio.evidence.diagnostics.transport_diagnostics import analyze, plan, portable, read
 import sys
 from pathlib import Path
 from actio.contracts.json import canonical

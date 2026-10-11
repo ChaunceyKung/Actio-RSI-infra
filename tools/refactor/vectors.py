@@ -27,8 +27,8 @@ if len(sys.argv)>1:
     from actio.failure_fixtures import portable_vectors,mutate
     from actio.failure_observation import observe
 else:
-    from actio.evidence.failure_fixtures import portable_vectors,mutate
-    from actio.evidence.failure_observation import observe
+    from actio.evidence.diagnostics.failure_fixtures import portable_vectors,mutate
+    from actio.evidence.diagnostics.failure_observation import observe
 from actio.budget import totals
 
 rows=[]

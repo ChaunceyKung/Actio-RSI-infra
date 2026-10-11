@@ -1,4 +1,4 @@
-from actio.evidence.candidate import binding_plan, decision_for, verify
+from actio.evidence.lineage.candidate import binding_plan, decision_for, verify
 """Public offline candidate CLI. Never loads executable artifact references."""
 import argparse
 import json
@@ -11,8 +11,8 @@ from actio.contracts.json import require
 from actio.profiles import candidate_campaign as contract
 from actio.domain.candidate import decide
 from actio.domain.candidate import POLICY_HASH
-from actio.evidence.candidate_lineage import verify as verify_lineage
-from actio.evidence.candidate_measurement import analyze_pilot
+from actio.evidence.lineage.candidate_lineage import verify as verify_lineage
+from actio.evidence.campaigns.candidate_measurement import analyze_pilot
 
 
 

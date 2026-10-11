@@ -1,4 +1,4 @@
-from actio.evidence.task_diagnostics import read_json, load_history, assurance, build, manifest, gates, ZERO
+from actio.evidence.diagnostics.task_diagnostics import read_json, load_history, assurance, build, manifest, gates, ZERO
 from pathlib import Path
 from actio.contracts.json import canonical
 from actio.tasks.registry import require

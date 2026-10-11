@@ -1,7 +1,7 @@
 from actio.adapters.filesystem.artifacts import publish
-from actio.evidence.evaluation import verify_record
-from actio.evidence.evaluation import prepare
-from actio.evidence.evaluation import read_json
+from actio.evidence.bundles.evaluation import verify_record
+from actio.evidence.bundles.evaluation import prepare
+from actio.evidence.bundles.evaluation import read_json
 """Immutable, offline evaluation CLI. No DB writes, providers, runtime or arbitrary plugins."""
 import json
 import os
@@ -11,11 +11,11 @@ from actio.contracts.json import ContractError
 from actio.contracts.json import canonical
 from actio.contracts.json import digest
 from actio.contracts.json import require
-from actio.evidence.verify import sha
+from actio.evidence.bundles.verify import sha
 from actio.contracts.json import parse
-from actio.evidence.eval_contract import VERSION
-from actio.evidence.eval_contract import LIMITS
-from actio.evidence.eval_contract import make_spec
+from actio.evidence.bundles.eval_contract import VERSION
+from actio.evidence.bundles.eval_contract import LIMITS
+from actio.evidence.bundles.eval_contract import make_spec
 from actio.contracts.json import seal
 from actio.contracts.json import unseal
 

@@ -16,7 +16,7 @@ def main():
     try:
         if a.command in ('plan','preflight'):r=contract.plan()
         elif a.command=='verify':
-            from actio.evidence.suite_measurement import verify
+            from actio.evidence.campaigns.suite_measurement import verify
             r=verify(json.loads(a.file.read_bytes()))
         else:
             from actio.adapters.filesystem.publication import frozen_publication

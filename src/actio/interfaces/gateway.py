@@ -32,7 +32,7 @@ def main():
     a=p.parse_args();secret=None
     try:
         if a.command=='verify':
-            from actio.evidence.transport_campaign import verify_campaign
+            from actio.evidence.campaigns.transport_campaign import verify_campaign
             r=verify_campaign(a.directory);code=0 if r['valid'] else 2
         elif a.command in ('plan','preflight'):
             from actio.domain.roles import parse_config

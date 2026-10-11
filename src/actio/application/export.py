@@ -8,12 +8,12 @@ from actio.contracts.json import ContractError
 from actio.contracts.json import canonical
 from actio.adapters.filesystem.common import uid
 from actio.adapters.filesystem.common import write_json
-from actio.evidence.verify import FORMAT
-from actio.evidence.verify import VERSION
-from actio.evidence.verify import MAX_BYTES
-from actio.evidence.verify import MAX_ROWS
-from actio.evidence.verify import sha
-from actio.evidence.verify import verify_bundle
+from actio.evidence.bundles.verify import FORMAT
+from actio.evidence.bundles.verify import VERSION
+from actio.evidence.bundles.verify import MAX_BYTES
+from actio.evidence.bundles.verify import MAX_ROWS
+from actio.evidence.bundles.verify import sha
+from actio.evidence.bundles.verify import verify_bundle
 
 
 def closure(store, target):

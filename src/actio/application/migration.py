@@ -65,7 +65,7 @@ def migrate_evaluation_copy(source, destination, *, store_factory, storage):
 def snapshot_evaluation_copy(source, destination, *, store_factory, storage):
     """Consistent schema4 SQLite backup, preserving WAL-visible rows and old facts."""
     from actio.contracts.json import digest
-    from actio.evidence.evaluation_history import lineage as historical
+    from actio.evidence.lineage.evaluation_history import lineage as historical
     source,destination=Path(source).resolve(),Path(destination).resolve()
     backup=destination.with_name(destination.name+'.backup.sqlite')
     record=destination.with_name(destination.name+'.snapshot.json')

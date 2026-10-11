@@ -7,11 +7,11 @@ import sys
 from actio.contracts.json import canonical
 from actio.contracts.json import digest
 from actio.adapters.filesystem.common import file_hash
-from actio.evidence.transport_diagnostics import sources
+from actio.evidence.diagnostics.transport_diagnostics import sources
 from actio.application.diagnostic_runtime import fixture
 from actio.application.diagnostic_runtime import TOOLS
-from actio.evidence.failure_fixtures import CASES
-from actio.evidence.failure_fixtures import portable_vectors
+from actio.evidence.diagnostics.failure_fixtures import CASES
+from actio.evidence.diagnostics.failure_fixtures import portable_vectors
 ROOT=Path(__file__).resolve().parents[2]
 
 def main():

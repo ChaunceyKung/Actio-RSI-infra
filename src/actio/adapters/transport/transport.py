@@ -11,7 +11,7 @@ from actio.adapters.runtime.runtime import PACKAGE
 from actio.adapters.runtime.runtime import pins
 from actio.adapters.runtime.runtime import synthetic_spec
 from actio.adapters.runtime.runtime import CONCORDIA
-from actio.evidence.transport_contract import validate_manifest
+from actio.evidence.audit.transport_contract import validate_manifest
 from actio.contracts.transport import INPUT
 from actio.contracts.transport import PROFILE
 from actio.contracts.transport import PROTOCOL
@@ -197,7 +197,7 @@ class TransportPort(RuntimePort):
                         self.s.audit(self.run['id'],self.op,'transport_attempt',a);self.accounted=True
                         if pilot(self.config) and (a['text_integrity'] or {}).get('status')!='verified':raise ContractError('pilot text evidence rejected; batch frozen')
                         if pilot(self.config) and complete:
-                            from actio.evidence.channel_audit import for_config
+                            from actio.evidence.audit.channel_audit import for_config
                             for_config(self.config).audit(response,result['answer'],require_bytes=True,**({'native_blocks':finals[-1]['data']['message']['content']} if self.config['schema'] in ('pilot-config.v8','pilot-config.v9','pilot-config.v10') else {}))
                         if gateway(self.config) and a['state']=='unknown':raise ContractError('gateway usage/identity incomplete; batch frozen')
                 finally:ledger.close()

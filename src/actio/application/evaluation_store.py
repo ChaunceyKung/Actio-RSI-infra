@@ -1,4 +1,4 @@
-from actio.evidence.evaluation_lineage import plan, decision_for, verify
+from actio.evidence.lineage.evaluation_lineage import plan, decision_for, verify
 """Evaluation facts owned by the same SQLite Store; legacy candidate facts persist."""
 import json
 from actio.contracts.json import canonical
@@ -51,9 +51,9 @@ def claim(s,eid,claim_body):
 
 
 def decide(s,eid,campaign,report):
-    from actio.evidence.evaluation_measurement import analyze_pilot
+    from actio.evidence.campaigns.evaluation_measurement import analyze_pilot
     if campaign.get('body',{}).get('schema')=='robustness-campaign-evidence.v1':
-        from actio.evidence.robustness_measurement import analyze_pilot
+        from actio.evidence.campaigns.robustness_measurement import analyze_pilot
     require(report==analyze_pilot(campaign),'decision requires verified campaign')
     with s.tx():
         body=json.loads(s.row('SELECT body FROM evaluation WHERE id=?',(eid,))['body'])

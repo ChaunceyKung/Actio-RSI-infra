@@ -1,4 +1,4 @@
-from actio.evidence.candidate_lineage import verify
+from actio.evidence.lineage.candidate_lineage import verify
 """Store-owned immutable candidate facts. JSON is a read-only projection."""
 import json
 from actio.contracts.json import canonical

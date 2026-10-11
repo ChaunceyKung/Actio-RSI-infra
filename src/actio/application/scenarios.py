@@ -8,7 +8,7 @@ from actio.contracts.wire import wire
 from actio.application.memory import Memory
 from actio.application.memory import namespace
 from actio.application.terminal import seal_terminal
-from actio.evidence.terminal import INPUT_CONTRACT
+from actio.evidence.bundles.terminal import INPUT_CONTRACT
 
 
 def failed(store, run, error):
@@ -127,7 +127,7 @@ def scheduling(store,key,short_root,*,task=UNSET,script=UNSET,replay=None,runtim
     """Validate immutable authored task before run allocation; reuse the existing Engine adapter."""
     from actio.tasks.registry import validate_task
     from actio.tasks.registry import CONTRACT
-    from actio.evidence.task_evidence import validate_manifest
+    from actio.evidence.bundles.task_evidence import validate_manifest
     if replay:
         if task is not UNSET or script is not UNSET:raise ContractError('frozen task replay rejects explicit overrides')
         original=store.run(replay);m=json.loads(original['input'])

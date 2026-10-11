@@ -25,8 +25,8 @@ def lockdown():
 
 
 def controlled(raw,mapping):
-    from actio.evidence.eval_contract import strict_response
-    from actio.evidence.eval_contract import DEPENDENCIES
+    from actio.evidence.bundles.eval_contract import strict_response
+    from actio.evidence.bundles.eval_contract import DEPENDENCIES
     # Validate original bytes/types before any repair/coercion.
     value=strict_response(raw,mapping)
     for name,version in DEPENDENCIES.items():
@@ -52,8 +52,8 @@ def main():
     counters=lockdown()
     from actio.contracts.json import ContractError
     from actio.contracts.json import digest
-    from actio.evidence.eval_contract import LIMITS
-    from actio.evidence.eval_contract import deterministic
+    from actio.evidence.bundles.eval_contract import LIMITS
+    from actio.evidence.bundles.eval_contract import deterministic
     response={'status':'measurement_error','results':None,'error':None,'parser_calls':0,
               'model_requests':0,'audit':counters,'view_hash':None}
     try:

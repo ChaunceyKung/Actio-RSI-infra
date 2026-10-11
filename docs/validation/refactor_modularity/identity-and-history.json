@@ -24,5 +24,10 @@
   "old_denominators_unchanged": true,
   "credential_reads": 0,
   "external_requests": 0,
-  "validation": "34 suites and 164 unique methods on final-regression05 wheel; original ready timeout and same-wheel isolated failures-suite recheck preserved in completion/regression.json"
+  "validation": "34 suites and 164 unique methods on final-regression05 wheel; original ready timeout and same-wheel isolated failures-suite recheck preserved in completion/regression.json",
+  "publication": {
+    "status": "PASS",
+    "product_commit": "86fcee8daf0cfba3721b40dc8cd19580a1b12a56",
+    "receipt": "completion/publication.json"
+  }
 }

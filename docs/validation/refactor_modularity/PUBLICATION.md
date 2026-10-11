@@ -1,6 +1,6 @@
 # 发布与身份
 
-工程验收已完成，Git发布待普通推送和两次独立ls-remote核对。工作分支为refactor-modular-architecture，目标main；禁止reset/force push/覆盖并发提交。
+工程验收与Git发布均PASS；产品提交 `86fcee8daf0cfba3721b40dc8cd19580a1b12a56` 已普通推送并通过两次独立ls-remote核对，见 completion/publication.json。工作分支为refactor-modular-architecture，目标main；禁止reset/force push/覆盖并发提交。
 
 当前最终wheel SHA256为867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b。179个产品文件与Git暂存、wheel和安装字节一致，见completion/publication-byte-check.json。源代码之后只允许文档收据更新；工程通过不改变C4、C1或研究结论。
 

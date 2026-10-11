@@ -1,6 +1,6 @@
 # 模块化重构终验
 
-**工程验收 PASS。** R7–R10 已落地，同一最终 wheel 完成 34 suite、164/164 个唯一测试方法（原163全部保留，新增Clock边界1项），无 skip。普通 Git 发布待两远端 SHA 核对。
+**工程验收 PASS。** R7–R10 已落地，同一最终 wheel 完成 34 suite、164/164 个唯一测试方法（原163全部保留，新增Clock边界1项），无 skip。普通 Git 发布已完成，两远端产品 SHA 核对一致，见 completion/publication.json。
 
 最终 wheel SHA256：`867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b`。新身份 `actio-modularity-r7-r10-20261011`，源码/资源/wheel/安装逐字节核对见 [installation-and-history](completion/installation-and-history.json)。旧阶段与上轮冻结不改；此前工程结果保存在 completion/previous-*。
 
@@ -13,7 +13,7 @@
 | 历史 | PASS：1,048 文件、SQL/MJS资源字节、旧quote/pins；固定C2/C3/C4 reader、原C5认证与重算、19 claims |
 | 正式本机 | PASS：同 wheel 九场景；12 sends、5 settled/usage/admitted、7 unknown、6 not_run；12 Worker/9服务/端口清理 |
 | 全量回归 | PASS：34 suite，原163+Clock1=164/164；全部来自同一最终wheel；一次ready超时按原断言独立复核通过 |
-| 发布 | 验收完成，待普通提交、推送两分支并分别核对远端 SHA |
+| 发布 | PASS；产品提交已推送两分支并分别核对远端 SHA |
 
 R7 的新 Clock 配置仅允许 priced_rehearsal 固定 UTC，system/live 保持真实 UTC 和过期拒绝。新 schema/profile 与旧固定 reader 区分；旧报价窗口没有刷新。Clock 进入配置 hash、Ledger meta、账务快照和 TS→Python child IPC。
 

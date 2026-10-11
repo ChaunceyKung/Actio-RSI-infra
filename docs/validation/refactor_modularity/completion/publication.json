@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "product_commit": "86fcee8daf0cfba3721b40dc8cd19580a1b12a56",
+  "verified_at": "2026-10-11T11:36:20.117965+00:00",
+  "remote_checks": {
+    "refactor-modular-architecture": "86fcee8daf0cfba3721b40dc8cd19580a1b12a56\trefs/heads/refactor-modular-architecture",
+    "main": "86fcee8daf0cfba3721b40dc8cd19580a1b12a56\trefs/heads/main"
+  },
+  "normal_push": true,
+  "main_fast_forward": true,
+  "wheel_sha256": "867d85c6dfa6f3f30b224bb2b9f77dbd86970e87d0b03466c4526a9919bda37b",
+  "following_commit_scope": "documentation and publication evidence only",
+  "final_delivery_receipt": "D:/ar-complete-20261011/publication.json"
+}

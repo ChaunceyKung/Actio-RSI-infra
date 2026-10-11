@@ -36,20 +36,22 @@
     "docs/validation/refactor_modularity/completion/previous-regression-summary.json": "3f8388cb7261a96d5e028c8cc07d6a43d62da619035724097ee6a5e900a52485",
     "docs/validation/refactor_modularity/completion/previous-RESULTS.md": "ea1c861d7510243674a296a93b4d670f3a02c90d4b3145ca1d5fe9c7cb6bcace",
     "docs/validation/refactor_modularity/completion/publication-byte-check.json": "ee5f971ce3a17ef02474e7fc17e2405dc83158c47424ef77c7775201eb2fc27a",
+    "docs/validation/refactor_modularity/completion/publication.json": "fd2984b4ecc48b68f6995120e593e2eab536ffe7987b91ae636c7a9ef4cd14e2",
     "docs/validation/refactor_modularity/completion/regression.json": "f2f6ffdeee238a370853408442907ed82e377e4b86960b5f8c95b958f8a8e6e7",
     "docs/validation/refactor_modularity/completion/runtime-startup-failure.json": "84c9c972e5534d488385a65167f6a8eafc763a1ad23579fb68da6fc96dd6d810",
     "docs/validation/refactor_modularity/completion/superseded-formal-failure.json": "6e61249bbfc1bdb5104b8c6f4a46ec7ef3b84c0e9e1b1231785ccfaaa981b622",
     "docs/validation/refactor_modularity/completion/superseded-formal04.json": "b2b214afaf6d5cfed2f5c8e1ce40c8bd64be2710cf36210bbc75ef2151ffff25",
-    "docs/validation/refactor_modularity/GATES.md": "0dd8bfb97d30ec595b6ad25c1fa30820e2d62f42f0ab010319804508cd739d1f",
+    "docs/validation/refactor_modularity/GATES.md": "8f85d3a29e4a09a01baf828fc7e3ecaf245771a62811d98144f1a34f39299277",
     "docs/validation/refactor_modularity/historical-preservation.json": "7e776e1e40753e1f41b1f8d28e90fe6509fc0731e98d500475d54d93ef84a02f",
     "docs/validation/refactor_modularity/history-b78111dcff0b.json": "2df7f7c96ff7e907150e64433418f259f832936e25330d334807394e51356546",
-    "docs/validation/refactor_modularity/identity-and-history.json": "9ee0276bd5120a3de5d8e5f402432d0f2c265872413f3bbcf283c26f9023f237",
+    "docs/validation/refactor_modularity/identity-and-history.json": "c9821336e3305280b8a422446177ed3938053ac8a2c3136f7ea6c7b78e90606d",
     "docs/validation/refactor_modularity/migration-map.json": "f96337ff2ad8e64458c3a7f4b308b42a19a2ad69e3669d6bdb5af85486e2241c",
     "docs/validation/refactor_modularity/publication-scan-203069eb6521.json": "9a0d5d502c901d79cf5f97acfbd9b9ac0c1e8e79a7ff3a955c2f04e4e5864f9e",
-    "docs/validation/refactor_modularity/PUBLICATION.md": "34d32f634904bbedf63a173a833c2ac1f2c27efd268d5c461a4199d5297f50eb",
+    "docs/validation/refactor_modularity/PUBLICATION.md": "2cd59ff74faf8ccf6a7711e7cf225b83a79bd72f3a06a5de4e80406035e2361e",
     "docs/validation/refactor_modularity/regression-summary.json": "f2f6ffdeee238a370853408442907ed82e377e4b86960b5f8c95b958f8a8e6e7",
-    "docs/validation/refactor_modularity/RESULTS.md": "c985424623ed7f1f76491ad3bb91f03bc0a309fdcbc6cea068a8d393ef8a47a7",
+    "docs/validation/refactor_modularity/RESULTS.md": "9cdbebb3be4d283d1041d773a01d12fa4331723ae67413735d1112f56ac6195f",
     "docs/validation/refactor_modularity/runtime-recomputed-7f0cbe404cc2.json": "8f3b1737e2a7407417f5b6424e8653e5439c5f1508ad8bb9b7300f28a3134e46",
     "README.md": "229c165336c7748f5b7afa8f7fe97a246ca93a65502ab7c6881c025c70bb471e"
-  }
+  },
+  "byte_basis": "Git index blobs (portable LF checkout representation)"
 }

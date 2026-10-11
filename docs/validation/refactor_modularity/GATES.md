@@ -1,6 +1,6 @@
 # 工程 Gate
 
-**G1–G7 工程验收 PASS**；G8 的远端发布待最终 SHA 核对。
+**G1–G8 PASS**；产品提交已普通推送两分支并分别核对远端 SHA，见 completion/publication.json。
 
 | Gate | 状态 | 当前证据 |
 |---|---|---|
@@ -11,6 +11,6 @@
 | G5 历史 | PASS | 1048文件保全、固定reader、19claims；history-b78111dcff0b.json与runtime-recomputed-7f0cbe404cc2.json |
 | G6 本机 | PASS | completion/formal-report.json、formal-cleanup.json、formal-scan.json；12/5/7/6，12Worker/9服务清理；官方runtime2项通过 |
 | G7 回归 | PASS | completion/regression.json；34suite、164唯一方法通过；同wheel，failures6项原条件及candidate_runtime3项导入修复后隔离复核；首次超时不抹除 |
-| G8 交付 | 待发布核对 | 文档、179产品文件Git/wheel/安装字节、冻结、扫描、全量清理完成；两分支普通推送和独立远端SHA为最后步骤 |
+| G8 交付 | PASS | completion/publication.json；两分支普通推送、main快进、独立ls-remote核对一致；后续仅文档收据更新 |
 
 旧实验与失败保持原结论；工程PASS也不代表研究成立或激活许可。真实key读取0，exact-secret比较NOT_RUN；不把模式扫描写成精确密钥比对。

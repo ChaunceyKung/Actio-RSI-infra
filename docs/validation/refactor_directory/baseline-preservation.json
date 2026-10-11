@@ -1,0 +1,252 @@
+{
+  "status": "PASS",
+  "baseline": "ccc7399dc3e31367543df7d1c196eefb705c131b",
+  "byte_basis": "Git blobs",
+  "files": [
+    {
+      "path": "docs/architecture/CONTINUATION_PLAN.md",
+      "expected": "22da9dc74781af01903379e51a80bad0bc322562f25e90949b85cb2cbe90ac8c",
+      "actual": "22da9dc74781af01903379e51a80bad0bc322562f25e90949b85cb2cbe90ac8c"
+    },
+    {
+      "path": "docs/architecture/MODULES.md",
+      "expected": "70eb304988207334809c54a09a5070b61323ebefdfe922e5b03e0445e83f0a77",
+      "actual": "70eb304988207334809c54a09a5070b61323ebefdfe922e5b03e0445e83f0a77"
+    },
+    {
+      "path": "docs/architecture/README.md",
+      "expected": "0bc60d94d5f1620e387b01293f881ab241393f7d574d573820b91afbb5d2ee43",
+      "actual": "0bc60d94d5f1620e387b01293f881ab241393f7d574d573820b91afbb5d2ee43"
+    },
+    {
+      "path": "docs/architecture/REFACTOR_PLAN.md",
+      "expected": "6a1a651bf81c4396f25a9cf28b46de12f4e57966ff90e41eb17bdbbc39109661",
+      "actual": "6a1a651bf81c4396f25a9cf28b46de12f4e57966ff90e41eb17bdbbc39109661"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/architecture.json",
+      "expected": "b3c61826c56be885a64a8a9ae160c2157e9d39651a38e03ccdb357339da9f0ad",
+      "actual": "b3c61826c56be885a64a8a9ae160c2157e9d39651a38e03ccdb357339da9f0ad"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/CLI.md",
+      "expected": "d5404463cab7f1b967aff622e40f064f35f8b34958a40fd178dbcc6fda839e4b",
+      "actual": "d5404463cab7f1b967aff622e40f064f35f8b34958a40fd178dbcc6fda839e4b"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/compatibility.json",
+      "expected": "f211335bd7534fc53c259a7584614cf858c07ceda63911527dcab057c0b276fe",
+      "actual": "f211335bd7534fc53c259a7584614cf858c07ceda63911527dcab057c0b276fe"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/architecture.json",
+      "expected": "b3c61826c56be885a64a8a9ae160c2157e9d39651a38e03ccdb357339da9f0ad",
+      "actual": "b3c61826c56be885a64a8a9ae160c2157e9d39651a38e03ccdb357339da9f0ad"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/assertion-preservation.json",
+      "expected": "9f4de090538b5855606daaffb85f3d961d87d154d19e77fb9ce0f36e4db21cd7",
+      "actual": "9f4de090538b5855606daaffb85f3d961d87d154d19e77fb9ce0f36e4db21cd7"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/candidate-harness-repair.json",
+      "expected": "27927dc0b01ee15fbc30f52901681fbbc6319f3e58603e0e3bb618e30377f9ff",
+      "actual": "27927dc0b01ee15fbc30f52901681fbbc6319f3e58603e0e3bb618e30377f9ff"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/clock.json",
+      "expected": "696a54f64691a63bacd2165e41cb209d46b30002d4b89056d91262b6ab5fc11f",
+      "actual": "696a54f64691a63bacd2165e41cb209d46b30002d4b89056d91262b6ab5fc11f"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/development-cleanup.json",
+      "expected": "df088bdd527d5c9524bfc28bd02d42a9d51402a6be176385466e7433e8b1228d",
+      "actual": "df088bdd527d5c9524bfc28bd02d42a9d51402a6be176385466e7433e8b1228d"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/development-regression.json",
+      "expected": "47e488f66282888a54dc87a064353bb57592c7dec6208f2fd93551dfa0b19a70",
+      "actual": "47e488f66282888a54dc87a064353bb57592c7dec6208f2fd93551dfa0b19a70"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/differential.json",
+      "expected": "713e7a0ed60a04d939a9ac2634bfe55829371d4784d5e47da5ecbc19fd6541ec",
+      "actual": "713e7a0ed60a04d939a9ac2634bfe55829371d4784d5e47da5ecbc19fd6541ec"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/evidence-harness-repair.json",
+      "expected": "7368172868cc66df31770bbb4c3ad946fd48a18f0d72fb0c392bab3896741315",
+      "actual": "7368172868cc66df31770bbb4c3ad946fd48a18f0d72fb0c392bab3896741315"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/final-historical-preservation.json",
+      "expected": "1f1b3b3b15314f73f6417f5d78c5e5b2628a8fe91efaf42e69c0e5c58f90e126",
+      "actual": "1f1b3b3b15314f73f6417f5d78c5e5b2628a8fe91efaf42e69c0e5c58f90e126"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/formal-cleanup.json",
+      "expected": "84dc7816424f825ecf5b30976b932ed38f2077f98a0fe5196d1f7fbc7a9fc254",
+      "actual": "84dc7816424f825ecf5b30976b932ed38f2077f98a0fe5196d1f7fbc7a9fc254"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/formal-report.json",
+      "expected": "4c87a9b59a4d1b2c14333384cd7d4e9bb97703cc7d72e674c238348f016e6ac7",
+      "actual": "4c87a9b59a4d1b2c14333384cd7d4e9bb97703cc7d72e674c238348f016e6ac7"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/formal-scan.json",
+      "expected": "e2c170486f97b2f2bd11974a4c7039d0cabd2e75c518fd5c0b8601ade2219640",
+      "actual": "e2c170486f97b2f2bd11974a4c7039d0cabd2e75c518fd5c0b8601ade2219640"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/freeze.json",
+      "expected": "b113dd60fae4bd570024740e218ce8daaf41ec1d8f2c414294defe88ef40aa96",
+      "actual": "b113dd60fae4bd570024740e218ce8daaf41ec1d8f2c414294defe88ef40aa96"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/installation-and-history.json",
+      "expected": "bcc69e1f1be21f233c0031d59d74cac5eb133efe55be0b64ec28a1fdf7940b4d",
+      "actual": "bcc69e1f1be21f233c0031d59d74cac5eb133efe55be0b64ec28a1fdf7940b4d"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/packaging.json",
+      "expected": "cf7e579b903e75bc52133259875982c06fed2ae0fa9e0157ba469ed583c8e2fe",
+      "actual": "cf7e579b903e75bc52133259875982c06fed2ae0fa9e0157ba469ed583c8e2fe"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-architecture.json",
+      "expected": "b3bc059abb87257ad355745d4d0a9dcb8557e63b673003919038103be692f276",
+      "actual": "b3bc059abb87257ad355745d4d0a9dcb8557e63b673003919038103be692f276"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-CLI.md",
+      "expected": "ebc5878ef4c9fe995e3c2c53c16f5246f89e66f0e164e7473cd91431d0781626",
+      "actual": "ebc5878ef4c9fe995e3c2c53c16f5246f89e66f0e164e7473cd91431d0781626"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-compatibility.json",
+      "expected": "98a7cd327df020c344c76f401a3d3f3e45c8ebde88cc042ce4dbaa35bb8d8f63",
+      "actual": "98a7cd327df020c344c76f401a3d3f3e45c8ebde88cc042ce4dbaa35bb8d8f63"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-CONTINUATION_PLAN.md",
+      "expected": "1f61909e129a880be1950af7c4564bd084e4dff37dbd704bb17c4d05819d4834",
+      "actual": "1f61909e129a880be1950af7c4564bd084e4dff37dbd704bb17c4d05819d4834"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-GATES.md",
+      "expected": "386d0140f85626c7bd5ed68c772c44d432bfc8b84f6aca1ab4fbd4607a3088aa",
+      "actual": "386d0140f85626c7bd5ed68c772c44d432bfc8b84f6aca1ab4fbd4607a3088aa"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-historical-preservation.json",
+      "expected": "ac691a224b6ea31d14924de3bf52b0e4ce2cc1463d7a3cb51c5ff4223ae629ef",
+      "actual": "ac691a224b6ea31d14924de3bf52b0e4ce2cc1463d7a3cb51c5ff4223ae629ef"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-identity-and-history.json",
+      "expected": "dc4a7632bc11d99a237b505b27a8a3398ce57f835b54b04eaa165bd3625db3da",
+      "actual": "dc4a7632bc11d99a237b505b27a8a3398ce57f835b54b04eaa165bd3625db3da"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-migration-map.json",
+      "expected": "f5e2590231ce276b074d12fb2f74570319ba1b1073fdeb73d49f0c966f88aefe",
+      "actual": "f5e2590231ce276b074d12fb2f74570319ba1b1073fdeb73d49f0c966f88aefe"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-regression-summary.json",
+      "expected": "3f8388cb7261a96d5e028c8cc07d6a43d62da619035724097ee6a5e900a52485",
+      "actual": "3f8388cb7261a96d5e028c8cc07d6a43d62da619035724097ee6a5e900a52485"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/previous-RESULTS.md",
+      "expected": "ea1c861d7510243674a296a93b4d670f3a02c90d4b3145ca1d5fe9c7cb6bcace",
+      "actual": "ea1c861d7510243674a296a93b4d670f3a02c90d4b3145ca1d5fe9c7cb6bcace"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/publication-byte-check.json",
+      "expected": "ee5f971ce3a17ef02474e7fc17e2405dc83158c47424ef77c7775201eb2fc27a",
+      "actual": "ee5f971ce3a17ef02474e7fc17e2405dc83158c47424ef77c7775201eb2fc27a"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/publication.json",
+      "expected": "fd2984b4ecc48b68f6995120e593e2eab536ffe7987b91ae636c7a9ef4cd14e2",
+      "actual": "fd2984b4ecc48b68f6995120e593e2eab536ffe7987b91ae636c7a9ef4cd14e2"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/regression.json",
+      "expected": "f2f6ffdeee238a370853408442907ed82e377e4b86960b5f8c95b958f8a8e6e7",
+      "actual": "f2f6ffdeee238a370853408442907ed82e377e4b86960b5f8c95b958f8a8e6e7"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/runtime-startup-failure.json",
+      "expected": "84c9c972e5534d488385a65167f6a8eafc763a1ad23579fb68da6fc96dd6d810",
+      "actual": "84c9c972e5534d488385a65167f6a8eafc763a1ad23579fb68da6fc96dd6d810"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/superseded-formal-failure.json",
+      "expected": "6e61249bbfc1bdb5104b8c6f4a46ec7ef3b84c0e9e1b1231785ccfaaa981b622",
+      "actual": "6e61249bbfc1bdb5104b8c6f4a46ec7ef3b84c0e9e1b1231785ccfaaa981b622"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/completion/superseded-formal04.json",
+      "expected": "b2b214afaf6d5cfed2f5c8e1ce40c8bd64be2710cf36210bbc75ef2151ffff25",
+      "actual": "b2b214afaf6d5cfed2f5c8e1ce40c8bd64be2710cf36210bbc75ef2151ffff25"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/GATES.md",
+      "expected": "8f85d3a29e4a09a01baf828fc7e3ecaf245771a62811d98144f1a34f39299277",
+      "actual": "8f85d3a29e4a09a01baf828fc7e3ecaf245771a62811d98144f1a34f39299277"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/historical-preservation.json",
+      "expected": "7e776e1e40753e1f41b1f8d28e90fe6509fc0731e98d500475d54d93ef84a02f",
+      "actual": "7e776e1e40753e1f41b1f8d28e90fe6509fc0731e98d500475d54d93ef84a02f"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/history-b78111dcff0b.json",
+      "expected": "2df7f7c96ff7e907150e64433418f259f832936e25330d334807394e51356546",
+      "actual": "2df7f7c96ff7e907150e64433418f259f832936e25330d334807394e51356546"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/identity-and-history.json",
+      "expected": "c9821336e3305280b8a422446177ed3938053ac8a2c3136f7ea6c7b78e90606d",
+      "actual": "c9821336e3305280b8a422446177ed3938053ac8a2c3136f7ea6c7b78e90606d"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/migration-map.json",
+      "expected": "f96337ff2ad8e64458c3a7f4b308b42a19a2ad69e3669d6bdb5af85486e2241c",
+      "actual": "f96337ff2ad8e64458c3a7f4b308b42a19a2ad69e3669d6bdb5af85486e2241c"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/publication-scan-203069eb6521.json",
+      "expected": "9a0d5d502c901d79cf5f97acfbd9b9ac0c1e8e79a7ff3a955c2f04e4e5864f9e",
+      "actual": "9a0d5d502c901d79cf5f97acfbd9b9ac0c1e8e79a7ff3a955c2f04e4e5864f9e"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/PUBLICATION.md",
+      "expected": "2cd59ff74faf8ccf6a7711e7cf225b83a79bd72f3a06a5de4e80406035e2361e",
+      "actual": "2cd59ff74faf8ccf6a7711e7cf225b83a79bd72f3a06a5de4e80406035e2361e"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/regression-summary.json",
+      "expected": "f2f6ffdeee238a370853408442907ed82e377e4b86960b5f8c95b958f8a8e6e7",
+      "actual": "f2f6ffdeee238a370853408442907ed82e377e4b86960b5f8c95b958f8a8e6e7"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/RESULTS.md",
+      "expected": "9cdbebb3be4d283d1041d773a01d12fa4331723ae67413735d1112f56ac6195f",
+      "actual": "9cdbebb3be4d283d1041d773a01d12fa4331723ae67413735d1112f56ac6195f"
+    },
+    {
+      "path": "docs/validation/refactor_modularity/runtime-recomputed-7f0cbe404cc2.json",
+      "expected": "8f3b1737e2a7407417f5b6424e8653e5439c5f1508ad8bb9b7300f28a3134e46",
+      "actual": "8f3b1737e2a7407417f5b6424e8653e5439c5f1508ad8bb9b7300f28a3134e46"
+    },
+    {
+      "path": "README.md",
+      "expected": "229c165336c7748f5b7afa8f7fe97a246ca93a65502ab7c6881c025c70bb471e",
+      "actual": "229c165336c7748f5b7afa8f7fe97a246ca93a65502ab7c6881c025c70bb471e"
+    }
+  ]
+}

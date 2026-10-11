@@ -7,9 +7,9 @@ from pathlib import Path
 import sys
 import unittest
 from actio.common import canonical
-from actio.evidence.eval_contract import seal
-from actio.evidence.suite_measurement import verify
-from actio.evidence.stream_audit import verdict
+from actio.evidence.bundles.eval_contract import seal
+from actio.evidence.campaigns.suite_measurement import verify
+from actio.evidence.audit.stream_audit import verdict
 
 class SuiteEvidence(unittest.TestCase):
     def test_rehashed_raw_contradiction_and_partial_plan(self):

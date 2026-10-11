@@ -8,10 +8,10 @@ import unittest
 from actio.common import canonical
 from actio.common import digest
 from actio.common import ContractError
-from actio.evidence.terminal import terminal_body
-from actio.evidence.verify import verify_bundle
-from actio.evidence.verify import sha
-from actio.evidence.verify import VERIFIER
+from actio.evidence.bundles.terminal import terminal_body
+from actio.evidence.bundles.verify import verify_bundle
+from actio.evidence.bundles.verify import sha
+from actio.evidence.bundles.verify import VERIFIER
 
 SAMPLES=Path(__file__).resolve().parents[1]/'docs/validation/phase1b1/samples'
 

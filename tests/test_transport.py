@@ -11,17 +11,17 @@ from actio.common import write_json
 from actio.common import clean_env
 from actio.common import ContractError
 from actio.adapters.persistence.ledger import Ledger
-from actio.evidence.accounting import verify_snapshot
+from actio.evidence.audit.accounting import verify_snapshot
 from actio.profiles.transport import config
 from actio.interfaces.transport_export import export_campaign
-from actio.evidence.transport_campaign import analyze
-from actio.evidence.evaluation import read_json
-from actio.evidence.evaluation import source_bundle
+from actio.evidence.campaigns.transport_campaign import analyze
+from actio.evidence.bundles.evaluation import read_json
+from actio.evidence.bundles.evaluation import source_bundle
 from actio.interfaces.evaluation import evaluate
-from actio.evidence.evaluation import prepare
-from actio.evidence.eval_contract import unseal
-from actio.evidence.eval_contract import seal
-from actio.evidence.eval_contract import make_spec
+from actio.evidence.bundles.evaluation import prepare
+from actio.evidence.bundles.eval_contract import unseal
+from actio.evidence.bundles.eval_contract import seal
+from actio.evidence.bundles.eval_contract import make_spec
 from chat_stub import ChatStub
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -135,7 +135,7 @@ def audit(e,a):
   path,mode,flags=a
   if isinstance(mode,str) and any(c in mode for c in 'wax+') or isinstance(flags,int) and flags&(1|2|64|512|1024):raise RuntimeError('no writes')
 sys.addaudithook(audit)
-from actio.evidence.transport_campaign import verify_campaign
+from actio.evidence.campaigns.transport_campaign import verify_campaign
 r=verify_campaign(base/'campaign');print(json.dumps(r));sys.exit(0 if r['valid'] else 2)
 ''',encoding='utf8')
         p=subprocess.run([sys.executable,'-I','-S','-B',str(script)],cwd=portable,env=clean_env(portable),capture_output=True,text=True,encoding='utf8',timeout=30)

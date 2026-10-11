@@ -9,13 +9,13 @@ from actio.common import canonical
 from actio.common import write_json
 from actio.common import ContractError
 from actio.common import clean_env
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.profiles import suite_contract as contract
 from actio.tasks.finite import get
 from actio.tasks.finite import observation
 from actio.tasks.finite import payload
 from actio.measurement.oracle import fixture_policy
-from actio.evidence.suite_measurement import verify
+from actio.evidence.campaigns.suite_measurement import verify
 from actio.interfaces.pilot import run_unit
 from actio.interfaces.pilot import execute
 from actio.adapters.transport.transport import TransportPort
@@ -67,7 +67,7 @@ class SuiteRuntime(unittest.TestCase):
                 self.assertFalse(any('hash' in k.lower() for k in rec['headers']))
         value=self.snapshot(entries);r=verify(value);self.assertTrue(r['valid'],r);self.assertEqual(r['report']['counts']['sent'],48)
         self.assertEqual(r['report']['counts']['complete_episodes'],24);write_json(self.root/'pilot.json',value);write_json(self.root/'report.json',r)
-        code=GUARD+"\nfrom actio.evidence.suite_measurement import verify\nr=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print(json.dumps(r['report']['counts']))"
+        code=GUARD+"\nfrom actio.evidence.campaigns.suite_measurement import verify\nr=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print(json.dumps(r['report']['counts']))"
         p=subprocess.run([sys.executable,'-I','-B','-c',code,str(self.root/'pilot.json')],capture_output=True,text=True,env=clean_env(self.root),timeout=60)
         self.assertEqual(p.returncode,0,p.stderr);self.evidence.update(portable_counts=json.loads(p.stdout),full_wire_counterfactuals=comparisons,projection='actual official serialization plus hidden-counterfactual substitution; independent UUID fixed, all headers inspected')
 

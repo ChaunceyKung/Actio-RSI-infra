@@ -11,7 +11,7 @@ from actio.common import digest
 from actio.common import ContractError
 from actio.common import clean_env
 from actio.common import file_hash
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.profiles import candidate_campaign as campaign
 from actio.domain.candidate import baseline
 from actio.domain.candidate import candidate
@@ -22,10 +22,10 @@ from actio.domain.candidate import POLICY_HASH
 from actio.interfaces.candidate import binding_plan
 from actio.interfaces.candidate import verify
 from actio.application.candidate_store import verify as verify_lineage
-from actio.evidence.candidate_measurement import classify
-from actio.evidence.channel_audit import audit
-from actio.evidence.channel_audit import verdict
-from actio.evidence.stream_audit import verdict as old_verdict
+from actio.evidence.campaigns.candidate_measurement import classify
+from actio.evidence.audit.channel_audit import audit
+from actio.evidence.audit.channel_audit import verdict
+from actio.evidence.audit.stream_audit import verdict as old_verdict
 from actio.interfaces.store import Store
 from actio.adapters.persistence.database import migrate_lineage_copy
 from test_suite import GUARD
@@ -85,7 +85,7 @@ class CandidatePure(unittest.TestCase):
         self.evidence={'accepted':cases,'rejected':malformed,'native_mismatch_rejected':True,'old_v1_unchanged':True}
 
     def test_historical_channel_compatibility_and_clock_semantics(self):
-        from actio.evidence.channel_audit import native_content
+        from actio.evidence.audit.channel_audit import native_content
         path=ROOT/'docs/validation/phase1c2c0/samples/pilot.json';p=json.loads(path.read_bytes());e=p['body']['entries'][7]
         a=e['evidence']['ledger']['attempts'][0];d=json.loads(next(iter(e['evidence']['dataset']['body']['sources'].values()))['files']['evidence.json']);op=d['operations'][0]
         self.assertEqual(old_verdict(a['response']),a['text_integrity'])

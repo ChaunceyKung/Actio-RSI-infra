@@ -10,7 +10,7 @@ from actio.common import write_json
 from actio.common import clean_env
 from actio.common import ContractError
 from actio.adapters.persistence.ledger import Ledger
-from actio.evidence.accounting import verify_snapshot
+from actio.evidence.audit.accounting import verify_snapshot
 from actio.adapters.transport.transport import TransportPort
 from actio.adapters.transport.transport import PACKAGE
 from actio.profiles.transport import config

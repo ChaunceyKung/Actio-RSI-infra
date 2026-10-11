@@ -9,7 +9,7 @@ from unittest.mock import patch
 from actio.common import canonical
 from actio.common import digest
 from actio.common import ContractError
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.tasks.finite import get
 from actio.tasks.finite import card
 from actio.tasks.finite import validate
@@ -143,7 +143,7 @@ class TaskDiagnostics(unittest.TestCase):
             with self.assertRaises(ContractError):
                 cli.analyze(OLD, first)
             shutil.copytree(first, moved); shutil.rmtree(first)
-            with patch('actio.evidence.task_diagnostics.load_history', side_effect=AssertionError('original source unavailable')):
+            with patch('actio.evidence.diagnostics.task_diagnostics.load_history', side_effect=AssertionError('original source unavailable')):
                 self.assertTrue(cli.verify(moved)['valid'])
             for path in moved.iterdir():
                 text = path.read_text(encoding='utf8')

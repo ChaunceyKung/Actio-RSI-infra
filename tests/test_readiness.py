@@ -12,14 +12,14 @@ from actio.common import write_json
 from actio.common import clean_env
 from actio.common import ContractError
 from actio.adapters.persistence.ledger import Ledger
-from actio.evidence.accounting import verify_snapshot
+from actio.evidence.audit.accounting import verify_snapshot
 from actio.profiles.readiness_contract import rehearsal
 from actio.profiles.readiness_contract import reservation
 from actio.adapters.transport.transport import TransportPort
 from actio.adapters.transport.transport import PACKAGE
 from actio.interfaces.transport_export import export_campaign
-from actio.evidence.transport_campaign import analyze
-from actio.evidence.eval_contract import unseal
+from actio.evidence.campaigns.transport_campaign import analyze
+from actio.evidence.bundles.eval_contract import unseal
 from readiness_stub import ReadyStub
 from readiness_stub import scan_secret
 ROOT=Path(__file__).resolve().parents[1]
@@ -180,7 +180,7 @@ def audit(e,a):
   p,m,f=a
   if isinstance(m,str) and any(c in m for c in 'wax+') or isinstance(f,int) and f&(1|2|64|512|1024):raise RuntimeError('writes denied')
 sys.addaudithook(audit)
-from actio.evidence.transport_campaign import verify_campaign
+from actio.evidence.campaigns.transport_campaign import verify_campaign
 r=verify_campaign(sys.argv[1]);print(json.dumps(r));sys.exit(0 if r['valid'] else 2)
 """,encoding='utf8')
         p=subprocess.run([sys.executable,'-X','utf8','-I','-S','-B',str(script),str(root/'campaign')],cwd=portable,env=clean_env(portable),capture_output=True,text=True,encoding='utf8',timeout=30)

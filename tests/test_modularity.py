@@ -5,15 +5,29 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+import tempfile
 
 class Modularity(unittest.TestCase):
+    def test_recursive_checker_rejects_nested_shim_dependency_and_records_dynamic_import(self):
+        spec=importlib.util.spec_from_file_location("architecture_checker",Path(__file__).resolve().parents[1]/"tools/refactor/architecture.py")
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);inspect=module.inspect
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)/'actio'; (root/'nested').mkdir(parents=True)
+            (root/'__init__.py').write_text('')
+            (root/'legacy.py').write_text('"""Compatibility shim."""\nfrom actio.nested.impl import value\n')
+            (root/'nested/__init__.py').write_text('')
+            (root/'nested/impl.py').write_text("from importlib import import_module\nvalue=import_module('actio.legacy')\n")
+            result=inspect(root)
+            self.assertEqual(result['status'],'INCOMPLETE')
+            self.assertTrue(result['dynamic_imports'])
+            self.assertTrue(any(v['target']=='actio.legacy' for v in result['violations']))
     def test_pure_layers_have_only_downward_dependencies(self):
         import actio
         root=Path(actio.__file__).parent
         allowed={'contracts':set(),'domain':{'contracts'},'tasks':{'contracts','domain','tasks'},'measurement':{'contracts','domain','tasks','measurement'}}
         forbidden={'sqlite3','subprocess','socket','os','deepseek_harness','concordia'}
         for layer,deps in allowed.items():
-            for p in (root/layer).glob('*.py'):
+            for p in (root/layer).rglob('*.py'):
                 for n in ast.walk(ast.parse(p.read_text(encoding='utf8'))):
                     names=[a.name for a in n.names] if isinstance(n,ast.Import) else [n.module or ''] if isinstance(n,ast.ImportFrom) else []
                     for name in names:
@@ -22,7 +36,7 @@ class Modularity(unittest.TestCase):
                             self.assertIn(name.split('.')[1],deps,(p,n.lineno,name))
         # The application invokes injected ports, never concrete runtime/DB adapters.
         for folder in ('application','evidence'):
-            for p in (root/folder).glob('*.py'):
+            for p in (root/folder).rglob('*.py'):
                 for n in ast.walk(ast.parse(p.read_text(encoding='utf8'))):
                     names=[a.name for a in n.names] if isinstance(n,ast.Import) else [n.module or ''] if isinstance(n,ast.ImportFrom) else []
                     if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='__import__' and n.args and isinstance(n.args[0],ast.Constant):names.append(n.args[0].value)
@@ -34,7 +48,7 @@ class Modularity(unittest.TestCase):
         for n in ast.walk(ast.parse(p.read_text(encoding='utf8'))):
             if isinstance(n,ast.ImportFrom) and (n.module or '').startswith('actio.'):
                 self.assertIn(n.module.split('.')[1],{'contracts','domain','tasks'})
-        for p in (root/'tasks').glob('*.py'):
+        for p in (root/'tasks').rglob('*.py'):
             if p.stem=='registry':continue
             self.assertNotIn('actio.tasks.registry',p.read_text(encoding='utf8'),p)
 

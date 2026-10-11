@@ -17,7 +17,7 @@ from actio.profiles.gateway_base import AUTH
 from actio.interfaces.gateway import execute
 from actio.adapters.filesystem.credentials import scan
 from actio.adapters.persistence.ledger import Ledger
-from actio.evidence.accounting import verify_snapshot
+from actio.evidence.audit.accounting import verify_snapshot
 from actio.adapters.transport.transport import TransportPort
 from actio.adapters.transport.transport import PACKAGE
 from gateway_stub import GatewayStub
@@ -129,7 +129,7 @@ def audit(e,a):
  if e=='import' and a[0].split('.')[0] in ('deepseek_harness','concordia'):raise RuntimeError('runtime denied')
  if e=='open' and ((isinstance(a[1],str) and any(c in a[1] for c in 'wax+')) or (isinstance(a[2],int) and a[2]&(1|2|64|512|1024))):raise RuntimeError('write denied')
 sys.addaudithook(audit)
-from actio.evidence.transport_campaign import verify_campaign
+from actio.evidence.campaigns.transport_campaign import verify_campaign
 from actio.common import canonical
 r=verify_campaign(sys.argv[1]);print(canonical(r));assert r['valid']
 """

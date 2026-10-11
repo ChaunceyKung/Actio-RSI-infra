@@ -17,9 +17,9 @@ from actio.common import digest
 from actio.common import file_hash
 from actio.common import write_json
 from actio.interfaces.migration import migrate_evaluation_copy
-from actio.evidence.eval_contract import seal
-from actio.evidence.evaluation_measurement import metric_cells
-from actio.evidence.evaluation_measurement import decision_state
+from actio.evidence.bundles.eval_contract import seal
+from actio.evidence.campaigns.evaluation_measurement import metric_cells
+from actio.evidence.campaigns.evaluation_measurement import decision_state
 from actio.interfaces.candidate_evaluation import verify
 from actio.interfaces.store import Store
 from actio.tasks.finite import get

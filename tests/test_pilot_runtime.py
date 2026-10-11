@@ -10,15 +10,15 @@ from actio.common import digest
 from actio.common import write_json
 from actio.common import ContractError
 from actio.common import clean_env
-from actio.evidence.eval_contract import seal
-from actio.evidence.eval_contract import unseal
+from actio.evidence.bundles.eval_contract import seal
+from actio.evidence.bundles.eval_contract import unseal
 from actio.profiles.pilot_contract import preregistration
 from actio.profiles.pilot_contract import config
 from actio.profiles.pilot_contract import AUTH
 from actio.interfaces.pilot import run_unit
 from actio.interfaces.pilot import execute
 from actio.adapters.filesystem.publication import create
-from actio.evidence.pilot_measurement import verify
+from actio.evidence.campaigns.pilot_measurement import verify
 from actio.adapters.filesystem.credentials import scan
 from actio.adapters.persistence.ledger import Ledger
 from actio.adapters.transport.transport import TransportPort
@@ -92,7 +92,7 @@ class NoEnv(dict):
  def get(self,*a):raise RuntimeError('env denied')
  def __getitem__(self,*a):raise RuntimeError('env denied')
 os.environ=NoEnv()
-from actio.evidence.pilot_measurement import verify
+from actio.evidence.campaigns.pilot_measurement import verify
 r=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print(json.dumps(r['report']['counts']))
 '''
         r=subprocess.run([sys.executable,'-I','-B','-c',code,str(self.root/'pilot.json')],cwd=self.root,env=clean_env(self.root),capture_output=True,text=True,timeout=60)
@@ -103,7 +103,7 @@ r=verify(json.load(open(sys.argv[1],encoding='utf8')));assert r['valid'],r;print
         self.assertNotEqual(original,attempt['response']['raw'])
         import base64
         attempt['response']['raw_base64']=base64.b64encode(attempt['response']['raw'].encode()).decode()
-        from actio.evidence.stream_audit import verdict
+        from actio.evidence.audit.stream_audit import verdict
         attempt['text_integrity']=verdict(attempt['response'])
         for ev in ledger['events']:
             if ev['attempt']==attempt['id'] and ev['kind']=='settled':ev['body'].update(response=attempt['response'],text_integrity=attempt['text_integrity'])

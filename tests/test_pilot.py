@@ -10,19 +10,19 @@ from actio.common import ContractError
 from actio.common import canonical
 from actio.common import digest
 from actio.common import clean_env
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.profiles.pilot_contract import preregistration
 from actio.profiles.pilot_contract import validate_preregistration
 from actio.profiles.pilot_contract import config
 from actio.profiles.pilot_contract import validate
-from actio.evidence.pilot_measurement import predicates
-from actio.evidence.pilot_measurement import verify
+from actio.evidence.campaigns.pilot_measurement import predicates
+from actio.evidence.campaigns.pilot_measurement import verify
 from actio.tasks.scheduling_v2 import cards
 from actio.tasks.scheduling_v2 import card
 from actio.tasks.scheduling_v2 import observation
 from actio.tasks.scheduling_v2 import payload
-from actio.evidence.stream_audit import audit
-from actio.evidence.stream_audit import verdict
+from actio.evidence.audit.stream_audit import audit
+from actio.evidence.audit.stream_audit import verdict
 
 ROOT=Path(__file__).resolve().parents[1]
 BINDINGS={s:{'agent':'ACTOR_'+s,'spec_hash':'0'*64} for s in ('A','B')}
@@ -148,8 +148,8 @@ class NoEnv(dict):
  def __getitem__(self,*a):raise RuntimeError('env denied')
 os.environ=NoEnv()
 from actio.profiles.pilot_contract import plan
-from actio.evidence.pilot_measurement import verify
-from actio.evidence.eval_contract import seal
+from actio.evidence.campaigns.pilot_measurement import verify
+from actio.evidence.bundles.eval_contract import seal
 p=plan()['preregistration']
 b={'schema':'pilot-evidence.v1','preregistration':p,'freeze':None,'phase_state':'local_validation','entries':[{'unit':u,'evidence':None,'reason':'local','episode_ms':None} for u in p['body']['units']]}
 assert verify(seal(b))['valid']

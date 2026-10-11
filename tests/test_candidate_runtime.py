@@ -6,11 +6,11 @@ import uuid
 from actio.profiles import candidate_campaign as contract
 from actio.profiles.gateway_base import AUTH
 from actio.common import write_json
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.interfaces.pilot import run_unit
 from actio.interfaces.pilot import execute
 from actio.interfaces.candidate import verify
-from actio.evidence.candidate_measurement import source
+from actio.evidence.campaigns.candidate_measurement import source
 from actio.tasks.candidate import payload
 from actio.tasks.finite import observation
 from actio.tasks.finite import get

@@ -9,7 +9,7 @@ from unittest.mock import patch
 from actio.common import canonical
 from actio.common import ContractError
 from actio.common import file_hash
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.profiles import suite_contract as contract
 from actio.tasks.finite import cards
 from actio.tasks.finite import card
@@ -19,10 +19,10 @@ from actio.tasks.finite import observation
 from actio.tasks.finite import payload
 from actio.measurement.oracle import evaluate
 from actio.measurement.oracle import fixture_policy
-from actio.evidence.suite_measurement import metrics
-from actio.evidence.suite_measurement import aggregate
-from actio.evidence.suite_measurement import verify
-from actio.evidence.suite_measurement import correct_c2b2
+from actio.evidence.campaigns.suite_measurement import metrics
+from actio.evidence.campaigns.suite_measurement import aggregate
+from actio.evidence.campaigns.suite_measurement import verify
+from actio.evidence.campaigns.suite_measurement import correct_c2b2
 
 ROOT=Path(__file__).resolve().parents[1]
 BINDINGS={s:{'agent':'ACTOR_'+s,'spec_hash':'0'*64} for s in ('A','B')}
@@ -134,7 +134,7 @@ class SuitePure(unittest.TestCase):
         self.evidence={'correction':rows,'source_hashes':{str(p.relative_to(ROOT)):file_hash(p) for p in (folder/'preregistration.json',folder/'samples/report.json')}}
 
     def test_07_readonly_plan_no_environment(self):
-        code=GUARD+"\nfrom actio.profiles.suite_contract import plan\nfrom actio.evidence.suite_measurement import verify\nfrom actio.evidence.eval_contract import seal\np=plan()['preregistration']\nr=verify(seal({'schema':'suite-evidence.v1','preregistration':p,'freeze':None,'phase_state':'local_validation','entries':[{'unit':u,'evidence':None,'reason':'local','episode_ms':None} for u in p['body']['units']]}))\nassert r['valid'],r\nprint('PASS')"
+        code=GUARD+"\nfrom actio.profiles.suite_contract import plan\nfrom actio.evidence.campaigns.suite_measurement import verify\nfrom actio.evidence.bundles.eval_contract import seal\np=plan()['preregistration']\nr=verify(seal({'schema':'suite-evidence.v1','preregistration':p,'freeze':None,'phase_state':'local_validation','entries':[{'unit':u,'evidence':None,'reason':'local','episode_ms':None} for u in p['body']['units']]}))\nassert r['valid'],r\nprint('PASS')"
         r=subprocess.run([sys.executable,'-I','-B','-c',code],capture_output=True,text=True,timeout=30);self.assertEqual(r.returncode,0,r.stderr)
 
 if __name__=='__main__':unittest.main()

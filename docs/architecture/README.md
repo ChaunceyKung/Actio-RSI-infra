@@ -2,7 +2,7 @@
 
 Actio-RSI 是研究 Agent 持久身份、社会交互和受控改进的**模块化单体**。它把执行输入、模型行动、环境效果、事实与记忆、独立测量和版本决策连接起来。运行形态是 Windows 上的 Python 控制面、受管 DSH Worker、Concordia、SQLite 与文件证据。
 
-本文描述已实现的结构，代码基线为 [`ccc7399`](https://github.com/ChaunceyKung/Actio-RSI-infra/commit/ccc7399dc3e31367543df7d1c196eefb705c131b)。R7–R10 工程验收已通过；实验停在 C5，未开始 C6。下一轮目录方案见[审阅与计划](../reviews/modularity_r11_r14_review.md)，不能把拟议目录当成已经落地。
+本文描述已实现的结构，代码基线为 [`041ade0`](https://github.com/ChaunceyKung/Actio-RSI-infra/commit/041ade0b83456e329e85e70b4004ddb9f05f1b1c)。R7–R10 工程验收已通过；实验停在 C5，未开始 C6。下一轮目录方案见[审阅与计划](../reviews/modularity_r11_r14_review.md)，不能把拟议目录当成已经落地。
 
 ## 输入与输出
 
@@ -45,7 +45,9 @@ src/actio/
 ├── tasks/         任务 family、可见性、合法行动、版本 registry
 ├── measurement/   独立 oracle 与诊断指标
 ├── profiles/      运行模式、配置构造、纯校验、版本选择
-├── evidence/      证据认证、只读核验、测量报告、谱系与诊断
+├── evidence/
+│   ├── audit/ bundles/ campaigns/ lineage/ diagnostics/
+│   └── failure_observation.py  公开兼容 reader
 ├── application/   episode、memory、campaign、评估与导出用例
 ├── interfaces/    参数解析、可信选择、Store 与 ports 装配
 ├── adapters/

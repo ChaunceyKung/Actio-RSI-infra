@@ -1,6 +1,6 @@
 # 模块卡片
 
-与[系统一页图](README.md)、[关键流程](FLOWS.md)共同描述 `ccc7399` 的实际实现。下表处理链用于定位代码，不表示新增接口或服务。细节优先维护在代码与测试中。
+与[系统一页图](README.md)、[关键流程](FLOWS.md)共同描述 `041ade0` 的实际实现。下表处理链用于定位代码，不表示新增接口或服务。细节优先维护在代码与测试中。
 
 ## 规则与定义
 
@@ -42,3 +42,7 @@
 | 依赖方向、wheel 与入口 | interfaces + packaging + architecture tools | [test_modularity.py](../../tests/test_modularity.py)、[维护 runner](../../tools/refactor/validate.py) |
 
 表中是导航，测试名称不能直接判断是否会启动 Worker。完整分组与套件顺序以 `tools/refactor/validate.py` 为准；尤其 `suite_evidence` 消费同轮 `suite_runtime` 产物。离线使用和验收命令见[工程 CLI](../validation/refactor_modularity/CLI.md)。
+
+## Evidence groups
+
+`evidence.audit` authenticates streams, channels, transport contracts and accounting. `evidence.bundles` reads sealed task and evaluation packages. `evidence.campaigns` computes campaign measurements and registries. `evidence.lineage` tracks candidate and evaluation history. `evidence.diagnostics` contains failure observations, fixtures, schedules and task/transport diagnostics. The groups form a one-way dependency projection; the root `failure_observation` module is a registered compatibility reader only.

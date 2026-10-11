@@ -9,13 +9,13 @@ from actio.profiles import robustness_campaign as c
 from actio.tasks import robustness as tasks
 from actio.interfaces.robustness import verify
 from actio.application.robustness import reserve_live
-from actio.evidence.robustness_measurement import metric_cells
+from actio.evidence.campaigns.robustness_measurement import metric_cells
 from actio.measurement.robustness_definitions import metric_definitions
-from actio.evidence.robustness_measurement import coverage
+from actio.evidence.campaigns.robustness_measurement import coverage
 from actio.common import ContractError
 from actio.common import digest
 from actio.common import file_hash
-from actio.evidence.eval_contract import seal
+from actio.evidence.bundles.eval_contract import seal
 from actio.tasks.registry import validate_task
 from actio.tasks.registry import task_result
 from actio.tasks.diagnostic import task
@@ -29,8 +29,8 @@ from actio.measurement.oracle import evaluate
 from actio.interfaces.store import Store
 from actio.interfaces.migration import snapshot_evaluation_copy
 from actio.application import evaluation_store as lineage
-from actio.evidence.evaluation_history import lineage as historical
-from actio.evidence.evaluation_history import preserve
+from actio.evidence.lineage.evaluation_history import lineage as historical
+from actio.evidence.lineage.evaluation_history import preserve
 
 SOURCE=Path('D:/actio-c2c2-live-v1/candidates.sqlite')
 BINDINGS={s:{'agent':'ACTOR_'+s,'spec_hash':'0'*64} for s in ('A','B')}

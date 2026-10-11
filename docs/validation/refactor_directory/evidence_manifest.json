@@ -1,0 +1,65 @@
+{
+  "schema": "refactor-directory-evidence.v1",
+  "baseline": "041ade0b83456e329e85e70b4004ddb9f05f1b1c",
+  "identity": "actio-directory-r11-r14-20261012",
+  "architecture": "D:/ar-directory-20261012/architecture.json",
+  "modules": 169,
+  "edges": 595,
+  "scc": 0,
+  "root_implementation": 0,
+  "violations": 0,
+  "groups": {
+    "audit": [
+      "accounting",
+      "channel_audit",
+      "stream_audit",
+      "transport_contract"
+    ],
+    "bundles": [
+      "eval_contract",
+      "evaluation",
+      "task_evidence",
+      "terminal",
+      "verify"
+    ],
+    "campaigns": [
+      "calibration",
+      "campaign",
+      "campaign_registry",
+      "candidate_measurement",
+      "evaluation_measurement",
+      "pilot_measurement",
+      "robustness_measurement",
+      "suite_measurement",
+      "transport_campaign"
+    ],
+    "lineage": [
+      "candidate",
+      "candidate_evaluation",
+      "candidate_lineage",
+      "evaluation_history",
+      "evaluation_lineage",
+      "robustness"
+    ],
+    "diagnostics": [
+      "failure_fixtures",
+      "failure_observation",
+      "future_schedule",
+      "task_diagnostics",
+      "transport_diagnostics"
+    ]
+  },
+  "public_compatibility": [
+    "actio.evidence.failure_observation.from_entry"
+  ],
+  "external_requests": 0,
+  "credential_reads": 0,
+  "full_acceptance": "INCOMPLETE until new wheel regression and publication",
+  "evidence_group_cycles": [],
+  "wheel": {
+    "path": "D:/ar-directory-20261012/wheel2/actio_rsi-0.1.0-py3-none-any.whl",
+    "sha256": "e6d023c28d36a478662b8273b3dda1c193ba6fd844ffd8f786413e0a40ee598b",
+    "minimal_packaging": "D:/ar-directory-20261012/packaging2/receipt.json"
+  },
+  "target_tests": "suite-map.json"
+}

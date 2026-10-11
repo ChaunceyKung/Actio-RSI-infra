@@ -7,22 +7,22 @@ import io
 from actio.common import ContractError
 from actio.common import canonical
 from actio.common import digest
-from actio.evidence.eval_contract import seal
-from actio.evidence.failure_observation import observe
-from actio.evidence.failure_observation import protocol
-from actio.evidence.failure_observation import segmented_utf8
-from actio.evidence.failure_observation import parse
-from actio.evidence.failure_observation import LIMITS
-from actio.evidence.failure_observation import native_chunks
-from actio.evidence.failure_fixtures import vector
-from actio.evidence.failure_fixtures import mutate
-from actio.evidence.failure_fixtures import frame
-from actio.evidence.failure_fixtures import error
-from actio.evidence.failure_fixtures import chunk
-from actio.evidence.failure_fixtures import portable_vectors
-from actio.evidence.future_schedule import plan
-from actio.evidence.transport_diagnostics import portable
-from actio.evidence.transport_diagnostics import analyze
+from actio.evidence.bundles.eval_contract import seal
+from actio.evidence.diagnostics.failure_observation import observe
+from actio.evidence.diagnostics.failure_observation import protocol
+from actio.evidence.diagnostics.failure_observation import segmented_utf8
+from actio.evidence.diagnostics.failure_observation import parse
+from actio.evidence.diagnostics.failure_observation import LIMITS
+from actio.evidence.diagnostics.failure_observation import native_chunks
+from actio.evidence.diagnostics.failure_fixtures import vector
+from actio.evidence.diagnostics.failure_fixtures import mutate
+from actio.evidence.diagnostics.failure_fixtures import frame
+from actio.evidence.diagnostics.failure_fixtures import error
+from actio.evidence.diagnostics.failure_fixtures import chunk
+from actio.evidence.diagnostics.failure_fixtures import portable_vectors
+from actio.evidence.diagnostics.future_schedule import plan
+from actio.evidence.diagnostics.transport_diagnostics import portable
+from actio.evidence.diagnostics.transport_diagnostics import analyze
 
 
 class FailureObservation(unittest.TestCase):
@@ -135,8 +135,8 @@ class FailureObservation(unittest.TestCase):
 
     def test_portable_recomputation_and_tamper(self):
         p=portable();self.assertTrue(analyze(p)['valid']);self.assertFalse(analyze(p)['historical_raw_authenticated'])
-        from actio.evidence.failure_observation import parse
-        from actio.evidence.failure_observation import bounded
+        from actio.evidence.diagnostics.failure_observation import parse
+        from actio.evidence.diagnostics.failure_observation import bounded
         from actio.adapters.filesystem.identity import implementation
         inventory=implementation()
         self.assertGreater(len(inventory),128)

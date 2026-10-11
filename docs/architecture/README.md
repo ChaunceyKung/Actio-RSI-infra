@@ -2,6 +2,8 @@
 
 本轮工程状态 **INCOMPLETE**。产品冻结提交 `d64264f` 已拆出纯合同、任务、部分领域规则、独立 oracle、文件和 Ledger 适配器及可安装的本机 fixture；完整九层设计尚未落地。新 wheel 的本机实测通过不等于全局架构验收通过。[验收结果](../validation/refactor_modularity/RESULTS.md)列出各项证据和缺口。
 
+继续实施请先读[续作计划](CONTINUATION_PLAN.md)，并使用[完成 Prompt](../prompts/modular_architecture_completion.md)。当前未完成的主要问题是任务/profile/账务循环、根实现模块和 readiness rehearsal 的可重复时钟；历史实验与报价材料保持不变。
+
 Actio 在 Windows 单机上复用固定 DSH SDK/官方 TS Worker、Concordia 和 SQLite，记录 Agent 行动、世界裁决、记忆及发送账务，再进行只读核验和独立测量。它不具备训练、自动激活、原生 resume/fork 或完整 controller 恢复能力。
 
 ## 实际模块图

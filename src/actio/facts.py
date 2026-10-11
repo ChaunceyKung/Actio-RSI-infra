@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from .common import ContractError
+from actio.contracts.json import ContractError
 
 MAPPERS = {'v1','v2'}
 TYPES = {'agent/inbox/spliced','turn/start','turn/end','assistant/message','step/start','step/end',

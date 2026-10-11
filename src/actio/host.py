@@ -5,7 +5,8 @@ from pathlib import Path
 import sys
 import time
 
-from .common import ContractError, Lines
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import Lines
 
 
 def main(root):

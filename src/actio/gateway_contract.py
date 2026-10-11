@@ -2,8 +2,10 @@
 import json
 from decimal import Decimal
 from pathlib import Path
-from .common import canonical,digest,file_hash
-from .transport_contract import require,SOURCE
+from actio.contracts.json import canonical, digest
+from actio.adapters.filesystem.common import file_hash
+from .transport_contract import SOURCE
+from actio.contracts.json import require
 from .preflight import loopback_endpoint
 
 CONFIG='pilot-config.v5'
@@ -45,7 +47,7 @@ def validate(c):
     return c
 
 def plan(c):
-    from .task_contract import task_card
+    from actio.tasks.scheduling import task_card
     validate(c)
     return {'schema':'tokenkey-plan.v1','status':'AUTHORIZED_SCOPE_READY_FOR_EXPLICIT_EXECUTE','contract_hash':digest(c),
             'candidate':c,'tasks':[task_card(v,{s:{'agent':'PROPOSED_'+s,'spec_hash':'0'*64} for s in ('A','B')},c['mode']) for v in c['plan']],

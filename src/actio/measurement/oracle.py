@@ -30,7 +30,7 @@ def evaluate(c,actions):
 
 def fixture_policy(c,policy):
     """Own-information controls only, never solver outcomes or human labels."""
-    from .suite_tasks import options
+    from actio.tasks.finite import options
     choices=options(c,'A');a=choices[0]
     p=c['public'];own=c['private'];scheduling=c['family']=='scheduling'
     if policy=='own_rule':

@@ -10,14 +10,14 @@ import uuid
 from unittest.mock import patch
 from actio import evaluation_campaign as c
 from actio import evaluation_store as es
-from actio.candidate_contract import baseline,candidate
+from actio.domain.candidate import baseline,candidate
 from actio.common import ContractError,digest,file_hash,write_json
 from actio.database import migrate_evaluation_copy
 from actio.eval_contract import seal
 from actio.evaluation_measurement import metric_cells,decision_state
 from actio.candidate_evaluation import verify
 from actio.store import Store
-from actio.suite_tasks import get
+from actio.tasks.finite import get
 
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=Path('D:/actio-c2c1-main-v1/candidates.sqlite')

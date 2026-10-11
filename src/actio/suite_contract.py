@@ -1,14 +1,14 @@
 """C2C0 v7 task-suite contract and complete immutable 24-episode plan."""
 import random
 from pathlib import Path
-from .common import canonical, digest
-from .eval_contract import seal, unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .gateway_contract import template, MODELS, ENDPOINT, AUTH
 from .preflight import loopback_endpoint
 from .pilot_contract import implementation
-from .suite_tasks import cards, INPUT
-from .suite_oracle import evaluate, VERSION
+from actio.tasks.finite import cards, INPUT
+from actio.measurement.oracle import evaluate, VERSION
 
 CONFIG='pilot-config.v7'
 PROFILE='sdk-minimal+actio-tokenkey.v3'

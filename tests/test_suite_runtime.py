@@ -8,8 +8,8 @@ import uuid
 from actio.common import canonical,write_json,ContractError,clean_env
 from actio.eval_contract import seal
 from actio import suite_contract as contract
-from actio.suite_tasks import get,observation,payload
-from actio.suite_oracle import fixture_policy
+from actio.tasks.finite import get,observation,payload
+from actio.measurement.oracle import fixture_policy
 from actio.suite_measurement import verify
 from actio.pilot import run_unit,execute
 from actio.transport import TransportPort

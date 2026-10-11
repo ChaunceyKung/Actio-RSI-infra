@@ -2,9 +2,10 @@
 import json
 import sys
 from pathlib import Path
-from .common import canonical,digest,file_hash,ContractError
-from .eval_contract import seal,unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest, ContractError
+from actio.adapters.filesystem.common import file_hash
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .failure_observation import observe,from_entry,parse,LIMITS
 from .failure_fixtures import CASES,portable_vectors
 from .future_schedule import plan as schedule
@@ -67,7 +68,7 @@ def main():
         elif args[0]=='run-local':
             import argparse
             p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--root',required=True,type=Path)
-            p.add_argument('--project',required=True,type=Path);p.add_argument('--freeze',required=True,type=Path)
+            p.add_argument('--project',type=Path);p.add_argument('--freeze',required=True,type=Path)
             a=p.parse_args(args)
             from .diagnostic_runtime import run
             result=run(a.root,a.project,a.freeze)

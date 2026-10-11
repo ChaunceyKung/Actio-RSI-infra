@@ -47,7 +47,7 @@ def controlled(raw,mapping):
 
 def main():
     counters=lockdown()
-    from .common import ContractError,digest
+    from actio.contracts.json import ContractError, digest
     from .eval_contract import LIMITS, deterministic
     response={'status':'measurement_error','results':None,'error':None,'parser_calls':0,
               'model_requests':0,'audit':counters,'view_hash':None}

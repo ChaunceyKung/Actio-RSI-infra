@@ -3,7 +3,8 @@ import json
 import sys
 from pathlib import Path
 
-from .common import ContractError,canonical,digest,file_hash
+from actio.contracts.json import ContractError, canonical, digest
+from actio.adapters.filesystem.common import file_hash
 from .facts import Facts,wire
 from .memory import Memory,namespace
 from .runtime import RuntimePort,TOOL,CONCORDIA,PACKAGE,pins
@@ -75,7 +76,7 @@ def social_manifest(store,a,b,*,as_of=None,illegal=False):
             'mid_run_restore':False}
 
 
-UNSET = object()
+from actio.contracts.scenarios import UNSET
 
 
 def validate_replay(store, original, a, b):
@@ -130,7 +131,7 @@ def social(store,key,a,b,short_root,*,as_of=UNSET,replay=None,illegal=UNSET,runt
 
 
 def run_engine(store,run,manifest,short_root,runtime_type):
-    from .task_contract import CONTRACT,actor_observation,resolved_text,task_result
+    from actio.tasks.scheduling import CONTRACT, actor_observation, resolved_text, task_result
     transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1')
     scheduling=manifest.get('input_contract')==CONTRACT or transport
     import concordia
@@ -256,7 +257,8 @@ def run_engine(store,run,manifest,short_root,runtime_type):
 
 def scheduling(store,key,short_root,*,task=UNSET,script=UNSET,replay=None,runtime_type=RuntimePort):
     """Validate immutable authored task before run allocation; reuse the existing Engine adapter."""
-    from .task_contract import validate_task,validate_manifest,CONTRACT
+    from actio.tasks.scheduling import validate_task, CONTRACT
+    from actio.task_evidence import validate_manifest
     if replay:
         if task is not UNSET or script is not UNSET:raise ContractError('frozen task replay rejects explicit overrides')
         original=store.run(replay);m=json.loads(original['input'])

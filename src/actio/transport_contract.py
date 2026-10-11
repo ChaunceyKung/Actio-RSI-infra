@@ -1,6 +1,6 @@
 """Pure, versioned loopback contract; no clients, credential lookup or runtime imports."""
 import json
-from .common import ContractError,canonical,digest
+from actio.contracts.json import ContractError, canonical, digest
 
 CONFIG='pilot-config.v3'
 INPUT='scheduling-transport.v1'
@@ -74,7 +74,7 @@ def validate_pins(p):
 
 
 def validate_manifest(m):
-    from .task_contract import validate_task
+    from actio.tasks.scheduling import validate_task
     v4=m.get('input_contract')=='scheduling-priced.v1'
     v10=m.get('input_contract')=='visible-robustness-tokenkey.v1'
     v9=m.get('input_contract')=='finite-candidate-tokenkey.v1'
@@ -109,7 +109,7 @@ def validate_manifest(m):
     tr=m['transport'];require(set(tr)==({'config','config_hash','campaign','profile','scaffold_binding'} if v8 else {'config','config_hash','campaign','profile'}),'transport binding fields')
     (validate_gateway if v5 else validate_priced if v4 else validate_config)(tr['config']);require(tr['config_hash']==digest(tr['config']) and tr['profile']==profile and type(tr['campaign']) is str,'transport config binding')
     if v8:
-        from .candidate_tasks import binding
+        from actio.tasks.candidate import binding
         require(tr['scaffold_binding']==binding(m) and t['scaffold']==tr['config']['scaffold'],'external scaffold binding')
     validate_pins(m['pins']);require(m['pins']['profile']==profile,'mode/profile mismatch')
     if v4 or v5:require(m['pins'].get('connection_mode')==mode and tr['config']['mode']==mode,'connection mode pin mismatch')
@@ -119,7 +119,7 @@ def validate_manifest(m):
     for a,s in m['memory'].items():
         require(s['namespace']=={'agent':a,'project':'synthetic','branch':'main','visibility':'private','environment':'social'} and s['target']=='social','transport memory ACL')
         if v6:
-            from .task_v2 import visible_memory
+            from actio.tasks.scheduling_v2 import visible_memory
             visible_memory(s)
     if v6:
         require(t['id']==tr['config']['experiment']['unit']['card'],'pilot unit/task mismatch')
@@ -129,17 +129,17 @@ def validate_manifest(m):
 
 def payload(m,seat,observations):
     if m.get('input_contract') in ('finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1'):
-        from .candidate_tasks import payload as candidate_payload
+        from actio.tasks.candidate import payload as candidate_payload
         return candidate_payload(m,seat,observations)
     if m.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1'):
-        from .task_v2 import payload as visible
+        from actio.tasks.scheduling_v2 import payload as visible
         return visible(m,seat,observations)
     t=m['task']['body']
     return {'observations':observations,'memory':m['memory'][m['entities'][seat]],'action_spec':t['action_specs'][seat]}
 
 
 def validate_inputs(m,streams,operations,audit):
-    from .task_contract import actor_observation
+    from actio.tasks.scheduling import actor_observation
     t=validate_manifest(m);by_stream={s['id']:s for s in streams};ops={o['id']:o for o in operations}
     rows=sorted((a for a in audit if a['kind']=='dispatch_intent'),key=lambda a:a['id']);prior=[]
     require(len(rows)<=2 and len(rows)==len(ops) and {r['op'] for r in rows}==set(ops),'transport dispatch completeness')

@@ -8,7 +8,8 @@ import shutil
 import sys
 import time
 
-from .common import ContractError, Lines, clean_env, uid, write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import Lines, clean_env, uid, write_json
 
 
 class IO(C.Structure):
@@ -178,7 +179,7 @@ class Supervisor:
         finally:self.launch_credential=None
 
     def send(self, value):
-        from .common import canonical
+        from actio.contracts.json import canonical
         data = (canonical(value)+'\n').encode()
         if len(data) > self.limits['item']:
             raise ContractError('command limit')

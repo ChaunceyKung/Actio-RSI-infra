@@ -3,13 +3,8 @@ import json
 from pathlib import Path
 import sys
 
-from .common import ContractError
-from .facts import Facts
-from .memory import Memory,namespace
-from .runtime import RuntimePort,synthetic_spec
-from .scenarios import assistant,social,scheduling,UNSET
-from .store import Store
-from .database import migrate_copy
+from actio.contracts.json import ContractError
+from actio.contracts.scenarios import UNSET
 
 
 def main(argv=None):
@@ -35,11 +30,14 @@ def main(argv=None):
     args=p.parse_args(argv)
     store=None
     try:
+        if args.command in ('capabilities','require'):
+            from .runtime import RuntimePort
         if args.command=='capabilities':
             result=RuntimePort.capabilities
         elif args.command=='require':
             RuntimePort.require(args.capability); result={'supported':True}
         elif args.command=='migrate':
+            from .database import migrate_copy
             result=migrate_copy(args.db,args.output)
         elif args.command=='export':
             from .evidence import export_bundle
@@ -50,6 +48,11 @@ def main(argv=None):
             print(json.dumps(result,ensure_ascii=False,indent=2))
             return 2 if result['bundle_integrity']!='valid' or result['facts_consistency']=='invalid' else 0
         else:
+            from .store import Store
+            if args.command in ('assistant','social','schedule'):
+                from .scenarios import assistant,social,scheduling
+            if args.command=='agent' and args.create:
+                from .runtime import synthetic_spec
             readonly=args.command in ('query','task-card') or args.command=='agent' and not args.create
             store=Store(args.db,create=args.command=='init',readonly=readonly)
             match args.command:
@@ -58,7 +61,7 @@ def main(argv=None):
                 case 'assistant': result=assistant(store,args.key,args.agent,args.short_root)
                 case 'social': result=social(store,args.key,args.a,args.b,args.short_root,as_of=args.memory_revision,replay=args.replay,illegal=args.illegal)
                 case 'task-card':
-                    from .task_contract import task_card
+                    from actio.tasks.scheduling import task_card
                     from .evaluation import publish
                     task=task_card(args.variant,{s:{'agent':a,'spec_hash':store.agent(a)['spec_hash']} for s,a in [('A',args.a),('B',args.b)]})
                     result={'task':str(publish(args.output,task)),'task_hash':task['sha256']}
@@ -75,10 +78,13 @@ def main(argv=None):
                             'terminal':store.row('SELECT * FROM scenario_terminal WHERE run=?',(run['id'],)) if store.version else None,
                             'current_verification':'legacy_unverified' if not store.version else 'use offline verify; historical state is not a current certificate'}
                 case 'reconcile':
+                    from .facts import Facts
                     target=store.run(args.run)
                     recovery=store.recover(target['id']) if args.recover_owner else []
                     result={'recovery':recovery,'facts':Facts(store).reconcile(target['id']),'run':store.run(target['id'])}
-                case 'memory': result=Memory(store).retrieve(namespace(args.agent,args.environment),args.agent,target=args.target,as_of=args.revision)
+                case 'memory':
+                    from .memory import Memory,namespace
+                    result=Memory(store).retrieve(namespace(args.agent,args.environment),args.agent,target=args.target,as_of=args.revision)
         print(json.dumps(result,ensure_ascii=False,indent=2))
         return 0
     except (ContractError,TimeoutError) as e:

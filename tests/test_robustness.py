@@ -6,17 +6,17 @@ from pathlib import Path
 import unittest
 import uuid
 from actio import robustness_campaign as c
-from actio import robustness_tasks as tasks
+from actio.tasks import robustness as tasks
 from actio.robustness import verify,reserve_live
 from actio.robustness_measurement import metric_cells,metric_definitions,coverage
 from actio.common import ContractError,digest,file_hash
 from actio.eval_contract import seal
-from actio.task_contract import validate_task,task_result
-from actio.task_diagnostic_data import task,visible
-from actio.task_diagnostic_policy import control
-from actio.task_diagnostic_analysis import oracle_row,hand_examples
-from actio.suite_tasks import get as old_get,options
-from actio.suite_oracle import evaluate
+from actio.tasks.scheduling import validate_task,task_result
+from actio.tasks.diagnostic import task,visible
+from actio.tasks.controls import control
+from actio.measurement.diagnostic import oracle_row,hand_examples
+from actio.tasks.finite import get as old_get,options
+from actio.measurement.oracle import evaluate
 from actio.store import Store
 from actio.database import snapshot_evaluation_copy
 from actio import evaluation_store as lineage

@@ -9,9 +9,9 @@ from actio.eval_contract import seal
 from actio.pilot import run_unit,execute
 from actio.candidate import verify
 from actio.candidate_measurement import source
-from actio.candidate_tasks import payload
-from actio.suite_tasks import observation,get
-from actio.suite_oracle import fixture_policy
+from actio.tasks.candidate import payload
+from actio.tasks.finite import observation,get
+from actio.measurement.oracle import fixture_policy
 from actio.gateway import scan
 from gateway_stub import GatewayStub
 

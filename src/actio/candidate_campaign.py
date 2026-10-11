@@ -1,16 +1,16 @@
 """Frozen, local-only single-seat intervention using the existing pilot controller."""
 import random
 from pathlib import Path
-from .common import digest, canonical
-from .eval_contract import seal, unseal
-from .transport_contract import require
+from actio.contracts.json import digest, canonical
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .preflight import loopback_endpoint
 from .gateway_contract import template, AUTH
 from .pilot_contract import implementation
 from .suite_contract import PERSONA, TIMEOUTS, DEADLINES
-from .suite_tasks import cards, get
-from .suite_oracle import VERSION as ORACLE, evaluate, fixture_policy
-from .candidate_contract import baseline, candidate, POLICY, POLICY_HASH
+from actio.tasks.finite import cards, get
+from actio.measurement.oracle import VERSION as ORACLE, evaluate, fixture_policy
+from actio.domain.candidate import baseline, candidate, POLICY, POLICY_HASH
 from .channel_audit import VERSION as AUDIT
 
 CONFIG='pilot-config.v8'

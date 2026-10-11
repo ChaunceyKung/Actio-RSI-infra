@@ -13,7 +13,7 @@ from actio.common import ContractError,canonical,digest,file_hash,clean_env,Line
 from actio.runtime import RuntimePort,synthetic_spec
 from actio.store import Store
 from actio.scenarios import scheduling
-from actio.task_contract import task_card,actor_observation
+from actio.tasks.scheduling import task_card,actor_observation
 from actio.evidence import export_bundle
 from actio.verify import verify_bundle,sha
 from actio.terminal import terminal_body

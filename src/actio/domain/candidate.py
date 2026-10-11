@@ -1,6 +1,6 @@
 """One manually authored, finite data-only scaffold seat. No proposer runtime."""
-from .common import canonical, digest, ContractError
-from .transport_contract import require
+from actio.contracts.json import canonical, digest, ContractError
+from actio.contracts.json import require
 
 ARTIFACT = 'scaffold-artifact.v1'
 PROPOSAL = 'candidate-proposal.v1'

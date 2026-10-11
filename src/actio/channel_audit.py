@@ -4,7 +4,7 @@ v2 admits at most one block of each type, at arbitrary distinct nonnegative
 indices. Lifetimes may overlap. Reasoning is compared but never returned.
 """
 import base64
-from .common import ContractError, digest
+from actio.contracts.json import ContractError, digest
 from .stream_audit import strict_json
 
 VERSION = 'single-choice-dual-channel-audit.v2'

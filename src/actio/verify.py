@@ -1,3 +1,4 @@
+from actio.contracts.json import parse
 """Offline bundle verifier. Standard library only; never imports a runtime or opens source paths."""
 import argparse
 import hashlib
@@ -5,15 +6,14 @@ import json
 import itertools
 from pathlib import Path
 
-from .common import ContractError, digest
-from .terminal import terminal_body, require, validate_inputs, INPUT_CONTRACT
+from actio.contracts.json import ContractError, digest
+from .terminal import terminal_body, validate_inputs, INPUT_CONTRACT
+from actio.contracts.json import require
 
 FORMAT = 'actio-evidence'
 VERSION = 1
-VERIFIER = {'implementation':'actio-verifier.3', 'contract':INPUT_CONTRACT,
-            'task_contract':'scheduling-input.v1',
-            'transport_contract':'scheduling-transport.v1',
-            'stored_report_policy':'hash-checked historical report; current result independently recomputed'}
+from actio.contracts.versions import VERIFIER
+
 MAX_BYTES = 32 * 1024 * 1024
 MAX_ROWS = 20000
 NATIVE_TYPES = {'agent/inbox/spliced','turn/start','turn/end','assistant/message','step/start','step/end',
@@ -29,14 +29,6 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
-def parse(raw):
-    def pairs(values):
-        result={}
-        for key,value in values:
-            if key in result:raise ContractError('duplicate JSON key: '+key)
-            result[key]=value
-        return result
-    return json.loads(raw,object_pairs_hook=pairs,parse_constant=lambda v:(_ for _ in ()).throw(ContractError('nonfinite JSON')))
 
 
 def unique(rows, fields):
@@ -87,7 +79,7 @@ def analyze(data, source):
         elif source['schema']==2 and data.get('terminal'):
             missing.append('request_identity')
         if manifest.get('input_contract') in ('scheduling-input.v1','scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1'):
-            from .task_contract import validate_manifest
+            from actio.task_evidence import validate_manifest
             validate_manifest(manifest)
         elif manifest['scenario']=='assistant':
             require(manifest['request']=={'scenario':'assistant','agent':next(iter(agents))},'assistant request/effective mismatch')
@@ -162,7 +154,7 @@ def analyze(data, source):
             require(len(intent)==1 and digest(intent[0])==op['input_hash'],'operation intent missing/hash mismatch')
             expected_memory=manifest['memory'][s['agent']]
             if manifest.get('input_contract') in ('scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1'):
-                from .task_v2 import visible_memory
+                from actio.tasks.scheduling_v2 import visible_memory
                 expected_memory=visible_memory(expected_memory)
             require(intent[0]['memory']==expected_memory,'dispatch memory differs from frozen snapshot')
             if not op['barrier'] or not op['receipt'] or op['terminal']!='completed':

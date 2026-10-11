@@ -5,7 +5,8 @@ from pathlib import Path
 import sys
 import time
 
-from .common import ContractError,Lines,canonical,digest,file_hash,uid,write_json
+from actio.contracts.json import ContractError, canonical, digest
+from actio.adapters.filesystem.common import Lines, file_hash, uid, write_json
 from .facts import Facts,wire
 from .mcp_server import DESCRIPTION,SCHEMA
 from .supervisor import Supervisor,owned_root

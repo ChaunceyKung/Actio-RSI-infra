@@ -2,7 +2,7 @@
 import base64
 import copy
 import hashlib
-from .common import canonical, digest
+from actio.contracts.json import canonical, digest
 from .failure_observation import INPUT, bind
 
 CASES=[

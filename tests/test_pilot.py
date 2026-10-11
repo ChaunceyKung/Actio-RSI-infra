@@ -10,7 +10,7 @@ from actio.common import ContractError,canonical,digest,clean_env
 from actio.eval_contract import seal
 from actio.pilot_contract import preregistration,validate_preregistration,config,validate
 from actio.pilot_measurement import predicates,verify
-from actio.task_v2 import cards,card,observation,payload
+from actio.tasks.scheduling_v2 import cards,card,observation,payload
 from actio.stream_audit import audit,verdict
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -82,7 +82,7 @@ class PilotPure(unittest.TestCase):
     def test_03_independent_finite_oracle(self):
         n=0
         # Independently enumerate predicates over raw singleton sets and protocol symbols.
-        with patch('actio.task_contract.task_result',side_effect=AssertionError('GM oracle forbidden')):
+        with patch('actio.tasks.scheduling.task_result',side_effect=AssertionError('GM oracle forbidden')):
             for c in cards():
                 t=card(c['id'],BINDINGS,'tokenkey_pilot_rehearsal')['body']
                 for a in ('propose:morning','propose:afternoon','INVALID',None):

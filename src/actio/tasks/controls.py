@@ -1,6 +1,6 @@
 """Visible-only controls. This module never imports oracle/world evaluators."""
-from .task_contract import require
-from .task_diagnostic_data import validate_view
+from actio.tasks.scheduling import require
+from actio.tasks.diagnostic import validate_view
 
 VERSION = 'task-diagnostic-policies.v1'
 CONTROLS = ['first_option', 'visible_high_score', 'always_accept', 'always_reject', 'conditional_argmax_first']

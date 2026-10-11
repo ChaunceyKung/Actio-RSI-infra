@@ -7,8 +7,8 @@ from actio import evaluation_campaign as c
 from actio.common import write_json
 from actio.pilot import execute,run_unit
 from actio.candidate_evaluation import prepare_store,finalize,verify
-from actio.suite_tasks import get
-from actio.suite_oracle import fixture_policy
+from actio.tasks.finite import get
+from actio.measurement.oracle import fixture_policy
 from actio.eval_contract import seal
 from gateway_stub import GatewayStub
 from test_evaluation_candidate import SOURCE,empty

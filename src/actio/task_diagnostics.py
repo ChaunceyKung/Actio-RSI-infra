@@ -8,21 +8,17 @@ import json
 from pathlib import Path
 import sys
 
-from .common import canonical, digest, ContractError
-from .eval_contract import seal, unseal
-from .task_contract import require
-from .verify import parse
-from .suite_tasks import cards
-from .task_diagnostic_data import dataset, validate_dataset, CTA
-from .task_diagnostic_policy import VERSION as POLICY, CONTROLS
-from .task_diagnostic_analysis import metric_definitions, synthetic_analysis, retrospective
+from actio.contracts.json import canonical, digest, ContractError
+from actio.contracts.json import seal, unseal
+from actio.tasks.scheduling import require
+from actio.contracts.json import parse
+from actio.tasks.finite import cards
+from actio.tasks.diagnostic import dataset, validate_dataset, CTA
+from actio.tasks.controls import VERSION as POLICY, CONTROLS
+from actio.measurement.diagnostic import metric_definitions, synthetic_analysis, retrospective
 
 SCHEMA = 'task-diagnostic-package.v1'
 READER = '3bef7e15b0eb21beeb10888eb508056592b977b0'
-SOURCE_FILES = ['__init__.py', 'common.py', 'terminal.py', 'verify.py', 'eval_contract.py',
-                'task_contract.py', 'task_v2.py', 'suite_tasks.py', 'suite_oracle.py',
-                'task_diagnostic_data.py', 'task_diagnostic_policy.py', 'task_diagnostic_analysis.py', 'task_diagnostics.py',
-                'task_diagnostic_trust.json']
 PACKAGE_FILES = ['plan.json', 'dataset.json', 'policies.json', 'metrics.json', 'historical-actions.json',
                  'source-assurance.json', 'retrospective.json', 'synthetic-report.json', 'overlap.json']
 ZERO = {'new_model_requests': 0, 'new_provider_requests': 0, 'new_catalog_get': 0,
@@ -42,7 +38,7 @@ def trust():
 
 def source_pins():
     root = Path(__file__).parent
-    return {n: hashlib.sha256((root / n).read_bytes().replace(b'\r\n', b'\n')).hexdigest() for n in SOURCE_FILES}
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes().replace(b'\r\n', b'\n')).hexdigest() for p in sorted(root.rglob('*')) if p.is_file() and (p.suffix in ('.py','.mjs','.sql','.json','.txt') or p.name=='SOTOPIA_LICENSE')}
 
 
 def policies():

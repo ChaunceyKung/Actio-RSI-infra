@@ -2,11 +2,11 @@
 import argparse
 import json
 from pathlib import Path
-from .common import canonical, digest, ContractError
-from .eval_contract import seal, unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest, ContractError
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from . import candidate_campaign as contract
-from .candidate_contract import decide, POLICY_HASH
+from actio.domain.candidate import decide, POLICY_HASH
 from .candidate_store import verify as verify_lineage
 from .candidate_measurement import analyze_pilot
 

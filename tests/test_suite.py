@@ -9,8 +9,8 @@ from unittest.mock import patch
 from actio.common import canonical, ContractError, file_hash
 from actio.eval_contract import seal
 from actio import suite_contract as contract
-from actio.suite_tasks import cards,card,options,result,observation,payload
-from actio.suite_oracle import evaluate,fixture_policy
+from actio.tasks.finite import cards,card,options,result,observation,payload
+from actio.measurement.oracle import evaluate,fixture_policy
 from actio.suite_measurement import metrics,aggregate,verify,correct_c2b2
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -41,7 +41,7 @@ class SuitePure(unittest.TestCase):
         for c in cards():
             t=card(c['id'],BINDINGS,contract.REHEARSAL)['body'];valid=[]
             for a,b in itertools.product(options(c,'A')+['INVALID',options(c,'A')[0]+' trailing',None],options(c,'B')+['INVALID',None]):
-                with patch('actio.suite_tasks.result',side_effect=AssertionError('production oracle forbidden')):
+                with patch('actio.tasks.finite.result',side_effect=AssertionError('production oracle forbidden')):
                     m=evaluate(c,{'A':a,'B':b})
                 acts=[] if a is None else [a] if b is None else [a,b]
                 prod=result(t,acts)

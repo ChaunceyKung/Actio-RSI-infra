@@ -3,10 +3,12 @@ import json
 from pathlib import Path
 import sys
 
-from .common import canonical,digest,write_json,ContractError
+from actio.contracts.json import canonical, digest, ContractError
+from actio.adapters.filesystem.common import write_json
 from .runtime import RuntimePort,PACKAGE,pins,synthetic_spec,CONCORDIA
-from .transport_contract import (validate_config,validate_manifest,INPUT,PROFILE,PROTOCOL,PROVIDER,MODEL,SOURCE,payload)
-from .budget import Ledger,priced,gateway,pilot,suite,metered,profile_for,validate_budget_config,endpoint_for
+from .transport_contract import validate_config, validate_manifest, INPUT, PROFILE, PROTOCOL, PROVIDER, MODEL, SOURCE, payload
+from actio.adapters.persistence.ledger import Ledger
+from .budget import priced, gateway, pilot, suite, metered, profile_for, validate_budget_config, endpoint_for
 
 
 def transport_pins(config=None):
@@ -25,10 +27,10 @@ def transport_spec(name,config=None):
     if gateway(config):
         from .gateway_contract import PERSONA,INPUT as gateway_input
         if pilot(config):
-            from .task_v2 import INPUT as gateway_input
+            from actio.tasks.scheduling_v2 import INPUT as gateway_input
         if suite(config):
             from .suite_contract import PERSONA
-            from .suite_tasks import INPUT as gateway_input
+            from actio.tasks.finite import INPUT as gateway_input
         if config.get('schema')=='pilot-config.v8':
             from .candidate_campaign import INPUT as gateway_input
         if config.get('schema')=='pilot-config.v10':
@@ -84,7 +86,7 @@ class TransportPort(RuntimePort):
         c=json.loads((self.root/'host-config.json').read_bytes())
         c['sdk'].update(provider=PROVIDER,model=MODEL,max_tokens=64,reasoning_effort='off',env={'ACTIO_STUB_KEY':'actio-loopback-fake-key'})
         if priced(self.config):
-            from .common import clean_env
+            from actio.adapters.filesystem.common import clean_env
             t=self.config['timeouts'];ref=self.config['credential_ref']
             gate=next(x for item in patch for x in item.get('insert',[]) if x['id']=='actio-transport')
             gate['config'].update(credential_env=ref,helper_env=clean_env(self.root),first_ms=t['first_response']*1000,total_ms=t['request']*1000)
@@ -98,7 +100,7 @@ class TransportPort(RuntimePort):
         write_json(self.root/'host-config.json',c)
 
     def prepare_gateway(self):
-        from .common import clean_env
+        from actio.adapters.filesystem.common import clean_env
         from .gateway_contract import ROUTE,PACKAGE as adapter
         cfg=self.config;t=cfg['timeouts'];ref=cfg['credential_env']
         patch=json.loads((self.root/'profile.patch.yml').read_bytes());insert=next(x for x in patch if 'insert' in x)
@@ -183,7 +185,7 @@ class TransportPort(RuntimePort):
 def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_type=TransportPort,credential=None):
     from .scenarios import snapshot,run_engine,failed
     from .terminal import seal_terminal
-    from .task_contract import validate_task
+    from actio.tasks.scheduling import validate_task
     validate_budget_config(config);t=validate_task(task);mode=config['mode'] if gateway(config) else 'priced_rehearsal' if priced(config) else 'transport_stub'
     if t['mode']!=mode:raise ContractError('explicit transport task required')
     for seat in t['seats'].values():
@@ -203,7 +205,7 @@ def scheduling_transport(store,key,short_root,*,task,config,ledger_path,runtime_
                'observation_policy':'scheduling-own-plus-public.v3' if pilot(config) else 'scheduling-own-plus-public.v2','gm_private':'SCHEDULING_GM_PRIVATE_AUDIT_ONLY',
                'request':request,'replay_of':None,'transport':{'config':config,'config_hash':digest(config),'campaign':campaign,'profile':profile_for(config)}}
             if config.get('schema') in ('pilot-config.v8','pilot-config.v9','pilot-config.v10'):
-                from .candidate_tasks import binding
+                from actio.tasks.candidate import binding
                 m['transport']['scaffold_binding']=binding(m)
             validate_manifest(m);return m
         run,fresh=store.begin(key,freeze,request=request)

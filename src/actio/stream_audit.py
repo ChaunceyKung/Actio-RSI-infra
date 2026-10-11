@@ -2,8 +2,8 @@
 import base64
 import json
 from decimal import Decimal
-from .common import ContractError,digest
-from .transport_contract import require
+from actio.contracts.json import ContractError, digest
+from actio.contracts.json import require
 
 VERSION='single-choice-text-audit.v1'
 

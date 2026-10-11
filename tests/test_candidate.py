@@ -10,7 +10,7 @@ import unittest
 from actio.common import digest, ContractError, clean_env, file_hash
 from actio.eval_contract import seal
 from actio import candidate_campaign as campaign
-from actio.candidate_contract import baseline, candidate, rejected_fixtures, validate_proposal, decide, POLICY_HASH
+from actio.domain.candidate import baseline, candidate, rejected_fixtures, validate_proposal, decide, POLICY_HASH
 from actio.candidate import binding_plan, verify
 from actio.candidate_store import verify as verify_lineage
 from actio.candidate_measurement import classify
@@ -148,7 +148,7 @@ class CandidatePure(unittest.TestCase):
             self.evidence={'injected_rollback_points':failures,'reopen_equal':True,'corruption_rejected':True,'cycle_rejected':True,'migration':{k:v for k,v in migration.items() if k not in ('source','destination')},'lineage':verify_lineage(saved)}
 
     def test_portable_guarded_cli(self):
-        code=GUARD+"\nfrom actio.candidate_campaign import plan\nfrom actio.candidate import verify\nfrom actio.candidate_contract import baseline\nprint(json.dumps({'units':len(plan()['preregistration']['body']['units']),'invalid':verify({'body':{},'sha256':'bad'})['valid']}))"
+        code=GUARD+"\nfrom actio.candidate_campaign import plan\nfrom actio.candidate import verify\nfrom actio.domain.candidate import baseline\nprint(json.dumps({'units':len(plan()['preregistration']['body']['units']),'invalid':verify({'body':{},'sha256':'bad'})['valid']}))"
         p=subprocess.run([sys.executable,'-I','-B','-c',code],capture_output=True,text=True,timeout=45,env=clean_env(ROOT/'.local'))
         self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(json.loads(p.stdout),{'units':24,'invalid':False})
         self.evidence={'guard':'network/env/key/subprocess/runtime/writes denied','result':json.loads(p.stdout)}

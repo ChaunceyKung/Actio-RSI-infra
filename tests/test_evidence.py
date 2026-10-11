@@ -123,6 +123,9 @@ class Evidence(unittest.TestCase):
         import actio.verify
         installed=Path(actio.verify.__file__).parent
         for name in ('__init__.py','common.py','terminal.py','verify.py'):shutil.copyfile(installed/name,library/name)
+        shutil.copytree(installed/'contracts',library/'contracts',ignore=shutil.ignore_patterns('__pycache__'))
+        (library/'adapters').mkdir();shutil.copyfile(installed/'adapters/__init__.py',library/'adapters/__init__.py')
+        shutil.copytree(installed/'adapters/filesystem',library/'adapters/filesystem',ignore=shutil.ignore_patterns('__pycache__'))
         runner=portable/'check.py'
         runner.write_text('''import sys, pathlib, json
 base=pathlib.Path(__file__).parent.resolve()

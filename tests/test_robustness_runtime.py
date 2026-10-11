@@ -5,9 +5,9 @@ import uuid
 from unittest.mock import patch
 from actio import robustness_campaign as c
 from actio.robustness import verify
-from actio.robustness_tasks import get
-from actio.task_diagnostic_data import visible
-from actio.task_diagnostic_policy import control
+from actio.tasks.robustness import get
+from actio.tasks.diagnostic import visible
+from actio.tasks.controls import control
 from actio.pilot import execute,run_unit
 from actio.common import write_json
 from actio.eval_contract import seal

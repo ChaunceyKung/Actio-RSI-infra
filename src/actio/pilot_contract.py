@@ -1,12 +1,13 @@
 """C2B2 preregistration and immutable one-episode child contracts. Pure/offline."""
 import random
 from pathlib import Path
-from .common import canonical,digest,file_hash
-from .eval_contract import seal,unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest
+from actio.adapters.filesystem.common import file_hash
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .gateway_contract import template as previous,MODELS,ENDPOINT,AUTH,PERSONA
 from .preflight import loopback_endpoint
-from .task_v2 import cards,INPUT
+from actio.tasks.scheduling_v2 import cards, INPUT
 
 CONFIG='pilot-config.v6'
 PROFILE='sdk-minimal+actio-tokenkey.v2'

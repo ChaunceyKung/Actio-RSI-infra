@@ -1,9 +1,9 @@
 """v4 task binding; unchanged 12 card parameters and world result semantics."""
-from . import suite_tasks
-from .common import digest
-from .task_contract import sealed
-from .transport_contract import require
-from .candidate_contract import baseline, candidate, validate_artifact
+from actio.tasks import finite as suite_tasks
+from actio.contracts.json import digest
+from actio.tasks.scheduling import sealed
+from actio.contracts.json import require
+from actio.domain.candidate import baseline, candidate, validate_artifact
 
 
 def card(case,bindings,mode,artifact):

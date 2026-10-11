@@ -1,17 +1,17 @@
 """C2C4: one finite, versioned visible-rule development campaign."""
 import random
 from pathlib import Path
-from .common import canonical, digest
-from .eval_contract import seal, unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .gateway_contract import template, ENDPOINT, AUTH
 from .preflight import loopback_endpoint
 from .pilot_contract import implementation
 from .suite_contract import PERSONA, TIMEOUTS, DEADLINES
-from .suite_oracle import VERSION as ORACLE, evaluate
-from .candidate_contract import baseline, candidate, POLICY as STATIC_POLICY, POLICY_HASH as STATIC_HASH
+from actio.measurement.oracle import VERSION as ORACLE, evaluate
+from actio.domain.candidate import baseline, candidate, POLICY as STATIC_POLICY, POLICY_HASH as STATIC_HASH
 from .channel_audit import VERSION as AUDIT
-from .robustness_tasks import cards, get, INPUT, LIVE, REHEARSAL, DATASET_HASH
+from actio.tasks.robustness import cards, get, INPUT, LIVE, REHEARSAL, DATASET_HASH
 
 CONFIG='pilot-config.v10'
 PROFILE='sdk-minimal+actio-tokenkey.v6'
@@ -100,8 +100,8 @@ def analyze(value):
 
 
 def fixture_plans():
-    from .task_diagnostic_data import visible
-    from .task_diagnostic_policy import control
+    from actio.tasks.diagnostic import visible
+    from actio.tasks.controls import control
     out=[]
     for u in preregistration()['body']['units']:
         c=get(u['card']);a=control(visible(c,'A'),'conditional_argmax_first')

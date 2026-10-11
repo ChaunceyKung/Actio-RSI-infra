@@ -1,8 +1,8 @@
 """Evaluation facts owned by the same SQLite Store; legacy candidate facts persist."""
 import json
-from .common import canonical,digest
-from .eval_contract import seal,unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from . import candidate_store as legacy
 from . import evaluation_campaign as contract
 

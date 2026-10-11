@@ -3,23 +3,24 @@ import json
 from pathlib import Path
 import sys
 import uuid
-from .common import canonical,digest,file_hash
-from .eval_contract import seal,unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest
+from actio.adapters.filesystem.common import file_hash
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .failure_fixtures import CASES,fault_response
 from .failure_observation import from_entry
 from .transport_diagnostics import sources,SUITE
 
 MARKER='C5_SYNTHETIC_REASONING_DO_NOT_PROPAGATE'
-TOOLS=('tests/gateway_stub.py','tests/chat_stub.py','tests/test_failure_observation.py',
-       'scripts/phase1c2c5_validate.py','scripts/phase1c2c5_freeze.py','scripts/bootstrap.py')
+TOOLS=()  # Execution closure is installed product code, not checkout test helpers.
+
 
 
 def fixture(case):
     from . import robustness_campaign as c
-    from .robustness_tasks import get
-    from .task_diagnostic_data import visible
-    from .task_diagnostic_policy import control
+    from actio.tasks.robustness import get
+    from actio.tasks.diagnostic import visible
+    from actio.tasks.controls import control
     unit=next(u for u in c.preregistration()['body']['units'] if u['family']==case['family'] and u['arm']=='baseline')
     card=get(unit['card']);a=control(visible(card,'A'),'conditional_argmax_first')
     b=control(visible(card,'B',[a]),'conditional_argmax_first')
@@ -136,17 +137,16 @@ def run(root,project,freeze_path):
     from . import robustness_campaign as c
     from .runtime import verify_runtime
     from .preflight import loopback_endpoint
-    root=root.resolve();project=project.resolve();require(not root.exists(),'new C5 root required')
+    root=root.resolve();project=project.resolve() if project is not None else None;require(not root.exists(),'new C5 root required')
     frozen=json.loads(freeze_path.read_bytes());require(frozen['sources']==sources(),'frozen product differs')
     require(frozen['cases']==CASES and frozen['fixtures']==[fixture(c) for c in CASES],'frozen fixtures differ')
     require(frozen['tools']=={n:file_hash(project/n) for n in TOOLS},'frozen trusted tools differ')
-    require(all(file_hash(project/'src/actio'/n)==h for n,h in sources().items()),'installed/source mismatch')
+    if project is not None:
+        require(all(file_hash(project/'src/actio'/n)==h for n,h in sources().items()),'installed/source mismatch')
     verify_runtime()
-    sys.path.insert(0,str(project/'tests'))
-    import gateway_stub
-    original=gateway_stub.planned
-    def planned(p,i):return fault_response(p['fault']) if p.get('fault') else original(p,i)
-    gateway_stub.planned=planned
+    from .adapters.transport.fixture import GatewayStub, planned as success_response
+    def response_policy(plan,index):
+        return fault_response(plan['fault']) if plan.get('fault') else success_response(plan,index)
     root.mkdir(parents=True);secret='ACTIO_FAKE_'+uuid.uuid4().hex;workers=[];endpoints=[];rows=[];entries=[];cleanup_result=None
     create(root/'intent.json',{'schema':SUITE,'freeze_sha256':file_hash(freeze_path),'sources':sources(),'cases':CASES,
         'slots':[{'case':c['id'],'seat':s,'state':'planned'} for c in CASES for s in ('A','B')],
@@ -155,7 +155,7 @@ def run(root,project,freeze_path):
         for case in CASES:
             case_root=root/case['id'];case_root.mkdir();f=fixture(case);entry=None;result=None
             try:
-                with gateway_stub.GatewayStub(case_root,f['plans'],secret) as service:
+                with GatewayStub(case_root,f['plans'],secret,response_policy=response_policy) as service:
                     endpoints.append(service.endpoint);require(loopback_endpoint(service.endpoint[:-3]),'literal loopback only')
                     cfg=c.config(f['unit']['id'],mode=c.REHEARSAL,endpoint=service.endpoint,
                         authority={'id':uuid.uuid4().hex,'root':str(case_root/'local-namespace')})
@@ -172,7 +172,7 @@ def run(root,project,freeze_path):
             except Exception as e:
                 if result is None and (case_root/'episode/domain.sqlite').exists():
                     from .store import Store
-                    from .budget import Ledger
+                    from actio.adapters.persistence.ledger import Ledger
                     s=Store(case_root/'episode/domain.sqlite',readonly=True)
                     try:discovered=s.rows('SELECT * FROM worker')
                     finally:s.close()
@@ -188,7 +188,6 @@ def run(root,project,freeze_path):
             rows.append(row);create(case_root/'observation.json',row)
             print(canonical({'case':case['id'],'status':row['status'],'observed':row.get('observed')}),file=sys.stderr,flush=True)
     finally:
-        gateway_stub.planned=original
         create(root/'suite-stop.json',{'entries':len(entries),'workers':workers,'endpoints':endpoints,'rows':rows,
             'unstarted_cases':[c['id'] for c in CASES if c['id'] not in {r['case'] for r in rows}],
             'export_started':False,'scan_started':False})

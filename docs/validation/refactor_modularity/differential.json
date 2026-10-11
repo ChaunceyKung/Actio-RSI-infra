@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "baseline": "c5aeec2e4f99b99da4fda5cb6cc59476ce0be890",
+  "count": 555,
+  "sha256": "4adbd55c971166d229938fbf65f206a4ab577c0b0a10b0a9053bf4161601d053",
+  "comparison": "exact complete vector JSON equality; no ignored fields",
+  "identity_scope": "runtime source identity intentionally not in these pure vectors",
+  "archive_sha256": "8b5f1264ecd273cec28060d0638089083a3b61290d5e06ee50f2178dc30a375b"
+}

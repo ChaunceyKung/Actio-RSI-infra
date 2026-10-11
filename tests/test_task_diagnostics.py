@@ -8,11 +8,11 @@ from unittest.mock import patch
 
 from actio.common import canonical, digest, ContractError
 from actio.eval_contract import seal
-from actio.suite_tasks import get, card, validate, cards, options
-from actio.suite_oracle import fixture_policy
-from actio.task_diagnostic_data import dataset, visible, validate_dataset
-from actio.task_diagnostic_policy import a_reference, b_reference, diagnose_a, control, aggregate, cell
-from actio.task_diagnostic_analysis import synthetic_analysis, metric_cells, legacy_control
+from actio.tasks.finite import get, card, validate, cards, options
+from actio.measurement.oracle import fixture_policy
+from actio.tasks.diagnostic import dataset, visible, validate_dataset
+from actio.tasks.controls import a_reference, b_reference, diagnose_a, control, aggregate, cell
+from actio.measurement.diagnostic import synthetic_analysis, metric_cells, legacy_control
 from actio import task_diagnostics as cli
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,8 +45,8 @@ class TaskDiagnostics(unittest.TestCase):
         for c in dataset()['body']['cards']:
             for seat, acts in [('A', []), ('B', [options(c, 'A')[0]])]:
                 view = visible(c, seat, acts)
-                with (patch('actio.suite_oracle.evaluate', side_effect=AssertionError('oracle unavailable')),
-                      patch('actio.suite_tasks.result', side_effect=AssertionError('production unavailable'))):
+                with (patch('actio.measurement.oracle.evaluate', side_effect=AssertionError('oracle unavailable')),
+                      patch('actio.tasks.finite.result', side_effect=AssertionError('production unavailable'))):
                     self.assertIsNotNone(control(view, 'conditional_argmax_first'))
                 for key in ('opponent_private', 'oracle', 'group', 'arm', 'candidate', 'card_hash'):
                     bad = copy.deepcopy(view); bad[key] = 'hidden'
@@ -72,13 +72,13 @@ class TaskDiagnostics(unittest.TestCase):
         self.evidence = {'counts': r['counts'], 'gates': r['gates']}
 
     def test_independent_paths_and_explicit_denominators(self):
-        from actio.suite_oracle import evaluate
-        from actio.suite_tasks import result
-        from actio.task_diagnostic_data import task
+        from actio.measurement.oracle import evaluate
+        from actio.tasks.finite import result
+        from actio.tasks.diagnostic import task
         c = dataset()['body']['cards'][0]
-        with patch('actio.suite_tasks.result', side_effect=AssertionError('forbidden')):
+        with patch('actio.tasks.finite.result', side_effect=AssertionError('forbidden')):
             self.assertFalse(evaluate(c, {'A': 'propose:morning', 'B': 'accept'})['a_own'])
-        with patch('actio.suite_oracle.evaluate', side_effect=AssertionError('forbidden')):
+        with patch('actio.measurement.oracle.evaluate', side_effect=AssertionError('forbidden')):
             self.assertFalse(result(task(c), ['propose:morning', 'accept'])['hard']['A'])
         rows = [metric_cells(c, acts) for acts in ({}, {'A': 'INVALID'}, {'A': 'propose:afternoon'},
                 {'A': 'propose:afternoon', 'B': 'INVALID'}, {'A': 'propose:afternoon', 'B': 'decline'})]

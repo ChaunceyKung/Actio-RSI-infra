@@ -5,10 +5,10 @@ import hashlib
 import json
 from pathlib import Path
 from decimal import Decimal
-from .common import canonical, digest, ContractError
-from .eval_contract import seal, unseal
+from actio.contracts.json import canonical, digest, ContractError
+from actio.contracts.json import seal, unseal
 from .stream_audit import strict_json
-from .transport_contract import require
+from actio.contracts.json import require
 from . import channel_audit
 
 VERSION='transport-failure-observation.v1'

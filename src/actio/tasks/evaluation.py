@@ -1,9 +1,10 @@
 """v5 task admission; unchanged candidate artifacts and finite-world semantics."""
-from . import candidate_tasks, suite_tasks
-from .task_contract import sealed
-from .transport_contract import require
-from .candidate_contract import baseline, candidate
-from .candidate_tasks import payload, binding
+from actio.tasks import candidate as candidate_tasks
+from actio.tasks import finite as suite_tasks
+from actio.tasks.scheduling import sealed
+from actio.contracts.json import require
+from actio.domain.candidate import baseline, candidate
+from actio.tasks.candidate import payload, binding
 
 
 def card(case,bindings,mode,artifact):

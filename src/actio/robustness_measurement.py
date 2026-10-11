@@ -1,17 +1,17 @@
 """Independent C2C4 metrics and three separately assigned comparison sets."""
 import copy
 import json
-from .common import digest
-from .transport_contract import require
-from .suite_oracle import evaluate
-from .suite_tasks import observation
-from .candidate_tasks import payload
+from actio.contracts.json import digest
+from actio.contracts.json import require
+from actio.measurement.oracle import evaluate
+from actio.tasks.finite import observation
+from actio.tasks.candidate import payload
 from .candidate_measurement import source
-from .task_diagnostic_data import visible
-from .task_diagnostic_policy import cell, aggregate, diagnose_a
-from .task_diagnostic_analysis import metric_definitions as previous_definitions
+from actio.tasks.diagnostic import visible
+from actio.tasks.controls import cell, aggregate, diagnose_a
+from actio.measurement.diagnostic import metric_definitions as previous_definitions
 from .evaluation_measurement import metric_cells as previous_cells, normalized_request
-from .robustness_tasks import get
+from actio.tasks.robustness import get
 
 
 def metric_definitions():

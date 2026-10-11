@@ -3,9 +3,10 @@ import argparse
 import json
 from pathlib import Path
 import sys
-from .common import canonical,digest,file_hash,write_json,ContractError,uid
+from actio.contracts.json import canonical, digest, ContractError
+from actio.adapters.filesystem.common import file_hash, write_json, uid
 from .gateway_contract import template,validate,plan,AUTH
-from .transport_contract import require
+from actio.contracts.json import require
 
 def scan(root,secret):
     count=0;token=secret.encode()
@@ -22,7 +23,7 @@ def scan(root,secret):
 def run_episode(root,cfg,ledger_path,secret,variant,runtime_type=None):
     from .store import Store
     from .transport import transport_spec,scheduling_transport
-    from .task_contract import task_card
+    from actio.tasks.scheduling import task_card
     from .evidence import export_bundle
     root=Path(root);root.mkdir(parents=True,exist_ok=True)
     s=Store(root/'ledger.sqlite',create=True)
@@ -37,7 +38,8 @@ def run_episode(root,cfg,ledger_path,secret,variant,runtime_type=None):
     finally:s.close()
 
 def execute(c,root,secret,*,operation_authorization,runtime_type=None,receives=None):
-    from .budget import Ledger,verify_snapshot
+    from actio.adapters.persistence.ledger import Ledger
+    from .budget import verify_snapshot
     from .transport_campaign import export_campaign
     validate(c);require(operation_authorization==AUTH,'independent explicit C2B1 operator instruction required')
     require(c['authority'] is not None,'execution authority not allocated')

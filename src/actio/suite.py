@@ -2,7 +2,7 @@
 import argparse
 import json
 from pathlib import Path
-from .common import canonical, ContractError
+from actio.contracts.json import canonical, ContractError
 from . import suite_contract as contract
 
 def main():

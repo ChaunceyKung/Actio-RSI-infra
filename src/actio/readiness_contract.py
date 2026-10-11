@@ -3,8 +3,10 @@ from copy import deepcopy
 from datetime import datetime,timezone
 import json
 from pathlib import Path
-from .common import canonical,digest,ContractError,file_hash
-from .transport_contract import require,SOURCE
+from actio.contracts.json import canonical, digest, ContractError
+from actio.adapters.filesystem.common import file_hash
+from .transport_contract import SOURCE
+from actio.contracts.json import require
 from .preflight import loopback_endpoint
 
 CONFIG='pilot-config.v4'
@@ -35,7 +37,7 @@ def reservation(c):
 
 
 def template():
-    from .task_contract import task_card
+    from actio.tasks.scheduling import task_card
     package=Path(__file__).parent
     return {'schema':CONFIG,'mode':'live_candidate','provider':'deepseek-official','model':MODEL,
             'endpoint':ORIGIN,'path':'/chat/completions','method':'POST','protocol':PROTOCOL,'profile':PROFILE,

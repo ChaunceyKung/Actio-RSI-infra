@@ -6,7 +6,8 @@ from pathlib import Path
 import sqlite3
 import time
 
-from .common import ContractError, canonical, digest, uid
+from actio.contracts.json import ContractError, canonical, digest
+from actio.adapters.filesystem.common import uid
 from . import database
 
 

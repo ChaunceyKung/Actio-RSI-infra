@@ -24,3 +24,5 @@ where = ["src"]
 [tool.setuptools.package-data]
 actio = ["*.sql", "*.json", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]
 "actio._vendor" = ["*.json", "SOTOPIA_LICENSE"]
+
+"actio.adapters.transport" = ["DSH_LICENSE.txt"]

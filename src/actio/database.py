@@ -4,7 +4,8 @@ import os
 from pathlib import Path
 import sqlite3
 
-from .common import ContractError, file_hash, uid, write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import file_hash, uid, write_json
 
 VERSION = 2
 
@@ -44,7 +45,7 @@ def inspect(db):
 def migrate_evaluation_copy(source, destination):
     """Copy v3 facts and attach a historical evaluation; original is read-only."""
     import json
-    from .common import canonical, digest
+    from actio.contracts.json import canonical, digest
     from .store import Store
     from . import evaluation_store as evaluation
     from .evaluation_campaign import LEGACY_READER, baseline, candidate
@@ -98,7 +99,7 @@ def migrate_evaluation_copy(source, destination):
 
 def snapshot_evaluation_copy(source, destination):
     """Consistent schema4 SQLite backup, preserving WAL-visible rows and old facts."""
-    from .common import digest
+    from actio.contracts.json import digest
     from .store import Store
     from .evaluation_history import lineage as historical
     source,destination=Path(source).resolve(),Path(destination).resolve()

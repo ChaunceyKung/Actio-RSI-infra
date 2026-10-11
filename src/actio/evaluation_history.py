@@ -1,9 +1,9 @@
 """Code-owned historical data registry. No artifact-selected executable reader."""
 import json
 from pathlib import Path
-from .common import digest
-from .eval_contract import unseal
-from .transport_contract import require
+from actio.contracts.json import digest
+from actio.contracts.json import unseal
+from actio.contracts.json import require
 
 READER='3bef7e15b0eb21beeb10888eb508056592b977b0'
 HASH='6f616a66f1d5486b48dc7a3a7e9247691fb9504ccdd773a1dc741af8d61f9ace'

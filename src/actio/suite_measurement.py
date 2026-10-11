@@ -1,13 +1,13 @@
 """Read-only C2C0 evaluation from full plan, native facts and trusted text."""
 import json
 from collections import Counter
-from .common import ContractError
-from .eval_contract import unseal
-from .transport_contract import require
+from actio.contracts.json import ContractError
+from actio.contracts.json import unseal
+from actio.contracts.json import require
 from .pilot_measurement import measure
 from .suite_contract import validate_preregistration, config, LIVE, REHEARSAL
-from .suite_tasks import get
-from .suite_oracle import evaluate, VERSION
+from actio.tasks.finite import get
+from actio.measurement.oracle import evaluate, VERSION
 
 def cell(value=None,reason='unobserved',applicable=True):
     return {'value':value,'state':'not_applicable' if not applicable else 'missing' if value is None else 'defined',

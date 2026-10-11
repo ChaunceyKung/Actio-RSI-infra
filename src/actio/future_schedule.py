@@ -1,9 +1,9 @@
 """A data-only ordering proposal; no claim, clock trigger or execution capability."""
 import random
 from collections import Counter
-from .common import digest
-from .eval_contract import seal
-from .transport_contract import require
+from actio.contracts.json import digest
+from actio.contracts.json import seal
+from actio.contracts.json import require
 from .robustness_campaign import preregistration
 
 VERSION='future-block-schedule.v1'

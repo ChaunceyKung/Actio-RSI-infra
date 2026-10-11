@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from .common import ContractError,canonical
+from actio.contracts.json import ContractError, canonical
 
 ROLES=('solver','gm','judge','retries','other')
 MODES=('disabled','deterministic_local','transport_stub','future_live')

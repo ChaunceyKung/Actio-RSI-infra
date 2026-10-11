@@ -1,15 +1,15 @@
 """Independent, read-only arm comparison and structured observation semantics."""
 import copy
 import json
-from .common import ContractError, digest
-from .eval_contract import unseal
-from .transport_contract import require
+from actio.contracts.json import ContractError, digest
+from actio.contracts.json import unseal
+from actio.contracts.json import require
 from .pilot_measurement import measure
 from .suite_measurement import metrics, aggregate, cell
-from .suite_tasks import get
-from .suite_oracle import evaluate
+from actio.tasks.finite import get
+from actio.measurement.oracle import evaluate
 from . import candidate_campaign as contract
-from .candidate_contract import decide
+from actio.domain.candidate import decide
 from .channel_audit import audit
 
 FAILURE_VERSION='failure-latency-observation.v2'

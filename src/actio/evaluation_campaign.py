@@ -1,16 +1,16 @@
 """C2C2 finite development evaluation. v8 remains a separate local contract."""
 import random
 from pathlib import Path
-from .common import canonical, digest
-from .eval_contract import seal, unseal
-from .transport_contract import require
+from actio.contracts.json import canonical, digest
+from actio.contracts.json import seal, unseal
+from actio.contracts.json import require
 from .gateway_contract import template, ENDPOINT, AUTH
 from .preflight import loopback_endpoint
 from .pilot_contract import implementation
 from .suite_contract import PERSONA, TIMEOUTS, DEADLINES
-from .suite_tasks import cards, get
-from .suite_oracle import VERSION as ORACLE, evaluate, fixture_policy
-from .candidate_contract import baseline, candidate, POLICY as STATIC_POLICY, POLICY_HASH as STATIC_HASH
+from actio.tasks.finite import cards, get
+from actio.measurement.oracle import VERSION as ORACLE, evaluate, fixture_policy
+from actio.domain.candidate import baseline, candidate, POLICY as STATIC_POLICY, POLICY_HASH as STATIC_HASH
 from .channel_audit import VERSION as AUDIT
 
 CONFIG='pilot-config.v9'

@@ -2,7 +2,7 @@
 import argparse
 import json
 from pathlib import Path
-from .common import ContractError
+from actio.contracts.json import ContractError
 from .preflight import parse_config
 from .readiness_contract import template,plan,execute
 

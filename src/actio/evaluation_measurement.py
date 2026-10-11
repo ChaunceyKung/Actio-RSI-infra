@@ -2,14 +2,14 @@
 import copy
 import json
 import uuid
-from .common import digest
-from .eval_contract import unseal
-from .transport_contract import require
+from actio.contracts.json import digest
+from actio.contracts.json import unseal
+from actio.contracts.json import require
 from .pilot_measurement import measure
 from .suite_measurement import cell, aggregate
-from .suite_tasks import get, observation
-from .suite_oracle import evaluate
-from .candidate_tasks import payload
+from actio.tasks.finite import get, observation
+from actio.measurement.oracle import evaluate
+from actio.tasks.candidate import payload
 from .candidate_measurement import source, facts
 from .channel_audit import audit
 from . import evaluation_campaign as contract

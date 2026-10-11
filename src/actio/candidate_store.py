@@ -1,9 +1,9 @@
 """Store-owned immutable candidate facts. JSON is a read-only projection."""
 import json
-from .common import canonical, digest
-from .transport_contract import require
-from .candidate_contract import validate_proposal, validate_decision, POLICY_HASH
-from .eval_contract import seal, unseal
+from actio.contracts.json import canonical, digest
+from actio.contracts.json import require
+from actio.domain.candidate import validate_proposal, validate_decision, POLICY_HASH
+from actio.contracts.json import seal, unseal
 
 TABLES=('candidate','candidate_event','lineage_edge','campaign_binding','decision')
 

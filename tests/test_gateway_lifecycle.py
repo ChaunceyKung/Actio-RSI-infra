@@ -10,7 +10,7 @@ from actio.gateway_contract import template
 from actio.budget import Ledger
 from actio.store import Store
 from actio.transport import transport_spec,TransportPort,PACKAGE
-from actio.task_contract import task_card
+from actio.tasks.scheduling import task_card
 from actio.evidence import export_bundle
 from actio.transport_campaign import export_campaign
 from gateway_stub import GatewayStub

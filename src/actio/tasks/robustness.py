@@ -1,12 +1,12 @@
 """Explicit v6 admission of the sealed C2C3 diagnostic development set."""
 import copy
 import re
-from .common import digest
-from .task_contract import sealed
-from .transport_contract import require
-from .task_diagnostic_data import dataset, task
-from .candidate_contract import baseline, candidate
-from .candidate_tasks import payload, binding
+from actio.contracts.json import digest
+from actio.tasks.scheduling import sealed
+from actio.contracts.json import require
+from actio.tasks.diagnostic import dataset, task
+from actio.domain.candidate import baseline, candidate
+from actio.tasks.candidate import payload, binding
 
 DATASET_HASH = '3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a'
 INPUT = 'visible-robustness-tokenkey.v1'

@@ -3,11 +3,11 @@ import argparse
 import json
 from pathlib import Path
 
-from .common import ContractError,canonical,digest
-from .eval_contract import seal,unseal
+from actio.contracts.json import ContractError, canonical, digest
+from actio.contracts.json import seal, unseal
 from .evaluation import read_json,verify_record
 from .campaign import GROUP_RULE,source_group
-from .terminal import require
+from actio.contracts.json import require
 
 
 def annotation_case(record):

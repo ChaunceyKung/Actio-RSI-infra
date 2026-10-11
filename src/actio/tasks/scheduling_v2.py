@@ -1,7 +1,7 @@
 """C2B2 finite scheduling cards and actor-visible whitelist."""
 import re
-from .common import canonical,digest
-from .task_contract import task_card as old_card,sealed,require
+from actio.contracts.json import canonical, digest
+from actio.tasks.scheduling import task_card as old_card, sealed, require
 
 INPUT='scheduling-tokenkey.v2'
 SCHEMA='actio-task.v2'

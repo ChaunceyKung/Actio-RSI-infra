@@ -8,11 +8,13 @@ import sys
 import tempfile
 import uuid
 
-from .common import ContractError,canonical,clean_env,digest
-from .terminal import require
-from .verify import verify_bundle,parse,sha,MAX_BYTES,VERIFIER
-from .eval_contract import (VERSION,LIMITS,seal,unseal,validate_spec,build_view,synthetic_input,
-                            synthetic_view,strict_response,deterministic,make_spec,bundle_aliases)
+from actio.contracts.json import ContractError, canonical, digest
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import require
+from .verify import verify_bundle, sha, MAX_BYTES, VERIFIER
+from actio.contracts.json import parse
+from .eval_contract import VERSION, LIMITS, validate_spec, build_view, synthetic_input, synthetic_view, strict_response, deterministic, make_spec, bundle_aliases
+from actio.contracts.json import seal, unseal
 
 
 def read_json(path,maximum=MAX_BYTES*2):

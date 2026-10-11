@@ -1,11 +1,14 @@
+from actio.contracts.json import seal, unseal
 """Fixed offline evaluation contracts. Standard library; no runtime or optional imports."""
 import json
 import re
 from pathlib import Path
 
-from .common import ContractError, canonical, digest, file_hash
-from .terminal import require
-from .verify import parse, VERIFIER
+from actio.contracts.json import ContractError, canonical, digest
+from actio.adapters.filesystem.common import file_hash
+from actio.contracts.json import require
+from actio.contracts.versions import VERIFIER
+from actio.contracts.json import parse
 
 VERSION='actio-eval.v2'
 LIMITS={'input_bytes':262144,'response_bytes':16384,'rationale_bytes':1024,'timeout_seconds':10,'live_budget':0}
@@ -25,28 +28,19 @@ RULES={
 }
 
 
-def seal(body):
-    # Detach mutable builders from shared contract constants before sealing.
-    return {'body':parse(canonical(body)),'sha256':digest(body)}
 
 
-def unseal(value):
-    require(type(value) is dict and set(value)=={'body','sha256'},'sealed object required')
-    require(digest(value['body'])==value['sha256'],'sealed content hash mismatch')
-    return value['body']
 
 
 def pins():
     root=Path(__file__).parent
-    names=['common.py','terminal.py','verify.py','eval_contract.py','evaluation.py','eval_worker.py',
-           'task_contract.py','campaign.py','calibration.py','preflight.py',
-           '_vendor/sotopia.py','_vendor/sotopia_provenance.json','_vendor/SOTOPIA_LICENSE']
+    names=[p.relative_to(root).as_posix() for p in sorted(root.rglob('*')) if p.is_file() and (p.suffix in ('.py','.mjs','.sql','.json','.txt') or p.name=='SOTOPIA_LICENSE')]
     return {'adapter':VERSION,'source':{n:file_hash(root/n) for n in names},
             'sotopia':'a0aaafb440e570e5e61b7c44a44e5e417c545383','dependencies':DEPENDENCIES}
 
 
 def make_spec(mode,dataset_hash,revision=1):
-    from .task_contract import RUBRIC
+    from actio.tasks.scheduling import RUBRIC
     require(mode in ('deterministic','controlled_response'),'unsupported evaluator mode')
     require(type(dataset_hash) is str and re.fullmatch('[0-9a-f]{64}',dataset_hash),'dataset SHA256 required')
     metrics={k:{**v,'version':1,'rubric_hash':digest(v['rule'])} for k,v in RULES.items()
@@ -163,7 +157,7 @@ def strict_response(raw,mapping):
 
 def deterministic(view):
     if view['scenario']=='scheduling-input.v1':
-        from .task_contract import task_result
+        from actio.tasks.scheduling import task_result
         task={'order':['A','B'],'action_specs':view['action_specs'],
               'seats':{v['seat']:{'private':view['constraints'][k]} for k,v in view['aliases'].items()}}
         return [{'metric':'scheduling.result.v1','value':task_result(task,[a['action'] for a in view['actions']]),
@@ -190,7 +184,8 @@ def deterministic(view):
 
 
 def task_view(data):
-    from .task_contract import validate_manifest,RUBRIC
+    from actio.tasks.scheduling import RUBRIC
+    from actio.task_evidence import validate_manifest
     m=parse(data['run']['input']);t=validate_manifest(m)
     mapping=aliases({s:{'agent':v['agent'],'role':v['role']} for s,v in t['seats'].items()})
     by_agent={v['agent']:k for k,v in mapping.items()};ops={o['id']:o for o in data['operations']}

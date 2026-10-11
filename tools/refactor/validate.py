@@ -11,7 +11,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 SUITES = {
-    'pure': ['preflight','transport_config','readiness_config','suite','pilot','task_diagnostics','failure_observation'],
+    'pure': ['modularity','preflight','transport_config','readiness_config','suite','pilot','task_diagnostics','failure_observation'],
     'state': ['contract','schema','candidate','evaluation_candidate','robustness','input_binding'],
     'runtime-local': ['runtime','failures','processes','reliability','entry_concurrency','evidence','evaluation','sotopia','task','transport','budget','readiness','gateway','gateway_lifecycle','pilot_runtime','suite_runtime','suite_evidence','candidate_runtime','evaluation_candidate_runtime','robustness_runtime'],
 }

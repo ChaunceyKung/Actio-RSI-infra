@@ -15,8 +15,8 @@ from actio.eval_contract import unseal,seal,make_spec
 from chat_stub import ChatStub
 
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'scripts'))
-from phase1c2a1_smoke import run
+sys.path.insert(0,str(ROOT/'tests'))
+from support.transport_case import run
 
 
 class Transport(unittest.TestCase):

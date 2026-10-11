@@ -94,9 +94,8 @@ def main():
             a=p.parse_args();project=a.project.resolve();root=a.root.resolve()
             from .pilot import frozen_publication,execute,create
             if a.rehearsal:
-                # Test-only server is explicit, project-owned, never selected by artifacts.
-                sys.path.insert(0,str(project/'tests'))
-                from gateway_stub import GatewayStub
+                # Installed local fixture, never selected by artifacts.
+                from .adapters.transport.fixture import GatewayStub
                 import uuid
                 pre=contract.preregistration();root.mkdir(parents=True,exist_ok=False)
                 eid=prepare_store(root,pre,a.source_database,'local_fixture')

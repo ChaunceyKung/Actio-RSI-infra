@@ -17,4 +17,3 @@ def main():
         print(canonical(result));return 0
     except Exception as e:print(json.dumps({'allowed':False,'reason':str(e)[:512]}));return 2
     finally:db.close()
-

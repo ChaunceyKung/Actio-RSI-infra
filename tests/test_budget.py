@@ -13,8 +13,8 @@ from actio.transport_campaign import export_campaign
 from chat_stub import ChatStub
 
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'scripts'))
-from phase1c2a1_smoke import run
+sys.path.insert(0,str(ROOT/'tests'))
+from support.transport_case import run
 
 
 class Budget(unittest.TestCase):
@@ -28,7 +28,7 @@ class Budget(unittest.TestCase):
             write_json(self.root/'config.json',cfg)
             code='''import sys,json,pathlib
 sys.path.insert(0,sys.argv[1])
-from phase1c2a1_smoke import run
+from support.transport_case import run
 from actio.common import write_json
 root=pathlib.Path(sys.argv[2]);cfg=json.loads((root.parent/'config.json').read_bytes())
 r=run(root,cfg['roles']['solver']['endpoint'],root.parent/'budget.sqlite',cfg)
@@ -39,7 +39,7 @@ write_json(root/'child-result.json',r)
                 folder=self.root/name;folder.mkdir()
                 isolated=clean_env(folder);isolated.update(DEEPSEEK_API_KEY='synthetic-wrong-key-never-use',
                     DEEPSEEK_BASE_URL='https://provider.invalid',HTTP_PROXY='http://proxy.invalid:1',HTTPS_PROXY='http://proxy.invalid:1')
-                p=subprocess.Popen([sys.executable,'-X','utf8','-I','-B','-c',code,str(ROOT/'scripts'),str(folder)],
+                p=subprocess.Popen([sys.executable,'-X','utf8','-I','-B','-c',code,str(ROOT/'tests'),str(folder)],
                     cwd=folder,env=isolated,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
                 children.append((name,p))
             transcripts=[]

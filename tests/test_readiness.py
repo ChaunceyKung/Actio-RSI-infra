@@ -15,8 +15,8 @@ from actio.transport_campaign import export_campaign,analyze
 from actio.eval_contract import unseal
 from readiness_stub import ReadyStub,scan_secret
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'scripts'))
-from phase1c2b0_rehearsal import run
+sys.path.insert(0,str(ROOT/'tests'))
+from support.priced_case import run
 
 
 class Readiness(unittest.TestCase):
@@ -82,14 +82,14 @@ class Readiness(unittest.TestCase):
                 if constraint=='money':cfg['budget']['cost_minor']=reservation(cfg)['cost_minor']
                 path=folder/'budget.sqlite';l=Ledger(path,config=cfg);l.close();write_json(folder/'config.json',cfg)
                 code="""import json,pathlib,sys
-sys.path.insert(0,sys.argv[1]);from phase1c2b0_rehearsal import run
+sys.path.insert(0,sys.argv[1]);from support.priced_case import run
 from actio.common import write_json
 root=pathlib.Path(sys.argv[2]);secret=sys.stdin.readline().strip();cfg=json.loads((root.parent/'config.json').read_bytes())
 r=run(root,cfg,root.parent/'budget.sqlite',secret);write_json(root/'child-result.json',r)
 """
                 children=[];transcripts=[]
                 for name in ('one','two'):
-                    root=folder/name;root.mkdir();p=subprocess.Popen([sys.executable,'-X','utf8','-I','-B','-c',code,str(ROOT/'scripts'),str(root)],cwd=root,env=clean_env(root),stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+                    root=folder/name;root.mkdir();p=subprocess.Popen([sys.executable,'-X','utf8','-I','-B','-c',code,str(ROOT/'tests'),str(root)],cwd=root,env=clean_env(root),stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
                     p.stdin.write((self.secret+'\n').encode());p.stdin.flush();children.append(p)
                 try:
                     for p in children:

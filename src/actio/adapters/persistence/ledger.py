@@ -140,4 +140,3 @@ class Ledger:
             attempts=self.rows('attempt')
             return {'meta':self.meta,'registrations':self.rows('registration'),'attempts':attempts,'events':events,'totals':totals(attempts)}
         finally:self.db.rollback()
-

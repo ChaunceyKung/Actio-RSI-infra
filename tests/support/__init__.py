@@ -6,7 +6,7 @@ import sysconfig
 from actio.common import file_hash,write_json
 from actio.runtime import RuntimePort
 
-FIXTURES=Path(__file__).parent/'fixtures'
+FIXTURES=Path(__file__).parent.parent/'fixtures'
 
 
 class FaultRuntime(RuntimePort):

@@ -113,5 +113,3 @@ def actor_observation(m,seat,public_actions):
 
 
 def resolved_text(t,actions):return canonical({'public_actions':actions,'task_result':task_result(t,actions)})
-
-

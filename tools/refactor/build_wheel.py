@@ -8,6 +8,8 @@ import subprocess
 import sys
 ROOT=Path(__file__).resolve().parents[2]
 def main():
+    if any(b'\r\n' in path.read_bytes() for path in (ROOT/'src/actio').rglob('*.py')):
+        raise SystemExit('source Python must use repository LF bytes before wheel/freeze construction')
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
     source=a.output/'source';source.mkdir();shutil.copyfile(ROOT/'pyproject.toml',source/'pyproject.toml')
     shutil.copytree(ROOT/'src/actio',source/'src/actio',ignore=shutil.ignore_patterns('__pycache__','*.pyc'))

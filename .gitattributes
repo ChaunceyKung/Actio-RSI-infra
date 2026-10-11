@@ -67,3 +67,10 @@
 
 /docs/validation/phase1c2c5/** text eol=lf
 /docs/validation/phase1c2c5/**/*.json -text !eol whitespace=cr-at-eol
+
+# Current refactor evidence and harnesses retain the bytes recorded in manifests.
+/docs/validation/refactor_modularity/** text eol=lf
+/docs/validation/refactor_modularity/**/*.json -text !eol whitespace=cr-at-eol
+/tools/refactor/** -text !eol whitespace=cr-at-eol
+/docs/architecture/** text eol=lf
+/docs/architecture/*.json -text !eol whitespace=cr-at-eol

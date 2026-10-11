@@ -16,7 +16,7 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 - [项目背景与目标](#项目背景与目标)
 - [架构与组织逻辑](#架构与组织逻辑)
-- [简明模块化设计与重构方案](docs/architecture/README.md)
+- [系统一页图](docs/architecture/README.md) · [模块卡片](docs/architecture/MODULES.md) · [关键流程](docs/architecture/FLOWS.md)
 - [输入、执行与输出](#输入执行与输出)
 - [已经完成什么](#已经完成什么)
 - [使用方法](#使用方法)
@@ -84,12 +84,14 @@ flowchart TD
 
 | 层 | 职责与主要实现 | 所有权边界 |
 |---|---|---|
-| 控制与身份 | `store.py`、`database.py`、`scenarios.py`：身份/spec、run、lease、一次执行资格 | Python 持有领域状态；冻结后的输入和旧身份不会随新源码静默改写 |
-| 运行时适配 | `runtime.py`、`host.py`、`supervisor.py`：SDK、隔离 home、Worker 生命周期、具名 Job | DSH 持有原生 session、loop 与 journal；Python 不作为第二个原生 journal 写者 |
-| 模型与工具边界 | `transport.py`、`budget.py`、`plugins/`：最终发送/工具 guard、attempt、usage、期限 | 每次发送有持久记录；unknown 不能被当成未发生或自动重试资格 |
-| 环境与任务 | `scenarios.py`、`suite_tasks.py`、`robustness_tasks.py`、`suite_oracle.py`：可见观察、行动空间、世界裁决 | Agent 提交行动，环境决定合法性和效果；v10/v6 显式接线不扩大旧 v8/v9 允许域 |
-| 事实与记忆 | `facts.py`、`memory.py`、`evidence.py`：来源关联、namespace、revision、导出 | 私有 memory 按身份与共享策略访问；JSON 报告是投影，不是第二权威数据库 |
-| 候选与评估 | `candidate_*.py`、`evaluation_*.py`、`robustness_*.py`：静态提案、三类比较、独立指标、evaluation history | 固定历史版本由代码信任表选择；artifact 不提供可执行 reader |
+| 控制与身份 | `application/store.py`、`application/scenarios.py`、`interfaces/store.py`、`adapters/persistence/`：身份/spec、run、lease、一次执行资格 | Python 持有领域状态；冻结输入不会随新源码静默改写；Store 仍含 SQL 用例并保持单连接事务 |
+| 运行时适配 | `adapters/runtime/`：SDK、隔离 home、Worker 生命周期、具名 Job | DSH 持有原生 session、loop 与 journal；Python 不作为第二个原生 journal 写者 |
+| 模型与工具边界 | `adapters/transport/`、`interfaces/budget.py`、`adapters/persistence/ledger.py`：最终 guard、attempt、usage、期限 | 发送状态归 Ledger；与领域 Store 不宣称跨库原子事务，unknown 不自动产生重试资格 |
+| 环境与任务 | `adapters/environment/`、`tasks/`、`measurement/oracle.py`：可见观察、行动空间、世界裁决与独立指标 | Agent 提交行动，环境决定合法性和效果；任务版本与 oracle 分工保持 |
+| 事实与记忆 | `adapters/runtime/facts.py`、`application/memory.py`、`application/export.py`、`evidence/`：来源、namespace、revision、导出和核验 | 私有 memory 按身份与共享策略访问；JSON 报告是投影，不是第二权威数据库 |
+| 候选与评估 | `domain/`、`application/`、`evidence/` 中的 candidate/evaluation 模块：提案、比较、测量及追加历史 | 固定历史版本由代码信任表选择；artifact 不提供可执行 reader |
+
+表内路径均相对 `src/actio/`。当前完整目录、端口和模块输入输出见[简明设计](docs/architecture/README.md)；根层仍保留登记的 CLI/IPC 兼容入口。
 
 模型输出、原生执行结束、环境任务成功、证据完整和能力准入分别判断。可信但非法的行动可以被完整记录为行为失败；合法拒绝可以是规则遵守；缺失响应和不明发送则属于技术证据缺口。
 
@@ -294,10 +296,12 @@ Actio-RSI-infra/
 ├── AGENTS.md                  项目协作、授权与发布约定
 ├── pyproject.toml             Python 包与 CLI 入口
 ├── requirements*.lock         锁定依赖及 hash
-├── src/actio/                 产品代码：状态、runtime、环境、评估、导出
-├── scripts/                   bootstrap、验证、阶段准备/发布/历史 reader
+├── src/actio/                 分层产品包与登记兼容入口，详见简明设计
+├── tools/refactor/            当前维护验收工具及特定重构记录工具
+├── scripts/                   bootstrap 与固定阶段准备/发布/历史 reader
 ├── tests/                     行为验收、故障注入与本机 fixture
 ├── probes/phase1a/            初始集成探针与复现入口
+├── docs/architecture/         当前系统一页图、模块卡片、流程与迁移记录
 ├── docs/planning/             目标架构、开源审计、ADR、原始 roadmap
 ├── docs/reviews/              各阶段审阅、缺口与下一步建议
 ├── docs/prompts/              可在独立 Codex session 执行的阶段 Prompt
@@ -309,7 +313,8 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 | 阅读目标 | 推荐入口 |
 |---|---|
-| 快速理解模块、流程与本轮重构 | [简明架构](docs/architecture/README.md) → [模块与流程](docs/architecture/MODULES.md) → [迁移与验收](docs/architecture/REFACTOR_PLAN.md)（目标设计，尚未实施） |
+| 快速理解当前系统 | [系统一页图](docs/architecture/README.md) → [模块卡片](docs/architecture/MODULES.md) → [关键流程](docs/architecture/FLOWS.md)（已实现架构） |
+| 查看工程重构和下一轮范围 | [R7–R10 迁移与验收](docs/architecture/REFACTOR_PLAN.md) → [目录整理审阅](docs/reviews/modularity_r11_r14_review.md) → [R11–R14 Prompt](docs/prompts/refactor_directory_r11_r14.md)（尚未执行的后续计划） |
 | 理解整体方向与取舍 | [规划总览](docs/planning/README.md) → [目标架构](docs/planning/03_target_architecture.md) → [ADR](docs/planning/13_architecture_decisions.md) |
 | 了解当前执行合同 | [C2C5 CONTRACT](docs/validation/phase1c2c5/CONTRACT.md) → [GATES](docs/validation/phase1c2c5/GATES.md) → [CLI](docs/validation/phase1c2c5/CLI.md) |
 | 审阅当前状态与实际结果 | [C5 RESULTS](docs/validation/phase1c2c5/RESULTS.md)；此前真实 campaign 见 [C4 RESULTS](docs/validation/phase1c2c4/RESULTS.md)、[指标覆盖](docs/validation/phase1c2c4/MEASUREMENTS.md)、[三类比较](docs/validation/phase1c2c4/COMPARISONS.md) |
@@ -321,13 +326,13 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 ## 后续 TODO
 
-以下是基于当前交付整理的待办方向，**不是已冻结的新实验执行计划**。用户现已要求暂停实验迭代，优先落实[模块化重构与回归验收](docs/architecture/REFACTOR_PLAN.md)。代码仍为 C5 实现；本轮只交付设计，不执行下一真实批次。
+以下是基于当前交付整理的待办方向，**不是已冻结的新实验执行计划**。R7–R10 [模块化重构与回归验收](docs/architecture/REFACTOR_PLAN.md)已经完成；实验继续暂停。下一轮限定为[目录组织、递归边界检查与设计可读性收尾](docs/reviews/modularity_r11_r14_review.md)，本次审阅只更新文档与计划。
 
 C5 的[未来实验草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)保留为历史提案，本次重构不执行。后续若恢复实验，需要新的合同/evaluation/claim，不接续 C4 缺失后缀、不合并新旧数据；C5 本机诊断不证明 provider 恢复或上游责任，也不证明免账单。
 
 | 优先级 | 待办 | 需要交付的证据或完成条件 |
 |---|---|---|
-| **当前 P0 · 模块化重构** | 稳定职责分包、纯核验隔离、产品摆脱 tests 依赖、统一当前工具、简明设计文档 | 架构依赖约束、行为差分、事务和历史保全、独立 wheel、最终新源码 DSH/Concordia 本机验收；真实调用 0 |
+| **当前 P0 · 目录与可读性收尾** | 先升级递归边界检查，再分组 evidence、整理测试与工具导航，保持三页设计 | 公共入口/IPC 兼容、原测试与行为差分、历史保全、同一新 wheel 的本机验收；真实调用 0 |
 | P0 · 测量有效性 | 设计真正独立的数据、分组、开发/留出隔离及必要的重复；完善人工校准方案 | 独立单位定义、预注册分析、标签来源和一致性证据；需要时另行准入 judge |
 | P0 · 成本与来源 | 核实 TokenKey cost 币种/单位、可信价格、实际账单和路由来源 | 可核对的记录；无法验证的上游身份继续明确标记，不从 model 名称推断 |
 | P1 · 恢复与状态 | 推进 controller 中断后的跨 owner 一致性、world/memory/ledger 检查点 | 故障注入与状态不重复执行证据；仅本地 reconcile 不等同完整恢复 |
@@ -360,4 +365,4 @@ C5 的[未来实验草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)保留�
 
 历史 manifest 的 README 等入口文件 hash 绑定对应阶段的固定提交；阅读升级后的入口时，不应把这些旧 hash 刷新成当前文档的 hash。
 
-本版 README 对齐 [C2C5 合同与证据](docs/validation/phase1c2c5/evidence_manifest.json)。C2/C3/C4原结果与固定reader独立保留；C5新增源码不刷新历史pins。
+本版 README 的实验状态对齐 [C2C5 合同与证据](docs/validation/phase1c2c5/evidence_manifest.json)，工程结构对齐 [R7–R10 验收](docs/validation/refactor_modularity/RESULTS.md)。C2/C3/C4 原结果与固定 reader 独立保留；当前导航和后续目录计划不刷新历史 pins 或 manifest。

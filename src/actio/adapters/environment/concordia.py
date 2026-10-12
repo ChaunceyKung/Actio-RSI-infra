@@ -1,3 +1,4 @@
+from actio.resources import data_path
 import json
 import sys
 from pathlib import Path
@@ -24,7 +25,7 @@ def run_engine(store,run,manifest,short_root,runtime_type):
     transport=manifest.get('input_contract') in ('scheduling-transport.v1','scheduling-priced.v1','scheduling-tokenkey.v1','scheduling-tokenkey.v2','finite-suite-tokenkey.v1','finite-candidate-loopback.v1','finite-candidate-tokenkey.v1','visible-robustness-tokenkey.v1')
     scheduling=manifest.get('input_contract')==CONTRACT or transport
     import concordia
-    pin=json.loads((PACKAGE/'pins/concordia.json').read_text(encoding='utf-8'))
+    pin=json.loads(data_path('pins','concordia.json').read_text(encoding='utf-8'))
     base=Path(concordia.__file__).parent.parent
     for name,h in pin['files'].items():
         if name!='LICENSE' and file_hash(base/name)!=h:

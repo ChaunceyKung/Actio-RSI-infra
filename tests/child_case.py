@@ -4,8 +4,8 @@ import os
 from pathlib import Path
 import sys
 
-from actio.common import ContractError
-from actio.common import write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import write_json
 from actio.application.memory import Memory
 from actio.adapters.runtime.runtime import RuntimePort
 from actio.adapters.runtime.runtime import synthetic_spec

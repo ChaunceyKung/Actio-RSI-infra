@@ -6,15 +6,15 @@ import sys
 import unittest
 import uuid
 from unittest.mock import patch
-from actio.common import ContractError
-from actio.common import write_json
-from actio.common import clean_env
-from actio.common import digest
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import write_json
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import digest
 from actio.profiles.gateway_base import template
 from actio.profiles.gateway_contract import validate
 from actio.profiles.gateway_contract import plan
 from actio.profiles.gateway_base import AUTH
-from actio.interfaces.gateway import execute
+from actio.interfaces.cli.gateway import execute
 from actio.adapters.filesystem.credentials import scan
 from actio.adapters.persistence.ledger import Ledger
 from actio.evidence.audit.accounting import verify_snapshot
@@ -55,7 +55,7 @@ class NoEnv(dict):
  def __getitem__(self,*a):raise RuntimeError('env lookup')
 os.environ=NoEnv()
 from actio.profiles.gateway_contract import template,plan
-from actio.common import canonical
+from actio.contracts.json import canonical
 print(canonical(plan(template())))
 """
         r=subprocess.run([sys.executable,'-I','-B','-c',code],cwd=self.root,env=clean_env(self.root),capture_output=True,text=True,encoding='utf8',timeout=20)
@@ -130,7 +130,7 @@ def audit(e,a):
  if e=='open' and ((isinstance(a[1],str) and any(c in a[1] for c in 'wax+')) or (isinstance(a[2],int) and a[2]&(1|2|64|512|1024))):raise RuntimeError('write denied')
 sys.addaudithook(audit)
 from actio.evidence.campaigns.transport_campaign import verify_campaign
-from actio.common import canonical
+from actio.contracts.json import canonical
 r=verify_campaign(sys.argv[1]);print(canonical(r));assert r['valid']
 """
         r=subprocess.run([sys.executable,'-I','-B','-c',code,str(Path(v['root'])/'run/campaign')],cwd=self.root,env=clean_env(self.root),capture_output=True,text=True,encoding='utf8',timeout=30)

@@ -1,6 +1,6 @@
 # 模块卡片
 
-与[系统一页图](README.md)、[关键流程](FLOWS.md)共同描述 `9e4db32` 的实际实现。下表处理链用于定位代码，不表示新增接口或服务。R11–R14完整验收仍INCOMPLETE；后续[根入口迁移](../reviews/root_entrypoints_r15_r18_review.md)尚未实施。细节优先维护在代码与测试中。
+与[系统一页图](README.md)、[关键流程](FLOWS.md)描述 0.2.0 实际实现。处理链不表示独立服务；验收见[本轮结果](../validation/refactor_entrypoints/RESULTS.md)。
 
 ## 规则与定义
 
@@ -18,7 +18,7 @@
 |---|---|---|---|
 | application | 命令、冻结输入、注入 ports/Store → claim、执行、认证、效果与导出编排 → run、证据包、追加 decision | [store.py](../../src/actio/application/store.py)、[transport.py](../../src/actio/application/transport.py)、[export.py](../../src/actio/application/export.py) | 运行依赖经 ports 注入；StoreOperations/memory 等仍含 SQL，保持原事务边界 |
 | evidence | 封存材料、固定信任表 → 结构/输入/协议/账务认证、报告与谱系检查 → 核验结果、计数、缺失、决策依据 | [verify.py](../../src/actio/evidence/bundles/verify.py)、[evaluation_measurement.py](../../src/actio/evidence/campaigns/evaluation_measurement.py)、[failure_observation.py](../../src/actio/evidence/diagnostics/failure_observation.py) | 只读 reader 不启动 runtime、不写领域数据库；文件 I/O 不等于纯函数 |
-| interfaces | CLI/IPC 参数 → 可信选择、参数检查、装配与调用 → stdout、退出码或用例结果 | [cli.py](../../src/actio/interfaces/cli.py)、[wiring.py](../../src/actio/interfaces/wiring.py)、[store.py](../../src/actio/interfaces/store.py)、[budget.py](../../src/actio/interfaces/budget.py) | composition 是实现接线位置；根兼容入口委托到这里或登记 owner |
+| interfaces | CLI/IPC 参数 → 可信选择、参数检查、装配与调用 → stdout、退出码或用例结果 | [cli.py](../../src/actio/interfaces/cli/main.py)、[wiring.py](../../src/actio/interfaces/wiring.py)、[store.py](../../src/actio/interfaces/store.py)、[budget.py](../../src/actio/interfaces/ipc/budget.py) | composition 是实现接线位置；cli/ipc/workers 分开，旧根入口已删除 |
 
 ## 外部能力适配
 
@@ -35,14 +35,14 @@
 | 要修改的能力 | 主要位置 | 现有测试入口示例 |
 |---|---|---|
 | 任务、可见性和 oracle | tasks + measurement | [test_suite.py](../../tests/test_suite.py)、[test_task_diagnostics.py](../../tests/test_task_diagnostics.py) |
-| profile / Clock / 发送合同 | profiles + domain + interfaces.budget + Ledger | [test_readiness_config.py](../../tests/test_readiness_config.py)、[test_budget.py](../../tests/test_budget.py) |
+| profile / Clock / 发送合同 | profiles + domain + interfaces.ipc.budget + Ledger | [test_readiness_config.py](../../tests/test_readiness_config.py)、[test_budget.py](../../tests/test_budget.py) |
 | run、memory、快照及并发 | application + persistence | [test_reliability.py](../../tests/test_reliability.py)、[test_entry_concurrency.py](../../tests/test_entry_concurrency.py) |
 | 协议准入与失败诊断 | evidence + transport/runtime | [test_failure_observation.py](../../tests/test_failure_observation.py)、[test_transport.py](../../tests/test_transport.py) |
 | 候选与 evaluation 历史 | domain + application + evidence | [test_evaluation_candidate.py](../../tests/test_evaluation_candidate.py)、[test_evaluation_candidate_runtime.py](../../tests/test_evaluation_candidate_runtime.py) |
 | 依赖方向、wheel 与入口 | interfaces + packaging + architecture tools | [test_modularity.py](../../tests/test_modularity.py)、[维护 runner](../../tools/refactor/validate.py) |
 
-表中是导航，测试名称不能直接判断是否会启动 Worker。完整分组与套件顺序以 `tools/refactor/validate.py` 为准；尤其 `suite_evidence` 消费同轮 `suite_runtime` 产物。离线使用和验收命令见[工程 CLI](../validation/refactor_modularity/CLI.md)。
+表中是导航，测试名称不能直接判断是否会启动 Worker。完整分组与套件顺序以 `tools/refactor/validate.py` 为准；尤其 `suite_evidence` 消费同轮 `suite_runtime` 产物。离线使用和验收命令见[工程 CLI](../validation/refactor_entrypoints/CLI.md)。
 
 ## Evidence groups
 
-`evidence.audit` authenticates streams, channels, transport contracts and accounting. `evidence.bundles` reads sealed task and evaluation packages. `evidence.campaigns` computes campaign measurements and registries. `evidence.lineage` tracks candidate and evaluation history. `evidence.diagnostics` contains failure observations, fixtures, schedules and task/transport diagnostics. The groups form a one-way dependency projection; the root `failure_observation` module is a registered compatibility reader only.
+`evidence.audit` authenticates streams, channels, transport contracts and accounting. `evidence.bundles` reads sealed task and evaluation packages. `evidence.campaigns` computes campaign measurements and registries. `evidence.lineage` tracks candidate and evaluation history. `evidence.diagnostics` contains failure observations, fixtures, schedules and task/transport diagnostics. The package-init-aware group projection is acyclic. Readers are imported from their actual owners; the old failure_observation facade is removed.

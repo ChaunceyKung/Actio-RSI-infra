@@ -1,4 +1,5 @@
 """Code-selected archived readers; guarded children never execute artifact code."""
+import argparse
 import hashlib
 import io
 import json
@@ -15,6 +16,7 @@ PINS={'c2c2':'3bef7e15b0eb21beeb10888eb508056592b977b0',
 
 
 def main():
+    p=argparse.ArgumentParser();p.add_argument("--output",type=Path,required=True);a=p.parse_args()
     sys.path.insert(0,str(ROOT/'tests'))
     from test_suite import GUARD
     records=[];dest=ROOT/'.local/refactor-history'/uuid.uuid4().hex;dest.mkdir(parents=True)
@@ -65,7 +67,7 @@ assert all(file_hash(pathlib.Path(p))==h for p,h in before.items())
         'readers':records,'controlled_root':str(dest),'claims':preserved,'guard':['key','env','network','process','runtime import','write'],
         'outer_harness':'fixed Git archive extraction and guarded reader launch; not itself process-free',
         'tool_source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'argv':sys.orig_argv,'new_provider_requests':0}
-    doc=ROOT/'docs/validation/refactor_modularity';out=doc/('history-'+dest.name[:12]+'.json')
+    out=a.output;assert not out.exists()
     out.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8',newline='\n')
     print(json.dumps({'status':result['status'],'receipt':str(out),'controlled_root':str(dest),'claims':len(preserved),'readers':[{k:r[k] for k in ('name','exit_code')} for r in records]}))
     return 0 if result['status']=='PASS' else 1

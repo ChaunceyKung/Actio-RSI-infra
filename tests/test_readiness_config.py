@@ -9,9 +9,9 @@ import tempfile
 import unittest
 from unittest.mock import Mock
 
-from actio.common import ContractError
-from actio.common import clean_env
-from actio.common import digest
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import digest
 from actio.profiles.readiness_contract import template
 from actio.profiles.readiness_contract import validate
 from actio.profiles.readiness_contract import plan

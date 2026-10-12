@@ -4,9 +4,9 @@ import json
 import unittest
 from unittest.mock import patch
 import io
-from actio.common import ContractError
-from actio.common import canonical
-from actio.common import digest
+from actio.contracts.json import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
 from actio.evidence.bundles.eval_contract import seal
 from actio.evidence.diagnostics.failure_observation import observe
 from actio.evidence.diagnostics.failure_observation import protocol
@@ -27,7 +27,7 @@ from actio.evidence.diagnostics.transport_diagnostics import analyze
 
 class FailureObservation(unittest.TestCase):
     def test_failed_suite_cli_exit_is_nonzero(self):
-        from actio.interfaces.transport_diagnostics import main
+        from actio.interfaces.cli.transport_diagnostics import main
         with patch('sys.argv',['diagnostics','run-local','--root','unused-new-root','--project','.','--freeze','unused']),\
              patch('actio.application.diagnostic_runtime.run',return_value={'status':'FAIL'}),patch('sys.stdout',new_callable=io.StringIO):
             self.assertEqual(main(),2)

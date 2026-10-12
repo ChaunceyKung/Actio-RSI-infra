@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "actio-rsi"
-version = "0.1.0"
+version = "0.2.0"
 description = "Bounded offline persistent agent vertical slice"
 requires-python = ">=3.12,<3.13"
 dependencies = ["deepseek-harness-sdk==0.1.5rc1", "mcp==1.26.0"]
@@ -13,16 +13,14 @@ dependencies = ["deepseek-harness-sdk==0.1.5rc1", "mcp==1.26.0"]
 eval = ["pydantic==2.13.5", "json-repair==0.48.0"]
 
 [project.scripts]
-actio = "actio.cli:main"
-actio-eval = "actio.evaluation:main"
-actio-candidate = "actio.candidate:main"
-actio-candidate-evaluation = "actio.candidate_evaluation:main"
+actio = "actio.interfaces.cli.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-actio = ["*.sql", "*.json", "plugins/*.mjs", "fixtures/*.mjs", "pins/*.json"]
+actio = ["README.md"]
+"actio.resources" = ["pricing/*.json", "trust/*.json", "pins/*.json"]
 "actio._vendor" = ["*.json", "SOTOPIA_LICENSE"]
 
 "actio.adapters.transport" = ["DSH_LICENSE.txt", "plugins/*.mjs", "fixtures/*.mjs"]

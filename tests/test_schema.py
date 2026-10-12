@@ -7,12 +7,12 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError
-from actio.common import file_hash
-from actio.common import write_json
-from actio.common import clean_env
-from actio.common import canonical
-from actio.common import digest
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import write_json
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
 from actio.adapters.persistence import database as database
 from actio.interfaces.store import Store
 

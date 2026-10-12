@@ -12,15 +12,16 @@ ROOT=Path(__file__).resolve().parents[2]
 PIN='196e8a6f3327b9d17ee0c0ba3bc45c93c38334e0'
 sys.path.insert(0,str(ROOT/'tests'))
 from test_suite import GUARD
-from actio.common import canonical,file_hash,digest
+from actio.contracts.json import canonical,digest
+from actio.adapters.filesystem.common import file_hash
 from actio.application.diagnostic_runtime import review_entry
 from actio.adapters.runtime.cleanup import cleanup
 from actio.evidence.diagnostics.failure_fixtures import CASES
-from actio.transport_diagnostics import sources
+from actio.evidence.diagnostics.transport_diagnostics import sources
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path('D:/actio-c2c5-formal-v1'));a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path('D:/actio-c2c5-formal-v1'));p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     scratch=ROOT/'.local/refactor-recomputed'/uuid.uuid4().hex;scratch.mkdir(parents=True)
     archive=subprocess.check_output(['git','archive','--format=zip',PIN,'src'],cwd=ROOT)
     with zipfile.ZipFile(io.BytesIO(archive)) as z:
@@ -54,7 +55,7 @@ print(json.dumps(rows))
     (scratch/'fixed-reader.stdout').write_text(proc.stdout,encoding='utf8')
     (scratch/'fixed-reader.stderr').write_text(proc.stderr,encoding='utf8')
     assert proc.returncode==0,'fixed local source reader failed; controlled logs retained'
-    auth=json.loads(proc.stdout);pin=json.loads((ROOT/'src/actio/pins/c5_runtime.json').read_bytes())
+    auth=json.loads(proc.stdout);pin=json.loads((ROOT/'src/actio/resources/pins/c5_runtime.json').read_bytes())
     assert {r['case']:r['entry_hash'] for r in auth}==pin['entries']
     original=json.loads((a.root/'report.json').read_bytes());rows=[]
     for case in CASES:
@@ -67,7 +68,7 @@ print(json.dumps(rows))
         'runtime_commit':PIN,'runtime_sources':original['sources'],'cleanup':clean,
         'authentication':{'fixed_reader':PIN,'argv':argv,'exit':proc.returncode,'rows':auth,'runner_sha256':file_hash(runner)},
         'tool_sha256':file_hash(Path(__file__)),'argv':sys.orig_argv,'additional_loopback_sends':0}
-    dest=ROOT/'docs/validation/refactor_modularity'/('runtime-recomputed-'+scratch.name[:12]+'.json')
+    dest=a.output;assert not dest.exists()
     dest.write_text(canonical(report),encoding='utf8',newline='\n')
     print(canonical({'status':report['status'],'receipt':str(dest),'totals':report['totals'],'failed':[{r['case']:[k for k,v in r['checks'].items() if not v]} for r in rows if r['status']!='PASS']}))
     return 0 if report['status']=='PASS' else 1

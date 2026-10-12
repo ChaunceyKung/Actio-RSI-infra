@@ -7,10 +7,10 @@ import sys
 import unittest
 import uuid
 
-from actio.common import canonical
-from actio.common import write_json
-from actio.common import clean_env
-from actio.common import ContractError
+from actio.contracts.json import canonical
+from actio.adapters.filesystem.common import write_json
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import ContractError
 from actio.adapters.persistence.ledger import Ledger
 from actio.evidence.audit.accounting import verify_snapshot
 from actio.profiles.readiness_contract import rehearsal
@@ -93,7 +93,7 @@ class Readiness(unittest.TestCase):
                 path=folder/'budget.sqlite';l=Ledger(path,config=cfg);l.close();write_json(folder/'config.json',cfg)
                 code="""import json,pathlib,sys
 sys.path.insert(0,sys.argv[1]);from support.priced_case import run
-from actio.common import write_json
+from actio.adapters.filesystem.common import write_json
 root=pathlib.Path(sys.argv[2]);secret=sys.stdin.readline().strip();cfg=json.loads((root.parent/'config.json').read_bytes())
 r=run(root,cfg,root.parent/'budget.sqlite',secret);write_json(root/'child-result.json',r)
 """

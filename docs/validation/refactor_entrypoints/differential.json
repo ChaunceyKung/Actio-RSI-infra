@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "wheel_sha256": "a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465",
+  "count": 555,
+  "full_json_equal": true,
+  "normalizations": [],
+  "differences": [],
+  "rows_sha256": "4adbd55c971166d229938fbf65f206a4ab577c0b0a10b0a9053bf4161601d053",
+  "old_file_sha256": "62ee3750ccc690c876f2859274898f7c5b921c045ce977ed7ccc0d2a97ba432a",
+  "new_file_sha256": "62ee3750ccc690c876f2859274898f7c5b921c045ce977ed7ccc0d2a97ba432a"
+}

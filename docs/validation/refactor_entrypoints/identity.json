@@ -1,0 +1,32 @@
+{
+  "schema": "entrypoints-freeze-policy.v1",
+  "identity": "actio-entrypoints-r15-r18-20261012",
+  "baseline": "205cf8b1c2551e4075054131b5ff8baa0aaaadfa",
+  "final_wheel": "D:/ar-entry-20261012/wheel02/actio_rsi-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465",
+  "product_version": "0.2.0",
+  "api_migration": "breaking; no compatibility shim/alias/hooks",
+  "root_files_before": 25,
+  "root_files_after": [
+    "README.md",
+    "__init__.py",
+    "__main__.py"
+  ],
+  "prior_review_count_note": "review said24 before source README was added; actual task baseline contains25",
+  "resources_bytes_unchanged": 5,
+  "transport_mjs_change": "only budget child module string",
+  "formal_run_policy": "one final matrix after all-local; no --project, installed product identity",
+  "external_requests": 0,
+  "credential_reads": 0,
+  "historical_1048_files_basis": "fixed Git blob set; no old tracked file changes",
+  "research_status": {
+    "C4": "INCOMPLETE",
+    "C1": "infrastructure_failure",
+    "research": "UNESTABLISHED",
+    "activation": false,
+    "binary_source_mapping": "unproven",
+    "full_controller_recovery": "unsupported",
+    "real_generations_total": 172,
+    "historical_catalog_get": 1
+  }
+}

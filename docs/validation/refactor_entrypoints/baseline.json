@@ -1,0 +1,1640 @@
+{
+  "commit": "205cf8b1c2551e4075054131b5ff8baa0aaaadfa",
+  "tracked_files": [
+    "src/actio/README.md",
+    "src/actio/__init__.py",
+    "src/actio/__main__.py",
+    "src/actio/_vendor/SOTOPIA_LICENSE",
+    "src/actio/_vendor/__init__.py",
+    "src/actio/_vendor/sotopia.py",
+    "src/actio/_vendor/sotopia_provenance.json",
+    "src/actio/adapters/__init__.py",
+    "src/actio/adapters/environment/__init__.py",
+    "src/actio/adapters/environment/concordia.py",
+    "src/actio/adapters/filesystem/__init__.py",
+    "src/actio/adapters/filesystem/artifacts.py",
+    "src/actio/adapters/filesystem/common.py",
+    "src/actio/adapters/filesystem/credentials.py",
+    "src/actio/adapters/filesystem/identity.py",
+    "src/actio/adapters/filesystem/publication.py",
+    "src/actio/adapters/persistence/__init__.py",
+    "src/actio/adapters/persistence/candidate_schema.sql",
+    "src/actio/adapters/persistence/database.py",
+    "src/actio/adapters/persistence/evaluation_schema.sql",
+    "src/actio/adapters/persistence/ledger.py",
+    "src/actio/adapters/persistence/legacy_schema.sql",
+    "src/actio/adapters/persistence/migration.py",
+    "src/actio/adapters/persistence/schema.sql",
+    "src/actio/adapters/persistence/store.py",
+    "src/actio/adapters/runtime/__init__.py",
+    "src/actio/adapters/runtime/cleanup.py",
+    "src/actio/adapters/runtime/eval_worker.py",
+    "src/actio/adapters/runtime/evaluator.py",
+    "src/actio/adapters/runtime/facts.py",
+    "src/actio/adapters/runtime/host.py",
+    "src/actio/adapters/runtime/mcp_server.py",
+    "src/actio/adapters/runtime/runtime.py",
+    "src/actio/adapters/runtime/supervisor.py",
+    "src/actio/adapters/transport/DSH_LICENSE.txt",
+    "src/actio/adapters/transport/__init__.py",
+    "src/actio/adapters/transport/fixture.py",
+    "src/actio/adapters/transport/fixtures/provider.mjs",
+    "src/actio/adapters/transport/plugins/common.mjs",
+    "src/actio/adapters/transport/plugins/guard.mjs",
+    "src/actio/adapters/transport/plugins/transport.mjs",
+    "src/actio/adapters/transport/responses.py",
+    "src/actio/adapters/transport/transport.py",
+    "src/actio/application/__init__.py",
+    "src/actio/application/campaign.py",
+    "src/actio/application/candidate_evaluation.py",
+    "src/actio/application/candidate_store.py",
+    "src/actio/application/diagnostic_runtime.py",
+    "src/actio/application/evaluation.py",
+    "src/actio/application/evaluation_store.py",
+    "src/actio/application/export.py",
+    "src/actio/application/gateway.py",
+    "src/actio/application/memory.py",
+    "src/actio/application/migration.py",
+    "src/actio/application/pilot.py",
+    "src/actio/application/robustness.py",
+    "src/actio/application/scenarios.py",
+    "src/actio/application/store.py",
+    "src/actio/application/task_diagnostics.py",
+    "src/actio/application/terminal.py",
+    "src/actio/application/transport.py",
+    "src/actio/application/transport_export.py",
+    "src/actio/budget.py",
+    "src/actio/candidate.py",
+    "src/actio/candidate_evaluation.py",
+    "src/actio/cli.py",
+    "src/actio/common.py",
+    "src/actio/contracts/__init__.py",
+    "src/actio/contracts/endpoint.py",
+    "src/actio/contracts/hashing.py",
+    "src/actio/contracts/json.py",
+    "src/actio/contracts/ports.py",
+    "src/actio/contracts/scenarios.py",
+    "src/actio/contracts/transport.py",
+    "src/actio/contracts/versions.py",
+    "src/actio/contracts/wire.py",
+    "src/actio/domain/__init__.py",
+    "src/actio/domain/accounting.py",
+    "src/actio/domain/candidate.py",
+    "src/actio/domain/clock.py",
+    "src/actio/domain/episode.py",
+    "src/actio/domain/memory.py",
+    "src/actio/domain/roles.py",
+    "src/actio/eval_worker.py",
+    "src/actio/evaluation.py",
+    "src/actio/evaluation_history.json",
+    "src/actio/evidence/__init__.py",
+    "src/actio/evidence/audit/__init__.py",
+    "src/actio/evidence/audit/accounting.py",
+    "src/actio/evidence/audit/channel_audit.py",
+    "src/actio/evidence/audit/stream_audit.py",
+    "src/actio/evidence/audit/transport_contract.py",
+    "src/actio/evidence/bundles/__init__.py",
+    "src/actio/evidence/bundles/eval_contract.py",
+    "src/actio/evidence/bundles/evaluation.py",
+    "src/actio/evidence/bundles/task_evidence.py",
+    "src/actio/evidence/bundles/terminal.py",
+    "src/actio/evidence/bundles/verify.py",
+    "src/actio/evidence/campaigns/__init__.py",
+    "src/actio/evidence/campaigns/calibration.py",
+    "src/actio/evidence/campaigns/campaign.py",
+    "src/actio/evidence/campaigns/campaign_registry.py",
+    "src/actio/evidence/campaigns/candidate_measurement.py",
+    "src/actio/evidence/campaigns/evaluation_measurement.py",
+    "src/actio/evidence/campaigns/pilot_measurement.py",
+    "src/actio/evidence/campaigns/robustness_measurement.py",
+    "src/actio/evidence/campaigns/suite_measurement.py",
+    "src/actio/evidence/campaigns/transport_campaign.py",
+    "src/actio/evidence/diagnostics/__init__.py",
+    "src/actio/evidence/diagnostics/failure_fixtures.py",
+    "src/actio/evidence/diagnostics/failure_observation.py",
+    "src/actio/evidence/diagnostics/future_schedule.py",
+    "src/actio/evidence/diagnostics/task_diagnostics.py",
+    "src/actio/evidence/diagnostics/transport_diagnostics.py",
+    "src/actio/evidence/failure_observation.py",
+    "src/actio/evidence/lineage/__init__.py",
+    "src/actio/evidence/lineage/candidate.py",
+    "src/actio/evidence/lineage/candidate_evaluation.py",
+    "src/actio/evidence/lineage/candidate_lineage.py",
+    "src/actio/evidence/lineage/evaluation_history.py",
+    "src/actio/evidence/lineage/evaluation_lineage.py",
+    "src/actio/evidence/lineage/robustness.py",
+    "src/actio/gateway.py",
+    "src/actio/host.py",
+    "src/actio/interfaces/__init__.py",
+    "src/actio/interfaces/budget.py",
+    "src/actio/interfaces/campaign.py",
+    "src/actio/interfaces/candidate.py",
+    "src/actio/interfaces/candidate_evaluation.py",
+    "src/actio/interfaces/cli.py",
+    "src/actio/interfaces/evaluation.py",
+    "src/actio/interfaces/export.py",
+    "src/actio/interfaces/gateway.py",
+    "src/actio/interfaces/migration.py",
+    "src/actio/interfaces/pilot.py",
+    "src/actio/interfaces/preflight.py",
+    "src/actio/interfaces/readiness.py",
+    "src/actio/interfaces/robustness.py",
+    "src/actio/interfaces/store.py",
+    "src/actio/interfaces/suite.py",
+    "src/actio/interfaces/task_diagnostics.py",
+    "src/actio/interfaces/transport_diagnostics.py",
+    "src/actio/interfaces/transport_export.py",
+    "src/actio/interfaces/wiring.py",
+    "src/actio/mcp_server.py",
+    "src/actio/measurement/__init__.py",
+    "src/actio/measurement/diagnostic.py",
+    "src/actio/measurement/oracle.py",
+    "src/actio/measurement/robustness_definitions.py",
+    "src/actio/pilot.py",
+    "src/actio/pins/c5_runtime.json",
+    "src/actio/pins/concordia.json",
+    "src/actio/preflight.py",
+    "src/actio/profiles/__init__.py",
+    "src/actio/profiles/candidate_campaign.py",
+    "src/actio/profiles/evaluation_campaign.py",
+    "src/actio/profiles/finite_defaults.py",
+    "src/actio/profiles/gateway_base.py",
+    "src/actio/profiles/gateway_contract.py",
+    "src/actio/profiles/pilot_contract.py",
+    "src/actio/profiles/readiness_contract.py",
+    "src/actio/profiles/registry.py",
+    "src/actio/profiles/robustness_campaign.py",
+    "src/actio/profiles/suite_contract.py",
+    "src/actio/profiles/transport.py",
+    "src/actio/profiles/validation.py",
+    "src/actio/readiness.py",
+    "src/actio/readiness_quote.json",
+    "src/actio/robustness.py",
+    "src/actio/suite.py",
+    "src/actio/task_diagnostic_trust.json",
+    "src/actio/task_diagnostics.py",
+    "src/actio/tasks/__init__.py",
+    "src/actio/tasks/candidate.py",
+    "src/actio/tasks/controls.py",
+    "src/actio/tasks/core.py",
+    "src/actio/tasks/diagnostic.py",
+    "src/actio/tasks/evaluation.py",
+    "src/actio/tasks/finite.py",
+    "src/actio/tasks/registry.py",
+    "src/actio/tasks/robustness.py",
+    "src/actio/tasks/scheduling.py",
+    "src/actio/tasks/scheduling_v2.py",
+    "src/actio/transport_campaign.py",
+    "src/actio/transport_diagnostics.py",
+    "src/actio/verify.py",
+    "tests/chat_stub.py",
+    "tests/child_case.py",
+    "tests/entry_race.py",
+    "tests/fixtures/close_host.py",
+    "tests/fixtures/faults.mjs",
+    "tests/fixtures/mcp_hold.py",
+    "tests/fixtures/provider.mjs",
+    "tests/fixtures/sotopia_episode.py",
+    "tests/gateway_stub.py",
+    "tests/readiness_stub.py",
+    "tests/support/__init__.py",
+    "tests/support/priced_case.py",
+    "tests/support/transport_case.py",
+    "tests/test_budget.py",
+    "tests/test_candidate.py",
+    "tests/test_candidate_runtime.py",
+    "tests/test_contract.py",
+    "tests/test_entry_concurrency.py",
+    "tests/test_evaluation.py",
+    "tests/test_evaluation_candidate.py",
+    "tests/test_evaluation_candidate_runtime.py",
+    "tests/test_evidence.py",
+    "tests/test_failure_observation.py",
+    "tests/test_failures.py",
+    "tests/test_gateway.py",
+    "tests/test_gateway_lifecycle.py",
+    "tests/test_input_binding.py",
+    "tests/test_modularity.py",
+    "tests/test_pilot.py",
+    "tests/test_pilot_runtime.py",
+    "tests/test_preflight.py",
+    "tests/test_processes.py",
+    "tests/test_readiness.py",
+    "tests/test_readiness_config.py",
+    "tests/test_reliability.py",
+    "tests/test_robustness.py",
+    "tests/test_robustness_runtime.py",
+    "tests/test_runtime.py",
+    "tests/test_schema.py",
+    "tests/test_sotopia.py",
+    "tests/test_suite.py",
+    "tests/test_suite_evidence.py",
+    "tests/test_suite_runtime.py",
+    "tests/test_task.py",
+    "tests/test_task_diagnostics.py",
+    "tests/test_transport.py",
+    "tests/test_transport_config.py",
+    "tools/refactor/architecture.py",
+    "tools/refactor/build_wheel.py",
+    "tools/refactor/cleanup.py",
+    "tools/refactor/completion.py",
+    "tools/refactor/freeze.py",
+    "tools/refactor/history.py",
+    "tools/refactor/history_c5.py",
+    "tools/refactor/packaging.py",
+    "tools/refactor/publication_scan.py",
+    "tools/refactor/summarize.py",
+    "tools/refactor/validate.py",
+    "tools/refactor/vectors.py"
+  ],
+  "methods": {
+    "tests/test_budget.py": [
+      "Budget.test_01_two_independent_controls_compete_for_last_real_send",
+      "Budget.test_02_worker_interruptions_retain_unknown_and_do_not_retry",
+      "Budget.test_03_wrong_body_ticket_and_proven_unsent_release",
+      "Budget.test_04_real_gate_blocks_unbound_egress_and_duplicate_fetch"
+    ],
+    "tests/test_candidate.py": [
+      "CandidatePure.test_channels_fsm_and_fail_closed",
+      "CandidatePure.test_historical_channel_compatibility_and_clock_semantics",
+      "CandidatePure.test_candidate_policy_and_complete_denominators",
+      "CandidatePure.test_store_atomicity_persistence_migration_and_corruption",
+      "CandidatePure.test_portable_guarded_cli"
+    ],
+    "tests/test_candidate_runtime.py": [
+      "CandidateRuntime.test_dual_channel_official_runtime_and_hidden_views",
+      "CandidateRuntime.test_incomplete_stops_and_claim_is_not_reclaimed",
+      "CandidateRuntime.test_actual_arm_pair_prepared_full_wire_and_tamper"
+    ],
+    "tests/test_contract.py": [
+      "Contracts.test_identity_idempotency_epoch_and_ttl",
+      "Contracts.test_out_of_order_dedup_conflict_and_remap",
+      "Contracts.test_memory_atomic_cas_ack_loss_correction_and_mapper",
+      "Contracts.test_namespace_source_slot_and_frozen_retrieval",
+      "Contracts.test_barrier_gap_old_marker_partial_tail_and_truncation",
+      "Contracts.test_bounded_data_and_unsupported_capabilities"
+    ],
+    "tests/test_entry_concurrency.py": [
+      "EntryConcurrency.test_assistant_and_social_atomic_winner_across_control_processes"
+    ],
+    "tests/test_evaluation.py": [
+      "Evaluation.test_admission_before_evaluator_and_orthogonal_outcomes",
+      "Evaluation.test_active_legacy_corrupt_and_missing_synthetic_context_zero_calls",
+      "Evaluation.test_deterministic_facts_refusal_and_whitelisted_received_view",
+      "Evaluation.test_invalid_envelopes_persist_no_zero_or_parser_coercion",
+      "Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication",
+      "Evaluation.test_internal_error_timeout_and_interrupted_claim_are_preserved",
+      "Evaluation.test_portable_stdlib_verification_and_missing_optional_dependency",
+      "Evaluation.test_worker_audit_hook_enforces_denials_in_real_child"
+    ],
+    "tests/test_evaluation_candidate.py": [
+      "EvaluationPure.test_public_offline_commands_under_guard",
+      "EvaluationPure.test_versions_identities_denominators_policy",
+      "EvaluationPure.test_copy_history_atomic_claim_decision_reopen_corruption"
+    ],
+    "tests/test_evaluation_candidate_runtime.py": [
+      "EvaluationRuntime.test_01_new_mode_dual_channel_smoke_local_only",
+      "EvaluationRuntime.test_02_complete_rehearsal_behavior_and_dynamic_history",
+      "EvaluationRuntime.test_03_unknown_stops_suffix_and_claim",
+      "EvaluationRuntime.test_04_controller_failure_keeps_inventory_when_verifier_fails"
+    ],
+    "tests/test_evidence.py": [
+      "Evidence.test_complete_refusal_partial_unknown_are_separate_dimensions",
+      "Evidence.test_rehashed_internal_contradictions_and_missing_memory_are_not_complete",
+      "Evidence.test_missing_file_changed_hash_unknown_format_rejected",
+      "Evidence.test_portable_stdlib_process_denies_source_roots_runtime_and_network",
+      "Evidence.test_stable_scoped_readonly_export_and_atomic_failure",
+      "Evidence.test_missing_receipt_legacy_complete_and_active_prefix_not_promoted",
+      "Evidence.test_read_snapshot_excludes_mid_export_mutation_and_new_verification_preserves_claim"
+    ],
+    "tests/test_failure_observation.py": [
+      "FailureObservation.test_failed_suite_cli_exit_is_nonzero",
+      "FailureObservation.test_official_compacted_native_delta_expansion",
+      "FailureObservation.test_fixture_expected_and_no_authority",
+      "FailureObservation.test_message_never_classifies_or_leaks",
+      "FailureObservation.test_normal_error_text_comments_and_line_endings",
+      "FailureObservation.test_terminals_and_trailing_data",
+      "FailureObservation.test_adapter_native_conflicts_missing_and_prefix",
+      "FailureObservation.test_usage_is_separate_and_zero_not_trusted",
+      "FailureObservation.test_binding_bytes_deadline_and_schema_rejection",
+      "FailureObservation.test_duplicate_nonfinite_resource_limits",
+      "FailureObservation.test_future_membership_adjacency_balance_and_curves",
+      "FailureObservation.test_portable_recomputation_and_tamper"
+    ],
+    "tests/test_failures.py": [
+      "Failures.test_final_policy_denies_and_registry_rewrite",
+      "Failures.test_call_id_dedup_conflict_and_new_creation",
+      "Failures.test_stage_deadlines_mcp_hang_and_worker_exit",
+      "Failures.test_data_limits_preserve_prefix_and_job_assignment_failure",
+      "Failures.test_native_flush_before_canonical_readonly_reconcile",
+      "Failures.test_slow_consumer_event_limit_and_explicit_stop"
+    ],
+    "tests/test_gateway.py": [
+      "Gateway.test_01_explicit_uncapped_plan_and_no_side_effects",
+      "Gateway.test_02_official_models_two_cards_usage_and_visibility",
+      "Gateway.test_03_errors_unknown_length_no_retry",
+      "Gateway.test_04_deadlines_and_secret_diagnostics",
+      "Gateway.test_05_offline_reader_rehash_and_send_boundaries"
+    ],
+    "tests/test_gateway_lifecycle.py": [
+      "GatewayLifecycle.test_01_two_controls_one_run_and_no_replay",
+      "GatewayLifecycle.test_02_interruptions_keep_unknown_and_authority"
+    ],
+    "tests/test_input_binding.py": [
+      "InputBinding.test_original_five_and_historical_reports",
+      "InputBinding.test_rehashed_frozen_contradictions_shared_with_seal",
+      "InputBinding.test_real_inventory_corruption_still_fails"
+    ],
+    "tests/test_modularity.py": [
+      "Modularity.test_recursive_checker_rejects_nested_shim_dependency_and_records_dynamic_import",
+      "Modularity.test_pure_layers_have_only_downward_dependencies",
+      "Modularity.test_diagnostic_fixture_has_no_test_loader_or_global_patch",
+      "Modularity.test_legacy_stub_profile_and_unknown_reservation",
+      "Modularity.test_budget_ipc_implementation_has_no_runtime_import"
+    ],
+    "tests/test_pilot.py": [
+      "PilotPure.test_01_historical_raw_adapter_native_and_mutations",
+      "PilotPure.test_02_strict_stream_branches_and_utf8",
+      "PilotPure.test_03_independent_finite_oracle",
+      "PilotPure.test_04_counterfactual_visible_whitelist",
+      "PilotPure.test_05_complete_plan_tampering_and_missing_denominators",
+      "PilotPure.test_06_plan_and_verifier_side_effect_denial"
+    ],
+    "tests/test_pilot_runtime.py": [
+      "PilotRuntime.test_01_full_matrix_and_counterfactual_actual_wire",
+      "PilotRuntime.test_02_failure_unknown_length_illegal_and_one_time_authority",
+      "PilotRuntime.test_03_full_plan_stops_on_unknown_and_claim_cannot_move",
+      "PilotRuntime.test_04_atomic_experiment_claim_race",
+      "PilotRuntime.test_05_multichoice_usage_separate_and_utf8_byte_boundaries"
+    ],
+    "tests/test_preflight.py": [
+      "Preflight.test_role_modes_fix_c2r1_without_fake_disabled_quotes",
+      "Preflight.test_strict_types_unknown_fields_duplicate_keys_and_money",
+      "Preflight.test_disabled_roles_cannot_request_budget_credentials_or_remote_mode",
+      "Preflight.test_endpoint_and_approval_are_never_authorization",
+      "Preflight.test_actual_readonly_cli_duplicate_key_and_side_effect_guard"
+    ],
+    "tests/test_processes.py": [
+      "Processes.test_two_control_processes_one_lease",
+      "Processes.test_abrupt_owner_exit_and_accepted_receipt_loss",
+      "Processes.test_mcp_received_before_result_real_sdk_host_kill",
+      "Processes.test_memory_commit_before_caller_ack_process_death"
+    ],
+    "tests/test_readiness.py": [
+      "Readiness.test_01_success_delayed_cache_and_wire_privacy",
+      "Readiness.test_02_faults_timeouts_length_and_usage_freeze",
+      "Readiness.test_03_independent_controls_last_call_and_last_money",
+      "Readiness.test_04_interruptions_helper_environment_and_pending_authority",
+      "Readiness.test_06_runtime_stderr_credential_is_filtered_before_disk",
+      "Readiness.test_05_rehashed_accounting_and_portable_reader"
+    ],
+    "tests/test_readiness_config.py": [
+      "ReadinessConfig.test_default_blocked_approval_binding_and_no_secret_resolution",
+      "ReadinessConfig.test_integer_pricing_upper_envelope_and_quote_or_alias_change",
+      "ReadinessConfig.test_clock_boundaries_and_system_expiration",
+      "ReadinessConfig.test_plan_cli_under_no_network_process_or_credential_access_guard"
+    ],
+    "tests/test_reliability.py": [
+      "Reliability.test_real_first_turn_then_second_entity_initialization_failure",
+      "Reliability.test_disk_scan_handles_atomic_rename_without_hiding_limits_or_errors",
+      "Reliability.test_primary_exception_retained_when_cleanup_also_raises",
+      "Reliability.test_real_engine_exception_after_first_step_preserves_prefix",
+      "Reliability.test_domain_receipt_missing_and_inconsistent_cannot_seal",
+      "Reliability.test_explicit_replay_overrides_and_missing_snapshot_precede_worker",
+      "Reliability.test_request_owner_readable_run_cannot_finish_and_unknown_retry",
+      "Reliability.test_targeted_recovery_no_other_job_and_changed_lease_refused"
+    ],
+    "tests/test_robustness.py": [
+      "RobustnessPure.test_01_schedule_mapping_and_closed_old_domains",
+      "RobustnessPure.test_02_exhaustive_independent_mapping_truth",
+      "RobustnessPure.test_03_metrics_missing_applicability_and_pair_denominators",
+      "RobustnessPure.test_04_consistent_copy_historical_dispatch_claims_and_decision",
+      "RobustnessPure.test_05_once_claim_concurrent_roots_and_unknown_plan"
+    ],
+    "tests/test_robustness_runtime.py": [
+      "RobustnessRuntime.test_01_behavior_errors_and_actual_own_arm_history",
+      "RobustnessRuntime.test_02_unknown_stops_suffix_duplicate_execute_denied",
+      "RobustnessRuntime.test_03_headers_timeout_and_cleanup",
+      "RobustnessRuntime.test_04_controller_and_verifier_failure_preserve_inventory",
+      "RobustnessRuntime.test_05_equal_hidden_world_A_wire_allows_different_output"
+    ],
+    "tests/test_runtime.py": [
+      "RuntimeTests.test_cross_process_dual_scenario_replay_and_privacy",
+      "RuntimeTests.test_current_host_two_turns_have_distinct_receipt_barriers"
+    ],
+    "tests/test_schema.py": [
+      "Schema.test_process_interruption_before_version_commit_retains_backup",
+      "Schema.test_migration_preserves_incompatible_spec_and_execution_refuses_it",
+      "Schema.test_wal_backup_copy_preserves_all_old_rows_and_repeated_migration",
+      "Schema.test_failure_rolls_back_copy_and_preserves_recoverable_backup",
+      "Schema.test_future_incomplete_missing_queries_never_create_or_write"
+    ],
+    "tests/test_sotopia.py": [
+      "Sotopia.test_parser_actual_context_repair_value_properties_and_coercion",
+      "Sotopia.test_strict_adapter_keeps_reverse_keys_and_three_identities",
+      "Sotopia.test_episode_original_definition_with_fixed_generation_seam"
+    ],
+    "tests/test_suite.py": [
+      "SuitePure.test_01_exhaustive_independent_truth_and_sensitivity",
+      "SuitePure.test_02_hand_computable_boundary_vectors",
+      "SuitePure.test_03_full_plan_and_tamper_rejection",
+      "SuitePure.test_04_layered_missing_invalid_and_task_failure",
+      "SuitePure.test_05_counterfactual_all_visible_fields",
+      "SuitePure.test_06_historical_correction_from_full_plan",
+      "SuitePure.test_07_readonly_plan_no_environment"
+    ],
+    "tests/test_suite_evidence.py": [
+      "SuiteEvidence.test_rehashed_raw_contradiction_and_partial_plan"
+    ],
+    "tests/test_suite_runtime.py": [
+      "SuiteRuntime.test_01_matrix_full_wire_and_portable_reader",
+      "SuiteRuntime.test_02_format_false_partial_unknown_claim_and_rehash",
+      "SuiteRuntime.test_03_first_unknown_stops_complete_plan_and_atomic_claim",
+      "SuiteRuntime.test_04_deadlines_production_31s_and_short_failure_boundaries"
+    ],
+    "tests/test_task.py": [
+      "TaskContract.test_01_real_results_privacy_public_history_and_cleanup",
+      "TaskContract.test_02_invalid_before_allocation_idempotency_and_replay",
+      "TaskContract.test_03_rehashed_task_dispatch_world_contradictions",
+      "TaskContract.test_04_evaluation_real_frozen_task_and_absent_actor",
+      "TaskContract.test_05_campaign_completeness_readonly_and_grouping",
+      "TaskContract.test_06_blinded_templates_binding_missing_conflict_and_disagreement",
+      "TaskContract.test_07_preflight_blocks_before_credentials_clients_workers"
+    ],
+    "tests/test_task_diagnostics.py": [
+      "TaskDiagnostics.test_visible_reference_ties_gap_and_absence",
+      "TaskDiagnostics.test_policy_only_visible_strict_fields_and_no_oracle",
+      "TaskDiagnostics.test_frozen_dataset_exhaustive_and_counterfactuals",
+      "TaskDiagnostics.test_independent_paths_and_explicit_denominators",
+      "TaskDiagnostics.test_historical_sidecar_and_old_contract_preserved",
+      "TaskDiagnostics.test_new_directory_portability_and_raw_scope",
+      "TaskDiagnostics.test_resealed_bad_packages_fail"
+    ],
+    "tests/test_transport.py": [
+      "Transport.test_01_official_success_visibility_and_domain_outcomes",
+      "Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix",
+      "Transport.test_03_zero_exhausted_unknown_and_usage_override",
+      "Transport.test_04_sealed_counterexamples_and_portable_readonly"
+    ],
+    "tests/test_transport_config.py": [
+      "TransportConfig.test_windows_architecture_fallback_in_sanitized_child",
+      "TransportConfig.test_explicit_protocol_version_and_zero_inactive_roles",
+      "TransportConfig.test_forged_live_endpoints_types_and_credentials_fail_closed"
+    ]
+  },
+  "sources": {
+    "src/actio/README.md": "861a50caf944ae9a47f48164a14cacf34711cf67ba653e229ff8c8c9aac9c482",
+    "src/actio/__init__.py": "4b20b38beaf9d7fc17025a5471a06bc1c536ba3182f7dc0b099dbf07df081db0",
+    "src/actio/__main__.py": "82c07173f50de592e4da565c28e48c95bdadb16e5971a466f2568186021de8b7",
+    "src/actio/_vendor/SOTOPIA_LICENSE": "6dd21159fa800241dbf31d4941e8979a7e54d495b45aaa116e3299a95324c06e",
+    "src/actio/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/_vendor/sotopia.py": "123ea7e9ebcdd47335e11181d9c0d5b4f945d0903c16c4a40c03dc44a0c0fb6b",
+    "src/actio/_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "src/actio/adapters/__init__.py": "5406bb59e061a48a6bacfcdea930b374ec622b6149077d363dd1614add7c82b6",
+    "src/actio/adapters/environment/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/adapters/environment/concordia.py": "1a6ea195e04f01338199d3148fa66b3e62b52846f2c9728fd231d63656291972",
+    "src/actio/adapters/filesystem/__init__.py": "7101ae658218c79139d6c14be5cf997e21c9d1eafc806e2f68575bbc37695c7c",
+    "src/actio/adapters/filesystem/artifacts.py": "e031fc443256c9585350161b8d913ce6d90f3b1600420e38b3d671bf4b31a735",
+    "src/actio/adapters/filesystem/common.py": "3c199ba716ca58e09bc2c5ae1b0a510c1e06f9dbac675452711cdd5072adb143",
+    "src/actio/adapters/filesystem/credentials.py": "19ed26c94ac96bd7414b3d9ffd993cbd2522c99648b5b6879a30a629278287d8",
+    "src/actio/adapters/filesystem/identity.py": "c91747fcd1dbeba08e4a4f7bbef3cecedcacea4c1c6ac1f36811a5e2767b8e00",
+    "src/actio/adapters/filesystem/publication.py": "04af36b3f519fa8bf4b8d8b2ba679d679ebbbb00b38c6cd1048d48cde65a858b",
+    "src/actio/adapters/persistence/__init__.py": "ce318cd88a28b8510a6c194c4147ebd166f0174568edc911029d351a4345fd30",
+    "src/actio/adapters/persistence/candidate_schema.sql": "4e9113b08ffe019fd13348ac9cfd66822a1d65d84bb3c9d9db9be1f704ddda5a",
+    "src/actio/adapters/persistence/database.py": "1d1f7bcd5da158afebaa650c7832c1b4b55a38f4a2a57b1aaa458a0a3fc82772",
+    "src/actio/adapters/persistence/evaluation_schema.sql": "347967c717a35dd59e884a1742af9b650d64ff6d6f0b745d57438a1c367b8a4c",
+    "src/actio/adapters/persistence/ledger.py": "8819b57d7a539b0a5e4d48af11f005bfa06f5e6834adc1347777d741634cd0ab",
+    "src/actio/adapters/persistence/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "src/actio/adapters/persistence/migration.py": "33ca67da09ae89c1ea02d23e8ea661d60f14836ca3841e205c756688ebbb2760",
+    "src/actio/adapters/persistence/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "src/actio/adapters/persistence/store.py": "44a03e71afbed15273bfcf96fc234a98fb6b083851db7f8a9e7b321d6b360dd4",
+    "src/actio/adapters/runtime/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/adapters/runtime/cleanup.py": "05e013f9555adae3a2ac5d14a017efd16167c0646ccec987c9edfa5707900a67",
+    "src/actio/adapters/runtime/eval_worker.py": "08b959827338f5bbb3e844a674a5e4f7804da7b0813109cd51a2c7f784accd3c",
+    "src/actio/adapters/runtime/evaluator.py": "321127385bf3024a8d912f4e9ab60f4e9e794e8dbdda408f3bb3df42854a1b30",
+    "src/actio/adapters/runtime/facts.py": "b0195240099872afb182810c78a9239c136e23eec84510767b01d30e750025ce",
+    "src/actio/adapters/runtime/host.py": "434deb5415367be2db584f87056ba2b510dd301b4a757b1037922ff7c11fcbb6",
+    "src/actio/adapters/runtime/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "src/actio/adapters/runtime/runtime.py": "60253c1eb6d56052f5bd5823ba4f3981d5ff5201394aba530567e5a2a3d9b1d4",
+    "src/actio/adapters/runtime/supervisor.py": "664e5008ee9aac894f7bbf257b3ebe8aca9e0933ca6f9f1bb6df3c2b9e9b6b1b",
+    "src/actio/adapters/transport/DSH_LICENSE.txt": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+    "src/actio/adapters/transport/__init__.py": "4349c250320a896cce18deb58a6b776b8ce41761185f19a784fcdcc987ac721e",
+    "src/actio/adapters/transport/fixture.py": "815b8ad9f71910baec44c2a78b4dac66041296182aa06f50b390b40f8dcde6e5",
+    "src/actio/adapters/transport/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "src/actio/adapters/transport/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "src/actio/adapters/transport/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "src/actio/adapters/transport/plugins/transport.mjs": "08e4e806bef12ea75aead2ca844d115556a32aa1ff4cb04ca19eb8e5e79c876f",
+    "src/actio/adapters/transport/responses.py": "57cd7d74efb0fba011a743d5dc56690594c0d22ffa0efa8dc03c156a21dc2036",
+    "src/actio/adapters/transport/transport.py": "f730af4301b11360ddc3e2198db95ba9a311bad6c1c800e35994865e62b76a33",
+    "src/actio/application/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/application/campaign.py": "4d64fdf928d6ba30e56cbc6520349a29c05ac991d995640f3774defaa8ab4590",
+    "src/actio/application/candidate_evaluation.py": "9eb344eacff0ba6dd41b3a6a8a9b21d3c217e054bf6c7556592d6e760909d833",
+    "src/actio/application/candidate_store.py": "da30fc5afa832ad4922292fe0882e557c47b8f825e2de7f497acf6b1fa535d06",
+    "src/actio/application/diagnostic_runtime.py": "94c5aca932d9b86e438376f884cae87cd4820ea0034f8aaea6067277008994af",
+    "src/actio/application/evaluation.py": "563f88fc4b006a2c2144015962ad8d28e386a3707591b9f4ef9e4a025f895ea2",
+    "src/actio/application/evaluation_store.py": "c7825727998361040ef7ca32c5170ee86b718085bd8c54ccb2710eaeeb6c43b1",
+    "src/actio/application/export.py": "2a0fc6d21a33e2eba4b859d6df1ffc6fff8dfd462f8259c63b4dc398ceaa7f6f",
+    "src/actio/application/gateway.py": "ce3c024bac5b0a73889ee721c24dcd31a52cb092617ca2b64234ce4e2d98d4c8",
+    "src/actio/application/memory.py": "2ddfe5bbefa88c604243f1b3f1c9a9551fd981563ca933ed75c68313a1e2f788",
+    "src/actio/application/migration.py": "5b3cf9a569a57371312b2067a8bac7f301f3a3e4978149202c0899dffe66e19b",
+    "src/actio/application/pilot.py": "ca0d9d9a563d2d684cc712dc8b4dbfe57e21504c589b7f07006480cc0d8ca44c",
+    "src/actio/application/robustness.py": "d9ee98a1107584c6f45cba97176ea9b1b00dbb07ab4a9fb868c723de80e31ab1",
+    "src/actio/application/scenarios.py": "07faefe703617cd0902c88aa346f6269255252824622bd715f5a2b1874ef3211",
+    "src/actio/application/store.py": "888ccd4fb7f3190746fafd41107a0d0dc0726cef1f258a0b160c7a34742f96ec",
+    "src/actio/application/task_diagnostics.py": "d2f027c6c24cf627e6436b35424da5b18641cb6efd6da088752f6b81e54114f8",
+    "src/actio/application/terminal.py": "19e9aee1d843ddba2bd6b5d7a2ae28a49b70ee2c82e92a61934d4395dfd82c00",
+    "src/actio/application/transport.py": "5c6158c561dcc9cda45d80ce58dd338569e82c5f34191f4819f94e755f66dcff",
+    "src/actio/application/transport_export.py": "686e8535cd72f2faae50ca451b86161124cc4f01a21fe4f5d9f8449afc8c9283",
+    "src/actio/budget.py": "8a9e7fbe9c142e3da4c4bf4224ec1f144de74adda9abc86ed65baf1b03deb82f",
+    "src/actio/candidate.py": "adcb2583ca63dcedd9a243462d4ebc2b5daea9bf105ee743ef112d8d8dec436c",
+    "src/actio/candidate_evaluation.py": "8059d73852dd78f7263423e3515f7e676a40d982c2ff70dcd74eefd105d7f11a",
+    "src/actio/cli.py": "781eef5a9cb7ca1ffef7edeb700c22ed0ac1dbbf688d5a5adf4a00e7aafff899",
+    "src/actio/common.py": "6f94e8add438133dbc55bd1e39bdd47a1ec9444226c845c162ee683adffc0ebc",
+    "src/actio/contracts/__init__.py": "894a9a34a40f5e137ef57c3d8d953a88b2468ee9ea12509bbffac10376533aff",
+    "src/actio/contracts/endpoint.py": "4e5029a29a0e95c79059bf82c30d8cc38172f394857e3df2bafbd2ba73cdabd8",
+    "src/actio/contracts/hashing.py": "807f204c8fd5e6ad19d9abc3ccd669de6632a2ddb8530995152d97af30ae88ad",
+    "src/actio/contracts/json.py": "2932541daa6111ec97edab7f6851a56513f5b6de900d7c209336a79e32335c25",
+    "src/actio/contracts/ports.py": "a3bc7aee7d5b6151531181b91a0fe14d57ec8139e0d59afd93a2bec557bab6ee",
+    "src/actio/contracts/scenarios.py": "7f7aaaea7be1ef2aca0fbe8bf2b80b5b6bb2ff1a53310d1b1c1bb1794738ebeb",
+    "src/actio/contracts/transport.py": "84c241ffdf0364dbc05a07fcabcaaacc5fa648a706d9d21fb33c4e198998d1ac",
+    "src/actio/contracts/versions.py": "8bade6aa6d1f59308e5f37ed0d33993fa0b2571d84902b4e718332e99b306193",
+    "src/actio/contracts/wire.py": "693dddf9cb6579cca7169c0f538f8b5bcbb9a0b859082b181e031e1fd9e41272",
+    "src/actio/domain/__init__.py": "6b308b2efb483eeaffe32ab90ea9e76c43e05faf5e44d97e49c53b91b6c0fdda",
+    "src/actio/domain/accounting.py": "dada7db827e2fdbb14b5c15b1a94e7bb66e744b9429b1d63ca9737b31a25cc09",
+    "src/actio/domain/candidate.py": "8a98157e2bcb25c669b59ea2628b2b88ba78b11bfb12dbf38d3da722eb46a5f3",
+    "src/actio/domain/clock.py": "87d2e05fec27af8a5a487b8b07ea431c16cf5108bf33d66731ca91757c302a39",
+    "src/actio/domain/episode.py": "689186721131ea243fabeccb763dedcd7f10f07220c8dc7d901598af2ce70a28",
+    "src/actio/domain/memory.py": "f85a86dc55e90b85e416f1f64f250e0decaeb617c6f74b7a2eeefeed8956e575",
+    "src/actio/domain/roles.py": "81a87f89f669368b304ee3b074194d510d5806c9c3176e7e5c06e606a3f4a4e3",
+    "src/actio/eval_worker.py": "2c08d160d916fbc0d27a4fff1c584ce66a3bba9c5e150983b02adc3712a5777e",
+    "src/actio/evaluation.py": "4527ce1383c410001bfe66e7f060b4da9cdfda1573672072087b6916cd9061f5",
+    "src/actio/evaluation_history.json": "5cbf1c60d85931c80f5e86ac281604e51ac997baf2bfa7e7194b01b463b2aea2",
+    "src/actio/evidence/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/evidence/audit/__init__.py": "33df14f16773eca34e83cc806e892774a30d3c38354f463081f441b98ff8f7f2",
+    "src/actio/evidence/audit/accounting.py": "bca1d8b4e426ad97c7c0749ae5676dbe339356f5e1ab5f524033c656389859fd",
+    "src/actio/evidence/audit/channel_audit.py": "4dbbf91fe9fc523f01467b607de1d317d4c0e61b857173e3d3afae655e93e640",
+    "src/actio/evidence/audit/stream_audit.py": "1d87a82132f6d81f042c23f3131c087bcaa1a86973cd90595633a9b19fad476c",
+    "src/actio/evidence/audit/transport_contract.py": "70fdd9f582672c4bcf7237cf09bb32d051c6c03649fd7901df847d218a32fd35",
+    "src/actio/evidence/bundles/__init__.py": "88c0b2dfa582eeb57f97a1029ef5013070af5a15215af3e6c1fde929b6dd51c2",
+    "src/actio/evidence/bundles/eval_contract.py": "bed48f93d0a76a97e77635de8f11fb475ee724c94613975f791b2e9d254e663a",
+    "src/actio/evidence/bundles/evaluation.py": "a6ed934b49f541d4dff7a94f05b95ab9433ebe8cca725894c5337e60aa1befd6",
+    "src/actio/evidence/bundles/task_evidence.py": "c4f99715f9aea40f12dc92c2fa7b1615daafd979f02a1e01051660238c811414",
+    "src/actio/evidence/bundles/terminal.py": "648285ff201ac84cea180dd927d13fb25a4442ec5b68fa234b8fe672067d96b5",
+    "src/actio/evidence/bundles/verify.py": "c605bbc86791b26457cd37184f7e568ea0ad411c3c46201aa95cb1f60eb75525",
+    "src/actio/evidence/campaigns/__init__.py": "f32e0314a7de15abf1be9982931152e1dee6e362095fb1d23fe4c203282304d6",
+    "src/actio/evidence/campaigns/calibration.py": "ecb03406371fc7f937c095bad934942fccfeb9a05d34be4cc67be8a9642b26de",
+    "src/actio/evidence/campaigns/campaign.py": "f9076055444a7779c5d6c9bff88e92beba9905e4aae0fb6e3e1d524aa60f0d9f",
+    "src/actio/evidence/campaigns/campaign_registry.py": "d74c1338ed6fc60a1375974981242ad1ef2a91086231876713abe670ea07bad1",
+    "src/actio/evidence/campaigns/candidate_measurement.py": "ab2a3f0fa44f92df88a2e3bde2c5f8b5f213d95b39fb9b46b640f84cbf296fbd",
+    "src/actio/evidence/campaigns/evaluation_measurement.py": "ab7a6595e087c6d67ead47ecf2bc360ba42709212dcb1080d489b52a12a3933c",
+    "src/actio/evidence/campaigns/pilot_measurement.py": "93e4fdce6041d4fdef7e3bee4df81afdd3ba88b157c580a307a5d27c7ec75d5a",
+    "src/actio/evidence/campaigns/robustness_measurement.py": "d53dae76d23a140f0aea9eabfc5de59bec4c01a2c3bf271b7277085db4e58d5f",
+    "src/actio/evidence/campaigns/suite_measurement.py": "5e4740a7e490af2a3ccc189dc7784ab9cc3b2201400c90fb29213bafada54ae2",
+    "src/actio/evidence/campaigns/transport_campaign.py": "d1b68647208cb1ff6b8fbec25f621e939265cad55a06c76b41fa8e9dbd4331dc",
+    "src/actio/evidence/diagnostics/__init__.py": "8576e4696dc9bfe67c0dd3806883506e04f38956d6c0ceb7574a0fea43475c56",
+    "src/actio/evidence/diagnostics/failure_fixtures.py": "8075e82868a69bf00d43c4df468d0dc7dbee98b3c045fba09f8240d6cbcf96ab",
+    "src/actio/evidence/diagnostics/failure_observation.py": "e43c7936cc7dddd262ae92da1f46afc1d45e65c73e2b62177a67d01d179f550f",
+    "src/actio/evidence/diagnostics/future_schedule.py": "3a347addd79c34a5937adddfa08f05cdaf5bf85191f1cc0ded4afb7dbd06eb15",
+    "src/actio/evidence/diagnostics/task_diagnostics.py": "9384b4aa7d94b1f74e96f15a718d211b36b6a7d31e84d2f5a9ce7f0410f5819c",
+    "src/actio/evidence/diagnostics/transport_diagnostics.py": "7bc225fdcae3abc1048119711e23ed7993856ffc6f37d4343a8eeb6ba99aad22",
+    "src/actio/evidence/failure_observation.py": "03b878ddac92bcb875ee2fe5730c19f1927c2ed906bac8295d8b4155965c0303",
+    "src/actio/evidence/lineage/__init__.py": "ac6f05ee5b94e549bb895fb04911e2794f6cd58909ac14c9b92f40d1dfe7cd65",
+    "src/actio/evidence/lineage/candidate.py": "9a98ae7d8d0d96573a39e4b1415f7f5beb1f73b63e27ba9675d9a1273d9ec670",
+    "src/actio/evidence/lineage/candidate_evaluation.py": "9f10643f46d08467b89cd51911e257458c373e6673ec6937b6af28be2b65fd1a",
+    "src/actio/evidence/lineage/candidate_lineage.py": "41ddcba0c1916f54240f44c8eb1dd9dc41e9e4ebda844b9cfc27485dea0c8b1d",
+    "src/actio/evidence/lineage/evaluation_history.py": "ae769e1dbceffb018340d92622a7352a4607027b8c028dab8d75aca3cd574625",
+    "src/actio/evidence/lineage/evaluation_lineage.py": "2f39b05d621d090064e776603b507c73de6fd05221a927f989f9143620980509",
+    "src/actio/evidence/lineage/robustness.py": "110ce774d23d4e876983018a4ddfa86985f3c4ddfeb2212e86d8db7e3004ebc9",
+    "src/actio/gateway.py": "dddb3e4cb6bb9a1e3b7e9bcf8da9d6c8e4673bd461bfea28a33a334df59c4f97",
+    "src/actio/host.py": "a57347fc14fc2477ca3d415d2dc705e6269c3b92be4b68327a27b0b65d0fad5f",
+    "src/actio/interfaces/__init__.py": "04ba2bc887f953bec5942cbd2f19cc48a56dfbe16a0eadb5b8a5f5c6af7388fb",
+    "src/actio/interfaces/budget.py": "0dde11cae70ad1e9ba3ce764b1ac291b8daa6a5ad7a592d3cc5ed3d6d7a90a2a",
+    "src/actio/interfaces/campaign.py": "ff1368c64716857d391276b154d72f22357c0db6f9756f23b81b7d6ea506598b",
+    "src/actio/interfaces/candidate.py": "2574e6d8954e7b5a961ee01e804401fb09b09caeae3698ccb46407d50240b9fd",
+    "src/actio/interfaces/candidate_evaluation.py": "a3ad5d1a3160f893f6c8c1e0558c8bc3a3545fde334cc675758c2267c3d0e299",
+    "src/actio/interfaces/cli.py": "01526f11be59fe2863836848fbb52cdbb1c18f05015c63a6206c3f636a7f1dd9",
+    "src/actio/interfaces/evaluation.py": "b4a7b8e4fa42d2a1980418e8f5d22b6b5688c9366240bdac0d6f30e8bdd2b837",
+    "src/actio/interfaces/export.py": "57c8ab0f715f4cbde33a21c64a0a73eff1618a8d280aa5f7da7a967d750f7f03",
+    "src/actio/interfaces/gateway.py": "3fedd45eb2d2b74e4a6b7b44fcc92a4b5958cae2e3b9724e1efc63f6c6c53c5e",
+    "src/actio/interfaces/migration.py": "176756faa4a288eb138218feae3e0e25656f03d0c3a140ccdeb2db4940a95fe6",
+    "src/actio/interfaces/pilot.py": "2d2ef7443d21274dd7810f565b0a7b893ccd352551ad323ebf791a704ae261ed",
+    "src/actio/interfaces/preflight.py": "a64d4e19ae269f18e4edeb935bd41a4493cdfdc47779f17c31bcac28299c1318",
+    "src/actio/interfaces/readiness.py": "eb0c170bae2d5ab1a6afaca2c5fb61757b579044f3abfe20c3fdcc16cf1fee67",
+    "src/actio/interfaces/robustness.py": "ebe0cf9fbf0ef0df968bf0a8b24e488c8400a230b073a5e0c6abfeaec797ddc7",
+    "src/actio/interfaces/store.py": "5791980143b4713573532b0321d9906584f8fdf75d92f898aa3db024d48f36b5",
+    "src/actio/interfaces/suite.py": "2c0a69006d60c47b1a704c6bdfeb9c39db4a7d43a708a7046f5b439deb877838",
+    "src/actio/interfaces/task_diagnostics.py": "4b032f6b7cf5c1866691aead9db54f3387e150ac00159911fce661e42426c91c",
+    "src/actio/interfaces/transport_diagnostics.py": "b042dd4a1df4f21ba7eb7b958618f2a6e4455511f12fb7bb539f430d88083259",
+    "src/actio/interfaces/transport_export.py": "94fac28305aa40bb5e1dd55d176a21823edd3a398f257e8bfbfb0c36e016e952",
+    "src/actio/interfaces/wiring.py": "9f633f38fdd64de3d2631bb7b448fe8e0141ee3ba757b7df39d9c775cf2d6782",
+    "src/actio/mcp_server.py": "4ea351a0e7bdb919422c7bda9124a1e0f60f114c9fc8c8d7d15c4dd4c0257ad7",
+    "src/actio/measurement/__init__.py": "537b0e142453eb0cef573931531ac7e10be46b116578ff609bbd5e89019370e2",
+    "src/actio/measurement/diagnostic.py": "0043a3c4eb20f71375500df99479e45c9a063657b853214429f835dc08074719",
+    "src/actio/measurement/oracle.py": "4ee52aaba0a72fca8604bf5dda674e54b43fefa0ea987cf71e918a54f5f26ab1",
+    "src/actio/measurement/robustness_definitions.py": "370fc2b13c854eec9078c38b311ba85ea5e9a9e8656c35ba2a43b78537813222",
+    "src/actio/pilot.py": "1bba52d0c9f9bb95cd4d52408b605629ecb29d276a3a7017b131b19d79829f2b",
+    "src/actio/pins/c5_runtime.json": "b5b5caf0c5b2e4662d5131b6106f2dc5e6af945a46c8c4515172a207335ad851",
+    "src/actio/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "src/actio/preflight.py": "9dcf8e5f2b94071575c379a5ddd51ef80ac3d7f95529e866587c6f48ab3ce00e",
+    "src/actio/profiles/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/actio/profiles/candidate_campaign.py": "3e6f1a874412cc9df33ad3fd3fb802152c3abc910d2fd6039caab3f2a9b1a1bc",
+    "src/actio/profiles/evaluation_campaign.py": "7e4532f6efa461a503f9cb7c6a577e94e5c6aafd1f9cc3912dd4e1fe5ef8fa68",
+    "src/actio/profiles/finite_defaults.py": "5ec40e20b8993bbe405909278eabdea94dd1b7432de7a5ab0388823b503aa949",
+    "src/actio/profiles/gateway_base.py": "7146f4a1d0df98a30a0e92466d2b3121d102f2bf777b7a07a722fbbdb90e10bb",
+    "src/actio/profiles/gateway_contract.py": "03b5d935241dde4eec83c4add669b8cd7a7664762aa40f8ed4c46775d213fcc8",
+    "src/actio/profiles/pilot_contract.py": "122409da8713d43c420355128e0ee3e7329d71dce73ff52df293e92c0754b510",
+    "src/actio/profiles/readiness_contract.py": "09a2544dc53fb1dd529335b3b290e60a11d2603808f2d78a44cbfb2aec17d7a3",
+    "src/actio/profiles/registry.py": "e8f715ff93a17918ba52d7e98f8671dca62b9d2e6dfcf9a028150fccee6548a2",
+    "src/actio/profiles/robustness_campaign.py": "9621edc0146d30acc42a8671dd733e79e58e83b0051790fd6e0c14a462d174aa",
+    "src/actio/profiles/suite_contract.py": "b7680f8c7db04a16318e63c7d3b454719aac6361cffbfd681dbdf51c90144f64",
+    "src/actio/profiles/transport.py": "ed11f15a0ee2a5fee13c789750e63d06f574e283c1529d4299e1b682c149aa51",
+    "src/actio/profiles/validation.py": "684e3a8ac942120176a013f3cdbdaf7fc314c735d377ea662337182488e68050",
+    "src/actio/readiness.py": "3682851d64842f12a8355017bcefb49934a08c4bbac4203353d1bef6ca517139",
+    "src/actio/readiness_quote.json": "e9f8298e1a6edb4ef177e1e9c881506b937305fb4c949be0880888112be190e7",
+    "src/actio/robustness.py": "c162b2e3a569382d9f75df71f9c15303a11db5f8aa69772129c49315ac82ea55",
+    "src/actio/suite.py": "bd2b1747311100c9d57e7e4044d364aa5cc3a7e93e9b9c74d8a21090e5bca384",
+    "src/actio/task_diagnostic_trust.json": "50a0f66a33787518f3606c478e2f6db698646f492b45f87e359d9077c9d4cab7",
+    "src/actio/task_diagnostics.py": "9a22312daef0d1594347190cbf9c693885c429162055d1906429569be986f55f",
+    "src/actio/tasks/__init__.py": "a7b6efe8e84c61800df5f52d3bb5de44695d2beed3739eb01fbf1ad8a8f8e4ee",
+    "src/actio/tasks/candidate.py": "d8f9f274dbc03efa0b7fd8ff5f8f2bc4bb4a9534c72fcbdeea7830ec489b3080",
+    "src/actio/tasks/controls.py": "2dfb7356d3b088f2a8e6d89a87e3a85d0ff6f03fce0bea7e452e13c7c01bc790",
+    "src/actio/tasks/core.py": "a5fcabf6fddd36d4264746f90662591d75646d5510194e44b9105544aa8fff4b",
+    "src/actio/tasks/diagnostic.py": "be56e98f5b633fa88e1222c86a6b66d21ecfe211a5623c83f459ceeec401ffcf",
+    "src/actio/tasks/evaluation.py": "be22e30189c3e677bec8c0e80f70876f111cefe0a8f9e0a2eef4d823645cf139",
+    "src/actio/tasks/finite.py": "178e833f6867ac8b8a68bba94dc78e818da7bd73b43d6ed031c8c242b7a07267",
+    "src/actio/tasks/registry.py": "471dfaa7c723ff5f7e2f5c34366c8379111bfd112b4e560713091d9800010be9",
+    "src/actio/tasks/robustness.py": "bce76dd86f48f1cb013d6709b33a095781fead3499562e263db1f247fd91b8a5",
+    "src/actio/tasks/scheduling.py": "888068d0ba49a462a96758888edddf22555514b370eb2b965099362c1df3f203",
+    "src/actio/tasks/scheduling_v2.py": "fad3233a72bc64c5f3b5ab26bd0c9eab19bc286f7463e9be65419693525904b1",
+    "src/actio/transport_campaign.py": "d8e6fa4467823f16cf9bf423192853e4d3428c3631987a7d2a3386c9a9702ca1",
+    "src/actio/transport_diagnostics.py": "9c9f343b1064f055d532c745f188c606f76315704ddffd3bf549a683b2f48c74",
+    "src/actio/verify.py": "c5547eb001b05923361a6ea2d4415bf4a8ea8f71758d4440552fddb59845f3d5"
+  },
+  "architecture": {
+    "status": "PASS",
+    "modules": 169,
+    "edges": 595,
+    "violations": [],
+    "strong_components": [],
+    "unmigrated_root_modules": [],
+    "shims": [
+      "actio.budget",
+      "actio.candidate",
+      "actio.candidate_evaluation",
+      "actio.cli",
+      "actio.common",
+      "actio.eval_worker",
+      "actio.evaluation",
+      "actio.gateway",
+      "actio.host",
+      "actio.mcp_server",
+      "actio.pilot",
+      "actio.preflight",
+      "actio.readiness",
+      "actio.robustness",
+      "actio.suite",
+      "actio.task_diagnostics",
+      "actio.transport_campaign",
+      "actio.transport_diagnostics",
+      "actio.verify"
+    ],
+    "dynamic_imports": [
+      {
+        "module": "actio.adapters.transport.fixture",
+        "line": 89,
+        "literal": "pathlib"
+      },
+      {
+        "module": "actio.evidence.campaigns.campaign",
+        "line": 72,
+        "literal": "hashlib"
+      },
+      {
+        "module": "actio.evidence.diagnostics.failure_observation",
+        "line": 45,
+        "literal": "math"
+      }
+    ],
+    "evidence_groups": {
+      "audit": [],
+      "bundles": [
+        "audit"
+      ],
+      "campaigns": [
+        "audit",
+        "bundles"
+      ],
+      "lineage": [
+        "campaigns"
+      ],
+      "diagnostics": [
+        "audit",
+        "campaigns"
+      ]
+    },
+    "evidence_group_cycles": [],
+    "dependencies": {
+      "actio": [],
+      "actio.__main__": [
+        "actio.interfaces.cli"
+      ],
+      "actio._vendor": [],
+      "actio._vendor.sotopia": [],
+      "actio.adapters": [],
+      "actio.adapters.environment": [],
+      "actio.adapters.environment.concordia": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.runtime.facts",
+        "actio.adapters.runtime.runtime",
+        "actio.contracts.json",
+        "actio.contracts.wire",
+        "actio.evidence.audit.transport_contract",
+        "actio.tasks.registry"
+      ],
+      "actio.adapters.filesystem": [],
+      "actio.adapters.filesystem.artifacts": [
+        "actio.contracts.json"
+      ],
+      "actio.adapters.filesystem.common": [
+        "actio.contracts.json"
+      ],
+      "actio.adapters.filesystem.credentials": [
+        "actio.contracts.json"
+      ],
+      "actio.adapters.filesystem.identity": [
+        "actio.adapters.filesystem.common"
+      ],
+      "actio.adapters.filesystem.publication": [
+        "actio.contracts.json",
+        "actio.profiles.pilot_contract"
+      ],
+      "actio.adapters.persistence": [],
+      "actio.adapters.persistence.database": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json"
+      ],
+      "actio.adapters.persistence.ledger": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.profiles.registry"
+      ],
+      "actio.adapters.persistence.migration": [
+        "actio.adapters.persistence.database"
+      ],
+      "actio.adapters.persistence.store": [
+        "actio.adapters.persistence.database",
+        "actio.contracts.json"
+      ],
+      "actio.adapters.runtime": [],
+      "actio.adapters.runtime.cleanup": [
+        "actio.adapters.runtime.supervisor",
+        "actio.contracts.json"
+      ],
+      "actio.adapters.runtime.eval_worker": [
+        "actio._vendor.sotopia",
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract"
+      ],
+      "actio.adapters.runtime.evaluator": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract"
+      ],
+      "actio.adapters.runtime.facts": [
+        "actio.contracts.json",
+        "actio.contracts.wire"
+      ],
+      "actio.adapters.runtime.host": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.profiles.registry"
+      ],
+      "actio.adapters.runtime.mcp_server": [],
+      "actio.adapters.runtime.runtime": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.runtime.facts",
+        "actio.adapters.runtime.mcp_server",
+        "actio.adapters.runtime.supervisor",
+        "actio.contracts.json",
+        "actio.contracts.wire"
+      ],
+      "actio.adapters.runtime.supervisor": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json"
+      ],
+      "actio.adapters.transport": [],
+      "actio.adapters.transport.fixture": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.transport.responses"
+      ],
+      "actio.adapters.transport.responses": [],
+      "actio.adapters.transport.transport": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.publication",
+        "actio.adapters.persistence.ledger",
+        "actio.adapters.runtime.facts",
+        "actio.adapters.runtime.runtime",
+        "actio.contracts.json",
+        "actio.contracts.transport",
+        "actio.evidence.audit.channel_audit",
+        "actio.evidence.audit.transport_contract",
+        "actio.profiles.candidate_campaign",
+        "actio.profiles.evaluation_campaign",
+        "actio.profiles.finite_defaults",
+        "actio.profiles.gateway_base",
+        "actio.profiles.registry",
+        "actio.profiles.robustness_campaign",
+        "actio.tasks.finite",
+        "actio.tasks.scheduling_v2"
+      ],
+      "actio.application": [],
+      "actio.application.campaign": [
+        "actio.adapters.filesystem.artifacts",
+        "actio.adapters.filesystem.common",
+        "actio.application.evaluation",
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.bundles.verify",
+        "actio.evidence.campaigns.campaign"
+      ],
+      "actio.application.candidate_evaluation": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.publication",
+        "actio.contracts.json",
+        "actio.evidence.lineage.candidate_evaluation",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.profiles.evaluation_campaign"
+      ],
+      "actio.application.candidate_store": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.lineage.candidate_lineage"
+      ],
+      "actio.application.diagnostic_runtime": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.publication",
+        "actio.application.pilot",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.evidence.diagnostics.failure_fixtures",
+        "actio.evidence.diagnostics.failure_observation",
+        "actio.evidence.diagnostics.transport_diagnostics",
+        "actio.profiles.robustness_campaign",
+        "actio.tasks.controls",
+        "actio.tasks.diagnostic",
+        "actio.tasks.robustness"
+      ],
+      "actio.application.evaluation": [
+        "actio.adapters.filesystem.artifacts",
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.bundles.verify"
+      ],
+      "actio.application.evaluation_store": [
+        "actio.application.candidate_store",
+        "actio.contracts.json",
+        "actio.evidence.campaigns.evaluation_measurement",
+        "actio.evidence.campaigns.robustness_measurement",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.profiles.evaluation_campaign"
+      ],
+      "actio.application.export": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.evidence.bundles.verify"
+      ],
+      "actio.application.gateway": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.credentials",
+        "actio.application.export",
+        "actio.application.transport",
+        "actio.application.transport_export",
+        "actio.contracts.json",
+        "actio.evidence.audit.accounting",
+        "actio.profiles.gateway_base",
+        "actio.profiles.gateway_contract",
+        "actio.tasks.registry"
+      ],
+      "actio.application.memory": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.domain.memory"
+      ],
+      "actio.application.migration": [
+        "actio.adapters.filesystem.common",
+        "actio.application.evaluation_store",
+        "actio.contracts.json",
+        "actio.evidence.lineage.evaluation_history",
+        "actio.profiles.evaluation_campaign"
+      ],
+      "actio.application.pilot": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.credentials",
+        "actio.adapters.filesystem.publication",
+        "actio.application.export",
+        "actio.application.transport",
+        "actio.application.transport_export",
+        "actio.contracts.json",
+        "actio.evidence.campaigns.campaign_registry",
+        "actio.evidence.campaigns.pilot_measurement",
+        "actio.evidence.campaigns.suite_measurement",
+        "actio.profiles.pilot_contract",
+        "actio.tasks.candidate",
+        "actio.tasks.evaluation",
+        "actio.tasks.finite",
+        "actio.tasks.robustness",
+        "actio.tasks.scheduling_v2"
+      ],
+      "actio.application.robustness": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.publication",
+        "actio.contracts.json",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.evidence.lineage.robustness",
+        "actio.profiles.robustness_campaign"
+      ],
+      "actio.application.scenarios": [
+        "actio.application.memory",
+        "actio.application.terminal",
+        "actio.contracts.json",
+        "actio.contracts.scenarios",
+        "actio.contracts.wire",
+        "actio.evidence.bundles.task_evidence",
+        "actio.evidence.bundles.terminal",
+        "actio.tasks.registry"
+      ],
+      "actio.application.store": [
+        "actio.adapters.filesystem.common",
+        "actio.application.candidate_store",
+        "actio.application.evaluation_store",
+        "actio.application.terminal",
+        "actio.contracts.json",
+        "actio.domain.episode"
+      ],
+      "actio.application.task_diagnostics": [
+        "actio.contracts.json",
+        "actio.evidence.diagnostics.task_diagnostics",
+        "actio.tasks.diagnostic",
+        "actio.tasks.registry"
+      ],
+      "actio.application.terminal": [
+        "actio.contracts.json",
+        "actio.evidence.bundles.terminal"
+      ],
+      "actio.application.transport": [
+        "actio.application.scenarios",
+        "actio.application.terminal",
+        "actio.contracts.json",
+        "actio.contracts.transport",
+        "actio.evidence.audit.transport_contract",
+        "actio.profiles.registry",
+        "actio.tasks.candidate",
+        "actio.tasks.registry"
+      ],
+      "actio.application.transport_export": [
+        "actio.adapters.filesystem.artifacts",
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.campaigns.transport_campaign"
+      ],
+      "actio.budget": [
+        "actio.adapters.persistence.ledger",
+        "actio.evidence.audit.accounting",
+        "actio.interfaces.budget",
+        "actio.profiles.registry"
+      ],
+      "actio.candidate": [
+        "actio.interfaces.candidate"
+      ],
+      "actio.candidate_evaluation": [
+        "actio.interfaces.candidate_evaluation"
+      ],
+      "actio.cli": [
+        "actio.interfaces.cli"
+      ],
+      "actio.common": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json"
+      ],
+      "actio.contracts": [],
+      "actio.contracts.endpoint": [],
+      "actio.contracts.hashing": [],
+      "actio.contracts.json": [],
+      "actio.contracts.ports": [],
+      "actio.contracts.scenarios": [],
+      "actio.contracts.transport": [],
+      "actio.contracts.versions": [],
+      "actio.contracts.wire": [],
+      "actio.domain": [],
+      "actio.domain.accounting": [],
+      "actio.domain.candidate": [
+        "actio.contracts.json"
+      ],
+      "actio.domain.clock": [
+        "actio.contracts.json"
+      ],
+      "actio.domain.episode": [
+        "actio.contracts.json"
+      ],
+      "actio.domain.memory": [
+        "actio.contracts.json"
+      ],
+      "actio.domain.roles": [
+        "actio.contracts.endpoint",
+        "actio.contracts.json"
+      ],
+      "actio.eval_worker": [
+        "actio.adapters.runtime.eval_worker"
+      ],
+      "actio.evaluation": [
+        "actio.evidence.bundles.evaluation",
+        "actio.interfaces.evaluation"
+      ],
+      "actio.evidence": [],
+      "actio.evidence.audit": [],
+      "actio.evidence.audit.accounting": [
+        "actio.contracts.json",
+        "actio.domain.accounting",
+        "actio.evidence.audit.channel_audit",
+        "actio.profiles.registry"
+      ],
+      "actio.evidence.audit.channel_audit": [
+        "actio.contracts.json",
+        "actio.evidence.audit.stream_audit"
+      ],
+      "actio.evidence.audit.stream_audit": [
+        "actio.contracts.json"
+      ],
+      "actio.evidence.audit.transport_contract": [
+        "actio.contracts.json",
+        "actio.profiles.gateway_base",
+        "actio.profiles.readiness_contract",
+        "actio.profiles.registry",
+        "actio.profiles.transport",
+        "actio.tasks.candidate",
+        "actio.tasks.registry",
+        "actio.tasks.scheduling_v2"
+      ],
+      "actio.evidence.bundles": [],
+      "actio.evidence.bundles.eval_contract": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.contracts.versions",
+        "actio.evidence.bundles.task_evidence",
+        "actio.tasks.registry"
+      ],
+      "actio.evidence.bundles.evaluation": [
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract",
+        "actio.evidence.bundles.verify"
+      ],
+      "actio.evidence.bundles.task_evidence": [
+        "actio.contracts.json",
+        "actio.evidence.audit.transport_contract",
+        "actio.tasks.registry"
+      ],
+      "actio.evidence.bundles.terminal": [
+        "actio.contracts.json",
+        "actio.evidence.audit.transport_contract",
+        "actio.evidence.bundles.task_evidence"
+      ],
+      "actio.evidence.bundles.verify": [
+        "actio.contracts.json",
+        "actio.contracts.versions",
+        "actio.evidence.audit.accounting",
+        "actio.evidence.audit.transport_contract",
+        "actio.evidence.bundles.task_evidence",
+        "actio.evidence.bundles.terminal",
+        "actio.tasks.scheduling_v2"
+      ],
+      "actio.evidence.campaigns": [],
+      "actio.evidence.campaigns.calibration": [
+        "actio.contracts.json",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.campaigns.campaign"
+      ],
+      "actio.evidence.campaigns.campaign": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.bundles.verify"
+      ],
+      "actio.evidence.campaigns.campaign_registry": [
+        "actio.evidence.campaigns.candidate_measurement",
+        "actio.evidence.campaigns.evaluation_measurement",
+        "actio.evidence.campaigns.robustness_measurement"
+      ],
+      "actio.evidence.campaigns.candidate_measurement": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.audit.channel_audit",
+        "actio.evidence.audit.stream_audit",
+        "actio.evidence.campaigns.pilot_measurement",
+        "actio.evidence.campaigns.suite_measurement",
+        "actio.measurement.oracle",
+        "actio.profiles.candidate_campaign",
+        "actio.tasks.finite"
+      ],
+      "actio.evidence.campaigns.evaluation_measurement": [
+        "actio.contracts.json",
+        "actio.evidence.audit.channel_audit",
+        "actio.evidence.campaigns.candidate_measurement",
+        "actio.evidence.campaigns.pilot_measurement",
+        "actio.evidence.campaigns.suite_measurement",
+        "actio.measurement.oracle",
+        "actio.profiles.evaluation_campaign",
+        "actio.tasks.candidate",
+        "actio.tasks.finite"
+      ],
+      "actio.evidence.campaigns.pilot_measurement": [
+        "actio.contracts.json",
+        "actio.evidence.audit.stream_audit",
+        "actio.evidence.campaigns.transport_campaign",
+        "actio.profiles.pilot_contract"
+      ],
+      "actio.evidence.campaigns.robustness_measurement": [
+        "actio.contracts.json",
+        "actio.evidence.campaigns.candidate_measurement",
+        "actio.evidence.campaigns.evaluation_measurement",
+        "actio.measurement.robustness_definitions",
+        "actio.profiles.robustness_campaign",
+        "actio.tasks.candidate",
+        "actio.tasks.controls",
+        "actio.tasks.diagnostic",
+        "actio.tasks.finite",
+        "actio.tasks.robustness"
+      ],
+      "actio.evidence.campaigns.suite_measurement": [
+        "actio.contracts.json",
+        "actio.evidence.campaigns.pilot_measurement",
+        "actio.measurement.oracle",
+        "actio.profiles.suite_contract",
+        "actio.tasks.finite"
+      ],
+      "actio.evidence.campaigns.transport_campaign": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.hashing",
+        "actio.contracts.json",
+        "actio.contracts.transport",
+        "actio.evidence.audit.accounting",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.bundles.verify",
+        "actio.profiles.registry"
+      ],
+      "actio.evidence.diagnostics": [],
+      "actio.evidence.diagnostics.failure_fixtures": [
+        "actio.contracts.json",
+        "actio.evidence.diagnostics.failure_observation"
+      ],
+      "actio.evidence.diagnostics.failure_observation": [
+        "actio.adapters.filesystem.identity",
+        "actio.contracts.json",
+        "actio.evidence.audit.channel_audit",
+        "actio.evidence.audit.stream_audit",
+        "actio.evidence.campaigns.transport_campaign"
+      ],
+      "actio.evidence.diagnostics.future_schedule": [
+        "actio.contracts.json",
+        "actio.profiles.robustness_campaign"
+      ],
+      "actio.evidence.diagnostics.task_diagnostics": [
+        "actio.contracts.json",
+        "actio.measurement.diagnostic",
+        "actio.tasks.controls",
+        "actio.tasks.diagnostic",
+        "actio.tasks.finite",
+        "actio.tasks.registry"
+      ],
+      "actio.evidence.diagnostics.transport_diagnostics": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.json",
+        "actio.evidence.diagnostics.failure_fixtures",
+        "actio.evidence.diagnostics.failure_observation",
+        "actio.evidence.diagnostics.future_schedule"
+      ],
+      "actio.evidence.failure_observation": [
+        "actio.evidence.diagnostics.failure_observation"
+      ],
+      "actio.evidence.lineage": [],
+      "actio.evidence.lineage.candidate": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.campaigns.candidate_measurement",
+        "actio.evidence.lineage.candidate_lineage",
+        "actio.profiles.candidate_campaign"
+      ],
+      "actio.evidence.lineage.candidate_evaluation": [
+        "actio.contracts.json",
+        "actio.evidence.campaigns.evaluation_measurement",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.profiles.evaluation_campaign"
+      ],
+      "actio.evidence.lineage.candidate_lineage": [
+        "actio.contracts.json",
+        "actio.domain.candidate"
+      ],
+      "actio.evidence.lineage.evaluation_history": [
+        "actio.contracts.json"
+      ],
+      "actio.evidence.lineage.evaluation_lineage": [
+        "actio.contracts.json",
+        "actio.evidence.lineage.candidate_lineage",
+        "actio.evidence.lineage.evaluation_history",
+        "actio.profiles.evaluation_campaign",
+        "actio.profiles.robustness_campaign"
+      ],
+      "actio.evidence.lineage.robustness": [
+        "actio.contracts.json",
+        "actio.evidence.campaigns.robustness_measurement",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.profiles.robustness_campaign"
+      ],
+      "actio.gateway": [
+        "actio.interfaces.gateway"
+      ],
+      "actio.host": [
+        "actio.adapters.runtime.host"
+      ],
+      "actio.interfaces": [],
+      "actio.interfaces.budget": [
+        "actio.adapters.persistence.ledger",
+        "actio.contracts.json"
+      ],
+      "actio.interfaces.campaign": [
+        "actio.application.campaign",
+        "actio.contracts.json",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.campaigns.campaign",
+        "actio.interfaces.evaluation"
+      ],
+      "actio.interfaces.candidate": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.campaigns.candidate_measurement",
+        "actio.evidence.lineage.candidate",
+        "actio.evidence.lineage.candidate_lineage",
+        "actio.interfaces.store",
+        "actio.profiles.candidate_campaign"
+      ],
+      "actio.interfaces.candidate_evaluation": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.credentials",
+        "actio.application.candidate_evaluation",
+        "actio.contracts.json",
+        "actio.evidence.campaigns.evaluation_measurement",
+        "actio.evidence.lineage.candidate_evaluation",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.interfaces.migration",
+        "actio.interfaces.pilot",
+        "actio.interfaces.store",
+        "actio.profiles.evaluation_campaign"
+      ],
+      "actio.interfaces.cli": [
+        "actio.adapters.filesystem.artifacts",
+        "actio.adapters.persistence.database",
+        "actio.adapters.runtime.facts",
+        "actio.adapters.runtime.runtime",
+        "actio.application.memory",
+        "actio.application.scenarios",
+        "actio.contracts.json",
+        "actio.contracts.scenarios",
+        "actio.evidence.bundles.evaluation",
+        "actio.evidence.bundles.verify",
+        "actio.interfaces.export",
+        "actio.interfaces.store",
+        "actio.tasks.registry"
+      ],
+      "actio.interfaces.evaluation": [
+        "actio.adapters.filesystem.artifacts",
+        "actio.adapters.runtime.evaluator",
+        "actio.application.evaluation",
+        "actio.contracts.json",
+        "actio.evidence.bundles.eval_contract",
+        "actio.evidence.bundles.evaluation"
+      ],
+      "actio.interfaces.export": [
+        "actio.application.export",
+        "actio.interfaces.store"
+      ],
+      "actio.interfaces.gateway": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.credentials",
+        "actio.adapters.persistence.ledger",
+        "actio.application.gateway",
+        "actio.contracts.json",
+        "actio.domain.roles",
+        "actio.evidence.campaigns.transport_campaign",
+        "actio.interfaces.store",
+        "actio.profiles.gateway_base",
+        "actio.profiles.gateway_contract"
+      ],
+      "actio.interfaces.migration": [
+        "actio.adapters.persistence.migration",
+        "actio.application.migration",
+        "actio.interfaces.store"
+      ],
+      "actio.interfaces.pilot": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.credentials",
+        "actio.adapters.filesystem.publication",
+        "actio.adapters.persistence.ledger",
+        "actio.application.pilot",
+        "actio.contracts.json",
+        "actio.evidence.campaigns.pilot_measurement",
+        "actio.interfaces.store",
+        "actio.profiles.pilot_contract"
+      ],
+      "actio.interfaces.preflight": [
+        "actio.contracts.json",
+        "actio.domain.roles",
+        "actio.profiles.candidate_campaign",
+        "actio.profiles.evaluation_campaign",
+        "actio.profiles.gateway_contract",
+        "actio.profiles.pilot_contract",
+        "actio.profiles.readiness_contract",
+        "actio.profiles.robustness_campaign",
+        "actio.profiles.suite_contract",
+        "actio.profiles.transport"
+      ],
+      "actio.interfaces.readiness": [
+        "actio.contracts.json",
+        "actio.domain.roles",
+        "actio.evidence.campaigns.transport_campaign",
+        "actio.interfaces.transport_export",
+        "actio.profiles.readiness_contract"
+      ],
+      "actio.interfaces.robustness": [
+        "actio.adapters.filesystem.common",
+        "actio.adapters.filesystem.credentials",
+        "actio.adapters.transport.fixture",
+        "actio.application.robustness",
+        "actio.contracts.json",
+        "actio.evidence.campaigns.robustness_measurement",
+        "actio.evidence.lineage.evaluation_lineage",
+        "actio.evidence.lineage.robustness",
+        "actio.interfaces.migration",
+        "actio.interfaces.pilot",
+        "actio.interfaces.store",
+        "actio.profiles.robustness_campaign"
+      ],
+      "actio.interfaces.store": [
+        "actio.adapters.persistence.store",
+        "actio.application.store",
+        "actio.interfaces.wiring"
+      ],
+      "actio.interfaces.suite": [
+        "actio.adapters.filesystem.credentials",
+        "actio.adapters.filesystem.publication",
+        "actio.contracts.json",
+        "actio.evidence.campaigns.suite_measurement",
+        "actio.interfaces.pilot",
+        "actio.profiles.suite_contract"
+      ],
+      "actio.interfaces.task_diagnostics": [
+        "actio.application.task_diagnostics",
+        "actio.contracts.json",
+        "actio.evidence.diagnostics.task_diagnostics",
+        "actio.tasks.registry"
+      ],
+      "actio.interfaces.transport_diagnostics": [
+        "actio.application.diagnostic_runtime",
+        "actio.contracts.json",
+        "actio.evidence.diagnostics.transport_diagnostics",
+        "actio.interfaces.store",
+        "actio.interfaces.wiring"
+      ],
+      "actio.interfaces.transport_export": [
+        "actio.adapters.persistence.ledger",
+        "actio.application.transport_export"
+      ],
+      "actio.interfaces.wiring": [
+        "actio.adapters.environment.concordia",
+        "actio.adapters.persistence.ledger",
+        "actio.adapters.runtime.cleanup",
+        "actio.adapters.runtime.facts",
+        "actio.adapters.runtime.runtime",
+        "actio.adapters.runtime.supervisor",
+        "actio.adapters.transport.fixture",
+        "actio.adapters.transport.transport",
+        "actio.contracts.ports"
+      ],
+      "actio.mcp_server": [
+        "actio.adapters.runtime.mcp_server"
+      ],
+      "actio.measurement": [],
+      "actio.measurement.diagnostic": [
+        "actio.contracts.json",
+        "actio.measurement.oracle",
+        "actio.tasks.controls",
+        "actio.tasks.diagnostic",
+        "actio.tasks.finite"
+      ],
+      "actio.measurement.oracle": [
+        "actio.tasks.finite"
+      ],
+      "actio.measurement.robustness_definitions": [
+        "actio.measurement.diagnostic"
+      ],
+      "actio.pilot": [
+        "actio.interfaces.pilot"
+      ],
+      "actio.preflight": [
+        "actio.interfaces.preflight"
+      ],
+      "actio.profiles": [],
+      "actio.profiles.candidate_campaign": [
+        "actio.adapters.filesystem.identity",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.audit.channel_audit",
+        "actio.measurement.oracle",
+        "actio.profiles.finite_defaults",
+        "actio.profiles.gateway_base",
+        "actio.profiles.validation",
+        "actio.tasks.finite"
+      ],
+      "actio.profiles.evaluation_campaign": [
+        "actio.adapters.filesystem.identity",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.audit.channel_audit",
+        "actio.measurement.oracle",
+        "actio.profiles.finite_defaults",
+        "actio.profiles.gateway_base",
+        "actio.profiles.validation",
+        "actio.tasks.finite"
+      ],
+      "actio.profiles.finite_defaults": [],
+      "actio.profiles.gateway_base": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.transport"
+      ],
+      "actio.profiles.gateway_contract": [
+        "actio.contracts.endpoint",
+        "actio.contracts.hashing",
+        "actio.contracts.json",
+        "actio.evidence.audit.stream_audit",
+        "actio.profiles.finite_defaults",
+        "actio.profiles.gateway_base",
+        "actio.profiles.validation",
+        "actio.tasks.registry"
+      ],
+      "actio.profiles.pilot_contract": [
+        "actio.adapters.filesystem.identity",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.profiles.gateway_base",
+        "actio.profiles.validation",
+        "actio.tasks.scheduling_v2"
+      ],
+      "actio.profiles.readiness_contract": [
+        "actio.adapters.filesystem.common",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.contracts.transport",
+        "actio.domain.clock",
+        "actio.profiles.validation",
+        "actio.tasks.registry"
+      ],
+      "actio.profiles.registry": [
+        "actio.contracts.hashing",
+        "actio.contracts.json",
+        "actio.contracts.transport",
+        "actio.domain.accounting",
+        "actio.domain.clock",
+        "actio.evidence.audit.channel_audit",
+        "actio.profiles.candidate_campaign",
+        "actio.profiles.evaluation_campaign",
+        "actio.profiles.finite_defaults",
+        "actio.profiles.gateway_base",
+        "actio.profiles.gateway_contract",
+        "actio.profiles.pilot_contract",
+        "actio.profiles.readiness_contract",
+        "actio.profiles.robustness_campaign",
+        "actio.profiles.suite_contract",
+        "actio.profiles.transport"
+      ],
+      "actio.profiles.robustness_campaign": [
+        "actio.adapters.filesystem.identity",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.evidence.audit.channel_audit",
+        "actio.measurement.oracle",
+        "actio.measurement.robustness_definitions",
+        "actio.profiles.finite_defaults",
+        "actio.profiles.gateway_base",
+        "actio.profiles.validation",
+        "actio.tasks.controls",
+        "actio.tasks.diagnostic",
+        "actio.tasks.robustness"
+      ],
+      "actio.profiles.suite_contract": [
+        "actio.adapters.filesystem.identity",
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.measurement.oracle",
+        "actio.profiles.gateway_base",
+        "actio.profiles.validation",
+        "actio.tasks.finite"
+      ],
+      "actio.profiles.transport": [
+        "actio.contracts.json",
+        "actio.contracts.transport",
+        "actio.domain.roles"
+      ],
+      "actio.profiles.validation": [
+        "actio.contracts.endpoint",
+        "actio.contracts.json",
+        "actio.domain.clock",
+        "actio.tasks.robustness"
+      ],
+      "actio.readiness": [
+        "actio.interfaces.readiness"
+      ],
+      "actio.robustness": [
+        "actio.interfaces.robustness"
+      ],
+      "actio.suite": [
+        "actio.interfaces.suite"
+      ],
+      "actio.task_diagnostics": [
+        "actio.application.task_diagnostics",
+        "actio.evidence.diagnostics.task_diagnostics",
+        "actio.interfaces.task_diagnostics"
+      ],
+      "actio.tasks": [],
+      "actio.tasks.candidate": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.tasks.core",
+        "actio.tasks.finite"
+      ],
+      "actio.tasks.controls": [
+        "actio.tasks.core",
+        "actio.tasks.diagnostic"
+      ],
+      "actio.tasks.core": [
+        "actio.contracts.json"
+      ],
+      "actio.tasks.diagnostic": [
+        "actio.contracts.json",
+        "actio.tasks.core",
+        "actio.tasks.finite"
+      ],
+      "actio.tasks.evaluation": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.tasks.candidate",
+        "actio.tasks.core",
+        "actio.tasks.finite"
+      ],
+      "actio.tasks.finite": [
+        "actio.contracts.json",
+        "actio.tasks.core"
+      ],
+      "actio.tasks.registry": [
+        "actio.contracts.json",
+        "actio.tasks.candidate",
+        "actio.tasks.evaluation",
+        "actio.tasks.finite",
+        "actio.tasks.robustness",
+        "actio.tasks.scheduling",
+        "actio.tasks.scheduling_v2"
+      ],
+      "actio.tasks.robustness": [
+        "actio.contracts.json",
+        "actio.domain.candidate",
+        "actio.tasks.core",
+        "actio.tasks.diagnostic"
+      ],
+      "actio.tasks.scheduling": [
+        "actio.contracts.json",
+        "actio.tasks.core"
+      ],
+      "actio.tasks.scheduling_v2": [
+        "actio.contracts.json",
+        "actio.tasks.core",
+        "actio.tasks.scheduling"
+      ],
+      "actio.transport_campaign": [
+        "actio.evidence.campaigns.transport_campaign"
+      ],
+      "actio.transport_diagnostics": [
+        "actio.evidence.diagnostics.transport_diagnostics",
+        "actio.interfaces.transport_diagnostics"
+      ],
+      "actio.verify": [
+        "actio.evidence.bundles.verify"
+      ]
+    },
+    "scope": "all current Python including local imports; no ignored subgraph; package target DAG still required"
+  },
+  "fetch": "failed github.com:443 connection after 21s; remote concurrency not yet verified"
+}

@@ -1,0 +1,33 @@
+{
+  "removed_modules": [
+    "actio.budget",
+    "actio.candidate",
+    "actio.candidate_evaluation",
+    "actio.cli",
+    "actio.common",
+    "actio.evaluation",
+    "actio.eval_worker",
+    "actio.gateway",
+    "actio.host",
+    "actio.mcp_server",
+    "actio.pilot",
+    "actio.preflight",
+    "actio.readiness",
+    "actio.robustness",
+    "actio.suite",
+    "actio.task_diagnostics",
+    "actio.transport_campaign",
+    "actio.transport_diagnostics",
+    "actio.verify",
+    "actio.evidence.failure_observation"
+  ],
+  "resources": {
+    "readiness_quote.json": "pricing/readiness_quote.json",
+    "evaluation_history.json": "trust/evaluation_history.json",
+    "task_diagnostic_trust.json": "trust/task_diagnostic_trust.json",
+    "pins/concordia.json": "pins/concordia.json",
+    "pins/c5_runtime.json": "pins/c5_runtime.json"
+  },
+  "version": "0.2.0",
+  "base": "205cf8b1c2551e4075054131b5ff8baa0aaaadfa"
+}

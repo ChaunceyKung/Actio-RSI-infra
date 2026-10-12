@@ -5,9 +5,9 @@ import shutil
 import tempfile
 import unittest
 
-from actio.common import canonical
-from actio.common import digest
-from actio.common import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.contracts.json import ContractError
 from actio.evidence.bundles.terminal import terminal_body
 from actio.evidence.bundles.verify import verify_bundle
 from actio.evidence.bundles.verify import sha

@@ -3,10 +3,10 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from actio.common import ContractError
-from actio.common import Lines
-from actio.common import canonical
-from actio.common import digest
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import Lines
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
 from actio.adapters.runtime.facts import Facts
 from actio.application.memory import Memory
 from actio.application.memory import namespace

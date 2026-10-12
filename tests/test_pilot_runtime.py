@@ -5,18 +5,18 @@ import subprocess
 import sys
 import unittest
 import uuid
-from actio.common import canonical
-from actio.common import digest
-from actio.common import write_json
-from actio.common import ContractError
-from actio.common import clean_env
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.adapters.filesystem.common import write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import clean_env
 from actio.evidence.bundles.eval_contract import seal
 from actio.evidence.bundles.eval_contract import unseal
 from actio.profiles.pilot_contract import preregistration
 from actio.profiles.pilot_contract import config
 from actio.profiles.pilot_contract import AUTH
-from actio.interfaces.pilot import run_unit
-from actio.interfaces.pilot import execute
+from actio.interfaces.cli.pilot import run_unit
+from actio.interfaces.cli.pilot import execute
 from actio.adapters.filesystem.publication import create
 from actio.evidence.campaigns.pilot_measurement import verify
 from actio.adapters.filesystem.credentials import scan

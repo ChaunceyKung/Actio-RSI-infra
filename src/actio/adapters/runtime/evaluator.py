@@ -9,7 +9,7 @@ from actio.adapters.filesystem.common import clean_env
 def execute_worker(payload,timeout):
     with tempfile.TemporaryDirectory(prefix='actio-eval-') as temp:
         env=clean_env(temp)
-        command=[sys.executable,'-I','-B','-m','actio.eval_worker']
+        command=[sys.executable,'-I','-B','-m','actio.interfaces.workers.eval_worker']
         try:
             p=subprocess.run(command,input=canonical(payload).encode(),stdout=subprocess.PIPE,stderr=subprocess.PIPE,
                              timeout=timeout,env=env,cwd=temp)

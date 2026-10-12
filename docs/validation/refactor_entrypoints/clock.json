@@ -1,0 +1,353 @@
+{
+  "status": "PASS",
+  "wheel_sha256": "a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465",
+  "boundary": {
+    "id": "test_readiness_config.ReadinessConfig.test_clock_boundaries_and_system_expiration",
+    "evidence": {
+      "boundaries": [
+        {
+          "instant": "2026-10-08T15:59:59Z",
+          "allowed": false
+        },
+        {
+          "instant": "2026-10-08T16:00:00Z",
+          "allowed": true
+        },
+        {
+          "instant": "2026-10-09T00:00:00Z",
+          "allowed": true
+        },
+        {
+          "instant": "2026-10-10T16:00:00Z",
+          "allowed": false
+        },
+        {
+          "instant": "2026-10-10T16:00:01Z",
+          "allowed": false
+        }
+      ],
+      "system_expired_rejected": true,
+      "schema": "pilot-config.v4-clock.v1",
+      "clock": {
+        "mode": "fixed",
+        "instant": "2026-10-09T00:00:00Z"
+      }
+    }
+  },
+  "readiness_methods": [
+    "test_readiness.Readiness.test_01_success_delayed_cache_and_wire_privacy",
+    "test_readiness.Readiness.test_02_faults_timeouts_length_and_usage_freeze",
+    "test_readiness.Readiness.test_03_independent_controls_last_call_and_last_money",
+    "test_readiness.Readiness.test_04_interruptions_helper_environment_and_pending_authority",
+    "test_readiness.Readiness.test_05_rehashed_accounting_and_portable_reader",
+    "test_readiness.Readiness.test_06_runtime_stderr_credential_is_filtered_before_disk"
+  ],
+  "closed_ledger_clocks": [
+    {
+      "database": "D:\\actio-c2b0-tests\\61a2aa6b8901\\delayed\\budget.sqlite",
+      "sha256": "849bb22a450ecccf9a24fb2a544f6673db7c964c13fe2fc2181e752d7269332c",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\61a2aa6b8901\\illegal\\budget.sqlite",
+      "sha256": "7395d278cfdced33c3b3073acb6fd6c7561f33b34cffb633f4d7cc0c99bdb28a",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\61a2aa6b8901\\no-cache\\budget.sqlite",
+      "sha256": "f0f8af8e2951ad02af66f1486784d1a7769ce2b99537d18c7d5e6defb17f6272",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\400\\budget.sqlite",
+      "sha256": "69afd9740121a48b8baea8a0adffd596491dfaba6fe5cd78ed8c60c60e70b12d",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\401\\budget.sqlite",
+      "sha256": "604a0c2d83ba02bf7e4f86519b1d0dd6f9332d8faf64b59b73699cc991a4402c",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\429\\budget.sqlite",
+      "sha256": "3d86a89159d21ff9b1e3c3d91b78eed879c8436981f2bcf476a2d4eb89059a59",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\500\\budget.sqlite",
+      "sha256": "decd988a07c4299f488ad6c89c94bf48c47816fded4d37d0f2d2865877bbc91c",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\fractional\\budget.sqlite",
+      "sha256": "218490cae7694b0410b5be1339c117137b2efac574e2c287d9641504310ce237",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "unknown"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\input-over\\budget.sqlite",
+      "sha256": "3bf849ea9aae1e68481a38117b639e92b106ce81f73aefa4344a063296b8b464",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\length\\budget.sqlite",
+      "sha256": "6ed0b542fb939e9d3a20ab3e9cc952459199f4a4e99df1fdb9112a6f1926902e",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\missing-usage\\budget.sqlite",
+      "sha256": "9fac24740fcc4c5790fc2aa6b846cba6cba96085429f0e7ef2b0ac5326da6e3b",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "unknown"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\model-change\\budget.sqlite",
+      "sha256": "cc3eef58abe264e72d5a0693fd626eb590768ed09b27e023dba79f107214caac",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\never-end\\budget.sqlite",
+      "sha256": "abeb0b826fb3b5b57f04d2fe34872cd60542c911afecb4583a990760a6038661",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\no-first\\budget.sqlite",
+      "sha256": "8cdfd0d83a0c135a3db000736d96ab84e4c8fd5d28e38e2eb28e0ac3898a8651",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\2ef1501ada5a\\stall\\budget.sqlite",
+      "sha256": "0cca39834645871f1391dfda6ee09961d76dc51bb39a8ff9893629cd265c5cf3",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\6e0e4fbdfaee\\calls\\budget.sqlite",
+      "sha256": "ac917cc62f5d78e347a5f36d003f16817e0215cf4bdac0de3c55a845d2f34095",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "denied",
+        "denied",
+        "settled"
+      ],
+      "sending": 1,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\6e0e4fbdfaee\\money\\budget.sqlite",
+      "sha256": "41b40ffc41053d1293141f246523a01203f22465f1955bfc06ac35ca0440e8da",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "denied",
+        "denied",
+        "settled"
+      ],
+      "sending": 1,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\6950150e389a\\before-settle\\budget.sqlite",
+      "sha256": "4f829dd2258120a80bc5bfd85a25c2d87d4053a790e66557099870f8edbcdf4a",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown"
+      ],
+      "sending": 1,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\6950150e389a\\reserved\\budget.sqlite",
+      "sha256": "0edbad105e35206dd725d48b5567a4312b2664dd2d191233c69665743da5fdce",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown"
+      ],
+      "sending": 0,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\6950150e389a\\sending\\budget.sqlite",
+      "sha256": "8c2385554560472309d7d765d45c440552f9b8fdf0fc1c41bc40784a1552c8d9",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "unknown"
+      ],
+      "sending": 1,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\3e87ff7bce66\\portable\\budget.sqlite",
+      "sha256": "265bd6e307fd4e1538178e9286a1ed6fced7d7c5cd89444033a3405acb047e8d",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [
+        "settled",
+        "settled"
+      ],
+      "sending": 2,
+      "clock_location": "snapshot.meta.config.clock"
+    },
+    {
+      "database": "D:\\actio-c2b0-tests\\d276a6181b82\\stderr-exit\\budget.sqlite",
+      "sha256": "ede92f18f0586f28fa061b21c782b96160dda0ae5a69a514615fca5df3161c6d",
+      "clock": {
+        "instant": "2026-10-09T00:00:00Z",
+        "mode": "fixed"
+      },
+      "states": [],
+      "sending": 0,
+      "clock_location": "snapshot.meta.config.clock"
+    }
+  ],
+  "ipc_entry": "actio.interfaces.ipc.budget",
+  "scope": "full readiness suite runs TS reserve/sending and independent child controls against shared Ledger; no time environment override"
+}

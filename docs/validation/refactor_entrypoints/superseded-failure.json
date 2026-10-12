@@ -1,0 +1,10 @@
+{
+  "status": "ABORTED",
+  "wheel_sha256": "38d6769ed95b5eeaa0cd7129267342c0b10b05b9006a662e75df692378930e6c",
+  "reason": "MCP tool integrity still addressed removed root mcp_server.py; cascading lease failures; harness collection assertion interrupted at evidence class setup",
+  "original_receipt_sha256": "e1fc3850af1c04d1cf575360ee9d569c850f224f7312934eff077e02a9a09c47",
+  "stderr_sha256": "52878bf5dd0403e36365b8dac5b3928c887737f7cb5bfe356c744e4a57ac13d2",
+  "rows_completed": 19,
+  "product_fix": "both MCP toolHash and guard file reference now interfaces/workers/mcp_server.py; no lease reset or retry relaxation",
+  "scope": "superseded development wheel; zero formal matrices"
+}

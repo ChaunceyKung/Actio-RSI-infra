@@ -1,0 +1,86 @@
+{
+  "schema": "refactor-entrypoints-gates.v1",
+  "identity": "actio-entrypoints-r15-r18-20261012",
+  "wheel_sha256": "a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465",
+  "G1": {
+    "status": "PASS",
+    "root_files": [
+      "README.md",
+      "__init__.py",
+      "__main__.py"
+    ],
+    "architecture": "PASS"
+  },
+  "G2": {
+    "status": "PASS",
+    "single_console": true,
+    "removed_api_rejection": true,
+    "ipc_workers": true
+  },
+  "G3": {
+    "status": "PASS",
+    "modules": 159,
+    "edges": 634,
+    "scc": 0,
+    "evidence_group_cycles": 0,
+    "violations": 0,
+    "counterexamples": 5
+  },
+  "G4": {
+    "status": "PASS",
+    "suites": 34,
+    "methods": 169,
+    "original_methods": 165,
+    "added_methods": 4,
+    "skips": 0,
+    "same_wheel": true
+  },
+  "G5": {
+    "status": "PASS",
+    "vectors": 555,
+    "historical_files": 1048,
+    "fixed_readers": [
+      "c2c2",
+      "c2c3",
+      "c2c4",
+      "c5"
+    ],
+    "prior_manifest_files": 49
+  },
+  "G6": {
+    "status": "PASS",
+    "formal": {
+      "active": 0,
+      "admitted": 5,
+      "assigned": 18,
+      "not_run": 6,
+      "received": 12,
+      "responses": 12,
+      "sent": 12,
+      "settled": 5,
+      "unknown": 7,
+      "usage": 5
+    },
+    "workers": 12,
+    "ports": 9,
+    "external_requests": 0,
+    "credential_reads": 0
+  },
+  "G7": {
+    "status": "PASS",
+    "docs_links": 160,
+    "migration": "MIGRATION_0_2.md"
+  },
+  "G8": {
+    "status": "PENDING",
+    "reason": "commit and push verification still required"
+  },
+  "development_receives": 295,
+  "total_observed_receives": 307,
+  "research_limits": {
+    "C4": "INCOMPLETE",
+    "C1": "infrastructure_failure",
+    "research": "UNESTABLISHED",
+    "activation": false
+  }
+}

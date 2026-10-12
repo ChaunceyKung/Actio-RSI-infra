@@ -6,7 +6,8 @@ import re
 import subprocess
 import sys
 import uuid
-from actio.common import canonical,digest,file_hash
+from actio.contracts.json import canonical,digest
+from actio.adapters.filesystem.common import file_hash
 
 ROOT=Path(__file__).resolve().parents[2];BASE='6ba6573'
 
@@ -18,7 +19,7 @@ def copies(text):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--live-root',type=Path)
+    p=argparse.ArgumentParser();p.add_argument('--live-root',type=Path);p.add_argument('--output',type=Path)
     p.add_argument('--verify-only',action='store_true',help='verify final files without adding a new receipt')
     a=p.parse_args()
     def git(*args):return subprocess.check_output(['git','-c','core.quotepath=false',*args],cwd=ROOT,text=True,encoding='utf8')
@@ -62,7 +63,8 @@ def main():
         'file_hashes':{p.relative_to(ROOT).as_posix():file_hash(p) for p in paths}}
     if a.verify_only:
         print(canonical({'status':'PASS','files_scanned':len(paths),'receipt_written':False}));return
-    dest=ROOT/'docs/validation/refactor_modularity'/('publication-scan-'+uuid.uuid4().hex[:12]+'.json')
+    if a.output is None:raise SystemExit('--output required unless --verify-only; old evidence is immutable')
+    dest=a.output
     with dest.open('x',encoding='utf8') as f:f.write(canonical(result))
     print(canonical({'status':'PASS','files_scanned':len(paths),'receipt':str(dest)}))
 

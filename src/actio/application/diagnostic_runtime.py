@@ -1,3 +1,4 @@
+from actio.resources import data_path
 """Finite C5 local fixtures; entry is never chosen by artifact-provided code."""
 import json
 from pathlib import Path
@@ -34,7 +35,7 @@ def fixture(case):
 
 
 def review_entry(entry,case):
-    pin=json.loads((Path(__file__).resolve().parents[1]/'pins/c5_runtime.json').read_bytes())
+    pin=json.loads(data_path('pins','c5_runtime.json').read_bytes())
     if digest(entry) in pin['entries'].values():require(digest(entry)==pin['entries'][case['id']],'frozen local case identity mismatch')
     observations=from_entry(entry,'local_official_runtime')
     ledger=entry['evidence']['ledger'];attempts=ledger['attempts']

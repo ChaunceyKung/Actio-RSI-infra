@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "baseline": "205cf8b1c2551e4075054131b5ff8baa0aaaadfa",
+  "original_methods": 165,
+  "new_methods": 4,
+  "original_assertion_counts_not_reduced": true,
+  "changed_original_assertions": [
+    {
+      "method": "test_modularity.Modularity.test_recursive_checker_rejects_nested_shim_dependency_and_records_dynamic_import",
+      "before": [
+        "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='status'), ctx=Load()), Constant(value='INCOMPLETE')], keywords=[])",
+        "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='dynamic_imports'), ctx=Load())], keywords=[])",
+        "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[Call(func=Name(id='any', ctx=Load()), args=[GeneratorExp(elt=Compare(left=Subscript(value=Name(id='v', ctx=Load()), slice=Constant(value='target'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='actio.legacy')]), generators=[comprehension(target=Name(id='v', ctx=Store()), iter=Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='violations'), ctx=Load()), ifs=[], is_async=0)])], keywords=[])], keywords=[])"
+      ],
+      "after": [
+        "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertEqual', ctx=Load()), args=[Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='status'), ctx=Load()), Constant(value='INCOMPLETE')], keywords=[])",
+        "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='dynamic_imports'), ctx=Load())], keywords=[])",
+        "Call(func=Attribute(value=Name(id='self', ctx=Load()), attr='assertTrue', ctx=Load()), args=[Call(func=Name(id='any', ctx=Load()), args=[GeneratorExp(elt=BoolOp(op=And(), values=[Compare(left=Subscript(value=Name(id='v', ctx=Load()), slice=Constant(value='target'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='legacy.py')]), Compare(left=Subscript(value=Name(id='v', ctx=Load()), slice=Constant(value='reason'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='root file not allowed')])]), generators=[comprehension(target=Name(id='v', ctx=Store()), iter=Subscript(value=Name(id='result', ctx=Load()), slice=Constant(value='violations'), ctx=Load()), ifs=[], is_async=0)])], keywords=[])], keywords=[])"
+      ],
+      "review": "Only target assertion changes from old shim prohibition to explicit root whitelist reason; no behavior/clock/accounting/tamper assertion removed."
+    }
+  ]
+}

@@ -22,7 +22,9 @@ def hashes(root):
 
 class Result(unittest.TextTestResult):
     def __init__(self,*args,**kwargs):
-        super().__init__(*args,**kwargs);self.evidence=[]
+        super().__init__(*args,**kwargs);self.evidence=[];self.executed=[]
+    def startTest(self,test):
+        self.executed.append(test.id());super().startTest(test)
     def stopTest(self,test):
         self.evidence.append({'id':test.id(),'evidence':getattr(test,'evidence',{})})
         super().stopTest(test)
@@ -48,7 +50,13 @@ def main():
             if matrix is None:raise SystemExit('suite_evidence requires the current suite_runtime result in this run')
             sys.argv=[saved_argv[0],'suite_evidence','refactor',str(matrix)]
         log=io.StringIO();start=datetime.datetime.now(datetime.timezone.utc).isoformat()
-        result=unittest.TextTestRunner(stream=log,verbosity=2,resultclass=Result).run(unittest.defaultTestLoader.loadTestsFromName('test_'+name))
+        suite=unittest.defaultTestLoader.loadTestsFromName('test_'+name)
+        def ids(t):
+            if isinstance(t,unittest.TestSuite):return [i for child in t for i in ids(child)]
+            return [t.id()]
+        collected=ids(suite)
+        result=unittest.TextTestRunner(stream=log,verbosity=2,resultclass=Result).run(suite)
+        complete=collected==result.executed and len(set(collected))==len(collected)
         (a.output/(name+'-controlled-evidence.json')).write_text(json.dumps(result.evidence,default=str),encoding='utf8')
         if name=='suite_runtime':
             for item in result.evidence:
@@ -56,7 +64,10 @@ def main():
                     matrix=Path(item['evidence']['root'])/'pilot.json'
         content=log.getvalue();(a.output/(name+'.log')).write_text(content,encoding='utf8')
         row={'suite':name,'tests':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),'skipped':len(result.skipped),
-             'status':'PASS' if result.wasSuccessful() and not result.skipped else 'FAIL','started':start,
+             'status':'PASS' if complete and result.wasSuccessful() and not result.skipped else 'FAIL','started':start,
+             'collection_execution_match':complete,
+             'collected':collected,'executed':result.executed,
+             'failed_ids':[t.id() for t,_ in result.failures],'error_ids':[t.id() for t,_ in result.errors],
              'log_sha256':hashlib.sha256(content.encode()).hexdigest()}
         rows.append(row);print(json.dumps(row),flush=True)
         (a.output/'receipt.json').write_text(json.dumps({'status':'RUNNING','rows':rows,'sources':expected},indent=2),encoding='utf8')

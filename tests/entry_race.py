@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 import sys
 
-from actio.common import ContractError
+from actio.contracts.json import ContractError
 from actio.adapters.runtime.runtime import RuntimePort
 from actio.application.scenarios import assistant
 from actio.application.scenarios import social

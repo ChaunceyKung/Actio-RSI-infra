@@ -4,8 +4,8 @@ import subprocess
 import sys
 import unittest
 import uuid
-from actio.common import clean_env
-from actio.common import write_json
+from actio.adapters.filesystem.common import clean_env
+from actio.adapters.filesystem.common import write_json
 from actio.adapters.filesystem.credentials import scan
 from actio.profiles.gateway_base import template
 from actio.adapters.persistence.ledger import Ledger

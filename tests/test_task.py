@@ -9,12 +9,12 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError
-from actio.common import canonical
-from actio.common import digest
-from actio.common import file_hash
-from actio.common import clean_env
-from actio.common import Lines
+from actio.contracts.json import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import clean_env
+from actio.adapters.filesystem.common import Lines
 from actio.adapters.runtime.runtime import RuntimePort
 from actio.adapters.runtime.runtime import synthetic_spec
 from actio.interfaces.store import Store
@@ -28,7 +28,7 @@ from actio.evidence.bundles.terminal import terminal_body
 from actio.evidence.bundles.eval_contract import make_spec
 from actio.evidence.bundles.eval_contract import seal
 from actio.evidence.bundles.evaluation import prepare
-from actio.interfaces.evaluation import evaluate
+from actio.interfaces.cli.evaluation import evaluate
 from actio.evidence.bundles.evaluation import source_bundle
 from actio.evidence.bundles.evaluation import verify_record
 from actio.evidence.campaigns.campaign import GROUP_RULE
@@ -39,7 +39,7 @@ from actio.evidence.campaigns.campaign import validate_dataset
 from actio.evidence.campaigns.calibration import export_annotations
 from actio.evidence.campaigns.calibration import import_labels
 from actio.domain.roles import template
-from actio.interfaces.preflight import preflight
+from actio.interfaces.cli.preflight import preflight
 from actio.domain.roles import stub_config
 from test_evaluation import response
 
@@ -205,7 +205,7 @@ class TaskContract(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)/'campaign';run_campaign(dataset,root)
             before={p.relative_to(root).as_posix():file_hash(p) for p in root.rglob('*') if p.is_file()}
-            with patch('actio.interfaces.evaluation.evaluate',side_effect=AssertionError('readonly')),patch('actio.interfaces.evaluation.execute_worker',side_effect=AssertionError('readonly')):
+            with patch('actio.interfaces.cli.evaluation.evaluate',side_effect=AssertionError('readonly')),patch('actio.interfaces.cli.evaluation.execute_worker',side_effect=AssertionError('readonly')):
                 result=verify_campaign(root);self.assertTrue(result['valid'],result)
             self.assertEqual(before,{p.relative_to(root).as_posix():file_hash(p) for p in root.rglob('*') if p.is_file()})
             rejected={}
@@ -266,7 +266,7 @@ class TaskContract(unittest.TestCase):
         config=stub_config('http://127.0.0.1:23456')
         config['authorization_ref']='synthetic positive-config fixture, not spend permission'
         runner='''import json,sys,os
-from actio.interfaces.preflight import preflight
+from actio.interfaces.cli.preflight import preflight
 config=json.loads(sys.stdin.read())
 'codec warmup'.encode('utf-16be')
 def audit(event,args):

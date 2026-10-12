@@ -6,10 +6,10 @@ import subprocess
 import sys
 import unittest
 from unittest.mock import patch
-from actio.common import ContractError
-from actio.common import canonical
-from actio.common import digest
-from actio.common import clean_env
+from actio.contracts.json import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.adapters.filesystem.common import clean_env
 from actio.evidence.bundles.eval_contract import seal
 from actio.profiles.pilot_contract import preregistration
 from actio.profiles.pilot_contract import validate_preregistration

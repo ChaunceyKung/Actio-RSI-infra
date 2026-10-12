@@ -5,10 +5,10 @@ import sys
 import unittest
 import uuid
 
-from actio.common import canonical
-from actio.common import write_json
-from actio.common import clean_env
-from actio.common import ContractError
+from actio.contracts.json import canonical
+from actio.adapters.filesystem.common import write_json
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import ContractError
 from actio.adapters.persistence.ledger import Ledger
 from actio.evidence.audit.accounting import verify_snapshot
 from actio.adapters.transport.transport import TransportPort
@@ -34,7 +34,7 @@ class Budget(unittest.TestCase):
             code='''import sys,json,pathlib
 sys.path.insert(0,sys.argv[1])
 from support.transport_case import run
-from actio.common import write_json
+from actio.adapters.filesystem.common import write_json
 root=pathlib.Path(sys.argv[2]);cfg=json.loads((root.parent/'config.json').read_bytes())
 r=run(root,cfg['roles']['solver']['endpoint'],root.parent/'budget.sqlite',cfg)
 write_json(root/'child-result.json',r)

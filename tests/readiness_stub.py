@@ -5,7 +5,7 @@ import hashlib
 import json
 import os
 import threading
-from actio.common import write_json
+from actio.adapters.filesystem.common import write_json
 from chat_stub import response
 
 

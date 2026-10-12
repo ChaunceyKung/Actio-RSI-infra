@@ -74,3 +74,7 @@
 /tools/refactor/** -text !eol whitespace=cr-at-eol
 /docs/architecture/** text eol=lf
 /docs/architecture/*.json -text !eol whitespace=cr-at-eol
+# Moved pinned resources keep their original bytes, including upstream CRLF.
+/src/actio/resources/**/*.json -text !eol whitespace=cr-at-eol
+/docs/validation/refactor_entrypoints/** text eol=lf
+/docs/validation/refactor_entrypoints/**/*.json -text !eol whitespace=cr-at-eol

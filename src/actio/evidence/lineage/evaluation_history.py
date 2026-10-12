@@ -1,3 +1,4 @@
+from actio.resources import data_path
 """Code-owned historical data registry. No artifact-selected executable reader."""
 import json
 from pathlib import Path
@@ -11,7 +12,7 @@ PLAN='05ec305c272dcf3a5c4173ff58a1c2bc224d91a7f5bb5f399b692bdcbcc96707'
 
 
 def lineage():
-    value=json.loads((Path(__file__).resolve().parents[2]/'evaluation_history.json').read_bytes())
+    value=json.loads(data_path('trust','evaluation_history.json').read_bytes())
     require(digest(unseal(value))==value['sha256']==HASH,'fixed C2C2 lineage registry changed')
     return value
 

@@ -6,10 +6,10 @@ import sys
 import unittest
 import uuid
 
-from actio.common import canonical
-from actio.common import write_json
-from actio.common import clean_env
-from actio.common import ContractError
+from actio.contracts.json import canonical
+from actio.adapters.filesystem.common import write_json
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import ContractError
 from actio.adapters.persistence.ledger import Ledger
 from actio.evidence.audit.accounting import verify_snapshot
 from actio.profiles.transport import config
@@ -17,7 +17,7 @@ from actio.interfaces.transport_export import export_campaign
 from actio.evidence.campaigns.transport_campaign import analyze
 from actio.evidence.bundles.evaluation import read_json
 from actio.evidence.bundles.evaluation import source_bundle
-from actio.interfaces.evaluation import evaluate
+from actio.interfaces.cli.evaluation import evaluate
 from actio.evidence.bundles.evaluation import prepare
 from actio.evidence.bundles.eval_contract import unseal
 from actio.evidence.bundles.eval_contract import seal

@@ -78,7 +78,7 @@ class RuntimePort:
         self.stream=store.allocate_worker(run['id'],self.epoch,self.root,self.job_name,agent)
         self.binding={'run':run['id'],'epoch':self.epoch,'creation':self.stream['creation'],'session':self.stream['native_id'],'nonce':uid()}
         self.supervisor=Supervisor(self.root,self.job_name,limits=limits)
-        self.policy={'binding':self.binding,'tool':TOOL,'toolHash':file_hash(PACKAGE/'mcp_server.py'),
+        self.policy={'binding':self.binding,'tool':TOOL,'toolHash':file_hash(PACKAGE/'interfaces/workers/mcp_server.py'),
                      'registryHash':digest(REGISTRY),'keys':['ok'],'maxCalls':4,'expires':int(time.time()*1000)+120000}
         self.op=None
         self.marker=None
@@ -107,9 +107,9 @@ class RuntimePort:
                   {'id':'sessions','config':{'root':str(self.root/'home/sessions'),'compression':'none'}},
                   {'insert':[
                     {'id':'actio-mcp','name':'@deepseek-ai/dsh-mcp-client','config':{'serverName':'fixture','transport':'stdio','command':sys.executable,
-                     'args':['-m','actio.mcp_server',str(self.root)],'cwd':str(self.root),'toolCallTimeoutMs':10000,'failOnStartupError':True,'reconnect':{'enabled':False}}},
+                     'args':['-m','actio.interfaces.workers.mcp_server',str(self.root)],'cwd':str(self.root),'toolCallTimeoutMs':10000,'failOnStartupError':True,'reconnect':{'enabled':False}}},
                     {'id':'actio-policy','name':(PACKAGE/'adapters/transport/plugins/guard.mjs').as_uri(),'config':{'policy':str(self.root/'policy.json'),'binding':self.binding,
-                     'tool':str(PACKAGE/'mcp_server.py'),'spool':str(self.root/'bridge.jsonl'),'active':str(self.root/'active.json'),'limits':limits}},
+                     'tool':str(PACKAGE/'interfaces/workers/mcp_server.py'),'spool':str(self.root/'bridge.jsonl'),'active':str(self.root/'active.json'),'limits':limits}},
                     {'id':'actio-fixture','name':(PACKAGE/'adapters/transport/fixtures/provider.mjs').as_uri(),'config':{'capture':str(self.root/'provider.jsonl'),'limits':limits}}]}]
         write_json(self.root/'profile.patch.yml',patch)
         write_json(self.root/'host-config.json',{'limits':limits,'sdk':{'provider':'actio-fixture','model':'fixed','max_tokens':128,

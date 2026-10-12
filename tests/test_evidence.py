@@ -9,11 +9,11 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError
-from actio.common import clean_env
-from actio.common import file_hash
-from actio.common import write_json
-from actio.common import digest
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import clean_env
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import write_json
+from actio.contracts.json import digest
 from actio.interfaces.export import export_bundle
 from actio.adapters.runtime.runtime import RuntimePort
 from actio.adapters.runtime.runtime import synthetic_spec

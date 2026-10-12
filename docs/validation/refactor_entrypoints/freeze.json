@@ -1,0 +1,760 @@
+{
+  "argv": [
+    "C:\\Users\\CausalRider\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-X",
+    "utf8",
+    "-I",
+    "-B",
+    "tools/refactor/freeze.py",
+    "--output",
+    "D:/ar-entry-20261012/freeze-final.json",
+    "--wheel",
+    "D:/ar-entry-20261012/wheel02/actio_rsi-0.2.0-py3-none-any.whl"
+  ],
+  "cases": [
+    {
+      "admitted": 2,
+      "family": "scheduling",
+      "fault": null,
+      "id": "text-success",
+      "sends": 2,
+      "settled": 2,
+      "unknown": 0
+    },
+    {
+      "admitted": 2,
+      "family": "bargaining",
+      "fault": null,
+      "id": "dual-success",
+      "sends": 2,
+      "settled": 2,
+      "unknown": 0
+    },
+    {
+      "admitted": 0,
+      "family": "scheduling",
+      "fault": "c4",
+      "id": "c4-substitute",
+      "sends": 1,
+      "settled": 0,
+      "unknown": 1
+    },
+    {
+      "admitted": 0,
+      "family": "scheduling",
+      "fault": "data",
+      "id": "data-error",
+      "sends": 1,
+      "settled": 0,
+      "unknown": 1
+    },
+    {
+      "admitted": 0,
+      "family": "scheduling",
+      "fault": "prefix",
+      "id": "prefix-error",
+      "sends": 1,
+      "settled": 0,
+      "unknown": 1
+    },
+    {
+      "admitted": 1,
+      "family": "scheduling",
+      "fault": "data",
+      "id": "b-error",
+      "sends": 2,
+      "settled": 1,
+      "unknown": 1
+    },
+    {
+      "admitted": 0,
+      "family": "scheduling",
+      "fault": "429",
+      "id": "http429",
+      "sends": 1,
+      "settled": 0,
+      "unknown": 1
+    },
+    {
+      "admitted": 0,
+      "family": "scheduling",
+      "fault": "503",
+      "id": "http503",
+      "sends": 1,
+      "settled": 0,
+      "unknown": 1
+    },
+    {
+      "admitted": 0,
+      "family": "scheduling",
+      "fault": "truncated",
+      "id": "truncated",
+      "sends": 1,
+      "settled": 0,
+      "unknown": 1
+    }
+  ],
+  "execution_tools": "installed product only; optional project verifies a source mirror",
+  "external_requests": 0,
+  "fixtures": [
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "model": "gpt-5.6",
+          "pilot": true,
+          "text": "propose:morning"
+        },
+        {
+          "model": "gpt-5.6",
+          "pilot": true,
+          "text": "accept"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "banana for 1 coins",
+        "reject"
+      ],
+      "plans": [
+        {
+          "model": "gpt-5.6",
+          "pilot": true,
+          "reasoning": "C5_SYNTHETIC_REASONING_DO_NOT_PROPAGATE",
+          "text": "banana for 1 coins"
+        },
+        {
+          "model": "gpt-5.6",
+          "pilot": true,
+          "reasoning": "C5_SYNTHETIC_REASONING_DO_NOT_PROPAGATE",
+          "text": "reject"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 1,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "H-hidden-w0-reversed",
+        "case": "hidden",
+        "family": "bargaining",
+        "id": "ep-02",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 2,
+        "pair": {
+          "actor_slot": "A",
+          "card": "H-hidden-w0-reversed",
+          "card_hash": "cf70e6d44c5a9c88656a19af71435fc1fabc38ad05cb1eb4806a7310ecfd2399",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "2f301e37c679c35db6325a9a8e63f03adfa94c5052a9e2f5b818eab6fb4f34c7",
+        "presentation": "reversed",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia haggling_multi_item",
+        "structural_group": "H-hidden",
+        "world": "H-hidden-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "fault": "c4"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "fault": "data"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "fault": "prefix"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "model": "gpt-5.6",
+          "pilot": true,
+          "text": "propose:morning"
+        },
+        {
+          "fault": "data"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "fault": "429"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "fault": "503"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    },
+    {
+      "actions": [
+        "propose:morning",
+        "accept"
+      ],
+      "plans": [
+        {
+          "fault": "truncated"
+        }
+      ],
+      "unit": {
+        "arm": "baseline",
+        "block": 0,
+        "candidate_hash": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+        "card": "S-boundary-w0-normal",
+        "case": "boundary",
+        "family": "scheduling",
+        "id": "ep-00",
+        "joint_feasible": true,
+        "model": "gpt-5.6",
+        "order": 0,
+        "pair": {
+          "actor_slot": "A",
+          "card": "S-boundary-w0-normal",
+          "card_hash": "fe6464527178969bb2c4dd318cadb707052844e217b004ecc6eac50b25d72be9",
+          "dataset_hash": "3e37ca1cb71a90f3bef100a1ec4bff4721d584c19c3442ae04de42207630a02a",
+          "initial_state_hash": "8ba83448e5167377e82f72cb8c91eddabd80cafad555a6e00bed68969da8905e",
+          "mutation_seat": "prompt_scaffold",
+          "oracle": "finite-independent-measurement.v1",
+          "repeat": 1,
+          "route": "gpt-5.6",
+          "versions": {
+            "baseline": "84e9ab99465ada9c47cc17334c305a5f493524f042a218d4be4732c054462fe5",
+            "candidate": "e381eb3dd58494dde035b7c301331bdc3f5cde8af18c644bf6e7301087a130b2"
+          }
+        },
+        "pair_hash": "35a67474e598b83f55db3788e5033d15a91cd65de5b14291e3de1dfdce84c008",
+        "presentation": "normal",
+        "repeat": 1,
+        "scaffold_hash": "9b686045d24438d2544378a515d71915dc92b3eda2a59804607f9d88aa69fbb7",
+        "seats": [
+          "A",
+          "B"
+        ],
+        "source_template": "Concordia pub_coordination + Actio scheduling",
+        "structural_group": "S-boundary",
+        "world": "S-boundary-w0"
+      }
+    }
+  ],
+  "harness_sources": {
+    "tools/refactor/architecture.py": "977ba2aa7f97458a2783b8a1158f99c7ea778985a3a529bf3e5adcf04dd3f561",
+    "tools/refactor/build_wheel.py": "45c207ffed4fc4ed13db295f27fa24457ef8acf280f14870049e1487867a5ad6",
+    "tools/refactor/cleanup.py": "3cf2c738a50b1e3af16ae91b41b3e65dbdde986dea579ea359fc8034cadb1c43",
+    "tools/refactor/completion.py": "dc21914bb311edd993671457cf0c3bbbd09db1e40117935a8674f4acc23bcb8b",
+    "tools/refactor/entrypoints.py": "74e2ca9cf0315c2a0d74d3ae9ea7df9ce76c71f7ea7eaf878c56bbbabf944b16",
+    "tools/refactor/formal_review.py": "b5c12486e3f2b4dc6ddd3afee547c44939267f3138c0239ca5e677a45c23ebc9",
+    "tools/refactor/freeze.py": "55868ccc8cc5d3c50e37034eb1d8f46b8b3596347f29dd6f191d038787c53e46",
+    "tools/refactor/history.py": "e4075a1877097dc355267ed8f9eb43410ef34a6e2673e1dca00c8fc99b1d6700",
+    "tools/refactor/history_c5.py": "2a1b0d1fc2ce81c9a57d51aaad896775f86931bf087927db6b8dc904bc9217cd",
+    "tools/refactor/packaging.py": "aafe029c117cadb88bea69b43e087c568b88517b31f0f834a3d90491f8898edf",
+    "tools/refactor/publication_scan.py": "b50b62c764c02fe3dc942b312e0a60cff54476e103b6faceb7b5c6a35d3e0ab5",
+    "tools/refactor/summarize.py": "328377d4af9b23e1598919bbe88efb5b916a043d38ef62bb6d36a37feb27c2f8",
+    "tools/refactor/validate.py": "df54384bd145b687def257dfe4614d7473b47d8431641e0ec4e2752ff444195e",
+    "tools/refactor/vectors.py": "3afa1b9b6e52737abd3abebb71740dd73f9293d731615a97215863b1fa543bf5"
+  },
+  "matrix_scenarios": 9,
+  "maximum_loopback_sends": 12,
+  "pure_vectors_sha256": "aafc092fb893843478421a9f44359b52fba35a658d4977c729db64cce7287271",
+  "schema": "transport-diagnostic-freeze.v1",
+  "sources": {
+    "__init__.py": "307996137d16665a62d7175d59e57c9926542f4d92600ac67439e62457dc7ae5",
+    "__main__.py": "f2ac6d0e9d6426622722273651281179a671abe9849c3720215d4a69ef107f23",
+    "_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_vendor/sotopia.py": "123ea7e9ebcdd47335e11181d9c0d5b4f945d0903c16c4a40c03dc44a0c0fb6b",
+    "_vendor/sotopia_provenance.json": "edf731d19799bd140e8d39a7a74f4b6218ab9a2207144941613cb76353def19d",
+    "adapters/__init__.py": "5406bb59e061a48a6bacfcdea930b374ec622b6149077d363dd1614add7c82b6",
+    "adapters/environment/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adapters/environment/concordia.py": "2e494281036b5e53e0cde47356f6b57c431ab9a65e364e13fa08597ca0d28881",
+    "adapters/filesystem/__init__.py": "7101ae658218c79139d6c14be5cf997e21c9d1eafc806e2f68575bbc37695c7c",
+    "adapters/filesystem/artifacts.py": "e031fc443256c9585350161b8d913ce6d90f3b1600420e38b3d671bf4b31a735",
+    "adapters/filesystem/common.py": "3c199ba716ca58e09bc2c5ae1b0a510c1e06f9dbac675452711cdd5072adb143",
+    "adapters/filesystem/credentials.py": "19ed26c94ac96bd7414b3d9ffd993cbd2522c99648b5b6879a30a629278287d8",
+    "adapters/filesystem/identity.py": "c91747fcd1dbeba08e4a4f7bbef3cecedcacea4c1c6ac1f36811a5e2767b8e00",
+    "adapters/filesystem/publication.py": "04af36b3f519fa8bf4b8d8b2ba679d679ebbbb00b38c6cd1048d48cde65a858b",
+    "adapters/persistence/__init__.py": "ce318cd88a28b8510a6c194c4147ebd166f0174568edc911029d351a4345fd30",
+    "adapters/persistence/candidate_schema.sql": "4e9113b08ffe019fd13348ac9cfd66822a1d65d84bb3c9d9db9be1f704ddda5a",
+    "adapters/persistence/database.py": "1d1f7bcd5da158afebaa650c7832c1b4b55a38f4a2a57b1aaa458a0a3fc82772",
+    "adapters/persistence/evaluation_schema.sql": "347967c717a35dd59e884a1742af9b650d64ff6d6f0b745d57438a1c367b8a4c",
+    "adapters/persistence/ledger.py": "8819b57d7a539b0a5e4d48af11f005bfa06f5e6834adc1347777d741634cd0ab",
+    "adapters/persistence/legacy_schema.sql": "27ef670e306f54ba5d6abcf713431e9da7ee7b272ee3213575c954e042ad9572",
+    "adapters/persistence/migration.py": "33ca67da09ae89c1ea02d23e8ea661d60f14836ca3841e205c756688ebbb2760",
+    "adapters/persistence/schema.sql": "7b43e23b67bb8f0444ecb1f3fdfea9abe93c9bff706ba30fed61dcfb8efb87cd",
+    "adapters/persistence/store.py": "44a03e71afbed15273bfcf96fc234a98fb6b083851db7f8a9e7b321d6b360dd4",
+    "adapters/runtime/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adapters/runtime/cleanup.py": "05e013f9555adae3a2ac5d14a017efd16167c0646ccec987c9edfa5707900a67",
+    "adapters/runtime/eval_worker.py": "2af02d1f297ab67f9d1bc2c476631ccfec16c91a856c2e1378041f1790db7037",
+    "adapters/runtime/evaluator.py": "9d01068b847fa6af7e46070ec2f9bd0b48f2dce2810e3d6a43de578f7b1567e1",
+    "adapters/runtime/facts.py": "b0195240099872afb182810c78a9239c136e23eec84510767b01d30e750025ce",
+    "adapters/runtime/host.py": "434deb5415367be2db584f87056ba2b510dd301b4a757b1037922ff7c11fcbb6",
+    "adapters/runtime/mcp_server.py": "473eb346a0b8976e6c6a34bc7f57a0d01036c1a9e1e49b8278bf744529b588bf",
+    "adapters/runtime/runtime.py": "4488cb941edc4a5f075877a83c259f6e7fe133d4f8695916bdc2a4e181a7527b",
+    "adapters/runtime/supervisor.py": "95c51a4354c9f4df112bfe8ad957f5d8276c060dfcd43f22d05720fd2c66c0f4",
+    "adapters/transport/__init__.py": "4349c250320a896cce18deb58a6b776b8ce41761185f19a784fcdcc987ac721e",
+    "adapters/transport/fixture.py": "815b8ad9f71910baec44c2a78b4dac66041296182aa06f50b390b40f8dcde6e5",
+    "adapters/transport/fixtures/provider.mjs": "df62bec91a38a81b950b72b73cc5adea1680d2f68b79291bfc6062d0be69350d",
+    "adapters/transport/plugins/common.mjs": "a911563247c54c3fb29768da13b9cfbac3964f081e3394e079855b70149b044d",
+    "adapters/transport/plugins/guard.mjs": "0d324cfcaee86be3ea80d687544daaabebdfe88491edb5d539e2cbc318afe263",
+    "adapters/transport/plugins/transport.mjs": "e1600ebbf513b633515c83418195008919141317261988f517a85f16a4efb951",
+    "adapters/transport/responses.py": "57cd7d74efb0fba011a743d5dc56690594c0d22ffa0efa8dc03c156a21dc2036",
+    "adapters/transport/transport.py": "f730af4301b11360ddc3e2198db95ba9a311bad6c1c800e35994865e62b76a33",
+    "application/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "application/campaign.py": "4d64fdf928d6ba30e56cbc6520349a29c05ac991d995640f3774defaa8ab4590",
+    "application/candidate_evaluation.py": "9eb344eacff0ba6dd41b3a6a8a9b21d3c217e054bf6c7556592d6e760909d833",
+    "application/candidate_store.py": "da30fc5afa832ad4922292fe0882e557c47b8f825e2de7f497acf6b1fa535d06",
+    "application/diagnostic_runtime.py": "5686334f2fd1ecdd68b2281b2e13da3ede1cc87d7f20766de1a9609c12b7ebd4",
+    "application/evaluation.py": "563f88fc4b006a2c2144015962ad8d28e386a3707591b9f4ef9e4a025f895ea2",
+    "application/evaluation_store.py": "c7825727998361040ef7ca32c5170ee86b718085bd8c54ccb2710eaeeb6c43b1",
+    "application/export.py": "2a0fc6d21a33e2eba4b859d6df1ffc6fff8dfd462f8259c63b4dc398ceaa7f6f",
+    "application/gateway.py": "ce3c024bac5b0a73889ee721c24dcd31a52cb092617ca2b64234ce4e2d98d4c8",
+    "application/memory.py": "2ddfe5bbefa88c604243f1b3f1c9a9551fd981563ca933ed75c68313a1e2f788",
+    "application/migration.py": "5b3cf9a569a57371312b2067a8bac7f301f3a3e4978149202c0899dffe66e19b",
+    "application/pilot.py": "ca0d9d9a563d2d684cc712dc8b4dbfe57e21504c589b7f07006480cc0d8ca44c",
+    "application/robustness.py": "d9ee98a1107584c6f45cba97176ea9b1b00dbb07ab4a9fb868c723de80e31ab1",
+    "application/scenarios.py": "07faefe703617cd0902c88aa346f6269255252824622bd715f5a2b1874ef3211",
+    "application/store.py": "888ccd4fb7f3190746fafd41107a0d0dc0726cef1f258a0b160c7a34742f96ec",
+    "application/task_diagnostics.py": "d2f027c6c24cf627e6436b35424da5b18641cb6efd6da088752f6b81e54114f8",
+    "application/terminal.py": "19e9aee1d843ddba2bd6b5d7a2ae28a49b70ee2c82e92a61934d4395dfd82c00",
+    "application/transport.py": "5c6158c561dcc9cda45d80ce58dd338569e82c5f34191f4819f94e755f66dcff",
+    "application/transport_export.py": "686e8535cd72f2faae50ca451b86161124cc4f01a21fe4f5d9f8449afc8c9283",
+    "contracts/__init__.py": "894a9a34a40f5e137ef57c3d8d953a88b2468ee9ea12509bbffac10376533aff",
+    "contracts/endpoint.py": "4e5029a29a0e95c79059bf82c30d8cc38172f394857e3df2bafbd2ba73cdabd8",
+    "contracts/hashing.py": "807f204c8fd5e6ad19d9abc3ccd669de6632a2ddb8530995152d97af30ae88ad",
+    "contracts/json.py": "2932541daa6111ec97edab7f6851a56513f5b6de900d7c209336a79e32335c25",
+    "contracts/ports.py": "a3bc7aee7d5b6151531181b91a0fe14d57ec8139e0d59afd93a2bec557bab6ee",
+    "contracts/scenarios.py": "7f7aaaea7be1ef2aca0fbe8bf2b80b5b6bb2ff1a53310d1b1c1bb1794738ebeb",
+    "contracts/transport.py": "84c241ffdf0364dbc05a07fcabcaaacc5fa648a706d9d21fb33c4e198998d1ac",
+    "contracts/versions.py": "8bade6aa6d1f59308e5f37ed0d33993fa0b2571d84902b4e718332e99b306193",
+    "contracts/wire.py": "693dddf9cb6579cca7169c0f538f8b5bcbb9a0b859082b181e031e1fd9e41272",
+    "domain/__init__.py": "6b308b2efb483eeaffe32ab90ea9e76c43e05faf5e44d97e49c53b91b6c0fdda",
+    "domain/accounting.py": "dada7db827e2fdbb14b5c15b1a94e7bb66e744b9429b1d63ca9737b31a25cc09",
+    "domain/candidate.py": "8a98157e2bcb25c669b59ea2628b2b88ba78b11bfb12dbf38d3da722eb46a5f3",
+    "domain/clock.py": "87d2e05fec27af8a5a487b8b07ea431c16cf5108bf33d66731ca91757c302a39",
+    "domain/episode.py": "689186721131ea243fabeccb763dedcd7f10f07220c8dc7d901598af2ce70a28",
+    "domain/memory.py": "f85a86dc55e90b85e416f1f64f250e0decaeb617c6f74b7a2eeefeed8956e575",
+    "domain/roles.py": "81a87f89f669368b304ee3b074194d510d5806c9c3176e7e5c06e606a3f4a4e3",
+    "evidence/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/audit/__init__.py": "33df14f16773eca34e83cc806e892774a30d3c38354f463081f441b98ff8f7f2",
+    "evidence/audit/accounting.py": "bca1d8b4e426ad97c7c0749ae5676dbe339356f5e1ab5f524033c656389859fd",
+    "evidence/audit/channel_audit.py": "4dbbf91fe9fc523f01467b607de1d317d4c0e61b857173e3d3afae655e93e640",
+    "evidence/audit/stream_audit.py": "1d87a82132f6d81f042c23f3131c087bcaa1a86973cd90595633a9b19fad476c",
+    "evidence/audit/transport_contract.py": "70fdd9f582672c4bcf7237cf09bb32d051c6c03649fd7901df847d218a32fd35",
+    "evidence/bundles/__init__.py": "88c0b2dfa582eeb57f97a1029ef5013070af5a15215af3e6c1fde929b6dd51c2",
+    "evidence/bundles/eval_contract.py": "bed48f93d0a76a97e77635de8f11fb475ee724c94613975f791b2e9d254e663a",
+    "evidence/bundles/evaluation.py": "a6ed934b49f541d4dff7a94f05b95ab9433ebe8cca725894c5337e60aa1befd6",
+    "evidence/bundles/task_evidence.py": "c4f99715f9aea40f12dc92c2fa7b1615daafd979f02a1e01051660238c811414",
+    "evidence/bundles/terminal.py": "648285ff201ac84cea180dd927d13fb25a4442ec5b68fa234b8fe672067d96b5",
+    "evidence/bundles/verify.py": "c605bbc86791b26457cd37184f7e568ea0ad411c3c46201aa95cb1f60eb75525",
+    "evidence/campaigns/__init__.py": "f32e0314a7de15abf1be9982931152e1dee6e362095fb1d23fe4c203282304d6",
+    "evidence/campaigns/calibration.py": "ecb03406371fc7f937c095bad934942fccfeb9a05d34be4cc67be8a9642b26de",
+    "evidence/campaigns/campaign.py": "f9076055444a7779c5d6c9bff88e92beba9905e4aae0fb6e3e1d524aa60f0d9f",
+    "evidence/campaigns/campaign_registry.py": "d74c1338ed6fc60a1375974981242ad1ef2a91086231876713abe670ea07bad1",
+    "evidence/campaigns/candidate_measurement.py": "ab2a3f0fa44f92df88a2e3bde2c5f8b5f213d95b39fb9b46b640f84cbf296fbd",
+    "evidence/campaigns/evaluation_measurement.py": "ab7a6595e087c6d67ead47ecf2bc360ba42709212dcb1080d489b52a12a3933c",
+    "evidence/campaigns/pilot_measurement.py": "93e4fdce6041d4fdef7e3bee4df81afdd3ba88b157c580a307a5d27c7ec75d5a",
+    "evidence/campaigns/robustness_measurement.py": "d53dae76d23a140f0aea9eabfc5de59bec4c01a2c3bf271b7277085db4e58d5f",
+    "evidence/campaigns/suite_measurement.py": "5e4740a7e490af2a3ccc189dc7784ab9cc3b2201400c90fb29213bafada54ae2",
+    "evidence/campaigns/transport_campaign.py": "1e13388924f5714373ad9700eb3744a0d25b3f5ae611456bb72ee0dc1012fab2",
+    "evidence/diagnostics/__init__.py": "8576e4696dc9bfe67c0dd3806883506e04f38956d6c0ceb7574a0fea43475c56",
+    "evidence/diagnostics/failure_fixtures.py": "8075e82868a69bf00d43c4df468d0dc7dbee98b3c045fba09f8240d6cbcf96ab",
+    "evidence/diagnostics/failure_observation.py": "7f57b41bed75df3d620b32af0711c4164bdaf494c0261c4efc6e1c575cb0bae5",
+    "evidence/diagnostics/future_schedule.py": "3a347addd79c34a5937adddfa08f05cdaf5bf85191f1cc0ded4afb7dbd06eb15",
+    "evidence/diagnostics/task_diagnostics.py": "ffb897a7b10c84b67aa0c526d4d05efee695fc49c7f43d099daeb0805b986c69",
+    "evidence/diagnostics/transport_diagnostics.py": "7bc225fdcae3abc1048119711e23ed7993856ffc6f37d4343a8eeb6ba99aad22",
+    "evidence/lineage/__init__.py": "ac6f05ee5b94e549bb895fb04911e2794f6cd58909ac14c9b92f40d1dfe7cd65",
+    "evidence/lineage/candidate.py": "9a98ae7d8d0d96573a39e4b1415f7f5beb1f73b63e27ba9675d9a1273d9ec670",
+    "evidence/lineage/candidate_evaluation.py": "9f10643f46d08467b89cd51911e257458c373e6673ec6937b6af28be2b65fd1a",
+    "evidence/lineage/candidate_lineage.py": "41ddcba0c1916f54240f44c8eb1dd9dc41e9e4ebda844b9cfc27485dea0c8b1d",
+    "evidence/lineage/evaluation_history.py": "51dfcd80bcaee6f8ada50940dd31cc4592be09bc6d81e780ee81c7ee9d0af7c1",
+    "evidence/lineage/evaluation_lineage.py": "2f39b05d621d090064e776603b507c73de6fd05221a927f989f9143620980509",
+    "evidence/lineage/robustness.py": "110ce774d23d4e876983018a4ddfa86985f3c4ddfeb2212e86d8db7e3004ebc9",
+    "interfaces/__init__.py": "04ba2bc887f953bec5942cbd2f19cc48a56dfbe16a0eadb5b8a5f5c6af7388fb",
+    "interfaces/campaign.py": "73b2d59952cc1ea549db697ded588d1f0137e659266ffd5aff565c1d969b9079",
+    "interfaces/cli/__init__.py": "d0a9a7ada386df5a9a62d365c8d8ec17085017ebcdcc89126ffd17887d34903f",
+    "interfaces/cli/campaign_verify.py": "3cb400ba18f45279b9db91e79284fcd839628eb26ce20751e9ceda7b688a291a",
+    "interfaces/cli/candidate.py": "0205fe5f9ab22f2332092217fe1fe8a765c114f7e87ad11ee50808082588deba",
+    "interfaces/cli/candidate_evaluation.py": "ff43470daf3c4603b771599dba807743cc868e01d447c18f4603e06c80c1d7ca",
+    "interfaces/cli/evaluation.py": "b4a7b8e4fa42d2a1980418e8f5d22b6b5688c9366240bdac0d6f30e8bdd2b837",
+    "interfaces/cli/gateway.py": "5cb5bcf62b312ed735ff4f2d6503d6be36f8918bfa36f866f98ede7d68f54279",
+    "interfaces/cli/main.py": "5efd2def9661d81eb0b4f4d98938c22dc093f9d76f8aae51162d9434c75bbd65",
+    "interfaces/cli/pilot.py": "f4ed1d269b9f9be2cfc9e5887a2f2c0be5a2627ac32e510c1e1dc3406aeed098",
+    "interfaces/cli/preflight.py": "a64d4e19ae269f18e4edeb935bd41a4493cdfdc47779f17c31bcac28299c1318",
+    "interfaces/cli/readiness.py": "2cd82ad9a24f895a9561b3b0a6a0f9f29638b626e45b2b9efd056d1332a18234",
+    "interfaces/cli/robustness.py": "f349409eecbac624d425553e137354805be79e1aaa2c405c54fbbaf7e567b5e6",
+    "interfaces/cli/run.py": "01526f11be59fe2863836848fbb52cdbb1c18f05015c63a6206c3f636a7f1dd9",
+    "interfaces/cli/suite.py": "b58514a94db2072aa86f32829230442f55247242b648333d7aaf0be869845a90",
+    "interfaces/cli/task_diagnostics.py": "09f033ca138388cb41c247168d9d6b5fa59fc8e14b5dd9bd75dbedb9b42f7693",
+    "interfaces/cli/transport_diagnostics.py": "73b89e56b55f05ff3382c32af819c2f50d9dc9eedbb150d7162237fc5e2835c4",
+    "interfaces/cli/verify.py": "044b60a95f3819678e17531e11cd81c43d3fe44a3f472efa4a2f18b9ffafb925",
+    "interfaces/export.py": "57c8ab0f715f4cbde33a21c64a0a73eff1618a8d280aa5f7da7a967d750f7f03",
+    "interfaces/ipc/__init__.py": "4b98e704be86502df27dd1f828dbf73f0a08507a23a44b57a5e6fde5625b4e03",
+    "interfaces/ipc/budget.py": "b5aac03349c82c94b3d3d0ced8069c918e59f1a0527c796369f005c077cf2abc",
+    "interfaces/migration.py": "176756faa4a288eb138218feae3e0e25656f03d0c3a140ccdeb2db4940a95fe6",
+    "interfaces/store.py": "5791980143b4713573532b0321d9906584f8fdf75d92f898aa3db024d48f36b5",
+    "interfaces/transport_export.py": "94fac28305aa40bb5e1dd55d176a21823edd3a398f257e8bfbfb0c36e016e952",
+    "interfaces/wiring.py": "9f633f38fdd64de3d2631bb7b448fe8e0141ee3ba757b7df39d9c775cf2d6782",
+    "interfaces/workers/__init__.py": "042874f14c35c37005214a2cb9ee9fd3075f4dcd7fcb5a9e1fc691dd5aa7071e",
+    "interfaces/workers/eval_worker.py": "d079f356db42a813e84bf8b7bfb64920ab48680ffb4d9ed40f77bfb78c2b0fa8",
+    "interfaces/workers/host.py": "9d74d7a5b329385bf67178be5eb82b3954f3d301f4140ae06468409a039d99a5",
+    "interfaces/workers/mcp_server.py": "68c1756d8559dcab9a247b4c15689de1607ae75167a4b90012f245620d4c14dc",
+    "measurement/__init__.py": "537b0e142453eb0cef573931531ac7e10be46b116578ff609bbd5e89019370e2",
+    "measurement/diagnostic.py": "0043a3c4eb20f71375500df99479e45c9a063657b853214429f835dc08074719",
+    "measurement/oracle.py": "4ee52aaba0a72fca8604bf5dda674e54b43fefa0ea987cf71e918a54f5f26ab1",
+    "measurement/robustness_definitions.py": "370fc2b13c854eec9078c38b311ba85ea5e9a9e8656c35ba2a43b78537813222",
+    "profiles/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "profiles/candidate_campaign.py": "3e6f1a874412cc9df33ad3fd3fb802152c3abc910d2fd6039caab3f2a9b1a1bc",
+    "profiles/evaluation_campaign.py": "7e4532f6efa461a503f9cb7c6a577e94e5c6aafd1f9cc3912dd4e1fe5ef8fa68",
+    "profiles/finite_defaults.py": "5ec40e20b8993bbe405909278eabdea94dd1b7432de7a5ab0388823b503aa949",
+    "profiles/gateway_base.py": "7146f4a1d0df98a30a0e92466d2b3121d102f2bf777b7a07a722fbbdb90e10bb",
+    "profiles/gateway_contract.py": "03b5d935241dde4eec83c4add669b8cd7a7664762aa40f8ed4c46775d213fcc8",
+    "profiles/pilot_contract.py": "122409da8713d43c420355128e0ee3e7329d71dce73ff52df293e92c0754b510",
+    "profiles/readiness_contract.py": "87cefbb2363094636b5b7040934b181ee36b970ae7c76947bb5c057a79985d4f",
+    "profiles/registry.py": "e8f715ff93a17918ba52d7e98f8671dca62b9d2e6dfcf9a028150fccee6548a2",
+    "profiles/robustness_campaign.py": "9621edc0146d30acc42a8671dd733e79e58e83b0051790fd6e0c14a462d174aa",
+    "profiles/suite_contract.py": "b7680f8c7db04a16318e63c7d3b454719aac6361cffbfd681dbdf51c90144f64",
+    "profiles/transport.py": "ed11f15a0ee2a5fee13c789750e63d06f574e283c1529d4299e1b682c149aa51",
+    "profiles/validation.py": "684e3a8ac942120176a013f3cdbdaf7fc314c735d377ea662337182488e68050",
+    "resources/__init__.py": "e0d2167c1ed0cebe041b0fac9b59cd21ed16e135b93e4658344db7ef5ed32b19",
+    "resources/pins/c5_runtime.json": "b5b5caf0c5b2e4662d5131b6106f2dc5e6af945a46c8c4515172a207335ad851",
+    "resources/pins/concordia.json": "ca5445c5268e6842bd6f17e3062833d415ca0e5b60354cf280d84bb765ab11cb",
+    "resources/pricing/readiness_quote.json": "e9f8298e1a6edb4ef177e1e9c881506b937305fb4c949be0880888112be190e7",
+    "resources/trust/evaluation_history.json": "5cbf1c60d85931c80f5e86ac281604e51ac997baf2bfa7e7194b01b463b2aea2",
+    "resources/trust/task_diagnostic_trust.json": "50a0f66a33787518f3606c478e2f6db698646f492b45f87e359d9077c9d4cab7",
+    "tasks/__init__.py": "a7b6efe8e84c61800df5f52d3bb5de44695d2beed3739eb01fbf1ad8a8f8e4ee",
+    "tasks/candidate.py": "d8f9f274dbc03efa0b7fd8ff5f8f2bc4bb4a9534c72fcbdeea7830ec489b3080",
+    "tasks/controls.py": "2dfb7356d3b088f2a8e6d89a87e3a85d0ff6f03fce0bea7e452e13c7c01bc790",
+    "tasks/core.py": "a5fcabf6fddd36d4264746f90662591d75646d5510194e44b9105544aa8fff4b",
+    "tasks/diagnostic.py": "be56e98f5b633fa88e1222c86a6b66d21ecfe211a5623c83f459ceeec401ffcf",
+    "tasks/evaluation.py": "be22e30189c3e677bec8c0e80f70876f111cefe0a8f9e0a2eef4d823645cf139",
+    "tasks/finite.py": "178e833f6867ac8b8a68bba94dc78e818da7bd73b43d6ed031c8c242b7a07267",
+    "tasks/registry.py": "471dfaa7c723ff5f7e2f5c34366c8379111bfd112b4e560713091d9800010be9",
+    "tasks/robustness.py": "bce76dd86f48f1cb013d6709b33a095781fead3499562e263db1f247fd91b8a5",
+    "tasks/scheduling.py": "888068d0ba49a462a96758888edddf22555514b370eb2b965099362c1df3f203",
+    "tasks/scheduling_v2.py": "fad3233a72bc64c5f3b5ab26bd0c9eab19bc286f7463e9be65419693525904b1"
+  },
+  "tools": {},
+  "wheel_sha256": "a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465"
+}

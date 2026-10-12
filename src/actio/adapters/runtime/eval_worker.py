@@ -6,8 +6,8 @@ import sys
 
 def lockdown():
     counters={'network_attempts':0,'process_attempts':0,'runtime_import_attempts':0,'write_attempts':0}
-    denied={'actio.adapters.runtime.runtime','actio.adapters.runtime.supervisor','actio.adapters.transport','actio.adapters.environment','actio.interfaces.store','actio.application.store','actio.application.scenarios','actio.runtime','actio.scenarios','actio.store','actio.host','actio.supervisor',
-            'deepseek_harness','concordia','redis','redis_om','litellm','openai','sotopia'}
+    denied={'actio.adapters.runtime.runtime','actio.adapters.runtime.supervisor','actio.adapters.transport','actio.adapters.environment','actio.interfaces.store','actio.application.store','actio.application.scenarios','actio.runtime','actio.scenarios','actio.store','actio.interfaces.workers.host','actio.supervisor',
+            'actio.host','actio.mcp_server','actio.interfaces.workers.mcp_server','actio.adapters.runtime.host','actio.adapters.runtime.mcp_server','deepseek_harness','concordia','redis','redis_om','litellm','openai','sotopia'}
     def audit(event,args):
         reason=None
         if event.startswith('socket.'):reason='network_attempts'

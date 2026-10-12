@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import sys
 import unittest
-from actio.common import canonical
+from actio.contracts.json import canonical
 from actio.evidence.bundles.eval_contract import seal
 from actio.evidence.campaigns.suite_measurement import verify
 from actio.evidence.audit.stream_audit import verdict

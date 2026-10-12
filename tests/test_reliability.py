@@ -4,8 +4,8 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError
-from actio.common import write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import write_json
 from actio.adapters.runtime.facts import Facts
 from actio.adapters.runtime.runtime import RuntimePort
 from actio.adapters.runtime.runtime import synthetic_spec

@@ -42,7 +42,7 @@ sequenceDiagram
 
 **事务边界：** Store 的领域写入与 Ledger 的发送状态各自保持原连接和事务。Worker、外部发送、两库之间没有原子事务，也没有完整 controller 恢复承诺。
 
-代码入口：[transport](../../src/actio/application/transport.py) → [wiring](../../src/actio/interfaces/wiring.py) → [原生适配](../../src/actio/adapters/transport/transport.py)；账务入口是稳定的 `python -m actio.budget`。
+代码入口：[transport](../../src/actio/application/transport.py) → [wiring](../../src/actio/interfaces/wiring.py) → [原生适配](../../src/actio/adapters/transport/transport.py)；账务入口是稳定的 `python -m actio.interfaces.ipc.budget`。
 
 ## 2. 导出、只读核验与评估
 
@@ -66,16 +66,16 @@ flowchart LR
 
 ## 3. C5 本机故障诊断
 
-`interfaces.transport_diagnostics` → `application.diagnostic_runtime` → `DiagnosticPorts` → 官方 Worker + 有显式 response_policy 的本机 fixture → 保留 attempt/usage/unknown → 回收 → `evidence.failure_observation` / reader 离线复算。
+`interfaces.cli.transport_diagnostics` → `application.diagnostic_runtime` → `DiagnosticPorts` → 官方 Worker + 有显式 response_policy 的本机 fixture → 保留 attempt/usage/unknown → 回收 → `evidence.diagnostics.failure_observation` / reader 离线复算。
 
 这是九场景工程诊断。R7–R10 最终正式矩阵的 12 sends、5 settled、7 unknown、6 not_run 只描述该轮受控验收；不能推出 provider 可靠性、真实费用或 C4 完成。新目录重构应建立自己的源码身份与运行收据，不能沿用旧矩阵冒充新 wheel 验证。
 
 本机 priced rehearsal 可使用显式 fixed Clock；live/system 必须用真实 UTC，过期报价仍拒绝。Clock 进入配置、Ledger、snapshot 和 TS→Python IPC，同一账务权威不变。不能为了让测试通过而更新旧报价或全局冻结时间。
 
-代码入口：[诊断 CLI](../../src/actio/interfaces/transport_diagnostics.py)、[runtime 编排](../../src/actio/application/diagnostic_runtime.py)、[失败观察](../../src/actio/evidence/diagnostics/failure_observation.py)。
+代码入口：[诊断 CLI](../../src/actio/interfaces/cli/transport_diagnostics.py)、[runtime 编排](../../src/actio/application/diagnostic_runtime.py)、[失败观察](../../src/actio/evidence/diagnostics/failure_observation.py)。
 
 ## 使用与结果边界
 
-实际命令、最小 wheel 和只读 guard 复现方式见[验收 CLI](../validation/refactor_modularity/CLI.md)。历史 C5/C4 用固定版本重放，不能把历史命令中的私有 import 直接套在当前源码上。
+实际命令、最小 wheel 和只读 guard 复现方式见[验收 CLI](../validation/refactor_entrypoints/CLI.md)。历史 C5/C4 用固定版本重放，不能把历史命令中的私有 import 直接套在当前源码上。
 
 R7–R10 的同一最终 wheel 已完成 34 suites、164 个方法；首次失败和同条件隔离重测均保留，详见[结果](../validation/refactor_modularity/RESULTS.md)。本次文档审阅未重新执行这些运行测试，也未调用真实模型。

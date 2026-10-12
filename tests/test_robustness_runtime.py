@@ -4,13 +4,13 @@ import unittest
 import uuid
 from unittest.mock import patch
 from actio.profiles import robustness_campaign as c
-from actio.interfaces.robustness import verify
+from actio.interfaces.cli.robustness import verify
 from actio.tasks.robustness import get
 from actio.tasks.diagnostic import visible
 from actio.tasks.controls import control
-from actio.interfaces.pilot import execute
-from actio.interfaces.pilot import run_unit
-from actio.common import write_json
+from actio.interfaces.cli.pilot import execute
+from actio.interfaces.cli.pilot import run_unit
+from actio.adapters.filesystem.common import write_json
 from actio.evidence.bundles.eval_contract import seal
 from gateway_stub import GatewayStub
 from test_robustness import empty

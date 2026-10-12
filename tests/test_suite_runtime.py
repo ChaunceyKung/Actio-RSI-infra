@@ -5,10 +5,10 @@ import subprocess
 import sys
 import unittest
 import uuid
-from actio.common import canonical
-from actio.common import write_json
-from actio.common import ContractError
-from actio.common import clean_env
+from actio.contracts.json import canonical
+from actio.adapters.filesystem.common import write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import clean_env
 from actio.evidence.bundles.eval_contract import seal
 from actio.profiles import suite_contract as contract
 from actio.tasks.finite import get
@@ -16,8 +16,8 @@ from actio.tasks.finite import observation
 from actio.tasks.finite import payload
 from actio.measurement.oracle import fixture_policy
 from actio.evidence.campaigns.suite_measurement import verify
-from actio.interfaces.pilot import run_unit
-from actio.interfaces.pilot import execute
+from actio.interfaces.cli.pilot import run_unit
+from actio.interfaces.cli.pilot import execute
 from actio.adapters.transport.transport import TransportPort
 from actio.adapters.persistence.ledger import Ledger
 from actio.adapters.filesystem.credentials import scan

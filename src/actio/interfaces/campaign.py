@@ -5,7 +5,7 @@ from pathlib import Path
 from actio.contracts.json import ContractError, seal
 from actio.evidence.bundles.evaluation import read_json
 from actio.evidence.campaigns.campaign import verify_campaign
-from actio.interfaces.evaluation import execute_worker
+from actio.interfaces.cli.evaluation import execute_worker
 from actio.application import campaign as use_cases
 
 def run_campaign(*args, **kwargs):

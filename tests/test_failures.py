@@ -5,10 +5,10 @@ import unittest
 from unittest.mock import patch
 import uuid
 
-from actio.common import ContractError
-from actio.common import Lines
-from actio.common import file_hash
-from actio.common import write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import Lines
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import write_json
 from actio.adapters.runtime.facts import Facts
 from actio.adapters.runtime.runtime import RuntimePort
 from actio.adapters.runtime.runtime import TOOL
@@ -73,7 +73,7 @@ class Failures(unittest.TestCase):
                 calls=[r for r in self.rows(port,'mcp.jsonl') if r['kind']=='received']
                 self.assertEqual(len(calls),1 if name=='allow' else 0)
                 guards=[r for r in self.rows(port,'bridge.jsonl') if r['kind']=='guard']
-                from actio.common import digest
+                from actio.contracts.json import digest
                 for guard in guards:self.assertEqual(guard['policyHash'],digest(port.policy))
                 if name not in {'allow','unknown'}:
                     self.assertTrue(guards);self.assertTrue(all(not g['allowed'] for g in guards))

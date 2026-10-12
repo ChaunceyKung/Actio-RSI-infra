@@ -1,0 +1,60 @@
+[
+  {
+    "status": "PASS",
+    "modules": 4,
+    "edges": 2,
+    "violations": [],
+    "strong_components": [],
+    "unmigrated_root_modules": [],
+    "shims": [],
+    "dynamic_imports": [],
+    "evidence_groups": {
+      "audit": [],
+      "bundles": [],
+      "campaigns": [],
+      "lineage": [],
+      "diagnostics": []
+    },
+    "evidence_group_cycles": [],
+    "dependencies": {
+      "actio.evidence.audit": [
+        "actio.evidence.campaigns.leaf"
+      ],
+      "actio.evidence.audit.leaf": [],
+      "actio.evidence.campaigns": [
+        "actio.evidence.audit.leaf"
+      ],
+      "actio.evidence.campaigns.leaf": []
+    },
+    "scope": "all current Python including local imports; no ignored subgraph; package target DAG still required"
+  },
+  {
+    "status": "PASS",
+    "modules": 2,
+    "edges": 0,
+    "violations": [],
+    "strong_components": [],
+    "unmigrated_root_modules": [],
+    "shims": [],
+    "dynamic_imports": [
+      {
+        "module": "actio.contracts.nested",
+        "line": 2,
+        "literal": "..application.impl"
+      }
+    ],
+    "evidence_groups": {
+      "audit": [],
+      "bundles": [],
+      "campaigns": [],
+      "lineage": [],
+      "diagnostics": []
+    },
+    "evidence_group_cycles": [],
+    "dependencies": {
+      "actio.application.impl": [],
+      "actio.contracts.nested": []
+    },
+    "scope": "all current Python including local imports; no ignored subgraph; package target DAG still required"
+  }
+]

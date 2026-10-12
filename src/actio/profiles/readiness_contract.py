@@ -1,3 +1,4 @@
+from actio.resources import data_path
 from actio.domain.clock import quote_current
 from actio.profiles.validation import validate_readiness
 """Pure candidate/proposal and priced rehearsal contract. No credentials or network."""
@@ -21,7 +22,7 @@ PROFILE='sdk-minimal+actio-priced-memory.v2'
 PROTOCOL='chat-completions.v1'
 MODEL='deepseek-flash'
 ORIGIN='https://api.deepseek.com'
-QUOTE=json.loads(Path(__file__).resolve().parents[1].joinpath('readiness_quote.json').read_bytes())
+QUOTE=json.loads(data_path('pricing','readiness_quote.json').read_bytes())
 TIMEOUTS={'ready':25,'rpc':5,'first_response':6,'idle':8,'request':20,'result':35,'drained':4,'closed':3,'worker':75}
 BLOCKERS=['independent human operation approval absent','provider/model choice and actual budget not authorized',
           'exact billable context and pricing 1M units unconfirmed','current-model tokenizer mapping unproven',

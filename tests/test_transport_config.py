@@ -5,9 +5,9 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
-from actio.common import clean_env
-from actio.common import ContractError
-from actio.interfaces.preflight import preflight
+from actio.adapters.filesystem.common import clean_env
+from actio.contracts.json import ContractError
+from actio.interfaces.cli.preflight import preflight
 from actio.domain.roles import parse_config
 from actio.domain.roles import stub_config
 from actio.profiles.transport import config

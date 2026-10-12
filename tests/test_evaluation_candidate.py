@@ -12,15 +12,15 @@ from actio.profiles import evaluation_campaign as c
 from actio.application import evaluation_store as es
 from actio.domain.candidate import baseline
 from actio.domain.candidate import candidate
-from actio.common import ContractError
-from actio.common import digest
-from actio.common import file_hash
-from actio.common import write_json
+from actio.contracts.json import ContractError
+from actio.contracts.json import digest
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import write_json
 from actio.interfaces.migration import migrate_evaluation_copy
 from actio.evidence.bundles.eval_contract import seal
 from actio.evidence.campaigns.evaluation_measurement import metric_cells
 from actio.evidence.campaigns.evaluation_measurement import decision_state
-from actio.interfaces.candidate_evaluation import verify
+from actio.interfaces.cli.candidate_evaluation import verify
 from actio.interfaces.store import Store
 from actio.tasks.finite import get
 
@@ -40,7 +40,7 @@ class EvaluationPure(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/'empty.json';write_json(path,empty(c.preregistration()))
             for args in (['plan'],['preflight'],['verify',str(path)]):
-                code=GUARD+"\nfrom actio.interfaces.candidate_evaluation import main\nsys.argv=['actio-candidate-evaluation',*sys.argv[1:]]\nraise SystemExit(main())"
+                code=GUARD+"\nfrom actio.interfaces.cli.candidate_evaluation import main\nsys.argv=['actio-candidate-evaluation',*sys.argv[1:]]\nraise SystemExit(main())"
                 argv=[sys.executable,'-X','utf8','-I','-B','-c',code,*args]
                 proc=subprocess.run(argv,capture_output=True,text=True,encoding='utf8',timeout=60)
                 self.assertEqual(proc.returncode,0,proc.stderr)

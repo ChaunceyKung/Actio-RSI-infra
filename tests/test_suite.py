@@ -6,9 +6,9 @@ import subprocess
 import sys
 import unittest
 from unittest.mock import patch
-from actio.common import canonical
-from actio.common import ContractError
-from actio.common import file_hash
+from actio.contracts.json import canonical
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import file_hash
 from actio.evidence.bundles.eval_contract import seal
 from actio.profiles import suite_contract as contract
 from actio.tasks.finite import cards
@@ -35,7 +35,7 @@ def empty():
 GUARD="""import sys,os,json
 def audit(e,a):
  if e.startswith('socket.') or e=='subprocess.Popen':raise RuntimeError('network/process denied')
- if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.runtime','actio.transport','actio.gateway','actio.eval_worker','actio.adapters.runtime.runtime','actio.adapters.transport.transport','actio.application.gateway','actio.adapters.runtime.eval_worker')):raise RuntimeError('runtime denied')
+ if e=='import' and (a[0].split('.')[0] in ('deepseek_harness','concordia') or a[0] in ('actio.host','actio.mcp_server','actio.eval_worker','actio.interfaces.workers.host','actio.interfaces.workers.mcp_server','actio.runtime','actio.transport','actio.gateway','actio.interfaces.workers.eval_worker','actio.adapters.runtime.runtime','actio.adapters.transport.transport','actio.application.gateway','actio.adapters.runtime.eval_worker')):raise RuntimeError('runtime denied')
  if e=='open':
   if 'token_key' in str(a[0]):raise RuntimeError('credential denied')
   if isinstance(a[1],str) and any(c in a[1] for c in 'wax+') or isinstance(a[2],int) and a[2]&(1|2|64|512|1024):raise RuntimeError('write denied')

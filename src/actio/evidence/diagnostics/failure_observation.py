@@ -1,3 +1,4 @@
+from actio.resources import data_path
 """Bounded negative evidence observation. Never admits actions or settles usage."""
 import base64
 import codecs
@@ -301,7 +302,7 @@ def from_entry(entry,origin):
     else:
         cfg=entry['evidence']['ledger']['meta']['config']
         require(cfg['mode']=='robustness_rehearsal','diagnostic live input denied')
-        pin=json.loads((Path(__file__).resolve().parents[2]/'pins/c5_runtime.json').read_bytes())
+        pin=json.loads(data_path('pins','c5_runtime.json').read_bytes())
         if digest(entry) in pin['entries'].values():source_reader=pin['reader_commit']
         else:
             from actio.evidence.campaigns.transport_campaign import analyze

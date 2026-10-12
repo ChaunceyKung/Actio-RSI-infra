@@ -1,3 +1,4 @@
+from actio.resources import data_path
 """Portable offline task diagnostics; no credentials, runtime, network or database.
 
 Trusted registry is shipped with code. Bundle hashes are data references, never
@@ -40,7 +41,7 @@ def read_json(path, maximum=16 * 1024 * 1024):
 
 
 def trust():
-    return read_json(Path(__file__).resolve().parents[2].joinpath('task_diagnostic_trust.json'))
+    return read_json(data_path('trust','task_diagnostic_trust.json'))
 
 
 def source_pins():

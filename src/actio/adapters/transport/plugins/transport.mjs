@@ -9,7 +9,7 @@ export async function apply(ctx,config) {
   const original=globalThis.fetch
   let active=null, disposed=false
   const ipc=value=>{
-    const p=spawnSync(config.python,['-I','-B','-m','actio.budget',config.ledger],{
+    const p=spawnSync(config.python,['-I','-B','-m','actio.interfaces.ipc.budget',config.ledger],{
       input:JSON.stringify(value),encoding:'utf8',timeout:5000,maxBuffer:65536,windowsHide:true,
       ...(config.helper_env?{env:config.helper_env}:{}),
     })

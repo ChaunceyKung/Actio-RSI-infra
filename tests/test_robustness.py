@@ -7,14 +7,14 @@ import unittest
 import uuid
 from actio.profiles import robustness_campaign as c
 from actio.tasks import robustness as tasks
-from actio.interfaces.robustness import verify
+from actio.interfaces.cli.robustness import verify
 from actio.application.robustness import reserve_live
 from actio.evidence.campaigns.robustness_measurement import metric_cells
 from actio.measurement.robustness_definitions import metric_definitions
 from actio.evidence.campaigns.robustness_measurement import coverage
-from actio.common import ContractError
-from actio.common import digest
-from actio.common import file_hash
+from actio.contracts.json import ContractError
+from actio.contracts.json import digest
+from actio.adapters.filesystem.common import file_hash
 from actio.evidence.bundles.eval_contract import seal
 from actio.tasks.registry import validate_task
 from actio.tasks.registry import task_result

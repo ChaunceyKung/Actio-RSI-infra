@@ -5,8 +5,11 @@ import sys
 from pathlib import Path
 if len(sys.argv)>1:
     sys.path.insert(0,str(Path(sys.argv[1])/'src'))
-from actio.common import canonical,digest,ContractError
-from actio.verify import parse
+if len(sys.argv)>1:
+    from actio.common import canonical,digest,ContractError
+    from actio.verify import parse
+else:
+    from actio.contracts.json import canonical,digest,ContractError,parse
 if len(sys.argv)>1:
     from actio.eval_contract import seal,unseal
 else:
@@ -29,7 +32,10 @@ if len(sys.argv)>1:
 else:
     from actio.evidence.diagnostics.failure_fixtures import portable_vectors,mutate
     from actio.evidence.diagnostics.failure_observation import observe
-from actio.budget import totals
+if len(sys.argv)>1:
+    from actio.budget import totals
+else:
+    from actio.profiles.registry import totals
 
 rows=[]
 for value in [None,False,True,0,-9007199254740991,9007199254740991,[],{},'中文',{'\U00010000':1,'\ue000':2},['x',{'b':1,'a':2}]]:

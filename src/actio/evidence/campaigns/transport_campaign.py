@@ -1,5 +1,4 @@
 """Immutable transport campaign using existing bundle snapshots and sealed artifacts."""
-import argparse
 import json
 from pathlib import Path
 
@@ -94,11 +93,3 @@ def verify_campaign(directory):
         return {'valid':True,'report':result,'model_requests':0,'evaluator_calls':0}
     except (OSError,ContractError,ValueError,KeyError,TypeError,IndexError,StopIteration) as e:
         return {'valid':False,'error':str(e)[:512],'model_requests':0,'evaluator_calls':0}
-
-
-def main():
-    p=argparse.ArgumentParser();p.add_argument('directory',type=Path);a=p.parse_args()
-    result=verify_campaign(a.directory);print(json.dumps(result));return 0 if result['valid'] else 2
-
-
-if __name__=='__main__':raise SystemExit(main())

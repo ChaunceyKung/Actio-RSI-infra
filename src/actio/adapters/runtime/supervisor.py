@@ -155,7 +155,7 @@ def owned_root(parent, owner):
 
 class Supervisor:
     """Owned child waits on stdin until Job assignment succeeds. No daemon threads."""
-    def __init__(self, root, job_name, *, module='actio.host', limits=None):
+    def __init__(self, root, job_name, *, module='actio.interfaces.workers.host', limits=None):
         self.root, self.job_name, self.module = Path(root), job_name, module
         self.limits = {'item': 65536, 'total': 8*1024*1024, 'count': 4096, 'disk': 128*1024*1024,
                        'memory': 768*1024*1024, **(limits or {})}

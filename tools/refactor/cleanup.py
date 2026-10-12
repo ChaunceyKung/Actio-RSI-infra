@@ -96,7 +96,7 @@ def main():
         row['recorded_states'] = sorted(set(row['recorded_states']))
     ok = not errors and all(v['active'] == 0 for v in jobs.values()) and all(
         v['joined'] and not v['listening'] for v in services.values())
-    result = {'status': 'PASS' if ok else 'INCOMPLETE', 'scope': 'recorded development roots only; formal09/10 have separate cleanup receipts',
+    result = {'status': 'PASS' if ok else 'INCOMPLETE', 'scope': 'recorded development roots only; formal matrices have separate cleanup receipts',
               'database_count': len(databases), 'jobs': list(jobs.values()), 'services': list(services.values()),
               'errors': errors, 'processes_terminated_by_audit': 0, 'network_sends_by_audit': 0}
     args.output.write_text(json.dumps(result, indent=2), encoding='utf8')

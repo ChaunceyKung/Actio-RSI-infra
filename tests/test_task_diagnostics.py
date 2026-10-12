@@ -6,9 +6,9 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from actio.common import canonical
-from actio.common import digest
-from actio.common import ContractError
+from actio.contracts.json import canonical
+from actio.contracts.json import digest
+from actio.contracts.json import ContractError
 from actio.evidence.bundles.eval_contract import seal
 from actio.tasks.finite import get
 from actio.tasks.finite import card
@@ -28,7 +28,8 @@ from actio.tasks.controls import cell
 from actio.measurement.diagnostic import synthetic_analysis
 from actio.measurement.diagnostic import metric_cells
 from actio.measurement.diagnostic import legacy_control
-from actio import task_diagnostics as cli
+from actio.evidence.diagnostics import task_diagnostics as cli
+from actio.application.task_diagnostics import analyze
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD = ROOT / 'docs/validation/phase1c2c2'
@@ -137,11 +138,11 @@ class TaskDiagnostics(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             base = Path(temp); first = base / 'first'; moved = base / 'moved'
             before = {n: (OLD / n).read_bytes() for n in cli.trust()['historical_files']}
-            cli.analyze(OLD, first, receipt=DOC / 'historical-source.json')
+            analyze(OLD, first, receipt=DOC / 'historical-source.json')
             self.assertTrue(cli.verify(first)['valid'])
             self.assertFalse(cli.verify(first)['raw_authentication_repeated'])
             with self.assertRaises(ContractError):
-                cli.analyze(OLD, first)
+                analyze(OLD, first)
             shutil.copytree(first, moved); shutil.rmtree(first)
             with patch('actio.evidence.diagnostics.task_diagnostics.load_history', side_effect=AssertionError('original source unavailable')):
                 self.assertTrue(cli.verify(moved)['valid'])
@@ -150,12 +151,12 @@ class TaskDiagnostics(unittest.TestCase):
                 self.assertNotIn('D:\\\\', text)
                 self.assertNotIn('reasoning_content', text)
             self.assertEqual(before, {n: (OLD / n).read_bytes() for n in before})
-            public = base / 'public'; cli.analyze(OLD, public)
+            public = base / 'public'; analyze(OLD, public)
             self.assertEqual(cli.verify(public)['gates']['historical_source_assurance'], 'PARTIAL_PUBLIC_PROJECTION_ONLY')
 
     def test_resealed_bad_packages_fail(self):
         with tempfile.TemporaryDirectory() as temp:
-            base = Path(temp); original = base / 'original'; cli.analyze(OLD, original)
+            base = Path(temp); original = base / 'original'; analyze(OLD, original)
             mutations = {
                 'unknown_schema': ('dataset.json', lambda v: v.update(schema='unrecognized')),
                 'missing_world': ('dataset.json', lambda v: v['cards'].__delitem__(slice(0, 2))),

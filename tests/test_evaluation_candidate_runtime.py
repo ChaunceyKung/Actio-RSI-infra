@@ -4,12 +4,12 @@ import unittest
 import uuid
 from unittest.mock import patch
 from actio.profiles import evaluation_campaign as c
-from actio.common import write_json
-from actio.interfaces.pilot import execute
-from actio.interfaces.pilot import run_unit
-from actio.interfaces.candidate_evaluation import prepare_store
-from actio.interfaces.candidate_evaluation import finalize
-from actio.interfaces.candidate_evaluation import verify
+from actio.adapters.filesystem.common import write_json
+from actio.interfaces.cli.pilot import execute
+from actio.interfaces.cli.pilot import run_unit
+from actio.interfaces.cli.candidate_evaluation import prepare_store
+from actio.interfaces.cli.candidate_evaluation import finalize
+from actio.interfaces.cli.candidate_evaluation import verify
 from actio.tasks.finite import get
 from actio.measurement.oracle import fixture_policy
 from actio.evidence.bundles.eval_contract import seal

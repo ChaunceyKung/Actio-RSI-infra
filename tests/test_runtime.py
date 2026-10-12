@@ -5,11 +5,11 @@ import sys
 import unittest
 import uuid
 
-from actio.common import ContractError
-from actio.common import Lines
-from actio.common import clean_env
-from actio.common import file_hash
-from actio.common import write_json
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import Lines
+from actio.adapters.filesystem.common import clean_env
+from actio.adapters.filesystem.common import file_hash
+from actio.adapters.filesystem.common import write_json
 from actio.adapters.runtime.facts import Facts
 from actio.application.memory import Memory
 from actio.application.memory import namespace
@@ -29,7 +29,7 @@ class RuntimeTests(unittest.TestCase):
         self.evidence={'root':str(self.root),'commands':[]}
 
     def cli(self,*args,code=0):
-        command=[sys.executable,'-m','actio','--db',str(self.db),'--short-root',str(self.root),*args]
+        command=[sys.executable,'-m','actio','run','--db',str(self.db),'--short-root',str(self.root),*args]
         result=subprocess.run(command,env=clean_env(self.root),capture_output=True,text=True,encoding='utf-8',timeout=90)
         self.evidence['commands'].append({'args':list(args),'exit_code':result.returncode,'stdout':result.stdout,'stderr':result.stderr})
         self.assertEqual(result.returncode,code,result.stderr)

@@ -10,8 +10,8 @@ import json
 import threading
 import time
 
-from actio.common import canonical
-from actio.common import write_json
+from actio.contracts.json import canonical
+from actio.adapters.filesystem.common import write_json
 
 
 

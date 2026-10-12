@@ -7,10 +7,10 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from actio.common import digest
-from actio.common import ContractError
-from actio.common import clean_env
-from actio.common import file_hash
+from actio.contracts.json import digest
+from actio.contracts.json import ContractError
+from actio.adapters.filesystem.common import clean_env
+from actio.adapters.filesystem.common import file_hash
 from actio.evidence.bundles.eval_contract import seal
 from actio.profiles import candidate_campaign as campaign
 from actio.domain.candidate import baseline
@@ -19,8 +19,8 @@ from actio.domain.candidate import rejected_fixtures
 from actio.domain.candidate import validate_proposal
 from actio.domain.candidate import decide
 from actio.domain.candidate import POLICY_HASH
-from actio.interfaces.candidate import binding_plan
-from actio.interfaces.candidate import verify
+from actio.interfaces.cli.candidate import binding_plan
+from actio.interfaces.cli.candidate import verify
 from actio.application.candidate_store import verify as verify_lineage
 from actio.evidence.campaigns.candidate_measurement import classify
 from actio.evidence.audit.channel_audit import audit
@@ -158,7 +158,7 @@ class CandidatePure(unittest.TestCase):
             self.evidence={'injected_rollback_points':failures,'reopen_equal':True,'corruption_rejected':True,'cycle_rejected':True,'migration':{k:v for k,v in migration.items() if k not in ('source','destination')},'lineage':verify_lineage(saved)}
 
     def test_portable_guarded_cli(self):
-        code=GUARD+"\nfrom actio.profiles.candidate_campaign import plan\nfrom actio.interfaces.candidate import verify\nfrom actio.domain.candidate import baseline\nprint(json.dumps({'units':len(plan()['preregistration']['body']['units']),'invalid':verify({'body':{},'sha256':'bad'})['valid']}))"
+        code=GUARD+"\nfrom actio.profiles.candidate_campaign import plan\nfrom actio.interfaces.cli.candidate import verify\nfrom actio.domain.candidate import baseline\nprint(json.dumps({'units':len(plan()['preregistration']['body']['units']),'invalid':verify({'body':{},'sha256':'bad'})['valid']}))"
         p=subprocess.run([sys.executable,'-I','-B','-c',code],capture_output=True,text=True,timeout=45,env=clean_env(ROOT/'.local'))
         self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(json.loads(p.stdout),{'units':24,'invalid':False})
         self.evidence={'guard':'network/env/key/subprocess/runtime/writes denied','result':json.loads(p.stdout)}

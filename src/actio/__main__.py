@@ -1,2 +1,3 @@
-from actio.interfaces.cli import main
+from actio.interfaces.cli.main import main
+
 raise SystemExit(main())

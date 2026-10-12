@@ -14,7 +14,7 @@
 | [measurement](measurement/) | 独立oracle与诊断指标 | [oracle](measurement/oracle.py) |
 | [interfaces](interfaces/) | CLI/IPC解析、用例接线、Store与ports装配 | [cli](interfaces/cli/main.py)、[wiring](interfaces/wiring.py) |
 
-输入沿“冻结 → 执行 → 行动认证/环境效果 → 持久化 → 核验/测量 → 追加决策”流动。模块之间的调用图与import依赖图不同；完整流程见[三条关键流程](../../docs/architecture/FLOWS.md)，I/O与状态边界见[模块卡片](../../docs/architecture/MODULES.md)。
+输入沿“冻结 → 执行 → 行动认证/环境效果 → 持久化 → 核验/测量 → 追加决策”流动。模块之间的调用图与import依赖图不同；完整流程见[三条关键流程](../../docs/architecture/FLOWS.md)，I/O与状态边界见[模块卡片](../../docs/architecture/MODULES.md)。每个核心目录的 README 还说明设计思想、典型调用、扩展边界与对应测试：阅读 [contracts](contracts/README.md) 了解数据合同，再看 [domain](domain/README.md) 和 [tasks](tasks/README.md)；需要接入运行能力时看 [adapters](adapters/README.md)，需要核验材料时看 [evidence](evidence/README.md)。
 
 支持目录：`resources/{pricing,trust,pins}` 保存固定 JSON，`_vendor` 保存窄复用与许可。SQL/MJS 仍归 adapters。内部入口为 `interfaces.ipc.budget` 与 `interfaces.workers.{host,mcp_server,eval_worker}`；`interfaces.cli.main` 按显式 argv 延迟路由，wiring/store/export/campaign 保留必要装配。
 

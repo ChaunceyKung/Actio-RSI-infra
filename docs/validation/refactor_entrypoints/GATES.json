@@ -72,8 +72,11 @@
     "migration": "MIGRATION_0_2.md"
   },
   "G8": {
-    "status": "PENDING",
-    "reason": "commit and push verification still required"
+    "status": "PASS",
+    "commit": "18406ee28d780bf85b1abb02ebadf3dfac13aab0",
+    "task_branch_remote": "18406ee28d780bf85b1abb02ebadf3dfac13aab0",
+    "main_remote": "18406ee28d780bf85b1abb02ebadf3dfac13aab0",
+    "verified_by": "git ls-remote origin refs/heads/refactor-public-entrypoints refs/heads/main"
   },
   "development_receives": 295,
   "total_observed_receives": 307,

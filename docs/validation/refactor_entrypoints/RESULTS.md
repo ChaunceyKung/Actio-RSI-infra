@@ -1,6 +1,6 @@
 # R15–R18 验收结果
 
-本轮最终 wheel `a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465` 已完成产品验证；G1–G7 PASS，G8 等待 Git 提交、任务分支和 main 的远端 SHA 核对。
+本轮最终 wheel `a6b326be5726ccb0987a3c7b23803c800bc343c897c0246a1ce9aec83733b465` 已完成产品验证；G1–G8 PASS；提交已推送任务分支和 main，两个远端 SHA 均为 `18406ee28d780bf85b1abb02ebadf3dfac13aab0`。
 
 - 根层从实际基线 25 个跟踪文件收拢为 `__init__.py`、`__main__.py`、`README.md`；旧 19 个根 API 与 `evidence.failure_observation` 明确删除。
 - 架构 checker v3 递归扫描 159 模块/634 边，模块 SCC=0、evidence 分组环=0、违规=0；两个原漏检和根白名单反例均被拒绝。

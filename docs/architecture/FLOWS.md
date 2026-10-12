@@ -62,7 +62,7 @@ flowchart LR
 
 结构完整、行为错误、指标适用性和研究有效性分别判定。配对缺失仍留在完整计划分母中，重新组织代码不会产生新的研究证据。
 
-代码入口：[export](../../src/actio/application/export.py)、[verify](../../src/actio/evidence/verify.py)、[evaluation measurement](../../src/actio/evidence/evaluation_measurement.py)、[evaluation store](../../src/actio/application/evaluation_store.py)。
+代码入口：[export](../../src/actio/application/export.py)、[verify](../../src/actio/evidence/bundles/verify.py)、[evaluation measurement](../../src/actio/evidence/campaigns/evaluation_measurement.py)、[evaluation store](../../src/actio/application/evaluation_store.py)。
 
 ## 3. C5 本机故障诊断
 
@@ -72,7 +72,7 @@ flowchart LR
 
 本机 priced rehearsal 可使用显式 fixed Clock；live/system 必须用真实 UTC，过期报价仍拒绝。Clock 进入配置、Ledger、snapshot 和 TS→Python IPC，同一账务权威不变。不能为了让测试通过而更新旧报价或全局冻结时间。
 
-代码入口：[诊断 CLI](../../src/actio/interfaces/transport_diagnostics.py)、[runtime 编排](../../src/actio/application/diagnostic_runtime.py)、[失败观察](../../src/actio/evidence/failure_observation.py)。
+代码入口：[诊断 CLI](../../src/actio/interfaces/transport_diagnostics.py)、[runtime 编排](../../src/actio/application/diagnostic_runtime.py)、[失败观察](../../src/actio/evidence/diagnostics/failure_observation.py)。
 
 ## 使用与结果边界
 

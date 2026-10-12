@@ -1,6 +1,6 @@
 # 模块卡片
 
-与[系统一页图](README.md)、[关键流程](FLOWS.md)共同描述 `041ade0` 的实际实现。下表处理链用于定位代码，不表示新增接口或服务。细节优先维护在代码与测试中。
+与[系统一页图](README.md)、[关键流程](FLOWS.md)共同描述 `9e4db32` 的实际实现。下表处理链用于定位代码，不表示新增接口或服务。R11–R14完整验收仍INCOMPLETE；后续[根入口迁移](../reviews/root_entrypoints_r15_r18_review.md)尚未实施。细节优先维护在代码与测试中。
 
 ## 规则与定义
 
@@ -17,7 +17,7 @@
 | 模块 | 输入 → 内部处理 → 输出 | 当前入口 | 关键边界 |
 |---|---|---|---|
 | application | 命令、冻结输入、注入 ports/Store → claim、执行、认证、效果与导出编排 → run、证据包、追加 decision | [store.py](../../src/actio/application/store.py)、[transport.py](../../src/actio/application/transport.py)、[export.py](../../src/actio/application/export.py) | 运行依赖经 ports 注入；StoreOperations/memory 等仍含 SQL，保持原事务边界 |
-| evidence | 封存材料、固定信任表 → 结构/输入/协议/账务认证、报告与谱系检查 → 核验结果、计数、缺失、决策依据 | [verify.py](../../src/actio/evidence/verify.py)、[evaluation_measurement.py](../../src/actio/evidence/evaluation_measurement.py)、[failure_observation.py](../../src/actio/evidence/failure_observation.py) | 只读 reader 不启动 runtime、不写领域数据库；文件 I/O 不等于纯函数 |
+| evidence | 封存材料、固定信任表 → 结构/输入/协议/账务认证、报告与谱系检查 → 核验结果、计数、缺失、决策依据 | [verify.py](../../src/actio/evidence/bundles/verify.py)、[evaluation_measurement.py](../../src/actio/evidence/campaigns/evaluation_measurement.py)、[failure_observation.py](../../src/actio/evidence/diagnostics/failure_observation.py) | 只读 reader 不启动 runtime、不写领域数据库；文件 I/O 不等于纯函数 |
 | interfaces | CLI/IPC 参数 → 可信选择、参数检查、装配与调用 → stdout、退出码或用例结果 | [cli.py](../../src/actio/interfaces/cli.py)、[wiring.py](../../src/actio/interfaces/wiring.py)、[store.py](../../src/actio/interfaces/store.py)、[budget.py](../../src/actio/interfaces/budget.py) | composition 是实现接线位置；根兼容入口委托到这里或登记 owner |
 
 ## 外部能力适配

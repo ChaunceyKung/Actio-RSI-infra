@@ -2,7 +2,7 @@
 
 Actio-RSI 是研究 Agent 持久身份、社会交互和受控改进的**模块化单体**。它把执行输入、模型行动、环境效果、事实与记忆、独立测量和版本决策连接起来。运行形态是 Windows 上的 Python 控制面、受管 DSH Worker、Concordia、SQLite 与文件证据。
 
-本文描述已实现的结构，代码基线为 [`041ade0`](https://github.com/ChaunceyKung/Actio-RSI-infra/commit/041ade0b83456e329e85e70b4004ddb9f05f1b1c)。R7–R10 工程验收已通过；实验停在 C5，未开始 C6。下一轮目录方案见[审阅与计划](../reviews/modularity_r11_r14_review.md)，不能把拟议目录当成已经落地。
+本文描述已实现的结构，代码基线为 [`9e4db32`](https://github.com/ChaunceyKung/Actio-RSI-infra/commit/9e4db3211592d1656cbac6cae09862c6ffe2ce5a)。R7–R10 工程验收已通过，R11–R14 的 evidence 分组已落地但完整验收仍 INCOMPLETE；实验停在 C5。下一轮[根入口迁移计划](../reviews/root_entrypoints_r15_r18_review.md)尚未实施。
 
 ## 输入与输出
 
@@ -61,7 +61,7 @@ src/actio/
 └── *.py           19 个登记兼容薄层，另有 __init__/__main__
 ```
 
-根层保留 `actio.budget`、`actio.host` 等，是因为 CLI、子进程和 IPC 仍使用这些地址。新内部代码应导入实际 owner，不能依靠兼容层绕过边界。入口清单见[兼容合同](../validation/refactor_modularity/compatibility.json)。
+根层目前保留 `actio.budget`、`actio.host` 等，是因为 CLI、子进程和 IPC 仍使用这些地址；本次增加的 [README](../../src/actio/README.md)用于源码导航。用户已允许下一轮统一新入口并删除旧兼容模块，届时需同步全部当前调用链，旧版本按固定提交使用。当前入口清单见[兼容清单](../validation/refactor_directory/compatibility.json)，拟议替代方案见[迁移计划](../reviews/root_entrypoints_r15_r18_review.md)。
 
 ## 状态由谁拥有
 
@@ -80,6 +80,7 @@ Store 和 Ledger 各有事务，不宣称跨库原子提交。`interfaces.store.
 - [模块卡片](MODULES.md)：每个模块的输入、内部处理、输出、代码入口与约束。
 - [三条关键流程](FLOWS.md)：episode、离线评估、C5 失败诊断。
 - [R7–R10 迁移记录](REFACTOR_PLAN.md)与[验收结果](../validation/refactor_modularity/RESULTS.md)：测试、wheel、清理、失败和复核证据。
-- [R11–R14 目录整理计划](../reviews/modularity_r11_r14_review.md)与[下一 session Prompt](../prompts/refactor_directory_r11_r14.md)：后续工程范围。
+- [R11–R14 当前结果](../validation/refactor_directory/RESULTS.md)：已完成目录分组与未完成验收。
+- [R15–R18 根入口计划](../reviews/root_entrypoints_r15_r18_review.md)与[下一 session Prompt](../prompts/refactor_public_entrypoints_r15_r18.md)：统一新入口、资源归位与完整验收。
 
 模块图无环只证明已扫描 import 的结构，当前检查器没有覆盖所有语义耦合。完整 controller 恢复、二进制源码映射及研究效度仍未建立，候选保持不可激活。历史 manifest 按对应固定提交核对；本文作为导航可更新，不能据此刷新旧证据 hash。

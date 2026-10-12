@@ -2,18 +2,39 @@
 
 **面向持久身份、社会交互与受控演化 Agent 的实验基础设施。**
 
-Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记录、独立评估和候选版本谱系连接起来。项目希望让研究者能够回答：Agent 在什么条件下做出了什么行动？修改了哪个组件？变化是否有完整证据，是否足以允许进入下一阶段？
+Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记录、独立评估和候选谱系连接起来。系统采用 **九个核心模块组成的模块化单体**：Python 控制面调用受管 DSH Worker 与 Concordia，SQLite 和文件证据保存可核验的执行过程。
 
-当前已经实现 Windows 单机上的 Python 控制面、官方 DSH 运行时接入、Concordia 双人任务、持久化账本与离线核验，并完成一个人工候选的真实配对试验。长期目标中的完整心智模型、开放式自主演化、训练和生产版本激活仍待建设。
+## 模块化设计：九个核心模块
 
-**当前交付：Phase 1C2C5。** 已实现多层失败观察、固定官方 DSH/Concordia 本机故障验收、可移址合成包和未来分块只读计划。9场景共12次loopback发送；首次诊断FAIL保留，修正后离线重算PASS，无重发。新增真实调用0，累计172。C4仍为16/64完整episodes、33 sent、unknown1、not_run95，C1仍 `infrastructure_failure`；研究有效性UNESTABLISHED、activation=false，停止于C5。
+模块按职责分目录；表中的输入输出说明合作关系，不表示九个独立服务。
 
-[当前结果](docs/validation/phase1c2c5/RESULTS.md) · [当前 Gate](docs/validation/phase1c2c5/GATES.md) · [当前 CLI](docs/validation/phase1c2c5/CLI.md) · [完整里程碑](MILESTONES.md) · [原始架构规划](docs/planning/README.md)
+| 模块／源码目录 | 负责什么 | 主要输入 → 输出 |
+|---|---|---|
+| [contracts](src/actio/contracts/) · 合同 | 数据格式、受限编码、wire、最小运行端口 | 原始数据 → 规范化数据、seal 或合同错误 |
+| [domain](src/actio/domain/) · 领域规则 | 身份边界、状态规则、namespace、账务与 Clock | 状态与约束 → 合法状态、聚合与决策值 |
+| [tasks](src/actio/tasks/) · 任务定义 | 任务 family、actor 可见性、行动空间与版本选择 | 任务卡与 actor → 可见观察、合法行动与任务结果 |
+| [profiles](src/actio/profiles/) · 运行配置 | 模式、期限、准入、用量及版本规则 | 配置与模式 → 经校验的运行合同 |
+| [application](src/actio/application/) · 用例编排 | run/lease、memory、episode、campaign、导出与决策写入 | 命令与冻结输入 → 持久状态、执行结果与证据包 |
+| [adapters](src/actio/adapters/) · 外部能力 | 数据库、DSH/Worker、Concordia、传输与文件接入 | 受控操作 → 外部效果、原生回执及资源 |
+| [evidence](src/actio/evidence/) · 证据核验 | 认证输入/协议/账务，核验封包、谱系和失败 | 封存材料 → 可信度、完整分母、缺失与诊断报告 |
+| [measurement](src/actio/measurement/) · 独立测量 | 独立 oracle、指标与诊断计算 | 卡片和行动 → 指标值、适用性及原因 |
+| [interfaces](src/actio/interfaces/) · 入口装配 | 参数解析、可信选择、CLI/IPC 与 ports 装配 | 外部命令／协议 → 用例调用、stdout 与退出码 |
 
-**当前工程交付：模块化重构完成，实验迭代继续暂停。** 架构 SCC=0、未迁移根实现=0、违规=0；同一最终 wheel 完成34 suite、164个测试方法（原163+Clock边界1），readiness6/6；一次启动超时按原条件隔离复核通过，原失败保留。新正式本机矩阵12 sends、5 settled、7 unknown、6 not_run。见[本轮验收](docs/validation/refactor_modularity/RESULTS.md)与[模块设计](docs/architecture/README.md)。历史 C5 结果不变，不进入C6。
+`adapters` 分为 **persistence / runtime / environment / transport / filesystem** 五组；`evidence` 分为 **audit / bundles / campaigns / lineage / diagnostics** 五组。固定 JSON、pins 和 `_vendor` 是支持资源，不是额外业务模块。
+
+主要数据流：**身份／任务／配置冻结 → 执行资格与受管运行 → 行动认证和环境效果 → 状态与事实持久化 → 只读核验和独立测量 → 追加评估决策**。Store、Ledger、DSH 原生 session 各有权威边界；文件报告是投影，不是第二数据库。
+
+[源码目录导航](src/actio/README.md) · [系统一页图](docs/architecture/README.md) · [模块输入输出与入口](docs/architecture/MODULES.md) · [关键流程](docs/architecture/FLOWS.md)
+
+**当前工程状态：R11–R14 部分实施，整体 INCOMPLETE。** evidence 已分组，现有扫描为169模块／595边、SCC=0；完整34-suite、新正式C5与全量历史保全尚未全部完成，minimal运行装配失败保留。此前R7–R10的完整wheel验收属于历史基线，不能替代新源码验收。见[当前结果](docs/validation/refactor_directory/RESULTS.md)和[旧完整验收](docs/validation/refactor_modularity/RESULTS.md)。
+
+**下一轮目标：收拢根入口并完成整体验收。** 当前包根仍有19个旧兼容模块；用户已选择统一新入口，旧命令由固定历史版本支持。拟删除这些根文件、收拢资源并给出明确迁移表；这是[尚未实施的R15–R18计划](docs/reviews/root_entrypoints_r15_r18_review.md)，[执行Prompt](docs/prompts/refactor_public_entrypoints_r15_r18.md)可交给下一session。
+
+**实验停在 Phase 1C2C5，未进入 C6。** 累计真实生成尝试172、历史目录GET1；C4仍INCOMPLETE、C1仍 `infrastructure_failure`，研究有效性UNESTABLISHED、activation=false。完整心智模型、自主演化、训练及生产激活仍待建设。见[C5结果](docs/validation/phase1c2c5/RESULTS.md)、[固定CLI](docs/validation/phase1c2c5/CLI.md)与[里程碑](MILESTONES.md)。
 
 ## 阅读导航
 
+- [模块化设计与九个核心模块](#模块化设计九个核心模块)
 - [项目背景与目标](#项目背景与目标)
 - [架构与组织逻辑](#架构与组织逻辑)
 - [系统一页图](docs/architecture/README.md) · [模块卡片](docs/architecture/MODULES.md) · [关键流程](docs/architecture/FLOWS.md)
@@ -314,7 +335,7 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 | 阅读目标 | 推荐入口 |
 |---|---|
 | 快速理解当前系统 | [系统一页图](docs/architecture/README.md) → [模块卡片](docs/architecture/MODULES.md) → [关键流程](docs/architecture/FLOWS.md)（已实现架构） |
-| 查看工程重构和下一轮范围 | [R7–R10 迁移与验收](docs/architecture/REFACTOR_PLAN.md) → [目录整理审阅](docs/reviews/modularity_r11_r14_review.md) → [R11–R14 Prompt](docs/prompts/refactor_directory_r11_r14.md)（尚未执行的后续计划） |
+| 查看工程重构和下一轮范围 | [R11–R14 未完成验收](docs/validation/refactor_directory/RESULTS.md) → [根入口审阅与计划](docs/reviews/root_entrypoints_r15_r18_review.md) → [R15–R18 Prompt](docs/prompts/refactor_public_entrypoints_r15_r18.md) |
 | 理解整体方向与取舍 | [规划总览](docs/planning/README.md) → [目标架构](docs/planning/03_target_architecture.md) → [ADR](docs/planning/13_architecture_decisions.md) |
 | 了解当前执行合同 | [C2C5 CONTRACT](docs/validation/phase1c2c5/CONTRACT.md) → [GATES](docs/validation/phase1c2c5/GATES.md) → [CLI](docs/validation/phase1c2c5/CLI.md) |
 | 审阅当前状态与实际结果 | [C5 RESULTS](docs/validation/phase1c2c5/RESULTS.md)；此前真实 campaign 见 [C4 RESULTS](docs/validation/phase1c2c4/RESULTS.md)、[指标覆盖](docs/validation/phase1c2c4/MEASUREMENTS.md)、[三类比较](docs/validation/phase1c2c4/COMPARISONS.md) |
@@ -326,13 +347,13 @@ Worker 原始运行和受控交付还可能位于仓库外的 `D:\actio-*` 短�
 
 ## 后续 TODO
 
-以下是基于当前交付整理的待办方向，**不是已冻结的新实验执行计划**。R7–R10 [模块化重构与回归验收](docs/architecture/REFACTOR_PLAN.md)已经完成；实验继续暂停。下一轮限定为[目录组织、递归边界检查与设计可读性收尾](docs/reviews/modularity_r11_r14_review.md)，本次审阅只更新文档与计划。
+以下是基于当前交付整理的待办方向，**不是已冻结的新实验执行计划**。R7–R10已完成，R11–R14部分实施且验收未闭合。下一轮按用户选择执行[新入口迁移、根目录收拢与完整验收](docs/reviews/root_entrypoints_r15_r18_review.md)，本次审阅只更新文档与计划。
 
 C5 的[未来实验草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)保留为历史提案，本次重构不执行。后续若恢复实验，需要新的合同/evaluation/claim，不接续 C4 缺失后缀、不合并新旧数据；C5 本机诊断不证明 provider 恢复或上游责任，也不证明免账单。
 
 | 优先级 | 待办 | 需要交付的证据或完成条件 |
 |---|---|---|
-| **当前 P0 · 目录与可读性收尾** | 先升级递归边界检查，再分组 evidence、整理测试与工具导航，保持三页设计 | 公共入口/IPC 兼容、原测试与行为差分、历史保全、同一新 wheel 的本机验收；真实调用 0 |
+| **当前 P0 · 根入口与整体验收** | 统一新CLI/API、删除19个根shim、收拢JSON/pins、修复checker漏检、完善模块导航 | 根层仅init/main/README；明确API迁移；当前165原方法及新测试、差分、历史保全、同一新wheel正式C5；真实调用0 |
 | P0 · 测量有效性 | 设计真正独立的数据、分组、开发/留出隔离及必要的重复；完善人工校准方案 | 独立单位定义、预注册分析、标签来源和一致性证据；需要时另行准入 judge |
 | P0 · 成本与来源 | 核实 TokenKey cost 币种/单位、可信价格、实际账单和路由来源 | 可核对的记录；无法验证的上游身份继续明确标记，不从 model 名称推断 |
 | P1 · 恢复与状态 | 推进 controller 中断后的跨 owner 一致性、world/memory/ledger 检查点 | 故障注入与状态不重复执行证据；仅本地 reconcile 不等同完整恢复 |
@@ -365,4 +386,4 @@ C5 的[未来实验草案](docs/validation/phase1c2c5/NEXT_EXPERIMENT.md)保留�
 
 历史 manifest 的 README 等入口文件 hash 绑定对应阶段的固定提交；阅读升级后的入口时，不应把这些旧 hash 刷新成当前文档的 hash。
 
-本版 README 的实验状态对齐 [C2C5 合同与证据](docs/validation/phase1c2c5/evidence_manifest.json)，工程结构对齐 [R7–R10 验收](docs/validation/refactor_modularity/RESULTS.md)。C2/C3/C4 原结果与固定 reader 独立保留；当前导航和后续目录计划不刷新历史 pins 或 manifest。
+本版 README 的实验状态对齐 [C2C5 合同与证据](docs/validation/phase1c2c5/evidence_manifest.json)，工程结构与未完成项对齐 [R11–R14 结果](docs/validation/refactor_directory/RESULTS.md)。C2/C3/C4 原结果与固定 reader 独立保留；当前导航和后续计划不刷新历史 pins 或 manifest。

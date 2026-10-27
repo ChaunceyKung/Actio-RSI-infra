@@ -114,7 +114,7 @@ def migrate_copy(source, destination):
             target.execute('PRAGMA foreign_keys=ON')
             target.execute('BEGIN IMMEDIATE')
             for sql in Path(__file__).with_name('schema.sql').read_text().split(';'):
-                if any(name in sql for name in ('request_identity', 'scenario_terminal', 'CREATE TABLE IF NOT EXISTS migration')):
+                if any(name in sql for name in ('request_identity', 'scenario_terminal', 'CREATE TABLE IF NOT EXISTS migration', 'memory_outbox')):
                     target.execute(sql)
             target.execute('INSERT INTO migration VALUES(1,0,?,?,?)',
                            (VERSION, h, target.execute("SELECT value FROM meta WHERE key='store'").fetchone()[0]))

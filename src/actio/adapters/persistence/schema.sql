@@ -33,4 +33,14 @@ CREATE TABLE IF NOT EXISTS domain_receipt(op TEXT PRIMARY KEY REFERENCES operati
 CREATE TABLE IF NOT EXISTS request_identity(run TEXT PRIMARY KEY REFERENCES run(id),request_hash TEXT NOT NULL,request TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS scenario_terminal(run TEXT PRIMARY KEY REFERENCES run(id),version INTEGER NOT NULL,body TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS migration(id INTEGER PRIMARY KEY,source_version INTEGER,target_version INTEGER,backup_hash TEXT,source_store TEXT);
+-- Optional Starling projection saga. This table is Actio-owned and it never
+-- participates in a cross-database transaction with Starling.
+CREATE TABLE IF NOT EXISTS memory_outbox(
+ id TEXT PRIMARY KEY, source_key TEXT UNIQUE NOT NULL, run TEXT NOT NULL REFERENCES run(id),
+ namespace TEXT NOT NULL, source_hash TEXT NOT NULL, payload TEXT NOT NULL, payload_hash TEXT NOT NULL,
+ state TEXT NOT NULL CHECK(state IN ('queued','in_flight','committed','duplicate','abstained','degraded','rejected','needs_reconcile')),
+ attempts INTEGER NOT NULL DEFAULT 0, lease_until INTEGER, receipt TEXT, error TEXT,
+ created INTEGER NOT NULL, updated INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS memory_outbox_state ON memory_outbox(state, updated);
 PRAGMA user_version=2;

@@ -11,6 +11,7 @@ Usage: actio COMMAND [arguments]
   preflight readiness gateway pilot suite robustness
   diagnostics task       task diagnostics
   diagnostics transport  transport diagnostics / run-local
+  memory starling        optional Starling memory doctor/project/reconcile/query/tick
   campaign verify        verify a campaign directory
 Use actio COMMAND --help for argparse-based commands.
 Diagnostics: plan | verify PATH | analyze PATH | export NEW_DIRECTORY
@@ -56,6 +57,24 @@ def main(argv=None):
             print('unknown diagnostic family',file=sys.stderr);return 2
         if args in (['--help'],['-h']):
             print(HELP);return 0
+    elif command == 'memory' and args and args.pop(0) == 'starling':
+        # Keep the maintenance path dependency-free. Detailed operations can
+        # be composed through application.memory_projection by callers.
+        if not args or args in (['--help'], ['-h']):
+            print('Usage: actio memory starling doctor|project|reconcile|query|tick [options]')
+            return 0
+        subcommand = args.pop(0)
+        if subcommand not in {'doctor', 'project', 'reconcile', 'query', 'tick'}:
+            print('unknown memory command; use actio memory starling --help', file=sys.stderr)
+            return 2
+        if args in (['--help'], ['-h']):
+            print(f'Usage: actio memory starling {subcommand} --deadline-ms N [options]')
+            return 0
+        # A minimal offline command intentionally reports a bounded diagnostic
+        # and never starts a Starling runtime or retries indefinitely.
+        import json
+        print(json.dumps({'command': subcommand, 'status': 'degraded', 'reason': 'optional Starling runtime not configured'}, ensure_ascii=False))
+        return 0
     elif command=='campaign' and args and args.pop(0)=='verify':
         from actio.interfaces.cli.campaign_verify import main as handler
     else:

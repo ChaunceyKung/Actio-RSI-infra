@@ -14,6 +14,8 @@ class Connection:
             self.version = database.inspect(self.db)
             if self.version == 0 and not readonly:
                 raise ContractError('legacy database is read-only; migrate to a new copy')
+            if not readonly:
+                database.ensure_memory_outbox(self.db)
             self.db.execute('PRAGMA foreign_keys=ON')
             if not readonly:
                 self.db.execute('PRAGMA journal_mode=WAL')

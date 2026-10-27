@@ -35,11 +35,33 @@ def inspect(db):
             expected.executescript(Path(__file__).with_name('candidate_schema.sql').read_text())
         if version == 4:
             expected.executescript(Path(__file__).with_name('evaluation_schema.sql').read_text())
-        if structure(db) != structure(expected):
+        actual_structure = structure(db)
+        expected_structure = structure(expected)
+        # v2 databases created before the optional projection may not have
+        # memory_outbox yet. They remain readable; writable connections lazily
+        # install the additive table below.
+        if version in (VERSION, 3, 4) and not any(name == 'memory_outbox' for _, name, _ in actual_structure):
+            expected_structure = [(kind, name, sql) for kind, name, sql in expected_structure if name not in ('memory_outbox', 'memory_outbox_state')]
+        if actual_structure != expected_structure:
             raise ContractError('unknown or incomplete database structure')
     if not db.execute("SELECT value FROM meta WHERE key='store'").fetchone():
         raise ContractError('database store identity missing')
     return version
+
+
+def ensure_memory_outbox(db):
+    """Install the optional outbox on an older writable Actio schema."""
+    if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='memory_outbox'").fetchone():
+        db.executescript("""
+        CREATE TABLE memory_outbox(
+          id TEXT PRIMARY KEY, source_key TEXT UNIQUE NOT NULL, run TEXT NOT NULL REFERENCES run(id),
+          namespace TEXT NOT NULL, source_hash TEXT NOT NULL, payload TEXT NOT NULL, payload_hash TEXT NOT NULL,
+          state TEXT NOT NULL CHECK(state IN ('queued','in_flight','committed','duplicate','abstained','degraded','rejected','needs_reconcile')),
+          attempts INTEGER NOT NULL DEFAULT 0, lease_until INTEGER, receipt TEXT, error TEXT,
+          created INTEGER NOT NULL, updated INTEGER NOT NULL
+        );
+        CREATE INDEX memory_outbox_state ON memory_outbox(state, updated);
+        """)
 
 
 def create(path, *, lineage=False):

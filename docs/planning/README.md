@@ -28,6 +28,8 @@
 4. 专题：[运行与事件](05_runtime_and_event_model.md)、[环境](06_environment_and_simulator_integration.md)、[记忆心智](07_memory_and_social_mind.md)、[演化](08_evolution_architecture.md)、[观测归因](09_observability_and_attribution.md)。
 5. 开工入口：[路线](11_mvp_roadmap.md) → [Backlog](12_implementation_backlog.md) → [ADR](13_architecture_decisions.md) → [风险问题](14_open_questions_and_risks.md)。
 
+6. Starling Memory 专题：[接入总计划](20_starling_memory_integration_plan.md) → [Adapter 接口与功能合同](21_starling_memory_adapter_contract.md)。这两份文档基于 Actio-RSI 当前源码和 Starling 主分支快照，先完成构建/ABI、权威边界与 shadow projection 验证，再考虑把记忆上下文送入 solver。
+
 证据以 15 为准，覆盖以 16 为准，选型以 02 为准，contract 以 10 为准，任务验收以 12 为准。`accepted-for-planning` 仅表示采用此方向编排工作；`provisional` 表示有明确阻断探针；都不是生产认证。
 
 入口顺序修订为 B01a 主路径准入→B02a 草案→B03 与必要 B05/B07/B08 探针→B02b 证据冻结。下一最小 slice 及禁止依赖的能力以 [Phase 1A 结论](../validation/phase1a/06_go_no_go_and_next_slice.md) 为准，本轮不自动进入产品实施。

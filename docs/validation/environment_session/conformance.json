@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "group": "environment",
+  "raw_receipt_sha256": "05f02ed161090650c6b66759203dc307cc1d13add087a6bd78d3402575922b84",
+  "tests": 7,
+  "rows": [
+    {
+      "suite": "environment",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "1f90ac2cab351b3985568da1b4c2e840f702259230ed1282f2a9537af84a72aa"
+    }
+  ],
+  "source_tree_sha256": "9bc58240d003cba4f633be13f10646e8cfa26308775586ae55b565432c2241f4",
+  "scope": "current maintained tests; not a complete G1-G8 acceptance claim",
+  "raw_artifacts": "local only; rerun maintained validation command to reproduce"
+}

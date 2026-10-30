@@ -48,6 +48,9 @@ def analyze(data, source):
             'source_trust_limits':TRUST}
     try:
         run=data['run'];manifest=parse(run['input'])
+        if manifest.get('input_contract') == 'environment-session.v1':
+            from actio.evidence.bundles.environment import analyze as environment_analyze
+            return environment_analyze(data, source)
         if run['task'] in ('infrastructure_failure','unknown'):
             result['task_outcome']=run['task']
         require(source['run']==run['id'] and source['schema'] in (0,2),'source run/schema mismatch')

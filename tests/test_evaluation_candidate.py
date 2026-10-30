@@ -74,7 +74,7 @@ class EvaluationPure(unittest.TestCase):
         self.evidence={'identities_unchanged':True,'balanced_arm_order':True,'old_v8_provider_rejected':True,'empty_counts':r['report']['counts'],'no_capability_pass':True}
 
     def test_copy_history_atomic_claim_decision_reopen_corruption(self):
-        root=Path('D:/actio-c2c2-tests')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
+        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
         self.evidence={'root':str(root)};before=file_hash(SOURCE)
         src=Store(SOURCE,readonly=True)
         try:old=src.candidate_lineage()

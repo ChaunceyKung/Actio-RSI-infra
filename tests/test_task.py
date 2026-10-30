@@ -79,7 +79,7 @@ def altered_bundle(original,target,edit):
 class TaskContract(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.root=Path('D:/actio-p1c1-tests')/uuid.uuid4().hex[:12];cls.root.mkdir(parents=True)
+        cls.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];cls.root.mkdir(parents=True)
         (cls.root/'owner.json').write_text(canonical({'owner':'phase1c1-tests'}),encoding='utf8')
         print('Task runtime root:',cls.root,flush=True)
         cls.s=Store(cls.root/'ledger.sqlite',create=True)

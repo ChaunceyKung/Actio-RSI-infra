@@ -1,0 +1,395 @@
+{
+  "status": "INCOMPLETE",
+  "group": "all-local",
+  "raw_receipt_sha256": "392d0068f508c06a08faa11da4b844e686ff94698f907f6752812296596b4c01",
+  "tests": 138,
+  "rows": [
+    {
+      "suite": "modularity",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "552e61d73b6611964b0fb3914cd360e4bd07a60e635ad1457ae5fe8e9c07a7b6"
+    },
+    {
+      "suite": "preflight",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "befd0c8511d6c1b2944100bde557cdaf530a39f0c60efced9b1eab38581e0989"
+    },
+    {
+      "suite": "transport_config",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "9a05a74b0cfd435b335a957d0a4984107d7ece98c454dd47b9938b545af32bf9"
+    },
+    {
+      "suite": "readiness_config",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "4fd96f23491d3bbee67c463907821809ba2cf157564fb7962c1a0b2b9574a8c2"
+    },
+    {
+      "suite": "suite",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "b41a2df05f2fa929a59a9bc17e412edf60400daf1185b9691687b7cfb561d0da"
+    },
+    {
+      "suite": "pilot",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "7f5fa079f360aae5b656dab3b65c87797219ee39080513663c216fa11e54dbe7"
+    },
+    {
+      "suite": "task_diagnostics",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "13c2f9db3ef83a86fa4ba4d7a117a272780500083c6d37d55fc631c89caa0242"
+    },
+    {
+      "suite": "failure_observation",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "b6591869610a8c5037848d70dd12a476f6d51cabdbe4dc30c65aad97c79806b9"
+    },
+    {
+      "suite": "contract",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "7f06b84a3c8ff44f9a99c61a122974e6521ab2c358e410deba52d8873918a67d"
+    },
+    {
+      "suite": "schema",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "3f06a222e6244c5dba2094800ac23aaeab94c4b1a9e14250e9fb94f22e728016"
+    },
+    {
+      "suite": "candidate",
+      "tests": 5,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_candidate.CandidatePure.test_portable_guarded_cli"
+      ],
+      "log_sha256": "100a14fdb81fac53cf25b590ddffef465312c257bb0445c657d0c1589de8a3b2"
+    },
+    {
+      "suite": "evaluation_candidate",
+      "tests": 3,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_evaluation_candidate.EvaluationPure.test_copy_history_atomic_claim_decision_reopen_corruption"
+      ],
+      "log_sha256": "ed1ec99355222166b4b3914c397555fc4e65eb4b258ef4fbd68d1bb164726996"
+    },
+    {
+      "suite": "robustness",
+      "tests": 5,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_robustness.RobustnessPure.test_04_consistent_copy_historical_dispatch_claims_and_decision"
+      ],
+      "log_sha256": "925e170fc69dd9b05a12e3bc0f610e54999e3a0de842fc11c35351a02f1cd6d3"
+    },
+    {
+      "suite": "input_binding",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "dbbb22485943b67f31a3a2a148e063042b24673cedeba5b41697040d1de769c0"
+    },
+    {
+      "suite": "runtime",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "e25f63cdb23c7df69f34535adc696a4203696006d77153ccf1401c7fb38e0280"
+    },
+    {
+      "suite": "failures",
+      "tests": 6,
+      "failures": 3,
+      "errors": 19,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_failures.Failures.test_data_limits_preserve_prefix_and_job_assignment_failure",
+        "test_failures.Failures.test_slow_consumer_event_limit_and_explicit_stop",
+        "test_failures.Failures.test_stage_deadlines_mcp_hang_and_worker_exit (mode='close')"
+      ],
+      "error_ids": [
+        "test_failures.Failures.test_call_id_dedup_conflict_and_new_creation (label='duplicate')",
+        "test_failures.Failures.test_call_id_dedup_conflict_and_new_creation (label='conflict')",
+        "test_failures.Failures.test_call_id_dedup_conflict_and_new_creation (label='budget')",
+        "test_failures.Failures.test_call_id_dedup_conflict_and_new_creation",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='allow')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='unknown')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='schema')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='scope')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='epoch')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='run')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='session')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='creation')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='expiry')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='budget')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='artifact')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='registry')",
+        "test_failures.Failures.test_final_policy_denies_and_registry_rewrite (name='rewrite')",
+        "test_failures.Failures.test_stage_deadlines_mcp_hang_and_worker_exit (mode='mcp-hold')",
+        "test_failures.Failures.test_stage_deadlines_mcp_hang_and_worker_exit (mode='exit')"
+      ],
+      "log_sha256": "769d204913ae402627631ca94b85ea95f5c616841e4c66b00c8ccb9d669f220f"
+    },
+    {
+      "suite": "processes",
+      "tests": 4,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_processes.Processes.test_mcp_received_before_result_real_sdk_host_kill"
+      ],
+      "error_ids": [],
+      "log_sha256": "5a3cd4f3380af6bb8ed1e9bab4936444ba41c1264e2f25a663d04373190a3864"
+    },
+    {
+      "suite": "reliability",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "bb40184df12fb9fd8bb9b880de67dc2a20953f671dee2c235279a13b3f50182d"
+    },
+    {
+      "suite": "entry_concurrency",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "7d1973a43bf0ee2dd9c0d075fabdf53e16d5757041abe67935117fb305a0ed66"
+    },
+    {
+      "suite": "evidence",
+      "tests": 7,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_evidence.Evidence.test_missing_receipt_legacy_complete_and_active_prefix_not_promoted"
+      ],
+      "log_sha256": "717681898ce2a0f14ca770bfd77af097cb01e5fa9efcb013d3bb36dff3cd7de9"
+    },
+    {
+      "suite": "evaluation",
+      "tests": 8,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_evaluation.Evaluation.test_idempotency_content_spec_export_metadata_and_atomic_publication"
+      ],
+      "log_sha256": "8fb18c101571e17a5ca267ec9d17f5454fa09d81246bed68ef82e3ad49a5e684"
+    },
+    {
+      "suite": "sotopia",
+      "tests": 1,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "unittest.loader._FailedTest.test_sotopia"
+      ],
+      "log_sha256": "caf5e53e5348ae96bb92706b14bf2e5519ac5da48c20483385c446ccb4f67ade"
+    },
+    {
+      "suite": "task",
+      "tests": 7,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_task.TaskContract.test_04_evaluation_real_frozen_task_and_absent_actor"
+      ],
+      "error_ids": [],
+      "log_sha256": "74bfde34f644017ab01b9a30b0f98713a79cd1cb645e4a790f043e03666a8831"
+    },
+    {
+      "suite": "transport",
+      "tests": 4,
+      "failures": 10,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_transport.Transport.test_01_official_success_visibility_and_domain_outcomes (name='attached-trailing')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='missing-usage')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='deadline')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='negative')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='fractional')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='contradiction')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='cache-conflict')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='redirect')",
+        "test_transport.Transport.test_03_zero_exhausted_unknown_and_usage_override",
+        "test_transport.Transport.test_04_sealed_counterexamples_and_portable_readonly"
+      ],
+      "error_ids": [
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='over-limit')"
+      ],
+      "log_sha256": "11556ce8da7578a3c6bb6c159a54497cd43a3dcc1369ff9ad097f6ab7bd85371"
+    },
+    {
+      "suite": "budget",
+      "tests": 4,
+      "failures": 3,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_budget.Budget.test_01_two_independent_controls_compete_for_last_real_send",
+        "test_budget.Budget.test_03_wrong_body_ticket_and_proven_unsent_release",
+        "test_budget.Budget.test_04_real_gate_blocks_unbound_egress_and_duplicate_fetch"
+      ],
+      "error_ids": [
+        "test_budget.Budget.test_02_worker_interruptions_retain_unknown_and_do_not_retry"
+      ],
+      "log_sha256": "872c39ea7dda83cf735b69eeb88628c6355bdfbba84433b38aa91d4fca54a53a"
+    },
+    {
+      "suite": "readiness",
+      "tests": 6,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_readiness.Readiness.test_02_faults_timeouts_length_and_usage_freeze (case='missing-usage')",
+        "test_readiness.Readiness.test_04_interruptions_helper_environment_and_pending_authority"
+      ],
+      "error_ids": [],
+      "log_sha256": "aea8a751bd1d81d38fcb35834060934b63e1fe5f79f31404f4498a99a12a47ee"
+    }
+  ],
+  "source_tree_sha256": "2c816dc818cd7b0532490be77f5d0eaf315849756d3195dace6a5036c450d84d",
+  "scope": "Original commit 6a98889. Completed modules retained verbatim. Dependent matrices stopped after transport/budget/readiness failures; original-vs-final minimal reproduction also failed with native stream idle timeout. Not a full regression PASS.",
+  "raw_artifacts": "local only; rerun maintained validation command to reproduce",
+  "not_run": [
+    "gateway",
+    "gateway_lifecycle",
+    "pilot_runtime",
+    "suite_runtime",
+    "suite_evidence",
+    "candidate_runtime",
+    "evaluation_candidate_runtime",
+    "robustness_runtime"
+  ]
+}

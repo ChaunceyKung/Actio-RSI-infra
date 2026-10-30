@@ -1,0 +1,74 @@
+{
+  "runs": [
+    {
+      "id": "de6f726ce519442d84995f8413fd1523",
+      "request_key": "demo:0",
+      "state": "execution_complete",
+      "task": "success",
+      "trajectory": "complete",
+      "input_hash": "4a3ac5a183318bb4521733960dd870072588d0883d378849000fba704f5d593b",
+      "actions": 7,
+      "results": {
+        "rewards": {
+          "player_1": 1,
+          "player_2": -1
+        }
+      }
+    },
+    {
+      "id": "afd84f4c3f3b47a68cf676bbedb908ce",
+      "request_key": "demo:1",
+      "state": "execution_complete",
+      "task": "success",
+      "trajectory": "complete",
+      "input_hash": "9ac04a1c1b851eb204c207b96b555127580c8e4234c6391e875aa63c8581f9b5",
+      "actions": 7,
+      "results": {
+        "rewards": {
+          "player_1": 1,
+          "player_2": -1
+        }
+      }
+    },
+    {
+      "id": "21cb2ad3df034b7a8aff0e25c35c5d82",
+      "request_key": "demo:2",
+      "state": "execution_complete",
+      "task": "success",
+      "trajectory": "complete",
+      "input_hash": "464ce8829710358bae1bc795449d7e94489154b040b2b0205621f5627f4561b1",
+      "actions": 7,
+      "results": {
+        "rewards": {
+          "player_1": 1,
+          "player_2": -1
+        }
+      }
+    }
+  ],
+  "model_calls": 0,
+  "environment": "PettingZoo TicTacToe 1.24.3; real native environment, rule agents",
+  "wheel_sha256": "d500903f31659b1e11d587e8277737e5a3905cf94d9986d1ed3820596e579d82",
+  "verification": {
+    "bundle_integrity": "valid",
+    "content_sha256": "31e851b99339a1d59edfd15b4aab8dcfe7231751b1ebf1a2a273624781fa7985",
+    "errors": [],
+    "execution_mode": "rule",
+    "facts_consistency": "valid",
+    "missing": [],
+    "recorded_prefix": "valid",
+    "scenario_completeness": "complete",
+    "source_trust_limits": [
+      "Recorded rule-agent and environment receipts; no live model or native DSH claim.",
+      "Hashes establish internal consistency, not independent simulator correctness."
+    ],
+    "task_outcome": "success",
+    "verifier": {
+      "contract": "fixture-input.v2",
+      "implementation": "actio-verifier.3",
+      "stored_report_policy": "hash-checked historical report; current result independently recomputed",
+      "task_contract": "scheduling-input.v1",
+      "transport_contract": "scheduling-transport.v1"
+    }
+  }
+}

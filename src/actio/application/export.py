@@ -82,6 +82,10 @@ def closure(store, target):
           'limits':['fixture-only; no evaluator or score','binary-source provenance unproven','native resume/fork/catchup unsupported',
                     'no semantic cancellation or complete world restoration','SQLite recorded native rows only; external files not reopened',
                     'memory source proof is not a recursively complete predecessor episode']}
+    if manifest.get('input_contract') == 'environment-session.v1':
+        data['contract'] = 'environment-session.v1'
+        data['limits'] = ['Rule-agent session evidence; no DSH native or provider evidence',
+                          'Environment owns settlement; no snapshot/recovery claim']
     source={'store':store.row("SELECT value FROM meta WHERE key='store'")['value'], 'run':rid,'schema':store.version,
             'active_lease':bool(store.row('SELECT * FROM lease WHERE run=?',(rid,)))}
     return data,source

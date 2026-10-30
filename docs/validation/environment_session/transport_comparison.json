@@ -1,0 +1,62 @@
+{
+  "original": {
+    "error": {
+      "type": "ContractError",
+      "reason": "receipt/terminal evidence missing"
+    },
+    "state": "needs_reconcile",
+    "task": "infrastructure_failure",
+    "receives": 0,
+    "accounting": {
+      "attempts": 1,
+      "settled": 0,
+      "unknown": 1,
+      "mode": "synthetic_only"
+    },
+    "native_errors": [
+      {
+        "kind": "error",
+        "error": {
+          "message": "DeepSeek stream idle timeout after 1500ms",
+          "code": "TIMEOUT"
+        }
+      }
+    ],
+    "native_terminal": {
+      "kind": "result",
+      "op": "a90060c37e724544bb3e0239e421f972",
+      "answer": null,
+      "terminal": "error"
+    }
+  },
+  "final": {
+    "error": {
+      "type": "ContractError",
+      "reason": "receipt/terminal evidence missing"
+    },
+    "state": "needs_reconcile",
+    "task": "infrastructure_failure",
+    "receives": 0,
+    "accounting": {
+      "attempts": 1,
+      "settled": 0,
+      "unknown": 1,
+      "mode": "synthetic_only"
+    },
+    "native_errors": [
+      {
+        "kind": "error",
+        "error": {
+          "message": "DeepSeek stream idle timeout after 1500ms",
+          "code": "TIMEOUT"
+        }
+      }
+    ],
+    "native_terminal": {
+      "kind": "result",
+      "op": "48687bf331ee493e82cc856960a39b4c",
+      "answer": null,
+      "terminal": "error"
+    }
+  }
+}

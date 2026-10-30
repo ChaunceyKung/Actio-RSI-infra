@@ -1,0 +1,8 @@
+{
+  "environment": "pettingzoo.tictactoe.v3",
+  "config": {"seed": 7},
+  "agents": {"player_1": "first-legal", "player_2": "first-legal"},
+  "episodes": 3,
+  "max_actions": 16,
+  "deadline_seconds": 30
+}

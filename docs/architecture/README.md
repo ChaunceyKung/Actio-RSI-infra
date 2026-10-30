@@ -1,5 +1,7 @@
 # 系统一页图
 
+2026-10-30 第一阶段新增通用 Environment Session 和真实 PettingZoo TicTacToe；原 DSH/Concordia 路径通过兼容 driver 使用新 Session。实际接口、数据流、复现命令与 OpenRA 缺口见 [Environment 架构](ENVIRONMENTS.md)。
+
 Actio-RSI 是研究 Agent 持久身份、社会交互和受控改进的**模块化单体**。它把执行输入、模型行动、环境效果、事实与记忆、独立测量和版本决策连接起来。运行形态是 Windows 上的 Python 控制面、受管 DSH Worker、Concordia、SQLite 与文件证据。
 
 本文描述 0.2.0 当前实现。R15–R18 验收状态见[本轮结果](../validation/refactor_entrypoints/RESULTS.md)；旧 R11–R14 仍保留 INCOMPLETE。实验停在 C5。

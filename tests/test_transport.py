@@ -31,7 +31,7 @@ from support.transport_case import run
 
 class Transport(unittest.TestCase):
     def setUp(self):
-        self.root=Path('D:/actio-c2a1-tests')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.evidence={'root':str(self.root),'cases':[],'model_requests':0}
 
     def case(self,name,plans,variant='compatible',calls=2):

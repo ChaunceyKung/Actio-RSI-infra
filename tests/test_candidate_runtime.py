@@ -21,7 +21,7 @@ from gateway_stub import GatewayStub
 
 class CandidateRuntime(unittest.TestCase):
     def setUp(self):
-        self.root=Path('D:/actio-c2c1-tests')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.secret='ACTIO_FAKE_'+uuid.uuid4().hex;self.pre=contract.preregistration();self.evidence={'root':str(self.root),'external_requests':0}
 
     def test_dual_channel_official_runtime_and_hidden_views(self):

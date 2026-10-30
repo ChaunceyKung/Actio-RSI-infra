@@ -22,7 +22,7 @@ from actio.interfaces.store import Store
 
 class RuntimeTests(unittest.TestCase):
     def setUp(self):
-        self.root=Path('D:/actio-p1b-tests')/uuid.uuid4().hex[:12]
+        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12]
         self.root.mkdir(parents=True)
         write_json(self.root/'owner.json',{'owner':'phase1b-validation','test':self.id()})
         self.db=self.root/'ledger.sqlite'

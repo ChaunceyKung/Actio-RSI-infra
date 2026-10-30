@@ -32,6 +32,8 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 ## 当前入口
 
+2026-10-30：新增可运行的 [Environment Session 与 TicTacToe 实验](docs/architecture/ENVIRONMENTS.md)。使用 `pwsh -File scripts/environment_setup.ps1` 通过 uv 在项目 `.local` 内安装 Python、依赖及固定 Concordia 源码；`actio run experiment` 复用 Store 的 Run/lease、审计、导出和离线核验。完整命令、能力边界及 OpenRA 下一阶段工作见链接文档。
+
 安装 Python 3.12 对应的 0.2.0 wheel（完整运行环境另需固定 DSH/Concordia 依赖）。唯一用户命令是 `actio`，等价于 `python -m actio`：
 
 ```powershell
@@ -52,7 +54,7 @@ actio run --help
 
 | 模块 | 五组职责 |
 |---|---|
-| adapters | persistence：SQLite/事务/Ledger；runtime：DSH/Job/MCP/清理；environment：Concordia；transport：协议/TS/fixture；filesystem：身份与受控文件 |
+| adapters | persistence：SQLite/事务/Ledger；runtime：DSH/Job/MCP/清理；environment：Concordia / PettingZoo Session；transport：协议/TS/fixture；filesystem：身份与受控文件 |
 | evidence | audit：协议/账务认证；bundles：封包核验；campaigns：完整分母报告；lineage：候选/评估历史；diagnostics：失败分类与诊断 |
 
 `resources/{pricing,trust,pins}` 保存五份固定 JSON，内容保持原字节；SQL、MJS 和许可证仍归实际 owner。`_vendor` 保存窄复用代码和来源。应用层仍含 SQL/mixin，保持同连接多表事务；Store 与 Ledger 各有权威，不宣称跨库原子提交。

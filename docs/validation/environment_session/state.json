@@ -1,0 +1,87 @@
+{
+  "status": "FAIL",
+  "group": "state",
+  "raw_receipt_sha256": "73e37c6db447bb9d2626f0b346eb5d4387492de33484e6a8280c66665f9fc521",
+  "tests": 27,
+  "rows": [
+    {
+      "suite": "contract",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "319c69ba8cd630f7664102796969001e65207bf0f64d614b09c279bcc6f7b8b2"
+    },
+    {
+      "suite": "schema",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "b8e9201429662bce9b3561d68b29cc1046325a5e569cc0ba93eb28d0ee55e57c"
+    },
+    {
+      "suite": "candidate",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "9f6c7fdac006a0e28b23115be374a971f07eadadfa0664a75fb2888b8e3850a6"
+    },
+    {
+      "suite": "evaluation_candidate",
+      "tests": 3,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_evaluation_candidate.EvaluationPure.test_copy_history_atomic_claim_decision_reopen_corruption"
+      ],
+      "log_sha256": "d8e9ba90dd009cf8dc322975e416cc03d2f69e426ccac80c05960728f6a38252"
+    },
+    {
+      "suite": "robustness",
+      "tests": 5,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [
+        "test_robustness.RobustnessPure.test_04_consistent_copy_historical_dispatch_claims_and_decision"
+      ],
+      "log_sha256": "1ed8244dc2da6dc47e60aecebb18ad07eb58e4751f7d2bbfa4d76bafc678af0a"
+    },
+    {
+      "suite": "input_binding",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "496651e6486d4dbd4b13a38974f1e651cd80e83f209d3612184a7d0d6ad84351"
+    }
+  ],
+  "source_tree_sha256": "9bc58240d003cba4f633be13f10646e8cfa26308775586ae55b565432c2241f4",
+  "scope": "current maintained tests; not a complete G1-G8 acceptance claim",
+  "raw_artifacts": "local only; rerun maintained validation command to reproduce"
+}

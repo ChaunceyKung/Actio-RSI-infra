@@ -8,9 +8,9 @@ from actio.contracts.scenarios import UNSET
 
 
 def main(argv=None):
-    p=argparse.ArgumentParser(prog='actio',description='Windows single-host synthetic fixture infrastructure; no live provider')
+    p=argparse.ArgumentParser(prog='actio',description='Single-host experiment and fixture infrastructure')
     p.add_argument('--db',type=Path,default=Path('actio.sqlite'))
-    p.add_argument('--short-root',type=Path,default=Path('D:/actio-p1b'))
+    p.add_argument('--short-root',type=Path,default=Path('.local/w'))
     sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('init'); sub.add_parser('capabilities')
     c=sub.add_parser('migrate'); c.add_argument('--output',required=True,type=Path)
@@ -18,6 +18,7 @@ def main(argv=None):
     c=sub.add_parser('verify'); c.add_argument('bundle',type=Path)
     c=sub.add_parser('agent'); c.add_argument('id'); c.add_argument('--create',action='store_true')
     c=sub.add_parser('assistant'); c.add_argument('--agent',required=True); c.add_argument('--key',required=True)
+    c=sub.add_parser('experiment'); c.add_argument('--key',required=True); c.add_argument('--config',type=Path,required=True)
     c=sub.add_parser('social'); c.add_argument('--a',required=True); c.add_argument('--b',required=True); c.add_argument('--key',required=True)
     c.add_argument('--memory-revision',type=int,default=UNSET); c.add_argument('--replay'); c.add_argument('--illegal',action='store_true',default=UNSET)
     c=sub.add_parser('task-card');c.add_argument('--variant',choices=['compatible','conflict'],required=True);c.add_argument('--a',required=True);c.add_argument('--b',required=True);c.add_argument('--output',required=True,type=Path)
@@ -61,6 +62,13 @@ def main(argv=None):
                 case 'init': result={'store':str(store.path),'initialized':True}
                 case 'agent': result=store.agent(args.id,synthetic_spec(args.id) if args.create else None)
                 case 'assistant': result=assistant(store,args.key,args.agent,args.short_root)
+                case 'experiment':
+                    from actio.application.experiment import experiment, validate_plan
+                    from actio.interfaces.environments import resolve
+                    from actio.contracts.json import parse
+                    plan=validate_plan(parse(args.config.read_bytes()))
+                    factory,identity=resolve(plan['environment'])
+                    result=experiment(store,args.key,plan,environment_factory=factory,environment_identity=identity)
                 case 'social': result=social(store,args.key,args.a,args.b,args.short_root,as_of=args.memory_revision,replay=args.replay,illegal=args.illegal)
                 case 'task-card':
                     from actio.tasks.registry import task_card

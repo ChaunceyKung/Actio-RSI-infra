@@ -65,6 +65,9 @@ def validate_inputs(manifest, streams, operations, audit):
 
 def terminal_body(run, streams, operations, receipts, world, audit, outcome):
     manifest = json.loads(run['input'])
+    if manifest.get('input_contract') == 'environment-session.v1':
+        from actio.evidence.bundles.environment import terminal_body as environment_terminal
+        return environment_terminal(run, streams, operations, receipts, world, audit, outcome)
     validate_inputs(manifest, streams, operations, audit)
     scenario = manifest.get('scenario')
     require(scenario in ('assistant', 'social'), 'unknown scenario contract')

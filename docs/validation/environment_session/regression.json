@@ -1,0 +1,103 @@
+{
+  "status": "FAIL",
+  "group": "all-local",
+  "raw_receipt_sha256": "6ba5267c4e78d6d46ae1e5a06563f93855809f96450e14f08b05bfce4cd7766c",
+  "tests": 37,
+  "rows": [
+    {
+      "suite": "environment",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "cfa6fb766a418c81d3e29ca9ea6080cfcce674b0136b0ac53d668bedae33aaa9"
+    },
+    {
+      "suite": "modularity",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "75da4edc91166564d9df24bb2ef4c51ed1085db3048e5a6b3d3d2a1b8bac1ebb"
+    },
+    {
+      "suite": "runtime",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "061528996ab8df558a0d768382ef38229a1eb25d4f3d8d5102f24312f683fd2d"
+    },
+    {
+      "suite": "reliability",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "817ea2aa6b4414ff7b2238418f72cb9b4c98d3cf3a78e36b018bb3ee27c33d43"
+    },
+    {
+      "suite": "task",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "7587abd3ea7cf7f31c8f5137b0b87d3c6825c57d310cce5cb289a5db6ffc22a6"
+    },
+    {
+      "suite": "transport",
+      "tests": 4,
+      "failures": 19,
+      "errors": 0,
+      "skipped": 0,
+      "status": "FAIL",
+      "collection_execution_match": true,
+      "failed_ids": [
+        "test_transport.Transport.test_01_official_success_visibility_and_domain_outcomes (name='attached-trailing')",
+        "test_transport.Transport.test_01_official_success_visibility_and_domain_outcomes (name='conflict')",
+        "test_transport.Transport.test_01_official_success_visibility_and_domain_outcomes (name='declined')",
+        "test_transport.Transport.test_01_official_success_visibility_and_domain_outcomes (name='illegal')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='429')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='500')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='missing-done')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='missing-usage')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='empty')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='malformed')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='deadline')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='negative')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='fractional')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='contradiction')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='cache-conflict')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='over-limit')",
+        "test_transport.Transport.test_02_real_faults_usage_unknown_no_retry_and_preserved_prefix (case='redirect')",
+        "test_transport.Transport.test_03_zero_exhausted_unknown_and_usage_override",
+        "test_transport.Transport.test_04_sealed_counterexamples_and_portable_readonly"
+      ],
+      "error_ids": [],
+      "log_sha256": "b5896bfc3a1ad21ecd654f93ea67619ee6601d11a046b5307819391905183679"
+    }
+  ],
+  "source_tree_sha256": "9bc58240d003cba4f633be13f10646e8cfa26308775586ae55b565432c2241f4",
+  "scope": "current maintained tests; not a complete G1-G8 acceptance claim",
+  "raw_artifacts": "local only; rerun maintained validation command to reproduce"
+}

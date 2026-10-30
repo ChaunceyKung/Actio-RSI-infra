@@ -18,7 +18,7 @@ from actio.interfaces.store import Store
 
 class EntryConcurrency(unittest.TestCase):
     def test_assistant_and_social_atomic_winner_across_control_processes(self):
-        root=Path('D:/actio-p1b1-tests')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
+        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
         write_json(root/'owner.json',{'test':self.id()})
         self.evidence={'root':str(root),'mode':'TWO_REAL_CONTROL_PROCESSES_REAL_RUNTIME_FIXTURE','cases':[]}
         for scenario in ('assistant','social'):

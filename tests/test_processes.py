@@ -28,7 +28,7 @@ DRIVER=Path(__file__).with_name('child_case.py')
 
 class Processes(unittest.TestCase):
     def setUp(self):
-        self.root=Path('D:/actio-p1b-tests')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         write_json(self.root/'owner.json',{'test':self.id()})
         self.evidence={'root':str(self.root),'cases':[]};self.children=[]
 

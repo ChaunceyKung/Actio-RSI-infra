@@ -1,5 +1,7 @@
 # 三条关键流程
 
+新增的 Experiment → Environment → Agent → Evidence 流程及 Concordia 原生执行桥接见 [Environment Session](ENVIRONMENTS.md)。下列 solver 流程仍适用；`run_engine` 现在通过 ConcordiaSession 暂停/提交 native Entity.act，SQLite 和 RuntimePort 调用留在控制面线程。
+
 返回[系统一页图](README.md)。这里只描述当前行为，版本特定合同和历史实验结果以 `docs/validation/` 下的固定记录为准。
 
 ## 1. 执行一个 solver episode

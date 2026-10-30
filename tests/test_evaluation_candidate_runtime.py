@@ -20,7 +20,7 @@ from test_evaluation_candidate import empty
 
 class EvaluationRuntime(unittest.TestCase):
     def setUp(self):
-        self.root=Path('D:/actio-c2c2-tests')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.evidence={'root':str(self.root),'external_provider_requests':0}
         self.secret='ACTIO_FAKE_'+uuid.uuid4().hex;self.pre=c.preregistration()
 

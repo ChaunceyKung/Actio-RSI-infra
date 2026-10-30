@@ -6,11 +6,13 @@ import io
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 SUITES = {
+    'environment': ['environment'],
     'pure': ['modularity','preflight','transport_config','readiness_config','suite','pilot','task_diagnostics','failure_observation'],
     'state': ['contract','schema','candidate','evaluation_candidate','robustness','input_binding'],
     'runtime-local': ['runtime','failures','processes','reliability','entry_concurrency','evidence','evaluation','sotopia','task','transport','budget','readiness','gateway','gateway_lifecycle','pilot_runtime','suite_runtime','suite_evidence','candidate_runtime','evaluation_candidate_runtime','robustness_runtime'],
@@ -31,6 +33,9 @@ class Result(unittest.TextTestResult):
 
 
 def main():
+    temporary = ROOT / '.local/tmp'
+    temporary.mkdir(parents=True, exist_ok=True)
+    tempfile.tempdir = str(temporary)
     p=argparse.ArgumentParser();p.add_argument('suite',choices=[*SUITES,'all-local']);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--only',nargs='+',help='Run named modules within the selected suite; report is scoped accordingly')
     a=p.parse_args();import actio

@@ -27,7 +27,7 @@ from actio.evidence.bundles.verify import sha
 class Evidence(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.root=Path('D:/actio-p1b1-tests')/uuid.uuid4().hex[:12];cls.root.mkdir(parents=True)
+        cls.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];cls.root.mkdir(parents=True)
         write_json(cls.root/'owner.json',{'test':'evidence-real-fixtures'})
         cls.db=cls.root/'ledger.sqlite';s=Store(cls.db,create=True)
         try:

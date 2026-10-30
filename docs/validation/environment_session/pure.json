@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "group": "pure",
+  "raw_receipt_sha256": "2ecb527bc75e9c44bcfd3c26ef792f55b8d5c0570a8dd25b0b2beadcf8553da3",
+  "tests": 53,
+  "rows": [
+    {
+      "suite": "modularity",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "ad96517156ecc46c2a26c8ec587603e95c6ff7a97db2229863a0d98649778fd9"
+    },
+    {
+      "suite": "preflight",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "6b057470ebb246187ce8e961b7082a3fe04b7011c87d4918725d3507346f9582"
+    },
+    {
+      "suite": "transport_config",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "80ef05089684eb570398cff4b9f3d3da657de00578119ac7e8122b7f6e1d0bf2"
+    },
+    {
+      "suite": "readiness_config",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "3a8538ed1961f02eb61168910427846edba463ded0dcc84f710c60c1e9071970"
+    },
+    {
+      "suite": "suite",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "739df5e09d7dce05d6c2b95cb0dcad03833f05876d33178a482e12b8409ec485"
+    },
+    {
+      "suite": "pilot",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "e9317eb102ff99754f6db9b9130924b5fd5e696e303e24b71a60d5cd27800b14"
+    },
+    {
+      "suite": "task_diagnostics",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "5c188d863096e35ade6845ea8cb51c4e08f4f3176933a9bfd9f068311ca17615"
+    },
+    {
+      "suite": "failure_observation",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "collection_execution_match": true,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "a6acf1d98801008c97f4acd6c33876890f2d9081d44fd688d8eca110a7630e80"
+    }
+  ],
+  "source_tree_sha256": "9bc58240d003cba4f633be13f10646e8cfa26308775586ae55b565432c2241f4",
+  "scope": "current maintained tests; not a complete G1-G8 acceptance claim",
+  "raw_artifacts": "local only; rerun maintained validation command to reproduce"
+}

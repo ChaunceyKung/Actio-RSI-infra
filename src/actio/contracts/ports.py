@@ -12,14 +12,15 @@ class ProcessIdentity(Protocol):
     def process_birth(self, pid: int): ...
     def reap_named_job(self, name: str) -> dict: ...
 
-class Environment(Protocol):
+class LegacyEpisodeDriver(Protocol):
+    """Compatibility callback for the original DSH two-turn scenario receipts."""
     def __call__(self, store, run, manifest, root, runtime_factory) -> str: ...
 
 @dataclass(frozen=True)
 class EpisodePorts:
     runtime: Callable[..., AgentRuntime]
     transport: Callable[..., AgentRuntime]
-    environment: Environment
+    environment: LegacyEpisodeDriver
     facts: Callable[..., Any]
     final_source: Callable[..., tuple]
     process_identity: ProcessIdentity

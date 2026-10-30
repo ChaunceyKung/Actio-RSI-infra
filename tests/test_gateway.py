@@ -24,7 +24,7 @@ from gateway_stub import GatewayStub
 
 class Gateway(unittest.TestCase):
     def setUp(self):
-        self.root=Path('D:/actio-c2b1-tests')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.secret='ACTIO_FAKE_'+uuid.uuid4().hex
         self.evidence={'root':str(self.root),'cases':[],'external_requests':0}
 

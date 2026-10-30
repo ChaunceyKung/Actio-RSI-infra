@@ -100,7 +100,7 @@ class RobustnessPure(unittest.TestCase):
         self.evidence={'empty_report_hash':digest(report),'metric_count':len(report['metrics']),'decision':report['candidate_decision']}
 
     def test_04_consistent_copy_historical_dispatch_claims_and_decision(self):
-        root=Path('D:/actio-c2c4-tests')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
+        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
         self.evidence={'root':str(root),'external_provider_requests':0}
         before=file_hash(SOURCE);record=snapshot_evaluation_copy(SOURCE,root/'candidates.sqlite')
         s=Store(root/'candidates.sqlite');pre=c.preregistration();body=lineage.plan(pre,'local_fixture')
@@ -129,7 +129,7 @@ class RobustnessPure(unittest.TestCase):
         self.evidence.update(snapshot=record,winners=winners,decision=decision['state'],historical_preserved=True)
 
     def test_05_once_claim_concurrent_roots_and_unknown_plan(self):
-        root=Path('D:/actio-c2c4-tests')/uuid.uuid4().hex[:12];(root/'.local').mkdir(parents=True)
+        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];(root/'.local').mkdir(parents=True)
         def reserve(i):
             try:reserve_live(root,root/str(i),'evaluation',{});return True
             except FileExistsError:return False

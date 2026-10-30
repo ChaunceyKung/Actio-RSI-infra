@@ -26,7 +26,7 @@
 |---|---|---|---|
 | adapters.persistence | DB 路径与操作 → 连接、WAL、只读、事务、迁移/快照 → 原 Store/Ledger 状态 | [store.py](../../src/actio/adapters/persistence/store.py)、[ledger.py](../../src/actio/adapters/persistence/ledger.py) | 每个权威的连接与事务保持，不另建第二 Ledger |
 | adapters.runtime | 冻结 task/运行规格 → 官方 SDK/Worker、Job、事实与清理 → 原生回执、事实、退出证据 | [runtime.py](../../src/actio/adapters/runtime/runtime.py)、[supervisor.py](../../src/actio/adapters/runtime/supervisor.py) | 原生 session/journal 仍归 DSH，不宣称完整恢复 |
-| adapters.environment | Store/run、任务与 runtime factory → Concordia Sequential 推进 → 环境效果及行动来源 | [concordia.py](../../src/actio/adapters/environment/concordia.py) | 按各版本任务顺序与可见性运行，引擎不是评价者模型 |
+| adapters.environment | 环境配置与 intent → 原生 Concordia / PettingZoo 推进 → 可见观察、合法动作、接收回执与结算 | [concordia.py](../../src/actio/adapters/environment/concordia.py)、[pettingzoo.py](../../src/actio/adapters/environment/pettingzoo.py)、[Session 说明](ENVIRONMENTS.md) | 环境拥有世界、时钟与规则；Concordia 兼容 driver 保留 DSH 来源记录 |
 | adapters.transport | 配置、任务、Ledger 引用 → TransportPort、TS guard、协议记录 → raw/adapter/native 材料 | [transport.py](../../src/actio/adapters/transport/transport.py)、[fixture.py](../../src/actio/adapters/transport/fixture.py) | 本机 fixture 是可安装能力，不导入 tests；unknown 不冒充 usage=0 |
 | adapters.filesystem | 受控路径与文件 → hash、身份闭包、读写与秘密接入 → 资源/身份/导出材料 | [目录](../../src/actio/adapters/filesystem/) | 真实凭据只在已授权执行路径内存注入，本轮重构不读取 |
 

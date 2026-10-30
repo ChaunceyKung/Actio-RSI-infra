@@ -1,0 +1,196 @@
+{
+  "tests": 96,
+  "skipped": 2,
+  "failures": 0,
+  "errors": 0,
+  "rows": [
+    {
+      "suite": "settings",
+      "tests": 7,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "8566be71b680f80b435fb00809c9265264ab52645738ee24ed36b3aabc3ed1f7"
+    },
+    {
+      "suite": "modularity",
+      "tests": 9,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "9ff7d48fcb5ca2dc4c95e15d45ffe4f8675e7e20cc5bd8e0fa1f807bcfa40c5d"
+    },
+    {
+      "suite": "preflight",
+      "tests": 5,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "2dfdf81a7e1905a0e3647165c6f7115befdf9e6a29294f97d82df2421418078e"
+    },
+    {
+      "suite": "transport_config",
+      "tests": 3,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "caea44aceda0136a033a7c868ecfe64b6b34e4ee38b0d01d035287f4177529f1"
+    },
+    {
+      "suite": "readiness_config",
+      "tests": 4,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "1872f0d6083e945a85ca03436d22d7c9f3b4a6b569028ac6285d30e20f2fab8d"
+    },
+    {
+      "suite": "suite",
+      "tests": 7,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "1ccb1383f6aa239ec7d557e5079d8912ba15acfbc0a9c72297dfadc5820cb5d2"
+    },
+    {
+      "suite": "pilot",
+      "tests": 6,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "0d8b080b72b2df3e3b9a19b277d2c05bcb0e18801e92bc6febd9a7f972f47cdf"
+    },
+    {
+      "suite": "task_diagnostics",
+      "tests": 7,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "c71f4ae99fee8c1e971cd41e8e7a409fc9c17763e5ffde11be48b93fb0f93a87"
+    },
+    {
+      "suite": "failure_observation",
+      "tests": 12,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "90ea75b91060696106cae42f4ac2884a11e145427cc0b6145d63c92e9f754cbf"
+    },
+    {
+      "suite": "contract",
+      "tests": 6,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "6b97b6a53dec7222025c50271256195c82ec6153881e842772b0f224f1abdd31"
+    },
+    {
+      "suite": "schema",
+      "tests": 5,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "b931078567e621f05e1061fa838706bc3b5bd8a8c0d888bd9e10b3b5bb6e03aa"
+    },
+    {
+      "suite": "candidate",
+      "tests": 5,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "87cb05c7168aedb9b358d97c5203426c25fa50bacf50f0cfa8f7eeb8283617e8"
+    },
+    {
+      "suite": "evaluation_candidate",
+      "tests": 3,
+      "status": "FAIL",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "fb6db0e42e4b7a994523b38aff1e57db85944d8670eea52b2e74d7021fd270f4"
+    },
+    {
+      "suite": "robustness",
+      "tests": 5,
+      "status": "FAIL",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "ec9ffeb493b2dadec1a1149055ddcd9d2a7b750a20a93475ff6732e4bfeb8a7a"
+    },
+    {
+      "suite": "input_binding",
+      "tests": 3,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "4898f639f572b9ddece0102ac03fce5f487dca44fb7d63fea7411414b8b98c0a"
+    },
+    {
+      "suite": "environment",
+      "tests": 7,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "87d924940597fbd51d9b2bdd1b133d6e67cac9652c501faf9d95fbdb077f8bf4"
+    },
+    {
+      "suite": "runtime",
+      "tests": 2,
+      "status": "PASS",
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_ids": [],
+      "error_ids": [],
+      "log_sha256": "45bcff46d4119079c4c3aae508cd5ccd492bc7403ab5900aeb7e9b2aa04b78d9"
+    }
+  ],
+  "scope": "This change only; skipped optional historical inputs remain non-PASS in the state runner."
+}

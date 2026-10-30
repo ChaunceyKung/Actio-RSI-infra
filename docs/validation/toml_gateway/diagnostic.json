@@ -1,0 +1,31 @@
+{
+  "mode": "controlled timing plugin; no real model",
+  "receives": 2,
+  "ipc": [
+    {
+      "kind": "ipc-latency",
+      "command": "reserve",
+      "elapsed_ms": 504,
+      "status": 0
+    },
+    {
+      "kind": "ipc-latency",
+      "command": "sending",
+      "elapsed_ms": 469,
+      "status": 0
+    },
+    {
+      "kind": "ipc-latency",
+      "command": "reserve",
+      "elapsed_ms": 476,
+      "status": 0
+    },
+    {
+      "kind": "ipc-latency",
+      "command": "sending",
+      "elapsed_ms": 482,
+      "status": 0
+    }
+  ],
+  "scope": "Controlled local instrumentation; not a live provider or root-cause proof."
+}

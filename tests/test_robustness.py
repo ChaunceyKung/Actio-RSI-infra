@@ -1,3 +1,4 @@
+from support.paths import runtime_root, history_path
 import copy
 from concurrent.futures import ThreadPoolExecutor
 import itertools
@@ -32,7 +33,6 @@ from actio.application import evaluation_store as lineage
 from actio.evidence.lineage.evaluation_history import lineage as historical
 from actio.evidence.lineage.evaluation_history import preserve
 
-SOURCE=Path('D:/actio-c2c2-live-v1/candidates.sqlite')
 BINDINGS={s:{'agent':'ACTOR_'+s,'spec_hash':'0'*64} for s in ('A','B')}
 
 
@@ -100,9 +100,10 @@ class RobustnessPure(unittest.TestCase):
         self.evidence={'empty_report_hash':digest(report),'metric_count':len(report['metrics']),'decision':report['candidate_decision']}
 
     def test_04_consistent_copy_historical_dispatch_claims_and_decision(self):
-        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
+        source=history_path('evaluation_database')
+        root=runtime_root()/uuid.uuid4().hex[:12];root.mkdir(parents=True)
         self.evidence={'root':str(root),'external_provider_requests':0}
-        before=file_hash(SOURCE);record=snapshot_evaluation_copy(SOURCE,root/'candidates.sqlite')
+        before=file_hash(source);record=snapshot_evaluation_copy(source,root/'candidates.sqlite')
         s=Store(root/'candidates.sqlite');pre=c.preregistration();body=lineage.plan(pre,'local_fixture')
         try:
             self.assertEqual(s.evaluation_lineage(),historical())
@@ -125,11 +126,11 @@ class RobustnessPure(unittest.TestCase):
             self.assertEqual((lineage.verify(export)['evaluations'],lineage.verify(export)['evaluation_decisions']),(3,2))
             with self.assertRaises(ContractError):s.decide_evaluation(eid,campaign,report)
         finally:s.close()
-        self.assertEqual(file_hash(SOURCE),before)
+        self.assertEqual(file_hash(source),before)
         self.evidence.update(snapshot=record,winners=winners,decision=decision['state'],historical_preserved=True)
 
     def test_05_once_claim_concurrent_roots_and_unknown_plan(self):
-        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];(root/'.local').mkdir(parents=True)
+        root=runtime_root()/uuid.uuid4().hex[:12];(root/'.local').mkdir(parents=True)
         def reserve(i):
             try:reserve_live(root,root/str(i),'evaluation',{});return True
             except FileExistsError:return False

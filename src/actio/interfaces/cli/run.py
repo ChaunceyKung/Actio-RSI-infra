@@ -9,8 +9,9 @@ from actio.contracts.scenarios import UNSET
 
 def main(argv=None):
     p=argparse.ArgumentParser(prog='actio',description='Single-host experiment and fixture infrastructure')
-    p.add_argument('--db',type=Path,default=Path('actio.sqlite'))
-    p.add_argument('--short-root',type=Path,default=Path('.local/w'))
+    p.add_argument('--settings',type=Path)
+    p.add_argument('--db',type=Path)
+    p.add_argument('--short-root',type=Path)
     sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('init'); sub.add_parser('capabilities')
     c=sub.add_parser('migrate'); c.add_argument('--output',required=True,type=Path)
@@ -31,6 +32,13 @@ def main(argv=None):
     args=p.parse_args(argv)
     store=None
     try:
+        if args.command not in ('capabilities','require','verify') and (
+                args.db is None or args.command in ('assistant','social','schedule') and args.short_root is None):
+            from actio.profiles.settings import load_settings
+            settings=load_settings(args.settings)
+            args.db=args.db or settings.paths['database']
+            args.short_root=args.short_root or settings.paths['runs']
+            args.db.parent.mkdir(parents=True,exist_ok=True) if args.command=='init' else None
         if args.command in ('capabilities','require'):
             from actio.adapters.runtime.runtime import RuntimePort
         if args.command=='capabilities':

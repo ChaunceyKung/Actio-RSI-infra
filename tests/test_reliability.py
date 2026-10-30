@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import json
 from pathlib import Path
 import unittest
@@ -17,7 +18,7 @@ from actio.application.terminal import check_terminal
 
 class Reliability(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=runtime_root()/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         write_json(self.root/'owner.json',{'test':self.id()})
         self.s=Store(self.root/'ledger.sqlite',create=True)
         for agent in ('A','B'):self.s.agent(agent,synthetic_spec(agent))

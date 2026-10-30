@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import copy
 import json
 from pathlib import Path
@@ -29,7 +30,7 @@ from support.priced_case import run
 
 class Readiness(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=runtime_root()/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.secret='ACTIO_FAKE_'+uuid.uuid4().hex
         self.evidence={'root':str(self.root),'cases':[],'model_requests':0,'external_provider_requests':0,'real_cost':0}
 

@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import json
 from pathlib import Path
 import subprocess
@@ -24,7 +25,7 @@ from support.transport_case import run
 
 class Budget(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=runtime_root()/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.evidence={'root':str(self.root),'cases':[],'model_requests':0}
 
     def test_01_two_independent_controls_compete_for_last_real_send(self):

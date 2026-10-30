@@ -32,6 +32,8 @@ Actio-RSI 将 Agent 的身份与记忆、模型运行、环境裁决、事实记
 
 ## 当前入口
 
+运行路径和 LLM 选项现在由根目录 [actio.toml](actio.toml) 配置；使用 `actio config show --settings actio.toml` 查看解析结果，`actio gateway run --settings actio.toml --rehearsal` 验证真实本机 DSH/Concordia 链路。配置、uv 安装及真实 LLM 命令见 [配置指南](docs/architecture/CONFIGURATION.md)。
+
 2026-10-30：新增可运行的 [Environment Session 与 TicTacToe 实验](docs/architecture/ENVIRONMENTS.md)。使用 `pwsh -File scripts/environment_setup.ps1` 通过 uv 在项目 `.local` 内安装 Python、依赖及固定 Concordia 源码；`actio run experiment` 复用 Store 的 Run/lease、审计、导出和离线核验。完整命令、能力边界及 OpenRA 下一阶段工作见链接文档。
 
 安装 Python 3.12 对应的 0.2.0 wheel（完整运行环境另需固定 DSH/Concordia 依赖）。唯一用户命令是 `actio`，等价于 `python -m actio`：

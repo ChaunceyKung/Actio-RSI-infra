@@ -1,0 +1,47 @@
+{
+  "summary": {
+    "attempts": 2,
+    "campaign_valid": true,
+    "credential_scan": {
+      "credential_found": false,
+      "files_scanned": 3358
+    },
+    "episodes": [
+      {
+        "error": null,
+        "evidence": "complete",
+        "id": "4f1e89a9457944aeac63c3a5f801de05",
+        "state": "execution_complete",
+        "task": "success"
+      }
+    ],
+    "mode": "tokenkey_rehearsal",
+    "model": "gpt-5.6",
+    "provider": "tokenkey",
+    "root": "D:\\Work\\5\\actio\\t\\gw-7e45a234",
+    "settings_hash": "18c3d0bf19f14da3d226e254425c1534f5cbdd8d3adc9bdf833833f90ba1f5b9",
+    "settled": 2,
+    "spending_policy": "uncapped",
+    "status": "complete",
+    "supplier_bill": "unreconciled",
+    "unknown": 0,
+    "usage": {
+      "calls": 2,
+      "cost_minor": null,
+      "input_tokens": 24,
+      "output_tokens": 10
+    }
+  },
+  "campaign_verified": true,
+  "real_model_calls": 0,
+  "workers": [
+    {
+      "state": "reaped",
+      "active_after_cleanup": 0
+    },
+    {
+      "state": "reaped",
+      "active_after_cleanup": 0
+    }
+  ]
+}

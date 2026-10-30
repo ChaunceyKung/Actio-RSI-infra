@@ -143,7 +143,7 @@ def owned_root(parent, owner):
     parent.mkdir(parents=True, exist_ok=True)
     root = parent / ('w' + uid()[:12])
     if len(str(root)) > 80:
-        raise ContractError('use a shorter isolated root, e.g. D:\\actio-p1b')
+        raise ContractError('use a shorter isolated root; configure paths.runs in actio.toml')
     root.mkdir()
     if root.resolve() != root:
         raise ContractError('short root resolution changed')

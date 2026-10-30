@@ -1,0 +1,26 @@
+# Paths are resolved relative to this file. No API key belongs in TOML.
+schema = 1
+
+[paths]
+database = ".local/actio.sqlite"
+runs = "../t"
+authority = ".local/authority"
+credential_file = ".local/credentials/token_key.txt"
+python_install = ".local/python"
+venv = ".local/phase1-env"
+uv_cache = ".local/uv-cache"
+temp = ".local/tmp"
+
+[llm]
+provider = "tokenkey"
+base_url = "https://api.tokenkey.dev/v1"
+model = "gpt-5.6"
+# The current versioned gateway contract supports 512 output tokens.
+max_output_tokens = 512
+spending_policy = "uncapped"
+episodes = ["compatible"]
+
+# Optional historical inputs. Empty means unconfigured; no machine-specific fallback.
+[history]
+candidate_database = ""
+evaluation_database = ""

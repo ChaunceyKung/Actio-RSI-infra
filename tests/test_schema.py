@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import json
 from pathlib import Path
 import sqlite3
@@ -19,7 +20,7 @@ from actio.interfaces.store import Store
 
 class Schema(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12]
+        self.root=runtime_root()/uuid.uuid4().hex[:12]
         self.root.mkdir(parents=True)
         write_json(self.root/'owner.json',{'test':self.id()})
         self.evidence={'root':str(self.root),'mode':'SQLITE_MIGRATION_CONTRACT'}

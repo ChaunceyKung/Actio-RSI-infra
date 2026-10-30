@@ -1,3 +1,4 @@
+from support.paths import runtime_root, history_path
 import copy
 import json
 from pathlib import Path
@@ -25,7 +26,6 @@ from actio.interfaces.store import Store
 from actio.tasks.finite import get
 
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=Path('D:/actio-c2c1-main-v1/candidates.sqlite')
 
 
 def empty(pre):
@@ -74,12 +74,13 @@ class EvaluationPure(unittest.TestCase):
         self.evidence={'identities_unchanged':True,'balanced_arm_order':True,'old_v8_provider_rejected':True,'empty_counts':r['report']['counts'],'no_capability_pass':True}
 
     def test_copy_history_atomic_claim_decision_reopen_corruption(self):
-        root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];root.mkdir(parents=True)
-        self.evidence={'root':str(root)};before=file_hash(SOURCE)
-        src=Store(SOURCE,readonly=True)
+        source=history_path('candidate_database')
+        root=runtime_root()/uuid.uuid4().hex[:12];root.mkdir(parents=True)
+        self.evidence={'root':str(root)};before=file_hash(source)
+        src=Store(source,readonly=True)
         try:old=src.candidate_lineage()
         finally:src.close()
-        migration=migrate_evaluation_copy(SOURCE,root/'copy.sqlite');self.assertEqual(file_hash(SOURCE),before)
+        migration=migrate_evaluation_copy(source,root/'copy.sqlite');self.assertEqual(file_hash(source),before)
         s=Store(root/'copy.sqlite');initial=s.evaluation_lineage();pre=c.preregistration();body=es.plan(pre,'local_fixture')
         def deny(table):return lambda action,arg1,arg2,db,trigger:sqlite3.SQLITE_DENY if action==sqlite3.SQLITE_INSERT and arg1==table else sqlite3.SQLITE_OK
         for table in ('evaluation','evaluation_binding','evaluation_event'):
@@ -104,6 +105,6 @@ class EvaluationPure(unittest.TestCase):
         self.assertFalse(verify(seal(bad))['valid'])
         db=sqlite3.connect(root/'bad.sqlite');db.execute('PRAGMA user_version=4');db.close()
         with self.assertRaises(ContractError):Store(root/'bad.sqlite')
-        self.assertEqual(file_hash(SOURCE),before)
+        self.assertEqual(file_hash(source),before)
         write_json(root/'delivery.json',delivery)
         self.evidence.update(migration=migration,source_unchanged=True,old_decisions_unchanged=True,reopen_equal=True,transaction_rollbacks=5,duplicate_claim_rejected=True)

@@ -58,8 +58,19 @@ def evaluate(spec,source,output,raw_response=None,*,worker):
     path=publish(root,record)
     # Publish the request -> record pointer atomically, without overwriting another pointer.
     stage=root/(key+'.index.staging');stage.write_bytes(canonical({'record':record['sha256']}).encode())
-    try:os.link(stage,index)
-    finally:stage.unlink()
+    try:
+        try:
+            os.link(stage,index)
+        except PermissionError:
+            # Managed Windows workspaces can deny hardlinks; same-volume
+            # rename retains atomic create semantics for this immutable pointer.
+            os.rename(stage,index)
+        except FileExistsError:
+            require(read_json(index)['record']==record['sha256'],'measurement pointer race conflict')
+    except FileExistsError:
+        require(read_json(index)['record']==record['sha256'],'measurement pointer race conflict')
+    finally:
+        if stage.exists():stage.unlink()
     return record,False
 
 

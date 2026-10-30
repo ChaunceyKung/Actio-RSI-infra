@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "rule_version": "entrypoints-boundaries.v3",
+  "modules": 173,
+  "edges": 672,
+  "violations": []
+}

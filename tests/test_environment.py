@@ -17,6 +17,7 @@ from actio.interfaces.environments import resolve
 from actio.interfaces.export import export_bundle
 from actio.evidence.bundles.verify import analyze
 from actio.interfaces.store import Store
+from actio.profiles.settings import load_settings
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = json.loads((ROOT / 'examples/environments/tictactoe.json').read_bytes())
@@ -106,8 +107,9 @@ class SessionConformance(unittest.TestCase):
 
 class ExperimentTests(unittest.TestCase):
     def setUp(self):
-        (ROOT / '.local').mkdir(exist_ok=True)
-        self.tmp = tempfile.TemporaryDirectory(dir=ROOT / '.local')
+        temporary = load_settings(ROOT / 'actio.toml').paths['temp']
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.tmp = tempfile.TemporaryDirectory(dir=temporary)
         self.root = Path(self.tmp.name)
         self.store = Store(self.root / 'runs.sqlite', create=True)
 

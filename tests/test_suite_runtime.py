@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import copy
 import json
 from pathlib import Path
@@ -26,7 +27,7 @@ from test_suite import GUARD
 
 class SuiteRuntime(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=runtime_root()/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.secret='ACTIO_FAKE_'+uuid.uuid4().hex;self.pre=contract.preregistration();self.evidence={'root':str(self.root),'cases':[],'external_requests':0}
 
     def case(self,name,u,plans,runtime_type=None):

@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import json
 from pathlib import Path
 import subprocess
@@ -22,7 +23,7 @@ from actio.interfaces.store import Store
 
 class RuntimeTests(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12]
+        self.root=runtime_root()/uuid.uuid4().hex[:12]
         self.root.mkdir(parents=True)
         write_json(self.root/'owner.json',{'owner':'phase1b-validation','test':self.id()})
         self.db=self.root/'ledger.sqlite'

@@ -28,10 +28,19 @@ def main(argv=None):
     for n in ('plan','preflight'):
         q=sub.add_parser(n);q.add_argument('--model',choices=('gpt-5.6','claude-sonnet-4-6'),default='gpt-5.6');q.add_argument('--config',type=Path)
     q=sub.add_parser('execute');q.add_argument('config',type=Path);q.add_argument('--root',required=True,type=Path);q.add_argument('--project',type=Path,default=Path.cwd());q.add_argument('--authorized-phase1c2b1',action='store_true')
+    q.add_argument('--settings',type=Path)
+    q=sub.add_parser('run',help='run DSH + Concordia using project TOML settings')
+    q.add_argument('--settings',type=Path);q.add_argument('--root',type=Path)
+    q.add_argument('--rehearsal',action='store_true',help='real local runtime and environment with a synthetic provider')
+    q.add_argument('--predecessor',type=Path,action='append',default=[])
     q=sub.add_parser('verify');q.add_argument('directory',type=Path)
     a=p.parse_args(argv);secret=None
     try:
-        if a.command=='verify':
+        if a.command=='run':
+            from actio.interfaces.gateway_settings import run
+            r=run(a.settings,root=a.root,rehearsal=a.rehearsal,previous=a.predecessor)
+            code=0 if r['status']=='complete' else 2
+        elif a.command=='verify':
             from actio.evidence.campaigns.transport_campaign import verify_campaign
             r=verify_campaign(a.directory);code=0 if r['valid'] else 2
         elif a.command in ('plan','preflight'):
@@ -47,7 +56,7 @@ def main(argv=None):
                 path=Path(prior['path']);require(file_hash(path)==prior['sha256'],'predecessor report changed')
                 previous=json.loads(path.read_bytes())
                 require(all(w['state']=='reaped' and json.loads(w['report']).get('after',json.loads(w['report'])).get('active')==0 for ep in previous['episodes'] for w in ep['workers']),'previous workers not reaped')
-            secret=resolve_credential(a.project)
+            secret=resolve_credential(a.project,settings_path=a.settings)
             r=execute(c,a.root.resolve(),secret,operation_authorization=AUTH)
             code=0 if all(ep['error'] is None for ep in r['episodes']) and not r['not_run_episodes'] else 2
         print(canonical(r));return code

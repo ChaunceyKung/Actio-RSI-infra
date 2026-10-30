@@ -1,3 +1,4 @@
+from support.paths import runtime_root
 import copy
 import json
 from pathlib import Path
@@ -31,7 +32,7 @@ from support.transport_case import run
 
 class Transport(unittest.TestCase):
     def setUp(self):
-        self.root=(Path(__file__).resolve().parents[2]/'t')/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
+        self.root=runtime_root()/uuid.uuid4().hex[:12];self.root.mkdir(parents=True)
         self.evidence={'root':str(self.root),'cases':[],'model_requests':0}
 
     def case(self,name,plans,variant='compatible',calls=2):

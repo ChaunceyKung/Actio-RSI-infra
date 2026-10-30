@@ -13,6 +13,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[2]
 SUITES = {
     'environment': ['environment'],
+    'settings': ['settings'],
     'pure': ['modularity','preflight','transport_config','readiness_config','suite','pilot','task_diagnostics','failure_observation'],
     'state': ['contract','schema','candidate','evaluation_candidate','robustness','input_binding'],
     'runtime-local': ['runtime','failures','processes','reliability','entry_concurrency','evidence','evaluation','sotopia','task','transport','budget','readiness','gateway','gateway_lifecycle','pilot_runtime','suite_runtime','suite_evidence','candidate_runtime','evaluation_candidate_runtime','robustness_runtime'],
@@ -33,7 +34,8 @@ class Result(unittest.TextTestResult):
 
 
 def main():
-    temporary = ROOT / '.local/tmp'
+    from actio.profiles.settings import load_settings
+    temporary = load_settings(ROOT / 'actio.toml').paths['temp']
     temporary.mkdir(parents=True, exist_ok=True)
     tempfile.tempdir = str(temporary)
     p=argparse.ArgumentParser();p.add_argument('suite',choices=[*SUITES,'all-local']);p.add_argument('--output',type=Path,required=True)

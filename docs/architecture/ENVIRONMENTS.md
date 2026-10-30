@@ -1,5 +1,7 @@
 # 第一阶段 Environment Session（2026-10-30）
 
+当前路径与 LLM 选项已改为 [TOML 配置](CONFIGURATION.md)，下面的 `.local` 和父目录 `t` 是默认示例；可在 actio.toml 中更改，不再作为密钥查找的硬编码依据。
+
 Actio 负责实验调度、Agent 决策调用、Run/lease、审计和结果收集；环境拥有世界、合法性、行动者顺序、时钟和结算。当前新增通用同步实验入口，同时保留原 DSH + Concordia CLI 和证据合同。未改演化算法、Memory、Ledger 规则，也未引入 OpenRA 依赖。
 
 ## 实际控制与数据流

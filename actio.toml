@@ -3,7 +3,8 @@ schema = 1
 
 [paths]
 database = ".local/actio.sqlite"
-runs = "../t"
+# owned_root 上限 80 字符;本机仓库路径较长,runs 必须用短的绝对路径
+runs = "D:/A_t"
 authority = ".local/authority"
 credential_file = ".local/credentials/token_key.txt"
 python_install = ".local/python"

@@ -28,6 +28,9 @@ from actio.tasks.finite import get
 ROOT=Path(__file__).resolve().parents[1]
 
 
+SOURCE = history_path('candidate_database')  # runtime 测试的历史源库;未配置时整体 Skip(修复原 ImportError)
+
+
 def empty(pre):
     return seal({'schema':c.EVIDENCE,'preregistration':pre,'freeze':None,'phase_state':'local_validation',
         'entries':[{'unit':u,'evidence':None,'reason':'local subset','episode_ms':None} for u in pre['body']['units']]})

@@ -1,0 +1,77 @@
+{
+  "unit_id": "micro-48",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Over the weekend, Xiao Fang trustingly tells Xiao Li that her father is going through some changes recently, adding 'this is our family's little secret.' Xiao Li replies, 'Don't worry, I won't tell anyone.' The next day at school, chatting with a group of classmates, Xiao Li says: 'How is everyone doing lately? I hear some families are going through changes.'",
+      "question": "Does anyone say something inappropriate in this story?",
+      "options": [
+        "Someone in the story says something inappropriate.",
+        "No one in the story says anything inappropriate."
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "A fact explicitly entrusted as a family secret is repeated to classmates outside the entitled circle, so the disclosure crosses the privacy boundary. Real item; gold preserved. From ToMBench Faux-pas Recognition Test (idx 1)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "On the weekend on the basketball court, Xiao Gang tells Xiao Ming, 'My mom is sick recently, and our family wants to keep this matter private.' Xiao Ming replies, 'I understand, I won't tell anyone.' In the following days, when classmates ask out of curiosity, Xiao Ming says, 'Everything is normal at Xiao Gang's house.'",
+      "question": "Does anyone say something inappropriate in this story?",
+      "options": [
+        "Someone in the story says something inappropriate.",
+        "No one in the story says anything inappropriate."
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Same kind of private family fact as case_1, but the confidant keeps it inside the entitled circle and deflects curious outsiders, so no boundary is crossed. This is the appropriate side of the same variable, and shows the holder who withholds is not the offender. Real item; gold preserved. From ToMBench Faux-pas Recognition Test (idx 1)."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "At a team lunch, Xiao Wang was passed over for a promotion that went to a colleague. Another coworker, Xiao Zhou, loudly says in front of everyone, 'Honestly, anyone could see Xiao Wang was never management material.' The promotion result was already announced publicly to the whole team that morning.",
+      "question": "Which unit best fits the main decision here?",
+      "options": [
+        "Privacy boundary: whether a private fact should have been disclosed",
+        "Broader social tact: whether a remark was insensitive or rude in general",
+        "Relationship repair: how to apologize after a breach",
+        "White lie: whether to soften the truth to protect feelings"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Near-miss vs broader social tact: the remark is hurtful and tactless, but it leaks no private or secret information (the result was already public). Because no disclosure boundary is at stake, this routes to general tact, not this unit. SYNTHETIC, written to separate disclosure-boundary from general rudeness."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Mei promised to keep her friend's pregnancy secret, but yesterday she let it slip to a mutual friend, and now the friend who confided is hurt and feels betrayed. Mei wants to know what she should do next.",
+      "question": "Which unit best fits the main decision here?",
+      "options": [
+        "Privacy boundary: whether the information should be disclosed",
+        "Relationship repair: how to apologize and rebuild trust after the breach",
+        "Conversational implicature: what the friend's words imply",
+        "Impression management: how to look more polished"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Boundary vs relationship repair: the disclosure has already happened, so the live question is no longer whether to tell but how to make amends and restore trust. this unit only decides the disclose-or-withhold choice while the boundary is still intact. SYNTHETIC, written to mark the exit to repair-after-breach."
+    }
+  ]
+}

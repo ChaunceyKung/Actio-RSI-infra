@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-27",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming is having a birthday. He hopes for a computer or a new game as a birthday gift. On his birthday he receives a bicycle.",
+      "question": "What is Xiao Ming's emotion at this time?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Atypical emotional reactions (idx 3); a gift normally causes happiness, but the stated wish for a different gift makes the genuine feeling disappointment. Tests reading the character-specific expectation that reverses the default appraisal."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Lin Feng dances on stage. As a creative element of the choreography, he intentionally designs a moment where he appears to fall by accident, and he safely completes the whole dance. Lin Feng falls during the dance exactly as planned.",
+      "question": "What kind of emotion does Lin Feng feel?",
+      "options": [
+        "Regretful",
+        "Embarrassed",
+        "Satisfied",
+        "Jealous"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Atypical emotional reactions (idx 3). Falling on stage normally causes embarrassment, but because the fall was a deliberate part of his plan the genuine feeling is satisfaction. The atypical emotion comes from his intention, not from masking embarrassment."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiao Ming receives a bicycle on his birthday. Nothing in the story says he wanted any particular gift.",
+      "question": "What is Xiao Ming's emotion?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Typical emotional reactions (idx 1). With no contrary wish, the emotion is the ordinary goal-gain reaction of happiness, so there is no atypical appraisal to explain; this routes to the basic-emotion-appraisal capability (micro-26)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Xinxin wants to go to her friend's party tonight, but she has a stomachache. She knows that if she tells her mother about the stomachache, her mother will not let her go, so she tries to hide how she feels and her mother lets her go. On the surface she seems happy.",
+      "question": "What are Xinxin's real feelings?",
+      "options": [
+        "Sad",
+        "Scared",
+        "Happy",
+        "Disappointed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (idx 1). Here the true feeling (sad) is ordinary and is being masked by a happy display, so the puzzle is concealment, not an unusual genuine emotion. This routes to the hidden-emotion capability (micro-28), marking the boundary against atypical emotion where the genuine feeling itself is the surprise."
+    }
+  ]
+}

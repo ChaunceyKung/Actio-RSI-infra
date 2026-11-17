@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-29",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Chen Fei is playing a card game with his friend. When the game ends, Chen Fei wins and his friend loses. Chen Fei keeps a calm face instead of celebrating, because otherwise his friend may not want to play with him anymore.",
+      "question": "Why does Chen Fei appear calm on the surface?",
+      "options": [
+        "Because he does not care about winning or losing",
+        "Because he likes to hide his feelings",
+        "Because he thinks the game is not important",
+        "Because he avoids upsetting his friend"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Chen Fei card game story, idx 4; gold D). Direct match for this unit: the question asks WHY the winning emotion is managed, and the answer names the social rule (do not gloat so the friend keeps playing), not merely the inner feeling."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Mingming finds visiting his grandfather boring, but he goes every week and this visit is long. He keeps a happy face so his grandfather will not be hurt.",
+      "question": "What are Mingming's real feelings?",
+      "options": [
+        "Happy",
+        "Annoyed",
+        "Satisfied",
+        "Grateful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Mingming grandfather story, idx 1; gold B). Near-miss that teaches the boundary: this question asks only for the bare inner feeling (annoyed) behind a contrary display, with no need to state a social rule. That is the detect-the-mismatch capability (micro-28); this unit applies only when the question asks WHY the display is controlled."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Two team co-captains joke that the still-unselected players are 'the best players,' then exchange a wink and a smile before choosing Taotao, who was one of the last left. Taotao sees the wink and smile.",
+      "question": "What does Taotao do next?",
+      "options": [
+        "He walks over, extends his hand, and shows a positive, friendly attitude.",
+        "He talks to a good friend about his feelings and seeks support.",
+        "He reinterprets it positively, considering himself a 'hidden treasure' or 'secret weapon' rather than the last pick.",
+        "He shifts his attention to the upcoming game and stops focusing on the order of selection."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Emotion Regulation (co-captains story, idx 1; gold D). Boundary: Taotao does not manage an outward display for an audience; he CHANGES his own internal feeling by shifting attention away from the slight. That is the emotion-regulation capability (micro-33), which alters the inner feeling rather than the social display this unit explains."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Zhao Bo is the president of the skateboard club. While demonstrating in front of the members, he accidentally falls and gets hurt. He keeps a confident face, because if he showed how he really felt the members might lose confidence in him.",
+      "question": "Why does Zhao Bo appear confident on the surface?",
+      "options": [
+        "Because he is the president of the skateboard club",
+        "Because he wants to demonstrate excellently",
+        "Because he wants to avoid the members losing confidence in him",
+        "Because he deliberately did a wrong demonstration for everyone"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Zhao Bo skateboard-club story, idx 4; gold C). Likely wrong-shortcut case: the visible confidence is not the true feeling (embarrassment), but a role-driven display rule - a club leader keeps composure to maintain the members' trust. The answer turns on the social role, which is exactly this unit."
+    }
+  ]
+}

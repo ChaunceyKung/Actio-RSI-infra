@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-11",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Han Meimei and Xiaoming are wandering in the kitchen, they see a fruit plate, a basket, and a handbag, they find a banana in the fruit plate, Xiaoming leaves the kitchen, Han Meimei moves the banana to the handbag.",
+      "question": "After Xiaoming returns to the kitchen, where does Han Meimei look for the banana?",
+      "options": [
+        "Briefcase",
+        "Fruit plate",
+        "Handbag",
+        "Basket"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "ToMBench False Belief Task (location). The queried character (Han Meimei) made the move, so her first-order belief tracks reality: she looks in the handbag. This is the core point that a first-order belief need not be false; it is simply the character's own model of the world. A reflexive false-belief answer (fruit plate) would be wrong here."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Dehua and Sanming are company employees competing for a promotion. Today is Sanming's birthday, and he enjoys a small cake alone. Lingling, the supervisor, is talking privately with Dehua in the pantry. Sanming sees from a distance that Lingling quietly hands Dehua a document, smiles, gently pats his back, then returns to her office. Dehua checks the document, smiles, and carefully puts it into his file bag.",
+      "question": "What do you think Sanming thinks?",
+      "options": [
+        "Sanming thinks everything is normal because that is Dehua's own document.",
+        "Sanming feels angry because he is being isolated.",
+        "Sanming feels happy because his cake tastes good.",
+        "Sanming reevaluates his own promotion chances."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "ToMBench Ambiguous Story Task. First-order belief is not limited to object-transfer scenes: Sanming forms a belief from what he personally observed (the supervisor secretly favoring his rival) and updates his model of his promotion prospects. The task is to reconstruct his belief from his own evidence."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Han Meimei and Xiaoming are wandering in the kitchen, they see a fruit plate, a basket, and a handbag, they find a banana in the fruit plate, Xiaoming leaves the kitchen, Han Meimei moves the banana to the handbag.",
+      "question": "Where is the banana now?",
+      "options": [
+        "Fruit plate",
+        "Basket",
+        "Drawer",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Same surface story, but the question asks for the real current location, not anyone's belief. Over-applying belief reasoning (answering the absent person's view, fruit plate) gives the wrong answer; the target here is the physical fact, which is not a belief diagnosis at all."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Han Meimei and Xiaoming are wandering in the kitchen, they see a fruit plate, a basket, and a handbag, they find a banana in the fruit plate, Xiaoming leaves the kitchen, Han Meimei moves the banana to the handbag.",
+      "question": "After Xiaoming returns to the kitchen, where does Han Meimei think Xiaoming looks for the banana?",
+      "options": [
+        "Cabinet",
+        "Fruit plate",
+        "Basket",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "The query nests one mind in another: Han Meimei's model of Xiaoming's belief. Answering with Han Meimei's own (true) first-order belief, the handbag, fails; the correct answer requires second-order (recursive) belief. This marks the boundary where first-order belief is no longer enough."
+    }
+  ]
+}

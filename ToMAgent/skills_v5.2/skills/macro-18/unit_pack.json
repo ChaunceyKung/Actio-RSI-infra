@@ -1,0 +1,130 @@
+{
+  "frontmatter_description": "Direct-route macro for scenes where conflicting sides must reach a mutually acceptable plan through offers, concessions, trade-offs, or shared adjustment.",
+  "title": "Negotiation, Compromise, and Joint Plan",
+  "use_when": [
+    "Use when two or more sides have partly conflicting goals and the answer depends on finding a mutually acceptable plan.",
+    "Use when both sides must adjust, concede, trade, prioritize, or coordinate rather than one side simply winning.",
+    "Use when the question asks what offer, compromise, joint plan, or next negotiation move would work best.",
+    "Use when preferences, obligations, fairness, relationship preservation, or long-term cooperation shape the agreement."
+  ],
+  "do_not_use_when": [
+    "Do not use for one-way persuasion where one speaker keeps a fixed goal and only the listener must change; there, the task is to find the appeal or incentive that moves the listener, with no concession from the speaker.",
+    "Do not use when the question only asks which single allocation, choice, or outcome is best among conflicting wants, with no back-and-forth exchange; that is a preference-conflict decision judged by the result, not a bargaining process.",
+    "Do not use for live misunderstanding repair unless, after the facts are clarified, a substantive plan still has to be bargained out.",
+    "Do not use for apology or reconciliation unless the answer turns on the concrete negotiated remedy or compensation rather than the act of making amends.",
+    "Do not use for self-presentation or impression management unless the core task is actually reaching an agreement.",
+    "Do not use for hierarchy-only communication unless mutual trade-offs, not rank, decide the right move."
+  ],
+  "decision_variable": "how conflicting sides can reach a mutually acceptable plan through concessions",
+  "direct_route_rule": "Route immediately when the case requires offers, concessions, trade-offs, or a shared solution under conflict.",
+  "expandable_micro_ids": [
+    "micro-19",
+    "micro-20",
+    "micro-25",
+    "micro-44",
+    "micro-51"
+  ],
+  "trigger_checklist": [
+    "At least two parties want different outcomes or have competing priorities.",
+    "A successful answer requires mutual adjustment, not unilateral compliance.",
+    "There is room for an offer, concession, trade-off, split, rotation, compensation, timing change, or shared plan.",
+    "The scene asks what they should agree to, what would be fair, what offer would work, or how to resolve the conflict.",
+    "Each side has interests that can be separated from its initial stated demand.",
+    "Maintaining cooperation, fairness, trust, or future interaction matters."
+  ],
+  "workflow": [
+    "Name each party and state their surface position: the concrete thing each side says it wants.",
+    "Infer each side's underlying interests: the needs, constraints, deadlines, values, or relationships driving the position. For each side, identify its one must-have (non-negotiable) versus what it can flex on or trade away.",
+    "Separate fixed constraints from flexible preferences on BOTH sides; do not assume all demands carry equal weight or that one side's want outranks the other's by default.",
+    "Map the trade space: look for items one side values highly that cost the other side little, plus timing swaps, taking turns, partial sharing, rotation, compensation, bundling, or conditional 'if you do X, I'll do Y' deals.",
+    "Construct a plan in which BOTH sides give something up AND both protect their must-have. If your draft only moves one side while the other concedes nothing, it is persuasion, not a negotiated plan; revise until each side both gives and gains.",
+    "Verify acceptability for each side in turn: would Side A accept this (its must-have is safe, its loss is bearable)? Would Side B? If either would walk away, adjust the package.",
+    "Check feasibility and fairness: the plan must be specific and implementable, and must not secretly load the whole burden onto one party.",
+    "If trust or future cooperation matters, add a concrete follow-up, accountability step, or respectful explanation.",
+    "Answer with the recommended agreement, naming what each side concedes and what each side keeps, and why both would say yes."
+  ],
+  "special_case": {
+    "title": "Position conflict with hidden compatible interests",
+    "rule": "When the stated demands appear incompatible, test whether the underlying interests can be satisfied by a different package instead of splitting the visible object or choosing one winner.",
+    "worked_example": {
+      "scene": "Two roommates both want the only quiet room on Saturday. One needs it from 9 to 12 for an online exam; the other wants it all day to prepare a presentation due Monday.",
+      "question": "What compromise should they make?",
+      "answer_logic": "Do not treat the conflict as an all-day winner-takes-room dispute. The exam has a fixed time constraint, while the presentation preparation is more flexible. A good plan gives the exam-taker the room from 9 to 12, gives the presenter the room afterward, and may add quiet rules or a backup workspace. Both sides adjust while protecting their highest-priority need."
+    }
+  },
+  "boundary_exit_rule": [
+    "If only ONE side needs to move and the speaker keeps their goal fixed and offers no concession of their own, this is one-way persuasion, not negotiation. Solve it by finding the appeal, reason, or incentive that shifts the listener; do not invent a give-and-take the scene does not contain.",
+    "If the conflict is really just a misunderstanding and simply clarifying the facts dissolves it with no trade-off needed, treat it as misunderstanding repair: establish what each party actually meant first, and check whether agreement follows automatically once the facts line up.",
+    "If the main task is to express remorse, acknowledge harm, or make amends after an offense, treat it as apology and reconciliation: lead with acknowledgment and repair, and only bargain over terms if the scene's central question is the concrete remedy.",
+    "If the scene only asks which single allocation, choice, or outcome is correct among conflicting wants, and there is no back-and-forth exchange of concessions, treat it as a preference-conflict decision: pick the best outcome on the merits without modeling a bargaining process.",
+    "If the question is how someone should present themselves, introduce themselves, or manage formality or impression, that is self-presentation, not reaching agreement; reason about the impression to convey rather than terms to trade.",
+    "If the deciding factor is power or rank (who may grant permission, escalate, or defer) rather than mutual trade-offs, reason first about the hierarchy and the appropriate move within it, treating any bargaining as secondary."
+  ],
+  "references": {
+    "route_signal": "A conflict scene asks for a workable agreement: both sides have interests, both sides can adjust, and the answer should be a concession-based or trade-off-based joint plan.",
+    "hard_boundary": [
+      "Not one-way persuasion: if only the listener must be convinced and the speaker's goal stays fixed and the speaker concedes nothing, it is persuasion; solve by finding the appeal that moves the listener.",
+      "Not a preference-conflict decision: if the task is only to pick the single best allocation or outcome among conflicting wants, with no exchange of concessions, judge the outcome on the merits instead of modeling a bargain.",
+      "Not pure misunderstanding: if clarifying the facts alone dissolves the conflict, resolve what each party meant rather than trading terms.",
+      "Not pure apology: if the main answer is remorse and repair after an offense, lead with acknowledgment, not bargaining.",
+      "Not pure power communication: if rank decides permission, escalation, or deference more than mutual trade-offs, reason about the hierarchy first."
+    ],
+    "shortcut_to_avoid": [
+      "Do not pick the loudest, highest-status, or first-mentioned party as the winner.",
+      "Do not split the difference automatically when one side has a fixed constraint and the other has a flexible preference.",
+      "Do not confuse a compromise with both sides being equally unhappy; a good compromise protects each side's most important interest.",
+      "Do not propose vague cooperation without a concrete allocation, concession, or next step."
+    ],
+    "common_failure_modes": [
+      "Producing a one-sided win: moving only the other party while the proposer concedes nothing. That is persuasion, not negotiation; a real joint plan requires BOTH sides to give something up.",
+      "Just picking an outcome: choosing whichever single want should prevail without constructing any exchange or trade between the parties.",
+      "Ignoring one party's must-have: trampling a non-negotiable need, so the proposed plan is one the slighted side would actually reject.",
+      "Ignoring hidden interests behind stated positions, so the trade space that would have satisfied both is never found.",
+      "Assuming fairness means equal division even when needs, costs, deadlines, or obligations differ between the sides.",
+      "Offering vague cooperation or an emotionally appealing gesture that is not a specific, implementable allocation or concession.",
+      "Forgetting the relationship or trust cost of an aggressive bargain that wins terms but damages future cooperation."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Two coworkers both want the same Friday off; one has an unmovable family event, the other just wants a long weekend and is flexible about which Friday. They settle on the first taking this Friday and the second taking a different Friday plus a shift swap.",
+        "why_it_matches": "Both sides hold conflicting preferences and BOTH adjust: one keeps the fixed date, the other moves dates and covers a swap, yielding a plan each accepts."
+      },
+      {
+        "case": "A child wants to go to the amusement park; the parent objects that it is too noisy. The child argues 'we could go early when it is quieter' to win the parent over, while still aiming squarely at the amusement park.",
+        "why_it_matches": "This does NOT match: the child's goal never moves and the child concedes nothing real; the task is to find the appeal that shifts the parent, which is one-way persuasion."
+      },
+      {
+        "case": "Given one outdoorsy friend and one indoor-loving friend, the question asks only which single venue best suits an outing the indoor friend is planning, and the answer is the one option both could enjoy.",
+        "why_it_matches": "This does NOT match: it asks only which outcome to pick among conflicting tastes, with no back-and-forth concessions; it is a preference-conflict decision judged by the result, not a bargaining process."
+      }
+    ],
+    "boundary_stress_test": [
+      "If one side tries to convince the other to accept a plan, ask whether the persuader ALSO changes their own terms. If the persuader's goal is fixed and they concede nothing, it is one-way persuasion; only treat it as negotiation when both sides give something up.",
+      "If the prompt simply asks which single option, venue, or allocation conflicting parties should pick, ask whether any concessions are exchanged. If the answer is just the best outcome on the merits, it is a preference-conflict decision, not a bargained joint plan.",
+      "If one side apologizes and offers to pay for damage, ask whether the core answer is the act of repair or the specific remedy terms; treat it as negotiation only when settling the terms is the main issue.",
+      "If a supervisor and employee bargain over deadlines, keep this scope only if mutual trade-offs are central; if rank governs the appropriate move, reason about the hierarchy first.",
+      "If the parties clash because they interpreted a statement differently, first check whether clarifying the facts alone removes the conflict before constructing any trade."
+    ],
+    "generalization_note": "This macro generalizes across family decisions, workplace scheduling, roommate conflicts, resource allocation, team planning, service disputes, and diplomatic-style trade-offs whenever the solution requires reciprocal adjustment around underlying interests."
+  },
+  "validation_seed": {
+    "positive_pattern": "Two parties want incompatible plans, each has negotiable and non-negotiable interests, and the correct answer proposes a specific trade-off or concession that BOTH sides give into and can accept.",
+    "near_miss_pattern": "One person tries to win another over while keeping their own goal fixed and conceding nothing; the task is one-way persuasion (find the appeal that moves the listener), not mutual bargaining.",
+    "boundary_pattern": "Conflicting wants where the question asks only which single outcome or allocation to pick, with no exchange of concessions; judge the best result rather than model a back-and-forth bargain."
+  },
+  "notes": [
+    "This is a direct scene prototype, not a bundle of micro skills.",
+    "The optional micro expansions support diagnosis of preferences, shared goals, commitments, trust, and role-based fairness.",
+    "The core boundary is that negotiation requires both sides to adjust."
+  ],
+  "id": "macro-18",
+  "level": "macro",
+  "layer": "macro",
+  "family": "decision-conflict",
+  "core_question": "how conflicting sides can reach a mutually acceptable plan through concessions",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

@@ -1,0 +1,169 @@
+# Unified gate config — single config across all ToM-family datasets.
+#
+# Rules reason in terms of (nesting, StandardMeta) instead of dataset name.
+# • nesting:       int counted from question text via regex (verified 100% on Hi-ToM)
+# • StandardMeta:  produced by tom_harness/gate/meta_translators.py from raw metadata
+#
+# Match semantics (per rule, all conditions must hold):
+#   nesting:           int | ">=N" | "<=N" | "==N"
+#   construct:         scalar | list   (∈ belief, emotion, intention, irony, norm, mixed)
+#   false_belief_kind: scalar | list   (∈ none, sally_anne, deception, hidden_change)
+#   deception:         bool
+#   dialogue_format:   bool
+#   difficulty_hint:   scalar | list   (∈ low, mid, high)
+#
+# Rules evaluated top-to-bottom; first match wins. Last rule (no `when`) is the default.
+#
+# Bucket annotations show the largest contributing datasets, so the rule is
+# auditable across the whole 18.8k-sample pool.
+
+mode: "on"
+
+# Default if no rule matches (acts as the implicit terminal rule).
+default_gate: {skill: true, rag: true, memory: true}
+
+rules:
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier A — Deep recursive belief
+  #   Empirically: every model loses state past 3 levels of "thinks". Extra
+  #   modules add noise; only memory bullets (perspective + time-lock) help.
+  #   Buckets: Hi-ToM order_3/4 (240), CogToM 2nd-Order False Belief (279),
+  #            ToMBench Second-order beliefs (200).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "deep_recursive_belief"
+    when:
+      nesting: ">=3"
+    gate: {skill: false, rag: false, memory: true}
+    memory_focus: ["ph-00065", "sai-00128", "sai-00130", "sai-00134"]
+    scaffold: "belief_table"
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier B — Second-order belief (when one specific carve-out applies)
+  #   Tactful-ToM "belief:accessible" is second-order in dialogue with deception.
+  #   Its own ablation says all-modules helps. Carved out before the generic
+  #   second-order rule so we don't regress that dataset.
+  #   Buckets: Tactful-ToM belief:accessible (1344).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "deception_dialogue_belief_second_order"
+    when:
+      nesting: 2
+      deception: true
+      dialogue_format: true
+      construct: "belief"
+    gate: {skill: true, rag: true, memory: true}
+    memory_focus: ["sai-00128", "deception_belief_divergence"]
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier C — Generic second-order belief
+  #   Hi-ToM order_2: Memory alone gives +13.3pp, full modules only +4.2pp.
+  #   The interference penalty is steep; lean on memory bullets exclusively.
+  #   Buckets: Hi-ToM order_2 (120), CogToM 2nd-Order partial.
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "second_order_belief"
+    when:
+      nesting: 2
+    gate: {skill: false, rag: false, memory: true}
+    memory_focus: ["sai-00128", "sai-00130", "sai-00134", "ph-00065"]
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier D — Deception, first-order or below
+  #   "Lie/pretend" tasks: macro-01 helps only when there's an explicit
+  #   unseen-move pattern. Skill on + RAG off + Memory on with a deception
+  #   bullet added.
+  #   Buckets: Tactful-ToM (most non-belief:accessible tasks ~2900),
+  #            ToMBench Faux-pas (560), CogToM Pretend/Flattery (669).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "deception_low_order"
+    when:
+      deception: true
+      nesting: "<=1"
+    gate: {skill: true, rag: false, memory: true}
+    skill_allow: ["macro-01", "micro-13"]
+    memory_focus_add: ["deception_belief_divergence"]
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier E — Classic Sally-Anne (no deception)
+  #   Hi-ToM finding: macro-01 *hurts* when forced on order_1. Memory alone
+  #   is best. Whitelist macro-01 only when there's a true unseen-move pattern.
+  #   Buckets: Hi-ToM order_1 no-deception (60), ToMBench False Belief (600),
+  #            CogToM False Belief Task: Location (364).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "classic_first_order_false_belief"
+    when:
+      nesting: 1
+      false_belief_kind: "sally_anne"
+      deception: false
+    gate: {skill: false, rag: false, memory: true}
+    memory_focus: ["sai-00130", "sai-00134", "ph-00065"]
+    # Note: tentatively skill-off based on Hi-ToM ablation. ToMBench may want
+    # skill on — verify via per-dataset slice in the v1 ablation run.
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier F — First-order belief, intuitive (no unseen change)
+  #   "Where does X think it is?" with no Sally-Anne setup. Hi-ToM order_0
+  #   factual + cogtom Percept-style questions.
+  #   Buckets: Hi-ToM order_0 (120), CogToM Percept (500), CogToM Knowledge (846).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "factual_belief_retrieval"
+    when:
+      nesting: "<=1"
+      construct: "belief"
+      false_belief_kind: ["none", "hidden_change"]
+    gate: {skill: true, rag: true, memory: true}
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier G — Emotion understanding
+  #   EmoBench EU + CogToM Emotion + ToMBench Emotion. Modules complement
+  #   here: skill structures (e.g., emotion-cause), memory adds heuristics,
+  #   rag adds commonsense (e.g., what causes embarrassment).
+  #   Buckets: CogToM Emotion (1306), EmoBench (554), ToMBench Emotion (420),
+  #            Social-IQA reactions (387).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "emotion_understanding"
+    when:
+      construct: "emotion"
+    gate: {skill: true, rag: true, memory: true}
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier H — Intention recognition
+  #   Includes desire/motivation reasoning. Skill scaffolds the
+  #   action-from-intent step; RAG noise typically hurts.
+  #   Buckets: CogToM Intention/Desire (1847), Social-IQA wants/needs (997),
+  #            ToMBench Intention (520), ICTBench intention (72).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "intention_recognition"
+    when:
+      construct: "intention"
+    gate: {skill: true, rag: false, memory: true}
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier I — Irony / non-literal communication
+  #   ToMBench Non-Literal + CogToM Non-literal. Skill helps frame the
+  #   literal-vs-implied gap; memory provides patterns.
+  #   Buckets: ToMBench Non-Literal (628), CogToM Non-literal (778).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "irony_nonliteral"
+    when:
+      construct: "irony"
+    gate: {skill: true, rag: false, memory: true}
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier J — Social norm reasoning
+  #   ICTBench social_norm_reasoning + EmoBench EA. Norm reasoning benefits
+  #   from RAG (cultural conventions) and skill (norm-deviation framing).
+  #   Buckets: ICTBench social_norm_reasoning (24), EmoBench EA (400).
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "norm_reasoning"
+    when:
+      construct: "norm"
+    gate: {skill: true, rag: true, memory: true}
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Tier K — Default / mixed / unknown
+  #   Mixed construct (CogToM Comprehensive, Social-IQA effects/descriptions,
+  #   ToMBench Strange Story Emotion blends). When in doubt: all modules.
+  # ────────────────────────────────────────────────────────────────────────────
+  - name: "default_all_modules"
+    when: {}
+    gate: {skill: true, rag: true, memory: true}

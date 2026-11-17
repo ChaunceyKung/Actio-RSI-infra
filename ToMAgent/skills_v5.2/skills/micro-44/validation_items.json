@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-44",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "For months, Sam has driven Lee to work every day. Lee never offers gas money, never takes a turn driving, and has now started asking Sam for extra weekend rides too.",
+      "question": "Is Lee being fair to Sam in this exchange?",
+      "options": [
+        "No - Lee keeps taking the benefit without giving anything comparable back.",
+        "Yes - Lee is friendly and grateful, so the arrangement is fine.",
+        "The real issue is who is at fault for a problem and whether an apology is owed.",
+        "The real issue is what new ride-sharing arrangement they should agree on."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC (no dedicated ToMBench fairness task exists; written benchmark-style). Core positive: a settled, one-sided exchange where one party never reciprocates, so the verdict is unfair. Distractor D is the negotiation trap; C is the blame/repair trap."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Three colleagues split a taxi. Nina pays nothing because she is being dropped off first and only rode for two of the ten miles, while the other two, who ride the full distance, split the rest. Everyone agreed to pay for the distance they actually travel.",
+      "question": "Is this cost split unfair to the two colleagues who pay more?",
+      "options": [
+        "No - the larger share is justified because they used far more of the ride.",
+        "Yes - any time people pay different amounts, it is unfair.",
+        "The real issue is how they should feel about the arrangement.",
+        "The real issue is bargaining for a cheaper fare."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC (benchmark-style; no ToMBench fairness task). Tests the 'any inequality = unfair' shortcut: an unequal split is fair when proportional to what each side received. Distractor B is the failure mode this unit warns against."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Two roommates have just signed up for shared internet and have not yet decided how to divide the bill. One uses it far more for work and proposes paying 60%; the other suggests a simple 50/50. They are talking it through to settle on a split both can accept.",
+      "question": "What kind of social-reasoning task is this primarily?",
+      "options": [
+        "Judging whether an existing exchange is fair and reciprocal.",
+        "Reaching a mutually acceptable split through give-and-take.",
+        "Deciding who is to blame for harm.",
+        "Reading how each roommate feels about the other."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "SYNTHETIC near_miss for the primary confusion. Single-variable flip from case_1: nothing is settled yet, so the task is to reach a deal (negotiation), not to render a fairness verdict on an arrangement already in place."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "During the big cleanup, Xiao Min does all the work alone because Xiao Hua completely forgets about it and goes out to play with friends.",
+      "question": "What kind of emotion does Xiao Min have?",
+      "options": [
+        "Happy",
+        "Angry",
+        "Sadness",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Emotions (idx 1); real item, gold preserved exactly. Boundary anchor: the situation IS an unfair, non-reciprocal split (Xiao Min carries the whole burden), but the question asks for the EMOTION it triggers, not a fairness verdict - so it routes to moral emotions, not this unit. Shows that an obvious fairness fact does not by itself make a scene a fairness-judgment task."
+    }
+  ]
+}

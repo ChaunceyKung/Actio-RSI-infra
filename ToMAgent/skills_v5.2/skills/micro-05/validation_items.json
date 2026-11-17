@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-05",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming and Xiao Li are wandering in the bank, they see a handbag and a box, they find chalk in the handbag, Xiao Li leaves the bank, Xiao Ming moves the chalk to the box.",
+      "question": "What does Xiao Li see in the box?",
+      "options": [
+        "Does not see",
+        "Handbag",
+        "Tote Bags",
+        "Chalk"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "ToMBench Percepts-Knowledge item. Xiao Li had already left the bank before the chalk was moved into the box, so the move never reached any of her sense channels. The deciding variable is pure perceptual access: with no line of sight to the box at the time of the move, she sees nothing in it. Answering 'Chalk' from the reader's god's-eye view is the shortcut to avoid."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiao Ming and Xiao Li are wandering in the bank, they see a handbag and a box, they find chalk in the handbag, Xiao Li leaves the bank, Xiao Ming moves the chalk to the box.",
+      "question": "After Xiao Li returns to the bank, does Xiao Li know where the chalk is now?",
+      "options": [
+        "Does not know",
+        "Knows, in the handbag",
+        "Knows, in the Tote Bags",
+        "Knows, in the box"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Same ToMBench scene, one step downstream: knowing the new location requires having had sensory access to the move. Because the channel was closed during the move (she was outside) and the chalk is now hidden inside the box on her return, access gates knowledge and the answer is 'Does not know.' This shows the unit feeding a knowledge judgment without itself becoming a belief task."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "On a winter vacation evening, Wang Lei, Liu Ting, and Xiao Ming play toys together at home. They first play with the first novel toy - an electric car, then they play with the second novel toy - a puzzle. At this time, Wang Lei says, \"I have something to do and need to leave the room\", and he leaves after closing the door. Liu Ting says, \"Oh, he leaves, it doesn't matter, we play together.\" Liu Ting and Xiao Ming play with the third novel toy - colored pencils. After playing, they put all three toys in a plate on the table. At this time, Wang Lei comes back, looks at the three toys in the tray, and excitedly says, \"Oh, look! Look at that toy!\", \"Xiao Ming, can you pass it to me?\"",
+      "question": "What does Xiao Ming most likely do?",
+      "options": [
+        "Xiao Ming picks out the electric car and gives it to Wang Lei",
+        "Xiao Ming picks out the puzzle and gives it to Wang Lei",
+        "Xiao Ming picks out the colored pencils and gives it to Wang Lei",
+        "Xiao Ming randomly picks one of the three toys and gives it to Wang Lei"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "ToMBench Knowledge-Attention item used as a near miss. On Wang Lei's return all three toys are equally in front of him, so sensory access is fully satisfied and cannot single any toy out. The deciding variable is which toy is new to Wang Lei's focus - the colored pencils he never saw being introduced. Over-applying sensory access here gives no discriminating answer; this routes to attention and salience instead."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "In a space station on the orbit of a distant planet, a robot named Tinklo lives. This space station has an artificial environment, there is no form of plant life inside, so Tinklo does not understand any plant-related information. However, the space station is full of various mechanical devices and robots. Tinklo is performing imitation behavior: it sways from side to side, occasionally bends to the ground, these actions are similar to flowers swaying in the wind and people smelling flowers.",
+      "question": "What does Tinklo possibly imitate?",
+      "options": [
+        "Sunflowers swaying in the wind.",
+        "A robot bending over to pick up objects.",
+        "A person smelling a rose.",
+        "A windmill with rotating blades."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "ToMBench Knowledge-Pretend item used as a boundary. Perception is a non-issue: Tinklo can sense its own movements and surroundings perfectly. What it cannot do is draw on knowledge of plants, which it has never had, so the swaying-and-bending must map onto something mechanical it does know. The deciding variable is background knowledge, which routes to knowledge boundary, not sensory access."
+    }
+  ]
+}

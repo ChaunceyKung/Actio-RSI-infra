@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-04",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming is having a birthday. He hopes for a computer or a new game as a birthday gift. On his birthday he receives a bicycle.",
+      "question": "What is Xiao Ming's emotion at this time?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From a ToMBench Unexpected Outcome (atypical emotion item). The outcome, that he received a gift, biases a naive solver toward 'Happy', and a solver who would personally like a bicycle projects that preference onto him. Auditing both pulls and honoring his actual desire, a computer or game, yields 'Disappointed'. This is the core outcome-and-perspective bias case."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xiao Hong gives Xiao Fang a look, glances toward the swing, and smiles. Xiao Fang nods and the two stand up. The story never states Xiao Hong's reason.",
+      "question": "Which explanation best fits why Xiao Hong smiles at Xiao Fang?",
+      "options": [
+        "She smiles to suggest doing something together by the swing.",
+        "She smiles because she sees something interesting on the playground.",
+        "She smiles because she remembers a joke.",
+        "She smiles because she likes playing after school."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Near miss: several explanations must be compared to find the best fit, which is explanation competition, not a bias audit. There is no hindsight, projected preference, or moral reaction to check, so this routes to explanation competition."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Mia stood behind a closed door while a key was placed on a shelf in the next room. The question is whether she could have seen where the key was put from her position.",
+      "question": "Which capability fits best?",
+      "options": [
+        "Anti-bias check",
+        "Sensory access or spatial perspective",
+        "Evidence-chain construction",
+        "Explanation competition"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Hard boundary: the issue is visibility and viewpoint, whether Mia could perceive the placement, not whether the solver's judgment is distorted. Route to sensory access or spatial perspective, not bias auditing. (Synthetic.)"
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "After learning that a driver crashed, an observer says the driver must have been reckless and feels the harm makes that obvious, even though nothing about how the driver was actually driving is stated.",
+      "question": "Should that reaction be trusted as proof?",
+      "options": [
+        "Yes. A bad result shows reckless behavior.",
+        "Yes. A strong moral feeling is enough here.",
+        "No. Check whether hindsight or blame is distorting the judgment.",
+        "No. This is about what the driver believed."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Tests the moral-intuition and hindsight shortcut: a bad outcome drives a snap blame judgment that the driver was reckless, but knowing the crash happened makes that look more obvious than the evidence warrants. A blame reaction should not replace evidence. (Synthetic.)"
+    }
+  ]
+}

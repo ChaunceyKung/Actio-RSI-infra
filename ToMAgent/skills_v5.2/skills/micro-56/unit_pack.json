@@ -1,0 +1,98 @@
+{
+  "frontmatter_description": "Identify the cause of an outcome without switching to blame, responsibility, or moral judgment.",
+  "title": "Causal Attribution",
+  "use_when": [
+    "Use when the question asks what person, event, or condition caused an outcome.",
+    "Use when the task is to identify the causal source of a result, change, or event.",
+    "Use when the scene asks what led to, triggered, produced, or made something happen.",
+    "Use when the answer should name the cause even if no one is being judged."
+  ],
+  "do_not_use_when": [
+    "Do not use when the main issue is who is at fault, responsible, guilty, or deserving blame.",
+    "Do not use when the question is about moral evaluation, apology, fault assignment, or deserved punishment.",
+    "Do not use when the task is predicting beliefs, intentions, emotions, or actions rather than naming a cause.",
+    "Do not use when the main issue is probability, typicality, quantity update, or evidence strength instead of causation."
+  ],
+  "decision_variable": "the cause of the result",
+  "trigger_checklist": [
+    "The question asks 'why' did this happen, or 'what caused / led to / produced' this outcome.",
+    "It wants the factor that explains a result, often a surprising or unexpected one, not a moral verdict.",
+    "The right answer can be a hidden condition, background fact, or accident, not necessarily a person who is at fault.",
+    "If the question instead asks who is to blame, who should apologize, or who said the wrong thing, this is NOT the unit."
+  ],
+  "workflow": [
+    "Step 1: Name the outcome that needs explaining (often a surprising emotion or event: 'should feel X but feels Y').",
+    "Step 2: Read the literal question. Confirm it asks for the CAUSE (why / what produced it), not who is to blame, who should apologize, or what someone intended to do on purpose. If it asks for blame or fault, stop and route to the harm-and-responsibility judgment instead.",
+    "Step 3: Scan the scene and options for the factor that actually produces the outcome. It is whatever fills the gap between expectation and reality (e.g. he wanted a computer, not a bicycle; the brother sacrificed for the tuition).",
+    "Step 4: Pick that causal factor even when it is an accident, a hidden background condition, or carries no blame. Do NOT upgrade it to a guilty party, a moral verdict, or an inferred intention."
+  ],
+  "special_case": {
+    "title": "Surprising-outcome 'why' questions ask for the cause, not blame",
+    "rule": "When a scene says someone should feel one way but feels another and asks why, the answer is the hidden fact or condition that explains the reaction. It is a causal explanation, not a judgment of who is good, bad, or at fault.",
+    "worked_example": {
+      "scene": "Xiao Ming receives a bicycle on his birthday. He should be very happy, but he is very disappointed.",
+      "question": "Why is he disappointed?",
+      "answer_logic": "The cause is the gap between expectation and reality: he hoped for a computer, not a bicycle. Answer with that explaining condition. No one is being blamed, so do not reach for fault or apology language.\n\nNon-emotion causal illustration (same operation, no surprising-feeling template): \"An old footbridge collapsed during routine use. What caused it to collapse?\" The cause is the physical factor that produced the failure: a corroded support bolt that finally gave way. That is the answer even though it is an accident with no one at fault and no emotion involved. Causal attribution covers physical and event-based 'why did this happen' questions, not only 'should feel X but feels Y' scenes; name the producing factor, not a culprit."
+    }
+  },
+  "boundary_exit_rule": [
+    "PRIMARY confusion (cause vs blame): if the question asks who is at fault, guilty, responsible, should apologize, said the wrong thing, or deserves a moral verdict, that is a blame and social-fault judgment, not causal attribution; route to the harm-and-responsibility neighbor. Naming the factor that produced the outcome stays here; judging the person who produced it leaves.",
+    "If the scene asks the immediate purpose behind an on-purpose act (why someone DID something deliberately), that is intention reading, handle it there, not here.",
+    "If the main task is estimating how likely something is, how typical it is, or updating a quantity, route to the likelihood / quantity-estimation neighbor.",
+    "If the focus is how new evidence shifts a person's belief, route to the belief-update neighbor rather than treating it as a cause-of-outcome question."
+  ],
+  "references": {
+    "route_signal": "Use this unit when the prompt asks WHY an outcome happened or WHAT caused, produced, or led to it, especially a surprising result where someone 'should feel X but feels Y'. The answer is the explaining factor, not a verdict on who is to blame.",
+    "hard_boundary": [
+      "Naming a cause is not assigning blame. The cause may be an accident, a hidden background fact, or no one's fault at all.",
+      "A cause can be an event, condition, unmet expectation, OR a person's action: naming who DID the thing that produced the outcome is still causal attribution and stays in this unit. Only a question asking who is at FAULT, guilty, responsible, should apologize, or said the wrong thing exits to the harm-and-responsibility neighbor."
+    ],
+    "shortcut_to_avoid": [
+      "Do not slide from 'what caused it' to 'who is the bad / guilty person.'",
+      "Do not pick the person nearest the outcome when the real cause is a hidden condition or unmet expectation.",
+      "Do not infer the actor's intention or purpose when the question only asks for the cause of a result."
+    ],
+    "common_failure_modes": [
+      "Answering a 'why is he disappointed' question with a blame target instead of the unmet-expectation cause (he wanted a computer, not a bicycle).",
+      "Picking a surface detail in the scene over the factor that actually explains the surprising reaction.",
+      "Treating an accidental or no-fault cause as wrong because it is not blameworthy.",
+      "Mistaking a 'who is at fault / who should apologize / which sentence was inappropriate' question for a cause question and answering with a cause anyway."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A composition-contest winner casually tells the disappointed loser his entry was 'just a bit regrettable.' Question: why does the loser feel hurt?",
+        "why_it_matches": "Asks for the CAUSE of the feeling (the careless remark plus his crushed hope of winning). Stays in this unit."
+      },
+      {
+        "case": "Same scene. Question: which sentence was inappropriate / who said the wrong thing?",
+        "why_it_matches": "Single variable flipped from cause to social fault. This now asks who is at fault, so it routes to the harm-and-responsibility / faux-pas neighbor, not here."
+      }
+    ],
+    "boundary_stress_test": [
+      "If a person caused harm by accident, can you still name the cause without declaring them guilty?",
+      "When the scene gives a surprising emotion, can you find the hidden condition that explains it rather than a surface detail?",
+      "If the wording sounds like blame ('who should apologize'), check: does it ask for the cause, or for fault? If fault, exit this unit."
+    ],
+    "generalization_note": "Covers causal explanation across physical, social, and event-based scenes, but only when the answer variable is the cause that produced the outcome, not blame, intention, or responsibility."
+  },
+  "validation_seed": {
+    "positive_pattern": "A scene asks why a (often surprising) outcome happened, and the correct answer is the condition, event, or unmet expectation that produced it.",
+    "near_miss_pattern": "A scene involves harm, error, or an awkward remark, but the question asks who is at fault, who should apologize, or which sentence was inappropriate.",
+    "boundary_pattern": "A scene names a clear cause, but the actual question is to judge responsibility or assign blame rather than to name the cause."
+  },
+  "notes": [
+    "Keep the causal answer concrete and tied to what the scene states; for surprising-emotion items, it is the hidden fact that explains the reaction.",
+    "If the scene offers both a cause and a blame target, follow the question wording: choose the causal factor only when the question asks for the cause.",
+    "Do not infer moral status, guilt, or intention from the mere fact that something caused an outcome."
+  ],
+  "id": "micro-56",
+  "level": "micro",
+  "layer": "L7",
+  "family": "quantity-probability",
+  "core_question": "Identify which person, event, or condition caused an outcome",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

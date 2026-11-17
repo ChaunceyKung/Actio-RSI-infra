@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-36",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Almost every letter to Laura's company contains a check. Today Laura receives 5 letters. On the phone Laura tells you: \"I looked at 3 out of the 5 letters. There are checks in 2 of them.\"",
+      "question": "Before Laura's call, how many of the 5 letters do you think contain checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (Laura letters, idx 1, gold D); tests the decisive variable, the implied quantity. The words state only '2 of 3', but 'almost every letter' projected over all 5 implies about 4."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "At a zoo there are 9 monkeys, and almost one third of them are female. Xiao Li counts 8 of the monkeys and finds that 2 of those are female.",
+      "question": "Before Xiao Li counted, how many female monkeys would you guess are in the zoo?",
+      "options": [
+        "Before counting, guess 0 female monkeys.",
+        "Before counting, guess 2 female monkeys.",
+        "Before counting, guess 1 female monkey.",
+        "Before counting, guess 5 female monkeys."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (zoo monkeys, idx 1, gold B); the implicit information comes from projecting 'almost one third of 9' onto the whole zoo (about 2), not from the literal sample count."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Jacob and his mother are at the supermarket. When they reach the candy section, Jacob says, \"Look, those candies look delicious.\"",
+      "question": "What does Jacob really want to say when he says this?",
+      "options": [
+        "Jacob is praising the appearance of the candy.",
+        "Jacob is expressing his love for candy.",
+        "Jacob wants to say, \"Mom, I don't like these candies.\"",
+        "Jacob wants to say, \"Mom, please buy some candies for me.\""
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (Jacob, idx 1, gold D). The question targets the social ACT the utterance performs (an indirect request to buy candy), not an inferred fact or quantity, so it routes to the social-action-of-an-utterance capability (Indirect Speech Act, micro-35), not this unit."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Xiao Hong and Xiao Ming are classmates. Today every other classmate is at school, but Xiao Ming, who rarely talks, is sick at home. After school Xiao Hong's mother asks, \"Were all the people in your class at school today?\" Xiao Hong replies, \"Yes, mom.\"",
+      "question": "Is what Xiao Hong says true?",
+      "options": [
+        "True",
+        "False",
+        "Half-true",
+        "Unsupported by the story"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Strange Story Task, involuntary-lies ability (Xiao Hong, idx 1, native gold B = No). Recast faithfully into a truth-status 4-option form (Yes maps to True, No maps to False), so gold stays False. The question asks whether the statement matches the facts, not what extra meaning is implied, so it routes to the truth-status capability (Truth, Lie, and Half-Truth, micro-37), not this unit."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "frontmatter_description": "Directly route scenes that ask whether someone said or did something that creates offense, awkwardness, embarrassment, or face threat, including the classic faux pas where a speaker, ignorant of a relevant fact, says something that hurts or embarrasses the listener.",
+  "title": "Faux Pas, Offense, and Social Embarrassment",
+  "use_when": [
+    "Use when the central question is whether anyone said or did something inappropriate, hurtful, embarrassing, or offensive in the scene.",
+    "Use for the classic faux-pas structure: a speaker unintentionally says something that wounds or embarrasses a listener because the speaker did not know a relevant fact (for example, that the listener cared deeply about the thing being dismissed, or was personally connected to the group being criticized).",
+    "Use when a remark, disclosure, or action may violate privacy, tact, or social comfort and the task is to judge whether it was inappropriate, not how to fix it.",
+    "Use also when the answer may be that NOTHING inappropriate was said; deciding 'no faux pas' is part of this scene type."
+  ],
+  "do_not_use_when": [
+    "Do not use when an offense has already been identified and the task is how to repair it: apologize, restore trust, or reconcile. That requires planning a corrective social move, not detecting whether harm occurred.",
+    "Do not use when the task is to judge whether a statement is literally true, false, or a lie, including a kind white lie. That is truthfulness evaluation: compare the statement to reality and the speaker's belief, not to the listener's feelings.",
+    "Do not use when the task is to recover an indirect or implied meaning, hint, request, or sarcasm. That requires inferring what the speaker meant beneath the surface, not whether the surface remark caused offense.",
+    "Do not use when the task is to name which emotion a wrongdoer or victim feels afterward, such as guilt, shame, or embarrassment. That is appraising an emotional reaction to an act, not detecting whether the act itself was a social misstep.",
+    "Do not use when the dominant issue is rank, hierarchy, or deference, or when it is preference conflict, next-action choice, or spatial perspective rather than social harm."
+  ],
+  "decision_variable": "whether anyone in the scene said or did something inappropriate that hurts, embarrasses, or threatens another person's face, especially when the speaker was unaware of a fact that makes the remark hurtful",
+  "direct_route_rule": "Route immediately when the question is whether a remark or act was inappropriate, awkward, or offensive, or whether a speaker committed a social blunder by saying something they would not have said had they known what the listener knows.",
+  "expandable_micro_ids": [
+    "micro-37",
+    "micro-39",
+    "micro-42",
+    "micro-46",
+    "micro-48"
+  ],
+  "trigger_checklist": [
+    "The question asks 'does anyone say something inappropriate' or whether a remark or act was offensive, awkward, or embarrassing.",
+    "A character makes a remark that could wound or embarrass another, often a comment that dismisses, criticizes, or exposes something the listener cares about.",
+    "There is a fact the speaker plausibly did not know (the listener's hidden disappointment, illness, family connection, or secret) that turns an ordinary remark into a hurtful one.",
+    "A private or sensitive detail is revealed in front of an audience that should not have heard it.",
+    "The task is to detect whether a social misstep occurred, not to fix it, not to score its truth, and not to name the resulting emotion."
+  ],
+  "workflow": [
+    "Read every line of dialogue and action and find any remark or act that a listener could plausibly find hurtful, embarrassing, insulting, or exposing. If none exists, the answer is that no one said anything inappropriate; stop here.",
+    "For each candidate remark, ask: would it hurt or embarrass the person it is about or directed at? If it is plainly neutral, kind, or a tactful compliment, it is not a faux pas.",
+    "Apply the speaker-ignorance test: identify what the listener knows or feels (for example, that they badly wanted to win, are ill, or are connected to the group being criticized) and ask whether the speaker knew it. If the speaker did NOT know this fact and would not have made the remark had they known, this is a classic faux pas: the speaker blundered without intending harm.",
+    "If both hold, a hurtful remark plus a speaker ignorant of the fact that makes it hurtful, answer that someone did say something inappropriate, and, if asked, name that remark as the faux pas.",
+    "Distinguish deliberate rudeness from a faux pas: if the speaker fully knew the sensitive fact and chose to say the wounding thing anyway, it is intentional offense or an insult, not the classic faux pas (the listener may still be hurt, but the speaker was not ignorant).",
+    "Do not be pulled into repair, truth-scoring, hidden-meaning, or emotion-naming. Answer only whether something inappropriate was said and, when relevant, why it counts (or does not count) as a faux pas."
+  ],
+  "special_case": {
+    "title": "Speaker is ignorant of the fact that makes the remark hurtful",
+    "rule": "The defining mark of a classic faux pas is that the speaker did not know something the listener knows, and that missing knowledge is exactly what turns an ordinary remark into a wounding one. The speaker is not malicious; they simply spoke without realizing. When the question is whether a faux pas occurred, the decisive checks are (a) would the remark hurt or embarrass the listener, and (b) did the speaker lack the knowledge that would have stopped them.",
+    "worked_example": {
+      "scene": "All fifth-graders enter a composition contest. Leo desperately wants to win but is absent the day results are posted, so he never learns that Hana won. On Monday Hana, the winner, greets Leo first and says, \"I read your composition, it's not bad, just a bit of a shame.\" Leo is startled. Hana does not know how much Leo wanted to win.",
+      "question": "Does anyone say something inappropriate, and if so what makes it a faux pas?",
+      "answer_logic": "Yes. Hana's 'just a bit of a shame' belittles the work of a rival who longed to win, so it would hurt Leo. Crucially, Hana does not know Leo cared so much, and she would not have made the dismissive remark if she did. A hurtful remark made in ignorance of the very fact that makes it hurtful is the classic faux pas, even though Hana intended no harm."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the offense is already established and the task is how to apologize, rebuild trust, or reconcile, treat it as planning a corrective social move (choosing what to say or do to undo the harm), not as detecting whether harm occurred.",
+    "If the task is whether a statement is literally true, false, or a lie, including a kind white lie told to spare feelings, evaluate it against reality and the speaker's belief; a tactful lie that comforts the listener is not a faux pas at all.",
+    "If the task is to recover an indirect meaning, hint, request, or sarcasm, infer what the speaker really meant beneath the surface rather than whether the surface remark caused offense.",
+    "If the task is to name which emotion a character feels after the act, such as guilt, shame, or embarrassment, appraise the emotional reaction to the act rather than re-deciding whether a misstep occurred.",
+    "If rank, hierarchy, or deference is the dominant issue and any embarrassment is only secondary, treat it as status-and-deference communication instead."
+  ],
+  "references": {
+    "route_signal": "The scene asks whether anyone said or did something inappropriate, hurtful, embarrassing, or offensive, often featuring a speaker who unknowingly says something that wounds a listener because the speaker lacked a fact the listener holds.",
+    "hard_boundary": [
+      "An offense is already identified and the task is repair, apology, or reconciliation.",
+      "The task is truth evaluation or lie detection, including kind white lies.",
+      "The task is recovering an indirect or implied meaning, hint, or sarcasm.",
+      "The task is naming the emotion (guilt, shame, embarrassment) that follows an act.",
+      "The task is rank and deference, action selection, preference conflict, or perspective taking."
+    ],
+    "shortcut_to_avoid": [
+      "Do not call a remark a faux pas just because the topic is sensitive or a rivalry exists; check whether anyone is actually hurt and whether the speaker was ignorant of the fact that makes it hurtful.",
+      "Do not assume that because the speaker meant no harm there was no faux pas; lack of intent is exactly what defines the classic faux pas.",
+      "Do not flip the other way and call deliberate, fully-informed rudeness a 'faux pas'; a faux pas requires the speaker to have been unaware.",
+      "Do not default to 'yes, something inappropriate was said'; many control stories contain only neutral or kind remarks, and the correct answer there is 'no faux pas'.",
+      "Do not score the remark for truth or apology when the question only asks whether it was inappropriate."
+    ],
+    "common_failure_modes": [
+      "Over-detecting: labeling a neutral or kind remark a faux pas because the situation feels tense or a sensitive topic appears.",
+      "Missing the speaker-ignorance condition: judging only that a remark sounds blunt without checking whether the speaker knew the fact that makes it hurtful.",
+      "Confusing deliberate rudeness with a faux pas: treating a remark the speaker knowingly and intentionally made as the classic unaware blunder.",
+      "Hallucinating offense in a clean control story where everyone is polite, instead of answering 'no one said anything inappropriate'.",
+      "Drifting into repair, truth-scoring, or emotion-naming instead of simply deciding whether a misstep occurred."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A contest winner casually tells an absent rival that his entry was 'a bit of a shame,' not knowing how much the rival wanted to win.",
+        "why_it_matches": "A hurtful remark made in ignorance of the fact that makes it hurtful: the classic faux pas, decided by the speaker-ignorance test, and squarely in scope."
+      },
+      {
+        "case": "A nephew privately dislikes his aunt's new hat but tells her it looks lovely when she asks.",
+        "why_it_matches": "A kind, tactful white lie that hurts no one; nothing inappropriate is said. The only live question is whether the statement is literally true, which is a truthfulness matter and belongs to deception evaluation, not faux-pas detection."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the speaker had known the listener's hidden fact, would they still have made the remark? If yes, it is deliberate offense, not a classic faux pas; if no, it is a faux pas.",
+      "If every line in the story is neutral or kind, is the correct answer 'no one said anything inappropriate' rather than a forced 'yes'?",
+      "If the remark is a comforting untruth, is the task really about whether it was true rather than whether it was offensive?",
+      "If the question asks how to make amends, has the task shifted from detecting the offense to repairing it?"
+    ],
+    "generalization_note": "This macro covers any scene whose question is whether a remark or act was inappropriate, offensive, awkward, or embarrassing, across compositions, jokes, disclosures, and chance comments. Its sharpest case is the classic faux pas, where a speaker unknowingly wounds a listener; its boundaries are the polite control story (answer: no faux pas), the kind white lie (a truth question), and deliberate rudeness (intentional offense, not an unaware blunder)."
+  },
+  "validation_seed": {
+    "positive_pattern": "A speaker says something that hurts or embarrasses a listener because the speaker did not know a fact the listener holds; the correct answer is that a faux pas occurred. Paired with control stories whose remarks are neutral or kind, where the correct answer is that nothing inappropriate was said.",
+    "near_miss_pattern": "A kind, tactful remark or white lie that spares the listener's feelings, so no offense occurs; the only question is whether the statement is literally true, which belongs to truthfulness evaluation rather than offense detection.",
+    "boundary_pattern": "A control story containing the ingredients of a faux-pas setup (a sensitive topic, a personal connection) but only neutral or kind remarks, where the model must answer 'no faux pas' and not hallucinate offense."
+  },
+  "notes": [
+    "This macro is detection: did a faux pas or offense occur, and why, not how to repair it or which emotion follows.",
+    "The canonical answer logic combines two checks: would the remark hurt or embarrass the listener, and was the speaker ignorant of the fact that makes it hurtful.",
+    "Deciding that no faux pas occurred is a first-class answer; many control scenarios are exactly this (nothing inappropriate was actually said).",
+    "Optional micro expansion ids are for finer diagnosis and boundary repair, not for replacing the macro prototype."
+  ],
+  "id": "macro-12",
+  "level": "macro",
+  "layer": "macro",
+  "family": "faux-pas-offense-and-social-embarrassment",
+  "core_question": "whether behavior creates offense, awkwardness, or face threat",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

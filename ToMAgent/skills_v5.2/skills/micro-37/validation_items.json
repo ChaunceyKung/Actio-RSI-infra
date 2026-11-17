@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-37",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Li Ming plays football in the park, then rushes home and forgets the ball at the field; he genuinely thinks it is in his backpack. At dinner his brother asks, \"Where is your football? Did you bring it back?\" Li Ming replies, \"It is in my bag.\"",
+      "question": "Is what Li Ming says true?",
+      "options": [
+        "True",
+        "False",
+        "Half-true",
+        "Unsupported"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Strange Story Task, Involuntary lies subtype (story: Li Ming's football; native question 'Is what Li Ming says true?', options Yes/No, gold No). Tests the truth status of explicit content: the claim 'It is in my bag' conflicts with the fact (the ball is at the field), so it is False. His sincere belief is irrelevant to truth status. Native 2-option Yes/No is rendered as 4-option True/False/Half-true/Unsupported with Yes->True / No->False, preserving the real gold (No -> False = B)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Lily is playing at home and accidentally knocks over and breaks her mother's favourite crystal vase. When her mother comes home, sees the broken vase, and asks what happened, Lily says, \"The dog knocked it over, it is not my fault!\"",
+      "question": "Is what Lily says true?",
+      "options": [
+        "True",
+        "False",
+        "Half-true",
+        "Unsupported"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Strange Story Task, Egocentric lies subtype (story: Lily breaks the vase; native question 'Is what Lily says true?', options Yes/No, gold No). A deliberate self-serving lie still answers the SAME content-versus-fact question: Lily broke it, so 'The dog knocked it over' is False. Whether she lied on purpose is a separate intent question. Native Yes/No rendered as True/False/Half-true/Unsupported, No -> False = B."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Doctor Zhao is asked by his neighbour Mr. Li to come look at a sick cow. Zhao does have several surgeries scheduled this week, but his real reason for refusing is that he fears looking incompetent with animals. He says, \"I'm too busy lately, with several surgeries lined up. It's better for you to find another veterinarian.\"",
+      "question": "If the only thing we check is whether the literal words match the facts, what is the truth status of \"I'm too busy lately, with several surgeries lined up\"?",
+      "options": [
+        "True as stated, even though it gives a misleading impression of his real reason",
+        "False, because he secretly had another motive",
+        "Half-true, because the surgeries are imaginary",
+        "Unsupported, because nothing is known about his schedule"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Anchored to ToMBench Strange Story Task, Egocentric lies subtype (story: Doctor Zhao declines to see Mr. Li's cow; the 'Why does Mr. Zhao say so?' item, gold = he fears losing status). This near-miss isolates truth status from misleading effect: the literal clause about surgeries IS true, so truth status is True; the fact that it steers Mr. Li away from Zhao's real reason is a misleading-by-selection question that routes to the misleading-and-selective-expression capability (micro-38). Note: ToMBench scores the speaker's overall reply as 'not true', so the literally-true-but-misleading framing of this single clause is a benchmark-style adaptation built on the real story to teach the boundary between the truth-status capability (micro-37) and the misleading-and-selective-expression capability (micro-38)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Li Ming plays football in the park, then rushes home forgetting the ball at the field; he thinks it is in his backpack. Asked where the football is, he says, \"It is in my bag.\" (His words do not match the facts.)",
+      "question": "Why does Li Ming say this?",
+      "options": [
+        "Li Ming intentionally lies because he does not want to admit he forgot.",
+        "Li Ming forgot to take the football and rushed home, so he wrongly believes it is in his bag.",
+        "Li Ming intentionally lies because he fears his brother will blame him.",
+        "Li Ming remembers putting the football in his bag."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Strange Story Task, Involuntary lies subtype (story: Li Ming's football; native question 'Why does Li Ming say this?', gold B). Real options and gold preserved exactly. This is a boundary case for truth status: the content is already known to be false, but the question asks WHY he said it / whether he meant to deceive. Truth status (false) does not settle intent, so this routes to the speaker-motivation capability (micro-39); the correct answer here is that he honestly forgot, not that he lied."
+    }
+  ]
+}

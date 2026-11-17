@@ -1,0 +1,30 @@
+[selector]
+provider      = "openai"
+api_key       = "${OPENAI_API_KEY}"
+model         = "gpt-4o-mini"
+# base_url    = "https://..."     # required only for provider = "custom"
+max_tokens    = 8192
+max_bullets   = 8
+use_json_mode = false
+
+# Fixed classification: the closed bucket vocabulary shown to the selector and
+# used to coerce its predicted_subtask. Omit to use the built-in ToM default
+# (Emotion, Desire, Intention, Knowledge, Belief, Non-Literal Communication).
+# buckets = ["Emotion", "Desire", "Intention", "Knowledge", "Belief", "Non-Literal Communication"]
+
+# Three-level fallback (default on). When the selector picks no bullets, recall()
+# falls back: subtask-bucket bullets -> generic text -> legacy policy.
+# enable_fallback = true            # set false to restore the no-fallback contract
+
+# Per-tier switches (only consulted when enable_fallback = true). A disabled tier
+# is skipped and the cascade falls through to the next; turn both off with
+# fallback_policy = "empty" to make every miss return empty.
+# enable_subtask_fallback = true    # tier 2: subtask-bucket bullets
+# enable_generic_fallback = false   # tier 3: generic fallback_text (default off)
+
+# Tier-3 generic guidance handed to the generator when no bullets are available.
+# Omit to use the built-in ToM scaffold; set to "" to disable tier 3.
+# fallback_text = "Before answering: ..."
+
+# Legacy tier when tiers 2-3 don't apply: "empty" (no context) or "full" (whole playbook).
+# fallback_policy = "empty"

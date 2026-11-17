@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-39",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Cai Wan longs for a rabbit all year and is sure her big Christmas box holds one. She opens it in front of the whole family and finds only a set of boring old encyclopedias she does not want at all. When her parents ask if she likes the gift, she says, \"It is very cute, thank you. This is exactly what I want.\"",
+      "question": "Why does Cai Wan say this?",
+      "options": [
+        "Cai Wan convinces her parents because she really likes the encyclopedia.",
+        "Cai Wan convinces her parents so as not to disappoint them.",
+        "Cai Wan tells a white lie because the encyclopedia is indeed better than a rabbit.",
+        "Cai Wan tells a white lie so as not to disappoint her parents."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (White lies; gold D); tests the speaker's social motive — a white lie told to spare her parents' feelings — not whether the gift is good."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xiao Hong, a 6-year-old, really wants to go to the amusement park on Saturday. Her dad objects: \"This is not a good idea. I think there is a lot of noise in the amusement park.\"",
+      "question": "How does Xiao Hong persuade her dad?",
+      "options": [
+        "Xiao Hong can look up information proving that amusement parks now reduce noise with soundproof walls and quieter equipment.",
+        "Xiao Hong can tell her dad she has not been to the amusement park for a long time, that this is a very special wish, and that she really wants to go.",
+        "If Dad really does not want to go, Xiao Hong can suggest somewhere else, such as a park or zoo, so everyone is happy.",
+        "Xiao Hong can suggest going early in the morning or on a weekday when it is less crowded and quieter."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (gold B); a near miss because the task is choosing a one-way appeal to change the dad's decision, which routes to the persuasion-strategy capability (micro-41), not explaining a motive."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "After a long, hot highway trip George arrives at Angela's office. Angela immediately starts talking about business ideas. George interrupts: \"Ah, I experience a long and hot highway trip.\"",
+      "question": "What is the real meaning George wants to express?",
+      "options": [
+        "George wants to say he does not want to listen to any of Angela's ideas.",
+        "George wants Angela to provide some travel advice.",
+        "George wants to say, \"Can I drink something?\" or \"Can we rest a few minutes before we start talking about business?\"",
+        "George wants to complain to Angela about his trip."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (gold C); a boundary case because the question asks what the speaker really MEANS (a hinted request), which routes to the implied-meaning capability (micro-36), not why he said it."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Bohan visits Xiuya's home for the first time, expecting the dog she often mentions. Her dog turns out to be enormous, almost as big as Bohan. Seeing it, Bohan says, \"Xiuya, you don't have a dog at all. You have an elephant!\"",
+      "question": "Why does Bohan say this?",
+      "options": [
+        "Bohan really misunderstands that Xiuya keeps an elephant.",
+        "Bohan lies to make Xiuya laugh.",
+        "Bohan jokes because he also wants to keep a dog.",
+        "Bohan jokes to make Xiuya laugh."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (Humor; gold D); tests the speaker's social motive — a playful joke meant to make Xiuya laugh — not a literal misunderstanding or a deception."
+    }
+  ]
+}

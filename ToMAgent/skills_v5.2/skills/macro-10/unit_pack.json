@@ -1,0 +1,121 @@
+{
+  "frontmatter_description": "Direct-route prototype for choosing the action or allocation that results when different parties want different outcomes, or when one agent's competing desires must be ranked.",
+  "title": "Preference Conflict and Joint Decision",
+  "use_when": [
+    "Use when the scene asks what action, choice, or allocation should be selected once different parties want different outcomes.",
+    "Use when two or more people want different things and the key question is which option gets chosen, not how the bargaining unfolds.",
+    "Use when a shared decision, a split of a resource, or the next move must be determined from competing wants or stated priorities.",
+    "Use when one agent holds two competing desires and you must predict the action that follows the dominant one (even if it contradicts a desire the agent states out loud).",
+    "Use when the outcome turns on preference strength, stated priority, ownership, role, who is hosting or accommodating whom, or fairness/reciprocity under conflict."
+  ],
+  "do_not_use_when": [
+    "Do not use when the task is how one party should move or convince another while keeping their own goal fixed (one-way persuasion): there the answer is the best persuasive move, not which preference wins.",
+    "Do not use when both sides actively trade concessions to co-build a joint plan and the question is about that give-and-take itself, rather than picking one resulting outcome.",
+    "Do not use when the main question is whether an utterance is true, deceptive, or misleading.",
+    "Do not use when the main question is what happens next purely because of a prior commitment, schedule, or invitation, with no real clash of preferences.",
+    "Do not use when the main question is whether a remark caused embarrassment, offense, or social harm."
+  ],
+  "decision_variable": "which action, option, or allocation should be chosen when preferences conflict (or which competing desire wins inside one agent)",
+  "direct_route_rule": "Route immediately when two parties want different outcomes, or one agent holds competing desires, and the question asks which choice, allocation, or action results.",
+  "expandable_micro_ids": [
+    "micro-19",
+    "micro-20",
+    "micro-21",
+    "micro-23",
+    "micro-25",
+    "micro-44"
+  ],
+  "trigger_checklist": [
+    "Two or more parties want different outcomes, OR one agent holds two competing desires of its own.",
+    "The question asks for a choice, an allocation, or a predicted action, not for advice on how to convince someone.",
+    "The answer depends on whose preference has priority, how strong each preference is, or which desire dominates an agent.",
+    "The scene is about the resulting outcome of the conflict, not about the detailed back-and-forth that produced it.",
+    "A shared decision, a split of something, or a single next action must be settled."
+  ],
+  "workflow": [
+    "Enumerate every preference in play. For an interpersonal scene, list each party and exactly what that party wants. For a single agent, list each of its competing desires. Tag each preference with its strength or stated priority (strongly wants, mildly prefers, only a passing thought).",
+    "Pin down precisely what the question asks for: which option is chosen, who gets the resource, or what action the agent takes next. Answer that, not a related sub-question.",
+    "Find the deciding rule the SCENE itself supplies and apply it. Common rules: (a) standing/courtesy, when one party hosts, invites, or gives to another, the outcome accommodates the recipient's preference, not the host's own taste; (b) stated priority or strength, the preference the story marks as stronger or more urgent wins; (c) ownership or role, whoever owns the thing or holds the deciding role controls it; (d) fairness or reciprocity, a return of an earlier favor or an even split when the story flags fairness.",
+    "Track the RIGHT party. A frequent trap is reporting the preference of whoever is more vividly described while the question is about the other party's chosen outcome, do not let the more colorful actor's taste override the rule the scene actually applies.",
+    "For a single agent that says one thing but wants another (a desire-action contradiction), the spoken denial is not the action. Predict the action that follows the DOMINANT desire and read off the scene's specific reason the stronger motive overrides the stated one, do not invent a generic-sounding excuse the story never gives.",
+    "Only choose an even split or compromise when the scene actually signals fairness, indifference on both sides, or an explicit agreement to share. Do not default to a 50/50 compromise when one preference clearly dominates.",
+    "State the final chosen action, allocation, or predicted move directly."
+  ],
+  "special_case": {
+    "title": "Who has standing decides the outcome (host accommodates guest)",
+    "rule": "When one party invites, hosts, or gives something to another, the scene usually resolves toward the RECIPIENT's preference out of courtesy, even though the host's own taste is described more vividly. Do not pick the host's favorite just because it is stated first or more strongly.",
+    "worked_example": {
+      "scene": "Liang loves outdoor adventure and hikes every weekend; Wenfang is a quiet librarian who prefers calm, indoor reading. Liang invites Wenfang to spend the weekend together.",
+      "question": "Where does Liang plan to spend the weekend with Wenfang?",
+      "answer_logic": "Liang is the host issuing the invitation, so the standing rule applies: the outcome accommodates the guest Wenfang's preference for a quiet, indoor setting (the library), not Liang's own love of hiking. Picking hiking is the classic error of tracking the more vividly described actor's taste instead of the party the scene gives priority to."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the task is how one character should phrase, frame, or argue to win the other over while keeping their own goal fixed, that is one-way persuasion: the answer is the most effective persuasive move, so reason about what would shift the listener, not which preference is selected.",
+    "If both sides actively trade concessions (each gives something to get something) to assemble a joint plan, and the question is about that mutual give-and-take, treat it as a negotiation: model the exchange of concessions and the agreement reached, rather than declaring one fixed preference the winner.",
+    "If the task is whether someone is lying, half-telling, or misleading in their wording, solve it as a truthfulness judgment about the utterance, not as a choice between preferences.",
+    "If what happens next is driven purely by a prior promise, schedule, or invitation with no genuine clash of wants, solve it as commitment follow-through: the binding obligation, not a preference, fixes the action.",
+    "If the scene is mainly about embarrassment, offense, or a face threat caused by a remark, solve it as a social-harm judgment, not as a preference-conflict outcome."
+  ],
+  "references": {
+    "route_signal": "Competing wants, between two parties or inside one agent, where the question is what gets chosen, who gets the resource, or which action follows.",
+    "hard_boundary": [
+      "The task is to find the best way to convince or move another person while one party keeps its own goal fixed (one-way persuasion).",
+      "Both sides trade concessions to co-build a joint plan and the question is about that exchange, not about one resulting choice.",
+      "Truthfulness, deception, or indirect meaning of an utterance is central.",
+      "A prior commitment, schedule, or invitation fixes the next action with no real clash of wants.",
+      "Social embarrassment, offense, or apology is the main issue."
+    ],
+    "shortcut_to_avoid": [
+      "Do not report the preference of the most vividly described character; answer with the party the scene's deciding rule actually favors.",
+      "Do not assume the host or inviter gets their own taste; courtesy usually tips the outcome toward the guest or recipient.",
+      "Do not default to a 50/50 split or compromise unless the scene signals fairness, indifference, or an explicit agreement to share.",
+      "Do not treat a spoken denial as the action; when a desire and an action contradict, predict the action that follows the dominant desire.",
+      "Do not turn the scene into hidden-belief or persuasion analysis when the answer is just the preference-based outcome."
+    ],
+    "common_failure_modes": [
+      "Tracking the wrong party's desire, e.g. answering with the host's favorite when the question is about what the guest will get.",
+      "Ignoring a stated priority or a clearly stronger preference and treating both wants as equal.",
+      "Defaulting to a compromise or even split the scene gives no support for.",
+      "On a desire-action contradiction, reporting the stated denial as the true action, or attaching a generic reason the story never gives instead of the scene's specific overriding motive.",
+      "Confusing a pure commitment-follow-through scene with a genuine preference conflict."
+    ],
+    "minimal_pair": [
+      {
+        "case": "An outdoorsy host who loves hiking invites a quiet, indoor-loving friend to spend the weekend together; the question asks where they will go.",
+        "why_it_matches": "Two opposed preferences and the question asks which one becomes the outcome. The standing rule applies, so the host accommodates the guest and the outcome follows the guest's quiet-indoor preference, the in-scope way this macro resolves a conflict."
+      },
+      {
+        "case": "An outdoorsy person wants the hiking trip and the indoor-loving friend resists, and the person works out the most convincing thing to SAY to bring the friend around, while still aiming for the hike.",
+        "why_it_matches": "Near miss: the goal is fixed and the task is the best persuasive move, so it is one-way persuasion (reason about what shifts the listener), not a question of which preference is selected as the outcome."
+      }
+    ],
+    "boundary_stress_test": [
+      "If both sides keep offering and giving things up to reach an agreed plan, ask whether the question wants that exchange (a negotiation) or one final chosen outcome (this macro).",
+      "If a character is figuring out what to SAY to win someone over while keeping their own goal, that is persuasion, not a preference-conflict outcome.",
+      "If an agent says it does not want something it clearly wants, check that you are predicting the action from the dominant desire and citing the scene's specific reason, not the literal denial.",
+      "If a prior promise or schedule fixes the next move with no real clash of wants, the driver is commitment, not preference conflict."
+    ],
+    "generalization_note": "Use this macro whenever a scene resolves to a single choice by mapping competing preferences onto an outcome, whether the conflict is between people or among one agent's own wants, and whatever the setting (a meal, trip, game, task, gift, or shared resource)."
+  },
+  "validation_seed": {
+    "positive_pattern": "Two parties want different outcomes (or one agent holds competing desires), and the question asks which choice, allocation, or action results, decided by standing, stated priority, or the dominant desire.",
+    "near_miss_pattern": "Both sides actively trade concessions to co-build a joint plan, so the scene is about the give-and-take exchange (negotiation) rather than picking one resulting outcome.",
+    "boundary_pattern": "A single agent ranks its own competing wants over time with no interpersonal conflict, postponing one desire and returning to it later."
+  },
+  "notes": [
+    "This macro solves the scene directly from preference structure: enumerate the wants, apply the scene's deciding rule, and read off the outcome.",
+    "The single-agent case (two competing desires, or a stated denial that contradicts the real desire) is in scope: predict the action that follows the dominant desire.",
+    "Keep the answer focused on the final choice, allocation, or predicted action, not the discussion around it."
+  ],
+  "id": "macro-10",
+  "level": "macro",
+  "layer": "macro",
+  "family": "decision-conflict",
+  "core_question": "what action or allocation should be chosen when preferences conflict",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

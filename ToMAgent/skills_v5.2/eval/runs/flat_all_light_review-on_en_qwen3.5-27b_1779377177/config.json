@@ -1,0 +1,17 @@
+{
+  "run_id": "flat_all_light_review-on_en_qwen3.5-27b_1779377177",
+  "route_mode": "flat_all",
+  "inject_mode": "light",
+  "review_mode": "on",
+  "lang": "en",
+  "model": "qwen3.5-27b",
+  "limit": null,
+  "workers": 1,
+  "temperature": 0.0,
+  "timeout": 240,
+  "max_attempts": 2,
+  "retry_backoff_cap": 8,
+  "router_max_tokens": 128,
+  "solver_max_tokens": 2048,
+  "reviewer_max_tokens": 2048
+}

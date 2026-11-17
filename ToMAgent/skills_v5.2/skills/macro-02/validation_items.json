@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-02",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Mia and Theo are in the bedroom. They both see the cabbage inside the handbag (the other containers present are a backpack, a briefcase, and a crossbody bag). Theo then leaves the bedroom. While Theo is gone, Mia moves the cabbage to the backpack. Theo does not see this move.",
+      "question": "After Theo returns to the bedroom, where does Mia think Theo will look for the cabbage?",
+      "options": [
+        "Backpack",
+        "Handbag",
+        "Crossbody bag",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench False Belief Task, second-order location (idx 5). The question is nested: it asks for Mia's model of Theo's belief. Mia knows Theo did not see the move, so Mia expects Theo to search the original handbag, even though the cabbage is really in the backpack. The solver must hold two minds: Theo's false belief, then Mia's correct model of it."
+    },
+    {
+      "id": "case_2",
+      "pattern": "boundary",
+      "scene": "Nora and Sam are both in the room when a ticket is moved from the blue folder to the red folder. Each one watches the move, AND each one sees the other one watching it, so the new location is openly mutually known. Later Nora considers where Sam will search.",
+      "question": "Where does Nora think Sam will look for the ticket first?",
+      "options": [
+        "In the blue folder",
+        "In the red folder",
+        "Under the table",
+        "Nora cannot form any expectation"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Benchmark-style synthetic (ToMBench has no dedicated common-knowledge task). This is the common-knowledge edge: because each character saw the move AND saw the other see it, the new location is mutually known, so no false belief survives and Nora expects Sam to go to the red folder. It tests the workflow step that checks both parties know AND each knows the other knows; without that check a solver may wrongly import an old-location false-belief answer by reflex."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Mia and Theo are in the bedroom. They both see the cabbage inside the handbag (the other containers present are a briefcase, a suitcase, and a backpack). Theo then leaves the bedroom. While Theo is gone, Mia moves the cabbage to the backpack. Theo does not see this move.",
+      "question": "After Theo returns to the bedroom, where does Theo look for the cabbage?",
+      "options": [
+        "Briefcase",
+        "Suitcase",
+        "Backpack",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench False Belief Task, first-order location (idx 4), same scene family as the positive case. COINCIDENCE TRAP: the gold answer is Handbag (old location), numerically the SAME old-location answer the second-order positive lands on. But the question is NOT nested: it asks only about Theo's OWN belief and action, one level of mind, so it belongs to the plain first-order false-belief procedure, not the nested model-of-another-mind procedure here. The solver must route on whether the question embeds one mind inside another, not on which option the answer happens to land on."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "In the bedroom there is a handbag labeled 'cabbage'. Tom cannot see inside it. Tom opens the handbag and finds a hat (there is no cabbage inside); he closes it and puts it back. Leo then enters the bedroom and sees the closed, labeled handbag but does not open it. Tom watched Leo arrive.",
+      "question": "After Leo opens the handbag, what does Tom think Leo expects to find inside?",
+      "options": [
+        "Hat",
+        "Cabbage",
+        "Corn",
+        "Pineapple"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench False Belief Task, second-order content (idx 5). Nested unexpected-contents variant: Tom knows the real contents (a hat) but must model Leo's belief, and Leo has only seen the 'cabbage' label, so Tom expects Leo to expect cabbage. This targets the omniscience-leak shortcut of answering from Tom's true knowledge (hat) instead of Tom's model of Leo's label-based belief (cabbage)."
+    }
+  ]
+}

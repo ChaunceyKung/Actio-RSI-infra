@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-14",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiaogang finds a handbag in the bedroom. The label on the handbag says cabbage. Xiaogang opens it and finds a hat inside; there is no cabbage. He closes it and puts it back.",
+      "question": "What is really in the handbag?",
+      "options": [
+        "Hat",
+        "Cabbage",
+        "Corn",
+        "Potato"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "ToMBench deceptive-container (content) scene used at the object level. The label says cabbage (appearance), but the real content is a hat (reality). Appearance-reality reports the true state past the misleading surface; answering 'cabbage' means being captured by the appearance."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiaogang finds a handbag in the bedroom. The label on the handbag says cabbage. Xiaogang opens it and finds a hat inside; there is no cabbage. He closes it and puts it back.",
+      "question": "Based on its label, what does the handbag appear to contain?",
+      "options": [
+        "Corn",
+        "Cabbage",
+        "Zucchini",
+        "Hat"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Same object, the appearance side of the split: the label presents cabbage. Pairing this with case_1 (reality = hat) isolates the two levels the skill must keep separate, both judged from scene facts with no character belief involved."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiaogang finds a handbag labeled cabbage and opens it to discover it actually holds a hat, then closes it. Xiaoming now enters the bedroom and sees only the closed, labeled handbag.",
+      "question": "What does Xiaoming expect to find in the handbag?",
+      "options": [
+        "Cabbage",
+        "Hat",
+        "Sweatshirt",
+        "Ring"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Same misleading object, but now the question asks what a specific character believes from the label. That makes it a person-level false belief (Xiaoming expects cabbage), which routes to false belief, not the object-level appearance-reality distinction."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Two people both watch a box get relabeled from 'tea' to 'crayons,' and each sees that the other is watching too.",
+      "question": "What reasoning issue is central here?",
+      "options": [
+        "Appearance versus reality",
+        "False belief",
+        "Common knowledge",
+        "Evidence updating"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Boundary case (no native ToMBench common-knowledge item). Shared observation plus mutual awareness makes the central variable whether both know that both know, which is common knowledge, not the appearance-reality gap of the relabeled box."
+    }
+  ]
+}

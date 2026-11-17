@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-11",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Sofia is in the kitchen partway through cooking dinner when the doorbell rings. She turns down the heat and answers it: her friend Diego is holding movie tickets and invites her out. Sofia first says she has to finish dinner. Then Sofia's sister comes over and offers to take over the cooking so Sofia can go. Sofia looks at the half-cooked dinner and hesitates.",
+      "question": "What does Sofia most likely do next?",
+      "options": [
+        "She keeps cooking dinner herself.",
+        "She accepts Diego's invitation and goes to the movie.",
+        "She lets her sister finish the dinner and then takes a rest.",
+        "She goes to ask other friends whether she should go to the movie."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Completion of Failed Actions (a cook interrupted by a movie invite, with a sibling offering relief). The in-progress task competes with a new invitation, and the next action turns on whether the commitment is genuinely covered: once the sister credibly takes over the cooking, the obligation is discharged, so Sofia goes. It shows the macro resolves the competition by checking who actually carries the commitment, not by reflexively continuing the started task."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "After school, Marcus sets out with one plan: walk to the music shop to buy a new guitar score. On the way he runs into his friend Theo struggling to fix a flat bike tire, so Marcus stops to help. While he is helping, his mother phones to say relatives are coming over tonight and he should help prepare. After hanging up, Marcus checks the time and recalls his original errand to the music shop.",
+      "question": "After Marcus finishes helping Theo fix the bike, what does he do next?",
+      "options": [
+        "He goes to the music shop to buy the guitar score.",
+        "He heads home to help get ready for the family gathering tonight.",
+        "He keeps helping Theo with other problems on the bike.",
+        "He invites Theo to walk to the music shop with him."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Completion of Failed Actions (a planned errand interrupted by helping a friend, with a later home request). The interrupting help is now finished and the new request is for the evening, so the unfinished original plan is what resumes next. It teaches the resume-the-interrupted-task pattern: once the interruption is handled, the standing plan is picked back up rather than dropped."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Wesley and Pablo are both landscape-photography fans planning a road trip together, but they are arguing over the destination. Their friend Yana, who works at a travel agency, is nearby reading a guidebook about snow-capped mountains. As the argument heats up, Wesley glances at Yana's guidebook, then steers the conversation toward the camera gear needed for the trip, dwelling on the special techniques for shooting in snowy mountain environments.",
+      "question": "What does Wesley want to do?",
+      "options": [
+        "He wants to invite Yana to join their trip.",
+        "He wants to let Yana decide their destination for them.",
+        "He wants to propose the snow-capped mountains as their destination.",
+        "He wants to display his photography expertise."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (a glance at a snow-mountain guidebook followed by a topic shift). This asks what the character WANTS / is hinting at behind an indirect cue, not what he does next when a commitment competes with a new offer. Reading the purpose behind a gesture or hint belongs to the nonverbal-intention scene; this macro is only for choosing the next concrete action when a standing plan meets an interruption, so this item is out of scope."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Mark always wants a hamburger at lunchtime. As he walks toward the cafeteria to buy one, his friend Lenny stops him: 'If you help me answer a few questions on my math homework, I'll give you a hamburger.' Mark agrees and helps Lenny with the homework.",
+      "question": "What does Mark do after he finishes helping Lenny with the math homework?",
+      "options": [
+        "Mark continues on to the cafeteria to buy a hamburger.",
+        "Mark eats the hamburger Lenny gave him.",
+        "Mark goes to the library to read.",
+        "Mark goes out to the playground to play."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Multiple Desires (a standing want for a hamburger, satisfied through a side deal). Structurally this looks like the macro's pattern, but what drives the next step is a simple dominant DESIRE plus a transaction that already supplies it, not a prior promise, duty, or in-progress task. Tracking how a plain want is satisfied through a chain of options belongs to the desire-drives-action scene; this macro applies only when an existing commitment or plan is what competes with the new opportunity."
+    }
+  ]
+}

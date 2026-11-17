@@ -1,0 +1,102 @@
+{
+  "frontmatter_description": "Resolve which plan a character honors first when a binding prior promise or ongoing task constrains the choice against a new desire or invitation.",
+  "title": "Commitment Priority",
+  "use_when": [
+    "Use when a binding prior commitment exists — a promise already made, a task already underway, a scheduled appointment, or a duty someone is counting on — and it constrains what the character can do.",
+    "Use when a new invitation, temptation, or desire arrives but a standing obligation determines what is honored first (and often the character returns to it afterward).",
+    "Use when the answer turns on which commitment is more binding, not on which goal is intrinsically more attractive."
+  ],
+  "do_not_use_when": [
+    "Do not use when no binding prior promise, ongoing task, schedule, or duty exists and two free desires simply compete; that is free weighing of rival goals (Goal-Conflict Arbitration, micro-25).",
+    "Do not use when one goal is merely a step done in order to reach another (means-end nesting); that is Goal Hierarchy (micro-21).",
+    "Do not use when the question asks what the character will physically do next from belief and goal; that is Action Prediction (micro-23).",
+    "Do not use when the question asks why someone acted, looked, or gestured; that is Intention Recognition (micro-22).",
+    "Do not use when the main issue is emotion, persuasion, or a social-norm violation rather than ranking commitments."
+  ],
+  "decision_variable": "the priority order among commitments: which binding promise, ongoing task, or obligation a character must honor first",
+  "trigger_checklist": [
+    "A binding prior element is present: a promise already made, a task already in progress, a fixed schedule, or someone depending on the character.",
+    "A new option (invitation, desire, temptation) competes with that binding element.",
+    "The question is which one should be honored first, not which goal is more enjoyable.",
+    "Remove the binding commitment and the answer would change — the commitment, not raw preference, decides."
+  ],
+  "workflow": [
+    "Identify the binding prior element: what was promised, already started, scheduled, or relied upon by someone else.",
+    "Identify the competing new option (invitation, desire, or temptation) and confirm it has no stronger binding status.",
+    "Apply the rule: the binding commitment is honored first unless the scene states an explicit override (emergency, cancellation, or permission to reschedule).",
+    "Choose the option that honors the highest-priority commitment; if the character resumes a paused plan afterward, that resumption confirms the original commitment held."
+  ],
+  "special_case": {
+    "title": "New request versus a plan already in motion",
+    "rule": "When a character is mid-task or has a standing plan and a new request arrives, the binding obligation is honored and the original plan is resumed afterward, unless an explicit override (emergency, cancellation, permission) is stated.",
+    "worked_example": {
+      "scene": "David is loosely planning a casual BBQ for friends this weekend, with no fixed time set yet. The neighborhood elderly then tell him the community park's public facilities are broken and they are depending on his help to repair them today. He postpones the BBQ and goes to help.",
+      "question": "What does David do after he finishes repairing the facilities?",
+      "answer_logic": "The repair outranks the BBQ because the elderly are depending on David and the facilities are needed today, whereas the BBQ is only a loose plan with no fixed time and can be moved. So the dependency-backed task is honored first; his own BBQ was merely postponed, not abandoned, and once the repair is done he reorganizes it. The more binding obligation decided the order; the flexible plan resumes."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the free-weighing-of-rival-goals capability if there is NO binding promise, ongoing task, or schedule and two desires simply compete (Goal-Conflict Arbitration, micro-25).",
+    "Exit to the means-end-structure capability if one goal is merely a step done in order to reach another, rather than a binding obligation that decides order (Goal Hierarchy, micro-21).",
+    "Exit to the next-action-prediction capability if the question asks what the character will physically do next rather than which plan has priority (Action Prediction, micro-23).",
+    "Exit to the immediate-purpose-of-a-behavior capability if the scene asks why the person is doing something (Intention Recognition, micro-22).",
+    "Exit to a persuasion or repair capability if the main issue is how to talk about the conflict, not which plan to honor."
+  ],
+  "references": {
+    "route_signal": "Use this unit when a binding prior promise, ongoing task, or schedule constrains the choice. If there is no such binding element and desires merely compete, route to the free-weighing capability instead.",
+    "hard_boundary": [
+      "Commitment Priority requires a BINDING prior promise, ongoing task, or schedule that decides; without one, free weighing of rival goals applies (Goal-Conflict Arbitration, micro-25).",
+      "It ranks obligations, not raw preference strength; the more enjoyable goal does not win just because it is preferred.",
+      "It is not means-end nesting; here the items compete for the same slot rather than one serving the other (Goal Hierarchy, micro-21).",
+      "It is not next-action prediction or intention reading by itself (Action Prediction micro-23; Intention Recognition micro-22)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not assume the strongest or most fun desire wins; a binding commitment can outrank a stronger want.",
+      "Do not infer the choice from mood or personality when a promise or active task is what sets the order.",
+      "Do not treat two options as equal competitors when one is already promised, scheduled, or underway."
+    ],
+    "common_failure_modes": [
+      "Confusing a binding commitment with simple goal conflict and weighing the two desires freely.",
+      "Answering with the most enjoyable or most urgent-feeling option instead of the most binding one.",
+      "Assuming the paused original plan is abandoned, when the character resumes it after honoring the obligation.",
+      "Using intention or emotion inference when the scene only asks which plan has priority."
+    ],
+    "minimal_pair": [
+      {
+        "case": "David is loosely planning a BBQ for friends with no fixed time; the elderly then say they are depending on him to repair community facilities today, which he takes on. Question: what does he do after the repair?",
+        "why_it_matches": "A dependency-backed obligation (the elderly counting on him, needed today) outranks a flexible plan with no fixed time, so it decides the order while the BBQ is only postponed and resumed afterward. In-scope: the more binding commitment, not raw preference or recency, governs the sequence."
+      },
+      {
+        "case": "Li Hua loves outdoor adventure; Wang Fang prefers the quiet library; they must pick one place for the weekend, with no promise or schedule in play. Question: where do they go?",
+        "why_it_matches": "No binding commitment exists — two preferences simply compete, so the answer is a free weighing of rival goals. Routes to the free-weighing capability (Goal-Conflict Arbitration, micro-25)."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the scene has only a wish and a temptation with no promise, schedule, or active task, this is the wrong unit (free weighing applies).",
+      "If a promise was already canceled or made explicitly flexible, the commitment no longer decides priority.",
+      "If one goal is only a step toward the other (A in order to B), this is means-end structure, not commitment priority.",
+      "If the question asks what someone will likely do next from habit or emotion, route to action prediction unless priority ordering is the explicit ask."
+    ],
+    "generalization_note": "This unit generalizes across calendars, promises, deadlines, duties, invitations, and active tasks whenever a binding prior element decides which plan is honored first. The defining test: removing the commitment changes the answer."
+  },
+  "validation_seed": {
+    "positive_pattern": "A binding prior promise or ongoing task constrains the choice; the character honors it first (and often resumes a paused plan afterward).",
+    "near_miss_pattern": "Two desires compete with no binding promise, schedule, or active task, so the choice is free weighing of rival goals.",
+    "boundary_pattern": "The binding commitment was already canceled/overridden, or the question asks what happens next, so priority ranking is not the live issue."
+  },
+  "notes": [
+    "Keep the focus on which binding commitment is honored first, not on social niceness or emotional reaction.",
+    "Treat explicit promises, deadlines, and ongoing tasks as stronger evidence than casual preferences.",
+    "The single test that separates this unit from free weighing of rival goals: would removing the prior commitment change the answer? If yes, this unit applies."
+  ],
+  "id": "micro-24",
+  "level": "micro",
+  "layer": "L3",
+  "family": "goal-action",
+  "core_question": "Resolve priority among existing commitments, ongoing tasks, and new invitations",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

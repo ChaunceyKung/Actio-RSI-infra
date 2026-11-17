@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-12",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiaogang and Xiaoming are wandering in the bedroom, they see a handbag, a briefcase, and a backpack, they find cabbage in the handbag, Xiaoming leaves the bedroom, Xiaogang moves the cabbage to the backpack.",
+      "question": "After Xiaoming returns to the bedroom, where does Xiaoming look for the cabbage?",
+      "options": [
+        "Briefcase",
+        "Suitcase",
+        "Backpack",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "ToMBench False Belief Task (location). Xiaoming was absent during the move, so his belief is fixed at the old location (handbag) while reality changed (backpack). The question targets his belief, and it conflicts with the world: a textbook false belief. Answering with reality (backpack) is the shortcut to avoid."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xiaogang and Xiaoming are wandering in the bedroom, they see a handbag, a briefcase, and a backpack, they find cabbage in the handbag, Xiaoming leaves the bedroom, Xiaogang moves the cabbage to the backpack.",
+      "question": "After Xiaoming returns to the bedroom, where does Xiaogang look for the cabbage?",
+      "options": [
+        "Backpack",
+        "Briefcase",
+        "Handbag",
+        "Tote bag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Same ToMBench scene, but the queried character (Xiaogang) made the move, so his belief matches reality (backpack). This is a true first-order belief, not a false belief. Identical surface story, different mental-state owner, opposite skill."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Xiaogang and Xiaoming are wandering in the bedroom, they see a handbag, a briefcase, and a backpack, they find cabbage in the handbag, Xiaoming leaves the bedroom, Xiaogang moves the cabbage to the backpack.",
+      "question": "Where is the cabbage now?",
+      "options": [
+        "Backpack",
+        "Handbag",
+        "Tote bag",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Same ToMBench scene, but the question asks only for the real current location, with no character's belief targeted. This is a physical-fact query, not a belief diagnosis at all; do not force a belief unit onto it."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Xiaogang and Xiaoming are wandering in the bedroom, they see a handbag, a briefcase, and a backpack, they find cabbage in the handbag, Xiaoming leaves the bedroom, Xiaogang moves the cabbage to the backpack.",
+      "question": "After Xiaoming returns to the bedroom, where does Xiaogang think Xiaoming looks for the cabbage?",
+      "options": [
+        "Backpack",
+        "Handbag",
+        "Crossbody bag",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Same ToMBench scene, but the query nests one mind inside another: what Xiaogang thinks Xiaoming believes. The answer (handbag) coincides with Xiaoming's first-order false belief, but the reasoning is second-order (recursive) belief, not a plain false-belief diagnosis."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "frontmatter_description": "Predict what the character will most likely DO NEXT by combining their current belief state with their active goal. The output is a future action - not an explanation of a behavior they have already shown.",
+  "title": "Action Prediction",
+  "use_when": [
+    "Use when the question asks what the character will do next, where they will go, what they will choose, or what move they will make.",
+    "Use when a question phrased 'What does X want to do?' is really asking for X's next concrete action given the situation (the answer is a move X makes, not a feeling or trait).",
+    "Use when the prediction must follow the character's own BELIEF about the situation, even when that belief is false, rather than the real state of the world.",
+    "Use when the character has an identifiable goal and the task is to pick the next outward behavior that serves it.",
+    "Use inside larger false-belief, social-cue, preference, or commitment scenes when the final diagnostic variable is the next action."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks WHY the character is currently or has just been acting, looking, gesturing, or signaling; that explains an already-shown behavior, so use the intention-recognition capability - the purpose behind a current cue (micro-22).",
+    "Do not use when the central task is to weigh competing goals against each other (which goal wins) rather than to name the single next action; use the goal-conflict arbitration capability - choosing among conflicting goals (micro-25).",
+    "Do not use when the task is to rank an obligation, prior promise, or scheduled plan against a new invitation; use the commitment-priority capability (micro-24).",
+    "Do not use when the task is to explain the hierarchy among long-term, short-term, and local goals; use the goal-hierarchy capability (micro-21).",
+    "Do not use when the answer is purely what the character knows, believes, wants, or feels, with no observable next behavior to predict."
+  ],
+  "decision_variable": "what the character is most likely to do next",
+  "trigger_checklist": [
+    "The question asks what the character will do, where they will go, what they will choose, or what they will try next - or asks 'what does X want to do?' where the answer is a next move.",
+    "A current belief state can be identified for the character, including anything they saw, missed, misunderstood, or falsely believe.",
+    "An active goal, desire, or task the character is pursuing can be identified.",
+    "The predicted action follows from the character's OWN belief, even if that belief is false.",
+    "The required output is an observable behavior, not an internal motive, emotion, or explanation of a prior cue."
+  ],
+  "workflow": [
+    "Identify the target character whose next action is to be predicted.",
+    "Confirm the question is forward-looking: it asks what happens NEXT (or 'what does X want to do?' = X's next move), not WHY a behavior already occurred. If it asks WHY about a current cue, switch to the intention-recognition capability (micro-22).",
+    "Separate reality from the character's belief state - what they actually saw versus what they missed, misunderstood, or falsely believe.",
+    "Identify the active goal the character is trying to satisfy at this moment.",
+    "List the actions available in the scene and select the one that best advances the active goal GIVEN the character's own belief - not given reality, when the two differ.",
+    "If the scene pits one goal against another and the question is which goal wins, stop: that is the goal-conflict arbitration capability (micro-25). Use this unit only once a single active goal points to one next action.",
+    "State the predicted next action, briefly justified by belief plus goal."
+  ],
+  "special_case": {
+    "title": "False-belief action",
+    "rule": "When the character holds a false belief, predict the action that makes sense IF that false belief were true, not the action that would work in reality.",
+    "worked_example": {
+      "scene": "Maya puts her keys in the blue bowl and leaves. While she is away, Leo moves the keys to the drawer. Maya returns wanting to drive home.",
+      "question": "Where will Maya look for her keys first?",
+      "answer_logic": "Maya's goal is to get her keys; her belief is that they are still in the blue bowl (she did not see Leo move them). The next action that serves the goal under her belief is to look in the blue bowl first - even though the keys are really in the drawer. Predict from belief, not reality."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question asks WHY a current or just-performed cue is happening (a smile, glance, nudge, point), use the intention-recognition capability - the purpose behind a current behavior (micro-22). That unit looks backward; this one looks forward.",
+    "If the scene's core problem is which of two competing goals the character will favor, use the goal-conflict arbitration capability - choosing among conflicting goals (micro-25).",
+    "If the question is whether an existing commitment, deadline, or promise overrides a new option, use the commitment-priority capability (micro-24).",
+    "If the question is how local actions relate to broader or longer-term goals, use the goal-hierarchy capability (micro-21).",
+    "If the only required answer is what the character thinks, knows, wants, or feels with no behavioral prediction, use the relevant belief, desire, or emotion capability instead."
+  ],
+  "references": {
+    "route_signal": "Use this capability when the answer must be an observable NEXT behavior derived from the character's belief state plus active goal. If the question instead asks WHY a behavior already shown is happening, route to the intention-recognition capability (micro-22).",
+    "hard_boundary": [
+      "This unit is future-facing - it predicts the next action. The intention-recognition capability (micro-22) is backward-facing - it explains a current or past behavior. 'What will she do?' is here; 'why did she do that?' routes away.",
+      "Beware the phrasing trap: 'What does X want to do?' in these tasks usually means 'what is X's next move?' - still this unit. It does NOT mean explain a cue X already produced.",
+      "This unit outputs an action; belief, desire, and goal units output an internal state or objective structure.",
+      "This unit predicts ONE next action from ONE active goal. If the scene's question is which of several goals wins, route to the goal-conflict arbitration capability (micro-25).",
+      "This unit uses the false-belief result; it does not replace false-belief reasoning - it predicts behavior from the belief that reasoning establishes."
+    ],
+    "shortcut_to_avoid": [
+      "Do not predict from the real state of the world when the character holds a different belief (reality leak).",
+      "Do not answer with a purpose or motive ('to help', 'to warn') when the question asks what the character will physically do next - that purpose answer belongs to the intention-recognition capability (micro-22).",
+      "Do not invent an elaborate multi-step plan when the immediate next action is what is asked.",
+      "Do not collapse a genuine goal conflict into a simple prediction; if two goals compete for the answer, route to the goal-conflict arbitration capability (micro-25)."
+    ],
+    "common_failure_modes": [
+      "Reality leak: predicting from information the character never observed.",
+      "Motive-action swap: giving the purpose of a cue instead of the next behavior (this is answering as if it were the intention-recognition capability).",
+      "Overplanning: building a complex plan when the immediate next step is enough.",
+      "Goal-conflict confusion: treating a scene whose real question is which goal wins as a plain next-action prediction (it belongs to the goal-conflict arbitration capability).",
+      "Missing the 'what does X want to do?' framing and answering with a trait or feeling instead of the next move."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Two friends discuss where to play but cannot decide; one stops a passing adult to ask his opinion, hoping a fresh perspective will point them to a good spot. Question: 'What does the friend want to do?' Answer: get the passerby to suggest where to play.",
+        "why_it_matches": "Phrased 'what does X want to do?', but the answer is X's next move inferred from goal (find a destination) plus the situation. In scope for this unit."
+      },
+      {
+        "case": "Xiao Hong glances at the swing, then smiles at Xiao Fang, who nods. Question: 'Why does Xiao Hong smile at Xiao Fang?'",
+        "why_it_matches": "This asks WHY a cue already shown is happening - its purpose (to suggest making a new friend together). That routes to the intention-recognition capability - the purpose behind a current behavior (micro-22), not next-action prediction."
+      }
+    ],
+    "boundary_stress_test": [
+      "The character wants an object but falsely believes it sits in its old place: predict a search at the OLD location (false-belief action).",
+      "Two next actions are available but only one serves the active goal under the character's belief: choose that one.",
+      "The scene gives the character two pulls - keep painting now versus go buy more paint versus study for tonight's exam - and asks what they choose: if the question is which goal wins, route to the goal-conflict arbitration capability (micro-25) rather than predicting a single goal's action.",
+      "The question asks what the character is trying to accomplish by knocking, waving, or glancing: that is a purpose, so use the intention-recognition capability (micro-22), not this unit."
+    ],
+    "generalization_note": "This unit generalizes across benchmark false-belief and intention tasks and real-world scenes by applying one rule: belief plus active goal yields the next observable action. The recurring boundary is time direction - predict the next move here; explain an already-shown cue with the intention-recognition capability (micro-22)."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character holds a belief about the situation and has an active goal, and the question asks what they will do next (often phrased 'what does X want to do?').",
+    "near_miss_pattern": "A character has just produced a gesture or cue and the question asks WHY - its purpose - which routes to the intention-recognition capability (micro-22).",
+    "boundary_pattern": "A character is pulled between two competing goals and the question is which goal wins, which routes to the goal-conflict arbitration capability (micro-25)."
+  },
+  "notes": [
+    "Keep the answer anchored to the character's own perspective and belief, false or not.",
+    "The output is a concrete next behavior, not a full plan unless the prompt explicitly asks for one.",
+    "Treat 'What does X want to do?' as a request for X's next action, not an explanation of a cue X already showed.",
+    "The sharpest confusion is with the intention-recognition capability (micro-22): that unit answers 'why this current behavior?', this unit answers 'what next?'.",
+    "This unit may run after belief, desire, or goal units have established the inputs it needs."
+  ],
+  "id": "micro-23",
+  "level": "micro",
+  "layer": "L3",
+  "family": "goal-action",
+  "core_question": "Predict the next likely action from belief and goal",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

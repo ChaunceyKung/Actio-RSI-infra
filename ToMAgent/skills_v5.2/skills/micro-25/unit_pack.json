@@ -1,0 +1,102 @@
+{
+  "frontmatter_description": "Diagnose the weighting rule a character uses when two or more active goals compete and no binding prior commitment settles the choice.",
+  "title": "Goal-Conflict Arbitration",
+  "use_when": [
+    "Use when two or more goals are active at once and the answer is which one the character weights more strongly (and often why).",
+    "Use when a character acts against a surface desire and you must name the competing goal that outweighed it (e.g., wants to play but stays in to avoid being mocked).",
+    "Use when the goals freely compete with no binding prior promise, ongoing task, or schedule deciding the order."
+  ],
+  "do_not_use_when": [
+    "Do not use when a binding prior promise, ongoing task, or schedule decides which plan is honored first; that is Commitment Priority (micro-24).",
+    "Do not use when one goal is merely a step done in order to reach another (means-end nesting); that is Goal Hierarchy (micro-21).",
+    "Do not use when the question asks what the character will physically do next from belief and goal; that is Action Prediction (micro-23).",
+    "Do not use when the issue is how the character feels about a gain, loss, threat, or blame; that is an emotion-appraisal capability (micro-26 onward).",
+    "Do not use when the issue is reading intention, belief, persuasion, or social meaning rather than weighing goals."
+  ],
+  "decision_variable": "the weighting rule for competing goals: which active goal the character gives greater weight, and on what basis",
+  "trigger_checklist": [
+    "Two or more goals are active at the same time and pull toward different choices.",
+    "The question asks which goal wins, outweighs, or dominates — or why the character chose against a stated desire.",
+    "No binding prior promise, ongoing task, or schedule pre-settles the choice (removing one would not change the answer).",
+    "The answer depends on a tradeoff: salience, urgency, reward, cost, fear, social image, or value."
+  ],
+  "workflow": [
+    "Identify every active goal in the scene, including a hidden competing goal behind a surprising choice (e.g., avoiding embarrassment, not worrying a parent).",
+    "Confirm no binding prior promise, ongoing task, or schedule already decides the order; if one does, this is the wrong unit.",
+    "Infer the weighting rule: which goal carries more weight and on what basis (reward, cost, fear, social image, urgency, value).",
+    "Answer with the goal the rule makes dominant, or the reason that competing goal outweighed the surface desire."
+  ],
+  "special_case": {
+    "title": "Hidden competing goal behind a contradictory action",
+    "rule": "When a character clearly wants X but says or does not-X, look for a second active goal (avoiding embarrassment, protecting someone's feelings, dodging a consequence) that outweighs X. The answer is the weighting rule, not the surface desire.",
+    "worked_example": {
+      "scene": "Li Lei loves basketball but is not very good and his sister always mocks his skills. When his friend invites him to play, and his sister asks if he is going, Li Lei answers, \"No.\"",
+      "question": "Li Lei wants to play basketball, so why does he say no?",
+      "answer_logic": "Two goals are active: play basketball (the surface desire) and avoid his sister's mockery. With no promise or schedule in play, the second goal outweighs the first, so he says no because he does not want his sister to mock him anymore (the weighting rule), not because he stopped wanting to play."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the binding-commitment capability if a prior promise, ongoing task, or schedule decides which plan is honored first (Commitment Priority, micro-24).",
+    "Exit to the means-end-structure capability if one goal is merely a step done in order to reach another rather than a rival competing for the same slot (Goal Hierarchy, micro-21).",
+    "Exit to the next-action-prediction capability if the question asks what the character will physically do next rather than how goals are weighted (Action Prediction, micro-23).",
+    "Exit to an emotion-appraisal capability if the scene is about how the character feels about gain, loss, threat, blame, or success (micro-26 onward).",
+    "Exit to the intention-reading or belief capability if the scene is about inferring a purpose or belief without active goal competition (Intention Recognition micro-22, or a belief unit)."
+  ],
+  "references": {
+    "route_signal": "Use this unit when the answer depends on which of several competing goals the character weights higher, with no binding commitment pre-settling it. If a prior promise or schedule decides, route elsewhere.",
+    "hard_boundary": [
+      "Goal-Conflict Arbitration is FREE weighing of competing goals; if a binding promise, ongoing task, or schedule pre-resolves the choice, route to the binding-commitment capability (Commitment Priority, micro-24).",
+      "It treats goals as parallel rivals for the same slot, not as nested means-and-ends; nesting is Goal Hierarchy (micro-21).",
+      "It outputs which goal is weighted higher (and why), not the next observable behavior, which is Action Prediction (micro-23).",
+      "It is goal weighting at the desire level, not feeling about the outcome, which is an emotion-appraisal capability (micro-26 onward)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not take the surface desire at face value; find the competing goal that outweighed it.",
+      "Do not assume a promise or schedule unless the scene explicitly states one; inventing a commitment turns this into the wrong unit.",
+      "Do not convert a motivation question into an emotion question or a next-action question."
+    ],
+    "common_failure_modes": [
+      "Confusing free goal weighting with next-step prediction.",
+      "Importing a binding commitment the scene never states, then ranking by obligation instead of weight.",
+      "Stopping at the stated desire and missing the hidden competing goal that actually drove the choice.",
+      "Answering with an emotion or a personality label instead of the active weighting rule."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Li Lei loves basketball but his sister mocks his skill; when his friend invites him and his sister asks, he says no. Question: why does he say no?",
+        "why_it_matches": "Two free goals compete (play vs. avoid mockery) with no promise or schedule; the answer is the weighting rule — avoiding mockery outweighs playing. In-scope free goal weighting."
+      },
+      {
+        "case": "Leo wants to rest but already promised his sister he would drive her to the airport tonight, and she has no backup ride. Question: what should decide the priority?",
+        "why_it_matches": "A binding prior promise is present, so the order is set by the commitment rather than by free weighing. Routes to the binding-commitment capability (Commitment Priority, micro-24)."
+      }
+    ],
+    "boundary_stress_test": [
+      "If removing a stated promise, task, or schedule would change the answer, this is the binding-commitment capability, not free weighing.",
+      "If one goal is only a step toward the other (A in order to B), this is means-end structure, not goal conflict.",
+      "If the question can be answered by naming the next physical action alone, route to action prediction.",
+      "If the decisive clue is a feeling word rather than a goal tradeoff, route to an emotion-appraisal capability."
+    ],
+    "generalization_note": "This unit covers free goal tradeoffs across everyday, social, moral, and self-protective motives, including hidden competing goals behind contradictory actions, as long as no binding prior commitment resolves the choice."
+  },
+  "validation_seed": {
+    "positive_pattern": "Two or more goals compete freely and the answer is which goal is weighted higher (or why a competing goal outweighed the surface desire), with no binding commitment in play.",
+    "near_miss_pattern": "Two goals compete, but one is already governed by a binding prior promise, ongoing task, or schedule, so the commitment decides.",
+    "boundary_pattern": "The question asks what the character will physically do next, not how the character weights the goals."
+  },
+  "notes": [
+    "Keep the unit focused on the weighting rule among competing goals, not full planning.",
+    "Use only when the scene lacks a binding prior commitment that settles the conflict; the test is whether removing a commitment would change the answer.",
+    "Watch for hidden competing goals (avoiding embarrassment, protecting someone) behind a choice that contradicts a stated desire."
+  ],
+  "id": "micro-25",
+  "level": "micro",
+  "layer": "L3",
+  "family": "goal-action",
+  "core_question": "Determine how a character chooses among conflicting goals",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

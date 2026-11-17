@@ -1,0 +1,118 @@
+{
+  "frontmatter_description": "Direct-route macro for judging what a target character can physically see from their viewpoint, or how spatial relations (left/right, front/back, occlusion, orientation) appear from that character's facing direction.",
+  "title": "Spatial Social Perspective Judgment",
+  "use_when": [
+    "Use when the answer is decided purely by what a specific character can physically see from their position and facing direction (line of sight), or by which object falls on their left, right, front, or behind.",
+    "Use when an occluder (a wall, a screen, the back of an object, a container lid, another person, a corner, darkness, or distance) stands between the target and something, and the question asks whether the target can see it.",
+    "Use when left/right or front/back must be reckoned relative to a named person's body orientation rather than the reader's camera angle, including cases where the target faces the reader or stands on the opposite side of an object.",
+    "Use when the question is about the orientation a target perceives of a picture, sign, cube, die, or screen given which face or side points toward them."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks what the character KNOWS or can identify as a result of seeing something; deciding 'they saw it, therefore they now know X' is a knowledge-access scene, where you track who had perceptual access to information and conclude what each person is informed about. This macro stops at 'can they see it', it does not draw the knowledge conclusion.",
+    "Do not use when the character saw an old state, then something changed while they were away, and the question asks where they will look or what they expect; that is an outdated-belief scene, solved by tracking the belief the character formed before the change and predicting they will act on that stale belief.",
+    "Do not use when the question is which option a character will choose among competing goals, duties, or next actions; that requires weighing motives and commitments, not computing a sightline.",
+    "Do not use when the question is whether a visible remark or act was rude, embarrassing, or a social misstep; that is a norm-and-offense judgment about appropriateness, not about geometry.",
+    "Do not use when the answer requires inferring a quantity, probability, or base rate from partial observations; that is an estimation task, not a viewpoint computation."
+  ],
+  "decision_variable": "what a target character can physically see from their viewpoint, or how a spatial relation (left/right, front/back, occlusion, orientation) appears relative to that character's facing direction",
+  "direct_route_rule": "Route immediately when the question turns on a sightline, an occluder between a viewer and a target, or a left/right/front/back relation that must be read from a named character's facing direction rather than the reader's.",
+  "expandable_micro_ids": [
+    "micro-05",
+    "micro-06",
+    "micro-07",
+    "micro-12"
+  ],
+  "trigger_checklist": [
+    "A specific viewer or perspective holder is named, and their position and facing direction are given or can be fixed from the scene.",
+    "The question asks what that viewer can see, whether something is in their line of sight, or which side/object is on their left, right, front, or behind.",
+    "The scene contains spatial structure that decides the answer: positions, a facing direction, an occluding object, distance, or an orientation of a face/side.",
+    "The correct answer flips if computed from the reader's god's-eye view instead of the target character's viewpoint.",
+    "Answering needs only the perceptual-access or spatial relation, with no further step about what the character then knows, believes, intends, or whether an act was appropriate."
+  ],
+  "workflow": [
+    "Identify the target character whose viewpoint controls the answer; if several people are present, pin down which single viewpoint the question asks about.",
+    "Fix that target's position and body orientation: where they stand and which way they face. Their left, right, front, and behind are defined by THIS facing, not by the reader's.",
+    "Locate every relevant object and every potential occluder (walls, screens, the closed or far side of a container, the back of an object, other people, corners, distance, darkness) with their positions.",
+    "For a visibility question, trace the straight line from the target's eyes to the object: if any occluder sits on that line, or the object's relevant face points away from the target, the target cannot see it; otherwise it is in view.",
+    "For a left/right or front/back question, rotate the layout into the target's frame, then read off the relation; if the target faces the reader or stands on the far side, the target's left maps to the reader's right and vice versa.",
+    "For a picture, sign, cube, die, or screen, decide which face or side is turned toward the target and answer from that face, not from the face the reader sees.",
+    "Answer ONLY the perceptual-access or spatial-relation question. Do not continue to 'therefore the character knows / believes / will do X', and do not switch to the reader's god's-eye view; if the prompt genuinely adds a knowledge, belief, or norm step, that step belongs to a different scene."
+  ],
+  "special_case": {
+    "title": "Facing-the-reader left/right reversal",
+    "rule": "When the target faces the reader, or stands on the opposite side of an object from the reader, the target's left is the reader's right and the target's right is the reader's left. Re-read every left/right (and any front/back that depends on facing) from the target's own body, never from the page.",
+    "worked_example": {
+      "scene": "Maya stands across a table directly facing Noah. From Noah's own point of view, a red cup sits on his left and a blue cup sits on his right. Maya is on the opposite side, facing him.",
+      "question": "Which cup is on Maya's left?",
+      "answer_logic": "Maya faces the opposite way from Noah, so her left/right are mirrored relative to his. Noah's right side of the table is Maya's left side. The blue cup, on Noah's right, is therefore on Maya's left. The answer is the blue cup. Note we never ask what Maya knows or infers, only which cup falls on her left given her facing."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question moves past 'can they see it' to 'and so what do they now know or can identify', solve it as a knowledge-access problem: list who had direct perceptual access to the information and when, and conclude only that those with access are informed and those without are not. This macro supplies the visibility fact; it does not draw that knowledge conclusion.",
+    "If the character saw an earlier state, then a change happened out of their sight, and the question asks where they will search or what they expect, solve it as an outdated-belief problem: the character still holds the belief from before the change and will act on that stale belief, not on the current reality.",
+    "If the scene only uses the spatial layout to set up which goal or next action a character should pick, solve it by weighing the character's competing commitments and motives, not by computing a sightline.",
+    "If the central question is whether a visible remark or act was rude, awkward, or a faux pas, solve it as a social-appropriateness judgment about norms and likely offense, not as geometry.",
+    "If the spatial detail is only evidence for inferring a count, probability, or base rate, solve it as an estimation problem from partial observations, not as a viewpoint computation.",
+    "When the route to this visibility macro is correct but the answer needs a finer diagnosis of who has perceptual access, where attention is directed, how a spatial cue is being used, or how to transform between viewpoints, draw on the matching micro expansion."
+  ],
+  "references": {
+    "route_signal": "A scene asks for a named character's physical sightline or for a left/right/front/back/visible/hidden/facing relation that must be read from that character's own position and facing direction rather than the reader's.",
+    "hard_boundary": [
+      "Seeing is not knowing: this macro decides only whether the target can see something. Concluding that they therefore know, can identify, or are informed about it is a separate knowledge-access step.",
+      "Current visibility is not outdated belief: if the character saw an old state and missed a later change, the answer turns on the stale belief they still hold, not on what is now in their line of sight.",
+      "A sightline is not a social judgment: whether a visible act is rude, awkward, or a faux pas is a norms question, not a geometry question.",
+      "Spatial layout alone is not estimation: if the answer needs a quantity or probability inferred from partial cues, that is estimation, not perspective-taking."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer from the reader's god's-eye camera angle when a specific character's viewpoint is named; recompute from that character's position and facing.",
+      "Do not assume everyone in the room sees the same thing; check each viewer's facing direction and the occluders between them and the target object.",
+      "Do not slide from 'can see it' to 'therefore knows / believes it'; stop at the visibility fact, since the knowledge or belief step belongs to a different scene.",
+      "Do not recall a memorized dice, cube, or mirror answer; recompute which face or side is turned toward this particular target.",
+      "Do not mirror left/right the wrong way: a target facing you has their left on your right, so check facing before assigning sides."
+    ],
+    "common_failure_modes": [
+      "Jumping from 'the character can see it' straight to 'therefore the character knows / believes it' and answering the knowledge question instead of the visibility question.",
+      "Using the reader's god's-eye view of the layout instead of reconstructing the scene from the target character's eyes.",
+      "Mishandling left/right (and facing-dependent front/back) relative to the person's own facing versus the reader's, especially when the target faces the reader or stands across an object.",
+      "Forgetting that an occluder, a closed or far container side, a turned-away face, distance, or darkness blocks the line of sight, and reporting an object as visible when it is not.",
+      "Treating any person who is merely present in the scene as able to see every detail, without checking whether their facing direction or an obstruction excludes the target object."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A child stands facing a shelf and is asked which toy is on her left; a screen blocks the rightmost toy from her line of sight, and the question is simply whether she can see that toy.",
+        "why_it_matches": "The answer is fixed entirely by the child's facing direction and the occluding screen, a pure sightline-and-side computation with no further step about what she concludes."
+      },
+      {
+        "case": "A child leaves the room; while she is gone a toy is moved from a box to a cabinet, and the question is whether she sees it in the cabinet or knows where it now is.",
+        "why_it_matches": "This is not a geometry question but a knowledge-access scene: because she had no perceptual access during the move, she sees nothing in the cabinet and does not know the new location. Solve it by tracking access to information, not by tracing a sightline."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the target could have seen an object but did not attend to it, use this macro only to settle that it was within their line of sight; whether they noticed or now know it is a separate attention-and-knowledge step.",
+      "If two characters stand on opposite sides of the same table, compute each one's left and right separately from their own facing, never sharing one frame.",
+      "If a picture, sign, die, or cube is rotated, answer from the face or orientation turned toward the target, not the one the reader sees.",
+      "If the prompt asks what the character should do after taking in the layout, separate the pure spatial reading from the later action-selection reasoning and let this macro own only the spatial reading."
+    ],
+    "generalization_note": "This macro generalizes across perspective-taking scenes by applying one stable procedure: pin the target viewer's position and facing, rotate the layout into their frame, remove whatever an occluder or a turned-away face blocks, and report only the visibility or the left/right/front/back relation, never the downstream knowledge, belief, or social judgment."
+  },
+  "validation_seed": {
+    "positive_pattern": "A named character is placed at a fixed position and facing, an occluder or a facing-dependent side is specified, and the question asks purely whether they can see a target object or which object falls on their left/right/front/behind from their own viewpoint.",
+    "near_miss_pattern": "A named character had no perceptual access while an object was hidden or moved, and the question asks what they see or know in the new location; the answer is a knowledge-access conclusion ('sees nothing / does not know'), not a sightline geometry computation.",
+    "boundary_pattern": "A character saw an earlier state and missed a later change out of view, and the question asks where they will look; the answer turns on their outdated belief rather than their current line of sight."
+  },
+  "notes": [
+    "This macro is a directly routable scene prototype for pure spatial visibility and viewpoint-relative spatial relations, not a bundle of micro skills.",
+    "Sharp positive cases need clean, explicit geometry: stated positions, a stated facing, and an explicit occluder.",
+    "The core boundary: this macro decides what is visible and how sides line up from a viewpoint, and deliberately stops before the knowledge conclusion, the belief prediction, and the social judgment that other scenes own."
+  ],
+  "id": "macro-13",
+  "level": "macro",
+  "layer": "macro",
+  "family": "spatial-social-perspective-judgment",
+  "core_question": "what a target character can see or how they understand spatial relations from their viewpoint",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

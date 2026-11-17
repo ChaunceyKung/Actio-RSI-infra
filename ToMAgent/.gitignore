@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.claude/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+.env.local
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Run artifacts — do NOT commit
+results/
+*.jsonl
+logs/
+*.jsonl.tmp
+docs/
+model/
+experiments/
+cli/
+skills/
+skill_v2/
+tom_harness/tools/tomrag/index
+*.faiss
+*.pkl
+
+# Local secrets — NEVER commit
+secrets.yaml
+*.pem
+*.key
+
+# Benchmark / experiment artifacts (regenerable; not source)
+results/
+results_*/
+examples/
+!results/frozen_v04_selective/
+!results/frozen_v04_selective/**
+
+# Benchmark data directories (large, not source)
+benchmark/ICTBench/
+benchmark/tactful-tom/
+benchmark/ToMBench/
+benchmark/CogToM/
+benchmark/Hi-ToM/
+benchmark/EmoBench/
+benchmark/social-IQA/
+
+# analyse
+reports/
+
+# Experiment manager artifacts
+experiments/logs/
+experiments/EXPERIMENT_ANALYSIS_REPORT.md
+experiments/experiment_state.json

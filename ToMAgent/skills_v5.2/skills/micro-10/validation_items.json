@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-10",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "In a space station on the orbit of a distant planet, a robot named Tinklo lives. This space station has an artificial environment, there is no form of plant life inside, so Tinklo does not understand any plant-related information. However, the space station is full of various mechanical devices and robots. Tinklo is performing imitation behavior: it sways from side to side, occasionally bends to the ground, these actions are similar to flowers swaying in the wind and people smelling flowers.",
+      "question": "What does Tinklo possibly imitate?",
+      "options": [
+        "Sunflowers swaying in the wind.",
+        "A robot bending over to pick up objects.",
+        "A person smelling a rose.",
+        "A windmill with rotating blades."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "ToMBench Knowledge-Pretend item and a clean knowledge-boundary positive. Tinklo's perception and movement are intact; what is missing is any knowledge of plants. So although the sway-and-bend looks plant-like to us, Tinklo can only be imitating something inside its known domain - a robot bending to pick up objects. The plant-based options are the trap that ignores the competence boundary."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Tara is a curious robot, living in an underwater city called Aquatica in the deep sea. In Aquatica, there are no birds or flying creatures, and Tara never understands them. However, Aquatica is full of all kinds of marine life. Tara is doing imitation behavior: it swings its arms up and down gracefully, like a forward motion, very similar to the flapping of bird wings.",
+      "question": "What is Tara likely imitating?",
+      "options": [
+        "Fish sliding fins",
+        "Soaring eagle",
+        "Butterfly flapping wings",
+        "Bat in flight"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "A second ToMBench Knowledge-Pretend item showing the boundary generalizes. The wing-like motion reads as flight to us, but Tara has no concept of birds or flying creatures, so the only interpretation available within its knowledge is a sea creature moving its fins. Every flight option (eagle, butterfly, bat) is outside its competence and is therefore wrong despite the surface resemblance."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "A former lab technician once knew exactly what 'PCR' meant and used it daily, but after many years away from the field she cannot recall its definition during a conversation.",
+      "question": "Why can she not explain the term right now?",
+      "options": [
+        "She never had the background to understand it",
+        "This is a memory problem - she once knew it but has forgotten",
+        "She did not hear the term clearly",
+        "She believes the term is unimportant"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Refined synthetic near miss. She once had full background competence - she used the term daily - so this is not a knowledge-boundary gap. The competence was acquired and then lost, which is forgetting. Because she had and then lost the background, this routes to memory, forgetting, and misremembering; calling it a missing-background case is the over-application trap."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "In a noisy workshop, a supervisor calls out, 'Check the torque spec on the chart.' The apprentice, who is fully trained and does know what a torque spec is, only catches the word 'chart' over the din and misses the rest of the sentence.",
+      "question": "Why can the apprentice not carry out the instruction?",
+      "options": [
+        "He lacks the engineering background to understand 'torque spec'",
+        "He once knew the term but forgot it",
+        "The key words never reached his ears over the noise",
+        "He does not believe the supervisor"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Refined synthetic boundary. The apprentice has the competence - he knows what a torque spec is - so background knowledge is not the barrier. The instruction simply never reached his senses because the noise drowned it out. Since the failure is perceptual rather than a comprehension gap, this routes to sensory access; choosing the missing-background option is the trap."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "frontmatter_description": "Determine how a character manages their own internal emotion through suppression, reappraisal, distraction, self-comfort, or redirection.",
+  "title": "Emotion Regulation",
+  "use_when": [
+    "Use when the question asks how a character changes, reduces, contains, redirects, justifies, or soothes their own emotional state.",
+    "Use when the key issue is an internal coping process after an emotion has been triggered.",
+    "Use when the answer depends on strategies such as calming down, distracting oneself, reframing the situation, rationalizing, self-talk, avoidance for coping, or seeking comfort to feel better.",
+    "Use when the character may still feel the emotion, but is actively trying to manage its intensity, direction, or meaning."
+  ],
+  "do_not_use_when": [
+    "Do not use when the main question is only which emotion the character feels; route to plain emotion appraisal of the situation, with no coping step involved.",
+    "Do not use when the character only manages the OUTWARD display for an audience while the inner feeling is unchanged; route to the capability for disguising, performing, or following display rules for an emotion (micro-29).",
+    "Do not use when the task only asks to recover the genuine feeling hidden beneath a different surface, with no self-management step; route to the capability for reading the true emotion concealed behind a mask (micro-28).",
+    "Do not use when the focus is the literal meaning of an utterance; route to the literal-meaning capability (micro-34). If the focus is the social act an utterance performs, route to the indirect-speech-act capability (micro-35).",
+    "Do not use when the emotion arises mainly from comparing reality with an alternative outcome (regret, relief, disappointment), unless the question then asks how the character copes with that feeling; otherwise route to the counterfactual-emotion capability (micro-31).",
+    "Do not use when one person's emotion simply transfers into another person's own state; route to the empathy and emotional-contagion capability (micro-32) unless that second person then actively manages their own feeling."
+  ],
+  "decision_variable": "the character's internal emotion-management strategy",
+  "trigger_checklist": [
+    "A character has an identifiable emotional reaction or emotional pressure.",
+    "The question asks what the character does mentally or behaviorally to feel calmer, safer, less upset, less guilty, more hopeful, or more in control.",
+    "There is evidence of coping, reappraisal, suppression, distraction, self-comfort, rationalization, venting, or redirection.",
+    "The answer depends on internal regulation, not just public expression.",
+    "The regulated emotion belongs to the same character whose strategy is being analyzed."
+  ],
+  "workflow": [
+    "Identify the character's initial emotional trigger and likely raw emotion.",
+    "Apply the decisive test: is the character trying to change the INNER feeling itself (regulation, in scope) or only the OUTWARD signal others see while privately feeling the same (display, out of scope)? If the inner feeling is unchanged and only the audience-facing expression is managed, route to the disguise/display-rule capability (micro-29).",
+    "If multiple candidate answers are all plausible coping moves, name the SPECIFIC method each one uses and match it to the text: reappraisal/reframing (changing what the event means), distraction/attention shift (turning away to a game, walk, other work), suppression (holding the feeling down), self-comfort or support-seeking (soothing, talking to a friend), rationalization (excusing it), or problem-focused action chosen to reduce distress.",
+    "Infer the intended effect of that strategy: reduce intensity, redirect attention, preserve self-image, regain control, tolerate distress, or transform the meaning of the event.",
+    "Answer with the regulation strategy and its emotional function, not with a bare emotion label or a broad personality judgment."
+  ],
+  "special_case": {
+    "title": "Private composure after social or moral discomfort",
+    "rule": "If a character feels guilt, shame, embarrassment, anger, or disappointment and then privately reframes, excuses, calms, distracts, or comforts themselves, classify the key variable as emotion regulation even if the trigger is moral or social.",
+    "worked_example": {
+      "scene": "Taotao is picked last for the team after the two captains exchange a wink and a smile. He feels the sting of being chosen last. He then tells himself he is not the leftover but the 'secret weapon' the captains saved for the end.",
+      "question": "What is Taotao doing to manage how he feels?",
+      "answer_logic": "The decisive variable is not which emotion Taotao feels but that he transforms its meaning through reappraisal ('I'm the secret weapon'), changing the inner feeling rather than just the face he shows others. Candidate strategies like walking up to the captains (problem action), confiding in a friend (support seeking), or focusing on the game (distraction) are all coping moves too, so the answer must match the SPECIFIC method the text shows: cognitive reappraisal."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the counterfactual-emotion capability — regret, relief, disappointment, or surprise from comparing what happened with what could have happened (micro-31) — when that comparison is the decisive clue and no coping strategy is being asked.",
+    "Exit to the empathy and emotional-contagion capability — another person's emotion transferring into the self (micro-32) — when the key process is absorbing or mirroring someone else's feeling rather than managing one's own after it arises.",
+    "Exit to the literal-meaning capability — what an utterance explicitly says (micro-34) — when the task is to state the explicit content of speech.",
+    "Exit to the indirect-speech-act capability — what social act an utterance performs, such as a request, warning, refusal, or hint (micro-35) — when the question is about the function of the utterance, not the speaker's self-management.",
+    "Exit to the disguise and display-rule capability — managing the OUTWARD expression for an audience while the inner feeling stays the same (micro-29) — or to the hidden-emotion capability — recovering the true feeling beneath a different surface (micro-28) — when the only issue is what the character shows or conceals, with no evidence the inner feeling is being changed."
+  ],
+  "references": {
+    "route_signal": "Use this micro unit when the scene turns on how a character copes with, changes, contains, redirects, or reinterprets their own emotional state.",
+    "hard_boundary": [
+      "Internal regulation is required: the character must be changing the inner feeling itself. Managing only the outward expression for an audience is the disguise/display-rule capability (micro-29); recovering the hidden true feeling is the hidden-emotion capability (micro-28).",
+      "The unit does not decide the basic emotion label unless that is needed to identify the regulation strategy.",
+      "The unit does not interpret speech acts unless the utterance is used as self-talk or coping evidence.",
+      "The unit does not cover pure empathy or contagion unless the absorbed emotion is then actively regulated by the same character."
+    ],
+    "shortcut_to_avoid": [
+      "Do not assume a calm face means the character feels calm internally.",
+      "Do not label every explanation as rationalization; check whether it functions to reduce or reshape emotion.",
+      "Do not confuse solving the external problem with regulating the internal emotional response, unless the action is chosen to manage distress."
+    ],
+    "common_failure_modes": [
+      "Answering with the emotion label only, such as 'sad' or 'angry,' instead of the regulation process.",
+      "Treating social display rules as internal emotion regulation.",
+      "Ignoring self-talk, distraction, or reappraisal because they are subtle.",
+      "Overreading regulation when the character simply moves on with no evidence of coping.",
+      "Confusing moral responsibility with emotion regulation when the question is actually about blame or guilt attribution."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Lena is furious but takes slow breaths and reminds herself the mistake was accidental, so she will not stay angry.",
+        "why_it_matches": "In scope: Lena changes the intensity and interpretation of her own anger through calming and reappraisal, so the inner feeling itself is being managed."
+      },
+      {
+        "case": "Lena is furious but smiles at the customer because her manager is watching, while inside she stays just as angry.",
+        "why_it_matches": "Out of scope when the question is about the public mask: the inner feeling is unchanged and only the audience-facing expression is managed, so this routes to the disguise and display-rule capability — controlling the outward signal for others (micro-29)."
+      }
+    ],
+    "boundary_stress_test": [
+      "If a character says 'I'm fine' while privately still upset, do not route here unless there is evidence they are trying to become fine internally.",
+      "If a character feels relieved because the worse outcome did not happen, route to counterfactual emotion unless the question asks how they calm down afterward.",
+      "If a character comforts a crying friend, do not route here unless the question asks how the helper manages their own distress.",
+      "If a character says 'Could you lower your voice?' decide whether the target is the indirect request itself or the speaker's attempt to reduce their own anxiety."
+    ],
+    "generalization_note": "Emotion regulation generalizes across private thoughts, bodily calming, attention shifts, meaning-making, avoidance, self-justification, and support seeking, as long as the core variable is how the character manages their own internal emotion."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character has an emotional reaction and then uses reappraisal, distraction, suppression, self-comfort, support seeking, or a calming action to manage the inner feeling; the correct response names the specific strategy.",
+    "near_miss_pattern": "A character manages only the outward display for an audience while the inner feeling is unchanged (routes to disguise/display rules), or the question merely asks which situational emotion the character feels with no coping step (routes to emotion appraisal).",
+    "boundary_pattern": "The task asks only to recover the genuine feeling hidden beneath a different surface, or to read regret/relief from comparing outcomes, with no self-management; route to the hidden-emotion or counterfactual-emotion capability rather than regulation."
+  },
+  "notes": [
+    "This unit is diagnostic and narrow: it explains a character's coping mechanism, not the whole social scene.",
+    "Preserve the distinction between internal emotion regulation and external emotion display.",
+    "Can be used inside macro routes involving moral emotion, hidden emotion, apology, or relationship repair when deeper analysis of coping is needed."
+  ],
+  "id": "micro-33",
+  "level": "micro",
+  "layer": "L4",
+  "family": "emotion-appraisal",
+  "core_question": "Determine how a character suppresses, redirects, rationalizes, or comforts themselves",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

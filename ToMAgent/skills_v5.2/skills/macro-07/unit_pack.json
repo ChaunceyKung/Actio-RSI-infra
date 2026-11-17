@@ -1,0 +1,116 @@
+{
+  "frontmatter_description": "Route here when a speaker's words are non-literal but meant to be understood: an indirect request or hint, irony or sarcasm, humor, or any implicature the speaker wants the listener to decode beyond the literal wording.",
+  "title": "Indirect Language and Conversational Meaning",
+  "use_when": [
+    "The speaker's literal words and their intended meaning come apart, and the task is to infer what the speaker really wants the listener to understand.",
+    "The utterance is an indirect request or hint, irony or sarcasm (meaning the opposite of the words), humor (a non-serious incongruity), or a softened complaint, warning, refusal, or reminder.",
+    "The key question is the intended meaning or communicative purpose of an utterance the speaker genuinely wants understood, not the literal sentence meaning."
+  ],
+  "do_not_use_when": [
+    "Do not use when the central issue is whether the statement is true and whether the speaker intends to deceive; a lie, white lie, or misdirection is a truth-value and intent-to-deceive problem, where you judge if the words are false and why the speaker would say something untrue, not what honest-but-indirect meaning to decode.",
+    "Do not use when the task is estimating HOW MANY or HOW LIKELY from a vague quantifier (for example 'almost every', 'some', 'a few'), a base rate, or a partial sample; that is numeric/base-rate estimation that yields a quantity, not pragmatic meaning, and it belongs to quantity-estimation reasoning.",
+    "Do not use when the carrier of meaning is a nonverbal cue such as a gesture, glance, posture, or facial expression rather than a spoken or written utterance; reasoning about body language and looks is a separate nonverbal-cue problem.",
+    "Do not use when the main issue is the speaker's hidden emotion for its own sake, rather than the communicative act the utterance performs.",
+    "Do not use when the core task is choosing how to persuade, advise, or tailor a message to a particular listener, rather than decoding an utterance that has already been said.",
+    "Do not use when the scene is a plain literal statement that means exactly what it says, with no mismatch between wording and context; do not over-apply indirect inference where none is signaled."
+  ],
+  "decision_variable": "what the speaker really wants the listener to understand from an utterance whose literal wording differs from its intended meaning",
+  "direct_route_rule": "Route immediately when an utterance's literal wording does not match what the speaker clearly wants understood, so the listener must decode an indirect request or hint, irony or sarcasm, or humor.",
+  "expandable_micro_ids": [
+    "micro-34",
+    "micro-35",
+    "micro-36",
+    "micro-39"
+  ],
+  "trigger_checklist": [
+    "There is a visible mismatch between the literal words and the situation, so taking the words at face value would be odd or pointless.",
+    "The scene asks for the intended meaning, communicative purpose, or 'real meaning' of the utterance, not its literal sentence meaning.",
+    "The utterance works as an indirect request or hint, as irony or sarcasm meaning the opposite of the words, or as a joke that is a non-serious incongruity.",
+    "The listener must infer what is meant from context, relationship, tone, or shared expectations.",
+    "The speaker genuinely wants this meaning understood; the question is not whether the words are true or false."
+  ],
+  "workflow": [
+    "State the literal utterance and what it would mean if taken at face value.",
+    "Check the context: why would the speaker say exactly this, here, now? Detect the mismatch between the literal wording and the situation, relationship, or shared expectations.",
+    "If the literal reading fits the situation with no mismatch, stop and answer literally; do not invent a hidden meaning.",
+    "If there is a mismatch, identify which non-literal act it is: a HINT or indirect request prompts the listener to do or notice something; IRONY or sarcasm means the opposite of the words, usually to criticize or complain; HUMOR is an obvious non-serious incongruity meant to amuse.",
+    "Infer the intended message from that act, using context and relationship, and prefer it over the literal wording.",
+    "Sanity check that the speaker WANTS this meaning understood (it is honest and communicative), not that the speaker is hiding a falsehood or estimating a quantity.",
+    "State the intended meaning in plain language as the answer."
+  ],
+  "special_case": {
+    "title": "Irony and sarcasm: the speaker means the opposite",
+    "rule": "When the literal words are clearly contradicted by the situation (praise after a failure, 'great weather' in a downpour), read the utterance as irony or sarcasm: the intended meaning is the OPPOSITE of the literal words, usually a complaint, criticism, or mockery the speaker wants understood.",
+    "worked_example": {
+      "scene": "Anming ignores the meal his mother spent a long time preparing, never looking up or saying thank you. His mother says angrily, 'You are really polite!'",
+      "question": "Why does the mother say this?",
+      "answer_logic": "The literal words praise Anming's manners, but the situation (rudeness, anger) contradicts them, so this is sarcasm. The intended meaning is the opposite: she is mocking Anming for being ill-mannered. The answer is the ironic criticism, not the literal compliment."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the central question is whether the statement is true and whether the speaker means to deceive (a lie, white lie, or honest mistake), solve it as a truth-value-and-intent problem: judge whether the words are false and why the speaker would say something untrue, rather than decoding an indirect-but-honest meaning here.",
+    "If the task is to estimate how many or how likely from a vague quantifier, base rate, or partial sample, solve it as numeric estimation that combines the prior with the observed evidence to produce a quantity, not as pragmatic meaning.",
+    "If the meaning is carried by a gesture, glance, posture, or facial expression rather than an utterance, reason about the nonverbal cue directly: what that body signal conveys in context.",
+    "If the central issue is the speaker's hidden feeling for its own sake rather than the act the utterance performs, treat it as an emotion-inference problem.",
+    "If the core task is how to persuade, advise, or tailor a message to a listener rather than decode an utterance already spoken, treat it as a persuasion or audience-adaptation problem."
+  ],
+  "references": {
+    "route_signal": "A speaker says something whose literal wording clearly does not match the situation, and the listener is expected to infer the real intended meaning: an indirect request or hint, an ironic or sarcastic reversal, or a joke.",
+    "hard_boundary": [
+      "Not about whether the utterance is factually true or whether the speaker intends to deceive.",
+      "Not about estimating a quantity or likelihood from vague quantifiers, base rates, or partial samples.",
+      "Not about meaning carried by gestures, glances, or facial expressions instead of words.",
+      "Not about the speaker's hidden feeling for its own sake, or about how best to persuade or adapt to a listener."
+    ],
+    "shortcut_to_avoid": [
+      "Do not assume every non-literal sentence belongs here; a statement said to deceive is a lie problem and a vague quantifier asking 'how many' is an estimation problem.",
+      "Do not answer from literal semantics alone when context clearly signals an intended indirect meaning, irony, or joke.",
+      "Do not invent an indirect meaning when the words plainly fit the situation and mean exactly what they say."
+    ],
+    "common_failure_modes": [
+      "Answering the literal sentence instead of the intended meaning (treating an indirect request as a factual comment, or taking ironic praise at face value).",
+      "Reading irony as sincere because the words are positive, missing that the situation contradicts them.",
+      "Treating a deceptive statement as an indirect meaning when the real issue is its truth value and intent to deceive.",
+      "Treating a joke as a literal claim or a genuine mistake instead of a non-serious incongruity meant to amuse.",
+      "Over-applying indirect inference to a plain literal statement that has no mismatch with context."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Marissa finds the bathroom filthy right after Anna used it and says, 'Anna, can't you find the cleaning supplies?'",
+        "why_it_matches": "In scope: the literal form is a question about ability, but in context it is an indirect request the speaker wants understood as 'clean the bathroom now'. The task is decoding the intended speech act."
+      },
+      {
+        "case": "Aunt Jian asks if Jianjun likes her new hat; he privately finds it ugly but says, 'Oh, it looks good.'",
+        "why_it_matches": "Near miss: the speaker says something he believes is false to spare feelings, so the central issue is the truth value of the statement and the intent to deceive (a white lie), not decoding an honest-but-indirect meaning. This is a truth-value-and-intent problem, a different scene."
+      }
+    ],
+    "boundary_stress_test": [
+      "If an utterance is non-literal but the question asks whether it is true or why the speaker would say something false, treat it as a lie or misdirection problem, not indirect meaning.",
+      "If an utterance contains a vague quantifier and the question asks how many or how likely, treat it as numeric estimation that produces a quantity, not pragmatic meaning.",
+      "If the meaning is carried by a glance or gesture rather than words, treat it as a nonverbal-cue problem.",
+      "If the words plainly fit the situation with no mismatch, answer literally rather than inventing a hidden meaning."
+    ],
+    "generalization_note": "Use this macro as the reusable prototype for decoding non-literal utterances the speaker wants understood: indirect requests and hints, irony and sarcasm (opposite-of-words), humor (non-serious incongruity), and softened complaints, warnings, refusals, and reminders. The decisive test is a mismatch between literal wording and intended, honest meaning; the micro expansions are only for finer diagnosis, motive analysis, or boundary explanation."
+  },
+  "validation_seed": {
+    "positive_pattern": "An utterance whose literal wording clearly mismatches the situation functions as an indirect request or hint, as irony or sarcasm meaning the opposite of the words, or as a joke, and the task is to infer the intended meaning.",
+    "near_miss_pattern": "A statement the speaker believes is false is said to deceive or to spare feelings, so the central issue is the truth value of the words and the intent to deceive rather than decoding an honest indirect meaning.",
+    "boundary_pattern": "The utterance contains a vague quantifier or partial sample and the task is to estimate how many or how likely, producing a numeric answer rather than a pragmatic meaning."
+  },
+  "notes": [
+    "This macro is a direct scene prototype, not just a bundle of micro skills.",
+    "Use the micro expansions only when needed for finer diagnosis or explanation.",
+    "Keep the answer centered on the intended conversational meaning of an honest, non-literal utterance rather than its literal wording.",
+    "The most common in-scope forms are indirect requests/hints, irony/sarcasm, and humor; the most dangerous neighbors are lies (truth value) and scalar quantity estimation (how many)."
+  ],
+  "id": "macro-07",
+  "level": "macro",
+  "layer": "macro",
+  "family": "language",
+  "core_question": "what the speaker really wants the listener to understand",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

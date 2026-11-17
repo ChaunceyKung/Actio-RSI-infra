@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-19",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Tom finds some money on his way home from school. He is happy and starts thinking about how to spend it. On the way, an aunt says, 'Tom, if you help me pick apples, I will give you some money.' So Tom stays to help her pick apples.",
+      "question": "What does Tom do after he helps the aunt pick apples?",
+      "options": [
+        "Tom goes to the park to play.",
+        "Tom goes to the store to buy things.",
+        "Tom helps the aunt make apple pie.",
+        "Tom donates the money to a charity."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Multiple Desires (idx 1); tests the focal character's OWN desire surviving a detour: Tom wanted to spend money, so after the side-task he goes to buy things."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Susan wants to eat the sweet chocolate cookies she made yesterday, but her friend invites her to go swimming. Susan puts the cookies back in the refrigerator and goes swimming with her friend.",
+      "question": "What does Susan do after she comes home from swimming with her friend?",
+      "options": [
+        "Susan eats her chocolate cookies.",
+        "Susan goes swimming again.",
+        "Susan starts making new chocolate cookies.",
+        "Susan goes to sleep."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Multiple Desires (idx 1); tests that the character's own preference (eating her cookies) persists across an interruption and resumes afterward."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Li Hua is passionate about outdoor adventures and seeks fresh, exciting experiences. Wang Fang is a quiet librarian who spends her weekends reading in a calm, orderly library. This weekend, Li Hua invites Wang Fang to go out together.",
+      "question": "Where does Li Hua plan to spend the weekend with Wang Fang?",
+      "options": [
+        "Hiking",
+        "Library",
+        "Sports Park",
+        "Skiing"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (idx 1); near-miss because the answer is driven by Li Hua's model of WANG FANG's quiet taste, not his own adventurous liking. Routes to modeling another person's preference (micro-20)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Li Lei really likes to play basketball, but his skills are weak and his sister always mocks them. He is now in his demanding senior year. This weekend a friend invites him to play basketball, and when his sister asks, 'Are you going to play basketball today?' Li Lei answers, 'No.'",
+      "question": "Why does Li Lei want to play basketball, yet he says no?",
+      "options": [
+        "Because he thinks basketball is not interesting.",
+        "Because he is afraid of being mocked by his friends.",
+        "Because he does not want his sister to mock him anymore.",
+        "Because his heavy senior-year coursework means he does not want to affect his studies."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Strange Story Task, Desire-action contradiction (idx 2); boundary because Li Lei acts AGAINST his own liking due to a social constraint. The deciding variable is which goal wins, routing to commitment priority / goal-conflict arbitration (micro-24/micro-25)."
+    }
+  ]
+}

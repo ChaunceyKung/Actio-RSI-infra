@@ -1,0 +1,98 @@
+{
+  "frontmatter_description": "Diagnose what is visible from another person's spatial viewpoint, without inferring belief, attention, or sensory access.",
+  "title": "Spatial Perspective Transformation",
+  "use_when": [
+    "Use when the question asks what a target person can see from their position.",
+    "Use when you must transform the scene into the target person's left-right, front-back, or occlusion viewpoint.",
+    "Use when the answer depends on the spatial relation visible from the target perspective."
+  ],
+  "do_not_use_when": [
+    "Do not use when the main issue is whether the person noticed, remembered, believed, or inferred anything.",
+    "Do not use when the question is about whether information was perceptually available at all; that is sensory access.",
+    "Do not use when attention, salience, or event order changes the mental state; those are different units.",
+    "Do not use when the task asks what the solver sees from their own viewpoint or asks for a non-spatial judgment."
+  ],
+  "decision_variable": "the spatial relation visible from the target perspective",
+  "trigger_checklist": [
+    "A person's physical position is given.",
+    "The scene contains an object, sign, image, or layout with directional structure.",
+    "The question asks what that person would see, face, or identify from that viewpoint.",
+    "The answer changes if the scene is mentally rotated or mirrored into the target person's perspective."
+  ],
+  "workflow": [
+    "Identify the target viewer's exact position and facing direction.",
+    "Map the scene from that viewpoint, keeping only visibility and orientation.",
+    "Check whether any object is blocked, reversed, or on the left/right side from that viewpoint.",
+    "Answer only the visible spatial relation, not beliefs or interpretations."
+  ],
+  "special_case": {
+    "title": "Mirror left and right when the person faces you",
+    "rule": "When the target person faces the reader, their left and right are mirror-reversed relative to the reader's. Compute the spatial relation from the target's own body axes, not by reading the layout off the reader's view.",
+    "worked_example": {
+      "scene": "Alice stands across the table facing you. From your side, a red cup is on the left edge of the table and a blue cup is on the right edge.",
+      "question": "Which cup is on Alice's left?",
+      "answer_logic": "Alice faces you, so her left-right axis is mirror-reversed from yours. The blue cup, which is on your right, falls on Alice's left; the red cup, which is on your left, falls on Alice's right. Perform the mirror transform into Alice's body frame rather than reporting the cup that is on your own left. Answer: the blue cup is on Alice's left."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question shifts from visible layout to what the person noticed, believed, or remembered, exit immediately.",
+    "If the question asks whether the person had sensory access in general rather than viewpoint-specific visibility, exit to Sensory Access.",
+    "If the question requires reasoning about another mind, common knowledge, or interpretation of a cue, exit to the relevant social-cognitive unit."
+  ],
+  "references": {
+    "route_signal": "Use this micro unit when the case asks what is visible, facing, left-right reversed, or blocked from another person's position.",
+    "hard_boundary": [
+      "Visibility from a viewpoint only.",
+      "No belief inference.",
+      "No attention or memory inference.",
+      "No interpretation of intentions or emotions."
+    ],
+    "shortcut_to_avoid": [
+      "Do not assume that seeing implies noticing.",
+      "Do not convert viewpoint questions into belief questions.",
+      "Do not use general world knowledge when simple spatial transformation is sufficient."
+    ],
+    "common_failure_modes": [
+      "Answering from the solver's own viewpoint instead of the target's viewpoint.",
+      "Confusing visibility with attention or awareness.",
+      "Treating occlusion as a belief problem.",
+      "Adding mental-state inferences that are not asked for."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A person stands on the left side of a sign and is asked which side of the sign appears closest.",
+        "why_it_matches": "The answer depends on viewpoint transformation and spatial relation only."
+      },
+      {
+        "case": "A person walked past a painting and is asked whether they noticed a detail.",
+        "why_it_matches": "This is about attention or noticing, not viewpoint visibility."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the scene is fully visible but the person did not look, do not use this unit.",
+      "If the person can see the object only by rotating mentally, this unit still applies.",
+      "If the question asks what the person thinks is behind the object, this unit does not apply."
+    ],
+    "generalization_note": "This unit covers viewpoint transformation across simple layouts, rotations, mirrors, and occlusion, but only as a visibility problem."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character is at a specific viewpoint and the answer requires actually performing the transform - mirroring left and right when they face the reader, or computing occlusion along their line of sight - not reading the scene off the reader's own view.",
+    "near_miss_pattern": "The viewpoint geometry is fine, but the sense channel is closed entirely (for example, total darkness), so the question is whether information was perceptually available at all, routing to sensory access.",
+    "boundary_pattern": "The object is plainly visible from the character's position, so no transform is needed; the real question is whether they noticed a detail, routing to attention and salience."
+  },
+  "notes": [
+    "Preserve a strict separation between viewpoint visibility and mental-state inference.",
+    "Treat left-right and facing direction as the core observable variables.",
+    "Keep the unit narrow enough to diagnose spatial perspective only."
+  ],
+  "id": "micro-06",
+  "level": "micro",
+  "layer": "L1",
+  "family": "perception-memory-knowledge",
+  "core_question": "Determine what is visible from another person's position",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

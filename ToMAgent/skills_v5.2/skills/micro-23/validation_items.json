@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-23",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Dongdong and Xixi are fixing a car in the park, preparing for a weekend outing. They keep discussing where to go but neither comes up with a good idea. Just then Nannan passes by, and Dongdong stops him and asks him to come over and look at the car they are fixing. Nannan sees their interaction and walks over.",
+      "question": "What does Dongdong want to do?",
+      "options": [
+        "Ask Nannan to help him fix the car.",
+        "Invite Nannan to go out with them.",
+        "Ask Nannan to give them an idea of where to play.",
+        "Show off their car-repair skills to Nannan."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (Intention: Prediction of actions, idx 1); phrased 'what does X want to do?' but the answer is Dongdong's next move inferred from his active goal (find a destination) plus the situation. Tests the phrasing trap where 'want to do' means the next action, not a feeling."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiao Hua is in the kitchen preparing dinner when the doorbell rings. He turns down the heat and finds his friend Xiao Li at the door holding movie tickets, inviting him to a film. Xiao Hua says he must finish dinner first. Then Xiao Hua's sister runs over and says she can finish the cooking so he can go out. Xiao Hua looks at the half-cooked dinner and hesitates.",
+      "question": "What does Xiao Hua do next after his sister offers to finish the cooking?",
+      "options": [
+        "He continues to cook dinner himself.",
+        "He accepts Xiao Li's invitation and goes to watch the movie.",
+        "He lets his sister finish dinner and then rests.",
+        "He goes to ask other friends whether to go to the movies."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Completion of Failed Actions (Intention: Completion of failed actions, idx 1); the obstacle that blocked the goal (unfinished dinner) is removed by the sister, so the next action that serves Xiao Hua's goal is to accept and go. Tests predicting the next move once a blocker clears."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiao Hong and Xiao Fang watch other children play. They have been discussing going somewhere together. Suddenly Xiao Hong gives Xiao Fang a look and glances toward the swing, where Xiao Mei sits. Then Xiao Hong smiles at Xiao Fang. Xiao Fang nods, and the two stand up.",
+      "question": "Why does Xiao Hong smile at Xiao Fang?",
+      "options": [
+        "Xiao Hong smiles because she sees something interesting on the playground.",
+        "Xiao Hong smiles because she remembers a joke about Xiao Mei.",
+        "Xiao Hong smiles because she thinks it is fun to play after school.",
+        "Xiao Hong smiles at Xiao Fang to suggest making new friends together."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Ambiguous Story Task (Intention: Intentions explanations, idx 1); the question asks WHY a smile already shown is happening - its purpose - so it routes to the intention-recognition capability - the purpose behind a current cue (micro-22), not next-action prediction. Teaches the why-vs-next boundary from the other side."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Li Hua, a middle-school student who loves painting, goes to the park after school to paint a landscape. At his ideal spot he realizes he is almost out of paint. His friend Xiao Wang calls, asking him to come to the bookstore, and mentions the art-supply store near it is having a sale. Just then Li Hua's mother texts to remind him there is an important math exam tonight.",
+      "question": "What does Li Hua choose to do after he hangs up the phone?",
+      "options": [
+        "He keeps painting in the park even though the paint is not enough.",
+        "He goes to the bookstore to meet Xiao Wang.",
+        "He goes home to prepare for the math exam.",
+        "He goes to the art-supply store to buy paint."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Completion of Failed Actions (Intention: Completion of failed actions, idx 1); three goals pull at once (paint, see friend, exam) and the question is which goal wins, so the decisive variable is goal weighting - routing to the goal-conflict arbitration capability - choosing among conflicting goals (micro-25) - rather than predicting a single goal's next action."
+    }
+  ]
+}

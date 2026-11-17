@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-19",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "At her first interview with a hiring panel she has never met, Maya is asked to open the meeting with a greeting before any questions begin.",
+      "question": "Which greeting best fits the situation?",
+      "options": [
+        "Good morning, thank you for taking the time to meet me today.",
+        "Hey guys, what's up?",
+        "I hope this won't take too long, I have a busy afternoon.",
+        "Before we start, let me walk you through my entire life story."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic interview item (no dedicated benchmark task for first-impression scenes). The decisive variable is curating one's own first impression for a formal, unfamiliar audience: the warm-but-concise greeting (A) fits the occasion, while the casual register (B), the self-focused complaint (C), and the over-disclosing monologue (D) misjudge the audience and register."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Zhang Hua is invited to the wedding of an important client. He privately finds the wedding far too lavish and impractical, but when the client asks for his opinion at the reception, he smiles and says the wedding is wonderful and unforgettable, which delights the client who spent enormous time and money on it.",
+      "question": "Why does Zhang Hua say this?",
+      "options": [
+        "Zhang Hua says this because he truly thinks the wedding is exciting and unforgettable.",
+        "Zhang Hua is trying to extract extra business favors from the client by praising the wedding.",
+        "Zhang Hua had an earlier misunderstanding with the client and says this to smooth over the past unpleasantness.",
+        "Zhang Hua says this out of social politeness, to avoid hurting the client's feelings and to maintain a good relationship at a formal occasion."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task white-lie item (idx 2, gold D): the actor chooses an outward, occasion-appropriate presentation move to maintain the image and relationship he wants at a formal event, rather than voicing his private judgment. That is exactly the impression-management variable this scene type turns on. Distractor B (instrumental persuasion for favors) and C (repairing a past offense) point to the neighboring persuasion and apology scenes, not to curating one's own presented image."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "In a team stand-up, a manager turns to an employee in front of the whole group and asks, somewhat sharply, why the report is late.",
+      "question": "What is the best response?",
+      "options": [
+        "Deliver a polished self-introduction to reset the room's impression of you.",
+        "Briefly and calmly state the cause of the delay and offer to discuss recovery steps afterward.",
+        "Stay silent so you don't risk making a bad impression in front of the team.",
+        "Insist the deadline was never realistic and that the manager set you up to fail."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic near-miss. This looks social but the live variable is navigating a power gap under public pressure from someone above you, not building a first impression. The fitting move (B) reads the status difference and answers the manager directly and accountably; treating it as an image-curation task (A, C) misses the hierarchy, and openly challenging up the gap (D) is the wrong hierarchy move. Power-gap communication chooses a move given a status difference, which is a different scene from presenting one's own image to an audience."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Zhang San's desk at work is in a cold, draughty spot, and he thinks his colleague Wang Wu's desk is far more comfortable, so he wants Wang Wu to agree to switch desks with him.",
+      "question": "How should Zhang San persuade Wang Wu to switch seats with him?",
+      "options": [
+        "Zhang San can say: 'Brother Wu, my seat is too cold, can we switch? I'll take on more of your workload to make it fair.'",
+        "Zhang San can first get the manager's approval, then tell Wang Wu: 'The boss says I'm switching places with you.'",
+        "Zhang San can suggest: 'Let's try switching for a day or two, and if you feel uncomfortable we switch back.'",
+        "Zhang San can say earnestly: 'Wang Wu, I really am too cold here, can you help me out? I really need this.'"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (idx 1, gold A): the goal is to move the listener's decision by offering him something in return, not to curate how the speaker is perceived. Persuasion (changing the listener's belief or behavior) is a distinct scene from managing one's own presented image; routing this through impression management would miss that the task is to find the offer that actually changes Wang Wu's mind."
+    }
+  ]
+}

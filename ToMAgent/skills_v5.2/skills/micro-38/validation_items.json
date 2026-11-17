@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-38",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Antique dealer Mr. Lin has a jade piece that is actually a modern replica he bought abroad. A customer, Ms. Li, admires it and assumes it is a genuine old antique. Mr. Lin tells customers, truthfully, that the jade is \"the star product of the shop, drawing the attention of many collectors,\" but never mentions that it is a modern replica rather than the ancient relic buyers assume.",
+      "question": "Which classification best fits Mr. Lin's wording?",
+      "options": [
+        "It is misleading: each phrase can be true, but selecting flattering facts and omitting that the jade is a replica leaves the buyer with a false belief about its age and value.",
+        "It is a plain false statement, because calling it a star product is untrue.",
+        "It is a pure implicature question, because the buyer simply inferred something extra that the dealer intended her to grasp.",
+        "It is not misleading, because the phrase about collectors is literally true."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Built on ToMBench Strange Story Task, Egocentric lies subtype (story: Mr. Lin's antique shop). Tests the core variable: a literally-true, selectively-framed statement that induces a false understanding. Benchmark-style note: ToMBench's native question for this story is 'Does Mr. Lin tell the truth?' (gold No), which scores his overall claim as untrue; this misleading-judgment framing is adapted onto the real story because ToMBench has no native item that asks whether a TRUE statement misleads."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Lily is playing at home and accidentally knocks over and breaks her mother's favourite crystal vase. When her mother asks what happened, Lily says, \"The dog knocked it over, it is not my fault!\" In fact Lily broke it; there was no dog involved.",
+      "question": "Why is this NOT a good case for the misleading-and-selective-expression capability?",
+      "options": [
+        "Because the statement is flatly false, so the main issue is truth or lying, not a true statement that misleads.",
+        "Because the mother correctly understood Lily's intended meaning.",
+        "Because Lily used language too technical for her mother.",
+        "Because the statement is true but incomplete."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Strange Story Task, Egocentric lies subtype (story: Lily breaks the vase; native question 'Is what Lily says true?', options Yes/No, gold No -> the content is false). Hard near-miss: the listener IS led to a wrong belief, but the cause is an outright false statement, not a true-but-misleading one, so it routes to the truth-status capability (micro-37) rather than this unit."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "After a long, hot highway trip, George arrives at Angela's office. Angela immediately starts talking about business ideas. George interrupts and says, \"Ah, I had a long and hot highway trip.\" Every word he says is true.",
+      "question": "What is the real meaning George wants to express, and does this belong in the misleading-and-selective-expression capability?",
+      "options": [
+        "George wants to say he does not want to hear any of Angela's ideas.",
+        "George wants Angela to give him travel advice.",
+        "George is hinting, \"Can I have something to drink?\" or \"Can we rest a few minutes before business?\" - the listener is meant to recover this correctly, so it is conversational implicature, not misleading.",
+        "George is complaining about his trip and misleading Angela about his feelings."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (story: George's hot highway trip; question 'What is the real meaning George wants to express?', gold C). Real options and gold preserved. Boundary case: George's words are literally true and the listener is meant to infer his intended request CORRECTLY, so no false belief is produced. This is cooperative implicature that routes to the conversational-implicature capability (micro-36), not this misleading-effect unit, which fires only when the recovered inference is false."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Doctor Zhao is asked by his neighbour Mr. Li to come look at a sick cow. Zhao's real reason for refusing is that he fears looking incompetent with animals and losing his respected status, but he does also have surgeries this week. He tells Mr. Li, \"I'm too busy lately, with several surgeries lined up; you'd better find another veterinarian.\" Mr. Li leaves believing a packed surgery schedule is the only reason Zhao declined.",
+      "question": "What is the best analysis of Doctor Zhao's reply?",
+      "options": [
+        "It is not misleading, because Doctor Zhao really does have surgeries scheduled.",
+        "It is misleading: a true detail about his schedule is used to steer Mr. Li away from the real reason for the refusal, leaving Mr. Li with a false understanding of why Zhao declined.",
+        "It is a plain lie, because Doctor Zhao has no surgeries at all.",
+        "The only question worth asking is why Doctor Zhao chose those words."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Built on ToMBench Strange Story Task, Egocentric lies subtype (story: Doctor Zhao declines to see Mr. Li's cow; the real 'Why does Mr. Zhao say so?' item, gold = he fears losing his respected status). Targets the shortcut that a true sentence cannot mislead: the surgery clause is true, yet selecting it and omitting the real motive leaves the listener with a false belief about why Zhao refused. Benchmark-style misleading-judgment framing adapted onto the real story (ToMBench scores his overall reply as 'not true')."
+    }
+  ]
+}

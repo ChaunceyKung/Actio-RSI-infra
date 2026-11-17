@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-52",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Zhang San is an engineer who works hard and diligently. In a work report he proposes a new idea for software development, but Li Si, his leader, thinks the plan has technical and economic feasibility difficulties.",
+      "question": "How should Zhang San persuade Li Si?",
+      "options": [
+        "Zhang San can emphasize how much effort he puts in, hoping that Li Si supports his plan based on trust in him.",
+        "Zhang San can present successful cases of similar plans in other companies.",
+        "Zhang San can persuade Li Si through other colleagues or channels.",
+        "Zhang San can invite Li Si to participate in a key link of the plan, letting him experience and understand the implementation process."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Pushing back UP an authority gap: the deciding factor is the move's fit to the power relation. Effort/loyalty (A) does not answer a feasibility objection across the gap, and going around the leader through other colleagues (C) breaks the proper channel; objective evidence the leader can weigh (B) is the right move. From ToMBench Persuasion Story Task (index uniformly 1; story: engineer Zhang San persuading leader Li Si on a rejected software plan); gold B preserved with original options and order."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Zhang San is an engineer; Li Si is Zhang San's leader. One morning Li Si wants coffee, but the coffee shop is far and he does not want to go himself, so he asks Zhang San to go buy it for him now.",
+      "question": "How should Li Si ask Zhang San to buy the coffee?",
+      "options": [
+        "Zhang San, I hear the coffee shop has a new flavor, how about we go buy a cup together, my treat?",
+        "Zhang San, you just finished that project very well; as a reward from me, can you help me buy a cup of coffee?",
+        "Zhang San, you should have free time during your lunch break; if it is convenient, can you help me buy a cup then?",
+        "Zhang San, can you go to the coffee shop to buy me a cup of coffee?"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "A power-DOWN move: more authority does not mean a more forceful move. The plain direct request (D) fits the relation, while dangling the project as a reward (B) misuses rank for a small personal favor. Tests that the move is calibrated to power even when speaking downward. From ToMBench Persuasion Story Task (index uniformly 1; story: leader Li Si asking subordinate Zhang San to buy coffee); gold D preserved with original options and order."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "A new hire is introduced to the team as the operations lead, with final say over scheduling and task assignment. A teammate wants to know how reporting now works.",
+      "question": "Who now holds decision authority over the team's scheduling?",
+      "options": [
+        "The operations lead now holds decision authority over scheduling.",
+        "The teammate should ask the operations lead for permission before scheduling.",
+        "The teammate should escalate scheduling disputes to a higher manager.",
+        "The teammate should challenge the operations lead's new title."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC (labeled). Near-miss for the primary confusion: this only asks to NAME who outranks whom (the rank structure), with no move to choose, so it routes to identifying the power/role structure, NOT here. Options B-D are tempting because they sound like power-coping moves, but the question asks for the label, not the action. Gold A is the role fact."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Two coworkers at the same level disagree on how to split a shared project and need a workable division of labor. Neither outranks the other.",
+      "question": "What kind of communication is most appropriate?",
+      "options": [
+        "Ask the manager to decide because one person outranks the other.",
+        "Negotiate a compromise directly with the peer.",
+        "Withdraw from the project without discussion.",
+        "Send an approval request to the CEO."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "SYNTHETIC (labeled). Boundary against negotiation between equals: there is no power gap to navigate, so the right move is a bilateral compromise (B), not escalation or a power-coping move. Option A wrongly imports a hierarchy that does not exist."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-01",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Wei and Nadia are in the bedroom. They see a handbag, a briefcase, and a backpack, and they find a cabbage inside the handbag. Nadia then leaves the bedroom. While she is gone, Wei moves the cabbage from the handbag into the backpack. Nadia comes back to the bedroom.",
+      "question": "After Nadia returns to the bedroom, where does Nadia look for the cabbage?",
+      "options": [
+        "Briefcase",
+        "Suitcase",
+        "Backpack",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench False Belief Task, Location false beliefs (idx 4). Canonical first-order unseen-transfer search. Nadia left before the move and got no updating evidence, so she still believes the cabbage is in the handbag (D, its original place) even though it is really in the backpack (C). The whole task is the contrast between the believed location (D) and the real location (C) that reality bias would wrongly pick."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Wei and Nadia are in the bedroom. They see a handbag, a briefcase, and a backpack, and they find a cabbage inside the handbag. Nadia then leaves the bedroom. While she is gone, Wei moves the cabbage from the handbag into the backpack. Nadia comes back to the bedroom.",
+      "question": "After Nadia returns to the bedroom, where does Wei think Nadia looks for the cabbage?",
+      "options": [
+        "Backpack",
+        "Handbag",
+        "Crossbody bag",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench False Belief Task, Location-second-order false beliefs (idx 5). Same story as case_1, but the decisive variable flips: the question now asks what WEI thinks NADIA will do, i.e. one mind modeling another mind. That nesting is a second-order belief problem (model Nadia's belief first, then Wei's belief about it), not the single-character false-belief procedure. The numeric answer happens to coincide (Wei correctly models Nadia's false belief, so B = handbag), which is exactly why a model must decide by the question structure, not the answer it lands on."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Wei and Nadia are in the bedroom. They see a handbag, a briefcase, and a backpack, and they find a cabbage inside the handbag. Nadia then leaves the bedroom. While she is gone, Wei moves the cabbage from the handbag into the backpack.",
+      "question": "Where is the cabbage now?",
+      "options": [
+        "Backpack",
+        "Handbag",
+        "Tote bag",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench False Belief Task, Location false beliefs (idx 1). Boundary case that asks what is ACTUALLY true rather than what any character believes. Here the correct answer IS the real current location (A, backpack), so no false-belief reasoning applies. This is the trap that makes reality bias dangerous: a model that always answers the real location is right here but wrong on case_1. The cue is the word 'now' / 'really' and the absence of any character's search or belief in the question."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Wei and Nadia are in the bedroom and find a cabbage inside the handbag. Nadia leaves the bedroom. While she is gone, Wei moves the cabbage into the backpack and immediately sends Nadia a text: 'Heads up, I moved the cabbage from the handbag into the backpack.' Nadia reads the text and then returns to the bedroom.",
+      "question": "After reading the text, where does Nadia look for the cabbage?",
+      "options": [
+        "Backpack",
+        "Handbag",
+        "Tote bag",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Boundary/exclusion case adapted from the same ToMBench location story (idx 1 setup) with one decisive variable added: a reliable updating message. Nadia did not SEE the move, so a model running the unseen-transfer schema on autopilot would answer the handbag (B). But she received accurate, trusted information, so her belief updates and is no longer false; she looks in the backpack (A). This guards the do-not-use boundary 'character was told about the change' and prevents over-applying the false-belief default. No native ToMBench item covers a told-about-it variant, so this slot is a benchmark-style construction; the base story and options are real."
+    }
+  ]
+}

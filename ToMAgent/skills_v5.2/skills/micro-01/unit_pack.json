@@ -1,0 +1,99 @@
+{
+  "frontmatter_description": "Identify the psychological or social variable the prompt is actually asking for, without solving the substantive scene.",
+  "title": "Task Routing",
+  "use_when": [
+    "Use when the prompt is asking what kind of mental, social, or pragmatic variable must be identified before solving.",
+    "Use when you need to name the entry capability such as belief, desire, intention, emotion, norm, trust, privacy, or audience.",
+    "Use when the task is to route the question to the right capability rather than answer the scene directly.",
+    "Use when the stem asks 'what is being tested' or 'which capability applies' rather than asking for a scene answer."
+  ],
+  "do_not_use_when": [
+    "Do not use this step to produce the scene answer itself (what someone believes, feels, wants, says, knows, or will do); routing only names the variable and selects the capability that then solves it.",
+    "Do not use it to weigh which evidence supports a conclusion or to compare which of several explanations fits best; those are review-stage checks that run on every item, not destinations routing sends work to.",
+    "Do not use it to audit the reasoning for perspective, outcome, or moral bias; that is also a separate review-stage check.",
+    "Do not over-route when the matching capability is already obvious; just name the variable and move straight to that capability."
+  ],
+  "decision_variable": "which mental or social variable category the question targets, named before any scene reasoning",
+  "trigger_checklist": [
+    "The prompt is asking what kind of thing is being tested, not what happened.",
+    "You can name the answer as a variable category before any scene reasoning.",
+    "More than one substantive skill could apply, so the first job is to choose the right lens.",
+    "The key choice is the capability entry point, not the scene outcome."
+  ],
+  "workflow": [
+    "Read the question stem and identify the requested output type.",
+    "Strip away story details and ask what variable would make the answer possible.",
+    "Match the requested output to one routable category: perception, attention, memory, knowledge, belief, desire, intention, action, emotion, norm or relation, pragmatic meaning, or quantity and cause.",
+    "Label the target variable at the right abstraction level using that taxonomy, for example a belief about where an object is, the intention behind a gesture, the certainty of a claim, or an emotion triggered by an event.",
+    "Once the variable is named, route to the substantive capability that solves it — for example a belief, intention, or emotion capability — or answer 'none' when no library capability fits; do not solve the scene here. Evidence sorting, explanation comparison, and bias checking are not routing targets; they run automatically in the later review stage."
+  ],
+  "special_case": {
+    "title": "Meta-question about the task itself",
+    "rule": "If the prompt asks what the question is asking, answer only with the target variable category and do not infer the scene content.",
+    "worked_example": {
+      "scene": "Xiao Hong and Xiao Fang watch other children play on the playground. Xiao Hong gives Xiao Fang a look, glances toward the swing, then smiles at Xiao Fang. Xiao Fang nods and the two stand up.",
+      "question": "To answer 'Why does Xiao Hong smile at Xiao Fang?', which variable must be identified first?",
+      "answer_logic": "Do not solve why she smiled yet. The output type the question needs is the intention behind the action, so the target variable is intention. Name that category and route to intention recognition; do not jump to a belief, an emotion, or a moral judgment."
+    }
+  },
+  "boundary_exit_rule": [
+    "Once the target variable is named, the routing step is done; pass control to the selected substantive capability.",
+    "Send the item to the capability that matches the named variable — a belief, intention, emotion, norm, relation, or pragmatic-meaning capability — or answer 'none' when nothing in the library fits.",
+    "Evidence sorting and explanation comparison are review-stage checks that always run later, not routing destinations, so routing never needs to send work to them."
+  ],
+  "references": {
+    "route_signal": "This step always runs first to select the right social-cognitive lens or capability entry point; it names the variable rather than solving the scene.",
+    "hard_boundary": [
+      "No scene solving.",
+      "No evidence ranking.",
+      "No explanation comparison.",
+      "No final belief, emotion, intention, or action inference."
+    ],
+    "shortcut_to_avoid": [
+      "Do not jump straight to the story outcome.",
+      "Do not confuse variable selection with answer generation.",
+      "Do not overfit to a rigid template label when the prompt only asks for the relevant mental or social factor."
+    ],
+    "common_failure_modes": [
+      "Answering the substantive question instead of naming the variable.",
+      "Picking too broad a label like social reasoning when the prompt asks for a specific mental-state type.",
+      "Trying to sort evidence or compare explanations during routing instead of just naming the variable and selecting a capability."
+    ],
+    "minimal_pair": [
+      {
+        "case": "The prompt asks whether a story is about belief, desire, or intention.",
+        "why_it_matches": "The task is to identify the variable being tested before any scene reasoning."
+      },
+      {
+        "case": "The prompt asks where a character will search after an object was moved.",
+        "why_it_matches": "Routing only names the variable (a belief about a location) and selects the false-belief capability, which then solves the scene; routing itself does not give the answer."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the prompt asks only what kind of inference is needed, the answer is the variable label itself.",
+      "If the prompt asks who knows what, who wants what, or what happened, name the variable and route it to the matching substantive capability to solve.",
+      "If two capabilities seem plausible, name the variable first, then select the single best-matching capability."
+    ],
+    "generalization_note": "This skill generalizes across both structured questions and naturalistic real-world scenes by selecting the correct mental or social variable before any deeper inference."
+  },
+  "validation_seed": {
+    "positive_pattern": "A prompt embeds a real scene and asks which mental or social variable, such as the intention behind an action or a character's belief about a location, must be identified before the scene can be solved.",
+    "near_miss_pattern": "A prompt gives the same kind of scene but asks for the substantive answer itself, such as where the character will actually look, so the task is to solve the scene rather than route it.",
+    "boundary_pattern": "A prompt names a task that routing should hand off, such as choosing which competing explanation best fits, so the correct routing output points out to explanation competition."
+  },
+  "notes": [
+    "Keep the output at the routing level only.",
+    "The unit is diagnostic and should stay narrow.",
+    "Prefer explicit variable naming over broad labels."
+  ],
+  "id": "micro-01",
+  "level": "micro",
+  "layer": "L0",
+  "family": "meta-control",
+  "core_question": "Identify the mental or social variable that the question is really asking for",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

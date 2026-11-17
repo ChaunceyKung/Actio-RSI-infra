@@ -1,0 +1,543 @@
+{
+  "n": 2860,
+  "overall_acc": 0.8027972027972028,
+  "review_changed": 271,
+  "review_flips_correct": 123,
+  "review_flips_wrong": 117,
+  "errors": 0,
+  "malformed_rows": 0,
+  "n_routed_to_none": 106,
+  "by_task": {
+    "Ambiguous Story Task": {
+      "n": 200,
+      "acc": 0.875
+    },
+    "Completion of Failed Actions": {
+      "n": 20,
+      "acc": 0.6
+    },
+    "Discrepant Desires": {
+      "n": 20,
+      "acc": 0.35
+    },
+    "Discrepant Emotions": {
+      "n": 40,
+      "acc": 0.85
+    },
+    "Discrepant Intentions": {
+      "n": 40,
+      "acc": 0.85
+    },
+    "Emotion Regulation": {
+      "n": 20,
+      "acc": 0.55
+    },
+    "False Belief Task": {
+      "n": 600,
+      "acc": 0.855
+    },
+    "Faux-pas Recognition Test": {
+      "n": 560,
+      "acc": 0.8053571428571429
+    },
+    "Hidden Emotions": {
+      "n": 80,
+      "acc": 0.9375
+    },
+    "Hinting Task Test": {
+      "n": 103,
+      "acc": 0.8543689320388349
+    },
+    "Knowledge-Attention Links": {
+      "n": 20,
+      "acc": 0.3
+    },
+    "Knowledge-Pretend Play Links": {
+      "n": 30,
+      "acc": 0.6333333333333333
+    },
+    "Moral Emotions": {
+      "n": 40,
+      "acc": 0.925
+    },
+    "Multiple Desires": {
+      "n": 20,
+      "acc": 0.9
+    },
+    "Percepts-Knowledge Links": {
+      "n": 40,
+      "acc": 1.0
+    },
+    "Persuasion Story Task": {
+      "n": 100,
+      "acc": 0.59
+    },
+    "Prediction of Actions": {
+      "n": 20,
+      "acc": 0.75
+    },
+    "Scalar Implicature Test": {
+      "n": 200,
+      "acc": 0.615
+    },
+    "Strange Story Task": {
+      "n": 407,
+      "acc": 0.8673218673218673
+    },
+    "Unexpected Outcome Test": {
+      "n": 300,
+      "acc": 0.7533333333333333
+    }
+  },
+  "by_ability": {
+    "Belief: Beliefs based action/emotions": {
+      "n": 142,
+      "acc": 0.852112676056338
+    },
+    "Belief: Content false beliefs": {
+      "n": 200,
+      "acc": 0.66
+    },
+    "Belief: Content false beliefs Belief: Second-order beliefs": {
+      "n": 100,
+      "acc": 0.99
+    },
+    "Belief: Identity false beliefs": {
+      "n": 40,
+      "acc": 0.925
+    },
+    "Belief: Location false beliefs": {
+      "n": 200,
+      "acc": 0.985
+    },
+    "Belief: Location false beliefs Belief: Second-order beliefs": {
+      "n": 100,
+      "acc": 0.85
+    },
+    "Belief: Sequence false beliefs": {
+      "n": 100,
+      "acc": 0.66
+    },
+    "Desire: Desire-action contradiction": {
+      "n": 40,
+      "acc": 0.7
+    },
+    "Desire: Desires influence on actions": {
+      "n": 76,
+      "acc": 0.6052631578947368
+    },
+    "Desire: Desires influence on emotions (beliefs)": {
+      "n": 24,
+      "acc": 0.5416666666666666
+    },
+    "Desire: Discrepant desires": {
+      "n": 20,
+      "acc": 0.35
+    },
+    "Desire: Multiple desires": {
+      "n": 20,
+      "acc": 0.9
+    },
+    "Emotion: Atypical emotional reactions": {
+      "n": 100,
+      "acc": 0.64
+    },
+    "Emotion: Discrepant emotions": {
+      "n": 40,
+      "acc": 0.85
+    },
+    "Emotion: Emotion regulation": {
+      "n": 20,
+      "acc": 0.55
+    },
+    "Emotion: Hidden emotions": {
+      "n": 80,
+      "acc": 0.9375
+    },
+    "Emotion: Mixed emotions": {
+      "n": 40,
+      "acc": 0.825
+    },
+    "Emotion: Moral emotions": {
+      "n": 40,
+      "acc": 0.925
+    },
+    "Emotion: Typical emotional reactions": {
+      "n": 100,
+      "acc": 0.96
+    },
+    "Intention: Completion of failed actions": {
+      "n": 20,
+      "acc": 0.6
+    },
+    "Intention: Discrepant intentions": {
+      "n": 40,
+      "acc": 0.85
+    },
+    "Intention: Intentions explanations": {
+      "n": 260,
+      "acc": 0.8923076923076924
+    },
+    "Intention: Prediction of actions": {
+      "n": 20,
+      "acc": 0.75
+    },
+    "Knowledge: Information-knowledge links": {
+      "n": 199,
+      "acc": 0.6130653266331658
+    },
+    "Knowledge: Information-knowledge links ": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "Knowledge: Knowledge-attention links": {
+      "n": 20,
+      "acc": 0.3
+    },
+    "Knowledge: Knowledge-pretend play links": {
+      "n": 30,
+      "acc": 0.6333333333333333
+    },
+    "Knowledge: Percepts-knowledge links": {
+      "n": 40,
+      "acc": 1.0
+    },
+    "Non-Literal Communication: Faux pas": {
+      "n": 560,
+      "acc": 0.8053571428571429
+    },
+    "Non-Literal Communication: Involuntary lies": {
+      "n": 42,
+      "acc": 0.7857142857142857
+    },
+    "Non-Literal Communication: Irony/Sarcasm": {
+      "n": 26,
+      "acc": 0.8846153846153846
+    },
+    "Non-literal communication: Egocentric lies": {
+      "n": 40,
+      "acc": 0.9
+    },
+    "Non-literal communication: Humor": {
+      "n": 40,
+      "acc": 0.925
+    },
+    "Non-literal communication: White lies": {
+      "n": 40,
+      "acc": 0.9
+    }
+  },
+  "by_first_pick": {
+    "<none>": {
+      "n": 106,
+      "acc": 0.839622641509434
+    },
+    "macro-01": {
+      "n": 87,
+      "acc": 0.896551724137931
+    },
+    "macro-02": {
+      "n": 232,
+      "acc": 0.8232758620689655
+    },
+    "macro-03": {
+      "n": 270,
+      "acc": 0.7296296296296296
+    },
+    "macro-04": {
+      "n": 123,
+      "acc": 0.8617886178861789
+    },
+    "macro-05": {
+      "n": 344,
+      "acc": 0.7965116279069767
+    },
+    "macro-06": {
+      "n": 77,
+      "acc": 0.8701298701298701
+    },
+    "macro-07": {
+      "n": 182,
+      "acc": 0.8956043956043956
+    },
+    "macro-08": {
+      "n": 196,
+      "acc": 0.9030612244897959
+    },
+    "macro-09": {
+      "n": 95,
+      "acc": 0.6
+    },
+    "macro-10": {
+      "n": 22,
+      "acc": 0.6818181818181818
+    },
+    "macro-11": {
+      "n": 28,
+      "acc": 0.7142857142857143
+    },
+    "macro-12": {
+      "n": 280,
+      "acc": 0.8178571428571428
+    },
+    "macro-14": {
+      "n": 194,
+      "acc": 0.6288659793814433
+    },
+    "macro-15": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "macro-18": {
+      "n": 9,
+      "acc": 0.6666666666666666
+    },
+    "macro-19": {
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    "micro-05": {
+      "n": 4,
+      "acc": 1.0
+    },
+    "micro-06": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-07": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-08": {
+      "n": 111,
+      "acc": 0.8648648648648649
+    },
+    "micro-09": {
+      "n": 7,
+      "acc": 0.8571428571428571
+    },
+    "micro-10": {
+      "n": 5,
+      "acc": 0.4
+    },
+    "micro-11": {
+      "n": 104,
+      "acc": 0.8942307692307693
+    },
+    "micro-12": {
+      "n": 10,
+      "acc": 0.5
+    },
+    "micro-13": {
+      "n": 6,
+      "acc": 0.8333333333333334
+    },
+    "micro-14": {
+      "n": 54,
+      "acc": 1.0
+    },
+    "micro-15": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "micro-16": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "micro-18": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-19": {
+      "n": 12,
+      "acc": 0.6666666666666666
+    },
+    "micro-20": {
+      "n": 5,
+      "acc": 0.4
+    },
+    "micro-21": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-22": {
+      "n": 77,
+      "acc": 0.8051948051948052
+    },
+    "micro-23": {
+      "n": 11,
+      "acc": 0.45454545454545453
+    },
+    "micro-25": {
+      "n": 11,
+      "acc": 0.36363636363636365
+    },
+    "micro-26": {
+      "n": 58,
+      "acc": 0.9310344827586207
+    },
+    "micro-27": {
+      "n": 6,
+      "acc": 0.6666666666666666
+    },
+    "micro-28": {
+      "n": 12,
+      "acc": 0.8333333333333334
+    },
+    "micro-29": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-30": {
+      "n": 13,
+      "acc": 1.0
+    },
+    "micro-32": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "micro-34": {
+      "n": 25,
+      "acc": 0.88
+    },
+    "micro-35": {
+      "n": 7,
+      "acc": 0.8571428571428571
+    },
+    "micro-36": {
+      "n": 6,
+      "acc": 0.8333333333333334
+    },
+    "micro-37": {
+      "n": 13,
+      "acc": 0.23076923076923078
+    },
+    "micro-38": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "micro-39": {
+      "n": 3,
+      "acc": 1.0
+    },
+    "micro-42": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-46": {
+      "n": 4,
+      "acc": 1.0
+    },
+    "micro-52": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-54": {
+      "n": 2,
+      "acc": 0.0
+    },
+    "micro-55": {
+      "n": 6,
+      "acc": 0.8333333333333334
+    },
+    "micro-56": {
+      "n": 24,
+      "acc": 0.6666666666666666
+    }
+  },
+  "by_n_picked": {
+    "0": {
+      "n": 106,
+      "acc": 0.839622641509434
+    },
+    "1": {
+      "n": 720,
+      "acc": 0.8222222222222222
+    },
+    "2": {
+      "n": 1966,
+      "acc": 0.7884028484231943
+    },
+    "3": {
+      "n": 68,
+      "acc": 0.9558823529411765
+    }
+  },
+  "pick_frequency": {
+    "macro-05": 344,
+    "macro-12": 280,
+    "macro-03": 270,
+    "micro-42": 263,
+    "macro-02": 232,
+    "micro-26": 228,
+    "micro-13": 196,
+    "macro-08": 196,
+    "macro-14": 194,
+    "micro-22": 183,
+    "macro-07": 182,
+    "micro-37": 138,
+    "micro-12": 132,
+    "micro-39": 128,
+    "micro-23": 128,
+    "macro-04": 123,
+    "micro-14": 121,
+    "micro-35": 117,
+    "micro-11": 112,
+    "micro-08": 112,
+    "micro-54": 110,
+    "micro-30": 99,
+    "macro-09": 95,
+    "micro-41": 90,
+    "macro-01": 87,
+    "micro-53": 85,
+    "micro-27": 82,
+    "macro-06": 79,
+    "micro-28": 62,
+    "micro-29": 49,
+    "micro-05": 46,
+    "micro-25": 29,
+    "macro-11": 28,
+    "micro-34": 27,
+    "micro-56": 25,
+    "micro-36": 23,
+    "macro-10": 22,
+    "micro-10": 19,
+    "micro-19": 17,
+    "micro-48": 15,
+    "micro-20": 13,
+    "macro-18": 9,
+    "micro-51": 9,
+    "micro-09": 8,
+    "micro-15": 8,
+    "micro-55": 6,
+    "micro-18": 6,
+    "micro-32": 4,
+    "micro-46": 4,
+    "micro-21": 3,
+    "macro-19": 3,
+    "micro-50": 3,
+    "micro-16": 2,
+    "micro-07": 2,
+    "micro-31": 2,
+    "micro-43": 1,
+    "micro-06": 1,
+    "micro-52": 1,
+    "micro-38": 1,
+    "micro-40": 1,
+    "macro-15": 1
+  },
+  "n_rerouted": 576,
+  "reroute_changed_pick": 576,
+  "acc_by_reroute_count": {
+    "0": {
+      "n": 2284,
+      "acc": 0.824430823117338
+    },
+    "1": {
+      "n": 576,
+      "acc": 0.7170138888888888
+    }
+  },
+  "mean_jaccard": 0.8027972027972028,
+  "draft_acc": 0.8006993006993007
+}

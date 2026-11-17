@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-31",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "It is Ming's birthday. He had hoped to receive a computer or a new video game. On his birthday he receives a bicycle instead.",
+      "question": "What emotion does Ming most likely feel at this moment?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Atypical emotional reactions (idx 1, position 0; gold C). Tests the decisive variable, actual outcome versus a salient alternative: the bicycle is real, the hoped-for computer/game is the alternative, and the gap between them, not the gift itself, produces disappointment."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "A falling branch crashes down right next to Jordan's parked car and misses it by a few centimeters. Jordan stands still, picturing how badly the car could have been crushed.",
+      "question": "What does Jordan most likely feel?",
+      "options": [
+        "Relief",
+        "Shame",
+        "Anger",
+        "Envy"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Benchmark-style SYNTHETIC item (no ToMBench row cleanly anchors relief from a near-miss; flagged in report). Tests the same decisive variable: the actual outcome (no damage) is better than the vividly imagined worse alternative (a crushed car), and that downward contrast yields relief, not a plain reaction to the event."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Ming receives a bicycle as a gift on his birthday. He had no particular expectation beforehand and simply enjoys the new bike.",
+      "question": "What emotion does Ming most likely feel?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Typical emotional reactions (idx 1, position 0; gold B). Near miss for the basic-emotion-from-a-direct-event capability (micro-26): with no alternative outcome being weighed, a welcome gift produces plain happiness, so no counterfactual comparison is doing the work."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "A waiter, Lin, accidentally knocks a coffee cup and spills coffee onto a customer's important business documents while rushing. She does not notice at the time and keeps working. The shop owner saw it but said nothing. Later Lin learns that her spill ruined the customer's documents.",
+      "question": "What emotion does Lin most likely feel after she learns she ruined the customer's documents?",
+      "options": [
+        "Lin feels guilty and anxious, because she unintentionally ruined the documents and worries about the harm to the customer.",
+        "Lin feels indifferent, because she thinks the ruined documents are not her concern and the customer should be responsible.",
+        "Lin feels angry, because she thinks it is not her fault and the customer should not have left documents where an accident could happen.",
+        "Lin feels happy, because she thinks the spill served the rude customer right."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Moral Emotions (idx 1, position 6; gold A). Boundary case: the emotion is driven by self-attributed responsibility for harm, not by comparing the outcome with an alternative, so it routes to the responsibility/norm-appraisal capability (micro-30 Moral Emotion), not counterfactual emotion."
+    }
+  ]
+}

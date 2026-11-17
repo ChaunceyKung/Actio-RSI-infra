@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-45",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Maya has worked with Jordan for two years. Over that time Jordan returns borrowed equipment on time, admits mistakes, keeps private information private, and follows through on tasks even when inconvenient.",
+      "question": "Should Maya trust Jordan with a sensitive team responsibility?",
+      "options": [
+        "Yes, because Jordan has a consistent multi-year history of reliable and honest behavior.",
+        "No, because one future task could still go badly.",
+        "Yes, because Jordan sounds confident in meetings.",
+        "No, because trust should never be based on past behavior."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC (benchmark-style; no dedicated ToMBench trust task). Positive: future reliability inferred from a repeated, multi-interaction track record. Distractor C is the source-credibility lure (confidence now, not history); B/D reject the decision variable itself."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "A stranger gives a polished presentation about a new medicine. The facts sound plausible, the slides look professional, and the speaker seems calm, but no one in the room knows the speaker personally or has dealt with them before.",
+      "question": "What is the main thing to evaluate here?",
+      "options": [
+        "The speaker's long-term loyalty as a relationship partner.",
+        "Whether the claims and evidence in this one presentation are credible.",
+        "Whether the speaker deserves forgiveness for past harm.",
+        "Whether the speaker has high social status."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "SYNTHETIC near_miss that routes OUT. There is no shared history, so this is a single-instance judgment about whether one message is believable - source credibility - not trust built from a track record. Teaches the primary confusion: one message now vs. reliability over time."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Lena has often missed deadlines, shared secrets after promising not to, and failed to return borrowed money. Yesterday she helped Sam carry boxes after work.",
+      "question": "Should Sam now trust Lena with an important secret?",
+      "options": [
+        "Yes, because the most recent action was helpful.",
+        "Yes, because helping with boxes proves loyalty.",
+        "No, because one helpful act does not outweigh a long pattern of unreliability.",
+        "No, because helpful people are usually dishonest."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "SYNTHETIC boundary inside the unit. Targets the recency shortcut: a single good deed does not erase a long unreliable record. The decision variable stays the long-term pattern, not the latest act."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Xiao Chen promises his grandma to water her flowers. He rushes off to play at a friend's house and forgets all about it, but genuinely thinks he watered them. When grandma asks, 'Did you water my flowers?', Xiao Chen says, 'I watered them.'",
+      "question": "Why does Xiao Chen say this?",
+      "options": [
+        "Xiao Chen intentionally lies because he does not want his grandma to think he does not do well.",
+        "Xiao Chen forgets that he did not water the flowers because he was too happy playing at his friend's house.",
+        "Xiao Chen intentionally lies because he wants to go play.",
+        "Xiao Chen thinks he watered the flowers because he usually is responsible."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Strange Story Task (idx 2, ability: Non-Literal Communication: Involuntary lies); gold preserved (B). Boundary that routes OUT: Xiao Chen's false statement is an honest mistake from forgetting, a single-statement issue about why an utterance is false - truthfulness of a statement - NOT evidence of a damaged track record. One slip does not equal an unreliable person, so this does not belong to trust and reputation."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-24",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "David is a kind neighbor who often helps the elderly nearby. He is preparing to organize a small BBQ party and has invited many friends. However, the elderly tell him they need his help to repair the public facilities in the community park. David cancels the party and goes to help repair the facilities.",
+      "question": "What does David do after he finishes repairing the facilities?",
+      "options": [
+        "David reorganizes the BBQ party.",
+        "David leaves the community.",
+        "David continues to repair other facilities.",
+        "David goes to chat with the elderly."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Multiple Desires (David/BBQ-vs-repair row, gold A); tests that a binding obligation decides what is honored first while the prior plan is only paused. David takes on the needed repair, then resumes his original BBQ party. A commitment, not raw preference, governs the sequence."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Mary is preparing slogans for an environmental-protection activity, thinking about how to make them more powerful. Just as she is about to start writing, her little niece comes over and says, \"Aunt Mary, I want to play games, can you play with me?\" Mary looks at the slogan on the table, then smiles and agrees to play games with her niece.",
+      "question": "What does Mary do after she finishes playing games with her niece?",
+      "options": [
+        "Mary goes back to the table to finish her environmental-protection slogan.",
+        "Mary goes to the kitchen to cook.",
+        "Mary goes to watch a movie to relax.",
+        "Mary starts to clean the room."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Multiple Desires (Mary/slogan-vs-niece row, gold A); tests that an ongoing task is a binding prior commitment that is only paused, not dropped. Mary honors the niece's request, then resumes her unfinished task. Guards against assuming the paused task is abandoned."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Wang Wu loves outdoor sports and spends every weekend playing ball or climbing mountains, seeking excitement. Li Min is the opposite: a homebody who likes reading or playing video games at home, enjoying peace. Wang Wu wants to win Li Min over, so this weekend he invites her out and tells her she can decide where they go. No promise or schedule binds either of them.",
+      "question": "Facing Wang Wu's invitation, where does Li Min most likely choose to go?",
+      "options": [
+        "Shopping center",
+        "Exhibition",
+        "Library",
+        "Play games at home"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (Wang Wu/Li Min weekend row, gold C); no binding promise or schedule exists, so two free preferences simply compete and the answer follows the chooser's own taste. Routes to the free-weighing-of-rival-goals capability (Goal-Conflict Arbitration, micro-25), not commitment priority."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Dongdong and Xixi are fixing a car in the park, getting ready for a weekend outing. They keep discussing where to go but neither has a good idea. Nannan passes by, and Dongdong stops him and asks him to come over to look at the car they are fixing. Nannan sees their interaction and still walks over.",
+      "question": "What does Dongdong want to do?",
+      "options": [
+        "Ask Nannan to help him fix the car.",
+        "Invite Nannan to go out with them.",
+        "Ask Nannan to give them an idea of where to play.",
+        "Show off their car-repair skills to Nannan."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (Dongdong/car row, gold C); there is no binding commitment to rank, and the question asks what the character wants or will do next from social cues. Routes to the next-action-prediction capability (Action Prediction, micro-23), not commitment priority."
+    }
+  ]
+}

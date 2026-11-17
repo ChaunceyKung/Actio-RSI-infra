@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-13",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Lena stands facing a bookshelf. From where she stands, a poster hangs on the shelf to her left and a clock hangs to her right. A tall opaque screen has been placed directly between Lena and the clock, blocking her line of sight to it; nothing blocks the poster.",
+      "question": "From Lena's viewpoint, which statement is correct?",
+      "options": [
+        "She can see the poster on her left, and the screen blocks the clock on her right",
+        "She can see the clock on her left, and the screen blocks the poster on her right",
+        "She can see both the poster and the clock",
+        "She can see neither the poster nor the clock"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Benchmark-style synthetic item (Theory-of-Mind benchmarks have no pure line-of-sight task, so this is constructed). Pure geometry: fix Lena's facing, assign left/right from her body, and remove the clock because an occluder sits on her sightline. The answer is decided entirely by facing plus occlusion, with no step about what she then knows or believes."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Maya stands across a table directly facing Noah. From Noah's own point of view, a red cup sits on his left and a blue cup sits on his right. Maya is on the opposite side of the table, facing him.",
+      "question": "Which cup is on Maya's left?",
+      "options": [
+        "The red cup",
+        "The blue cup",
+        "Both cups",
+        "Neither cup"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Benchmark-style synthetic item testing the facing-the-reader reversal. Maya faces the opposite way from Noah, so her left mirrors his right; the blue cup on Noah's right is on Maya's left. Tests reading left/right from the target's own facing, not the reader's, and stops at the spatial relation."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiao Hua and Xiao Bei are wandering in the lounge. They see cabinets and suitcases, and inside the cabinet they find buttons. Xiao Bei then leaves the lounge, and while he is away Xiao Hua moves the buttons from the cabinet into the suitcase.",
+      "question": "After Xiao Bei returns, does Xiao Bei know where the buttons are now?",
+      "options": [
+        "He knows, in the cabinet",
+        "He knows, in the suitcase",
+        "He does not know",
+        "He knows, in the basket"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Percepts-Knowledge Links (idx 2, lounge/buttons; people lightly renamed, options and gold preserved). This is NOT pure geometry: the answer is a knowledge-access conclusion. Because Xiao Bei had no perceptual access while the buttons were moved, he does not know their new location. It belongs to the knowledge-access scene, where you track who could perceive the change, not to this visibility macro, which would stop at whether he can currently see the buttons."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Eli watched Sam place a set of keys on the kitchen counter. Eli then left the kitchen. While Eli was away and could not see the room, Sam moved the keys from the counter into a drawer. Eli has now come back to look for his keys.",
+      "question": "Where will Eli first look for the keys?",
+      "options": [
+        "On the kitchen counter",
+        "In the drawer",
+        "In the car",
+        "On the sofa"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Boundary against the outdated-belief scene (benchmark-style synthetic mirroring the classic moved-object structure). Eli's current line of sight is irrelevant; the answer turns on the stale belief he formed before the unseen move, so he looks on the counter. This macro would only settle that he cannot currently see the drawer's contents; predicting his search requires the outdated-belief procedure, not viewpoint geometry."
+    }
+  ]
+}

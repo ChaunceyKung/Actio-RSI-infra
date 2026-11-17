@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-26",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming receives a bicycle on his birthday. Nothing in the story says he wanted something different.",
+      "question": "What is Xiao Ming's emotion?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Typical emotional reactions (idx 1). With no special wish stated, receiving a desirable gift is an ordinary goal-gain event, so basic appraisal yields happiness."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiao Hong hears footsteps behind her while she walks alone in the park at night.",
+      "question": "What emotion does she possibly feel?",
+      "options": [
+        "Fear",
+        "Happy",
+        "Curious",
+        "Proud"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Typical emotional reactions (idx 1). An unexplained threat to personal safety produces the default appraisal of fear; tests the threat-to-emotion mapping."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiao Ming is having a birthday. He hopes for a computer or a new game as a birthday gift. On his birthday he receives a bicycle.",
+      "question": "What is Xiao Ming's emotion at this time?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Atypical emotional reactions (idx 3); the same bicycle gift now lands against a stated wish for a computer, so the genuine feeling deviates from the default 'happy'. Naive basic appraisal would wrongly pick Happy; this routes to the atypical-emotion capability (micro-27)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Xinxin wants to go to her friend's party tonight, but she has a stomachache. She knows that if she tells her mother about the stomachache, her mother will not let her go, so she tries to hide how she feels and her mother lets her go.",
+      "question": "What are Xinxin's real feelings?",
+      "options": [
+        "Sad",
+        "Scared",
+        "Happy",
+        "Disappointed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (idx 1). The question asks for the concealed inner feeling behind a managed display, not a direct event appraisal, so basic appraisal is insufficient and this routes to the hidden-emotion capability (micro-28)."
+    }
+  ]
+}

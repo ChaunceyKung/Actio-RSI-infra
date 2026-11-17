@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-54",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Almost every letter to Laura Company contains a check. Today, Laura receives 5 letters. Laura tells you on the phone, \"I look at 3 out of 5 letters. There are checks in 3 of the letters.\"",
+      "question": "After Laura calls you, how many of these 5 letters do you think contain checks?",
+      "options": [
+        "After the call, 0 letters contain checks.",
+        "After the call, 1 letter contains a check.",
+        "After the call, 2 letters contain checks.",
+        "After the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Core positive: the 3 observed letters all have checks (known), and 'almost every' makes about 1 more of the 2 unseen letters likely, giving 4. The observed count plus the prior over the unseen remainder, hedged by 'almost' away from all 5. From ToMBench Scalar Implicature Test (idx 2); real item, gold preserved."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "In a fruit orchard, Xiao Ming and Xiao Hong pick fruits together. There are 15 apples on the tree, almost half of them are red apples. Xiao Hong picks 7, then says there are 3 red apples among them.",
+      "question": "How many red apples are there on the tree after Xiao Hong picks them?",
+      "options": [
+        "After Xiao Hong picks, it is estimated that there are 0 red apples on the tree",
+        "After Xiao Hong picks, it is estimated that there is 1 red apple on the tree",
+        "After Xiao Hong picks, it is estimated that there are 2 red apples on the tree",
+        "After Xiao Hong picks, it is estimated that there are 4 red apples on the tree"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Remainder variant of the after-update: 'almost half of 15' is about 7 red total; 3 were picked, so roughly 4 red remain on the tree. Requires subtracting the observed picked count from the prior whole-set total, not scaling the sample. From ToMBench Scalar Implicature Test (idx 2); real item, gold preserved."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Almost every letter to Laura Company contains a check. Today, Laura receives 5 letters. Laura tells you on the phone, \"I look at 3 out of 5 letters. There are checks in 2 of the letters.\"",
+      "question": "Before Laura calls you, how many of these 5 letters do you think contain checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Single-variable near-miss: same story, but the question word is 'before,' so no observation is used and the answer is the prior 'almost every' applied to all 5 (about 4). The before-question belongs to the prior-meaning-of-a-quantifier skill, not the after-observation update handled here. From ToMBench Scalar Implicature Test (idx 1); real item, gold preserved."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "SYNTHETIC. A delivery company has shipped reliably for years; almost no parcels arrive damaged. Today a batch of parcels has just arrived and nobody has opened or inspected any of them yet.",
+      "question": "What should mainly drive the guess about how many parcels in this batch are damaged?",
+      "options": [
+        "The company's long-run reliability, since no parcel has been inspected",
+        "A partial count of parcels just opened in this batch",
+        "Who would be blamed if a customer complained",
+        "The exact wording used to ask the question"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Boundary: no partial observation has occurred, so there is nothing to update from; the estimate rests on the background reliability rate. This is base-rate or typicality reasoning, not the after-observation update of this unit. SYNTHETIC (reframed to mark the no-observation boundary)."
+    }
+  ]
+}

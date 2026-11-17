@@ -1,0 +1,347 @@
+"""Executor Agent — ReAct loop per step.
+
+The Executor consumes an ExecutionContext (one per step) and carries out:
+
+    Reasoning  →  Acting  →  Observation  →  StepResult
+
+For steps that declare `tool == None`, Acting is skipped and the LLM's
+reasoning is treated as the output directly. This lets the same executor
+handle both tool-using and pure-reasoning steps.
+
+For steps with sub_steps, execution recurses depth-first. Each level
+produces its own ExecutionTrace entries.
+"""
+
+from __future__ import annotations
+
+import logging
+import time
+from dataclasses import dataclass
+from typing import Any
+
+from .context import ContextManager
+from .hooks import HookRegistry
+from ..llm import LLMClient
+from .registry import ToolRegistry
+from .schemas import (
+    ExecutionContext, ExecutionTrace, Observation, Reasoning, Step, StepResult,
+    ToolCall, ToolCallTrace, ToolType,
+)
+
+logger = logging.getLogger(__name__)
+
+
+REASON_SYSTEM = """You are the Executor of a Theory-of-Mind reasoning agent. \
+You are given one step from a reasoning plan, along with any Strategy Guide \
+and Retrieved Knowledge in the context. Produce a brief JSON object:
+{
+  "thought": "<one-sentence analysis of what this step should do now>",
+  "state_analysis": "<which accumulated_step_results or prior reasoning_of_step_N matter for this step; cite keys>",
+  "action_rationale": "<why the chosen tool/params will help, or why tool=none>"
+}
+If prior reasoning_of_step_N entries are present in the accumulated results, \
+BUILD ON THEM — do not restart the chain of thought.
+Output ONLY that JSON object."""
+
+# ── Original REASON_SYSTEM (tool-aware) ──────────────────────────────────────
+# REASON_SYSTEM = """You are the Executor of a Theory-of-Mind agent harness. \
+# You are given one step from a plan. Produce a brief JSON object:
+# {
+#   "thought": "<one-sentence analysis>",
+#   "state_analysis": "<what prior context matters for this step>",
+#   "action_rationale": "<why the chosen tool/params will help, or why none>"
+# }
+# Output ONLY that JSON object."""
+
+
+FINALIZE_SYSTEM = """You are the Finalizer. Given the question, options, \
+and all accumulated step results, pick the single best answer letter.
+
+CRITICAL: The Accumulated Step Results section contains the upstream \
+reasoning, tool outputs, and any skill recommendations from earlier \
+steps. You MUST base your answer on those results unless the story \
+explicitly contradicts them. If any accumulated entry contains an \
+'answer_letter' or 'recommendation' field with a valid letter, prefer \
+it.
+
+Reply with ONLY a JSON object: {"answer": "A" | "B" | "C" | "D"}"""
+
+
+def _render_accumulated(accumulated, max_per_value=1500):
+    """Render phase-grouped accumulated results for the Finalizer."""
+    import json as _json
+    if not accumulated:
+        return "(empty — no upstream results)"
+    sections = []
+    for phase_name, step_results in accumulated.items():
+        lines = [f"### {phase_name}"]
+        for k, v in step_results.items():
+            if isinstance(v, (dict, list)):
+                try: rendered = _json.dumps(v, ensure_ascii=False, default=str)
+                except Exception: rendered = repr(v)
+            else:
+                rendered = str(v)
+            if len(rendered) > max_per_value:
+                rendered = rendered[:max_per_value] + " [...truncated]"
+            lines.append(f"- {k}: {rendered}")
+        sections.append("\n".join(lines))
+    return "\n\n".join(sections)
+
+
+@dataclass
+class Executor:
+    """ReAct loop executor."""
+
+    llm: LLMClient
+    registry: ToolRegistry
+    context: ContextManager
+    hooks: HookRegistry
+    skill_lib: object | None = None
+    max_substep_depth: int = 3
+
+    # ── public API ─────────────────────────────────────────────────────────
+    def execute_step(self, ctx: ExecutionContext, execution_order: int) -> ExecutionTrace:
+        step = ctx.current_step
+        logger.info("[Executor] ── Step %d start ── %s", execution_order, step.description[:100])
+        self.hooks.fire("before_step", step=ctx.current_step, context=ctx)
+        trace = self._execute_one(ctx, execution_order, depth=0)
+        self.hooks.fire("after_step", step=ctx.current_step, trace=trace, context=ctx)
+        self.context.clear_transient()
+        logger.info("[Executor] ── Step %d done ── status=%s", execution_order, trace.step_result.status)
+        return trace
+
+
+    def finalize_answer(self, question: str, options: dict[str, str], accumulated: dict[str, Any]) -> str:
+        logger.info("[Executor] ── Finalize ── synthesizing answer from %d accumulated results", len(accumulated))
+        self.hooks.fire("before_finalize", accumulated_results=accumulated)
+
+        # ── Short-circuit: honour skill recommendations.
+        # Procedural skills (S02, S04, S_evidence_scorer, ...) produce a
+        # `recommendation` or `answer_letter` field. In v0.3 we observed
+        # that finalize-LLM systematically overrode these and got worse
+        # answers on Persuasion (4/4 regressions). If skills agree on an
+        # in-option letter, use it directly. Only fall through to the
+        # LLM finalize when skills disagree or produced nothing.
+        votes = self._collect_skill_votes(accumulated, options)
+        if votes:
+            tally: dict[str, int] = {}
+            for v in votes:
+                tally[v] = tally.get(v, 0) + 1
+            top_letter, top_count = max(tally.items(), key=lambda kv: kv[1])
+            second = sorted(tally.values(), reverse=True)[1] if len(tally) > 1 else 0
+            # Trust if unanimous, or a strict majority (>= 2 and leads by 1+)
+            if len(tally) == 1 or top_count > second:
+                logger.debug(f"finalize short-circuit: votes={tally} -> {top_letter}")
+                return top_letter
+
+        user = (
+            f"## Question\n{question}\n\n"
+            f"## Options\n" + "\n".join(f"{k}. {v}" for k, v in options.items() if v) + "\n\n"
+            f"## Accumulated Step Results\n"
+            + _render_accumulated(accumulated)
+        )
+        try:
+            out = self.llm.chat_json(FINALIZE_SYSTEM, user, max_tokens=1024)
+            ans = str(out.get("answer", "")).strip().upper()
+            if ans in {"A", "B", "C", "D"}:
+                logger.info("[Executor] ── Finalize ── answer=%s", ans)
+                return ans
+            logger.warning("[Executor] Finalize returned invalid answer: %s", out)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("[Executor] Finalize JSON parse failed: %s", e)
+        return ""
+
+    @staticmethod
+    def _collect_skill_votes(accumulated: dict[str, Any], options: dict[str, str]) -> list[str]:
+        """Scan accumulated results for skill-level letter recommendations.
+
+        Handlers canonically emit `recommendation` or `answer_letter` with a
+        single-letter value. Only letters that appear in the actual option
+        set are honoured; anything else (e.g. a stale default) is ignored.
+        """
+        valid = set(options.keys())
+        votes: list[str] = []
+        # accumulated_results is dict[phase_name, dict[step_key, value]].
+        # Scan step-level values for skill recommendations.
+        for phase_dict in accumulated.values():
+            if not isinstance(phase_dict, dict):
+                continue
+            for step_val in phase_dict.values():
+                if not isinstance(step_val, dict):
+                    continue
+                for key in ("answer_letter", "recommendation"):
+                    val = step_val.get(key)
+                    if isinstance(val, str) and val.upper() in valid:
+                        votes.append(val.upper())
+        return votes
+
+    # ── internals ──────────────────────────────────────────────────────────
+    @staticmethod
+    def _phase_name(ctx: ExecutionContext) -> str:
+        for p in ctx.plan.phases:
+            if p.phase_id == ctx.current_phase_id:
+                return f"Phase {p.phase_order}: {p.phase_name}"
+        return f"Phase {ctx.current_phase_id[:8]}"
+
+    def _execute_one(
+        self,
+        ctx: ExecutionContext,
+        execution_order: int,
+        depth: int,
+    ) -> ExecutionTrace:
+        step = ctx.current_step
+        t_step_start = time.time()
+        phase_name = self._phase_name(ctx)
+
+        # 1) Reason — ask LLM to produce a reasoning trio
+        reasoning = self._reason_about(ctx)
+        logger.info("[Executor]   Reasoning: %s", reasoning.thought[:150])
+
+        # 1b) Persist this step's thought into accumulated_results so the
+        # NEXT step's render_dynamic_state (and thus next step's Reason
+        # LLM prompt) can see it. Key is sortable by step_order.
+        phase_name = self._phase_name(ctx)
+        self.context.record_step_result(
+            phase_name,
+            f"reasoning_of_step_{step.step_order:02d}",
+            reasoning.thought or "",
+        )
+
+        # 2) Act — dispatch the step's tool if any. Pass reasoning so the
+        # current step's Act can incorporate it (e.g. declarative skills
+        # receive action_rationale/state_analysis via input_context).
+        tool_call_trace: ToolCallTrace | None = None
+        observation: Observation | None = None
+        if step.tool is not None and step.tool.tool_type != ToolType.NONE:
+            logger.info("[Executor]   Acting: tool=%s:%s", step.tool.tool_type.value, step.tool.tool_name)
+            tool_call_trace, observation = self._act(step.tool, reasoning=reasoning)
+            if observation.success:
+                logger.info("[Executor]   Observation: success, output=%s",
+                             repr(observation.structured_output or observation.raw_output)[:200])
+            else:
+                logger.warning("[Executor]   Observation: FAILED — %s", observation.error)
+        else:
+            logger.info("[Executor]   Acting: pure reasoning (no tool)")
+
+        # 3) Observe & store
+        if observation is not None and observation.success and step.tool is not None:
+            store_to = (
+                step.tool.output_mapping.store_to
+                if step.tool.output_mapping
+                else f"{step.step_id[:8]}_result"
+            )
+            self.context.record_step_result(phase_name, store_to, observation.structured_output or observation.raw_output)
+        elif observation is None:
+            store_key = f"step_{execution_order}_reasoning"
+            reasoning_summary = reasoning.thought
+            if reasoning.state_analysis:
+                reasoning_summary += f" [context: {reasoning.state_analysis}]"
+            if reasoning.action_rationale:
+                reasoning_summary += f" [rationale: {reasoning.action_rationale}]"
+            self.context.record_step_result(phase_name, store_key, reasoning_summary)
+
+        # 4) Recurse into sub_steps
+        if step.sub_steps and depth < self.max_substep_depth:
+            for sub in step.sub_steps:
+                sub_ctx = ctx.model_copy(update={"current_step": sub})
+                self._execute_one(sub_ctx, execution_order, depth + 1)
+
+        status = "failed" if (observation is not None and not observation.success) else "completed"
+        summary = (
+            observation.error if (observation and not observation.success)
+            else reasoning.thought
+        )
+
+        trace = ExecutionTrace(
+            plan_id=ctx.plan.plan_id,
+            step_id=step.step_id,
+            phase_id=ctx.current_phase_id,
+            execution_order=execution_order,
+            reasoning=reasoning,
+            tool_call=tool_call_trace,
+            observation=observation,
+            step_result=StepResult(status=status, output_summary=summary or ""),
+        )
+        logger.debug(
+            f"step {step.step_id[:8]} status={status} "
+            f"elapsed={time.time() - t_step_start:.2f}s"
+        )
+        return trace
+
+    def _reason_about(self, ctx: ExecutionContext) -> Reasoning:
+        step = ctx.current_step
+
+        # Render the full plan overview so the executor sees the big picture
+        plan_overview = self._render_plan_overview(ctx)
+
+        user = (
+            f"## Plan Overview\n{plan_overview}\n\n"
+            f"## Task Context\n{self.context.render_dynamic_state(include_accumulated=True)}\n\n"
+            f"## Current Step\n"
+            f"description: {step.description}\n"
+            f"expected_output: {step.expected_output_schema or '(unspecified)'}\n"
+        )
+        try:
+            out = self.llm.chat_json(REASON_SYSTEM, user, max_tokens=512)
+            return Reasoning(
+                thought=str(out.get("thought", "")),
+                state_analysis=str(out.get("state_analysis", "")),
+                action_rationale=str(out.get("action_rationale", "")),
+            )
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"Reasoning JSON parse failed: {e}")
+            return Reasoning(thought="(reasoning failed to parse)", state_analysis="", action_rationale="")
+
+    @staticmethod
+    def _render_plan_overview(ctx: ExecutionContext) -> str:
+        """Render a compact plan overview marking the current step with >>>."""
+        lines = [f"task_type: {ctx.plan.task_type}"]
+        for phase in ctx.plan.phases:
+            lines.append(f"Phase {phase.phase_order}: {phase.phase_name}")
+            for step in phase.steps:
+                marker = ">>>" if step.step_id == ctx.current_step.step_id else "   "
+                lines.append(f"  {marker} Step {step.step_order}: {step.description[:120]}")
+        return "\n".join(lines)
+
+    def _act(self, call: ToolCall, reasoning: Reasoning | None = None) -> tuple[ToolCallTrace, Observation]:
+        # Inject an llm callback for declarative skills
+        effective_params = dict(call.tool_params)
+        if call.tool_type == ToolType.SKILL:
+            if "llm_fn" not in effective_params:
+                effective_params["llm_fn"] = self.llm.chat
+            # Inject the current step's reasoning into input_context so
+            # declarative skills can see action_rationale / state_analysis.
+            # Procedural handlers accept **_ and will ignore this silently.
+            if reasoning is not None:
+                ic = effective_params.get("input_context") or {}
+                if isinstance(ic, dict) and "step_reasoning" not in ic:
+                    ic = {
+                        **ic,
+                        "step_reasoning": {
+                            "thought": reasoning.thought,
+                            "state_analysis": reasoning.state_analysis,
+                            "action_rationale": reasoning.action_rationale,
+                        },
+                    }
+                    effective_params["input_context"] = ic
+        effective_call = call.model_copy(update={"tool_params": effective_params})
+
+        t0 = time.time()
+        result = self.registry.dispatch(effective_call)
+        duration_ms = int((time.time() - t0) * 1000)
+
+        # Don't let `llm_fn` leak into the persisted trace
+        trace_params = {k: v for k, v in call.tool_params.items() if k != "llm_fn"}
+        trace = ToolCallTrace(
+            tool_type=call.tool_type.value,
+            tool_name=call.tool_name,
+            params=trace_params,
+            duration_ms=duration_ms,
+        )
+        observation = Observation(
+            raw_output=result.raw_output,
+            structured_output=result.structured_output or {},
+            success=result.success,
+            error=result.error,
+        )
+        return trace, observation

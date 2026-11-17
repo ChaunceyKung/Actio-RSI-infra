@@ -1,0 +1,104 @@
+{
+  "frontmatter_description": "Judge whether a person is blameworthy for harm by weighing causation against intent, negligence, and what they could have known or prevented.",
+  "title": "Harm and Responsibility",
+  "use_when": [
+    "Use when the question asks whether a person deserves blame for a harm, loss, injury, or damage.",
+    "Use when the answer turns on intent or negligence: was the harm deliberate, reckless, careless, or a pure accident.",
+    "Use when the scene asks who is responsible for a harmful outcome and whether holding them at fault is justified.",
+    "Use when a moral emotion (guilt, remorse) is the cue but the underlying judgment is whether the actor is at fault for the harm."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question only asks WHAT produced an outcome with no judgment of fault; naming a cause without weighing blame is causal attribution.",
+    "Do not use when the issue is whether a remark was rude, awkward, or embarrassing regardless of any harm; that is faux pas and social tact.",
+    "Do not use when the task is what to DO after the harm to mend the relationship, such as apologizing; that is relationship repair.",
+    "Do not use when the question only names which emotion the actor feels and blame is not the contested point; that is reading moral emotions."
+  ],
+  "decision_variable": "blameworthiness for harm (does this person deserve fault, given cause plus intent or negligence)",
+  "trigger_checklist": [
+    "Is there an actual harm: damage, injury, loss, or wrongful consequence to someone?",
+    "Does the question judge fault or blame, not merely ask what caused the outcome?",
+    "Is intent or negligence in play: deliberate, reckless, careless, or unavoidable accident?",
+    "Would the verdict change if the person had known or could have prevented it?",
+    "Is the contested point fault for harm, rather than rudeness, fairness, or how to apologize?"
+  ],
+  "workflow": [
+    "Confirm a real harm occurred (damage, loss, injury). If none, this is not a harm-responsibility scene; check for faux pas/tact instead.",
+    "Check what the question demands. If it only asks WHY the outcome happened or WHAT caused it, stop and route to causal attribution; cause is not the same as blame.",
+    "Identify the causal actor: who did the act that led to the harm, directly or by failing to act.",
+    "Grade intent or negligence: deliberate harm and reckless or careless harm raise blame; a genuinely unforeseeable accident does not.",
+    "Test foreseeability and control: could this person reasonably have known the risk or prevented it? Knew or should have known raises blame; truly could not raises it little or none.",
+    "Assign the verdict: blame only when cause AND culpability (intent or negligence) both hold; if there is cause but no culpability, the person is the cause yet not blameworthy."
+  ],
+  "special_case": {
+    "title": "Cause is not blame: the accidental but blameless actor",
+    "rule": "A person can be the direct cause of a harm and still not be blameworthy. Blame requires culpability on top of causation: intent, recklessness, or negligence. If the actor could not reasonably have known or prevented the harm, they caused it but do not deserve blame. The matching moral emotion is guilt or remorse over having caused the loss, which is distinct from being at fault.",
+    "worked_example": {
+      "scene": "A waitress rushing through a busy cafe accidentally knocks a cup, splashing coffee onto a customer's important documents and ruining them. She did not notice and never intended any harm.",
+      "question": "Is the waitress to blame for ruining the customer's documents?",
+      "answer_logic": "She is the cause of the damage, so she bears responsibility for the outcome. But the harm was an unintended accident with no recklessness or negligence, so she is the cause without culpable fault: low or no blame. Treating her as deliberately at fault overstates it, while denying she bears any responsibility at all (it is not her concern) understates the responsibility she does carry as the cause."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit if the question only asks what produced the outcome, the reason it happened, with no judgment of who is at fault; an accidental cause is still a cause, and naming it is causal attribution.",
+    "Exit if the harm is absent and the issue is only whether a remark or act was rude, awkward, or embarrassing; that is faux pas and social tact.",
+    "Exit if the question names the emotion the actor feels and blame itself is not contested; that is reading moral emotions such as guilt or shame.",
+    "Exit if the task is what the wrongdoer should DO next to restore the relationship, such as apologize or make amends; that is relationship repair."
+  ],
+  "references": {
+    "route_signal": "Route here when the prompt asks whether a person DESERVES BLAME for a harm, given how it was caused and whether it was intended or careless, not merely what caused it.",
+    "hard_boundary": [
+      "Do not route here when the question only asks WHY an outcome occurred or WHAT caused it; explaining a cause without judging fault is causal attribution.",
+      "Do not route here for rudeness or embarrassment with no real harm (faux pas/tact), and do not route here for what to do after harm to repair the relationship (apology/repair)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not equate cause with blame: a person can directly cause a harm yet not be blameworthy if it was an unforeseeable accident.",
+      "Do not infer blame from the outcome alone: that harm occurred does not prove the actor intended it or was careless.",
+      "Do not treat a mere awkward or rude remark as harm; offense without damage is a tact question, not a blame question."
+    ],
+    "common_failure_modes": [
+      "Answering a pure WHY-did-it-happen question with a blame verdict when the prompt only wanted the cause (cause-vs-blame confusion).",
+      "Assigning blame from outcome alone, ignoring that the act was an unintended, unforeseeable accident.",
+      "Treating only deliberate harm as blameworthy and overlooking negligence or recklessness as a source of fault.",
+      "Reading social embarrassment or a rude remark as a harm-and-blame case when no real harm occurred.",
+      "Letting the actor off as indifferent (not my concern) when they did cause the harm and bear responsibility for it."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A waitress accidentally knocks coffee onto a customer's documents and ruins them; the question asks whether she is at fault and what she feels about it.",
+        "why_it_matches": "The contested point is responsibility and blame for a real harm she caused, weighed against the lack of intent. Routes HERE (harm and responsibility)."
+      },
+      {
+        "case": "A boy receives a bike for his birthday and is disappointed; the question asks only WHY he feels that way, not whether anyone is at fault.",
+        "why_it_matches": "No harm and no fault is judged; the question only seeks the cause of an emotion. Routes to causal attribution, not here. Single variable that flips it: the question asks the cause, not the blame."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the question only asks why the outcome happened, answer with the cause and do not deliver a blame verdict; route to causal attribution.",
+      "If there is no actual harm and the prompt asks whether a remark was rude or embarrassing, route to faux pas and social tact.",
+      "If the actor clearly caused the harm but could not have foreseen or prevented it, the verdict is low or no blame even though they are the cause.",
+      "If the task is how the actor should apologize or make amends, route to relationship repair."
+    ],
+    "generalization_note": "This unit isolates ONE variable: blameworthiness for harm, the product of causation plus culpability (intent or negligence). It stays separate from naming a cause without judging fault (causal attribution), from rudeness without harm (faux pas/tact), from merely labeling the emotion felt (moral emotions), and from how to repair the relationship afterward (apology/repair)."
+  },
+  "validation_seed": {
+    "positive_pattern": "An actor caused a real harm; the question is whether they are blameworthy, with intent or negligence as the deciding factor.",
+    "near_miss_pattern": "The question asks only WHY an outcome or feeling occurred, naming a cause with no judgment of fault, which belongs to causal attribution.",
+    "boundary_pattern": "A remark is awkward or embarrassing but causes no real harm, so the issue is social tact rather than blame for harm."
+  },
+  "notes": [
+    "The decisive split is cause versus blame: a cause without culpability is still a cause but not a fault.",
+    "Blame needs two things together: causation and culpability (intent, recklessness, or negligence).",
+    "Do not expand into how to apologize or repair; that is a separate downstream step.",
+    "Use this as a diagnosis unit inside larger moral or relationship scenes."
+  ],
+  "id": "micro-43",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Determine who caused harm, whether it was intentional, and whether blame is appropriate",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

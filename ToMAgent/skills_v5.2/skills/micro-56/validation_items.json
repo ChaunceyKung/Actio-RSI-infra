@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-56",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming receives a bicycle on his birthday.",
+      "question": "He should be very happy, but he is very disappointed, why?",
+      "options": [
+        "Xiao Ming worries that riding a bicycle affects his studies.",
+        "Xiao Ming fears that riding a bicycle to school makes his classmates laugh at him.",
+        "Xiao Ming thinks the color of the bicycle does not match his clothes.",
+        "Xiao Ming hopes for a computer as a gift, not a bicycle."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Core positive: a 'why' question asking for the cause of a surprising emotion. The cause is the gap between what he wanted (a computer) and what he got, not blame or intention to harm. From ToMBench Unexpected Outcome Test (idx 2); gold preserved."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Zhang Wei gets the championship in the piano solo competition, and receives praise from his brother.",
+      "question": "He should feel proud, but he shows guilt, why?",
+      "options": [
+        "Zhang Wei initially does not like playing the piano, he is forced to learn by his brother.",
+        "Zhang Wei thinks he makes a big mistake in the competition, worries about being discovered by others.",
+        "Zhang Wei worries that the prize money he wins is not enough to buy a new piano.",
+        "In order to earn piano tuition for Zhang Wei, his brother works part-time in addition to school, and is busy without any free time every day."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Positive: the question asks what CAUSES the unexpected guilt. The cause is the hidden background condition (the brother's sacrifice), not who is at fault. From ToMBench Unexpected Outcome Test (idx 2); gold preserved."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Last Friday all fifth-grade classmates enter a composition competition. Xiao Ming really wants to win first place. The results come out: Xiao Hong wins, and Xiao Ming was on leave when he wrote his entry. Xiao Hong does not know how much Xiao Ming wanted to win. Seeing him, she says: 'Xiao Ming, I read your composition and it is not bad, it is just a bit regrettable.'",
+      "question": "If someone says something inappropriate, which sentence is inappropriate?",
+      "options": [
+        "Xiao Ming, I read your composition and it is not bad, it is just a bit regrettable.",
+        "What do you mean, can you explain it more clearly?",
+        "Oh, it is nothing, let's go to class.",
+        "No one in the story says anything inappropriate."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Near-miss routing to the social-fault / faux-pas neighbor: the question asks WHICH person said the wrong, awkward thing (who is at social fault), not what condition caused an outcome. Picking the cause of any feeling here would miss that the task is fault attribution. From ToMBench Faux-pas Recognition Test (idx 2); gold preserved."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Tom promised to feed his roommate's cat over the weekend but forgot, and the cat went hungry until Sunday night. Tom forgot because his phone calendar reminder had been switched off by a software update.",
+      "question": "Who should apologize for the cat going hungry?",
+      "options": [
+        "Tom, because he is the one responsible for the broken promise",
+        "The software update, because it switched off the reminder",
+        "The cat, for not reminding anyone",
+        "No one, because nothing was caused"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC boundary case. The scene names a clear cause (the disabled reminder), but the QUESTION asks who should apologize / who is responsible. That is a blame-and-responsibility judgment, which routes to the harm-and-responsibility neighbor, not this causal-attribution unit. The causal answer (the software update) is deliberately a wrong option to expose the cause-vs-blame trap."
+    }
+  ]
+}

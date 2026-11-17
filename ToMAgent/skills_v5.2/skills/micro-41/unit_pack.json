@@ -1,0 +1,104 @@
+{
+  "frontmatter_description": "Choose the one-way influence strategy most likely to change a listener's belief, attitude, or behavior.",
+  "title": "Persuasion Strategy",
+  "use_when": [
+    "Use when the question asks how a speaker persuades or convinces another person to think, feel, or act differently.",
+    "Use when the decisive variable is which appeal, argument, framing, evidence, request, or incentive will best move the listener.",
+    "Use when the influence is one-way: one person trying to change another, not a mutual trade.",
+    "Use when the listener already resists or disagrees and the task is to overcome that resistance."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question is WHY the speaker said something (politeness, face-saving, humor); that is the speaker-motivation capability (micro-39).",
+    "Do not use when the task is to fit wording to the listener's age, expertise, or identity WITHOUT trying to change them; that is the audience-calibration capability (micro-40).",
+    "Do not use when both sides make offers or trade concessions toward a shared plan; that is the negotiation capability (micro-51).",
+    "Do not use when the question is whether speech is rude, offensive, or a faux pas; that is the faux-pas-and-offense capability (micro-42).",
+    "Do not use when the question is who caused harm or deserves blame; that is the harm-and-responsibility capability (micro-43)."
+  ],
+  "decision_variable": "the one-way influence strategy directed at the listener",
+  "trigger_checklist": [
+    "Does the question ask how to persuade, convince, or get someone to change their mind, feeling, or action?",
+    "Is the listener resisting or holding a different view that the speaker wants to move?",
+    "Is the influence one-way, with no reciprocal offer or concession from the listener?",
+    "Would the best answer name an appeal — reason, evidence, emotion, what the listener values, authority, social proof, or an incentive — aimed at the listener?"
+  ],
+  "workflow": [
+    "Identify the target listener, their current resistance, and the change the speaker wants.",
+    "Confirm the influence is one-way (no mutual concessions) and the goal is to change the listener, not to explain a motive or merely fit their level.",
+    "Read each option as a candidate tactic; ask which one most directly addresses THIS listener's objection or values.",
+    "Prefer the appeal tied to what this specific listener cares about over a generic or merely informative statement.",
+    "If the scene involves reciprocal offers, exit to the negotiation capability; if it only asks why the speaker spoke or how to fit their level, exit to those capabilities."
+  ],
+  "special_case": {
+    "title": "Persuasion versus negotiation",
+    "rule": "If both sides make offers, trade concessions, or settle on a shared plan, route away from this capability. Persuasion strategy is one person changing another person's response, not mutual bargaining. A counter-offer from the listener is the signal that it has become negotiation.",
+    "worked_example": {
+      "scene": "Xiao Hong, a 6-year-old, really wants to go to the amusement park; her dad objects that it is too noisy. The question is which appeal she should use to bring him around. The best option is to tell him she has not been in a long time and that this is a very special wish she truly cares about.",
+      "question": "How does Xiao Hong persuade her dad?",
+      "answer_logic": "This is persuasion strategy: a one-way influence tactic aimed at changing the dad's decision. The winning appeal speaks to what will move him — the personal importance of the wish — rather than offering a trade or settling on a different outing."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the speaker-motivation capability — why the speaker spoke that way (micro-39) — if the task is to infer the motive rather than to change the listener.",
+    "Exit to the audience-calibration capability — fitting wording to the listener's knowledge, identity, or comfort (micro-40) — if the goal is comprehension fit, not influence.",
+    "Exit to the negotiation capability — compromise, trades, and mutually acceptable plans (micro-51) — if the interaction contains reciprocal concessions, a counter-offer, or shared decision-making.",
+    "Exit to the faux-pas-and-offense capability (micro-42) or the harm-and-responsibility capability (micro-43) if the key judgment is tact, offense, harm, or blame rather than influence."
+  ],
+  "references": {
+    "route_signal": "Use this capability when the question asks which persuasive tactic, appeal, framing, or influence approach is best for changing a listener's mind, feeling, or behavior.",
+    "hard_boundary": [
+      "Not the speaker's motive for speaking (that is the speaker-motivation capability, micro-39).",
+      "Not fitting wording to the listener's level alone (that is the audience-calibration capability, micro-40).",
+      "Not negotiation or mutual concession (that is the negotiation capability, micro-51).",
+      "Not offense or blame judgment (that is the faux-pas-and-offense capability, micro-42, or the harm-and-responsibility capability, micro-43)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer with the topic of the message; answer with the tactic used to change the listener.",
+      "Do not confuse a polite tone with persuasion; politeness can be audience fit or a social motive.",
+      "Do not treat a request as persuasion when the main job is to reach a shared agreement through trades.",
+      "Do not pick a merely informative or self-focused statement over the appeal that targets this listener's specific objection or values."
+    ],
+    "common_failure_modes": [
+      "Confusing the speaker's reason for speaking with the tactic aimed at the listener.",
+      "Choosing audience-calibrated wording when the real question is which argument changes the listener.",
+      "Calling a negotiation scene persuasion because one side wants the other to agree, despite reciprocal offers.",
+      "Selecting a generic appeal instead of the one matched to the listener's stated worry or value."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Xiao Hong wants the amusement park; her dad objects to the noise; the winning move is to stress how long it has been and how special the wish is to her.",
+        "why_it_matches": "The decisive variable is which one-way appeal best changes the dad's decision; the listener makes no counter-offer."
+      },
+      {
+        "case": "Two roommates negotiate chores: one offers to cook twice a week if the other vacuums, and the other counters by also asking for weekend laundry help.",
+        "why_it_matches": "Near miss: both sides change terms via reciprocal offers to reach a shared plan, so the central variable is bilateral concession. Route to the negotiation capability (micro-51)."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the listener is not being asked to change anything, do not use this capability.",
+      "If both sides trade offers and must agree on terms, route to the negotiation capability (micro-51).",
+      "If the question is only about making the message understandable for the listener, route to the audience-calibration capability (micro-40).",
+      "If the question is why the speaker said it, route to the speaker-motivation capability (micro-39)."
+    ],
+    "generalization_note": "This capability covers any one-way influence attempt — reasoning, evidence, emotional appeal, appeal to what the listener values, authority, framing, repetition, social proof, reassurance, or incentive — as long as the central variable is the strategy used to change the listener and no reciprocal concession is required."
+  },
+  "validation_seed": {
+    "positive_pattern": "The question asks how to persuade/convince a resisting listener, and the correct answer is the appeal best matched to that listener's objection or values.",
+    "near_miss_pattern": "The task is only to fit wording to the listener's level (audience calibration), not to change them.",
+    "boundary_pattern": "Both sides trade reciprocal offers toward a shared plan (negotiation), so it is not one-way influence."
+  },
+  "notes": [
+    "Keep the answer narrow: the influence strategy aimed at the listener, not the content of the argument.",
+    "Treat persuasion as one-way influence unless the scene clearly becomes negotiation with reciprocal offers.",
+    "'How does X persuade Y?' items supply the canonical positives for this capability."
+  ],
+  "id": "micro-41",
+  "level": "micro",
+  "layer": "L5",
+  "family": "language-pragmatics",
+  "core_question": "Determine how to change another person's belief, attitude, or behavior",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

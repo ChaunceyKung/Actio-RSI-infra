@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-07",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "On a winter vacation evening, Wang Lei, Liu Ting, and Xiao Ming play toys together at home. They first play with the first novel toy - an electric car, then they play with the second novel toy - a puzzle. At this time, Wang Lei says, \"I have something to do and need to leave the room\", and he leaves after closing the door. Liu Ting says, \"Oh, he leaves, it doesn't matter, we play together.\" Liu Ting and Xiao Ming play with the third novel toy - colored pencils. After playing, they put all three toys in a plate on the table. At this time, Wang Lei comes back, looks at the three toys in the tray, and excitedly says, \"Oh, look! Look at that toy!\", \"Xiao Ming, can you pass it to me?\"",
+      "question": "What does Xiao Ming most likely do?",
+      "options": [
+        "Xiao Ming picks out the electric car and gives it to Wang Lei",
+        "Xiao Ming picks out the puzzle and gives it to Wang Lei",
+        "Xiao Ming picks out the colored pencils and gives it to Wang Lei",
+        "Xiao Ming randomly picks one of the three toys and gives it to Wang Lei"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "ToMBench Knowledge-Attention item. All three toys are equally visible to Wang Lei on his return, so sensory access is identical across them and cannot pick a referent. What differs is salience: the colored pencils are the one novel toy that never entered his attention, so 'that toy' singles them out. The deciding variable is attentional focus, not perception."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "On a sunny weekend afternoon, Li Juan, Wang Qiang, and Xiao Fang play toys together at home. They first play with the first novel toy - a maze 3D puzzle, then they play with the second novel toy - an electric flyer. At this time, Li Juan says, \"I have something to do and need to leave the room\", and she leaves after closing the door. Wang Qiang says, \"Oh, she leaves, it's okay, we play together.\" Wang Qiang and Xiao Fang play with the third novel toy - a smart rotating color light. After playing, they put all three toys in a plate on the table. At this time, Li Juan comes back, looks at the three toys in the tray, and excitedly says, \"Oh, look! Look at that toy!\", \"Xiao Fang, can you pass it to me?\"",
+      "question": "What does Xiao Fang most likely do?",
+      "options": [
+        "Xiao Fang picks out the electric flyer and gives it to Li Juan",
+        "Xiao Fang picks out the smart rotating color light and gives it to Li Juan",
+        "Xiao Fang randomly picks one of the three toys and gives it to Li Juan",
+        "Xiao Fang picks out the maze 3D puzzle and gives it to Li Juan"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "A second ToMBench Knowledge-Attention item, included to show the pattern generalizes beyond one cast. The salient toy to the returning person is the one introduced while she was out - the smart rotating color light. Same logic as the first case with different surface details, confirming the rule is about whose attention the toy entered, not the toy's identity."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "On a winter vacation evening, Li Juan, Wang Hao, and Xiao Li play toys together at home. They first play with the first novel toy - a light and shadow projector, then they play with the second novel toy - a wireless remote control car. At this time, Li Juan says, \"I go to adjust the curtains in the room\", she gets up and walks towards the curtains, and watches them continue to play. Wang Hao says, \"Oh, she is there, it does not matter, but she still watches us, so we continue to play.\" Wang Hao and Xiao Li play with the third novel toy - an intelligent flyer. After playing, they put all three toys in a plate on the table. After a while, Li Juan returns to the side of the objects, looks at the three toys in the plate, and excitedly says, \"Oh, look! Look at that toy!\", \"Xiao Li, can you pass it to me?\"",
+      "question": "What does Xiao Li most likely do?",
+      "options": [
+        "Xiao Li randomly picks a toy from the three toys and gives it to Li Juan",
+        "Xiao Li picks out the wireless remote control car and gives it to Li Juan",
+        "Xiao Li picks out the intelligent flyer and gives it to Li Juan",
+        "Xiao Li picks out the light and shadow projector and gives it to Li Juan"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "ToMBench Knowledge-Attention near miss. Here Li Juan never left - she adjusted the curtains while watching the third toy be introduced - so every toy entered her attention equally. The salience contrast that drove the previous cases is gone, so attention no longer singles out one toy and the only honest answer is a random pick. This shows that over-applying the 'pick the toy they missed' heuristic flips to the wrong answer when the person actually attended to all of them."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "At the end of the day, Ben says, \"Now I remember hearing the alarm earlier.\" The story never showed whether he looked up, paused, or reacted when the alarm actually rang.",
+      "question": "Does this scene establish that Ben noticed the alarm at the moment it rang?",
+      "options": [
+        "Yes, definitely",
+        "No, it only shows later recall, not noticing at the time",
+        "Yes, because the alarm was audible",
+        "No, because he must have forgotten it"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Refined synthetic boundary (no ToMBench item cleanly separates noticing from later recall). The scene only reports a memory after the fact and never shows attentional registration at the moment the alarm sounded. Seeing or hearing, noticing, and remembering are three different states; a later 'I remember' does not prove initial noticing, so this routes to memory rather than attention."
+    }
+  ]
+}

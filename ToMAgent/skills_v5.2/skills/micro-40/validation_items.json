@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-40",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "A developer must explain two-factor authentication to a new hire who has never used it before. All four options convey the same fact; only the wording differs.",
+      "question": "Which option is best calibrated to the listener?",
+      "options": [
+        "You enter your password and then type the short code that gets sent to your phone.",
+        "The flow uses TOTP secrets, device binding, and rotating session tokens.",
+        "You should already know this, so I will skip the explanation.",
+        "Let me convince you that account security really matters."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Benchmark-style synthetic item (ToMBench has no dedicated audience-calibration task); tests listener-fit for a novice by lowering jargon, versus an expert-pitched version (B), a dismissive version (C), and a persuasion move (D)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xiao Hong, finishing her college entrance exam, wants to study computer science in another city, which is her interest. Her parents prefer she study medicine locally because they think it gives a more stable future job.",
+      "question": "How does Xiao Hong convince her parents?",
+      "options": [
+        "She promises not to fall behind in her studies, telling her parents she will treat whichever major she chooses seriously.",
+        "Xiao Hong can propose trying computer science for a semester or a year, and if it does not suit her, she switches to medicine.",
+        "Xiao Hong can prepare a professional research paper on the computer-science job market for her parents to read.",
+        "Xiao Hong can tell her parents about her love for computers and how she thinks the field lets her use her potential."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (gold D); a near miss because the goal is to change the parents' decision, which routes to the persuasion-strategy capability (micro-41), not merely to fit their level of understanding."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Xiao Wei learns his grandfather plans to sell the old family piano, which is a memento of the grandfather and his late grandmother. Xiao Wei decides to persuade him to keep it.",
+      "question": "How does Xiao Wei persuade his grandfather?",
+      "options": [
+        "He suggests finding an expert to appraise the piano, since it may have higher historical and artistic value than the grandfather imagines.",
+        "He suggests making a special cover for the piano so it becomes a home decoration, not just an instrument.",
+        "He lets his grandfather know that whenever Xiao Wei sees the piano he feels the warmth of home and the love of his grandparents.",
+        "He proposes that they consult a musician or pianist together to hear an expert opinion on the piano."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (gold C); a boundary case because the appeal is tailored to what the grandfather emotionally values, yet the goal is still to change his decision, so it routes to the persuasion-strategy capability (micro-41), not audience calibration."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "A doctor must explain the same treatment to a patient's parent who has no medical training. All four options describe the same regimen; only the framing differs.",
+      "question": "Which option is best calibrated to the listener?",
+      "options": [
+        "The regimen is BID dosing with monitoring for adverse events.",
+        "It is a way to help, and I will not bother explaining the details.",
+        "It is a medicine taken twice a day, and I will explain the side effects in everyday language.",
+        "You should just trust me and not ask questions."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Benchmark-style synthetic item (no dedicated ToMBench task); tests listener-fit by matching explanation depth and vocabulary to a layperson, versus a jargon version (A), a dismissive version (B), and an authority demand (D)."
+    }
+  ]
+}

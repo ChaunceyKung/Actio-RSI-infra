@@ -1,0 +1,110 @@
+{
+  "frontmatter_description": "Judge the most likely or most natural answer from how common or typical a category, outcome, or reaction usually is, rather than from a vague quantifier word or a freshly observed sample count.",
+  "title": "Base Rate and Typicality",
+  "use_when": [
+    "Use when the question asks which outcome, category, trait, role, or reaction is most likely, given how common or typical it usually is.",
+    "Use when the answer is the default emotional or behavioral reaction a normal person has to an ordinary event (gift, win, loss, threat), and no twist makes the situation unusual.",
+    "Use when a vivid individual description must be weighed against a stated population frequency or prior category prevalence.",
+    "Use when the inference is about prior likelihood before any decisive direct observation settles the case."
+  ],
+  "do_not_use_when": [
+    "Do not use when the task is to recover the approximate range a quantifier word implies (some, most, almost all, about half). That is about word meaning, not category likelihood. Handle that with the vague-quantity interpretation skill.",
+    "Do not use when a specific sample, partial count, or newly seen subset was observed and the estimate must be revised on that data. Observed-sample updating is the closest neighbor and the main confusion; route it to the quantity-update-after-observation skill.",
+    "Do not use when the question asks what caused an outcome rather than which outcome was more likely beforehand. Naming a cause is causal attribution.",
+    "Do not use when the decisive variable is a character's belief, perception, or intention rather than objective base rate; use the matching belief, perception, or intention skill.",
+    "Do not use when an explicit fact in the story already settles the answer, so the prior is irrelevant."
+  ],
+  "decision_variable": "how common or typical the category, outcome, or reaction is by default, used as a prior with no specific sample observed",
+  "trigger_checklist": [
+    "The question asks what is most likely, most probable, typical, expected, natural, or common.",
+    "The decisive cue is a prior: a stated population frequency, role frequency, ordinary prevalence, or the default reaction to a familiar event.",
+    "No specific sample was observed in the scene that would force the estimate to be revised on that data.",
+    "The answer is a default given what is usual, not a quantifier word's meaning and not a cause.",
+    "Any vivid individual description present is representative or stereotype-like, not specifically diagnostic."
+  ],
+  "workflow": [
+    "Confirm the operation is a prior-likelihood judgment: no observed sample to update on, no quantifier word to decode, no cause to name. If any of those, exit (see Boundary Exit Rule).",
+    "Name the candidate categories, outcomes, or reactions being compared.",
+    "Find the prior: a stated frequency or population proportion if given, otherwise the default or most usual case for this ordinary situation.",
+    "For a normal event with no twist, pick the typical reaction a normal person would have (a longed-for gift gives happiness, a win gives pride, a threat gives fear).",
+    "If a vivid description is present, test it: is it specifically diagnostic of the rare category, or merely representative? If merely representative, keep the base rate central and do not switch to the rare category.",
+    "Choose the higher-prior option. State it as more likely or expected, not certain, unless an explicit fact in the scene makes it decisive."
+  ],
+  "special_case": {
+    "title": "Vivid or stereotypical description versus base rate",
+    "rule": "When a vivid description resembles a rare category but the stated base rate strongly favors a common one, stay with the common category unless the description is specifically diagnostic rather than merely representative. Resemblance alone does not beat a strong prior.",
+    "worked_example": {
+      "scene": "At a conference there are 90 engineers and 10 poets. Alex is described as quiet, precise, and fond of notebooks.",
+      "question": "Is Alex more likely to be an engineer or a poet?",
+      "answer_logic": "The quiet-notebook description feels poet-like, but it is representative, not diagnostic; many engineers fit it too. The 90-to-10 base rate dominates, so engineer is more likely. Note this is a pure prior judgment: nothing was sampled and no count needs revising, which is what separates it from updating-on-observed-data."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the core operation is mapping a quantifier word (many, few, most, about half) onto an approximate range, that is decoding word meaning, not comparing category likelihood; use the vague-quantity interpretation skill.",
+    "If a specific sample, partial count, or newly seen subset was observed and the estimate must be revised on that data, that is updating a count from observation; use the quantity-update-after-observation skill. The tell: the scene reports something just seen (8 of 10 were flu) that should move the number.",
+    "If the question asks what produced the result, that is causal attribution.",
+    "If the issue is what a character thinks is likely rather than what is objectively likely from base rates, use the matching belief or knowledge skill.",
+    "If the prior judgment is only one substep inside a larger negotiation, trust, false-belief, or communication scene, hand back to the macro route that owns that scene."
+  ],
+  "references": {
+    "route_signal": "Use this unit when likelihood turns on a prior: commonness, category frequency, ordinary prevalence, or the default reaction to a familiar event, with no specific sample observed to update on.",
+    "hard_boundary": [
+      "This unit judges category or reaction likelihood from a prior, not the approximate range of a quantifier word.",
+      "This unit uses a standing base rate, not revision on a freshly observed sample; if a count was just seen and must move the estimate, that is the updating neighbor, not this unit.",
+      "This unit does not assign causation, blame, responsibility, or moral fault.",
+      "This unit does not infer hidden beliefs or intentions unless they only serve as evidence for a likelihood comparison."
+    ],
+    "shortcut_to_avoid": [
+      "Do not pick the option that sounds most vivid, narratively interesting, or stereotype-matching while ignoring a stated base rate.",
+      "Do not treat typicality as certainty; the common case can still be wrong for a particular individual.",
+      "Do not silently turn a prior into a posterior: if the scene reports an observed sample, you have left this unit."
+    ],
+    "common_failure_modes": [
+      "Base-rate neglect: choosing a rare category because a vivid description resembles it.",
+      "Overcorrection: clinging to the base rate even when the scene gives explicitly diagnostic individuating evidence.",
+      "Treating an observed sample as if it were a base rate, or vice versa, instead of updating when data was actually seen.",
+      "Confusing frequency with cause: assuming the commonest factor must have caused the event."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A clinic usually sees flu and cold cases about equally. With no patients yet examined today, which is more likely to walk in next?",
+        "why_it_matches": "Pure prior: the standing base rate is the only cue and nothing has been observed, so this is base-rate reasoning, this unit."
+      },
+      {
+        "case": "Same clinic, but today 8 of the first 10 patients tested flu-positive; should the flu estimate be revised upward?",
+        "why_it_matches": "A specific sample was just observed and must move the estimate. Single variable changed (observed data now exists), and that routes to the quantity-update-after-observation skill, not here."
+      },
+      {
+        "case": "A teacher says most students submitted the form; what approximate share is that?",
+        "why_it_matches": "The task is decoding the quantifier word most, not comparing category likelihoods, so it routes to the vague-quantity interpretation skill."
+      }
+    ],
+    "boundary_stress_test": [
+      "Vivid but non-diagnostic description plus a strong stated base rate: keep the base rate central (stay in this unit).",
+      "A random draw from a population with known proportions: use those proportions (this unit).",
+      "A new sample such as 8 of 10 observed cases is reported: you are now updating on data, so hand off to the observed-sample updating skill.",
+      "A character directly saw the answer: perception settles it; do not override it with typicality."
+    ],
+    "generalization_note": "Prior-likelihood reasoning is not only numeric puzzles: the typical emotional reaction to an ordinary event, expected social roles, everyday risk, group membership, and likely behavior all rest on base rate or typicality when direct evidence is incomplete."
+  },
+  "validation_seed": {
+    "positive_pattern": "A case asks for the most likely category, outcome, or default reaction, decided by a stated frequency or by what is typical given an ordinary event, with no observed sample.",
+    "near_miss_pattern": "A case asks what many, few, most, or about half means as an approximate quantity range.",
+    "boundary_pattern": "A case reports a specific observed sample that should revise an estimate, or asks what caused an outcome rather than which outcome was likely beforehand."
+  },
+  "notes": [
+    "Keep the output probabilistic: say more likely, less likely, or expected, not guaranteed.",
+    "Use stated base rates before social stereotypes unless the story gives diagnostic individuating evidence.",
+    "When a larger estimation scene needs a base-rate substep, this unit can serve as that substep and then return control to the owning scene."
+  ],
+  "id": "micro-55",
+  "level": "micro",
+  "layer": "L7",
+  "family": "quantity-probability",
+  "core_question": "Judge likelihood from commonness or typicality",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

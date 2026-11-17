@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-21",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Tom finds some money on his way home from school and is happy thinking about how to spend it. On the way he meets an aunt who says, \"Tom, if you help me pick apples, I will give you some money.\" So Tom decides to stay and help the aunt pick apples.",
+      "question": "What does Tom do after he helps the aunt pick apples?",
+      "options": [
+        "Tom goes to the park to play.",
+        "Tom goes to the store to buy things.",
+        "Tom helps the aunt make apple pie.",
+        "Tom donates the money to a charity."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Multiple Desires (Desire: Multiple desires, Tom/apples row, gold B); tests the means-end nesting variable. Picking apples is a subordinate step taken only to earn money; buying things is the superordinate end goal, so Tom resumes it once the subgoal is done."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Li Hua is passionate about outdoor adventure and goes hiking or camping every weekend, always seeking exciting experiences. Wang Fang is a quiet librarian who spends her weekends in the calm of the library, reading and organizing books, and likes an orderly environment. This weekend, Li Hua invites Wang Fang to go out together.",
+      "question": "Where does Li Hua plan to spend the weekend with Wang Fang?",
+      "options": [
+        "Hiking",
+        "Library",
+        "Sports Park",
+        "Skiing"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (Li Hua/Wang Fang weekend row, gold B); two preferences compete head-to-head with no nesting, so the answer is a weighing of rival goals (here Li Hua accommodates Wang Fang's preference), not a means-end hierarchy. Routes to the free-weighing-of-rival-goals capability (Goal-Conflict Arbitration, micro-25)."
+    },
+    {
+      "id": "case_3",
+      "pattern": "positive",
+      "scene": "Mark always wants to eat a hamburger at lunchtime. As he walks to the school cafeteria to buy one, his friend Lenny comes up and says, \"Mark, if you help me answer a few questions on my math homework, I'll give you a hamburger.\" So Mark decides to help Lenny with his math homework.",
+      "question": "What does Mark do after he helps Lenny finish his math homework?",
+      "options": [
+        "Mark continues to go to the cafeteria to buy a hamburger.",
+        "Mark eats the hamburger from Lenny.",
+        "Mark goes to the library to read.",
+        "Mark goes to the playground to play."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Multiple Desires (Mark/hamburger row, gold B); tests the means-end nesting variable and guards against the shortcut of assuming Mark still pursues the original cafeteria plan. Helping Lenny is the subordinate step; the hamburger (his end goal) is now supplied by Lenny, so he eats Lenny's hamburger rather than buying one."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Qingqing, Dapeng, and Bald Qiang are all hosts on the same channel. They often appear in the same program but rarely get to eat together. One day, after recording ends, Dapeng sees Qingqing about to leave and quickly goes over to talk to her. At this moment, Bald Qiang also comes over.",
+      "question": "What does Dapeng want to do?",
+      "options": [
+        "Invites Qingqing and Bald Qiang to have dinner together.",
+        "Asks Qingqing for her phone number.",
+        "Asks Qingqing to share her thoughts on today's program.",
+        "Asks Qingqing to introduce him to Bald Qiang."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (Dapeng/dinner row, gold A); the scene gives a goal plus social cues and asks what the character will do next, not which goal is the end versus the step. Routes to the next-action-prediction capability (Action Prediction, micro-23)."
+    }
+  ]
+}

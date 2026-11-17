@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-50",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "SYNTHETIC (self-presentation probe). At a networking event a job candidate introduces herself by leading with her volunteer team-leadership role and saving the recent employment gap for later in the conversation.",
+      "question": "What is the main reason for choosing that order?",
+      "options": [
+        "To shape a strong first impression of her own competence and leadership by what she reveals first",
+        "To spare the listener's feelings about an awkward topic",
+        "To apologize for the job gap and repair a damaged relationship",
+        "To persuade the listener to agree to a specific request"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Direct positive: she orders her own true self-information to control the impression of HER, which is the core variable. SYNTHETIC item (no dedicated self-presentation task in ToMBench); distractors point at sparing feelings, repair, and persuasion."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Uncle Zhang prepares a special dish for the community's Spring Festival gathering. At the party, Aunt Wang tries this dish and feels something is off about the taste. When Uncle Zhang asks her opinion about the dish, Aunt Wang smiles and says this is one of the most delicious dishes she ever eats.",
+      "question": "Why does Aunt Wang say this?",
+      "options": [
+        "Aunt Wang says this because she respects Uncle Zhang and considers maintaining community relationships, she does not want to make Uncle Zhang feel embarrassed or disappointed.",
+        "Aunt Wang says this because she really thinks it is one of the most delicious dishes she ever eats.",
+        "Aunt Wang wants to establish her good person image in the community, so she chooses to praise Uncle Zhang's dish.",
+        "Aunt Wang says this because she worries that if she tells the truth, it damages her reputation in the community."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Strange Story Task (White lies, idx 2, the Uncle Zhang Spring Festival dish; gold A). Sharp near_miss: options C and D frame the motive as managing Aunt Wang's OWN image and reputation, exactly this unit's territory, yet they are WRONG. The real driver is sparing Uncle Zhang's feelings, so the scene is emotion display rules / sparing feelings, not self-presentation. Picking C or D is the central failure this unit must prevent. Real item, gold preserved."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "SYNTHETIC (boundary probe). Zhang San wants the warmer seat by the window and tries to get his colleague Wang Wu to swap seats, telling Wang Wu that the spot is more comfortable and offering to help him in return.",
+      "question": "What is the main task in this scene?",
+      "options": [
+        "One-way persuasion to get someone to agree to an external request",
+        "Shaping the impression others form of the speaker's own identity",
+        "Hiding the speaker's true feeling to be polite",
+        "Apologizing and repairing harm after an offense"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Boundary case against the persuasion neighbor: the pivot is influencing Wang Wu's decision about an external request (the seat), not managing how Zhang San himself is seen. SYNTHETIC item, modeled on ToMBench Persuasion Story Task seat-swap scenes; it stops the unit from absorbing one-way persuasion."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "SYNTHETIC (self-presentation probe). A new volunteer introduces herself by saying, truthfully, 'I have organized three community events,' while choosing not to mention an earlier event that flopped, because she wants to come across as capable.",
+      "question": "Why is this self-presentation rather than a kind lie or secrecy?",
+      "options": [
+        "Because she is selecting and framing true facts about HERSELF to shape how capable others think she is",
+        "Because she is hiding a feeling to avoid hurting another person at the event",
+        "Because she is bound to keep the past failure permanently secret",
+        "Because she is trying to win agreement to a request she is making"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Positive that breaks the shortcut 'selective disclosure equals deception or secrecy': the omission is truthful framing of her own image, and the managed target is HER impression, not another person's feelings. SYNTHETIC item."
+    }
+  ]
+}

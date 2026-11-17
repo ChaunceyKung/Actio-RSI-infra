@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-53",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Almost every letter to Laura Company contains a check. Today, Laura receives 5 letters. Laura tells you on the phone \"I look at 3 out of 5 letters. There are checks in 2 of the letters.\"",
+      "question": "Before Laura calls you, how many of these 5 letters do you think contain checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 1, before-type). The prior comes from \"almost every\" applied to 5 letters: near-total but short of all, so about 4. The later phone count (2 of 3) is post-observation and must be ignored for the before-question, which is exactly the this unit prior."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "In a fruit orchard in a rural area, Xiao Ming and Xiao Hong pick fruits together. There are 15 apples on the tree, almost half of them are red apples. Xiao Hong picks 7, then says there are 3 red apples among them.",
+      "question": "Before Xiao Hong picks the fruits, how many red apples are on the tree?",
+      "options": [
+        "Before Xiao Hong picks the fruits, it is estimated that there are 7 red apples on the tree",
+        "Before Xiao Hong picks the fruits, it is estimated that there are 4 red apples on the tree",
+        "Before Xiao Hong picks the fruits, it is estimated that there are 8 red apples on the tree",
+        "Before Xiao Hong picks the fruits, it is estimated that there are 2 red apples on the tree"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 1, before-type). \"Almost half\" of 15 maps to about 7 (just under 7.5). The prior is the phrase applied to the set size, not the picked sample's 3 red apples."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "In a fruit orchard in a rural area, Xiao Ming and Xiao Hong pick fruits together. There are 15 apples on the tree, almost half of them are red apples. Xiao Hong picks 7, then says there are 3 red apples among them.",
+      "question": "After Xiao Hong picks them, how many red apples are there on the tree?",
+      "options": [
+        "After Xiao Hong picks, it is estimated that there are 0 red apples on the tree",
+        "After Xiao Hong picks, it is estimated that there is 1 red apple on the tree",
+        "After Xiao Hong picks, it is estimated that there are 2 red apples on the tree",
+        "After Xiao Hong picks, it is estimated that there are 4 red apples on the tree"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 2, after-type). Same orchard, but the question is post-observation: the estimate is re-derived from the picked sample (3 of 7 red, 8 left), not from \"almost half.\" This is the after-observation update, so it routes OUT of this unit. The question word \"after\" is the routing trigger."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "During salary negotiations, a manager says, \"We can offer some flexibility on the start date.\" The candidate asks how to respond strategically. (Synthetic boundary item.)",
+      "question": "Why is this not mainly a vague-quantity-prior case?",
+      "options": [
+        "Because the key issue is the negotiation move, not the approximate range implied by \"some.\"",
+        "Because \"some\" always means exactly half.",
+        "Because vague words cannot appear in negotiation scenes.",
+        "Because the phrase must be updated using a random sample."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic hard boundary. A vague quantifier is present, but the task is a negotiation move whose social function dominates the literal range, so it routes to negotiation, not this unit."
+    }
+  ]
+}

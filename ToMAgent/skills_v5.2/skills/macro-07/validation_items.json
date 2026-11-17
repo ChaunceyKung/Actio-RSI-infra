@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-07",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Marissa is about to take a bath. Anna has just finished bathing and left the bathroom very dirty. When Marissa sees the mess, she calls out, 'Anna, can't you find the cleaning supplies?'",
+      "question": "What does Marissa really want to say when she says this?",
+      "options": [
+        "Anna needs to locate the cleaning supplies.",
+        "Marissa herself cannot find the cleaning supplies.",
+        "Anna should clean the bathroom now.",
+        "Anna should buy more cleaning supplies."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (idx 1, intention-explanation ability). The literal words form a question about whether Anna can find supplies, but in context the utterance is an indirect request for Anna to clean the bathroom now. The solver must read the intended speech act, not the literal question."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Bohan visits Xiuya's home for the first time, hoping to meet the dog she often talks about, since he loves dogs. When he arrives, Xiuya's dog bounds over to greet him. The dog is enormous, almost as big as Bohan himself. Looking at it, Bohan says, 'Xiuya, you don't have a dog at all. You have an elephant!'",
+      "question": "Why does Bohan say this?",
+      "options": [
+        "Bohan genuinely mistakes the dog for an elephant.",
+        "Bohan lies to make Xiuya laugh.",
+        "Bohan jokes because he also wants to keep a dog.",
+        "Bohan jokes to make Xiuya laugh."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (idx 2, humor ability). The statement is literally false (the dog is not an elephant), but it is a non-serious, friendly exaggeration the speaker wants understood as a joke. Decoding the intended humorous meaning is the task; treating it as a genuine mistake or a deceptive lie is the trap."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Aunt Jian visits Jianjun wearing a new hat. Jianjun loves his aunt but privately thinks the new hat is ugly and that her old hat looked much better. When Aunt Jian asks, 'Do you like my new hat?', Jianjun replies, 'Oh, it looks good.'",
+      "question": "Why does Jianjun say this?",
+      "options": [
+        "Jianjun is sincere because the new hat genuinely looks good.",
+        "Jianjun reassures Aunt Jian to consider her feelings.",
+        "Jianjun tells a white lie because the new hat is expensive.",
+        "Jianjun tells a white lie to spare Aunt Jian's feelings."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (idx 2, white-lie ability). This is a near miss: the central issue is the truth value of the statement and the intent to deceive (Jianjun says something he believes is false to protect feelings), not decoding an honest-but-indirect meaning. A lie scene asks whether the words are true and why the speaker would say something untrue, which is a different reasoning task from inferring an indirect speech act."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Almost every letter sent to Laura's company contains a check. Today Laura receives 5 letters. She phones you and says, 'I have looked at 3 of the 5 letters. There are checks in 2 of them.'",
+      "question": "Before Laura called, how many of the 5 letters did you expect to contain checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 1). This is the critical boundary: Laura's words are literal and the task is to ESTIMATE a quantity (how many of 5 letters hold checks) from a vague quantifier ('almost every') and a partial sample. That is numeric/base-rate estimation, not decoding an indirect social meaning. Over-applying indirect-meaning inference here would miss that the correct answer is a number derived from the prior, so this scene must NOT be routed to indirect-language reasoning."
+    }
+  ]
+}

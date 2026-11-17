@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-16",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "A young woman boards a crowded bus. A kind passenger, Xiao Zhou, stands up and offers his seat, saying, 'Come sit here, be careful with your belly, take it slow!' He believes she is pregnant. The woman snaps back, 'Are you blind? I'm just a bit fat!' Xiao Zhou, stung, mutters that being kind enough to give up a seat does not deserve such a harsh scolding.",
+      "question": "Why does the woman respond so sharply to Xiao Zhou?",
+      "options": [
+        "She takes his 'be careful with your belly' as him assuming she is pregnant, which to her openly implies she is fat, so she is offended and angry.",
+        "She actually wants the seat and her sharp wording is only meant to clarify her need, not because she is angry.",
+        "She dislikes Xiao Zhou personally and responds coldly on purpose because of the down jacket she is wearing.",
+        "She is embarrassed because she is secretly pregnant and has not announced it, so she dislikes the reminder."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Strange Story Task (idx 3): a live misunderstanding where one party's intended meaning (kind offer, assuming pregnancy) is received as an insult (calling her fat). The correct answer requires detecting the mismatch between what Xiao Zhou meant and what the woman took it to mean, which is the core detect-the-misread move of this scene."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "After a long, hot highway drive, George arrives at Angela's office. Angela immediately starts pitching business ideas. George interrupts: 'Ah, I had a long and hot highway trip.' He then adds, 'I am thirsty.'",
+      "question": "What does George hope Angela does?",
+      "options": [
+        "Angela provides a detailed report",
+        "Angela gives him a drink",
+        "Angela shares more business ideas with him",
+        "Angela turns on the air conditioning for him"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (idx 2): this is plain indirect-meaning decoding, not a misunderstanding. Both sides are still aligned; nobody has misread anyone. The task is only to infer what George's hint means, with no live mismatch to detect and no clarifying move to choose. It is the neighboring decode-the-hint scene, kept here so the model does not over-route any indirect utterance into this misunderstanding-repair macro."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Yesterday Jordan mocked Priya's accent in front of colleagues and she walked out upset. Today Priya tells Jordan, 'That comment really hurt me. There was no confusion about what you meant. I need a real apology before we can move on.' Jordan now has to decide how to make amends and rebuild the relationship.",
+      "question": "What does this scene primarily call for?",
+      "options": [
+        "Repairing a damaged relationship through a sincere apology and amends, since harm has already landed and meaning was never in doubt.",
+        "Clarifying a live misunderstanding by checking what each party intended versus understood.",
+        "Decoding an indirect hint to recover what was really meant.",
+        "Persuading Priya to change her position through argument."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC boundary item. Here meaning was understood perfectly and the relationship is already harmed, so the task is after-the-fact apology and reconciliation, not an in-conversation clarification before damage. It marks the exit point: once the live mismatch is gone and what remains is repairing hurt, this is no longer a detect-and-clarify scene."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "In a planning meeting Dana says, 'We should drop the launch.' Kai hears this as 'cancel the whole project' and immediately starts arguing against it, his voice rising. Dana sees Kai's reaction and realizes he has taken her words a different way than she meant.",
+      "question": "What is the best move for Dana right now?",
+      "options": [
+        "Restate what she actually meant, for example, 'To be clear, I mean remove the word launch from the slide title, not cancel the project.'",
+        "Apologize to Kai for upsetting him and offer to make it up to him later.",
+        "Drop her point entirely and let Kai win the argument to avoid conflict.",
+        "Argue back harder about whether the project should be cancelled."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC positive item. Dana detects the live mismatch the moment Kai reacts, locates the ambiguous expression ('drop the launch'), and the right move is to restate her intended meaning, not to apologize (no harm done) and not to argue the literal topic. It targets the failure mode of jumping to apology when only a quick clarification is needed."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-05",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Lena wants to go to her friend's party tonight, but she has a bad stomachache. She knows that if she tells her mother about the stomachache, her mother will not let her go. So she hides how she feels, acts cheerful, and her mother lets her go to the party.",
+      "question": "What are Lena's real feelings?",
+      "options": [
+        "sad",
+        "scared",
+        "happy",
+        "disappointed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (idx 1). The character deliberately puts on a cheerful display to get what she wants, so her shown emotion (happy) is a concealment, not her felt emotion. The true feeling is sad, recovered by separating the display rule from the inner state."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "It is Theo's birthday. He has been hoping for a computer or a new video game as his birthday gift. On his birthday, he opens his present and receives a bicycle.",
+      "question": "What is Theo's emotion at this time?",
+      "options": [
+        "embarrassed",
+        "happy",
+        "disappointed",
+        "regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, atypical emotional reactions (idx 3). A bicycle is a nice gift by the reader's default, but it is appraised relative to the character's own stated desire (a computer or game). Measured against that specific goal the outcome falls short, so the true feeling is disappointed, not the observer's default happy."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Ravi forgets to take his painting home from the school art exhibition. A cleaner, mistaking it for trash, throws it into the discard box. Later Ravi cannot find his painting and is very upset. The cleaner then realizes he may have thrown away Ravi's work by mistake.",
+      "question": "What kind of emotion does the cleaner feel after realizing he may have mishandled Ravi's painting?",
+      "options": [
+        "He feels satisfied because he finished clearing the exhibition room of useless items.",
+        "He feels indifferent, since he did not know at the time and did not do it on purpose.",
+        "He feels guilty and anxious because he unintentionally caused a loss to someone else.",
+        "He feels confused because he is not sure whether he really handled Ravi's painting."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Moral Emotions (Nick/painting story). Here the emotion comes from a responsibility-and-harm appraisal (I unintentionally caused damage to another person), not from a hidden display or a desire-relative surprise. Solving it requires reasoning about norm violation and accountability, so it sits outside the true-feeling-versus-display scope of this macro."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Theo receives a bicycle on his birthday. (No particular gift was wished for beforehand.)",
+      "question": "What is Theo's emotion?",
+      "options": [
+        "embarrassed",
+        "happy",
+        "disappointed",
+        "regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, typical emotional reactions (idx 1). Same gift as the atypical case, but the character has no stated prior desire to measure it against, so the outcome is appraised as a good one and the ordinary reaction (happy) is correct. The model must NOT reflexively apply 'atypical/disappointed' just because the scene resembles the surprise case; without a conflicting goal the typical reaction stands."
+    }
+  ]
+}

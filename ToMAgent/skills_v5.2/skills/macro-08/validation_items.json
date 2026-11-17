@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-08",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "One day, Lina plays at home and accidentally knocks over and breaks her mother's favorite crystal vase. Oh no, her mother definitely gets angry when she finds out! So when Lina's mother comes home, sees the broken vase and asks Lina what happened, Lina says, \"The dog knocked it over, it is not my fault!\"",
+      "question": "Why does Lina say this?",
+      "options": [
+        "Lina saw the dog knock over the vase and wants to protect the dog from her mother's blame.",
+        "Lina jokes to protect herself from her mother's blame.",
+        "Lina lies to protect the dog from her mother's blame.",
+        "Lina lies to protect herself from her mother's blame."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (Egocentric lies, the broken-vase story, gold D). The statement is false and the speaker knows it; the deciding step is reading the motive as self-interest (avoid blame), which marks an egocentric lie rather than a joke or a lie told for someone else."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "In an office meeting, Suyan is asked if she likes the new boss. Although she does not really like him, considering the harmony of the office she answers, \"Yes, I like him very much!\"",
+      "question": "Why does Suyan say this?",
+      "options": [
+        "Suyan actually likes the new boss very much; her answer is completely sincere.",
+        "Suyan tells everyone that she likes them, regardless of how she actually feels.",
+        "Suyan is planning to leave the company, so her answer does not matter.",
+        "Suyan wants to maintain the harmony of the office, avoiding unnecessary conflict by not expressing dislike for the new boss."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (White lies, the new-boss story, gold D). The statement is false relative to her true opinion, but the motive is to protect others' feelings and keep the peace, marking a white lie. Distinguishing white-lie motive from a self-serving lie is the macro's motive-reading step."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Honghong and Mingming are classmates. Today, every other classmate in Honghong's class is at school, but Mingming, who usually doesn't like to talk, is sick at home. After school, Honghong goes home and her mother asks her, \"Was everyone in your class at school today?\" Honghong replies, \"Yes, mom.\"",
+      "question": "Why does Honghong say this?",
+      "options": [
+        "Honghong deliberately lies to cover up that Mingming did not come to school.",
+        "Honghong deliberately lies because Honghong did not go to school today.",
+        "Honghong forgets that Mingming is not at school today because Honghong did not go to school today.",
+        "She forgets whether Mingming is at school today, because Mingming does not like to talk and she usually does not notice him."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (Involuntary lies, the absent-classmate story, gold D). The statement is literally false, yet the speaker sincerely but mistakenly believes it true (she simply did not notice the quiet absent classmate). This is the boundary edge: a false statement is NOT a lie when there is no intent to deceive, so the correct read is honest mistake, not deliberate lie."
+    },
+    {
+      "id": "case_4",
+      "pattern": "near_miss",
+      "scene": "Zhaoyang and Liming go for a picnic; it was Liming's idea, and he said today is a good day for a picnic. But just as they open the food, it starts to rain and they are quickly soaked. Zhaoyang is very upset. She says, \"Oh, yes, lovely weather for a picnic!\"",
+      "question": "Why does Zhaoyang say this?",
+      "options": [
+        "She lies to agree with Liming that today is a good day for a picnic.",
+        "She lies to comfort Liming that today is a good day for a picnic.",
+        "She wants to mock herself for choosing this day for a picnic.",
+        "She wants to mock Liming for saying today is a good day for a picnic."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task (Irony/Sarcasm, the rained-out-picnic story, gold D). The utterance is literally false, which tempts a 'lie' reading, but the speaker is not trying to deceive: she means the opposite and intends to mock. This belongs to the decode-the-intended-meaning scene (irony), not to truth-status/deception, so the two 'lie' options are wrong."
+    }
+  ]
+}

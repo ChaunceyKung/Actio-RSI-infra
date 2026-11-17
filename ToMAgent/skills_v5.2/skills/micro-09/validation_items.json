@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-09",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Hong and Xiao Ming are classmates. Today, when they go to school, all the other classmates in Xiao Hong's class are at school, and Xiao Ming, who usually doesn't like to talk, is sick at home. After school, Xiao Hong goes home, her mother asks her: \"Are all the people in your class at school today?\" Xiao Hong replies: \"Yes, mom.\"",
+      "question": "Why does Xiao Hong say this?",
+      "options": [
+        "Xiao Hong deliberately lies to cover up that Xiao Ming does not go to school.",
+        "Xiao Hong deliberately lies because Xiao Hong does not go to school today.",
+        "Xiao Hong forgets that Xiao Ming is not at school today because Xiao Hong does not go to school today.",
+        "She forgets whether Xiao Ming is at school today or not, because Xiao Ming does not like to talk, she usually does not notice Xiao Ming."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "ToMBench Involuntary Lies item. Xiao Hong's false statement is not a lie - it comes from a memory and encoding failure. Because Xiao Ming is quiet she barely registered his absence, so her current memory state does not contain the fact that he was missing. The deciding variable is what she actually retained, which is exactly the memory question; the lie options are the traps to avoid."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Feng Na plays with her doll in the garden. The sky suddenly starts to rain, her mother calls her to hurry home, she leaves the doll in the garden. While they eat lunch, Feng Na's mother asks Feng Na: \"Do you forget the doll in the garden?\" Feng Na says: \"No, I bring her in, mom.\"",
+      "question": "Why does Feng Na say this?",
+      "options": [
+        "Feng Na intentionally lies about bringing the doll home to cover up the fact that she loses the doll.",
+        "Feng Na intentionally lies about bringing the doll home because she worries her mother is afraid to blame her.",
+        "Feng Na forgets she doesn't bring the doll home because she rushes home due to the sudden rain and forgets she doesn't bring the doll.",
+        "Feng Na forgets she doesn't bring the doll home because she never takes the doll out."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "ToMBench Involuntary Lies item. Feng Na had prior exposure - she was the one playing with the doll - but the rushed dash home in the rain disrupted her memory of leaving it behind, so she sincerely misremembers having brought it in. The variable is her distorted current memory after exposure, not deceptive intent. Distractor D is wrong precisely because she did have prior exposure."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Omar was in the room when the teacher wrote a phone number on the board, but he spent the whole time texting and never once looked up at the board. Later he cannot say what the number was.",
+      "question": "What best explains why Omar cannot produce the number?",
+      "options": [
+        "Forgetting after he had encoded the number",
+        "Misremembering through reconstruction",
+        "He never attended to it, so there was nothing to forget",
+        "A change in what Omar believes is true"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Refined synthetic near miss. Memory requires prior encoding, and Omar never looked at the board, so the number never entered his memory to begin with. You cannot forget what never registered. The failure is upstream at attention, so this routes to attention and salience, not memory; treating it as forgetting is the trap."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "A radiologist tells Mr. Lopez his scan shows 'no acute findings.' He has never trained in medicine and has never encountered the phrase before in his life. A week later he still cannot say what it meant.",
+      "question": "Why can Mr. Lopez not say what the phrase meant?",
+      "options": [
+        "He once understood it but has since forgotten",
+        "He misremembered it as something else",
+        "He never had the medical background to interpret it in the first place",
+        "His memory of the appointment has decayed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Refined synthetic boundary. There is nothing to retain or recall here: he never had the background competence to decode the phrase, so the gap is not in memory but in knowledge. You can only forget what you once understood. Because the barrier is missing background rather than lost recall, this routes to knowledge boundary; the memory-loss options are the over-application trap."
+    }
+  ]
+}

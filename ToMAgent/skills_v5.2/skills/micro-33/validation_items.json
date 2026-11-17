@@ -1,0 +1,105 @@
+{
+  "unit_id": "micro-33",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Mei is alone on the swing when two classmates she barely knows, Hong and Fang, exchange a look, smile, and start walking toward her. Mei notices their eye contact and feels a flash of wariness, unsure what they want.",
+      "question": "What does Mei do next to manage how she feels?",
+      "options": [
+        "She walks straight up to Hong and Fang and asks them what they want and whether they need help.",
+        "She ignores Hong and Fang and goes to tell her best friend how uneasy the situation makes her feel.",
+        "She reframes it in her mind, telling herself that Hong and Fang probably just want to make new friends and mean no harm.",
+        "She ignores their behavior entirely and keeps her attention on swinging."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Emotion Regulation (the playground/swing story, gold C). Tests the core variable: the character changes her own feeling by cognitive reappraisal ('they just mean to make friends'), not by acting on the world or seeking outside support."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xinxin wants to go to her friend's party tonight, but she has a stomachache. She knows that if she tells her mother about the pain, her mother will not let her go. So she hides how she feels and acts cheerful, and her mother lets her go to the party.",
+      "question": "Why does Xinxin seem happy on the surface?",
+      "options": [
+        "Because she tells her mother the truth about her stomachache instead of lying.",
+        "Because her mother agrees to let her attend the party.",
+        "Because she puts on a cheerful appearance so her mother will not stop her from attending.",
+        "Because her mother understands her situation."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Xinxin party story, gold C). Near miss for the boundary: Xinxin manages the OUTWARD display for an audience (her mother) while her inner feeling is unchanged, so this routes to the outward-display capability — disguising or performing an emotion for others (micro-29) — not to internal regulation."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Xinxin wants to go to her friend's party tonight, but she has a stomachache. She knows that if she tells her mother about the pain, her mother will not let her go. So she hides how she feels and acts cheerful, and her mother lets her go to the party.",
+      "question": "What are Xinxin's real feelings?",
+      "options": [
+        "Sad",
+        "Scared",
+        "Happy",
+        "Disappointed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Xinxin party story, gold A). Boundary case: the task asks only to recover the concealed true feeling beneath the mask, with no coping or self-management step, so it routes to the capability for reading the genuine emotion hidden behind a different display (micro-28), not to emotion regulation."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Taotao is the last unselected player as the two team captains, Jianning and Mingkai, joke that the remaining players are 'the best ones'. Mingkai winks at Jianning, looks at Taotao, and smiles; Jianning nods and picks Taotao. Taotao sees the wink and smile and feels a sting of being chosen last.",
+      "question": "What does Taotao do next to manage how he feels?",
+      "options": [
+        "He walks over to the captains, extends his hand, and shows a positive, friendly attitude.",
+        "He goes to a close friend to talk about his feelings and seek support and comfort.",
+        "He reinterprets the situation positively, telling himself he is a 'hidden treasure' or 'secret weapon' rather than the last one picked.",
+        "He shifts his attention to the upcoming game and stops focusing on the order of selection."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Emotion Regulation (football team selection story, gold C). Positive: among four candidate strategies the keyed answer is reappraisal of the same inner feeling ('I'm a secret weapon'), confirming the variable is how the character transforms the meaning of his own emotion."
+    },
+    {
+      "id": "case_5",
+      "pattern": "near_miss",
+      "scene": "During a tense stage play, the actress Xiao Li throws herself into a tragic role so completely that she is still tearful as she leaves the stage. Afterward the audience praises her performance warmly. She wipes her eyes and beams at them.",
+      "question": "What emotion does Xiao Li most likely have toward the audience's praise?",
+      "options": [
+        "Thrilled",
+        "Angry",
+        "Sadness",
+        "Proud"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Discrepant Emotions (actress stage-play story, gold D). Near miss: the question asks which emotion the character feels in a situation, not how she manages or changes a feeling. With no coping strategy at issue, this routes to plain situational emotion appraisal rather than to emotion regulation."
+    }
+  ]
+}

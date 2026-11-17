@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-41",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Hong, a 6-year-old, really wants to go to the amusement park on Saturday. Her dad objects: \"This is not a good idea. I think there is a lot of noise in the amusement park.\"",
+      "question": "How does Xiao Hong persuade her dad?",
+      "options": [
+        "Xiao Hong can look up information proving that amusement parks now reduce noise with soundproof walls and quieter equipment.",
+        "Xiao Hong can tell her dad she has not been to the amusement park for a long time, that this is a very special wish, and that she really wants to go.",
+        "If Dad really does not want to go, Xiao Hong can suggest somewhere else, such as a park or zoo, so everyone is happy.",
+        "Xiao Hong can suggest going early in the morning or on a weekday when it is less crowded and quieter."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (gold B); a direct positive — the gold names the one-way appeal (the personal importance of her wish) most likely to move the dad, rather than a fact-dump or a switch to a different outing."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "A museum guide is explaining an exhibit to a group of eight-year-olds. The goal is not to change their opinion, only to make the explanation understandable. All options describe the communication task.",
+      "question": "What is the best diagnosis of the communication task?",
+      "options": [
+        "Use an emotional appeal to persuade the children to like the exhibit.",
+        "Adapt the explanation to the children's age and vocabulary.",
+        "Use expert authority to make the children accept the guide's view.",
+        "Frame the exhibit as a choice between two competing positions."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Benchmark-style synthetic near miss (ToMBench has no dedicated audience-calibration task); the task is fitting the message to the listener's level, which routes to the audience-calibration capability (micro-40), not changing their belief or behavior."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Xiao Ming suddenly needs a computer to submit an urgent assignment, but his is in the lab. He wants to borrow his roommate Xiao Qiang's computer; Xiao Qiang has already arranged to play online games with friends tonight.",
+      "question": "How does Xiao Ming persuade Xiao Qiang to lend him the computer?",
+      "options": [
+        "Qiang, if you lend me your computer now, I can find a place to do my homework, and you and your friends can play games elsewhere.",
+        "I really did not expect such an urgent assignment; if I do not submit it, my grades may suffer. Can you help me?",
+        "Xiao Qiang, can you lend me your computer tonight? I can lend you my computer for the whole day tomorrow so you get more time with your friends.",
+        "Xiao Qiang, can you lend me your computer? I will return it as soon as possible, and I will treat you to milk tea tomorrow."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (gold D); a boundary case for the persuasion-vs-negotiation line. The gold is a one-way request softened by a small thank-you, which is persuasion; option C, a reciprocal swap of computers, would instead be a mutual trade routing to the negotiation capability (micro-51)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Zhang Hong wants her 6-year-old son Xiao Ming to do some housework, such as sweeping and mopping, to lighten her load and build his life skills.",
+      "question": "How does Zhang Hong convince Xiao Ming to do housework?",
+      "options": [
+        "Zhang Hong can demonstrate the housework in front of Xiao Ming and encourage him to join in.",
+        "Zhang Hong can tell Xiao Ming stories about children who help with housework so he wants to imitate them.",
+        "Zhang Hong can promise that each time Xiao Ming finishes a chore she gives him a reward, such as a favorite snack or extra playtime.",
+        "Zhang Hong can turn housework into a game so Xiao Ming feels it is fun rather than work."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (gold C); a direct positive where the answer is the influence tactic (an incentive matched to what the child values), not the speaker's motive, wording fit, or blame."
+    }
+  ]
+}

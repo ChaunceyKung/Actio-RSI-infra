@@ -1,0 +1,102 @@
+{
+  "frontmatter_description": "Determines the social ACTION an utterance performs in context, such as hinting, requesting, refusing, reminding, or warning, when the wording is indirect and its literal form differs from the act it carries out.",
+  "title": "Indirect Speech Act",
+  "use_when": [
+    "Use when the question asks what social act the utterance is performing, or what the speaker 'really wants' or 'really means' by it, not just what it literally says.",
+    "Use when an indirectly worded sentence functions as a request, refusal, warning, reminder, hint, invitation, or piece of mockery.",
+    "Use when the answer should be an ACTION the speaker is doing to the listener (e.g. 'getting them to leave', 'asking for water'), recovered from context.",
+    "Use when a literal statement, comment, or question is conventionally used to get the listener to do something."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks only for the sentence's plain stated content; name and route to the explicit-meaning capability (Literal Meaning, micro-34).",
+    "Do not use when the question asks what extra factual proposition is implied (e.g. a quantity or a hidden fact) rather than what act is performed; name and route to the implied-information capability (Conversational Implicature, micro-36).",
+    "Do not use when the question is whether the statement is true, false, or a lie; name and route to the truth-status capability (Truth, Lie, and Half-Truth, micro-37).",
+    "Do not use when the diagnostic target is WHY the speaker chose those words (politeness, face-saving, ingratiation) rather than what act they perform; name and route to the speaker-motive capability (Speaker Motivation, micro-39)."
+  ],
+  "decision_variable": "what the utterance is doing socially",
+  "trigger_checklist": [
+    "Is the utterance indirect, so its literal form and its real point diverge?",
+    "Would the best answer be an ACT label such as request, refusal, warning, reminder, hint, invitation, or mockery?",
+    "Would answering with the literal sentence alone miss what the speaker is actually doing?",
+    "Is context needed to identify what the speaker wants the listener to DO?"
+  ],
+  "workflow": [
+    "State the literal sentence meaning first, so you can see the form (SAY).",
+    "Ask what the speaker is trying to get the listener to do or accept in this context (DO).",
+    "Name the most specific speech act that fits the scene: request, refusal, warning, reminder, hint, invitation, or mockery.",
+    "Check the act against the listener's expected response: a request expects compliance, a warning expects caution, a reminder expects recall.",
+    "Choose the option naming that act. If the question instead asks for the plain words, an implied fact, or the truth status, stop and route out to the matching capability."
+  ],
+  "special_case": {
+    "title": "A comment, need, or question used as an indirect request",
+    "rule": "When a statement is phrased as a fact, a personal need, or a question but in context functions to make the listener act, answer with the request (or other act) it performs, not the literal content and not the speaker's emotional state.",
+    "worked_example": {
+      "scene": "After a long, hot highway trip George arrives at Angela's office. As Angela immediately starts pitching business ideas, George interrupts: 'Ah, I had a long and hot highway trip.'",
+      "question": "What is George really trying to express?",
+      "answer_logic": "Literally George only reports a fact about his trip. But in context, interrupting Angela's pitch with this remark performs an indirect request: he is asking to rest or have a drink before talking business ('Can I drink something?' / 'Can we rest a few minutes?'). The diagnostic target is the act performed, not the literal report (which would be the explicit-meaning capability, Literal Meaning, micro-34), so the answer is the request to pause and refresh before business."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question asks only what the sentence explicitly says, route to the explicit-meaning capability (Literal Meaning, micro-34).",
+    "If the question asks what extra factual content is implied (a quantity, an unstated fact) rather than what act is performed, route to the implied-information capability (Conversational Implicature, micro-36).",
+    "If truth, deception, or sincerity is the main target, route to the truth-status capability (Truth, Lie, and Half-Truth, micro-37) or the misleading-true-statement capability (Misleading and Selective Expression, micro-38).",
+    "If the target is the social MOTIVE for wording it this way rather than the act itself, route to the speaker-motive capability (Speaker Motivation, micro-39).",
+    "If the scene is better described as a belief, desire, or emotion inference with no utterance-act focus, route to the relevant belief, desire, or emotion capability."
+  ],
+  "references": {
+    "route_signal": "Use this unit when an utterance must be classified by the social action it performs in context, especially indirect requests, refusals, reminders, warnings, hints, invitations, or mockery.",
+    "hard_boundary": [
+      "This unit answers what the utterance DOES, not what it SAYS (explicit content is the Literal Meaning capability, micro-34).",
+      "It names an act, not an extra implied proposition (a quantity or hidden fact is the Conversational Implicature capability, micro-36).",
+      "It does not judge whether the content matches the facts (that is the Truth, Lie, and Half-Truth capability, micro-37)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer with the literal paraphrase when the utterance clearly serves to make the listener act.",
+      "Do not relabel the act as an implied fact: 'is asking for water' is an act; 'there is no water here' would be an implication.",
+      "Do not over-read the speaker's inner motive when the task only asks which act is performed.",
+      "Do not collapse a distinct act (warning, reminder) into a bare statement of fact."
+    ],
+    "common_failure_modes": [
+      "Answering the literal semantic content instead of the speech act (staying at SAY when the task wants DO).",
+      "Labeling the case as implied information when the real target is the action type.",
+      "Treating a warning or reminder as merely a neutral statement of fact.",
+      "Missing that a question form ('Can't you find the cleaner?') is functioning as a request or order.",
+      "Confusing mockery or sarcasm with a sincere compliment when identifying the act."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Marissa, finding the bathroom dirty after Anna's bath, calls out 'Anna, can't you find the cleaner?', and the question asks what Marissa really wants.",
+        "why_it_matches": "The literal form is a yes/no question, but in context it performs the act of getting Anna to clean the bathroom; the diagnostic target is the act, so it is in scope for this capability."
+      },
+      {
+        "case": "A caller reports 'I checked 3 of the 5 letters; 2 had checks,' and the question asks how many of all five letters contain checks. The target is an inferred quantity, not an act performed on a listener.",
+        "why_it_matches": "Here the target is an extra inferred quantity, not an act performed on a listener, so it routes to the implied-information capability (Conversational Implicature, micro-36), not to this unit."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the same words were spoken in a different context, would the social act change? If yes, the act is what you must name.",
+      "Can you name the act (request, warning, reminder, refusal, hint, mockery) without judging truth, motive, or any implied extra fact?",
+      "Does the literal reading alone miss the point of the utterance? If so, this unit applies; if the literal reading IS the point, route to the explicit-meaning capability (Literal Meaning, micro-34)."
+    ],
+    "generalization_note": "This is the DO member of the pragmatics triad: SAY (Literal Meaning, micro-34), DO (this unit), IMPLY (Conversational Implicature, micro-36). It generalizes to any case where an utterance's form and function diverge and the task is to classify the communicative act, not the proposition or its truth."
+  },
+  "validation_seed": {
+    "positive_pattern": "An indirect utterance (a comment, a need, or a question) clearly functions as a request, reminder, warning, refusal, invitation, or mockery, and the question asks what the speaker really wants or is doing.",
+    "near_miss_pattern": "A remark carries an extra inferable fact or quantity, but the question targets that implied content rather than the act, so it belongs to the implied-information capability.",
+    "boundary_pattern": "Only the sentence's plain stated content is at issue, with no need to classify any social action, so it belongs to the explicit-meaning capability."
+  },
+  "notes": [
+    "Keep the answer at the act level (request, warning, reminder, refusal, hint, mockery), not the literal-content level and not the inner-motive level.",
+    "This unit is about what the utterance is doing socially, not why the speaker feels that way."
+  ],
+  "id": "micro-35",
+  "level": "micro",
+  "layer": "L5",
+  "family": "language-pragmatics",
+  "core_question": "Determine the social action performed by an utterance, such as hinting, requesting, refusing, reminding, or warning",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

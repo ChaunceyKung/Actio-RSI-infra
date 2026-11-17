@@ -1,0 +1,108 @@
+{
+  "frontmatter_description": "Read the approximate amount or proportion a vague quantifier implies, forming the PRIOR before any sample, count, or outcome is observed; if a reference-set size is given you may scale to an approximate count, otherwise stay qualitative.",
+  "title": "Vague Quantity Prior",
+  "use_when": [
+    "Use when the question asks what amount or proportion a vague quantifier implies BEFORE anyone observes a sample, count, or outcome, e.g. what share is meant by \"most members agree\" or \"a few users complained.\"",
+    "Use when the answer is the listener's prior expectation: map the vague phrase (\"some,\" \"a few,\" \"many,\" \"most,\" \"about half,\" \"nearly all,\" \"almost none\") to an approximate proportion or range.",
+    "Use when an expectation hinges on whether a phrase means near-zero, a small minority, around a third, around half, a clear majority, or near-total.",
+    "Use when an approximate range or a best single estimate is wanted from the quantifier alone, with no observed count yet folded in, whether or not a reference-set size is stated.",
+    "Use when a speaker's vague quantifier conveys how many people hold a view or back a plan, e.g. a manager says \"most of the team supports the proposal\" and you must read what share that implies before any vote or tally is taken."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks for the estimate AFTER someone observed a subset, count, or outcome; the answer is re-estimated from the observed sample, so route to the after-observation quantity update.",
+    "Do not use when the main question is category likelihood, typicality, or how common a kind is, rather than the meaning of a quantity phrase; route to base rate and typicality.",
+    "Do not use when the vague quantity is a bargaining term, concession, or joint plan and the social move matters more than the range; route to negotiation.",
+    "Do not use when the issue is how to phrase a message across a hierarchy or power gap; route to choosing a communication move across a power gap.",
+    "Do not use when an exact arithmetic answer is required from explicit numbers and the vague expression is irrelevant."
+  ],
+  "decision_variable": "the approximate proportion or range implied by the vague quantifier",
+  "trigger_checklist": [
+    "A vague quantifier (\"some,\" \"a few,\" \"many,\" \"most,\" \"about half,\" \"nearly all,\" \"almost none\") describes how much or how many of something.",
+    "The question asks the amount BEFORE any observation, or carries a prior framing such as \"before,\" \"prior,\" or \"expect.\"",
+    "No observed sample count has to be folded into the answer; if one has, this is the after-observation quantity update.",
+    "The answer is an approximate proportion, a range, or a single estimate derived only from the phrase (and the set size, if one is stated).",
+    "Speaker intention, power, or negotiation is not the primary variable."
+  ],
+  "workflow": [
+    "Confirm the question is asking for the PRIOR: it carries a before/expect framing or has no observed count to fold in. If it asks what to believe AFTER a sample was seen, stop and route to the after-observation quantity update.",
+    "Identify the vague quantifier and what it modifies.",
+    "Check whether an explicit reference set or size is given (e.g. \"most of the 20 seats\") or not (e.g. \"most people prefer tea\"). Do not assume an enumerated set exists.",
+    "Map the quantifier to a qualitative proportion of the whole: near zero (\"almost none\"), small minority (\"a few\"), context-shaped minority more than one but not all (\"some\"), about half (\"about half\"), clear majority (\"most,\" \"many\" in many contexts), near-total but not all (\"nearly all,\" \"almost every\").",
+    "Apply any hedge before fixing the share: a hedge like \"almost\" or \"nearly\" shifts the estimate just SHORT of the clean fraction. \"Almost half of 15\" is a bit under 7.5 (so 7, not 8); \"nearly all\" or \"almost every\" is just short of the total, not the full count; \"almost none\" is just above zero, not exactly zero.",
+    "If a set size IS given, scale that hedged proportion to an approximate count (e.g. \"most of 20\" -> roughly 13-16; \"about half of 15\" -> about 7; \"almost half of 15\" -> about 7, just under 7.5, so 7 not 8; \"almost every\" of 5 -> about 4, short of all 5). If NO set or size is given, report only the qualitative proportion or range and do NOT invent a count.",
+    "Treat this as the PRIOR: it comes from the phrase (and stated size) alone. Do not fold in any later observed count or outcome from the situation; pick the answer closest to that prior."
+  ],
+  "special_case": {
+    "title": "No explicit reference set is given, so the answer stays qualitative",
+    "rule": "When a vague quantifier appears with no enumerated set or stated size, give the approximate proportion or range only and resist the urge to attach a specific number. A count is appropriate only when a reference-set size is explicitly provided; in that case scale the proportion to an approximate count.",
+    "worked_example": {
+      "scene": "A friend who manages a small coffee shop says, \"Most of the regulars order oat milk these days.\" No number of regulars is given.",
+      "question": "Before checking any records, what proportion of the regulars do you expect order oat milk?",
+      "answer_logic": "\"Most\" means a clear majority but not all, so the prior is well over half yet short of everyone: roughly two-thirds to most of the regulars. Because no count of regulars was stated, stop at this qualitative proportion and do not guess a specific number. If the friend had instead said \"most of the 30 regulars,\" you could scale it to an approximate count of about 20-25.\n\nCount-scaling illustration (set size IS given): A grower says \"almost half of the 15 apples on the tree are red.\" Before anyone picks, how many red apples do you expect? \"Half of 15\" is 7.5, and the \"almost\" hedge trims just below that, so the prior is about 7 red apples (7, not 8). The number comes from the quantifier and the stated size alone; if the grower later picks a handful and counts the reds in that handful, that observed count belongs to the after-observation update, not to this prior."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the after-observation quantity update the moment the question asks for the estimate AFTER an observed subset, count, or outcome; that answer is re-derived from the sample, not from the quantifier prior. The SAME situation can host a before/prior question (answered here) and an after/observed question (answered by the after-observation update); the wording of the question decides.",
+    "Exit to base rate and typicality if the question asks which category is more likely because it is common, typical, or rare, rather than what a quantity word means.",
+    "Exit to negotiation if the vague quantity is an offer, concession, or compromise term whose social function matters more than its range.",
+    "Exit to choosing a communication move across a power gap if the vague quantity is chosen mainly to manage deference, authority, escalation, or compliance.",
+    "Exit if the task requires exact calculation from explicit numbers instead of interpreting a vague phrase."
+  ],
+  "references": {
+    "route_signal": "Pick this unit when a question asks the amount or proportion a vague quantifier implies BEFORE any sample is observed: map the phrase to an approximate share, and scale to a count only if a set size is given.",
+    "hard_boundary": [
+      "This unit computes the prior from the quantifier (and stated size); it does NOT re-estimate from an observed sample (that is the after-observation quantity update).",
+      "A situation may include a later observed count; if the question asks for the prior, that count is irrelevant to the answer.",
+      "This unit does not solve negotiation, authority, typicality, or relationship scenes even when they contain words like \"some\" or \"most.\""
+    ],
+    "shortcut_to_avoid": [
+      "Do not pick an observed sample count as the prior. A prior derived from the quantifier stands on its own, regardless of what a later partial observation showed.",
+      "Do not collapse \"nearly all / almost every\" into the exact total; it means short of all. Do not collapse \"almost none\" into exactly zero.",
+      "Do not invent a specific count when no reference-set size is given; keep the answer to a qualitative proportion or range in that case."
+    ],
+    "common_failure_modes": [
+      "Answering a before/prior question with a later observed sample count instead of the quantifier-derived prior (the after-observation-update leak).",
+      "Turning \"nearly all\" into the full total or \"almost none\" into exactly zero.",
+      "Confusing typicality (is this kind common?) with how much of THIS situation the quantifier covers.",
+      "Forcing a precise number when only a vague proportion is warranted, or refusing to scale even when a clear set size is provided."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A teacher says \"about half of the class finished the reading\" and asks, before any tally, what proportion finished. (gold: roughly half)",
+        "why_it_matches": "Pure prior: map \"about half\" to around 50%. No observed count is folded in. In scope for this unit. If the class size were stated, you could add an approximate count."
+      },
+      {
+        "case": "Later the teacher counts a sample of hands and asks how many in the whole class likely finished given that observed sample. (different answer)",
+        "why_it_matches": "Near miss: the question is post-observation, so the estimate is re-derived from the sample, not from \"about half.\" Route to the after-observation quantity update."
+      }
+    ],
+    "boundary_stress_test": [
+      "\"Almost none\" -> near zero but not necessarily exactly zero.",
+      "\"About half\" -> around 50%; if a set size is given, round to a whole number near half.",
+      "\"Some\" -> more than one but not all, often a context-shaped minority; keep it qualitative unless a size invites a count.",
+      "\"Nearly all / almost every\" -> a near-total share just short of all, never the exact total and never zero.",
+      "If the question asks for the estimate AFTER an observation rather than the prior, stop and route to the after-observation quantity update even though the same quantifier is present."
+    ],
+    "generalization_note": "Vague quantifiers map to an approximate share; that share IS the prior. When a reference-set size is stated, the prior may be scaled to an approximate count; when none is stated, it stays a qualitative proportion. Keep it strictly separate from the post-sample re-estimate, from typicality, and from strategic uses."
+  },
+  "validation_seed": {
+    "positive_pattern": "A situation states a vague quantifier and asks for the amount or proportion BEFORE any observation; the answer maps the phrase to an approximate share, scaling to a count only when a set size is given.",
+    "near_miss_pattern": "The same kind of situation asks for the estimate AFTER an observed subset or count; the answer is re-derived from the sample, so it routes to the after-observation quantity update.",
+    "boundary_pattern": "A vague quantity appears inside a negotiation, hierarchy, or typicality scene, but the real question is the social move or the category likelihood, not the implied range."
+  },
+  "notes": [
+    "Keep the output approximate; give a numeric illustration only when a reference-set size is provided or the prompt explicitly asks for one.",
+    "This unit may support a combined quantity-and-probability scene when a quantity scene needs diagnosis of the language prior before any probability update.",
+    "Preserve the distinction between the meaning of a quantifier and the truth of the speaker's claim."
+  ],
+  "id": "micro-53",
+  "level": "micro",
+  "layer": "L7",
+  "family": "quantity-probability",
+  "core_question": "Interpret vague quantifiers such as some, most, almost none, or about half",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

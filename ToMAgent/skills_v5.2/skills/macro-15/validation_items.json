@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-15",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "A project lead must decide whether to give a confidential client account to an assistant who has been careful and loyal for years but missed one report after a sudden family emergency.",
+      "question": "What is the best judgment of the assistant's reliability right now?",
+      "options": [
+        "Trust the multi-year record and treat the one missed report as an excusable exception.",
+        "Treat the assistant as unreliable now because of this one mistake.",
+        "Withhold any judgment until the assistant first apologizes for the miss.",
+        "Decide solely from the most recent report and ignore the earlier years."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic in-scope item: the call turns on integrating a long track record, where one well-explained lapse should not override years of reliability."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "A landlord has rented to a tenant for six years with rent paid on time every month. This month the rent arrives one day late because the tenant's bank transfer failed.",
+      "question": "Should the tenant's reliability be downgraded based on this late payment?",
+      "options": [
+        "Yes, one late payment shows the tenant is no longer dependable.",
+        "No, the six-year on-time record still supports trusting the tenant.",
+        "Yes, but only because a late payment is personally annoying to the landlord.",
+        "It cannot be judged at all without a fresh promise from the tenant."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic in-scope item targeting the recency trap: a single isolated, explained deviation should not override a deep, consistent record."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Mr. Zhang is a scientist with a high reputation, famous for breakthrough biotechnology research. At a conference someone asks whether he is running a secret project. He replies that he focuses only on publicly published work and does no secret research, stressing that transparency is a core principle of his. In fact he is running a highly confidential government-funded project.",
+      "question": "Why does Mr. Zhang say this?",
+      "options": [
+        "Mr. Zhang says this because he is indeed only conducting publicly published projects and does no secret research.",
+        "Mr. Zhang says this because he needs to hide the highly confidential government-funded project he is conducting to protect its safety and confidentiality.",
+        "Mr. Zhang recently faces a career crisis and says this to avoid attracting more attention and suspicion.",
+        "Mr. Zhang is dissatisfied with his research direction and says this to divert peers' attention and cover up career setbacks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Near miss from ToMBench Strange Story Task (idx 2, gold B): although a reputation is mentioned, the task is to read the motive behind one current statement, not to judge trust from a track record. The reputation is a decoy; this is a single-statement interpretation, so it sits outside track-record judgment."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "A friend damaged a borrowed bike and offers to replace the parts and apologize. The owner is deciding how to respond so the friendship recovers.",
+      "question": "What is the main issue the owner is dealing with?",
+      "options": [
+        "Whether the friend has built a strong reputation for reliability over time.",
+        "How to repair the harm and rebuild trust after the damage already done.",
+        "How to split the cost of a shared purchase fairly between them.",
+        "Whether this one accident changes the friend's whole identity."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Boundary item: harm has already occurred, so the core is apology and repair (option B), not judging trust from a long record (option A) and not a fair-allocation split (option C). It separates this macro from both the repair neighbor and the fairness/reciprocity neighbor."
+    }
+  ]
+}

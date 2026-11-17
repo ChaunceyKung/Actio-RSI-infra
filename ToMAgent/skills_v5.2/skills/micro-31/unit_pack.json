@@ -1,0 +1,100 @@
+{
+  "frontmatter_description": "Diagnose regret, relief, disappointment, or pleasant surprise by comparing what happened with a salient alternative outcome.",
+  "title": "Counterfactual Emotion",
+  "use_when": [
+    "Use when the question asks what emotion follows from comparing reality with a salient alternative outcome.",
+    "Use when the answer depends on whether the actual outcome feels better or worse than what could have happened.",
+    "Use when the scene is about regret, relief, disappointment, or pleasant surprise from a contrast case, not from responsibility or norm violation."
+  ],
+  "do_not_use_when": [
+    "Do not use when the emotion is explained by blame, guilt, shame, pride, anger, or gratitude tied to responsibility or moral appraisal.",
+    "Do not use when the issue is simple success, failure, happiness, or sadness with no explicit or implied alternative outcome.",
+    "Do not use when the main question is outward display, suppression, empathy, or emotion regulation rather than the felt emotion itself.",
+    "Do not use when the comparison is about probability, certainty, or evidence alone without an emotional counterfactual contrast."
+  ],
+  "decision_variable": "actual outcome versus salient alternative outcome",
+  "trigger_checklist": [
+    "Is there a clear actual outcome?",
+    "Is there a plausible alternative outcome that matters to the character?",
+    "Is the emotion based on comparing those two outcomes?",
+    "Is the alternative better or worse than reality from the character's point of view?",
+    "Is the target emotion regret, relief, disappointment, or pleasant surprise?"
+  ],
+  "workflow": [
+    "Pin down the actual outcome that occurred.",
+    "Find the salient alternative the character is implicitly or explicitly weighing it against: what they hoped for, expected, nearly got, or narrowly avoided. If no such alternative is in play, this is not the right capability.",
+    "Judge the direction of the comparison from the character's point of view: is reality WORSE than the alternative, or BETTER?",
+    "Map worse-than-alternative to regret (when one's own choice could have changed it) or disappointment (when reality fell short of a hoped-for or expected alternative); map better-than-alternative to relief (a feared worse outcome was avoided) or pleasant surprise (reality beat a low expectation).",
+    "Confirm the comparison is what produces the emotion: if removing the alternative leaves the same feeling, re-route to the basic-emotion-from-an-event capability (micro-26); if blame or a violated norm is really driving it, re-route to the responsibility/norm-appraisal capability (micro-30)."
+  ],
+  "special_case": {
+    "title": "The alternative may be hoped-for or feared, and may be only implied",
+    "rule": "The salient alternative does not have to be stated. It can be what the character hoped for, expected, nearly got, or narrowly escaped. Use this capability whenever the emotion turns on that contrast, even when the alternative is implicit, and stand down when blame, a violated norm, or display style is the real driver.",
+    "worked_example": {
+      "scene": "Lan misses her usual bus by a few seconds and has to wait for the next one. Soon afterward she learns that the bus she just missed was in a minor crash on its route.",
+      "question": "What does Lan most likely feel?",
+      "answer_logic": "The actual outcome (missing the bus) is contrasted with the salient alternative she nearly experienced (being on that bus during the crash). Reality turns out better than the worse outcome she narrowly avoided, so the emotion is relief. Missing a bus on its own would read as mild annoyance; it is the comparison against the worse alternative she escaped that produces the relief, and there is no fault or norm to make this a moral emotion."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question can be answered from the event itself, with no alternative outcome being weighed, exit to the basic-emotion-from-an-event capability (micro-26).",
+    "If the emotion is driven by responsibility, fault, credit, or a violated norm rather than by an outcome comparison, exit to the responsibility/norm-appraisal capability that diagnoses guilt, shame, pride, anger, and gratitude (micro-30).",
+    "If the task asks how the person shows or hides the feeling, exit to the hidden-emotion capability (micro-28) or the emotional-display-rules capability (micro-29).",
+    "If the question is about coping with, reframing, or recovering from the feeling after it arises, exit to the emotion-regulation capability (micro-33)."
+  ],
+  "references": {
+    "route_signal": "Route here when the scene asks for regret, relief, disappointment, or pleasant surprise based on a better-or-worse alternative outcome.",
+    "hard_boundary": [
+      "The deciding cue must be a salient alternative outcome the character contrasts with reality; without that contrast, the basic-emotion-from-an-event capability handles the emotion (micro-26).",
+      "If guilt, shame, pride, anger, or gratitude depends on responsibility or a norm violation, route to the responsibility/norm-appraisal capability even when the outcome was bad (micro-30).",
+      "The unit reads the felt emotion (regret, relief, disappointment, pleasant surprise); how the character shows or hides it belongs to the emotional-display-rules capability (micro-29), and how they cope with or reframe it belongs to the emotion-regulation capability (micro-33)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not label any bad outcome as regret by default.",
+      "Do not confuse disappointment with simple sadness.",
+      "Do not infer relief unless the character is comparing the actual outcome with a worse possible outcome."
+    ],
+    "common_failure_modes": [
+      "Answering with a generic positive or negative emotion instead of the counterfactual one.",
+      "Using blame or morality when the scene is only about outcome comparison.",
+      "Missing implied alternatives and treating the scene as plain success or failure."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A commuter just misses her bus, then hears that the bus she missed was in a minor crash, and feels relief.",
+        "why_it_matches": "In scope. The emotion (relief) exists only because the actual outcome is weighed against the worse alternative she narrowly avoided; missing the bus by itself would be mildly annoying. The reality-versus-alternative contrast is the single decisive variable."
+      },
+      {
+        "case": "The same commuter just misses her bus and waits for the next one, with no information about what happened to the bus she missed.",
+        "why_it_matches": "Out of scope. With no salient alternative being weighed, the feeling is plain annoyance at a direct event, so this routes to the basic-emotion-from-an-event capability (micro-26); the only variable that changed is whether a salient alternative is in play."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the character feels bad because they were careless, ask whether blame is driving the answer; if yes, exit to moral emotion.",
+      "If the character is simply sad about a loss with no meaningful alternative, do not use this unit.",
+      "If the scene mentions 'should have' but the question is really about shame or guilt, do not force a counterfactual reading."
+    ],
+    "generalization_note": "This unit is about emotional contrast, not outcome quality alone: use it only when the comparison with an alternative outcome changes the emotion label."
+  },
+  "validation_seed": {
+    "positive_pattern": "The character evaluates what happened against a better or worse alternative and feels regret, relief, disappointment, or pleasant surprise.",
+    "near_miss_pattern": "The character has a positive or negative feeling, but no alternative outcome is part of the reasoning.",
+    "boundary_pattern": "The character feels guilt, pride, or shame because of fault, praise, or norm violation."
+  },
+  "notes": [
+    "Keep the focus on the contrast between actual and alternative outcomes.",
+    "This is a diagnostic micro skill, not a full scene template.",
+    "Pleasant surprise belongs here only when it is the emotional result of a better-than-alternative outcome.",
+    "Disappointment that arises when reality falls short of a hoped-for or expected outcome anchors the clearest in-scope cases; relief from a narrowly avoided worse outcome is rarer in real data, so it generalizes across benchmark and real-world cases rather than relying on any one source."
+  ],
+  "id": "micro-31",
+  "level": "micro",
+  "layer": "L4",
+  "family": "emotion-appraisal",
+  "core_question": "Infer regret, relief, disappointment, or pleasant surprise from comparison with an alternative outcome",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

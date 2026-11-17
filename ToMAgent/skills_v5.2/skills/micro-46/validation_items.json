@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-46",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "At a report meeting, Li gives a detailed introduction of the technical part he is responsible for, while Wang focuses on the market analysis. Manager Zhang then comments on Li's technical part and on the market analysis.",
+      "question": "Which part of the project is Li in charge of?",
+      "options": [
+        "Market analysis",
+        "Technical details",
+        "Financial management",
+        "Customer relations"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Real positive (gold preserved). The pivot is reading the assigned-responsibility structure from the scene - Li owns the technical part, Wang owns market analysis - which is exactly identifying who holds which role. From ToMBench Faux-pas Recognition Test (idx 3); options and gold preserved verbatim."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Colleagues prepare Xiao Wang's birthday. Manager Zhang prepares ribbons and balloons, while Brother Li goes to the cake shop. At the party Brother Li says, 'It is time to cut the cake!'",
+      "question": "What role does Brother Li play in the birthday party?",
+      "options": [
+        "Decoration arrangement",
+        "Singing birthday song",
+        "Going to buy a cake",
+        "Speech"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Real positive (gold preserved). The question literally asks which role a party occupies in the event structure, and the answer comes from tracking the assigned task. From ToMBench Faux-pas Recognition Test (idx 3); options and gold preserved verbatim."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "At a meeting an older attendee speaks confidently and tells a junior analyst to redo the slides, but the scene states the attendee holds no official title on this team.",
+      "question": "What role structure is most defensible here?",
+      "options": [
+        "Manager over subordinate",
+        "Expert over novice",
+        "Peer or unclear, with no formal authority established",
+        "Host over guest"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "SYNTHETIC (no ToMBench role-structure task exists). Near-miss for the authority-from-manner trap: confidence, age, and a commanding tone are not evidence of rank. Must use scene evidence, not manner."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Xiao Ming, a child, wants his mother to buy a toy car; she says there are already too many toys at home. The question asks how Xiao Ming should persuade her.",
+      "question": "Which skill should handle this question?",
+      "options": [
+        "This unit: name the parent/child role structure and stop",
+        "Choosing a communication move across a power gap - power coping - because the task asks how to persuade, not who outranks whom",
+        "Group identity, because mother and child share a family",
+        "Privacy and boundaries, because it is a family matter"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "SYNTHETIC routing item reframed from a real persuasion scene. The role structure (parent/child) is obvious; the actual demand is selecting a persuasion MOVE, which is acting within the structure, not naming it - so it routes to power coping. Scene adapted from ToMBench Persuasion Story Task (idx 1, 'persuade his mother to buy a toy car'); reframed as a routing question so the original benchmark gold (A) does not apply."
+    }
+  ]
+}

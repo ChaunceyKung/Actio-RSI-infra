@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-14",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Almost every letter sent to the Riverside Company contains a check. Today the office receives 5 letters. An employee phones in and says, \"I looked at 3 of the 5 letters; 2 of them had checks.\"",
+      "question": "Before the employee called, how many of the 5 letters did you think contained checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 1, gold D). The question asks the PRE-observation expectation, so the answer is the base-rate prior 'almost every of 5' = 4, NOT the observed sample (2 of 3). Anchoring on the small sample is the dominant error this macro must defeat."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "In an orchard, Mei and Lan pick apples together. There are 15 apples on the tree, almost half of them red. Lan picks 7 apples and says 3 of those are red.",
+      "question": "Before Lan picked any apples, how many red apples were on the tree?",
+      "options": [
+        "Before Lan picks, it is estimated that there are 7 red apples on the tree.",
+        "Before Lan picks, it is estimated that there are 4 red apples on the tree.",
+        "Before Lan picks, it is estimated that there are 8 red apples on the tree.",
+        "Before Lan picks, it is estimated that there are 2 red apples on the tree."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 1, gold A). 'Almost half of 15' maps to 7 (the whole number just below 15/2 = 7.5). The pre-observation prior is 7, again ignoring the 3-of-7 sample. Tests the quantifier-to-number mapping for a non-even fraction."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "After a long, hot highway drive, George reaches Angela's office. Angela immediately starts pitching business ideas. George interrupts: \"Ah, I had a long and hot highway trip.\"",
+      "question": "What is George really trying to express?",
+      "options": [
+        "George wants to say he does not want to hear any of Angela's ideas.",
+        "George wants Angela to give him some travel advice.",
+        "George is signaling \"Can I have something to drink?\" or \"Can we rest a few minutes before talking business?\"",
+        "George wants to complain to Angela about his trip."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (idx 1, gold C). The task is to decode the implied request behind a literal remark (conversational meaning), NOT to estimate a quantity. This is the genuine pragmatic-implicature scene that the numeric estimation macro must route AWAY from."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "A restaurant has 40 customers tonight. Most of them order fish, a small part order shrimp, and very few eat crab. After counting, the chef finds that only 5 customers ordered shrimp.",
+      "question": "After the chef counts, how many of the 40 customers does he estimate ordered fish?",
+      "options": [
+        "About 15 customers ordered fish.",
+        "About 5 customers ordered fish.",
+        "About 35 customers ordered fish.",
+        "About 32 customers ordered fish."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (idx 2, gold D). A vague quantifier ('most') sits with a stated total (40) and ranked categories. After-observation: subtract the counted shrimp (5) and the 'very few' crab (a couple) from 40, leaving about 32 fish. Tests reading ranked quantifiers over a stated number rather than treating 'most' as a phrase to define."
+    }
+  ]
+}

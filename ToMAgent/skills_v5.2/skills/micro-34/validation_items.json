@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-34",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "After a long, hot highway trip, George arrives at Angela's office. As Angela immediately starts talking about business ideas, George interrupts: \"Ah, I had a long and hot highway trip.\"",
+      "question": "Considered purely as literal content, what does George's sentence explicitly state?",
+      "options": [
+        "That George experienced a long, hot highway trip.",
+        "That George wants something to drink or a few minutes to rest.",
+        "That George does not want to hear Angela's ideas.",
+        "That George is annoyed and is complaining about the trip."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Built on the real ToMBench Hinting Task story (George, idx 1) but re-posed as a literal question: option A is the plain stated fact, while B/C/D are the social act and motives the hint performs. Tests the SAY-vs-DO boundary at the heart of literal meaning."
+    },
+    {
+      "id": "case_2",
+      "pattern": "boundary",
+      "scene": "Almost every letter to Laura's company contains a check. Today Laura receives 5 letters. On the phone Laura tells you: \"I looked at 3 out of the 5 letters. There are checks in 2 of them.\"",
+      "question": "Before Laura's call, how many of the 5 letters do you think contain checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (Laura letters, idx 1, gold D). The literal words give only '2 of 3', but the question asks for the quantity implied by 'almost every' across all 5 (about 4). The implied amount differs from the literal words, so this routes to the implied-information capability (Conversational Implicature, micro-36), not literal meaning."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Marissa is about to take a bath; Anna has just finished hers. Finding the bathroom very dirty, Marissa calls out, \"Anna, can't you find the cleaner?\"",
+      "question": "What does Marissa really want to say when she says this?",
+      "options": [
+        "Anna needs to find the cleaner.",
+        "Marissa cannot find the cleaner.",
+        "Anna should clean the bathroom now.",
+        "Anna should buy more cleaner."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (Marissa/Anna, idx 1, gold C). The literal words are a yes/no question about finding the cleaner, but the question asks what Marissa really means: the social act of getting Anna to clean. Intended meaning differs from literal words, so this routes to the social-action-of-an-utterance capability (Indirect Speech Act, micro-35)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "At a zoo there are 9 monkeys, and almost one third of them are female. Xiao Li counts 8 of the monkeys and finds that 2 of those are female.",
+      "question": "Before Xiao Li counted, how many female monkeys would you guess are in the zoo?",
+      "options": [
+        "Before counting, guess 0 female monkeys.",
+        "Before counting, guess 2 female monkeys.",
+        "Before counting, guess 1 female monkey.",
+        "Before counting, guess 5 female monkeys."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (zoo monkeys, idx 1, gold B). The literal words state only the count, but the question asks for the quantity implied by 'almost one third of 9' (about 2). Because the implied amount, not the literal wording, is the target, this routes to the implied-information capability (Conversational Implicature, micro-36)."
+    }
+  ]
+}

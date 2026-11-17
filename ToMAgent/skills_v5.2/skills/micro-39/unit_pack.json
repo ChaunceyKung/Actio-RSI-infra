@@ -1,0 +1,106 @@
+{
+  "frontmatter_description": "Infer the speaker's social motive for choosing those words: politeness, face-saving, sparing feelings, maintaining harmony, joking, testing, avoidance, or ingratiation.",
+  "title": "Speaker Motivation",
+  "use_when": [
+    "Use when the question literally asks 'Why does the speaker say this?' and the best answer is an interpersonal reason.",
+    "Use when the answer is a social motive such as sparing the listener's feelings, saving face, maintaining harmony, being polite, making someone laugh, testing, avoiding conflict, or ingratiating.",
+    "Use when the utterance is a white lie, a polite untruth, or a playful exaggeration, and the task is to explain WHY it was said, not whether it is true.",
+    "Use when the literal content could be true or false but the decisive variable is the speaker's relationship-management goal."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks whether the statement is true, false, or a half-truth; that is the truth-status capability (micro-37).",
+    "Do not use when the question asks whether a literally true statement creates a false impression; that is the misleading-expression capability (micro-38).",
+    "Do not use when the goal is to change the listener's belief, attitude, or behavior; that is the persuasion-strategy capability (micro-41).",
+    "Do not use when the task is to fit the message to the listener's age, expertise, or identity; that is the audience-calibration capability (micro-40).",
+    "Do not use when the question asks what the speaker really MEANS or hints at, or what hidden request is being made; that is the implied-meaning capability (micro-36) or the indirect-speech-act capability (micro-35)."
+  ],
+  "decision_variable": "the speaker's social motive for choosing that utterance form",
+  "trigger_checklist": [
+    "Does the question literally ask why the speaker says it (not what it means and not whether it is true)?",
+    "Is the best answer a motive label such as sparing feelings, saving face, politeness, humor, harmony, testing, or avoidance?",
+    "Could the literal content be untrue (a white lie or joke) yet the speaker still has a kind or social reason?",
+    "Would the social effect change if the wording changed, even with the same facts?"
+  ],
+  "workflow": [
+    "Confirm the question asks WHY the speaker speaks this way, not what it means or whether it is true.",
+    "State the gap between what the speaker privately thinks and what they say aloud (e.g., dislikes the hat but praises it).",
+    "Name the interpersonal goal that closes that gap: sparing feelings, saving face, keeping harmony, politeness, humor, testing, avoidance, or ingratiation.",
+    "Pick the option that gives the kindest/most relationship-focused motive supported by the story; reject options that just restate the literal content or claim the statement is sincere.",
+    "If the real task is truth-status, false impression, changing the listener, fitting the listener, or decoding a hidden request, exit to that capability."
+  ],
+  "special_case": {
+    "title": "True or false content, social motive",
+    "rule": "A statement can be a white lie (false) or literally true and still belong here, as long as the question is WHY it was said. The answer is the social motive, never a verdict on the facts.",
+    "worked_example": {
+      "scene": "In an office meeting Si Xuan is asked if she likes the new boss. She does not really like him, but to keep the office harmonious she answers, 'Yes, I like him very much!'",
+      "question": "Why does Si Xuan say this?",
+      "answer_logic": "The decision variable is the social motive. Si Xuan wants to maintain office harmony and avoid conflict, so she expresses approval she does not feel. Reject options that say her praise is sincere or that her answer does not matter; the point is not whether the boss is likable but why she speaks this way."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the truth-status capability — is the statement true, false, or a half-truth (micro-37) — if the answer depends on whether the words match the facts.",
+    "Exit to the misleading-expression capability — whether a literally true statement induces a false belief (micro-38) — if the issue is a created false impression rather than a motive.",
+    "Exit to the persuasion-strategy capability — how to change the listener's belief, attitude, or behavior (micro-41) — if the core task is one-way influence on the listener.",
+    "Exit to the audience-calibration capability — fitting wording to the listener's age, expertise, or identity (micro-40) — if the core task is comprehension fit, not motive.",
+    "Exit to the implied-meaning capability — what is communicated but not said (micro-36) — or the indirect-speech-act capability — the hinted request, warning, or refusal (micro-35) — if the question asks what the speaker really means rather than why they said it."
+  ],
+  "references": {
+    "route_signal": "Use this capability when the prompt asks why a speaker chose a particular utterance, and the best answer is a social motive: sparing feelings, saving face, politeness, harmony, humor, testing, avoidance, or ingratiation.",
+    "hard_boundary": [
+      "Not a verdict on whether the statement is true, false, or a half-truth (that is the truth-status capability, micro-37).",
+      "Not whether a true statement creates a false impression (that is the misleading-expression capability, micro-38).",
+      "Not how to change the listener's mind (that is the persuasion-strategy capability, micro-41).",
+      "Not fitting wording to the listener's level (that is the audience-calibration capability, micro-40).",
+      "Not decoding the implied meaning or hidden request (that is the implied-meaning capability, micro-36, or the indirect-speech-act capability, micro-35)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer 'why' with a truth verdict ('because it is true' / 'because it is a lie'); name the social motive.",
+      "Do not pick the option that says the praise is completely sincere when the story shows a private contrary feeling.",
+      "Do not upgrade a polite or kind motive into persuasion unless the goal is clearly to change the listener.",
+      "Do not infer audience adaptation just because the wording is gentle or simple."
+    ],
+    "common_failure_modes": [
+      "Answering with truth status ('it is a lie' / 'it is true') instead of the motive.",
+      "Choosing the option that claims the speaker is sincere, ignoring the stated inner contrast.",
+      "Treating a polite white lie as persuasion or as audience calibration.",
+      "Treating a playful exaggeration meant to make the listener laugh as if it were a sincere literal claim."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Jianjun thinks his aunt's new hat is ugly but tells her 'it looks good'; asked why he says it, the answer is that he tells a white lie to spare her feelings.",
+        "why_it_matches": "The question is 'Why does he say this?' and the decisive variable is the kind social motive (spare feelings), not the truth of the hat."
+      },
+      {
+        "case": "A child wants to go to the amusement park; her dad objects to the noise; the question is which appeal the child uses to bring him around.",
+        "why_it_matches": "Near miss: the wording is chosen to change the listener's decision, so the central variable is the influence tactic. Route to the persuasion-strategy capability (micro-41)."
+      }
+    ],
+    "boundary_stress_test": [
+      "Same sentence, but the question is whether it is true or a lie: route to the truth-status capability (micro-37).",
+      "Same sentence, but the question is what the speaker really means or hints: route to the implied-meaning capability (micro-36) or indirect-speech-act capability (micro-35).",
+      "Same sentence, but chosen to make a child understand it: route to the audience-calibration capability (micro-40).",
+      "Same sentence, but chosen to convince someone to act: route to the persuasion-strategy capability (micro-41)."
+    ],
+    "generalization_note": "This capability generalizes to any utterance where the key variable is the speaker's social reason for choosing that form — including white lies told to spare feelings or keep harmony, polite untruths, and playful exaggerations — not the factual content, the implied meaning, or the listener's comprehension."
+  },
+  "validation_seed": {
+    "positive_pattern": "The question is 'Why does the speaker say this?' and the correct answer is a social motive such as sparing feelings, keeping harmony, politeness, or making someone laugh.",
+    "near_miss_pattern": "The task is to pick how the speaker changes the listener's decision (persuasion), not to explain a motive.",
+    "boundary_pattern": "The question asks what the speaker really means or hints (implied meaning), not why they said it."
+  },
+  "notes": [
+    "Answer with a motive label, not a long theory and not a truth verdict.",
+    "Prefer the kindest relationship-management explanation the story supports when the prompt asks why.",
+    "White-lie and humor 'why does the speaker say this' items are the canonical positives for this capability."
+  ],
+  "id": "micro-39",
+  "level": "micro",
+  "layer": "L5",
+  "family": "language-pragmatics",
+  "core_question": "Infer why a speaker says something, such as politeness, face-saving, testing, avoidance, or ingratiation",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

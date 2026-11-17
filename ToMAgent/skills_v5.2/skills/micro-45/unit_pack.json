@@ -1,0 +1,102 @@
+{
+  "frontmatter_description": "Judge whether a PERSON can be relied on going forward, based on their track record over many interactions. Use for trust built from a history of kept or broken promises, honesty, loyalty, and follow-through, not for whether one current message or source is believable.",
+  "title": "Trust and Reputation",
+  "use_when": [
+    "Use when the question asks how much a person can be counted on in future dealings, judged from what they have done across past interactions.",
+    "Use when a pattern over time of kept or broken promises, honesty, loyalty, or follow-through is what settles the answer.",
+    "Use when the scene gives a track record (for example: 'always', 'every time', 'last three times', 'has done this before') and asks whether to rely on, confide in, or depend on that person again.",
+    "Use when reputation built from repeated behavior is being weighed, not a single claim made right now."
+  ],
+  "do_not_use_when": [
+    "Do not use when the real question is whether ONE message, rumor, document, or source is believable right now; that is a single-instance credibility judgment about information, not a track record over time about a person - source credibility.",
+    "Do not use when the question is only whether a particular statement is literally true or false - truthfulness of a statement - or whether wording is technically true but misleading - misleading-but-true expression.",
+    "Do not use when the issue is whether one exchange or split is fair or balanced - fairness and reciprocity.",
+    "Do not use when the scene is mainly about blame for harm, apology, repair, status, role, or group membership rather than future reliability.",
+    "Do not use when there is no prior history of the person and the answer must rest on immediate evidence alone."
+  ],
+  "decision_variable": "long-term reliability",
+  "trigger_checklist": [
+    "Is the unit of judgment a PERSON's future dependability, not the truth of a single message?",
+    "Does the scene supply a HISTORY (more than one interaction, or words like 'always', 'every time', 'again', 'has before') that shows kept or broken promises, honesty, loyalty, or follow-through?",
+    "Is the question asking whether to rely on, confide in, lend to, or depend on this person going forward?",
+    "Would a repeated pattern outweigh a single isolated act in answering?"
+  ],
+  "workflow": [
+    "Confirm the unit of judgment is a PERSON's reliability, not the believability of one message. If the prompt asks 'is this claim/message true or accurate', stop and route out to source credibility or truthfulness of a statement.",
+    "Name the person being judged and gather their track record across interactions: promises kept or broken, honesty, loyalty, betrayals, help, consistency, follow-through.",
+    "Separate the repeated pattern from any single isolated event. Count how many times the behavior recurs; one instance is not yet a reputation.",
+    "Weigh the pattern: many reliable acts raise trust; many broken promises or lies lower it. A lone good deed does NOT cancel a long unreliable record, and a lone slip (especially an honest mistake or forgetting) does NOT cancel a long reliable record.",
+    "Answer whether the history supports relying on this person in this relationship going forward, picking the option anchored to the long-term pattern rather than to recency, charm, status, or confidence."
+  ],
+  "special_case": {
+    "title": "Single good act does not erase reputation",
+    "rule": "A one-time helpful act does not override a long pattern of unreliability unless the question explicitly asks for change in reputation over time.",
+    "worked_example": {
+      "scene": "A classmate has broken several promises, but once returned a lost wallet.",
+      "question": "Should you trust them with an important secret?",
+      "answer_logic": "The decision variable is long-term reliability. One good act is weaker than repeated broken promises, so the trust judgment should still be low unless there is clear new evidence of sustained change."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to source credibility if the prompt asks whether ONE message, rumor, or source should be believed right now: that judges a single piece of information, not a person's history.",
+    "Exit to truthfulness of a statement or misleading-but-true expression if the question is only whether a particular utterance is true, false, or technically-true-but-deceptive, rather than whether the person is dependable over time.",
+    "Exit to fairness and reciprocity if the issue is whether one exchange or split is balanced, not whether the person can be relied on later.",
+    "Exit if the main issue is harm, blame, apology, status, or group membership, because those are different social variables."
+  ],
+  "references": {
+    "route_signal": "Use when the answer depends on whether a PERSON is dependable, loyal, honest, or consistent across a HISTORY of past interactions, not on whether one message is believable now.",
+    "hard_boundary": [
+      "A track record over time is required: more than one interaction, or explicit pattern words ('always', 'every time', 'again').",
+      "The target is the person's reliability, not the truth of any single claim or message.",
+      "A repeated pattern must outweigh one isolated event in both directions: a lone good deed does not repair a bad record, and a lone slip does not destroy a good one."
+    ],
+    "shortcut_to_avoid": [
+      "Do not treat a believable-sounding speaker as a trustworthy person; sounding credible now is not a track record.",
+      "Do not confuse one good deed with a repaired reputation, or one false statement with an unreliable person.",
+      "Do not infer trust from politeness, status, charm, or confidence alone."
+    ],
+    "common_failure_modes": [
+      "Collapsing trust-in-a-person into belief-in-a-statement: scoring how convincing one current message is instead of the person's history - that is source credibility.",
+      "Treating a single false statement as proof of unreliability when it was an honest mistake or forgetting, not a pattern.",
+      "Overweighting the most recent action and ignoring the longer pattern.",
+      "Substituting moral approval, fairness, or blame for the reliability judgment the question actually asks."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A friend has, across two years, repeatedly kept secrets and shown up exactly when they said they would; now you must decide whether to confide something important.",
+        "why_it_matches": "A multi-interaction track record of a PERSON predicts future reliability: this is trust and reputation."
+      },
+      {
+        "case": "A stranger gives a polished, plausible presentation; you must decide whether to believe the claims in it, and there is no shared history.",
+        "why_it_matches": "Near-miss that routes OUT: this judges whether one message is believable right now, a single-instance information judgment, not a person's history - source credibility."
+      }
+    ],
+    "boundary_stress_test": [
+      "Person is charming and persuasive but has broken promises three times before: lower trust, because the track record outranks the charm.",
+      "Person is blunt and unpolished but has kept every commitment for a year: reliability stays high, because dependable behavior, not likeability, sets trust.",
+      "Person once said something false but only because they forgot, with no other slips: this is a single-statement issue, not damaged reputation - keep it with truthfulness, do not lower long-term trust."
+    ],
+    "generalization_note": "Anchor every judgment to a multi-interaction pattern and to future dependability. If the scene gives no history and only asks whether one message rings true, the question is about information, not the person - route to source credibility."
+  },
+  "validation_seed": {
+    "positive_pattern": "A person has a long, multi-interaction record of keeping promises, returning borrowed items, and telling the truth, and the question asks whether to rely on them next.",
+    "near_miss_pattern": "A speaker sounds confident and gives plausible facts now, but there is no shared history, so the real issue is whether the message is believable - source credibility.",
+    "boundary_pattern": "A person said something false once, but only because they forgot; the question is whether that statement is true, not whether their reputation is damaged."
+  },
+  "notes": [
+    "Keep the unit narrow: judge the person's reliability over time, not the believability of one isolated statement.",
+    "Use this for reputation in ongoing relationships, workplace reliability, friendship trust, and loyalty over time.",
+    "Promise-breaking scenes often pivot on belief or intention rather than reliability; reserve this unit for judgments that rest on a multi-interaction track record, and route single-message believability to source credibility.",
+    "If the scene adds harm or apology, let those variables take over unless reliability is still the main question."
+  ],
+  "id": "micro-45",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Evaluate reliability from past behavior and interpersonal history",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

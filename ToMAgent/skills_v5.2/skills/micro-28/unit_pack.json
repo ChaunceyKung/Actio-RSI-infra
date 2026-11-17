@@ -1,0 +1,109 @@
+{
+  "frontmatter_description": "Detects when a character's outward emotional expression differs from their privately felt emotion.",
+  "title": "Hidden Emotion",
+  "use_when": [
+    "Use when the question asks what a character REALLY feels despite a different facial expression, tone, posture, or statement (for example, 'What are X's real feelings?').",
+    "Use when the scene gives evidence for both an internal appraisal and an external display, and they conflict, and you must report the hidden inner feeling.",
+    "Use when the answer depends on separating private affect from public expression, and naming the true private emotion is all that is required.",
+    "Use when a character smiles, laughs, says they are fine, stays calm, or acts pleased while the situation suggests sadness, anger, fear, disappointment, embarrassment, or worry."
+  ],
+  "do_not_use_when": [
+    "Do not use when the task only asks what emotion naturally follows from an event and there is no conflicting outward display; use the basic event-to-emotion appraisal capability instead.",
+    "Do not use when the true emotion itself is surprising or nonstandard, with no masking or mismatch; use the atypical-emotion capability instead.",
+    "Do not use when the question asks WHY the character controls the display - because of politeness, professionalism, role, audience, culture, or etiquette; that is the social-display-rule capability - explaining the rule behind a managed display (micro-29).",
+    "Do not use when the character actually CHANGES the inner feeling itself (reappraising the situation, calming down, redirecting attention) rather than merely masking it; that is the emotion-regulation capability (micro-33).",
+    "Do not use when guilt, shame, pride, gratitude, blame, or responsibility appraisal is the core issue; use the moral-emotion capability (micro-30) instead."
+  ],
+  "decision_variable": "internal emotion versus external expression",
+  "trigger_checklist": [
+    "A private emotional cause is present, such as loss, rejection, disappointment, threat, humiliation, or frustration.",
+    "An outward display is described, such as smiling, laughing, staying calm, saying 'I'm fine,' congratulating someone, or acting cheerful.",
+    "The outward display is not the emotion that the private situation would normally produce.",
+    "The question asks for the real feeling, hidden feeling, or inner reaction - it wants the emotion itself, not the reason the display is managed.",
+    "A social reason for masking may be mentioned, but answering the question does not require stating that rule; you only need to name the true inner feeling."
+  ],
+  "workflow": [
+    "Identify the event or information that affects the character privately.",
+    "Infer the likely internal emotion from that private appraisal (use the goal, loss, threat, or concern - not the visible face).",
+    "Identify the character's observable expression, words, or behavior.",
+    "Compare the internal emotion with the external display; if they diverge, a hidden emotion is present.",
+    "Check what the question actually asks. If it asks WHAT the character feels, answer with the private emotion and treat the display as unreliable evidence. If it instead asks WHY the character shows the other expression, this is the social-display-rule capability (micro-29); if the character actually talks themselves into a calmer feeling, it is the emotion-regulation capability (micro-33).",
+    "Answer with the true inner feeling only; do not expand into a full account of etiquette, moral responsibility, or persuasion."
+  ],
+  "special_case": {
+    "title": "Polite happy face hiding annoyance",
+    "rule": "When a character keeps a pleasant display so as not to upset someone, treat the real emotion as the one supported by the private appraisal, not by the smile. The detection target is the inner feeling, even if a social motive for masking is mentioned.",
+    "worked_example": {
+      "scene": "Mingming finds visiting his grandfather boring, but he goes every week and this visit is long. He keeps a happy face so his grandfather will not be hurt.",
+      "question": "What are Mingming's real feelings?",
+      "answer_logic": "The boring, drawn-out visit frustrates Mingming, so his private emotion is annoyance. The happy face is only the outward display, kept up to protect his grandfather. Because the question asks what he REALLY feels, the answer is annoyed - the hidden inner emotion, not the smile. (If the question had asked WHY he keeps the happy face, the answer would be the social reason, which belongs to the display-rule capability.)"
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to the basic event-to-emotion appraisal capability if there is only an event-to-emotion inference and no conflicting display.",
+    "Exit to the atypical-emotion capability if the character's actual emotion is unusual but openly shown, with no masking.",
+    "Exit to the social-display-rule capability - which explains the norm, role, or audience that drives a managed display - if the question asks WHY the character controls the expression rather than what they feel (micro-29).",
+    "Exit to the emotion-regulation capability - which changes the inner feeling itself through reappraisal, calming, or attention shift - if the character actually alters how they feel rather than just masking it (micro-33).",
+    "Exit to the moral-emotion capability if the hidden feeling is mainly produced by responsibility, blame, guilt, shame, pride, or gratitude (micro-30)."
+  ],
+  "references": {
+    "route_signal": "Use this micro unit when a scene contrasts a character's private emotional state with a different outward expression and the question asks what they truly feel.",
+    "hard_boundary": [
+      "This unit DETECTS the mismatch and names the hidden feeling; it does not explain the social rule that drives the masking (that is the display-rule capability, micro-29).",
+      "This unit reports a concealed feeling; it does not cover changing the feeling itself through reappraisal or calming (that is the emotion-regulation capability, micro-33).",
+      "This unit does not decide whether the character should have hidden the emotion.",
+      "This unit does not classify lies or strategic misdirection unless the lie is only evidence of an emotional display.",
+      "This unit does not infer moral emotions unless the central variable is still the hidden-versus-shown emotion contrast (responsibility-driven guilt belongs to the moral-emotion capability, micro-30)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not trust the visible smile, calm tone, or verbal 'I'm fine' as the true emotion when private evidence points the other way.",
+      "Do not assume every hidden emotion is sadness; infer the private feeling from the character's goal, threat, loss, or concern."
+    ],
+    "common_failure_modes": [
+      "Answering with the displayed emotion (the smile, the calm, the 'I'm fine') instead of the private emotion.",
+      "Drifting into WHY the character masks - explaining politeness or role rules - when the question only asks what the character really feels.",
+      "Treating an unusual but openly expressed emotion as a hidden emotion.",
+      "Ignoring later private behavior or stated motive that reveals the internal state.",
+      "Over-reading concealment when the scene provides no evidence of a mismatch."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Mingming dislikes the long visit to his grandfather but keeps a happy face; asked 'What are Mingming's real feelings?' the answer is annoyed.",
+        "why_it_matches": "The question asks for the inner feeling behind a contrary display, so detecting the hidden emotion is exactly this unit."
+      },
+      {
+        "case": "Same Mingming scene, but asked 'Why does Mingming seem happy on the surface?' the answer is 'so his grandfather is not hurt.'",
+        "why_it_matches": "This routes to the social-display-rule capability (micro-29): the target is the social reason for managing the display, not the hidden feeling itself."
+      }
+    ],
+    "boundary_stress_test": [
+      "Mingming keeps a happy face during a boring visit: answer 'annoyed' here when the question asks what he feels; route to the display-rule capability (micro-29) when it asks why he looks happy.",
+      "A child laughs after losing a toy because she truly thinks the loss is funny: use the atypical-emotion capability, not this unit, since the laughter is the real feeling.",
+      "Chen Fei wins a card game but stays calm so his friend keeps playing: answer the hidden feeling (happy) here; route to the display-rule capability (micro-29) when the question asks why he stays calm.",
+      "After being slighted, a boy tells himself he is a 'secret weapon' and turns his attention to the next game: route to the emotion-regulation capability (micro-33), because he changes the feeling rather than masking it.",
+      "A person hides guilt after breaking a promise: use the moral-emotion capability (micro-30) if responsibility and guilt are the core inference; use this unit only if the task is purely contrasting a felt emotion with a neutral display."
+    ],
+    "generalization_note": "Across benchmark and real-world cases, separate the evidence for private appraisal from evidence for public display, then answer the diagnostic question by comparing the two."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character experiences a goal loss or threat but outwardly smiles, says they are fine, or acts pleased; the question asks WHAT they really feel.",
+    "near_miss_pattern": "The same masked scene, but the question asks WHY the character keeps the contrary display; the social reason routes to the display-rule capability.",
+    "boundary_pattern": "Either responsibility-driven guilt routes to the moral-emotion capability, or the character changes the inner feeling by reappraisal and routes to the emotion-regulation capability."
+  },
+  "notes": [
+    "Atomic focus: detect the mismatch between internal emotion and external display, and report the hidden inner feeling.",
+    "Decisive test against the adjacent display-rule capability: this unit answers WHAT is felt; that unit answers WHY the display is managed.",
+    "Decisive test against emotion regulation: here the feeling persists and is only masked; there the feeling itself is changed.",
+    "This unit may be called inside broader hidden-emotion or social-cue macros, but it should not solve the whole scene."
+  ],
+  "id": "micro-28",
+  "level": "micro",
+  "layer": "L4",
+  "family": "emotion-appraisal",
+  "core_question": "Detect a mismatch between true feeling and outward display",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

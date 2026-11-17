@@ -1,0 +1,390 @@
+{
+  "n": 2860,
+  "overall_acc": 0.8150349650349651,
+  "review_changed": 0,
+  "review_flips_correct": 0,
+  "review_flips_wrong": 0,
+  "errors": 0,
+  "malformed_rows": 0,
+  "n_routed_to_none": 521,
+  "by_task": {
+    "Ambiguous Story Task": {
+      "n": 200,
+      "acc": 0.855
+    },
+    "Completion of Failed Actions": {
+      "n": 20,
+      "acc": 0.6
+    },
+    "Discrepant Desires": {
+      "n": 20,
+      "acc": 0.55
+    },
+    "Discrepant Emotions": {
+      "n": 40,
+      "acc": 0.9
+    },
+    "Discrepant Intentions": {
+      "n": 40,
+      "acc": 0.9
+    },
+    "Emotion Regulation": {
+      "n": 20,
+      "acc": 0.5
+    },
+    "False Belief Task": {
+      "n": 600,
+      "acc": 0.945
+    },
+    "Faux-pas Recognition Test": {
+      "n": 560,
+      "acc": 0.7767857142857143
+    },
+    "Hidden Emotions": {
+      "n": 80,
+      "acc": 0.8625
+    },
+    "Hinting Task Test": {
+      "n": 103,
+      "acc": 0.970873786407767
+    },
+    "Knowledge-Attention Links": {
+      "n": 20,
+      "acc": 0.35
+    },
+    "Knowledge-Pretend Play Links": {
+      "n": 30,
+      "acc": 0.9333333333333333
+    },
+    "Moral Emotions": {
+      "n": 40,
+      "acc": 0.875
+    },
+    "Multiple Desires": {
+      "n": 20,
+      "acc": 1.0
+    },
+    "Percepts-Knowledge Links": {
+      "n": 40,
+      "acc": 1.0
+    },
+    "Persuasion Story Task": {
+      "n": 100,
+      "acc": 0.54
+    },
+    "Prediction of Actions": {
+      "n": 20,
+      "acc": 0.8
+    },
+    "Scalar Implicature Test": {
+      "n": 200,
+      "acc": 0.61
+    },
+    "Strange Story Task": {
+      "n": 407,
+      "acc": 0.8255528255528255
+    },
+    "Unexpected Outcome Test": {
+      "n": 300,
+      "acc": 0.7533333333333333
+    }
+  },
+  "by_ability": {
+    "Belief: Beliefs based action/emotions": {
+      "n": 142,
+      "acc": 0.8591549295774648
+    },
+    "Belief: Content false beliefs": {
+      "n": 200,
+      "acc": 0.905
+    },
+    "Belief: Content false beliefs Belief: Second-order beliefs": {
+      "n": 100,
+      "acc": 0.93
+    },
+    "Belief: Identity false beliefs": {
+      "n": 40,
+      "acc": 0.875
+    },
+    "Belief: Location false beliefs": {
+      "n": 200,
+      "acc": 0.985
+    },
+    "Belief: Location false beliefs Belief: Second-order beliefs": {
+      "n": 100,
+      "acc": 0.96
+    },
+    "Belief: Sequence false beliefs": {
+      "n": 100,
+      "acc": 0.65
+    },
+    "Desire: Desire-action contradiction": {
+      "n": 40,
+      "acc": 0.675
+    },
+    "Desire: Desires influence on actions": {
+      "n": 76,
+      "acc": 0.5263157894736842
+    },
+    "Desire: Desires influence on emotions (beliefs)": {
+      "n": 24,
+      "acc": 0.5833333333333334
+    },
+    "Desire: Discrepant desires": {
+      "n": 20,
+      "acc": 0.55
+    },
+    "Desire: Multiple desires": {
+      "n": 20,
+      "acc": 1.0
+    },
+    "Emotion: Atypical emotional reactions": {
+      "n": 100,
+      "acc": 0.65
+    },
+    "Emotion: Discrepant emotions": {
+      "n": 40,
+      "acc": 0.9
+    },
+    "Emotion: Emotion regulation": {
+      "n": 20,
+      "acc": 0.5
+    },
+    "Emotion: Hidden emotions": {
+      "n": 80,
+      "acc": 0.8625
+    },
+    "Emotion: Mixed emotions": {
+      "n": 40,
+      "acc": 0.525
+    },
+    "Emotion: Moral emotions": {
+      "n": 40,
+      "acc": 0.875
+    },
+    "Emotion: Typical emotional reactions": {
+      "n": 100,
+      "acc": 0.96
+    },
+    "Intention: Completion of failed actions": {
+      "n": 20,
+      "acc": 0.6
+    },
+    "Intention: Discrepant intentions": {
+      "n": 40,
+      "acc": 0.9
+    },
+    "Intention: Intentions explanations": {
+      "n": 260,
+      "acc": 0.8961538461538462
+    },
+    "Intention: Prediction of actions": {
+      "n": 20,
+      "acc": 0.8
+    },
+    "Knowledge: Information-knowledge links": {
+      "n": 199,
+      "acc": 0.6080402010050251
+    },
+    "Knowledge: Information-knowledge links ": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "Knowledge: Knowledge-attention links": {
+      "n": 20,
+      "acc": 0.35
+    },
+    "Knowledge: Knowledge-pretend play links": {
+      "n": 30,
+      "acc": 0.9333333333333333
+    },
+    "Knowledge: Percepts-knowledge links": {
+      "n": 40,
+      "acc": 1.0
+    },
+    "Non-Literal Communication: Faux pas": {
+      "n": 560,
+      "acc": 0.7767857142857143
+    },
+    "Non-Literal Communication: Involuntary lies": {
+      "n": 42,
+      "acc": 0.7619047619047619
+    },
+    "Non-Literal Communication: Irony/Sarcasm": {
+      "n": 26,
+      "acc": 0.9615384615384616
+    },
+    "Non-literal communication: Egocentric lies": {
+      "n": 40,
+      "acc": 0.975
+    },
+    "Non-literal communication: Humor": {
+      "n": 40,
+      "acc": 0.925
+    },
+    "Non-literal communication: White lies": {
+      "n": 40,
+      "acc": 0.9
+    }
+  },
+  "by_first_pick": {
+    "<none>": {
+      "n": 521,
+      "acc": 0.8867562380038387
+    },
+    "macro-01": {
+      "n": 210,
+      "acc": 0.9333333333333333
+    },
+    "macro-02": {
+      "n": 259,
+      "acc": 0.8803088803088803
+    },
+    "macro-03": {
+      "n": 297,
+      "acc": 0.8047138047138047
+    },
+    "macro-04": {
+      "n": 143,
+      "acc": 0.7972027972027972
+    },
+    "macro-05": {
+      "n": 406,
+      "acc": 0.7536945812807881
+    },
+    "macro-06": {
+      "n": 43,
+      "acc": 0.8837209302325582
+    },
+    "macro-07": {
+      "n": 161,
+      "acc": 0.9503105590062112
+    },
+    "macro-08": {
+      "n": 204,
+      "acc": 0.8284313725490197
+    },
+    "macro-09": {
+      "n": 110,
+      "acc": 0.5909090909090909
+    },
+    "macro-10": {
+      "n": 9,
+      "acc": 0.5555555555555556
+    },
+    "macro-11": {
+      "n": 52,
+      "acc": 0.75
+    },
+    "macro-12": {
+      "n": 248,
+      "acc": 0.7741935483870968
+    },
+    "macro-14": {
+      "n": 183,
+      "acc": 0.6338797814207651
+    },
+    "macro-15": {
+      "n": 6,
+      "acc": 1.0
+    },
+    "macro-19": {
+      "n": 5,
+      "acc": 0.6
+    },
+    "micro-20": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "micro-41": {
+      "n": 2,
+      "acc": 0.0
+    }
+  },
+  "by_n_picked": {
+    "0": {
+      "n": 521,
+      "acc": 0.8867562380038387
+    },
+    "1": {
+      "n": 133,
+      "acc": 0.6992481203007519
+    },
+    "2": {
+      "n": 1861,
+      "acc": 0.800644814615798
+    },
+    "3": {
+      "n": 303,
+      "acc": 0.8415841584158416
+    },
+    "4": {
+      "n": 40,
+      "acc": 0.75
+    },
+    "5": {
+      "n": 2,
+      "acc": 0.5
+    }
+  },
+  "pick_frequency": {
+    "macro-05": 416,
+    "macro-03": 302,
+    "macro-02": 262,
+    "macro-12": 249,
+    "micro-42": 247,
+    "micro-13": 241,
+    "macro-08": 219,
+    "macro-01": 210,
+    "micro-26": 207,
+    "micro-23": 186,
+    "macro-14": 183,
+    "macro-07": 171,
+    "macro-04": 156,
+    "micro-37": 155,
+    "micro-14": 128,
+    "micro-53": 128,
+    "micro-22": 123,
+    "micro-12": 120,
+    "micro-39": 115,
+    "macro-09": 113,
+    "micro-41": 99,
+    "micro-36": 86,
+    "micro-28": 84,
+    "micro-27": 81,
+    "micro-11": 80,
+    "micro-54": 79,
+    "micro-35": 61,
+    "macro-11": 59,
+    "micro-10": 53,
+    "micro-29": 49,
+    "macro-06": 45,
+    "micro-30": 39,
+    "micro-15": 24,
+    "micro-08": 19,
+    "micro-05": 17,
+    "micro-48": 12,
+    "macro-10": 10,
+    "micro-20": 10,
+    "micro-21": 10,
+    "micro-09": 10,
+    "micro-32": 8,
+    "micro-46": 8,
+    "macro-19": 8,
+    "macro-15": 7,
+    "micro-50": 6,
+    "micro-25": 5,
+    "micro-17": 5,
+    "micro-18": 4,
+    "micro-40": 4,
+    "macro-20": 3,
+    "micro-38": 3,
+    "micro-19": 3,
+    "micro-34": 3,
+    "micro-24": 2,
+    "micro-16": 2,
+    "micro-31": 2,
+    "micro-45": 2,
+    "micro-07": 1
+  }
+}

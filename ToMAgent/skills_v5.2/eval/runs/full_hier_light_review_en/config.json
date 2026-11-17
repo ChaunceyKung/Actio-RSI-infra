@@ -1,0 +1,23 @@
+{
+  "run_id": "full_hier_light_review_en",
+  "dataset": "ToMBench_en",
+  "data_path": "D:\\社会心智大模型\\recurrent\\skills_version\\skills_v5.1\\data\\ToMBench_en.jsonl",
+  "route_mode": "hierarchical",
+  "inject_mode": "light",
+  "review_mode": "on",
+  "lang": "en",
+  "gold_index_base": 0,
+  "answer_mode": "auto",
+  "model": "qwen3.5-27b",
+  "limit": null,
+  "workers": 8,
+  "temperature": 0.0,
+  "timeout": 120,
+  "max_attempts": 3,
+  "retry_backoff_cap": 8,
+  "router_max_tokens": 128,
+  "solver_max_tokens": 2048,
+  "reviewer_max_tokens": 2048,
+  "reroute_budget": 1,
+  "enable_thinking": false
+}

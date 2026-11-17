@@ -1,0 +1,109 @@
+{
+  "frontmatter_description": "Evaluate whether an utterance's explicit content is true, false, or a mix of true and false clauses (a half-truth), judged against the known facts. A literally true statement that misleads only by omitting a key fact is handled by the misleading-expression capability, not here.",
+  "title": "Truth, Lie, and Half-Truth",
+  "use_when": [
+    "Use when the question asks whether a stated claim matches the facts available in the scene.",
+    "Use when the answer depends on classifying explicit utterance content as true, false, partly true, or unsupported.",
+    "Use when a character says something and the task is to compare the wording against what actually happened or what is actually the case.",
+    "Use when a half-truth must be identified because the utterance contains both accurate and inaccurate explicit content."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks WHY the speaker said it or whether the speaker meant to deceive; truth status alone never settles intent, so route to the speaker-motivation capability that asks why a true-or-false thing was said (micro-39).",
+    "Do not use when every explicit word is literally true yet the wording still leads the listener to a false conclusion; route to the misleading-and-selective-expression capability that judges whether true wording creates a false impression (micro-38).",
+    "Do not use when the question asks what the speaker implied beyond the literal words; route to the conversational-implicature capability that recovers unstated intended meaning (micro-36).",
+    "Do not use when the question asks what social act the utterance performs, such as requesting, warning, refusing, or hinting; route to the indirect-speech-act capability that names the act being performed (micro-35).",
+    "Do not use when the comparison is between what a character believes and reality rather than between a stated claim and reality; first route to the relevant belief-or-knowledge capability."
+  ],
+  "decision_variable": "truth status of explicit content",
+  "trigger_checklist": [
+    "There is a specific utterance, claim, answer, promise, report, or description to evaluate.",
+    "The scene provides facts that can be compared against the utterance.",
+    "The question asks whether the utterance is true, false, accurate, inaccurate, a lie, or a half-truth.",
+    "The needed judgment concerns the words stated, not the hidden motive or listener interpretation.",
+    "The utterance can be decomposed into one or more explicit propositions."
+  ],
+  "workflow": [
+    "Isolate ONLY the explicit content asserted (quote or paraphrase the literal claim); ignore tone, motive, and what the listener concludes.",
+    "If the utterance bundles several claims, split it into atomic factual propositions ('I returned the book' AND 'I borrowed nothing new').",
+    "From the scene, list the matching ground-truth fact for each proposition.",
+    "Compare each proposition with its fact and tag it: TRUE (matches), FALSE (conflicts), UNSUPPORTED (scene gives no fact to check it against), or PARTLY TRUE.",
+    "Classify the whole utterance: TRUE if every central claim matches; FALSE if any central claim conflicts with the facts; HALF-TRUTH only if the explicit content itself mixes a true clause with a false clause; UNSUPPORTED if the scene never establishes the relevant fact.",
+    "Do NOT downgrade truth to falsehood (or upgrade falsehood to lie) on the basis of the speaker's motive, sincerity, or whether the listener was fooled — those are separate questions; answer only the content-versus-fact comparison the question asked."
+  ],
+  "special_case": {
+    "title": "False content stays false regardless of the speaker's mind",
+    "rule": "A statement is FALSE here whenever its explicit content conflicts with the facts, whether the speaker lied on purpose, told a kind white lie, or sincerely misremembered. Truth status compares words to facts; it never reaches inside the speaker's head. Settle the content question first, then send any 'why did they say it' or 'did they mean to deceive' question to the speaker-motivation capability (micro-39).",
+    "worked_example": {
+      "scene": "Li Ming plays football in the park, then rushes home forgetting the ball at the field; he genuinely thinks it is in his backpack. At dinner his brother asks where the football is, and Li Ming replies, 'It is in my bag.'",
+      "question": "Is what Li Ming says true?",
+      "answer_logic": "Compare the claim 'It is in my bag' against the fact: the ball is still at the field. The content conflicts with reality, so the truth status is FALSE. The fact that Li Ming sincerely believed it (so it was an honest mistake, not a deliberate lie) does NOT change the truth status — that is a separate intent question handled elsewhere."
+    }
+  },
+  "boundary_exit_rule": [
+    "Once you have classified the words as true or false, if the remaining question is WHY the speaker said them or whether the speaker meant to deceive, exit to the speaker-motivation capability that asks why a statement was made (micro-39) — truth status alone cannot decide intent.",
+    "If every explicit word is true yet the wording steers the listener to a wrong conclusion, exit to the misleading-and-selective-expression capability that judges whether true wording creates a false impression (micro-38).",
+    "If answering requires reading meaning the speaker implied beyond the literal words, exit to the conversational-implicature capability that recovers unstated intended meaning (micro-36).",
+    "If the utterance functions mainly as a request, warning, refusal, reminder, or invitation rather than a checkable claim, exit to the indirect-speech-act capability that names the act being performed (micro-35).",
+    "If the comparison the question wants is between a character's belief and reality rather than between a stated claim and reality, route first to the appropriate belief-or-knowledge capability before using this unit."
+  ],
+  "references": {
+    "route_signal": "Use this micro unit when the diagnostic target is the factual accuracy of what was explicitly said.",
+    "hard_boundary": [
+      "This unit judges content-versus-fact fit only, not moral blame for lying.",
+      "This unit does not decide whether the speaker knew the statement was false or chose it on purpose; that is the speaker-motivation capability (micro-39).",
+      "This unit does not decide whether the listener ended up deceived; whether true-or-false wording fools the listener belongs to the misleading-and-selective-expression capability (micro-38).",
+      "This unit does not analyze meaning implied beyond the words unless that implication is itself the proposition being checked against fact."
+    ],
+    "shortcut_to_avoid": [
+      "Do not label a statement false merely because it is unhelpful, evasive, or suspicious.",
+      "Do not label a literally true statement a lie just because it omits an important fact.",
+      "Do not use the speaker's facial expression, motive, or relationship history to change the truth value of the explicit words."
+    ],
+    "common_failure_modes": [
+      "Conflating factual falsity with intent to deceive.",
+      "Treating implication as if it were explicitly stated.",
+      "Ignoring qualifiers such as 'some,' 'all,' 'before,' 'after,' 'maybe,' or 'I think.'",
+      "Collapsing mixed claims into a single true-or-false label without checking each component.",
+      "Using the listener's mistaken conclusion as proof that the utterance itself was false."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Li Ming left the football at the field but thinks it is in his bag; asked where it is, he says 'It is in my bag,' and the question is whether that statement is true.",
+        "why_it_matches": "In scope: the claim conflicts with the facts, so the decisive variable is the truth status of the content — and it stays FALSE even though Li Ming believed it."
+      },
+      {
+        "case": "Same scene, but the question is now 'Why does Li Ming say this?', choosing among deliberate lying versus honest forgetting.",
+        "why_it_matches": "Out of scope: the words are already known to be false; the question is about the speaker's reason and intent, which routes to the speaker-motivation capability (micro-39)."
+      }
+    ],
+    "boundary_stress_test": [
+      "A speaker says something false but sincerely believes it (an honest mistake): classify the content FALSE, and do NOT infer intentional lying — intent is the speaker-motivation capability's job (micro-39).",
+      "A speaker says something kind-but-false to spare feelings (a white lie, e.g. praising an ugly hat): truth status is still FALSE; the kindness motive does not make the content true.",
+      "A speaker says something literally true in a way that produces a false belief: classify the content TRUE, then route the misleading effect to the misleading-and-selective-expression capability (micro-38).",
+      "A sentence contains one true clause and one false clause: mark it a half-truth / mixed-content statement rather than forcing a single true-or-false label.",
+      "A vague statement such as 'I finished most of it' is UNSUPPORTED until the scene supplies a fact that confirms or contradicts the vague quantity."
+    ],
+    "generalization_note": "The unit generalizes to reports, excuses, answers, denials, promises, and descriptions whenever the operation is comparing explicit asserted content against known facts — independent of why it was said or whether anyone was fooled."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character makes a checkable claim and the scene supplies the matching fact, so the claim can be tagged true, false, partly true, or unsupported by comparing words to facts.",
+    "near_miss_pattern": "A character makes a literally true claim that omits a crucial fact and nudges the listener to misunderstand; truth status is still true, but the misleading effect routes to the misleading-and-selective-expression capability (micro-38).",
+    "boundary_pattern": "The words are already known to be false; the question now asks WHY the speaker said it or whether they meant to deceive, which routes to the speaker-motivation capability (micro-39)."
+  },
+  "notes": [
+    "Settle the narrow content-versus-fact judgment first, before any move to motive, implication, or social effect.",
+    "Use 'lie' cautiously: in this unit it means only a factual conflict in the utterance content, not deliberate deception — intent requires the speaker-motivation capability (micro-39).",
+    "Half-truth here requires mixed explicit content (one true clause plus one false clause); pure omission with literally true wording belongs to the misleading-and-selective-expression capability (micro-38).",
+    "The True / False / Half-true / Unsupported labels are one convenient rendering of the judgment; the underlying operation is the format-agnostic comparison of each asserted proposition against the facts, which also covers plain yes/no 'is this true?' questions and free-text classification."
+  ],
+  "id": "micro-37",
+  "level": "micro",
+  "layer": "L5",
+  "family": "language-pragmatics",
+  "core_question": "Evaluate a statement's relation to the facts",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

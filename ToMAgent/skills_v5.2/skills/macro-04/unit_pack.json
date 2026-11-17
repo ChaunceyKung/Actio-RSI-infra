@@ -1,0 +1,116 @@
+{
+  "frontmatter_description": "Direct-route prototype for inferring the immediate intention or social action a directed nonverbal cue (look, gaze, gesture, nudge, smile) conveys in context.",
+  "title": "Social Cues and Nonverbal Intention",
+  "use_when": [
+    "Use when the key evidence is a nonverbal cue such as a glance, gaze toward a target, nudge, wink, smile, nod, shrug, gesture, posture, or pause.",
+    "Use when the question asks what the cue means, what the sender intended, or what social action (invite, warn, signal, recruit, refuse, tease) the cue performs.",
+    "Use when the cue is directed at a specific person, object, or place and you must recover the intended message from that direction plus the shared context.",
+    "Use when the question asks what a character is about to do and a nonverbal cue (a beckon, a head shake, a directed look) is the main basis for predicting that action."
+  ],
+  "do_not_use_when": [
+    "Do not use when the key evidence is a spoken utterance whose hidden meaning must be decoded (indirect language, a hint, sarcasm, a polite request). That is conversational-implicature reasoning: work out the implied meaning of the words, not the meaning of a body cue.",
+    "Do not use when the question asks only what a character FEELS, with no demand to recover what they are signaling to someone else. That is an emotion-inference scene: infer the feeling from the situation that caused it, not a communicative intent.",
+    "Do not use when the answer turns on who knows what, who saw what, or what a character mistakenly believes (false belief, appearance-reality, knowledge boundary). Track each character's information access instead.",
+    "Do not use when the cue is only incidental background and the real question is moral blame, apology, relationship repair, or status, which require reasoning about norms and consequences rather than cue meaning."
+  ],
+  "decision_variable": "what intention or social action a nonverbal cue conveys",
+  "direct_route_rule": "Route here when the central evidence is a nonverbal cue (a look, gaze direction, gesture, nudge, smile, nod, wink, shrug, posture, or timed pause) and the question asks what that cue means, what the sender intends, or what the cue signals the person will do next.",
+  "expandable_micro_ids": [
+    "micro-06",
+    "micro-07",
+    "micro-22",
+    "micro-23",
+    "micro-26",
+    "micro-35"
+  ],
+  "trigger_checklist": [
+    "The central evidence is a nonverbal cue (look, gaze direction, nudge, gesture, smile, nod, wink, shrug, posture, or pause), not a sentence whose words must be interpreted.",
+    "The question asks what the cue means, what the sender intends, or what the cue signals the person is about to do.",
+    "The cue is directed at a specific target or in a specific direction (toward a person, an object, or a place).",
+    "The cue functions socially: to signal, coordinate, invite, warn, refuse, tease, reassure, or recruit help.",
+    "The scene is solvable without first decoding the implied meaning of a spoken utterance."
+  ],
+  "workflow": [
+    "Step 1 - Pin the cue and its target/direction. Name the exact nonverbal act (a glance, a head tilt, a nudge, a smile, a beckon) and WHO or WHAT it is aimed at (the person it is shown to, and where the gaze or gesture points). The target and direction are the strongest clues to intent; never read the cue in isolation.",
+    "Step 2 - List candidate intentions. Enumerate the plausible social actions the cue could perform here: invitation, a directive to act or stop, a request for agreement, a warning, a shared joke, recruiting help or an idea, or a mere emotion display with no message. Keep two or three real candidates in play.",
+    "Step 3 - Disambiguate with immediate shared context. Use the activity the two were just engaged in, what they were just discussing, and where the gaze points to pick among the candidates. The shared context (e.g. they were stuck deciding where to go; the gaze lands on a third person) selects the single intended meaning. This step is where most answers are won or lost.",
+    "Step 4 - Check the response. If a partner nods, stands, mouths a word, or acts after the cue, that uptake confirms which intention was understood; use it to ratify your reading.",
+    "Step 5 - Reject distractors. Drop options that are over-literal about the gesture, that stop at a generic emotion label when a message is clearly being sent, or that add facts (a joke, a secret) the context does not support.",
+    "Step 6 - State the single best intention. Commit to one intended social act, phrased as what the sender wants the receiver to know or do."
+  ],
+  "special_case": {
+    "title": "A gaze or gesture aimed at a third party recruits a shared action",
+    "rule": "When a character gives a partner a meaningful look and directs gaze (or a nudge or beckon) toward a specific third person or place, read the cue as proposing a joint action involving that target, then let the partner's response and the prior conversation fix exactly which action.",
+    "worked_example": {
+      "scene": "Rosa and Fang are watching other children play and discussing the park. Rosa gives Fang a look, glances toward the swings where a new child sits, then smiles at Fang. Fang nods, and both stand up.",
+      "question": "Why does Rosa smile at Fang?",
+      "answer_logic": "Pin the cue: a directed look plus a gaze toward the new child on the swings, ending in a smile at Fang. Candidates: she is just amused, she likes after-school play, she is proposing they do something about that child. The gaze target (the new child) plus Fang's nod and both standing up select 'let's go over and make a new friend together.' Reject the generic emotion readings (amused, likes playing) because they ignore the gaze direction and the joint move that follows."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the load-bearing evidence is a spoken sentence whose real meaning is indirect (a hint, a polite request, sarcasm), the task is decoding conversational implicature: work out what the words imply, not what a body cue means. The cue-reading procedure here does not apply.",
+    "If the question asks only how a character feels (and especially a bystander who cannot read a private signal), infer the emotion from the situation that caused it; do not convert it into a communicative-intent question.",
+    "If the answer depends on what a character knows, saw, or mistakenly believes, reason about each character's information access and false beliefs instead of cue meaning.",
+    "If the cue merely accompanies a lie and the answer turns on whether a statement is true or deceptive, evaluate the truth status of the utterance rather than the cue.",
+    "When more than one character could have noticed the cue and that matters, reason explicitly about which character had line of sight or attention on the cue, and when.",
+    "When the cue clearly stands in for a speech act (a request, a refusal, a warning), translate it into that speech act and answer as if it had been said aloud."
+  ],
+  "references": {
+    "route_signal": "A character produces a look, gaze toward a target, nudge, smile, nod, wink, shrug, gesture, posture shift, or pause, and the question asks what that nonverbal cue means, what the sender intends, or what the person will do next.",
+    "hard_boundary": [
+      "Not for recovering the implied meaning of a spoken utterance (a hint, indirect request, or sarcasm) when no body cue carries the message.",
+      "Not for questions that ask only how someone feels, especially a bystander who cannot read the private signal.",
+      "Not for questions that turn on who knows or saw what, or on a mistaken belief.",
+      "Not for moral judgment, apology, or trust questions where the cue is only incidental."
+    ],
+    "shortcut_to_avoid": [
+      "Do not read the gesture over-literally (a beckon is not always 'come help me'; a pointed phone is not 'look how crowded it is'); read its social function in this context.",
+      "Do not stop at a generic emotion label ('surprised', 'happy') when the cue is clearly aimed at someone and is doing communicative work.",
+      "Do not ignore the gaze target or the activity the pair was just engaged in; that shared context is what picks the right intention.",
+      "Do not apply word-meaning (implicature) reasoning to a cue whose evidence is a body signal, not a sentence."
+    ],
+    "common_failure_modes": [
+      "Over-literal reading of the gesture: taking a beckon, point, or look at face value instead of as a directed social act (a frequent error on 'what does X want to do?' prediction items).",
+      "Ignoring the shared-context disambiguator: choosing an intention that fits the cue alone while contradicting what the characters were just doing or discussing.",
+      "Defaulting to the most generic intention: collapsing the cue into a bland emotion ('amused', 'surprised') or the blandest social move, missing the specific invitation, warning, secret, or request actually being signaled.",
+      "Answering a different question: giving the sender's signaled intention when the question instead asks how a bystander feels, or vice versa."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Rosa gives Fang a meaningful look, glances toward a new child on the swings, and smiles; Fang nods and both stand up. Question: why does Rosa smile at Fang?",
+        "why_it_matches": "In scope. The evidence is a nonverbal sequence directed at a target, and the gaze plus the partner's uptake fix the intended joint action (go meet the new child). This is reading a cue to recover an immediate social goal."
+      },
+      {
+        "case": "A roommate finds the bathroom dirty after the other has bathed and says, 'Can't you find the cleaner?' Question: what does she really want to say?",
+        "why_it_matches": "Out of scope, near miss. There is no body cue to read; the meaning lives entirely in an indirect spoken utterance whose implicature ('clean it now') must be decoded. That is conversational-meaning reasoning over words, a different scene from reading a glance or gesture."
+      }
+    ],
+    "boundary_stress_test": [
+      "Same glance-and-gesture scene, but the question asks how a watching third party feels: this is emotion inference about a bystander who cannot read the private signal, not cue decoding.",
+      "Same scene, but the answer depends on the exact wording of a spoken hint: this is decoding the implied meaning of an utterance, not a body cue.",
+      "Same scene, but the key issue is which character had line of sight on the cue: reason about perceptual access and knowledge, not the cue's social meaning.",
+      "Same scene, but the question is about offense, embarrassment, or whether someone should apologize: this is a social-norm and repair question, not cue interpretation."
+    ],
+    "generalization_note": "The reusable skill is mapping a directed nonverbal cue to the single social action it performs, by combining the cue's target/direction with the immediate shared context and the partner's response. The invariant is a body signal used as a communicative act whose meaning is fixed by context, not memorization of what any particular gesture 'means'."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character gives a directed look, gaze, nudge, smile, nod, or beckon toward a target, and the question asks why they do it, what they intend to communicate, or what they want to do next.",
+    "near_miss_pattern": "A character delivers an indirect spoken utterance (a hint or polite complaint) with no body cue, and the question is really about the implied meaning of the words.",
+    "boundary_pattern": "The same nonverbal exchange occurs, but the question asks how a bystander feels, so the answer hinges on that bystander's belief and emotion rather than decoding the senders' signal."
+  },
+  "notes": [
+    "Keep the macro focused on recovering an immediate intended social action from a directed nonverbal cue, not broad emotion inference.",
+    "The hardest items are 'what does X want to do?' predictions where accuracy is low; the workflow's target-then-shared-context steps are designed to fix the over-literal reading that causes those errors.",
+    "Direct route is appropriate even if the scene also contains mild belief or emotion content, as long as the main decision variable is cue-to-intention interpretation."
+  ],
+  "id": "macro-04",
+  "level": "macro",
+  "layer": "macro",
+  "family": "social-cues",
+  "core_question": "what intention or social action a nonverbal cue conveys",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-03",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Jianning and Mingkai are the co-captains of the football team. They still lack one team member. They joke that the remaining unselected players are 'the best players'. After a while, Mingkai does not speak, winks at Jianning, and then looks at Taotao, who is one of the remaining unselected players. Mingkai turns his head and smiles at Jianning. Jianning nods his head, prepares to choose Taotao to join their team. Taotao sees the wink and smile of Mingkai and Jianning.",
+      "question": "Why does Mingkai turn his head to look at Jianning and smile?",
+      "options": [
+        "Mingkai and Jianning have a joke about choosing team members before, Mingkai thinks of that joke.",
+        "Mingkai smiles because he thinks Taotao is the best existing player.",
+        "Mingkai smiles at Jianning because they both know they can only choose Taotao.",
+        "Mingkai and Jianning have a secret plan about Taotao, so he smiles."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From a ToMBench Ambiguous Story (intention item). The story never states Mingkai's reason, so all four explanations are genuinely live. C best fits all the clues: only one member is missing, Taotao is the only remaining pick, and the shared wink and smile signal mutual understanding. This is the core task of choosing the best-fitting explanation, not judging the people."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiao Li and Xiao Wang rest by the swimming pool in the resort. They see Ah Zhen and Ah Hong reading on the loungers not far away, then they exchange a look. Xiao Wang nudges Xiao Li with his elbow, silently mouthing 'pretty girls'. Xiao Li gives a wink back, they laugh and look at each other, then carefully walk towards Ah Zhen. Xiao Li and Xiao Wang come to Ah Zhen, introduce themselves and express their desire to get to know her better.",
+      "question": "Why does Xiao Wang nudge Xiao Li with his elbow?",
+      "options": [
+        "Xiao Wang wants Xiao Li to notice the beautiful girls by the pool.",
+        "Xiao Wang wants to tell Xiao Li it is time to swim.",
+        "Xiao Wang wants Xiao Li to notice the obstacles on the ground.",
+        "Xiao Wang wants Xiao Li to go and chat up Ah Zhen together."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From a ToMBench Ambiguous Story (intention item). Several readings compete for the nudge, but the follow-up clues, mouthing 'pretty girls', the shared wink, and walking over together to introduce themselves, make the best-fit reading that he wants Xiao Li to go chat up Ah Zhen with him, not merely to notice the girls or to swim."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Dehua and Sanming are competing for a promotion. Sanming sees from a distance that Lingling, the supervisor, quietly gives Dehua a document, smiles, and pats Dehua's back. Dehua checks the document, smiles, and carefully puts it into his file bag.",
+      "question": "Which stated detail in the text supports the conclusion that Dehua received something useful?",
+      "options": [
+        "The text states Lingling secretly handed Dehua a document and he filed it away.",
+        "Dehua is certain to win the promotion.",
+        "Sanming will confront Lingling about it.",
+        "Lingling is breaking company rules."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Near miss: the prompt asks only which stated detail supports the conclusion, which is evidence-chain construction, not choosing among competing explanations. The other options are inferences or speculation, not stated text, so this routes to evidence-chain construction."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "After watching Lingling hand Dehua a document, an observer immediately concludes 'Dehua is a cheater who does not deserve the promotion' and feels certain because the behavior looks unfair.",
+      "question": "What is the main issue being checked here?",
+      "options": [
+        "Which explanation best fits why Lingling handed over the document.",
+        "Which stated detail supports the conclusion.",
+        "What variable the question is testing.",
+        "Whether the interpreter is being biased or too judgmental."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Boundary: the task is about whether the interpreter's snap moral reaction is distorting the verdict, which routes to anti-bias check, not choosing the best explanation for the document hand-off."
+    }
+  ]
+}

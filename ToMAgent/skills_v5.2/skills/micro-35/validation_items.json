@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-35",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "After a long, hot highway trip, George arrives at Angela's office. As Angela immediately starts talking about business ideas, George interrupts: \"Ah, I had a long and hot highway trip.\"",
+      "question": "What is the real meaning George wants to express?",
+      "options": [
+        "George wants to say he does not want to listen to any of Angela's ideas.",
+        "George wants Angela to provide some travel advice.",
+        "George wants to say, \"Can I drink something?\" or \"Can we rest a few minutes before we start talking about business?\"",
+        "George wants to complain to Angela about his trip."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (George, idx 1, gold C); tests the decisive variable, the social act performed. The literal remark reports a trip, but the act is an indirect request to rest or drink."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Jacob and his mother are at the supermarket. When they reach the candy section, Jacob says, \"Look, those candies look delicious.\"",
+      "question": "What does Jacob really want to say when he says this?",
+      "options": [
+        "Jacob is praising the appearance of the candy.",
+        "Jacob is expressing his love for candy.",
+        "Jacob wants to say, \"Mom, I don't like these candies.\"",
+        "Jacob wants to say, \"Mom, please buy some candies for me.\""
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (Jacob, idx 1, gold D); the literal sentence is a comment about appearance, but the act is an indirect request that his mother buy candy. Tests the SAY-vs-DO boundary."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Almost every letter to Laura's company contains a check. Today Laura receives 5 letters. On the phone Laura tells you: \"I looked at 3 out of the 5 letters. There are checks in 2 of them.\"",
+      "question": "Before Laura's call, how many of the 5 letters do you think contain checks?",
+      "options": [
+        "Before the call, 0 letters contain checks.",
+        "Before the call, 1 letter contains a check.",
+        "Before the call, 2 letters contain checks.",
+        "Before the call, 4 letters contain checks."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Scalar Implicature Test (Laura letters, idx 1, gold D). The question asks for an extra inferred QUANTITY (how many of 5, given 'almost every'), not a social act performed on a listener, so it routes to the implied-information capability (Conversational Implicature, micro-36), not this unit."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "In a staff briefing, a coordinator states plainly: \"The server maintenance begins at 2 a.m.\"",
+      "question": "Considered as literal content, what does this sentence explicitly say?",
+      "options": [
+        "That the server maintenance begins at 2 a.m.",
+        "That the speaker is warning staff to stay off the system.",
+        "That the speaker is requesting staff to work overnight.",
+        "That the speaker is inviting staff to attend the maintenance."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Benchmark-style literal item (no indirect act). Because form and function align and the question asks only the explicit content, this routes to the explicit-meaning capability (Literal Meaning, micro-34), not to indirect speech act."
+    }
+  ]
+}

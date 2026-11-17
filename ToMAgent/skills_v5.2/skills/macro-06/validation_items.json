@@ -1,0 +1,105 @@
+{
+  "unit_id": "macro-06",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "In a busy cafe, Lena the server rushes past a table and accidentally knocks a cup, spilling coffee onto Ben's company documents. She does not notice and keeps working. Ben, paying at the counter, does not see the stain. The owner saw it all but, annoyed by Ben's rudeness to staff, decides not to warn him so Ben gets a small comeuppance. After Ben leaves, the owner cheerfully tells Lena what her accident did to Ben's contract.",
+      "question": "After Lena learns that she ruined Ben's important contract, what does she most likely feel?",
+      "options": [
+        "Lena likely feels guilty and anxious, because she unintentionally ruined Ben's important contract and worries it may seriously affect him.",
+        "Lena likely feels indifferent, because she thinks the ruined contract has nothing to do with her and Ben should be responsible for it.",
+        "Lena likely feels angry, because she thinks it is not her fault and Ben should not have put important documents where an accident could happen.",
+        "Lena likely feels happy, because she thinks this is payback for Ben's rude attitude toward servers."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Moral Emotions (idx 1, Lisa/Bob coffee item, gold A). The actor caused real harm and feels guilt even though the act was an accident, because she still caused it; distractors offer the non-moral exits of indifference, blame-shifting anger, and malicious pleasure. This is the core guilt = I caused harm mapping."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Tariq is a keen school volunteer in charge of collecting donations at a fundraising event. His classmate Owen sees the donation box in Tariq's hand, mistakes it for the class-activity fund, and takes some of the money to buy class supplies. Maya notices what Owen did but, knowing he wants the money to improve class activities, chooses not to tell Tariq. When Tariq finds money missing he is confused and asks around; later he learns the truth and openly admits he mishandled the donations.",
+      "question": "After Owen learns he mistakenly used money from the donation box to buy class supplies, what emotion does he have?",
+      "options": [
+        "Owen likely feels indifferent, because he thinks it is reasonable to use the money for class activities.",
+        "Owen likely feels confused, because he is not sure whether he should have used the money.",
+        "Owen likely feels proud and satisfied, because he thinks his action improved the quality of class activities.",
+        "Owen likely feels guilty, because he realizes he used money that does not belong to him."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Moral Emotions (idx 1, donation-box item, gold D). Even though Owen acted on a false belief at first, once he learns the truth the decisive variable is that he used resources that were not his; the gold is guilt, not the self-justifying pride distractor. Tests guilt from a violated fairness/property norm."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "It is Dylan's birthday. He was hoping for a computer or a new video game as his present. On his birthday, he receives a bicycle.",
+      "question": "What is Dylan's emotion at this moment?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, atypical emotional reactions (idx 3, bicycle gift, gold C). The feeling here is a plain appraisal of a desire-mismatched outcome (wanted X, got Y), with no harm, no norm, and no responsibility. No moral emotion applies; this is the boundary against reaching for guilt or shame when only ordinary disappointment is at stake."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Last Friday the whole fifth grade entered a writing competition. Sasha badly wanted to win. The results came out and Holly won, but Sasha was absent that day. On Monday Holly is the first to see Sasha and says, 'Sasha, I read your essay and it is not bad, just a bit of a shame.' Sasha, surprised, says, 'What do you mean, can you be clearer?' Holly looks at her and says, 'Oh, it is nothing, let's go to class.'",
+      "question": "Considering only this story, did anyone say something inappropriate (a faux pas)?",
+      "options": [
+        "Someone in the story said something inappropriate.",
+        "No one in the story said anything inappropriate.",
+        "It cannot be determined whether anything inappropriate was said.",
+        "Both speakers said something inappropriate."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (idx 1, native gold A, expanded from the 2-option original to keep four options). The task here is only to DETECT whether an inappropriate remark occurred, not to name which moral emotion follows from it. Even though a mild offense is present, this is a faux-pas detection scene, so it sits at the boundary: this macro would take over only if the question asked what the speaker or the hurt party then feels (guilt, embarrassment, indignation)."
+    },
+    {
+      "id": "case_5",
+      "pattern": "positive",
+      "scene": "In a large company, three managers, Aisha, Brent, and Cora, all need standout results on an upcoming project to get promoted. Brent finds important project information left on his desk but does not know it is Aisha's unshared file. Cora knows what Brent is doing but stays silent because she wants to outcompete him. Brent succeeds using Aisha's information and Aisha fails because of the leak; Brent is then reported for plagiarism, and in the end Cora gets the position.",
+      "question": "After Brent learns that the project information was Aisha's unshared file, what does he most likely feel?",
+      "options": [
+        "Brent likely feels anxious and worried, fearing that his behavior may damage the company's image.",
+        "Brent likely feels guilty and uneasy, because he realizes that his behavior was unethical.",
+        "Brent likely feels indifferent, not thinking he made any mistake at all.",
+        "Brent likely feels proud and satisfied, because he gained key information by unfair means and improved his chances of success."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Moral Emotions (idx 1, unshared-file item, gold B). Once Brent learns the file was not his to use, the responsibility appraisal is that he benefited from a norm violation, so the moral emotion is guilt. The strong distractor offers self-serving pride; choosing it is the classic error of picking a non-moral, outcome-favorable label when a moral one is required."
+    }
+  ]
+}

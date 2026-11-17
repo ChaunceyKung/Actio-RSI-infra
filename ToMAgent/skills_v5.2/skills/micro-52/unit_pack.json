@@ -1,0 +1,109 @@
+{
+  "frontmatter_description": "Micro skill for choosing which communication move best fits a power gap — comply, defer, ask permission, push back, escalate, delegate, challenge, or retreat — as opposed to merely naming who outranks whom.",
+  "title": "Power Navigation and Hierarchical Communication",
+  "use_when": [
+    "Use when the question asks which communication MOVE someone should make across a power, rank, or authority gap.",
+    "Use when a person must choose how to speak up or down a hierarchy: comply, ask permission, defer, push back, escalate, delegate, challenge, or retreat.",
+    "Use when the deciding factor is relative power — the right move would change if the other party's authority changed."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question only asks who has what role, title, rank, or authority; naming the structure belongs with identifying the power/role structure, not choosing a move.",
+    "Do not use when the task is one-way persuasion that changes a belief or attitude without a power gap deciding the move; that is general persuasion.",
+    "Do not use when the only issue is wording the same message for the listener's comprehension level; that is audience calibration.",
+    "Do not use when the key problem is compromise or bilateral trade-off between equals; that is negotiation.",
+    "Do not use when the main issue is self-presentation or image rather than hierarchy-sensitive action."
+  ],
+  "decision_variable": "the communication move that best fits the power gap",
+  "trigger_checklist": [
+    "Is there a clear hierarchy, rank, authority difference, or gatekeeper?",
+    "Does the question ask what the actor should DO (a move), not merely who is in charge (a label)?",
+    "Are the candidate answers communication moves — comply, ask permission, defer, push back, escalate, delegate, challenge, or withdraw?",
+    "Would the best move change if the other party's power level changed, i.e., is the gap load-bearing rather than truth, emotion, or shared preference?"
+  ],
+  "workflow": [
+    "Confirm the question asks WHICH MOVE the actor should make (comply, defer, ask permission, push back, escalate, delegate, retreat), not merely WHO outranks whom. If it only asks for the role or rank, this is the wrong unit (see Boundary Exit Rule).",
+    "Map the power direction: is the actor speaking UP to someone with more authority, DOWN to a subordinate, or to a gatekeeper who controls access? The direction sets which moves are even available.",
+    "State the actor's goal: get a request granted, resist or push back on a decision, report a problem, win approval, or assign work.",
+    "Pick the move that achieves the goal at the LOWEST relational cost given the gap. Speaking up: prefer evidence, a respectful concrete proposal, or a request for a follow-up over blunt 'you are wrong' or going behind the person's back. Speaking down: a plain direct request often beats wielding rank or dangling rewards.",
+    "Eliminate options that ignore the power gap (treating a superior like a peer, leaning on loyalty/effort instead of substance) and options that overshoot it (public defiance, threats, or skipping the person entirely when a normal channel exists).",
+    "If the direct move is genuinely blocked by the hierarchy, choose the strategic fallback: escalate through the proper channel, seek mediation, or retreat — not a louder version of the blocked move."
+  ],
+  "special_case": {
+    "title": "Pushing back UP: substance over loyalty, and never behind the person's back",
+    "rule": "When a subordinate disagrees with a superior's judgment, the best move advances the case with objective substance the superior can evaluate, addressed to the superior directly. Reject moves that lean on the actor's effort/loyalty (the gap means that is not persuasive) and reject moves that route around the superior through other people (that breaks the channel and signals disrespect for their authority).",
+    "worked_example": {
+      "scene": "An engineer proposes a new software idea in a work report. His leader thinks the plan has technical and economic feasibility problems.",
+      "question": "What move should the engineer make in response to the leader's objection?",
+      "answer_logic": "Best move: present successful cases of similar plans at other companies — objective evidence the leader can weigh on the merits. Wrong: pleading that he works hard so the leader should trust him (effort does not answer a feasibility objection across the gap); and persuading the leader through other colleagues or back channels (going around the authority figure undermines the proper channel). The deciding factor is the move's fit to the power relation, not whether the engineer's idea is actually good."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit if the question only asks who outranks whom or what someone's role is — that names the structure; route to identifying the power/role structure.",
+    "Exit if it is one-way persuasion to change a belief with no power gap deciding the move; route to general persuasion.",
+    "Exit if the task is only adjusting wording for the listener's level; route to audience calibration.",
+    "Exit if the scene is compromise or bargaining between equals; route to negotiation.",
+    "Exit if the main judgment is image, politeness style, or emotional display rather than a hierarchy-driven move."
+  ],
+  "references": {
+    "route_signal": "Route here when the scene asks WHICH MOVE someone should make across a power/authority gap — comply, defer, ask permission, push back, escalate, delegate, challenge, or retreat. If it only asks who outranks whom, route to identifying the power structure instead.",
+    "hard_boundary": [
+      "It CHOOSES the move; if the question only asks who outranks whom (naming the role/rank structure), it belongs with identifying the power structure, not here.",
+      "Broader than one-way persuasion: persuasion changes a belief or attitude; this unit picks any coping move (comply, defer, escalate, delegate, retreat), and it specifically requires a power gap.",
+      "Not audience calibration: that adjusts the wording for the listener's level; this picks the action, which can be the same words sent through a different channel.",
+      "Not negotiation between equals: no bilateral trade-off is required, and the deciding factor is rank, not mutual concession."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer from fairness or 'who is right' alone without checking who holds authority and which direction the actor is speaking.",
+      "Do not treat naming the rank as the answer; the answer is the move the actor makes given that rank.",
+      "Do not assume more power means a more forceful move; a superior asking a subordinate is often best served by a plain direct request, not by invoking rank.",
+      "Do not confuse respectful wording with the strategic choice of action."
+    ],
+    "common_failure_modes": [
+      "Answering with the role/rank ('the manager has authority') when the question asks what the actor should DO about it.",
+      "Picking the option that leans on the actor's effort or loyalty when speaking up, instead of substance the superior can evaluate.",
+      "Choosing to route around the authority figure (other colleagues, going over their head) when a normal direct channel is open.",
+      "Overusing blunt direct challenge upward when an evidence-based or procedural move is safer and more effective.",
+      "Solving the scene as compromise/negotiation when the hierarchy, not mutual trade-off, constrains the options."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A new hire is introduced as operations lead; the question asks who now has decision authority over the team.",
+        "why_it_matches": "NO match — this only asks to name the rank structure (who outranks whom), with no move to choose. It belongs with identifying the power/role structure, not here. This is the primary confusion to avoid."
+      },
+      {
+        "case": "An engineer's plan is rejected by his leader and he must decide how to respond — push back with evidence, plead loyalty, or go around the leader.",
+        "why_it_matches": "MATCH — the question asks which coping move to make across an authority gap, the core of this unit."
+      },
+      {
+        "case": "Two peers disagree on dividing a shared project and must reach a workable split.",
+        "why_it_matches": "NO match — equals seeking a compromise; bilateral negotiation, no power gap deciding the move."
+      }
+    ],
+    "boundary_stress_test": [
+      "Does the question ask what the actor should DO (a move), or only WHO is in charge (a label)? Only the first is this unit.",
+      "If the same words sent to a boss, a peer, or a subordinate would change which move is best, the power gap is decisive and this unit applies.",
+      "Strip the power gap and make the two parties equals: if the right move changes, power was load-bearing (this unit); if it does not, it was plain persuasion or negotiation."
+    ],
+    "generalization_note": "This skill generalizes to workplace, family, institutional, and status-based interactions where the key question is how to communicate strategically under hierarchy."
+  },
+  "validation_seed": {
+    "positive_pattern": "A subordinate (or a superior) must choose how to act across a power gap — push back with evidence, ask permission, comply, escalate, delegate, or retreat.",
+    "near_miss_pattern": "The question only names the rank structure (who outranks whom) with no move to choose, or two equals seek a mutual compromise.",
+    "boundary_pattern": "A scene that looks hierarchical but turns on self-presentation or on wording for the listener's level, not on choosing a power-gap move."
+  },
+  "notes": [
+    "Keep the unit narrow: it selects the communication MOVE, not the social role itself. The single sharpest test is choose-a-move (here) vs name-the-structure (identifying the power/role structure).",
+    "If the main pressure comes from conflict of interests between equals rather than rank, prefer negotiation.",
+    "If the main pressure comes from self-image or presentation, prefer impression management."
+  ],
+  "id": "micro-52",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Choose communication actions across hierarchy, including escalation, authorization, compliance, challenge, and retreat",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

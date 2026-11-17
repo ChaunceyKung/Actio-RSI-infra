@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-15",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiaogang finds a handbag in the bedroom. The label on it says cabbage, and he cannot see inside. He then opens the handbag and finds a hat; there is no cabbage.",
+      "question": "How does Xiaogang's belief about the contents change after he opens the handbag?",
+      "options": [
+        "He revises his label-based guess and now believes it holds a hat.",
+        "He still believes it holds cabbage.",
+        "His belief does not change at all.",
+        "He concludes the label was a deliberate lie."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "ToMBench deceptive-container scene framed as an update. Opening the bag is newly available evidence that revises Xiaogang's prior (label-based) belief from cabbage to hat. The variable is the direction of the update (toward the observed content), not whether the label was dishonest, which would be source credibility."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Priya is not sure whether the library is open today. As she walks past, she sees the interior lights are on, though the posted hours sign has been taken down.",
+      "question": "How should Priya's belief that the library is open change?",
+      "options": [
+        "It should increase, though it is not certain.",
+        "It should decrease.",
+        "It should not change at all.",
+        "She should now be completely certain it is open."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic graded-update case (no native ToMBench analog for partial qualitative updating). The lights are partial evidence that strengthens the prior belief without making it certain; the answer is the direction of revision, not the final truth."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Tom hears a coworker say the report is finished, but the coworker often makes up stories.",
+      "question": "What is the main issue here?",
+      "options": [
+        "Whether the report is actually finished.",
+        "Whether the coworker is trustworthy.",
+        "Whether Tom's belief should become stronger.",
+        "Whether the report is common knowledge."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Near miss: a new disclosure arrives, but the decisive question is whether the unreliable speaker can be believed. That is source credibility, not the direction of an evidence update."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "After reading a message, Mia learns the meeting moved to 4 p.m. The question asks what Mia thinks Dan now believes about the meeting time.",
+      "question": "Which issue is being asked?",
+      "options": [
+        "How Mia's own belief changes from the new message.",
+        "What Dan believes about the meeting, in Mia's view.",
+        "Whether the message sender is lying.",
+        "Whether the meeting time is certainly 4 p.m."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Boundary case: although a new message arrives, the question targets Mia's model of Dan's belief, which is second-order (recursive) belief, not how Mia's own belief updates."
+    }
+  ]
+}

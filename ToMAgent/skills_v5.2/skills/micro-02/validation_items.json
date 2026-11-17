@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-02",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Dehua and Sanming are competing for a promotion. Sanming sees from a distance that Lingling, the supervisor, quietly gives Dehua a document, smiles, and gently pats Dehua's back, then returns to her office. Dehua quickly checks the document, shows a smile, and carefully puts the document into his file bag.",
+      "question": "Which is the direct TEXTUAL evidence that Dehua gained an advantage, as opposed to an inference?",
+      "options": [
+        "The text states Lingling secretly handed Dehua a document and he filed it away.",
+        "Dehua will definitely get the promotion.",
+        "Lingling dislikes Sanming.",
+        "Sanming will quit his job."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From a ToMBench Ambiguous Story (intention item). The job is to separate a stated observation from inferred conclusions: only A is literally in the text. B is the inferred conclusion, C is unsupported, and D is speculation. Promoting any inference into stated evidence is the shortcut to avoid."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiao Li and Xiao Wang rest by the pool. They see Ah Zhen and Ah Hong reading nearby and exchange a look. Xiao Wang nudges Xiao Li with his elbow, silently mouthing 'pretty girls'. They then walk over to introduce themselves to Ah Zhen.",
+      "question": "Which is the direct TEXTUAL cue, as opposed to the inferred intention behind the nudge?",
+      "options": [
+        "The text states Xiao Wang nudged Xiao Li and mouthed 'pretty girls'.",
+        "Xiao Wang wants Xiao Li to go chat up Ah Zhen with him.",
+        "Xiao Wang and Xiao Li have known each other for years.",
+        "Ah Zhen is not interested in either of them."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From a ToMBench Ambiguous Story (intention item), same shape as case_1. A is the stated cue in the text; B is the inferred intention drawn from it; C and D are unsupported additions. The unit must hold the stated cue apart from the intention it supports."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiao Ming is confident in his ideas and prepares to present. Xiao Yun offers to present for him so he will not be nervous; he stays silent. In the meeting Xiao Yun raises her hand and presents ideas very similar to Xiao Ming's, and the teacher praises them. Xiao Yun then turns and smiles at Xiao Ming.",
+      "question": "Which explanation is more convincing for why Xiao Yun presented the ideas first?",
+      "options": [
+        "She worried Xiao Ming would be nervous, so she helped him present.",
+        "She wanted to get the teacher's appreciation through his idea.",
+        "She accidentally thought of the same idea.",
+        "She wanted to embarrass him in public."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Near miss: the prompt asks which of two competing readings is more convincing, which is explanation competition, not separating stated text from inference. Route to explanation competition rather than tracing an evidence chain. The clues that she copied his idea and smirked afterward favor the self-serving reading over the helpful one."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "After watching the pool scene, an observer immediately concludes 'Xiao Wang is shallow and only cares about chasing girls' and feels sure of it because the behavior seems disrespectful.",
+      "question": "What is the main issue with the observer's reasoning here?",
+      "options": [
+        "Whether a moral reaction is distorting the observer's judgment.",
+        "Which stated detail in the text supports the conclusion.",
+        "Which of two explanations best fits the nudge.",
+        "What variable the question is testing."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Boundary: the question is mostly about whether the solver's own moral reaction is biasing the verdict, which routes to anti-bias check, not evidence tracing. Tracing the textual evidence would not address the snap moral judgment that is actually driving the conclusion."
+    }
+  ]
+}

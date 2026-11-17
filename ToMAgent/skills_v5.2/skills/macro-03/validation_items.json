@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-03",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "A robot named Tinklo lives on a space station with a fully artificial environment. There is no plant life on the station, so Tinklo knows nothing about plants. The station is full of mechanical devices and other robots. Tinklo is imitating something: it sways from side to side and occasionally bends down to the ground, motions that resemble flowers swaying in the wind and a person smelling a flower.",
+      "question": "What is Tinklo most likely imitating?",
+      "options": [
+        "Sunflowers swaying in the wind",
+        "A robot bending over to pick up objects",
+        "A person smelling a rose",
+        "A windmill with rotating blades"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Knowledge-Pretend Play Links (idx 1, gold B). The action looks like plant behavior, but pretend/imitation is bounded by the agent's knowledge: Tinklo cannot be imitating sunflowers or rose-smelling because it has no plant knowledge, so it must be imitating a robot bending over. This is the core appearance-vs-knowledge-boundary inference and the weakest mapped task in the benchmark."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "On a winter evening, Wang Lei, Liu Ting, and Xiao Ming play with toys together. They first play with an electric car, then a puzzle. Wang Lei says he has something to do and leaves the room, closing the door. While he is gone, Liu Ting and Xiao Ming play with a third, brand-new toy: colored pencils. They then put all three toys on a plate on the table. Wang Lei comes back, looks at the plate, and excitedly says, \"Oh, look at that toy! Xiao Ming, can you pass it to me?\"",
+      "question": "Which toy does Xiao Ming most likely pass to Wang Lei?",
+      "options": [
+        "The electric car",
+        "The puzzle",
+        "The colored pencils",
+        "A toy chosen at random from the three"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Knowledge-Attention Links (idx 1, gold C). Wang Lei left before the colored pencils appeared, so the only toy that is novel to his attention is the one he could not have seen. Xiao Ming infers Wang Lei is excited about the toy outside Wang Lei's earlier perceptual access. Knowledge bounded by attention/access is exactly this macro and a top-weakness task."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiaogang and Xiaoming are wandering in the bedroom. They see a handbag, a briefcase, and a backpack, and they find a cabbage in the handbag. Xiaoming then leaves the bedroom. While he is gone, Xiaogang moves the cabbage from the handbag to the backpack.",
+      "question": "After Xiaoming returns to the bedroom, where does Xiaoming look for the cabbage?",
+      "options": [
+        "Briefcase",
+        "Suitcase",
+        "Backpack",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench False Belief Task, first-order location false belief (idx 4, gold D). It looks like this skill's scene because Xiaoming lacks access to the move, but the question asks where he will SEARCH/ACT, so the core is belief-guided action, not identity or knowledge boundary. It should be solved as a false-belief action problem - predict the search location from Xiaoming's outdated belief that the cabbage is still in the handbag - not with the knowledge-boundary procedure here."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Anya sits at the kitchen table. A tall opaque cereal box stands on the table between her and a small toy car. From Anya's chair, the box completely blocks her line of sight to the toy car; from the doorway behind her, Ben can see both the box and the toy car.",
+      "question": "From her chair, can Anya currently see the toy car?",
+      "options": [
+        "No, the box blocks her view of the toy car",
+        "Yes, she can see the toy car clearly",
+        "Yes, but only its shadow",
+        "She can see the toy car only if she already knew it was there"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Benchmark-style synthetic (ToMBench has no pure line-of-sight visibility task). This is a boundary case: the question is purely what is geometrically visible from a viewpoint, decided by sightlines and the occluding box, with no appearance-reality conflict or knowledge/identity inference. Pure spatial visibility is solved as a line-of-sight problem; this skill instead owns knowledge/identity bounded by access plus background knowledge."
+    }
+  ]
+}

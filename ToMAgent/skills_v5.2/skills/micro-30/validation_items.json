@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-30",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Ming and Gang hike up a mountain and find a cute puppy. Ming loves dogs, so he takes it home to raise. Gang recognizes that the puppy belongs to old Mr. Wang in the village, because he has often seen Mr. Wang walking it, but he says nothing because he does not want to disappoint Ming. Later Mr. Wang notices his dog is missing, asks around, and learns Ming took it.",
+      "question": "What emotion does Ming feel after he learns the dog belongs to Mr. Wang?",
+      "options": [
+        "Ming feels guilty and regretful, because he unintentionally took away something that belongs to someone else.",
+        "Ming feels happy, because he gets a cute puppy.",
+        "Ming feels indifferent, because he likes the puppy very much.",
+        "Ming feels confused, because he is not sure whether he should return the dog to Mr. Wang."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Moral Emotions (idx 1, position 24; gold A); tests the decisive variable, a self-responsibility appraisal for harming/depriving another. Once Ming attributes the loss to his own action, the moral emotion is guilt, not the outcome-based happiness or indifference distractors."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Lin and Hao go to the park to play, and Lin discovers that his kite is damaged.",
+      "question": "What emotion does Lin most likely feel?",
+      "options": [
+        "Disappointed",
+        "Happy",
+        "Embarrassed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Typical emotional reactions (idx 1, position 9; gold A). Near miss for the basic-emotion-from-a-direct-event capability (micro-26): the feeling comes straight from a bad event with no blame, duty, credit, or norm appraisal, so no MORAL emotion is in play."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "It is Ming's birthday. He hopes to receive a computer or a new video game as his gift. On his birthday he receives a bicycle instead.",
+      "question": "What emotion does Ming most likely feel at this moment?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Atypical emotional reactions (idx 1, position 0; gold C). Boundary case: the emotion comes from contrasting the actual gift with the hoped-for alternative, with no one to blame or credit, so it routes to the reality-versus-alternative comparison capability (micro-31), not to moral emotion."
+    },
+    {
+      "id": "case_4",
+      "pattern": "near_miss",
+      "scene": "Ming receives a bicycle as a gift on his birthday.",
+      "question": "What emotion does Ming most likely feel?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test, Typical emotional reactions (idx 1, position 0; gold B). Near miss for the basic-emotion-from-a-direct-event capability (micro-26): a welcome gift produces plain happiness with no responsibility, fault, credit, or norm judgment, so it is not a moral emotion."
+    }
+  ]
+}

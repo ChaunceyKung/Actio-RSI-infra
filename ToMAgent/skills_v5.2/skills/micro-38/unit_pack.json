@@ -1,0 +1,101 @@
+{
+  "frontmatter_description": "Diagnostic unit for cases where a true or selective expression steers the listener toward a false inference.",
+  "title": "Misleading and Selective Expression",
+  "use_when": [
+    "Use when the question is whether a true expression causes the listener to draw the wrong conclusion.",
+    "Use when the key issue is selective disclosure, framing, or emphasis that makes the audience infer something false.",
+    "Use when the stated content may be accurate but the communicative effect is deceptive."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question is simply whether the words are factually true or false; route to the truth-status capability that compares a claim against the facts (micro-37). A plainly false statement is ordinary lying, not true-but-misleading.",
+    "Do not use when the task is to recover an unstated meaning the speaker intends and the listener is meant to grasp correctly; route to the conversational-implicature capability (micro-36). This unit fires only when the inference the listener draws is FALSE.",
+    "Do not use when the task is the speaker's reason or motive for choosing that wording; route to the speaker-motivation capability that asks why something was said (micro-39).",
+    "Do not use when the issue is fitting the message to the listener's level or knowledge rather than producing a false impression; route to the audience-calibration capability (micro-40)."
+  ],
+  "decision_variable": "whether the expression leads the listener to a false inference",
+  "trigger_checklist": [
+    "The literal statement can be true.",
+    "The listener is likely to infer more than the sentence strictly states.",
+    "The wrong answer depends on whether the audience is misled, not on factual truth alone.",
+    "A hidden omission, framing choice, or partial disclosure changes the listener's belief."
+  ],
+  "workflow": [
+    "First confirm the literal content is true (or at least not plainly false). If the words themselves conflict with the facts, this is ordinary lying — stop and route to the truth-status capability (micro-37).",
+    "Identify what a reasonable listener would actually infer from the wording, emphasis, and especially what was left unsaid.",
+    "Compare that inferred belief with the real situation: is the listener now closer to a FALSE understanding?",
+    "Pinpoint the device doing the misleading — omission of a key fact, selective disclosure, framing, or misleading emphasis — and name it.",
+    "If a true (or partly true) statement pushes the listener toward a false belief, classify it here as misleading. If the listener's inference is actually correct, it is not misleading — route to the conversational-implicature capability (micro-36) if the question is about recovered meaning, or to the speaker-motivation capability (micro-39) if it is about why the speaker spoke that way."
+  ],
+  "special_case": {
+    "title": "True wording, false impression by omission",
+    "rule": "A statement belongs here when each thing said is true (or not plainly false) yet a key detail is left out, so the listener forms a belief that is false. The test is the listener's resulting belief, not the literal sentence.",
+    "worked_example": {
+      "scene": "An antique dealer, Mr. Lin, has a jade piece that is really a modern replica he bought abroad. A buyer admires it. He tells later customers, truthfully, that it is 'the star product of the shop, drawing the attention of many collectors,' but never mentions it is not the antique relic buyers assume it to be.",
+      "question": "Does Mr. Lin's wording mislead the listener?",
+      "answer_logic": "Yes. Taken literally, 'star product that draws many collectors' can be true, so this is not caught by a simple truth check. But by selecting flattering true facts and omitting that the piece is a modern replica, the wording leaves the listener believing it is a genuine valuable antique — a false belief. The misleading effect, not the literal truth, is the diagnostic."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the task asks whether the words are factually true or false rather than whether the listener is misled, exit to the truth-status capability that compares a claim against the facts (micro-37); an outright false statement is ordinary lying, not true-but-misleading.",
+    "If the task asks what extra meaning was conveyed beyond the words and that recovered meaning is correct rather than false, exit to the conversational-implicature capability that recovers unstated intended meaning (micro-36).",
+    "If the task asks why the speaker chose that wording rather than whether it misleads, exit to the speaker-motivation capability that asks why something was said (micro-39).",
+    "If the main issue is adapting the message to the listener's level or background rather than producing a false impression, exit to the audience-calibration capability (micro-40)."
+  ],
+  "references": {
+    "route_signal": "Route here when a true statement, partial statement, or framing choice is judged by whether it misleads the listener into a false belief.",
+    "hard_boundary": [
+      "The decision is whether the listener is led to a false belief, not whether the words are factually true; the bare true-or-false judgment is the truth-status capability (micro-37).",
+      "Cooperative implicatures the listener is meant to recover correctly do not count; this unit fires only when the inference the listener draws is FALSE, in contrast with the conversational-implicature capability (micro-36).",
+      "The unit judges the communicative effect on the listener, not the speaker's strategic reason for choosing those words; that reason is the speaker-motivation capability (micro-39)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not assume 'true sentence' means 'not misleading'.",
+      "Do not over-focus on what was said; check what a normal listener would infer.",
+      "Do not collapse selective omission into simple lying."
+    ],
+    "common_failure_modes": [
+      "Answering the bare truth/lie question instead of the misleading-effect question.",
+      "Assuming a literally true sentence cannot mislead, and therefore clearing it.",
+      "Treating any unstated meaning as ordinary implicature even when the inference the listener draws is false.",
+      "Ignoring the omitted or de-emphasized fact that flips the listener's belief.",
+      "Jumping to the speaker's intent or morality when the unit only asks about the effect on the listener."
+    ],
+    "minimal_pair": [
+      {
+        "case": "An antique dealer truthfully tells a buyer the jade piece is 'a star product that draws many collectors,' while staying silent that it is a modern replica, not the antique relic the buyer believes she is paying for.",
+        "why_it_matches": "In scope: each stated phrase can be true, yet the selective silence steers the buyer to a false belief about the object's age and value — a true-but-misleading expression."
+      },
+      {
+        "case": "Lily breaks her mother's vase, then says 'The dog knocked it over,' when in fact no dog was involved.",
+        "why_it_matches": "Out of scope: the statement is flatly false, so the issue is plain lying, which routes to the truth-status capability (micro-37) — not a true statement producing a false inference."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the sentence is true and a reasonable listener would NOT infer anything false from it, do not use this unit (no false belief is induced).",
+      "If the question is just 'Did the speaker lie?' or 'Is it true?', route to the truth-status capability (micro-37) unless the task explicitly asks about the misleading effect.",
+      "If a true statement misleads only because the listener draws a correct intended inference, the case is cooperative implicature, not misleading — route to the conversational-implicature capability (micro-36).",
+      "If the focus is the speaker's reason for the wording rather than the false impression it creates, route to the speaker-motivation capability (micro-39)."
+    ],
+    "generalization_note": "This unit covers deceptive framing, selective disclosure, and truth-preserving misleading communication across social, professional, and everyday contexts — the common thread is a literally-true or partly-true expression that leaves the listener with a false belief."
+  },
+  "validation_seed": {
+    "positive_pattern": "A truthful or partially truthful statement, through omission or selective framing, causes the listener to form a false belief.",
+    "near_miss_pattern": "The statement is flatly false, so the case is plain lying rather than misleading truth, and routes to the truth-status capability (micro-37).",
+    "boundary_pattern": "The statement is true and the listener's inference is correct (no false belief), so this unit does not fire."
+  },
+  "notes": [
+    "Keep the focus on the listener's resulting belief, not the speaker's morality or intent.",
+    "Use only when the diagnostic question is whether literally-true or partly-true wording misleads the listener into a false belief.",
+    "The decision is format-agnostic: it covers explicit 'does this mislead?' classification, yes/no judgments, and free-text analysis alike. The discriminating signal is always whether a true or partly-true expression leaves the listener with a false belief, not the answer format."
+  ],
+  "id": "micro-38",
+  "level": "micro",
+  "layer": "L5",
+  "family": "language-pragmatics",
+  "core_question": "Determine whether a true statement induces a false understanding",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

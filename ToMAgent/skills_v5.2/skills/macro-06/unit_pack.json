@@ -1,0 +1,125 @@
+{
+  "frontmatter_description": "Direct-route macro for scenes where guilt, shame, blame, forgiveness, or moral judgment depends on responsibility, harm, and norm violation.",
+  "title": "Moral Emotion and Responsibility Judgment",
+  "use_when": [
+    "Use when the question asks what someone feels or how someone is judged after causing, allowing, noticing, or being associated with harm or a norm violation.",
+    "Use when guilt, shame, blame, embarrassment from wrongdoing, apology pressure, forgiveness, or responsibility is the main driver of the answer.",
+    "Use when the key distinction is whether the actor intended the harm, knew the risk, could have prevented it, or violated a social or moral rule."
+  ],
+  "do_not_use_when": [
+    "Do not use when the emotion is a plain appraisal of a good or bad outcome with no norm, harm, or responsibility (for example, disappointment at getting an unwanted gift, fear at a strange noise, joy at good news). That is ordinary outcome-based emotion: read it off the gap between what the person wanted and what they got, without any blame or moral judgment.",
+    "Do not use when the only task is to DETECT whether someone said or did something inappropriate or awkward (a faux pas), with no question about which emotion follows. That is offense detection: check whether a speaker said something hurtful or unwarranted given what they did and did not know, and answer yes or no, rather than mapping to a moral emotion.",
+    "Do not use when the main task is decoding a wink, smile, glance, or gesture to read intention; that requires interpreting the nonverbal cue itself, not judging responsibility, unless the cue is offered as evidence of guilt, shame, or remorse.",
+    "Do not use when the main task is figuring out what an indirect or non-literal utterance means; that requires recovering the speaker's intended meaning, not assigning blame.",
+    "Do not use when the central question is whether a statement is true, misleading, or deceptive; that requires comparing the statement to the facts and to the speaker's knowledge, unless the deception itself is being morally evaluated as an offense."
+  ],
+  "decision_variable": "what emotion or judgment follows from responsibility, harm, and norm evaluation",
+  "direct_route_rule": "Route immediately when guilt, shame, blame, or responsibility drives the emotion.",
+  "expandable_micro_ids": [
+    "micro-30",
+    "micro-33",
+    "micro-43",
+    "micro-56"
+  ],
+  "trigger_checklist": [
+    "A person caused, failed to prevent, benefited from, or is accused of a bad outcome.",
+    "The scene contains harm, unfairness, betrayal, rule-breaking, negligence, or social/moral disapproval.",
+    "The question asks who feels guilty, ashamed, blamed, responsible, forgiven, angry, resentful, or morally judged.",
+    "The answer depends on intention, knowledge, avoidability, duty, apology, compensation, or excuse.",
+    "A character's self-evaluation or others' evaluation matters more than the raw event outcome."
+  ],
+  "workflow": [
+    "Fix the perspective first: whose emotion or judgment does the question ask about? The answer almost always hinges on whether that specific person is the one who caused harm, the one harmed, or an observer. Track that role precisely; misattributing whose responsibility it is is the most common way to get this wrong.",
+    "Name the morally relevant event: harm, offense, broken promise, unfairness, betrayal, negligence, or violation of a norm or duty. If no norm was met or broken and no one was harmed or helped on purpose, this is not a moral-emotion scene.",
+    "Separate outcome from responsibility: a bad result alone does not imply guilt or blame. Ask who actually caused the harm or met the standard, and by what action or omission.",
+    "Check the causal role of the focal person: did they directly cause it, enable it, fail in a duty to warn or protect, merely witness it, or get wrongly associated with it? Even a false belief at the time does not erase guilt once the person learns they caused harm or used what was not theirs.",
+    "Check mental state and control: did they intend the harm, knowingly risk it, act carelessly, act by accident, or act under a false belief, and could they reasonably have acted otherwise?",
+    "Map the appraisal to the specific moral emotion. GUILT: I caused harm or violated a norm or duty (including by omission), and I hold myself responsible. SHAME: I am exposed before others as deficient or in the wrong, so the focus is my damaged standing rather than the harm itself. PRIDE: I met or exceeded a valued standard through my own effort or virtue. GRATITUDE: I benefited from another person's intentional kindness or sacrifice. INDIGNATION or righteous ANGER: another person violated a norm against me or someone else, so blame points outward. RESENTMENT: I was treated unfairly. Pick the moral label, not a basic stand-in: do not answer plain disappointment, indifference, or self-serving satisfaction when a responsibility appraisal is clearly in play.",
+    "Distinguish guilt from shame when both seem possible: if the scene stresses the harm done and the actor's responsibility for it, choose guilt; if it stresses public exposure, loss of face, or a damaged self-image, choose shame.",
+    "Adjust for repair and aggravation: apology, confession, compensation, and sincere remorse reduce blame and support forgiveness; denial, concealment, deliberate withholding, or repeated harm increases blame. Do not treat an apology as proof of full responsibility.",
+    "Answer from the perspective fixed in step 1: the wrongdoer's likely feeling, the victim's judgment, the observer's blame, or the community's norm evaluation."
+  ],
+  "special_case": {
+    "title": "Accidental harm versus culpable harm",
+    "rule": "If the harm was accidental and the actor lacked knowledge, intent, and reasonable control, reduce blame; the actor may still feel regret or sadness, but guilt and external blame are weaker unless they ignored a duty or risk.",
+    "worked_example": {
+      "scene": "Maya brings cookies to a meeting, not knowing that one contains nuts because the box was mislabeled. Leo, who is allergic, eats one and becomes sick. Maya is upset and apologizes.",
+      "question": "Should Maya feel guilty or be blamed?",
+      "answer_logic": "The harm is real, but Maya did not know about the nuts and did not control the mislabeling. She may feel sorry, regretful, and concerned, but strong blame or guilt is not warranted unless she had a duty to check and failed to do so."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the emotion is just a reaction to a good or bad outcome with no norm met or broken and no one responsible (for example, disappointment at an unwanted gift or fear at a strange noise), solve it as an ordinary outcome appraisal: compare what the person wanted to what happened, and read off the resulting feeling, with no blame or moral label.",
+    "If the question only asks WHETHER someone said or did something inappropriate or awkward, and not which emotion follows, solve it as offense detection: judge whether a remark was hurtful or unwarranted given what the speaker did and did not know, and answer yes or no, rather than mapping to a moral emotion.",
+    "If the evidence is primarily a nonverbal cue (a wink, smile, glance, or gesture) and the question asks what intention it conveys, interpret the cue itself rather than judging responsibility, unless the cue is being read as a sign of guilt, shame, or remorse.",
+    "If the question is mainly what an indirect complaint, warning, request, or refusal actually means, recover the speaker's intended meaning rather than assigning blame.",
+    "If the central issue is whether a statement is true, an omission, deceptive, or misleadingly worded, compare the statement against the facts and the speaker's knowledge, unless the deception itself is being morally judged as an offense."
+  ],
+  "references": {
+    "route_signal": "A morally loaded outcome is followed by a question about emotion or judgment, and the answer turns on responsibility, harm, intent, duty, excuse, or repair.",
+    "hard_boundary": [
+      "A plain appraisal of a good or bad outcome with no norm or responsibility (disappointment at an unwanted gift, fear at a noise, joy at good news) is outside this macro; that is read off the gap between wanted and received, with no moral label.",
+      "Merely detecting WHETHER an inappropriate or awkward remark was made (a faux pas), with no question about which emotion follows, is outside this macro; that is offense detection, answered yes or no.",
+      "Nonverbal intention reading is outside this macro unless the cue is evidence of guilt, shame, blame, or remorse.",
+      "Indirect speech interpretation is outside this macro unless the utterance functions as apology, accusation, confession, or moral repair.",
+      "Lie detection and misdirection are outside this macro unless the deception is being evaluated as a moral offense."
+    ],
+    "shortcut_to_avoid": [
+      "Do not infer guilt from a bad outcome alone, and do not withhold guilt just because the act began with a false belief or an accident once the actor learns they caused the harm.",
+      "Do not default to a basic or self-serving emotion label (disappointed, indifferent, surprised, proud, satisfied) when a responsibility, harm, or norm appraisal is clearly the point; the correct answer is the moral emotion.",
+      "Do not treat apology as proof of full responsibility; people may apologize from sympathy, politeness, or repair motives.",
+      "Do not treat lack of visible sadness as lack of guilt; the person may suppress emotion or feel shame privately.",
+      "Do not assign equal blame to all participants when knowledge, power, duty, and control differ, and do not ignore the victim's perspective when the question is about resentment, forgiveness, or fairness."
+    ],
+    "common_failure_modes": [
+      "Picking a basic emotion label (disappointed, indifferent, surprised, happy) or a self-serving one (proud, satisfied) when the scene clearly calls for a moral emotion such as guilt, shame, or indignation.",
+      "Misattributing whose responsibility it is, for example assigning guilt to a bystander, blaming the victim, or feeling for the wrong character because the perspective in the question was not tracked.",
+      "Confusing guilt with shame: choosing shame (damaged self-image, public exposure) when the scene stresses harm done and personal responsibility, or choosing guilt when the scene is really about loss of face before others.",
+      "Confusing regret or sadness with guilt when the actor had no meaningful responsibility, or, conversely, withholding guilt just because the act started from a false belief or an accident even after the actor learns they caused the harm.",
+      "Over-blaming accidental harm while ignoring false belief, lack of knowledge, or lack of control, or under-blaming negligence and deliberate omission because the actor did not intend the harm.",
+      "Treating rule-following as automatically moral, or treating an apology as proof of full responsibility, without checking actual harm, fairness, knowledge, and control."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A person takes money from a box, later realizes the money was not theirs to use, and the question asks how they feel. They feel guilt because they used what was not theirs.",
+        "why_it_matches": "A norm (property and fairness) was violated and the focal person is responsible, so the feeling is a moral emotion. This is in scope: map the responsibility appraisal to guilt rather than to a neutral or self-justifying label."
+      },
+      {
+        "case": "A person hoped for a computer but receives a bicycle as a gift, and the question asks how they feel. They feel disappointed.",
+        "why_it_matches": "Same surface form (an event followed by an emotion question) but no norm, harm, or responsibility is involved, only the gap between what was wanted and what was received. This belongs to ordinary outcome-based emotion, NOT here: do not reach for guilt or shame when only plain disappointment is at stake."
+      },
+      {
+        "case": "After someone makes a tactless remark to a classmate who just lost a contest, the question asks only whether anyone said something inappropriate.",
+        "why_it_matches": "An offense may be present, but the task is to DETECT whether a faux pas occurred, not to name which moral emotion follows. This belongs to offense detection, NOT here: this macro would take over only if the question then asked what the speaker or the hurt party feels."
+      }
+    ],
+    "boundary_stress_test": [
+      "A person apologizes after an accident: decide whether the apology signals guilt, politeness, sympathy, or repair.",
+      "A person causes harm while following orders: separate causal responsibility, role duty, power pressure, and moral blame.",
+      "A person intended a harmless prank but caused serious harm: weigh intention against foreseeable risk and negligence.",
+      "A person is publicly criticized for a mistake: distinguish shame from guilt, and distinguish self-image damage from responsibility.",
+      "Several people contributed to the harm: distribute responsibility according to knowledge, control, duty, and causal contribution."
+    ],
+    "generalization_note": "This macro generalizes across false-emotion and moral-judgment scenes, real-world apology and blame scenes, and social conflicts where emotion is not just a reaction to outcome but an appraisal of responsibility under norms."
+  },
+  "validation_seed": {
+    "positive_pattern": "Someone causes or benefits from harm, breaks a promise, behaves unfairly, fails a duty, or violates a norm, and the question asks who feels guilty, ashamed, proud, grateful, indignant, blamed, or responsible.",
+    "near_miss_pattern": "An event is followed by an emotion question, but the feeling is a plain appraisal of a good or bad outcome (such as disappointment at an unwanted gift) with no harm, norm, or responsibility, so an ordinary emotion label, not a moral one, is correct.",
+    "boundary_pattern": "Something inappropriate may have been said after an event, but the question only asks WHETHER a faux pas occurred (detection), not which moral emotion follows; route here only when the task is to name the emotion or blame judgment that results."
+  },
+  "notes": [
+    "This macro is a direct scene prototype, not a bundle: it solves by applying the responsibility-harm-norm prior before optional micro-level diagnosis.",
+    "The expandable micro ids are for explanation, uncertainty repair, and boundary refinement, not required routing steps.",
+    "The core boundary is against general emotion appraisal: responsibility, harm, and normative evaluation must be doing the main explanatory work."
+  ],
+  "id": "macro-06",
+  "level": "macro",
+  "layer": "macro",
+  "family": "emotion",
+  "core_question": "what emotion or judgment follows from responsibility, harm, and norm evaluation",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

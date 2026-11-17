@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-51",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Two teammates both want the single conference presentation slot, and each has a real stake in it. One agrees to present in the later afternoon slot if the other prepares the shared slides and handles the room setup.",
+      "question": "What is the best social-cognitive interpretation?",
+      "options": [
+        "They are negotiating a joint plan through reciprocal concessions, each giving and getting something.",
+        "One teammate is simply persuading the other to give up the slot.",
+        "They are judging whether the original slot assignment was fair.",
+        "One teammate is using authority to issue a request."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Both parties hold a genuine stake in the slot and both change terms over a tradeable dimension (timing for labor), leaving each with part of what they wanted. This is the canonical bilateral concession that routes to this unit, distinct from one-way persuasion (B), fairness judgment (fairness and reciprocity, C), and power coping (power coping, D). Synthetic positive: ToMBench has no dedicated negotiation task, so a sharp benchmark-style item is used."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xiao Hong, age 6, really wants to go to the amusement park today. Her dad objects: \"This is not a good idea. I think there is a lot of noise in the amusement park.\"",
+      "question": "How does Xiao Hong persuade her dad?",
+      "options": [
+        "Xiao Hong can look up some information, proving that amusement parks take many measures to reduce noise, such as soundproof walls and quieter equipment.",
+        "Xiao Hong can tell her dad that she has not been to the amusement park for a long time, this is a very special wish for her, she really wants to go.",
+        "If Dad really does not want to go to the amusement park, Xiao Hong can suggest going to other places, such as parks or zoos, so everyone is happy.",
+        "Xiao Hong can suggest: \"How about we go in the early morning or on weekdays? I hear there are fewer people then, so it is quieter. We avoid peak hours and get a quieter experience.\""
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (index field=1, cited by story: Xiao Hong / amusement park; benchmark gold B). This is the PRIMARY near-miss for this unit: the scene is one-way persuasion (only Xiao Hong wants the change; Dad is the target being moved), so the task routes to one-way persuasion, NOT bilateral negotiation — no second stake is being traded. The benchmark answer B is itself a persuasion move (an emotional appeal: 'a very special wish for her'). Note the trap: option C is compromise-flavored ('so everyone is happy'), which is exactly what tempts a wrong route to this unit; preserving the real gold B keeps the item faithful while teaching that a stray compromise option does not make a persuasion scene a negotiation. Real item; options, order, and benchmark gold B preserved."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Two siblings already divided a shared cash gift: the older took 70% because they are older, the younger got 30%. A relative asks an observer to assess the division. No new deal is being made; nothing is being traded.",
+      "question": "What is the best social-cognitive interpretation?",
+      "options": [
+        "A bilateral negotiation in which both siblings concede to reach a plan.",
+        "A persuasion attempt to change the other sibling's mind.",
+        "A fairness judgment about whether the existing split is just.",
+        "A choice between one person's own competing goals."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "The task is to JUDGE whether a settled distribution is fair, not to reach a deal, and no party is adjusting terms. This routes to fairness/reciprocity, not negotiation. It guards the negotiation-versus-fairness boundary: evaluating a split is not negotiating one. Synthetic boundary item (no dedicated negotiation/fairness benchmark item available)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "A manager needs an evening release finished tonight; a parent employee needs to leave early to pick up a child. Both have a real stake. They agree the manager moves the release window so the employee can leave early, and the employee logs back on after dinner to finish and also covers the next morning's briefing.",
+      "question": "What is the best social-cognitive interpretation?",
+      "options": [
+        "A joint plan reached through mutual adjustment, where each side shifts terms and gains something.",
+        "A one-sided persuasion attempt with a reward attached.",
+        "A command the employee must simply obey because of rank.",
+        "A judgment about whether the workload split is fair."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Despite the power gap, the plan becomes acceptable because BOTH sides change terms over tradeable dimensions (release timing and coverage for early departure). Each gives and gets, so it is bilateral concession, not command (power coping, C), one-way persuasion (B), or a fairness verdict (fairness and reciprocity, D). Synthetic positive: no dedicated negotiation benchmark item exists."
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "frontmatter_description": "Direct-route macro for predicting where or how a character will act from their own first-order false belief, especially after an object or situation changes while they are absent or unaware.",
+  "title": "Classic False-Belief Judgment",
+  "use_when": [
+    "Use when the scene asks where a character will look, search, go, or act based on what they falsely believe.",
+    "Use when a character had earlier access to a location or state, then the world changed without that character seeing or learning about the change.",
+    "Use when the answer depends on the character's own belief rather than the real current state.",
+    "Use when the case is a first-order mindreading problem: what X believes and does, not what X thinks Y believes."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question is really about what one character thinks ANOTHER character believes or will do (a nested, second-order belief, e.g. 'where does A think B will look'); that needs a second-order procedure that models the inner person's belief first and then the outer person's belief about it, not the single-character procedure here.",
+    "Do not use when the main conflict is how something LOOKS versus what it really IS, or a misidentified object or person, with no action predicted from a false belief; that is an appearance-versus-reality or mistaken-identity problem, solved by tracking the true identity against the misleading appearance.",
+    "Do not use when the question asks what is actually true rather than what the character will believe or do.",
+    "Do not use when the character witnessed the change, was told about it, or otherwise had evidence that updates their belief."
+  ],
+  "decision_variable": "where or how a character will act based on a false belief",
+  "direct_route_rule": "Route immediately when the case is a first-order search-location belief after an unseen move.",
+  "expandable_micro_ids": [
+    "micro-05",
+    "micro-08",
+    "micro-09",
+    "micro-11",
+    "micro-12",
+    "micro-23"
+  ],
+  "trigger_checklist": [
+    "A single target character earlier observed or was told an initial location, container, label, owner, route, or state.",
+    "The relevant object or situation changed AFTER that observation (an unseen move, swap, or relocation).",
+    "The target character was absent or looking away and did not see, hear, infer, or receive a reliable message about the change.",
+    "The question asks where the target character will look or go, what they will do, reach for, or expect, not what is really there now.",
+    "The question involves only the target character's own (first-order) belief, not what one character thinks another believes.",
+    "The real current location or state conflicts with the target character's belief, so reality and belief point to different options."
+  ],
+  "workflow": [
+    "Read the QUESTION first and name the exact target character whose action, search, or belief is asked. If the question nests one mind inside another ('where does A think B will look'), stop: solve it as a second-order belief problem (model B's belief first, then A's belief about B), not with this single-character procedure. If the question asks what is really/actually/now the case (no character's belief or search), this is a reality-recall question, not false belief: answer the true current state.",
+    "Write down two separate facts: the REAL current location or state of the object, and the LAST state the target character personally observed or was reliably told. Do not merge these.",
+    "Determine the target character's information access: did they see, hear, infer, or get a trustworthy message about the change? Count only evidence available to THAT character; ignore anything known to the reader, narrator, or another character.",
+    "Decide the operative belief. If the target had NO access to the change, their belief is the old observed state (still false). If the target DID get reliable updating evidence (witnessed it or was told), their belief matches reality and this is no longer a false-belief case.",
+    "Answer from the operative belief, not from reality: the character searches, goes, reaches, or expects according to that belief. When the belief is false, the correct option is the ORIGINAL location/content, which deliberately differs from the real current state.",
+    "Before finalizing, run the two guard checks: (a) reality-bias guard, confirm you did not just pick the real current location the narrator revealed; (b) omniscience guard, confirm the character actually had access to every fact you credited them with. If either fails, revise.",
+    "If the question secretly requires a nested belief (what A thinks B believes), switch to a second-order approach and model the inner belief before the outer one; if it is about what an object really is versus how it looks, or about a misidentified object or person, switch to an appearance-versus-reality approach that tracks the true identity against the misleading appearance."
+  ],
+  "special_case": {
+    "title": "Unseen transfer or relocation",
+    "rule": "When an object is moved while the target character is absent or unable to observe, the target will search in the original place they last believed the object to be, unless the scene gives them later updating evidence.",
+    "worked_example": {
+      "scene": "Wei and Nadia are in the bedroom with a handbag, a briefcase, and a backpack; they find a cabbage in the handbag. Nadia leaves the bedroom. While she is gone, Wei moves the cabbage from the handbag into the backpack. Nadia returns.",
+      "question": "After Nadia returns, where does she look for the cabbage?",
+      "answer_logic": "Reality vs. belief: the cabbage is really in the backpack, but Nadia last saw it in the handbag and was absent for the move with no message, so her belief is unchanged and false. Answer from her belief: she looks in the handbag (the original place), not the backpack. Picking the backpack would be reality bias; crediting her with knowing the move would be an omniscience leak."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to a second-order belief approach when the answer requires modeling what one character thinks another character believes, knows, or will do: build the inner character's belief first, then the outer character's belief about that.",
+    "Exit to an appearance-versus-reality approach when the core question is about the gap between how something looks and what it really is, a misidentified object or person, or what someone can know given limited information, rather than predicting belief-guided action.",
+    "If who-saw-what is disputed, reason explicitly about sensory access: which character could directly see, hear, or touch the relevant information, and at what moment, before deciding whose belief is updated.",
+    "If the failure risk is about memory or updating, track each character's last reliably known state and change it only when that specific character gains witnessing or trustworthy-message access to the change.",
+    "If naming the believed location is not enough and you must predict a concrete action, connect the belief to the character's goal: state what they want, then the step they would take given that false belief."
+  ],
+  "references": {
+    "route_signal": "A character will search or act according to an outdated belief because a relevant change happened outside their awareness.",
+    "hard_boundary": [
+      "Current reality alone is not the answer when the question asks what the character will do.",
+      "The macro requires first-order belief by the target character, not nested belief about another mind.",
+      "If the target character received reliable updating evidence, the belief is no longer false and the classic false-belief route should not be used.",
+      "If no action or belief-guided behavior is asked, this may be a knowledge, appearance-reality, or factual-recall problem instead."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer with the real current location just because the narrator reveals it.",
+      "Do not assume a character knows a change simply because the reader knows it.",
+      "Do not upgrade a character's belief unless the scene gives that character perceptual or communicative access.",
+      "Do not treat every hidden-object scene as false belief; the key is the target character's outdated belief."
+    ],
+    "common_failure_modes": [
+      "Reality bias (the dominant error): picking the object's true current location because the narrator stated it, instead of the character's believed location. The correct false-belief answer is the ORIGINAL place, which differs from where the object really is.",
+      "Omniscience leak: crediting the target character with the change just because the reader, narrator, or another character knows it, when the target had no perceptual or communicative access.",
+      "Nested-mind confusion: treating a second-order question ('where does A think B looks') as if it were about a single character; a nested question must be solved by modeling the inner person's belief first, then the outer person's belief about it.",
+      "Appearance-reality drift: answering what the object really is instead of where or what the character believes; a looks-versus-is or misidentified-object question is solved by tracking true identity against the misleading appearance, not by this belief-driven-action procedure.",
+      "Over-updating: treating ambiguous noise, a glimpse of someone approaching, or an irrelevant coincidence as proof the character learned of the change, and wrongly switching to the real location."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Nadia leaves the bedroom; while she is gone Wei moves the cabbage from the handbag to the backpack. Q: where does Nadia look for the cabbage? (in-scope: a single character's own false belief)",
+        "why_it_matches": "First-order false-belief search after an unseen move. Answer is the handbag (original place), Nadia's outdated belief. Decisive variable: the question is about Nadia's OWN action."
+      },
+      {
+        "case": "Same scene. Q: where does Wei think Nadia looks for the cabbage? (out-of-scope: one character modeling another's belief)",
+        "why_it_matches": "Near miss differing in ONE variable: the question nests one mind inside another (Wei modeling Nadia), so it is a second-order belief problem and must be solved by modeling Nadia's belief first and then Wei's belief about it, even though the answer also lands on the handbag. Decide by the question's structure, not the answer it lands on."
+      },
+      {
+        "case": "Same scene, but Nadia sees Wei make the move through the open doorway before she returns. Q: where does Nadia look? (out-of-scope: belief no longer false)",
+        "why_it_matches": "Near miss differing in ONE variable: Nadia now has perceptual access to the change, so her belief updates and she looks in the backpack. The classic false-belief default does not apply once the target witnessed or was reliably told."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the character was physically absent but received a clear message about the move, do not preserve the old belief.",
+      "If the character saw only someone approach the object but not actually move it, decide whether that evidence is enough to update belief by reasoning explicitly about sensory access: a partial glimpse that does not reveal the new location usually leaves the old belief in place.",
+      "If the question asks where another person thinks the target will search, treat it as a second-order belief problem: model the target's belief first, then the other person's belief about it.",
+      "If the question asks what the container really holds despite a misleading label, treat it as an appearance-versus-reality problem and report the true contents, unless an action driven by a character's false belief is also asked."
+    ],
+    "generalization_note": "This macro generalizes beyond toy-location puzzles to any scene where action follows an outdated mental model: searching an old folder path, going to a previous meeting room, contacting an old phone number, using an unchanged plan after a silent schedule change, or expecting someone at a location they no longer occupy."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character observes an initial state, misses a later change, and is asked where they will look or what they will do.",
+    "near_miss_pattern": "Either the question nests one mind in another (what A thinks B will look for, a second-order belief), or the character witnessed or was reliably told the change so the belief is no longer false.",
+    "boundary_pattern": "A question asks what is really/actually/now the case rather than what the character believes, or a reliable updating message reaches the character even though the move itself was unseen."
+  },
+  "notes": [
+    "This macro is a scene prototype, not a micro bundle; it can solve matching first-order false-belief action scenes directly.",
+    "The optional micro ids support diagnosis, repair, and explanation when perception, memory, belief updating, spatial perspective, or action prediction is disputed.",
+    "Preserve the distinction between the reader's knowledge of reality and the character's knowledge state."
+  ],
+  "id": "macro-01",
+  "level": "macro",
+  "layer": "macro",
+  "family": "false-belief",
+  "core_question": "where or how a character will act based on a false belief",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

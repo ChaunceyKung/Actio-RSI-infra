@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-43",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "In a busy coffee shop, Lisa the waitress, while rushing around, accidentally bumped a cup at the edge of a table and splashed coffee onto Bob's company documents, ruining them. She did not notice and kept working. The owner saw it but, annoyed by Bob's past rudeness, chose not to warn Bob.",
+      "question": "What kind of emotion does Lisa possibly feel after she learns that she ruined Bob's important contract?",
+      "options": [
+        "Lisa possibly feels guilty and anxious, because she unintentionally ruins Bob's important contract and worries about possibly having a major impact on Bob.",
+        "Lisa possibly feels indifferent, because she thinks the destruction of the contract has nothing to do with her and Bob should be responsible for it.",
+        "Lisa possibly feels angry, because she thinks it is not her responsibility, and Bob should not put important documents in places where accidents are likely to happen.",
+        "Lisa possibly feels happy, because she thinks this is a retaliation for Bob's rude attitude towards the waitress."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Positive: she is the direct cause of a real harm with no intent, so she bears responsibility and feels guilty. The distractors deny responsibility (indifferent, blames the victim) or invent malice. From ToMBench Moral Emotions (coffee-shop / Lisa-and-Bob story, gold A)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "At a research institution, researcher Allen carelessly sends confidential information to outsiders. An intern who notices it stays quiet to protect the institution's reputation, and a senior engineer with a grudge against Allen also stays silent. When the leak causes significant damage, Allen realizes what his own action set in motion.",
+      "question": "What kind of emotion does Allen feel after realizing the leak of confidential information?",
+      "options": [
+        "Allen probably feels angry because he thinks it is the intern's responsibility.",
+        "Allen probably feels confused, not sure if he really sends the confidential information.",
+        "Allen probably feels indifferent because he thinks it does not cause any damage.",
+        "Allen probably feels shocked, regretful, and worried because he realizes that his mistake may lead to serious consequences."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Positive: Allen's own careless act caused real harm, so the responsibility-linked feeling is regret and worry, not anger that deflects blame onto others (distractor A) or denial of any damage. Tests owning fault for a careless harm. From ToMBench Moral Emotions (research-institution / Allen-leak story, gold D)."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiao Ming receives a bicycle for his birthday. He should be very happy, but he is very disappointed.",
+      "question": "He should be very happy, but he is very disappointed, why?",
+      "options": [
+        "Xiao Ming worries that riding a bicycle affects his studies.",
+        "Xiao Ming fears that riding a bicycle to school makes his classmates laugh at him.",
+        "Xiao Ming thinks the color of the bicycle does not match his clothes.",
+        "Xiao Ming hopes for a computer as a gift, not a bicycle."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Near-miss for the cause-vs-blame boundary: the question asks ONLY WHY an outcome (the disappointment) occurred, with no harm and no one to blame. Naming the cause is causal attribution, NOT harm-responsibility. From ToMBench Unexpected Outcome Test (idx 2, gold D)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "At a dinner party, a guest makes an awkward joke about another guest's accent. The remark lands badly and the table goes quiet, but nothing is damaged, lost, or injured and no one is physically or materially harmed.",
+      "question": "Is this a harm-and-responsibility (blame-for-harm) case?",
+      "options": [
+        "Yes, because any embarrassing remark counts as harm to be blamed for",
+        "No, with no real harm the issue is whether the remark was rude or awkward, which is social tact (faux pas), not blame for harm",
+        "Yes, because the listener felt uncomfortable, so the speaker is at fault for harm",
+        "No, because the question is really about how the speaker should apologize afterward"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic boundary: distinguishes a no-harm tact violation (faux pas) from blame for harm. Distractor D names the apology/repair neighbor to test that boundary too. Synthetic because ToMBench has no item posing this routing question directly."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-18",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming and Xiao Li were in the bank and saw chalk placed in the handbag. Xiao Li then left the bank, and Xiao Ming moved the chalk to the box. Afterward, each is asked where the chalk is now.",
+      "question": "Whose report about the chalk's current location is the more reliable source?",
+      "options": [
+        "Xiao Ming's, because he was present and saw the move.",
+        "Xiao Li's, because he left and would speak first.",
+        "Neither, because reports about locations are never reliable.",
+        "Xiao Li's, for no stated reason."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "ToMBench transfer scene reframed around source reliability. Credibility here is driven by access: Xiao Ming witnessed the move and can report the new location; Xiao Li was absent and lacks access. The variable is the reliability of the source, not the listener's bare uncertainty."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Omar saw the blue team win the race. Later, Leo, who is known for making up stories to confuse people, says the red team won instead.",
+      "question": "What should Omar most likely think?",
+      "options": [
+        "He should fully switch to believing the red team won because Leo spoke most recently.",
+        "He should keep believing the blue team won, since he saw it himself and Leo is unreliable.",
+        "He should believe both teams won.",
+        "He should forget the race result because two claims conflict."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic case testing the recency shortcut. Direct perception plus a known unreliable source should prevent a full update; reliability of the source, not the order of speaking, decides the weight."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Maya wonders whether the outdoor concert will be canceled. The sky is dark, but no one has told her anything and she has no information about any source.",
+      "question": "Which reasoning best fits Maya's state?",
+      "options": [
+        "She should discount a source because it is biased.",
+        "She is uncertain because the evidence is incomplete, not because a source is unreliable.",
+        "She should trust an expert authority.",
+        "She should assume the concert is canceled because rumors are usually true."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Near miss: with no testimony or source-quality cue to weigh, the issue is bare subjective doubt, which is uncertain belief, not source credibility."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Ben needs to choose a snack for Carla. Dana says Carla loves raisins, but admits she only heard it from a class rumor. Ben's close friend Mia says she personally saw Carla choose raisins yesterday.",
+      "question": "What should Ben most reasonably believe about Carla's preference?",
+      "options": [
+        "He should give more weight to Mia's report because she had direct access, while Dana only repeats a rumor.",
+        "He should give more weight to Dana because rumors are shared by many people.",
+        "He should ignore both reports because preferences cannot be reported.",
+        "He should choose raisins only because Ben himself likes raisins."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Boundary at the preference line: the immediate task is weighing two sources (direct eyewitness vs hearsay) about Carla's preference. Solve the credibility question here; only the believed preference would then feed preference reasoning. Option D is the egocentric-projection trap."
+    }
+  ]
+}

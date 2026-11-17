@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-20",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Li Hua is passionate about outdoor adventures and seeks fresh, exciting experiences. Wang Fang is a quiet librarian who spends her weekends reading in a calm, orderly library. This weekend, Li Hua invites Wang Fang to go out together.",
+      "question": "Where does Li Hua plan to spend the weekend with Wang Fang?",
+      "options": [
+        "Hiking",
+        "Library",
+        "Sports Park",
+        "Skiing"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (idx 1); tests Li Hua representing and accommodating WANG FANG's quiet taste, setting aside his own adventurous liking."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Susan wants to eat the sweet chocolate cookies she made yesterday, but her friend invites her to go swimming. Susan puts the cookies back in the refrigerator and goes swimming with her friend.",
+      "question": "What does Susan do after she comes home from swimming with her friend?",
+      "options": [
+        "Susan eats her chocolate cookies.",
+        "Susan goes swimming again.",
+        "Susan starts making new chocolate cookies.",
+        "Susan goes to sleep."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Multiple Desires (idx 1); near-miss because the answer depends only on Susan's OWN desire, with no other person's taste involved. Routes to the character's own preference (micro-19)."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Zhiwei and Xiaolan are planning a short trip, sitting on a park bench flipping through a travel guide. Mingda, not invited, listens in from behind. Zhiwei notices Mingda and glances at Xiaolan; Xiaolan sees the look, shakes her head, and keeps reading the guide.",
+      "question": "After Zhiwei notices Mingda, what is his next action?",
+      "options": [
+        "Ignores Mingda and continues to discuss travel plans with Xiaolan.",
+        "Invites Mingda to join their discussion.",
+        "Suggests to Xiaolan they change places to avoid Mingda hearing the travel plans.",
+        "Tells Xiaolan about Mingda."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (idx 1); boundary because the question asks what Zhiwei will DO next, a predicted behavior, not what anyone LIKES. Routes to action prediction (micro-23)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Li Hua is a photographer passionate about outdoor adventures, often hiking and climbing to capture rare natural landscapes. His friend Wang Min is an interior designer who prefers indoor activities, especially art exhibitions and design expos. This weekend, Wang Min wants to invite Li Hua to spend time together and make it enjoyable for him.",
+      "question": "To make this weekend enjoyable, where should Wang Min suggest going?",
+      "options": [
+        "Natural Scenic Area",
+        "Natural Landscape Photography Exhibition",
+        "Interior Design Expo",
+        "City Shopping Center"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (idx 1); tests the shortcut trap: Wang Min must suit LI HUA's nature/photography taste, not her own indoor taste. The exhibition bridges to his preference, so picking the Interior Design Expo (her own taste) would be the error."
+    }
+  ]
+}

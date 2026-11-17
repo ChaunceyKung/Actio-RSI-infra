@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-22",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Hong and Xiao Fang watch other children play on the playground. They chat and discuss going to the park together after school. Suddenly, Xiao Hong gives Xiao Fang a look and glances toward the swing, where Xiao Mei sits. Then Xiao Hong smiles at Xiao Fang. Xiao Fang nods, and the two stand up. Xiao Mei notices the interaction between Xiao Hong and Xiao Fang.",
+      "question": "Why does Xiao Hong smile at Xiao Fang?",
+      "options": [
+        "Xiao Hong smiles because she sees something interesting on the playground.",
+        "Xiao Hong smiles because she remembers a joke about Xiao Mei.",
+        "Xiao Hong smiles because she thinks it is fun to play after school.",
+        "Xiao Hong smiles at Xiao Fang to suggest making new friends together."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Ambiguous Story Task (Intention: Intentions explanations, idx 1); the smile is a cue already shown and the question word is WHY, so the answer is its immediate purpose - to propose going over to the swing to befriend Xiao Mei. Tests reading a directed nonverbal cue from the actor's perspective, not predicting a next move."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiao Li and Xiao Wang are resting by the pool at a resort. They see Ah Zhen and Ah Hong reading on loungers not far away, then exchange a look. Xiao Wang nudges Xiao Li with his elbow, silently mouthing 'pretty girls'. Xiao Li winks back, and the two laugh and walk over to introduce themselves.",
+      "question": "Why does Xiao Wang nudge Xiao Li with his elbow?",
+      "options": [
+        "Xiao Wang wants Xiao Li to notice the beautiful girls by the pool.",
+        "Xiao Wang wants to tell Xiao Li it is time to swim.",
+        "Xiao Wang wants Xiao Li to notice the obstacles on the ground.",
+        "Xiao Wang wants Xiao Li to go and chat up Ah Zhen together."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Ambiguous Story Task (Intention: Intentions explanations); the nudge plus the mouthed words and shared look is a directed cue whose immediate purpose is to propose that the two of them go over and chat up the girls together. Tests reading the social intention behind a shared nonverbal cue, not merely the literal 'notice the girls' surface or a later action."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Zhiwei and Xiaolan sit on a park bench flipping through a travel guide, planning a short trip. Mingda, who was not invited on the trip, listens from behind. Suddenly Zhiwei notices Mingda standing to the side and glances at Xiaolan. Xiaolan sees the look, shakes her head, and keeps reading the guide.",
+      "question": "After Zhiwei notices Mingda, what is his next action?",
+      "options": [
+        "Ignores Mingda and continues to discuss travel plans with Xiaolan.",
+        "Invites Mingda to join their discussion.",
+        "Suggests to Xiaolan that they change to another place to avoid Mingda overhearing their travel plans.",
+        "Tells Xiaolan about Mingda."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (Intention: Prediction of actions, idx 1); a glance cue is present but the question asks for Zhiwei's NEXT action, so it routes to the next-action prediction capability - what the character is most likely to do next (micro-23) - not intention recognition. Teaches the why-vs-next boundary."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "After a long, hot highway drive, George arrives at Angela's office. Angela immediately starts talking about business ideas. George interrupts her, saying, 'Ah, I had a long and hot highway trip.'",
+      "question": "What is the real meaning George wants to express?",
+      "options": [
+        "George wants to say he does not want to listen to any of Angela's ideas.",
+        "George wants Angela to provide some travel advice.",
+        "George wants to say, 'Can I have something to drink?' or 'Can we rest a few minutes before talking business?'",
+        "George wants to complain to Angela about his trip."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (idx 1); the cue here is a spoken hint, so recovering its meaning is the job of the indirect-speech-act capability - the action performed by an utterance (micro-35) - not the reading of a nonverbal cue. Teaches the boundary away from this unit when the cue is words."
+    }
+  ]
+}

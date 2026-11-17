@@ -1,0 +1,121 @@
+# Gate configuration for TactfulToM dataset.
+# Based on ablation analysis (2026-05-27): see docs/tactful_tom_ablation_analysis.md
+#
+# task_type prefixes like "tom:" are auto-stripped by the gate engine,
+# so rules only need the canonical form (e.g. "belief:accessible").
+
+mode: "on"
+story_prefix_len: 500
+
+demand_to_gate:
+  BELIEF_TRACKING:   {skill: true,  rag: true,  memory: true}
+  SOCIAL_PRAGMATICS: {skill: false, rag: false, memory: true}
+  INFO_FLOW_CHAIN:   {skill: true,  rag: false, memory: false}
+  FACTUAL:           {skill: false, rag: false, memory: false}
+  HIGH_BASELINE:     {skill: false, rag: false, memory: false}
+
+rules:
+  # ══════════════════════════════════════════════════════════════════════════
+  # Phase 1: Question pattern rules (推理时可用，不依赖task_type)
+  # ══════════════════════════════════════════════════════════════════════════
+
+  # ── High-precision patterns ──
+
+  - name: "comprehension_pattern"
+    match:
+      question_pattern: "(?i)^was what .* true\\?|^was .* true\\?"
+    gate: {skill: false, rag: false, memory: true}
+    # Comprehension: "Was what X told Y true?" - binary truth verification
+    # Memory only: helps with lie detection
+
+  - name: "justification_pattern"
+    match:
+      question_pattern: "(?i)^why did .* (tell|say)|why .* (tell|say)"
+    gate: {skill: false, rag: false, memory: true}
+    # Justification: "Why did X tell Y..." - social pragmatics
+    # Memory only: understanding white lies and social context
+
+  - name: "info_accessibility_pattern"
+    match:
+      question_pattern: "(?i)does .* know (this information|about)|can .* know"
+    gate: {skill: true, rag: false, memory: false}
+    # Info accessibility: "Does X know this information?" - information tracking
+    # Skill only: track who has access to what information
+
+  - name: "answerability_pattern"
+    match:
+      question_pattern: "(?i)can .* answer|able to answer"
+    gate: {skill: true, rag: false, memory: false}
+    # Answerability: "Can X answer..." - information tracking
+    # Skill only: track who can answer based on information access
+
+  - name: "liedetectability_pattern"
+    match:
+      question_pattern: "(?i)can .* detect|able to detect|detect .* lie"
+    gate: {skill: true, rag: false, memory: true}
+    # Lie detectability: "Can X detect the lie?" - binary format
+    # Skill + Memory: benefits from both tracking and context
+
+  - name: "belief_accessible_pattern"
+    match:
+      question_pattern: "(?i)what does .* believe (about|regarding)"
+    gate: {skill: true, rag: true, memory: true}
+    # Belief (accessible): "What does X believe about..." - complex belief tracking
+    # All modules: true complementarity
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # Phase 0: Task type rules (训练时可用，有task_type标签时精确匹配)
+  # ══════════════════════════════════════════════════════════════════════════
+
+  # ── No modules: high baseline or modules hurt ──
+  - name: "belief_inaccessible"
+    match: {task_type_prefix: "belief:inaccessible"}
+    gate: {skill: false, rag: false, memory: false}
+
+  - name: "fact_real_reason"
+    match: {task_type_prefix: "fact:real_reason"}
+    gate: {skill: false, rag: false, memory: false}
+
+  - name: "fact_truth"
+    match: {task_type_prefix: "fact:truth"}
+    gate: {skill: false, rag: false, memory: false}
+
+  - name: "lieability_accomplice"
+    match: {task_type_prefix: "lieability:accomplice"}
+    gate: {skill: false, rag: false, memory: false}
+
+  - name: "liedetectability_list"
+    match: {task_type_prefix: "liedetectability:list"}
+    gate: {skill: false, rag: false, memory: false}
+
+  # ── Memory only: social pragmatics (white lie, justification) ──
+  - name: "comprehension"
+    match: {task_type_prefix: "comprehension"}
+    gate: {skill: false, rag: false, memory: true}
+
+  - name: "justification"
+    match: {task_type_prefix: "justification"}
+    gate: {skill: false, rag: false, memory: true}
+
+  - name: "lieability_liar"
+    match: {task_type_prefix: "lieability:liar"}
+    gate: {skill: false, rag: false, memory: true}
+
+  # ── Skill only: information tracking, keep prompt short ──
+  - name: "answerability"
+    match: {task_type_prefix: "answerability"}
+    gate: {skill: true, rag: false, memory: false}
+
+  - name: "info_accessibility"
+    match: {task_type_prefix: "info_accessibility"}
+    gate: {skill: true, rag: false, memory: false}
+
+  # ── Skill + Memory: lie detection (binary format benefits from both) ──
+  - name: "liedetectability_binary"
+    match: {task_type_prefix: "liedetectability:binary"}
+    gate: {skill: true, rag: false, memory: true}
+
+  # ── All modules: belief:accessible (true complementarity) ──
+  - name: "belief_accessible"
+    match: {task_type_prefix: "belief:accessible"}
+    gate: {skill: true, rag: true, memory: true}

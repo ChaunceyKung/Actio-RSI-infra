@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-10",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Liang loves outdoor adventure and spends every weekend hiking or camping, always chasing fresh, exciting experiences. Wenfang is a quiet librarian who spends her weekends reading and organizing books in calm, orderly surroundings. This weekend Liang invites Wenfang to spend the weekend out together.",
+      "question": "Where does Liang plan to spend the weekend with Wenfang?",
+      "options": [
+        "Hiking",
+        "The library",
+        "A sports park",
+        "Skiing"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (idx 1, gold B). Two people hold opposite preferences and the question asks for the chosen outcome. The deciding rule is standing: the host who issues the invitation accommodates the guest, so the outcome follows Wenfang's preference (the library), not Liang's own love of hiking. Models score weakly here (0.45) precisely because they default to the actor's own desire instead of asking whose preference the scene gives priority."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Leo really likes playing basketball but is not very skilled, and his sister constantly mocks his ability. He is now a busy senior with heavy coursework. It is the weekend, and a friend invites Leo to play basketball. His sister asks him, 'Are you going to play basketball today?' Leo answers, 'No.'",
+      "question": "Leo really wants to play basketball, so why does he say no?",
+      "options": [
+        "Because he thinks basketball is not interesting.",
+        "Because he is afraid of being mocked by his friends.",
+        "Because he does not want his sister to mock him anymore.",
+        "Because he is a busy senior and does not want playing to affect his studies."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Strange Story Task, desire-action contradiction (idx 2, gold C). Leo holds two competing desires: the surface desire to play basketball and the stronger desire to avoid his sister's mockery. The action (saying no) follows the dominant desire, not the stated one. The skill must read the scene's specific overriding motive (avoiding the sister), not pick a generic-sounding reason like coursework (D)."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Two roommates want different weekend trips: Pria wants a beach trip, Owen wants a mountain trip. They actively trade concessions, Owen offers to drive and pay for gas if they go to the beach, Pria offers to cover lodging and agrees they will do the mountains next month, until they jointly settle on a plan that blends both.",
+      "question": "What is the central thing this scene is doing?",
+      "options": [
+        "Selecting which single trip wins because one preference clearly dominates",
+        "Building a joint plan through mutual back-and-forth concessions and trades",
+        "Deciding whether one roommate is lying about what they want",
+        "One roommate persuading the other while keeping their own goal fixed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Benchmark-style synthetic (no clean two-way-negotiation item exists in the mapped ToMBench tasks). Both sides give and take to co-construct a plan, so the scene is about the bargaining mechanism, not about which fixed preference wins. This skill resolves conflicting preferences into a single chosen outcome; a scene built on reciprocal concession-trading to assemble a joint plan is a different problem and should be handled as a negotiation, not as a winner-by-preference choice."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Sara wants to eat the chocolate cookies she baked yesterday, but her friend invites her to go swimming. Sara puts the cookies back in the refrigerator and goes swimming with her friend.",
+      "question": "What does Sara do after she comes home from swimming with her friend?",
+      "options": [
+        "Sara eats her chocolate cookies.",
+        "Sara goes swimming again.",
+        "Sara starts baking new chocolate cookies.",
+        "Sara goes to sleep."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Multiple Desires (idx 1, gold A). One agent holds two of her own competing wants with no interpersonal conflict: she defers eating the cookies to swim now, but the cookie desire is only postponed, not abandoned, so she returns to it afterward. The skill must rank a single agent's own wants over time and predict the resumed action, rather than treat this as a clash between two people."
+    }
+  ]
+}

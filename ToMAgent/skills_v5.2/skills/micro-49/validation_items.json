@@ -1,0 +1,81 @@
+{
+  "unit_id": "micro-49",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Mina forgets her friend's birthday dinner. No one confronts her, but afterward the friend is noticeably distant and cool toward her.",
+      "question": "What should Mina do next to repair the relationship?",
+      "options": [
+        "Acknowledge that she forgot, apologize sincerely, and offer a small make-good",
+        "Work out whether forgetting the dinner was technically rude",
+        "Say nothing, since the friend never asked for an apology",
+        "Propose a new dinner date without mentioning that the friend is hurt"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic (benchmark-style; ToMBench has no dedicated repair task). The breach is already settled, so the task is to pick the repair move that addresses the hurt. B re-litigates whether it was wrong (breach detection), C is the do-nothing trap for unrequested repair, D jumps to a plan while ignoring the strain."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "On the first day at a new school, Xiao Wang tells his classmate that his mom is one of the cafeteria aunties. Another classmate, Xiao Fang, comes over and says he really dislikes the cafeteria aunties because they look scary. Xiao Wang goes quiet and says nothing.",
+      "question": "Does anyone say something inappropriate in this story?",
+      "options": [
+        "Someone says something inappropriate in the story",
+        "No one says anything inappropriate in the story"
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Real near-miss for the core boundary. From ToMBench Faux-pas Recognition Test (idx 1; gold A). This asks only whether a breach OCCURRED, not how to repair it. Xiao Wang going quiet shows the hurt, but the question is breach detection (the prior step), so this routes to the social-breach-detection skill, not the repair skill."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "At a group outing, Tom's careless comment clearly upset Priya, who is now quiet and withdrawn. A friend asks the group to think about the situation.",
+      "question": "How does Tom most likely feel right now about what he said?",
+      "options": [
+        "Guilty and remorseful about hurting Priya",
+        "He should go over, acknowledge it, and apologize to Priya",
+        "Priya was the one who overreacted, so it is her fault",
+        "He should change the subject so the group moves on"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic boundary (isolates moral-emotion vs repair-action, which no single ToMBench item captures). The question asks what Tom FEELS, not what he should DO; naming the moral emotion (guilt/remorse) is a different skill from choosing the repair action. B is the genuine repair move and is the trap that would pull a reader into the repair skill, but the question is not about repair, so gold is the emotion. C is blame attribution; D is avoidance."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "A friend feels left out after being cropped from a group photo, and the person who posted it notices the friend has gone quiet and tense.",
+      "question": "What is the best follow-up move to repair things?",
+      "options": [
+        "Ignore it because the friend did not ask for an apology",
+        "Acknowledge the slight and reassure the friend it was not intentional",
+        "Argue that leaving the friend out of the photo was not actually rude",
+        "Ask the friend to agree on a rule for future photos"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic (benchmark-style; no ToMBench item targets the repair move directly). Tests indirect, unrequested harm: a small acknowledgment plus reassurance is the right repair. A is the do-nothing trap, C re-litigates whether it was rude (breach detection), D jumps to a future plan without addressing the present hurt."
+    }
+  ]
+}

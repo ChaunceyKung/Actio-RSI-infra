@@ -1,0 +1,17 @@
+{
+  "run_id": "hierarchical_light_review-on_en_glm-5_1779170084",
+  "route_mode": "hierarchical",
+  "inject_mode": "light",
+  "review_mode": "off",
+  "lang": "en",
+  "model": "glm-5",
+  "limit": null,
+  "workers": 1,
+  "temperature": 0.0,
+  "timeout": 180,
+  "max_attempts": 2,
+  "retry_backoff_cap": 8,
+  "router_max_tokens": 128,
+  "solver_max_tokens": 2048,
+  "reviewer_max_tokens": 2048
+}

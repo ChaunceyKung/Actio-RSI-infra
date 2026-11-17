@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-13",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Li and Youyou are wandering in the basement, they see a suitcase, a backpack, and a storage locker, they find a hat in the suitcase, Youyou leaves the basement, Xiao Li moves the hat to the storage locker.",
+      "question": "After Youyou returns to the basement, where does Xiao Li think Youyou looks for the hat?",
+      "options": [
+        "Backpack",
+        "Box",
+        "Storage locker",
+        "Suitcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "ToMBench second-order false belief. Outer thinker is Xiao Li, inner thinker is Youyou. Xiao Li made the move and knows Youyou was absent for it, so Xiao Li expects Youyou to still believe the hat is in the suitcase. The answer is the nested belief (suitcase), not the real location (storage locker)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xiao Li and Youyou are wandering in the basement, they see a suitcase, a backpack, and a storage locker, they find a hat in the suitcase, Youyou leaves the basement, Xiao Li moves the hat to the storage locker.",
+      "question": "After Youyou returns to the basement, where does Youyou look for the hat?",
+      "options": [
+        "Suitcase",
+        "Storage locker",
+        "Backpack",
+        "Basket"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Same scene, but the question asks only for Youyou's own belief, with no second mind layered on top. This is a plain first-order (false) belief; there is no nesting, so it belongs to first-order/false belief, not recursive attribution."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Xiao Li and Youyou are wandering in the basement, they see a suitcase, a backpack, and a storage locker, they find a hat in the suitcase, Youyou leaves the basement, Xiao Li moves the hat to the storage locker.",
+      "question": "Where is the hat now?",
+      "options": [
+        "Backpack",
+        "Suitcase",
+        "Storage locker",
+        "Cabinet"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Same scene, but the question asks for the real current location with no belief at all. Answering with any nested belief (suitcase) fails; the target is the physical fact (storage locker). Marks the boundary against reading mental states into a plain reality question."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Xiao Li and Youyou are wandering in the basement, they see a suitcase, a backpack, and a storage locker, they find a hat in the suitcase, Youyou leaves the basement, Xiao Li moves the hat to the storage locker.",
+      "question": "After Youyou returns to the basement, where does Youyou think Xiao Li looks for the hat?",
+      "options": [
+        "Storage locker",
+        "Suitcase",
+        "Backpack",
+        "Briefcase"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Second-order from the other direction: outer thinker Youyou, inner thinker Xiao Li. Youyou never saw the move, so Youyou wrongly assumes Xiao Li shares the original belief and looks in the suitcase. Tests recursive attribution from an uninformed perspective, where the answer (suitcase) diverges from where Xiao Li actually looks (storage locker)."
+    }
+  ]
+}

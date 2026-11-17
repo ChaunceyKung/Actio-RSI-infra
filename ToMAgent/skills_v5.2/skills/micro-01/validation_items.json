@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-01",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Hong and Xiao Fang watch other children play on the playground. They chat and discuss going to the park after school. Suddenly, Xiao Hong gives Xiao Fang a look and looks in the direction of the swing. Then Xiao Hong smiles at Xiao Fang. Xiao Fang nods, and the two stand up.",
+      "question": "To answer 'Why does Xiao Hong smile at Xiao Fang?', which variable must you identify first?",
+      "options": [
+        "The intention behind the action",
+        "The real physical location of an object",
+        "A vague-quantity estimate",
+        "A moral blame judgment"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From a ToMBench Ambiguous Story (intention item). Routing names the target variable before solving the scene: the question is about why she smiled, so the variable is the intention behind the action. The job here is only to point the question at intention recognition, not to decide which reading is correct."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Xiaogang and Xiaoming are in the bedroom and find cabbage in the handbag. Xiaoming leaves the bedroom. While he is away, Xiaogang moves the cabbage to the backpack.",
+      "question": "What kind of variable does 'Where does Xiaoming look for the cabbage?' test?",
+      "options": [
+        "A character's belief about a location",
+        "A character's emotion",
+        "A persuasion strategy",
+        "A fairness judgment"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From a ToMBench False Belief (location) story. Routing identifies the lens: the question targets where Xiaoming believes the cabbage is, so the variable is a character's belief about a location. Naming the category routes the item to first-order belief without yet computing the answer."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Xiaogang and Xiaoming are in the bedroom and find cabbage in the handbag. Xiaoming leaves the bedroom. While he is away, Xiaogang moves the cabbage to the backpack.",
+      "question": "After Xiaoming returns to the bedroom, where does Xiaoming look for the cabbage?",
+      "options": [
+        "Briefcase",
+        "Suitcase",
+        "Backpack",
+        "Handbag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Same ToMBench scene, but this prompt asks for the substantive answer, not the variable. The task is to solve the scene, so it exits routing and hands off to first-order belief: Xiaoming holds the outdated belief that the cabbage is in the handbag. The surface looks routable, but the requested output is the scene answer, which is why it is a near miss for routing."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Jianning and Mingkai are co-captains and still need one more team member. Mingkai winks at Jianning, looks at Taotao, then turns his head and smiles at Jianning. Jianning nods and prepares to choose Taotao.",
+      "question": "What kind of task is 'Which explanation best fits why Mingkai smiled at Jianning?'",
+      "options": [
+        "Comparing competing explanations",
+        "Belief attribution",
+        "Evidence ranking",
+        "Action prediction"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From a ToMBench Ambiguous Story (intention item). This is still a routing decision, but the correct route points outward: the prompt asks which of several readings best fits, so routing should hand the item to explanation competition rather than keep it. It is a boundary case because the routing output is a referral, not a variable label."
+    }
+  ]
+}

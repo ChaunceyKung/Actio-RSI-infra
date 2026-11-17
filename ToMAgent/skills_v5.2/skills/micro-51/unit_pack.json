@@ -1,0 +1,100 @@
+{
+  "frontmatter_description": "Diagnose when a disagreement is resolved by BOTH sides adjusting their terms to build a jointly acceptable plan, versus one side influencing the other.",
+  "title": "Negotiation, Concession, and Joint Plan",
+  "use_when": [
+    "Use when two parties each hold a real stake in the outcome and the answer is the shape of the compromise both can accept.",
+    "Use when the best move requires giving up or trading something on BOTH sides, not just convincing one side.",
+    "Use when the scene asks for a split, swap, or middle plan that leaves each party with part of what they wanted."
+  ],
+  "do_not_use_when": [
+    "Do not use when only one side wants something and the other is merely a target to be moved or convinced; that is persuasion, even if the speaker offers a sweetener.",
+    "Do not use when the task is to judge whether a split or exchange is fair rather than to reach a deal; that is fairness evaluation.",
+    "Do not use when one person is choosing among their own competing goals with no second party adjusting; that is goal-conflict arbitration.",
+    "Do not use when the central problem is a power gap and the move is command, permission, or deference; that is choosing a communication move across a power gap (the power-navigation / hierarchical-communication capability)."
+  ],
+  "decision_variable": "whether BOTH parties adjust their terms (bilateral concession) to form a joint plan, or only one side is moved",
+  "trigger_checklist": [
+    "There are two parties whose wants conflict.",
+    "Each party holds a stake the other must accommodate, so neither can simply be talked out of it.",
+    "There is a tradeable or divisible dimension (time, money, tasks, turns, scope) to swap or split.",
+    "The accepted outcome leaves BOTH sides changed: each gives something and gets something."
+  ],
+  "workflow": [
+    "State each party's interest and identify what each one will NOT give up versus what is flexible.",
+    "Test directionality: does only one party want a change (the other is a target)? If yes, route to persuasion and stop.",
+    "Find the tradeable or divisible dimension where the two interests can be swapped or split.",
+    "Construct a concession from EACH side that meets enough of both interests (I give X, you give Y).",
+    "Confirm the plan is jointly acceptable: each party is left better than no deal, and neither has simply submitted. Pick that option over any 'I win' or 'just convince them' option."
+  ],
+  "special_case": {
+    "title": "A sweetener is not a concession",
+    "rule": "An offer of payment, a favor, or a reward to get one's own way is still one-way persuasion, because the other party's underlying want is bought off, not accommodated. It becomes negotiation only when BOTH parties hold a stake in the outcome and BOTH change their terms to reach it.",
+    "worked_example": {
+      "scene": "Xiao Ming needs Xiao Qiang's computer tonight, but Xiao Qiang has plans to game with friends. Option: 'You game elsewhere tonight, and you get my computer all day tomorrow.'",
+      "question": "Is this negotiation or persuasion?",
+      "answer_logic": "Only Xiao Ming wants a change; the original frame is one-sided ('how does Xiao Ming get the computer'). Offering milk tea or a reward is a sweetener that buys Xiao Qiang off, so it stays persuasion. It would be negotiation only if both held a genuine stake and both shifted terms to land a shared plan."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to persuasion if only one side wants the change and the other is being moved, paid, or convinced; offering a reward does not make it bilateral.",
+    "Exit to fairness/reciprocity if the task is to judge whether a distribution or exchange is fair, not to design a deal.",
+    "Exit to goal-conflict arbitration if a single person is weighing their own competing goals with no second party adjusting.",
+    "Exit to choosing a communication move across a power gap (the power-navigation / hierarchical-communication capability) if the live issue is a status gap and the move is command, permission, escalation, or deference."
+  ],
+  "references": {
+    "route_signal": "Route here when a scene asks how two parties, each with a real stake, swap or split a tradeable dimension so both end up with part of what they wanted.",
+    "hard_boundary": [
+      "Bilateral adjustment is mandatory: both parties must change terms. One-way influence (even with a reward attached) is persuasion, not negotiation.",
+      "The target is the structure of the deal (who gives and gets what), not a verdict on whether an existing split is fair (that is fairness and reciprocity).",
+      "Two distinct parties are required; a single agent balancing their own goals is goal-conflict arbitration, not negotiation."
+    ],
+    "shortcut_to_avoid": [
+      "Do not treat every disagreement as negotiation; most persuasion stories have only one party who wants the change.",
+      "Do not count an offer of payment, milk tea, or a favor as a concession; a sweetener buys the other off and stays one-way.",
+      "Do not pick the option that fully wins for one side; negotiation needs a mutually acceptable middle.",
+      "Do not answer from a fairness verdict; the diagnostic is whether both sides change terms, not whether a split looks fair."
+    ],
+    "common_failure_modes": [
+      "Labeling a one-way persuasion scene as negotiation because the speaker offers a reward or alternative.",
+      "Choosing the 'I get exactly what I want' option instead of the mutually acceptable plan.",
+      "Missing the tradeable dimension (time, turns, scope) that lets both sides give and get.",
+      "Confusing a fairness judgment about a split with the act of negotiating that split."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Xiao Hong wants the amusement park; Dad objects to the noise; she suggests going to a park or zoo instead so everyone is happy.",
+        "why_it_matches": "NOT negotiation -> persuasion. The frame is one-way ('how does Xiao Hong persuade her dad'); offering an alternative is a concession-flavored persuasion move, not two parties each shifting terms over a shared stake."
+      },
+      {
+        "case": "Two teammates both want the single conference slot; one agrees to present later if the other prepares the slides and handles setup.",
+        "why_it_matches": "IS negotiation. Both hold a real stake in the slot, and both change terms over a tradeable dimension (timing for labor), leaving each with part of what they wanted."
+      }
+    ],
+    "boundary_stress_test": [
+      "If one side gives in and the other does not move at all, it is persuasion or compliance, not negotiation.",
+      "If a reward or favor is offered to get one's own way, the frame is still one-sided -> persuasion.",
+      "If the question is 'was this split fair?' rather than 'what deal do they strike?', route to fairness.",
+      "If a lone person is weighing their own competing goals, route to goal-conflict arbitration."
+    ],
+    "generalization_note": "Generalizes to any two-party exchange where the diagnostic is reciprocal concession toward a shared plan, across friendships, work, family, and resource conflicts. The decisive test is always directionality: two genuine stakes plus mutual adjustment, versus one party being moved."
+  },
+  "validation_seed": {
+    "positive_pattern": "Two parties each hold a real stake, a tradeable dimension exists, and the best answer is a plan where each gives something and gets something.",
+    "near_miss_pattern": "Only one party wants the change and offers an alternative or reward; the other is a target to be persuaded, with no reciprocal stake or adjustment.",
+    "boundary_pattern": "The task is to judge whether a split or exchange is fair, not to reach a deal, so route to fairness evaluation rather than negotiation."
+  },
+  "notes": [
+    "Keep the unit narrow: diagnose bilateral concession between two parties, not general agreement, persuasion, or fairness.",
+    "The primary confusion is persuasion; the decisive test is directionality (two stakes + mutual adjustment vs one party moved)."
+  ],
+  "id": "micro-51",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Find compromise, trades, and mutually acceptable plans under disagreement",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

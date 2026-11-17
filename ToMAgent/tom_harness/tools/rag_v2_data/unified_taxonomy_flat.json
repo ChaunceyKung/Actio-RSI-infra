@@ -1,0 +1,644 @@
+{
+  "_meta": {
+    "description": "Flat unified taxonomy of 43 ToM task categories. Used for KB tagging and query routing.",
+    "version": "1.0"
+  },
+  "categories": [
+    {
+      "name": "False Belief Task",
+      "description": "Reasoning about another's belief when they lack access to a state change (classic content/location false belief).",
+      "cogtom_subcategories": [
+        "False Belief Task: Content",
+        "False Belief Task: Location"
+      ],
+      "tombench_tasks": [
+        "False Belief Task"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "False Belief Task: Content",
+        "story": "Xiaogang found a handbag in the bedroom, with the label on it being cabbage. Xiaogang couldn't see what was inside the handbag, so he opened it and found the hat. There was no cabbage in the handbag, so Xiaogang closed it and put it back in its original place. Xiaoming entered the bedroom and saw the handbag.",
+        "question": "After Xiaoming opened his handbag, what did Xiaogang expect to find inside?"
+      }
+    },
+    {
+      "name": "2nd-Order False Belief",
+      "description": "Reasoning about A's belief about B's belief; nested mental-state attribution.",
+      "cogtom_subcategories": [
+        "2nd-Order False Belief"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "2nd-Order False Belief",
+        "story": "Joe and Anna are setting the table for the holiday dinner in the restaurant. Anna accidentally spilled water on Joe's new shirt while pouring water for him. Anna placed the water cup on the table and left the restaurant to search for tissues. After Anna left, Joe took out a handkerchief and wiped his shirt and table dry. Anna secretly saw Joe's movements through the crack in the door, so she didn't bring back any tissues and returned to the restaurant.",
+        "question": "Before Anna returned to the restaurant, Joe thought Anna would think the shirt was in what condition?"
+      }
+    },
+    {
+      "name": "Unexpected Outcome",
+      "description": "Inferring emotion or belief when the actual outcome differs from the expected outcome.",
+      "cogtom_subcategories": [
+        "Unexpected Outcome Task"
+      ],
+      "tombench_tasks": [
+        "Unexpected Outcome Test"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Unexpected Outcome Task",
+        "story": "Xiaogang and Xiaoming were strolling in the bedroom when they saw handbags, briefcases, and backpacks. They found cabbage inside the handbags. The two of them left the bedroom, and after a while, Xiaogang returned to the room first. He didn't find any cabbage in his handbag, and eventually found that the cabbage had been moved by Xiaohong into his briefcase. Xiaogang moved the cabbage to the backpack. Later, Xiaoming also returned to the bedroom.",
+        "question": "Where will Xiaogang look for cabbage after Xiaoming returns to the bedroom?"
+      }
+    },
+    {
+      "name": "Double Bluff",
+      "description": "Reasoning where a speaker tells the truth expecting the listener to disbelieve it.",
+      "cogtom_subcategories": [
+        "Strange Story: Double Bluff"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Double Bluff",
+        "story": "During the war, the Blue Army captured a member of the Red Army. They wanted him to tell them where the Red Army tanks were, as they knew they were either by the sea or in the mountains. The prisoner replied, 'In the sea.' So, the blue army went to the mountains to search for tanks.",
+        "question": "Why did the Blue Army go to the mountains to search for tanks?"
+      }
+    },
+    {
+      "name": "Misattribution",
+      "description": "Identifying when a character incorrectly attributes a mental state or cause to another.",
+      "cogtom_subcategories": [
+        "Naturalistic Story: Misattribution",
+        "Naturalistic Story: Misattribution "
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Naturalistic Story: Misattribution",
+        "story": "David was drinking whiskey on the plane, and the bumpy takeoff caused the whiskey to spill on his forehead. When he wiped the wine with a handkerchief, the flight attendant saw this behavior and asked him if he wanted to turn on the air conditioning.",
+        "question": "Why did the flight attendant say that to David?"
+      }
+    },
+    {
+      "name": "Reader Knowledge Awareness",
+      "description": "Tracking what an external observer knows versus what the characters know.",
+      "cogtom_subcategories": [
+        "Aware of Reader’s Knowledge Task"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Aware of Reader’s Knowledge Task",
+        "story": "You live in the North China region. Entering winter, it snows. You need to write a letter to your pen pal and share your experience of building a snowman.",
+        "question": "You need to write a letter to Susan who lives in high latitude areas. How should you mention 'snow' in the letter?"
+      }
+    },
+    {
+      "name": "Scalar Implicature",
+      "description": "Pragmatic inference from weaker scalar terms (e.g. 'some' implying 'not all').",
+      "cogtom_subcategories": [
+        "Scalar Implicature Task"
+      ],
+      "tombench_tasks": [
+        "Scalar Implicature Test"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Scalar Implicature Task",
+        "story": "Tim knew that almost all the letters he wrote to Laura's company contained checks. Laura received 5 letters today.",
+        "question": "After Laura called Tim, how many of these 5 letters did Tim think contained checks?"
+      }
+    },
+    {
+      "name": "See-Know",
+      "description": "Inferring an agent's knowledge from their perceptual access: who saw it knows it.",
+      "cogtom_subcategories": [
+        "See-Know Task"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "See-Know Task",
+        "story": "You and Kazuha are sitting in the room, where Ayaka, Shogun, and Yoimiya are also present. Ayaka, Shogun, and you are watching Kazuha while Yoimiya is sleeping. Kazuha showed you a picture with a maple tree and said there was a treasure hidden under it. At this moment, Shogun left the house and Kokomi walked in to face Kazuha with you. Kazuha showed you another picture with a cherry tree, saying that there is also treasure under this tree.",
+        "question": "Who has as much information as you?"
+      }
+    },
+    {
+      "name": "Synesthetic Fallacy",
+      "description": "Detecting reasoning errors that confuse properties across sensory modalities.",
+      "cogtom_subcategories": [
+        "Synesthetic Fallacy Problem"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Synesthetic Fallacy Problem",
+        "story": "Rain stick is a traditional musical instrument originating from South America, which uses a sun dried hollow bamboo stem. After hollowing out the middle, it is filled with fine particles such as seeds and sand and sealed. By repeatedly reversing it, it emits a sound similar to rain. Now you are using a rain stick in front of a blind person and a deaf person.",
+        "question": "What do blind people most likely think happened?"
+      }
+    },
+    {
+      "name": "Novelty-Familiarity Attention",
+      "description": "Reasoning about attention allocation based on familiarity vs novelty of stimuli.",
+      "cogtom_subcategories": [
+        "Familiary-focus of Attention"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Familiary-focus of Attention",
+        "story": "On a winter vacation evening, Wang Lei, Liu Ting, and Xiao Ming were playing with toys at home together. They first played with the first novel toy - an electric car, and then played with the second novel toy - a puzzle together. At this moment, Wang Lei said, 'I have something to do and need to leave the room,' and then closed the door before leaving. Liu Ting said, \"Oh, he's gone, it's okay, let's play together.\" Liu Ting and Xiao Ming played with the third novel toy - a colored paintbrush. After playing, they placed all three toys on a plate on the table. At this moment, Wang Lei came back and looked at the three toys in the tray, excitedly saying, \"Oh, look! Look at that toy!\" and \"Xiao Ming, can you pass it to me",
+        "question": "What is Xiaoming most likely to do?"
+      }
+    },
+    {
+      "name": "Knowledge-Attention Links",
+      "description": "How an agent's attentional focus determines what they come to know.",
+      "cogtom_subcategories": [],
+      "tombench_tasks": [
+        "Knowledge-Attention Links"
+      ],
+      "example": {
+        "source": "ToMBench",
+        "task": "Knowledge-Attention Links",
+        "story": "One holiday night, Liu Xiao, Chen Feng, and Xiao Fang play toys together at home. They first play the first novel toy - a maze ball, then they play the second novel toy - an electronic piano together. At this time, Liu Xiao says, \"I have something to do and need to leave the room\", and he leaves after closing the door. Chen Feng says, \"Oh, he leaves, it doesn't matter, we play together.\" Chen Feng and Xiao Fang play the third novel toy - a model airplane together. After playing, they put all three toys in a plate on the table. At this time, Liu Xiao comes back, looks at the three toys in the tray, and excitedly says, \"Oh, look! Look at that toy!\", \"Xiao Fang, can you pass it to me?\"",
+        "question": "What does Xiao Fang most likely do?"
+      }
+    },
+    {
+      "name": "Percepts-Knowledge Links",
+      "description": "How perceptual access (seeing, hearing) determines what an agent knows.",
+      "cogtom_subcategories": [],
+      "tombench_tasks": [
+        "Percepts-Knowledge Links"
+      ],
+      "example": {
+        "source": "ToMBench",
+        "task": "Percepts-Knowledge Links",
+        "story": "Yoyo and Li Lei are wandering in the basement. They see backpacks and briefcases, and inside the backpack, they find carrots. Li Lei leaves the basement, and Yoyo moves the carrots to the briefcase.",
+        "question": "What does Li Lei see in the briefcase?"
+      }
+    },
+    {
+      "name": "Twin Disagreement",
+      "description": "Resolving conflicting preferences between two similar agents in shared situations.",
+      "cogtom_subcategories": [
+        "Twin Disagreement Problem"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Twin Disagreement Problem",
+        "story": "Luna and Lluvia are twins, and today is their birthday. Dad thinks we can go eat pizza, Mom wants to cook for them at home. Mom and Dad asked for Luna and Lluvia's opinions, Luna wanted to eat hotpot, while Lluvia wanted to eat steamed fish.",
+        "question": "What would Luna do if she were given the final choice?"
+      }
+    },
+    {
+      "name": "Persuasion Story",
+      "description": "Reasoning about persuasive intent, attempted influence, and its uptake.",
+      "cogtom_subcategories": [
+        "Persuasion Story Task",
+        "Strange Story: Persuade"
+      ],
+      "tombench_tasks": [
+        "Persuasion Story Task"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Persuasion Story Task",
+        "story": "Zhang San and Li Si are college roommates. Today is the weekend, it's rare to take a break, and they don't know where to play. Zhang San proposed to go to an amusement park, and he really wants to go. However, Li Si is worried that there are too many people.",
+        "question": "How can Zhang San persuade Li Si to go to the amusement park?"
+      }
+    },
+    {
+      "name": "Multiple Desires",
+      "description": "Reasoning about one agent's multiple, possibly conflicting, simultaneous wants.",
+      "cogtom_subcategories": [
+        "Multiple Desires Task"
+      ],
+      "tombench_tasks": [
+        "Multiple Desires"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Multiple Desires Task",
+        "story": "Emma is the head of a software development team and has always dreamed of introducing new technologies to improve the team's efficiency. However, her team recently received a new major project that needs to be completed as soon as possible. The client is willing to pay additional fees to ensure the project is completed as a priority. Therefore, Emma has decided to temporarily abandon the plan to introduce new technology and spare no effort to complete this major project.",
+        "question": "What will Emma do after completing this big project?"
+      }
+    },
+    {
+      "name": "Yummy-Yucky",
+      "description": "Recognizing that another agent's preference may differ from one's own.",
+      "cogtom_subcategories": [
+        "Yummy-yucky Task"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Yummy-yucky Task",
+        "story": "You and Ayaka sit in the room, and she tastes the food in front of you one by one. She ate the carrot with a look of disgust on her face and said, \"It's so bad!\" Then she ate the broccoli, showing a happy expression and saying, \"It's delicious!\" Finally, she tasted the cookie and showed a painful expression again, saying, \"It's not good!\" After a while, she reached out her hand to you and said, \"Please give me a little more",
+        "question": "You really enjoy eating cookies, but dislike eating broccoli and carrots. What food would you hand her?"
+      }
+    },
+    {
+      "name": "Discrepant Desires",
+      "description": "Two agents wanting different, incompatible things in the same situation.",
+      "cogtom_subcategories": [],
+      "tombench_tasks": [
+        "Discrepant Desires"
+      ],
+      "example": {
+        "source": "ToMBench",
+        "task": "Discrepant Desires",
+        "story": "Li Hua is a person who is passionate about outdoor adventures, and he goes hiking or camping every weekend. He always seeks fresh and exciting experiences. Wang Fang, a quiet librarian, spends her weekends in a quiet library, reading and organizing books. She likes a calm and orderly environment. This weekend, Li Hua invites Wang Fang to go out for the weekend.",
+        "question": "Where does Li Hua plan to spend the weekend with Wang Fang?"
+      }
+    },
+    {
+      "name": "Appearance-Reality",
+      "description": "Distinguishing what an object looks like from what it actually is.",
+      "cogtom_subcategories": [
+        "Strange Story: Appearance/Reality"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Appearance/Reality",
+        "story": "Today, DeKai wants to go to the amusement park to swing on the swings. But she knew that to go to the amusement park, she had to pass by Mr. Wang's house. Mr. Wang's house has a fierce dog, and every time DeKai passes by his house, the dog jumps to the gate and barks incessantly. This made Dekai very scared, she hated walking past the house because of that annoying dog. But DeKai really wants to play on the swing. Dekai's mother asked her, \"Do you want to go to the amusement park?\" Dekai replied, \"No.",
+        "question": "Dekai really wants to go to the amusement park to play on the swings, why doesn't she want to go?"
+      }
+    },
+    {
+      "name": "Affective Perspective-Taking",
+      "description": "Inferring another's emotional perspective in a given situation.",
+      "cogtom_subcategories": [
+        "Affective Perspective-Taking Task"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Affective Perspective-Taking Task",
+        "story": "Xiaohong was supposed to help her club prepare for this event, but she went to visit a friend instead.",
+        "question": "How would Xiaohong's friends feel?"
+      }
+    },
+    {
+      "name": "Hidden Emotions",
+      "description": "Reasoning about emotions that are deliberately concealed or suppressed.",
+      "cogtom_subcategories": [
+        "Test of Emotion Comprehension: Hidden Emotions"
+      ],
+      "tombench_tasks": [
+        "Hidden Emotions"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Test of Emotion Comprehension: Hidden Emotions",
+        "story": "Lily just had her hair cut. The barber cut too much hair, it looks silly. Lily's friends at school mocked her and told her that she looked like a hedgehog. Lily tried to pretend she didn't mind.",
+        "question": "What is Lily's true feeling?"
+      }
+    },
+    {
+      "name": "Moral Emotions",
+      "description": "Emotions tied to moral judgments such as guilt, pride, or shame.",
+      "cogtom_subcategories": [
+        "Test of Emotion Comprehension: Moral Emotions"
+      ],
+      "tombench_tasks": [
+        "Moral Emotions"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Test of Emotion Comprehension: Moral Emotions",
+        "story": "Emily found a book she really wanted to read in the library, but found that it had already been borrowed. Emily saw a book next to it with a cover very similar to the book and thought it was the same book, so she took it away. After returning home, Emily found that it was a different book, but she was too lazy to return it. Meanwhile, Kate is busy working in the library and knows that this book belongs to a blind person who is waiting for it. Kate was recently scammed by a blind man she didn't know. She noticed that Emily had taken the wrong book, but she chose not to tell her.",
+        "question": "What emotions does Emily feel when she realizes she took the wrong book and decides not to return it?"
+      }
+    },
+    {
+      "name": "Emotion Regulation",
+      "description": "Strategies and mechanisms by which an agent manages its emotional state.",
+      "cogtom_subcategories": [
+        "Test of Emotion Comprehension: Emotion Regulation"
+      ],
+      "tombench_tasks": [
+        "Emotion Regulation"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Test of Emotion Comprehension: Emotion Regulation",
+        "story": "Xiaohong and Xiaofang are watching other children play on the playground. They talked about some interesting things that happened on the playground and discussed going to the park together after school. Suddenly, Xiaohong signaled to Xiaofang and looked at Xiaomei on the swing. Then, Xiaohong smiled at Xiaofang again. Xiaofang nodded and the two walked towards Xiaomei. Xiaomei saw these two unfamiliar girls walking towards her. She noticed that they had exchanged glances and smiles before. Although the three of them were in the same class, Xiaomei had never spoken to them before.",
+        "question": "What will Xiaomei do next to maintain emotional stability?"
+      }
+    },
+    {
+      "name": "Belief-Based Emotions",
+      "description": "Emotions caused by what an agent believes, even if the belief is mistaken.",
+      "cogtom_subcategories": [
+        "Test of Emotion Comprehension: Belief Based Emotions"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Test of Emotion Comprehension: Belief Based Emotions",
+        "story": "Luna and Lluvia are a pair of twins who have raised a kitten together. Today Luna found that the kitten was missing. She searched all day but couldn't find it, thinking that the kitten was lost. In fact, it was Lluvia who took the kitten to the pet hospital for a routine check-up without informing Luna.",
+        "question": "What is Luna's mood at this moment?"
+      }
+    },
+    {
+      "name": "Memory-Based Emotions",
+      "description": "Emotions triggered by recalled past events or experiences.",
+      "cogtom_subcategories": [
+        "Test of Emotion Comprehension: Memory Based Emotions"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Test of Emotion Comprehension: Memory Based Emotions",
+        "story": "Xiaohua's little dog got lost, and before that, she often played pet balls with her little dog. Today, one year later, Xiaohua found a pet ball on the shelf while shopping in the store, and she felt very sad.",
+        "question": "Why does Xiaohua feel sad?"
+      }
+    },
+    {
+      "name": "Situation-Based Emotion Knowledge",
+      "description": "Mapping situations (typical or atypical) to the emotional reactions they elicit.",
+      "cogtom_subcategories": [
+        "Situation-based Emotion Knowledge Task: Typical",
+        "Situation-based Emotion Knowledge Task: Atypical"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Situation-based Emotion Knowledge Task: Typical",
+        "story": "Xiaoming saw their class's little dog \"Dou Dou\" on the playground, with eyes smiling like crescent moons, jumping and jumping over.",
+        "question": "Why did Xiaoming have such a reaction?"
+      }
+    },
+    {
+      "name": "Contrary Emotions",
+      "description": "Two opposing emotions experienced simultaneously by the same agent.",
+      "cogtom_subcategories": [
+        "Strange Story: Contrary Emotions"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Contrary Emotions",
+        "story": "Zhang Ming was promoted at work, but his good friend Zhao Lei did not. Zhang Ming went to find Zhao Lei. Zhang Ming said to Zhao Lei, 'I know you've been working hard!'. After returning home, Zhang Ming said to his sister, \"I'm really sad, but I finally got what I wanted",
+        "question": "Why is Zhang Ming both happy and sad?"
+      }
+    },
+    {
+      "name": "Discrepant Emotions",
+      "description": "Two agents feeling differently about the same situation or event.",
+      "cogtom_subcategories": [],
+      "tombench_tasks": [
+        "Discrepant Emotions"
+      ],
+      "example": {
+        "source": "ToMBench",
+        "task": "Discrepant Emotions",
+        "story": "Xiao Hong is supposed to help her club prepare for this event, but she goes to visit a friend instead.",
+        "question": "What kind of emotion does the club member have?"
+      }
+    },
+    {
+      "name": "Harmful Intention",
+      "description": "Identifying intent to harm and reasoning about its expected consequences.",
+      "cogtom_subcategories": [
+        "Expanding Tasks: Harmful Intention"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Expanding Tasks: Harmful Intention",
+        "story": "Xiao Wang is in the hospital duty room, and the doctor asked him to add a \"supplementary fluid\" to the infusion bottle.",
+        "question": "Which of the following four situations does the harm of Xiao Wang's intention and outcome differ?"
+      }
+    },
+    {
+      "name": "Accomplice Intention",
+      "description": "Reasoning about intent to aid, assist, or abet another's plan.",
+      "cogtom_subcategories": [
+        "Expanding Tasks: Accomplice"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Expanding Tasks: Accomplice",
+        "story": "Emily found a book she really wanted to read in the library, but found that it had already been borrowed. Emily saw a book next to it with a cover very similar to the book and thought it was the same book, so she took it away. After returning home, Emily found that it was a different book, but she was too lazy to return it. Meanwhile, Kate is busy working in the library and knows that this book belongs to a blind person who is waiting for it. Kate was recently scammed by a blind man she didn't know. She noticed that Emily had taken the wrong book, but she chose not to tell her.",
+        "question": "What kind of intention could Emily's behavior be?"
+      }
+    },
+    {
+      "name": "Action Prediction",
+      "description": "Predicting what an agent will do based on their mental states.",
+      "cogtom_subcategories": [
+        "Expanding Tasks: Action Prediction",
+        "Behavioral Re-enactment Procedure"
+      ],
+      "tombench_tasks": [
+        "Prediction of Actions"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Expanding Tasks: Action Prediction",
+        "story": "Dongdong and Xixi are repairing cars in the park, preparing to go on an outing this weekend. They have been discussing where to play, but neither of them has come up with a good idea. At this moment, Nannan passed by, and Dongdong called Nannan to come and see the car they were repairing. Upon seeing their interaction, Nan Nan walked over.",
+        "question": "What does Dongdong want to do?"
+      }
+    },
+    {
+      "name": "Hinting",
+      "description": "Recognizing indirect speech acts that imply a request or desire.",
+      "cogtom_subcategories": [
+        "Hinting Task"
+      ],
+      "tombench_tasks": [
+        "Hinting Task Test"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Hinting Task",
+        "story": "After a long and hot highway trip, George arrived at Angela's office. Angela immediately started discussing some business ideas. George interrupted Angela and said, \"Sigh, I've gone through a long and hot highway trip",
+        "question": "What does George really mean by this sentence?"
+      }
+    },
+    {
+      "name": "Figure of Speech",
+      "description": "Interpreting idiomatic or non-literal language.",
+      "cogtom_subcategories": [
+        "Strange Story: Figure of Speech"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Figure of Speech",
+        "story": "Emma is coughing. She had been coughing throughout lunchtime. Dad said, \"Poor Emma, you must have a frog in your throat",
+        "question": "Why did dad say that?"
+      }
+    },
+    {
+      "name": "Discrepant Intentions",
+      "description": "Two agents intending different goals or actions in the same situation.",
+      "cogtom_subcategories": [],
+      "tombench_tasks": [
+        "Discrepant Intentions"
+      ],
+      "example": {
+        "source": "ToMBench",
+        "task": "Discrepant Intentions",
+        "story": "In a coffee shop, Lisa, as a waitress, accidentally bumps into the coffee cup on the edge of the table in the midst of her busy work, and the coffee splashes onto Bob's company contract, but Lisa is unaware. Bob is right next to the counter paying the bill and does not see the contract is ruined, and the shop owner happens to see this scene, but he chooses not to tell Bob, because Bob's rude attitude towards the waitress just now makes him very angry. After Bob leaves, the shop owner tells Lisa about the mistake she unintentionally makes just now, and Lisa only then knows that she accidentally ruins Bob's important document.",
+        "question": "What is the possible intention behind Lisa's behavior?"
+      }
+    },
+    {
+      "name": "Completion of Failed Actions",
+      "description": "Inferring the intended action from an incomplete or failed execution.",
+      "cogtom_subcategories": [],
+      "tombench_tasks": [
+        "Completion of Failed Actions"
+      ],
+      "example": {
+        "source": "ToMBench",
+        "task": "Completion of Failed Actions",
+        "story": "Zhang Wei is a diligent college student, he is studying in the library for the upcoming exam. Suddenly, he receives an urgent call from his good friend Li Hua, Li Hua needs help solving a difficult math problem. Zhang Wei is happy to help, but he also realizes that time is pressing, the exam is less than two days away. While he is helping Li Hua, his other friend Wang Fang sends a message, inviting him to a birthday party tonight. Zhang Wei knows this party is important to Wang Fang, but he also knows he needs to study.",
+        "question": "After Zhang Wei helps Li Hua solve the math problem, what does he do next?"
+      }
+    },
+    {
+      "name": "Faux-pas Recognition",
+      "description": "Detecting socially inappropriate remarks said without awareness of their impact.",
+      "cogtom_subcategories": [
+        "Faux-Pas Recognition Test"
+      ],
+      "tombench_tasks": [
+        "Faux-pas Recognition Test"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Faux-Pas Recognition Test",
+        "story": "Last Friday, the entire fifth grade class participated in a Chinese composition competition. Xiaoming really wants to win first place in this competition. The results of the competition were announced, and Xiaohong won the competition. On that day, Xiaoming happened to be on leave and did not go to school. On Monday during class, Xiaohong was the first to see Xiaoming and said, \"Xiaoming, I've read your essay pretty well, but it's a bit regretful.\" Xiaoming was surprised when he heard it and said, \"What do you mean? Can you explain it more clearly?\" Xiaohong looked at Xiaoming and said, \"Oh, it's nothing. Let's go to class",
+        "question": "If so, which sentence is inappropriate?"
+      }
+    },
+    {
+      "name": "Humor",
+      "description": "Understanding jokes and what makes them funny.",
+      "cogtom_subcategories": [
+        "Humor Task",
+        "Strange Story: Joke"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Humor Task",
+        "story": "In the psychological clinic, the patient nervously said to the doctor, \"Doctor, I think I have delusions",
+        "question": "The doctor looked at the patient and said seriously, \""
+      }
+    },
+    {
+      "name": "Lie and White Lie",
+      "description": "Distinguishing lies, including socially-motivated white lies.",
+      "cogtom_subcategories": [
+        "Strange Story: Lie",
+        "Strange Story: White Lie"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Lie",
+        "story": "One day, while playing at home, Lily accidentally knocked over and broke her mother's favorite crystal vase. Oh, Mom will definitely be angry if she finds out! Therefore, when Lily's mother came home and saw the broken vase and asked Lily what had happened, Lily said, \"The dog knocked it over, it's not my fault",
+        "question": "Why does Lily say that?"
+      }
+    },
+    {
+      "name": "Sarcasm",
+      "description": "Recognizing speaker intent opposite to the literal meaning.",
+      "cogtom_subcategories": [
+        "Strange Story: Sarcasm"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Sarcasm",
+        "story": "Zhang Yang and Li Ming are going on a picnic. This is Li Ming's idea. He said today is a good day for a picnic. But just as they opened the food packaging, it started raining from the sky, and soon they were all soaked. Zhang Yang is very sad. She said, 'Oh, yes, a great day for a picnic!'",
+        "question": "Why did Zhang Yang say that?"
+      }
+    },
+    {
+      "name": "Forgetfulness in Narrative",
+      "description": "Reasoning about characters who have forgotten relevant information.",
+      "cogtom_subcategories": [
+        "Strange Story: Forget"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Forget",
+        "story": "Xiaohong and Xiaoming are classmates. Today at school, the other classmates in Xiaohong class were all at school, and Xiaoming, who usually doesn't like to talk, was sick at home. After school, Xiaohong came home. His mother asked him, \"Are all the people in your class at school today?\" Xiaohong replied, \"Yes, Mom.",
+        "question": "Why does Xiaohong say that?"
+      }
+    },
+    {
+      "name": "Pretend Play Reasoning",
+      "description": "Reasoning about pretend or imitative behavior, especially when shaped by what the agent knows or has experienced.",
+      "cogtom_subcategories": [
+        "Strange Story: Pretend",
+        "Sarah Task"
+      ],
+      "tombench_tasks": [
+        "Knowledge-Pretend Play Links"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Strange Story: Pretend",
+        "story": "Zhuoying, Yichun, and Yating are good friends. Yichun has never seen a phone call, Zhuoying has never seen a banana, and Yating has seen both. At this moment, my mother brought a fruit platter, which contained apples, bananas, and pears.",
+        "question": "If Zhuoying picks up a banana from the fruit tray and puts it to her ear, what is the reason?"
+      }
+    },
+    {
+      "name": "Jealousy",
+      "description": "Reasoning about envy-driven mental states and their behavioral effects.",
+      "cogtom_subcategories": [
+        "Expanding Tasks: Jealousy"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Expanding Tasks: Jealousy",
+        "story": "Xiaohua's cousin was admitted to a prestigious university, and the whole family had a dinner to celebrate. Xiaohua smiled and said to his cousin, \"Congratulations! You'll be a busy person from now on, and you won't have time to play with us ordinary people anymore.\" Afterwards, Xiaohua spent the whole night playing with his phone. When asked about his studies, he said, \"I don't have that talent, just hang around",
+        "question": "What was Xiaohua's true emotion when he spent the whole night playing on his phone and said 'just hang out'?"
+      }
+    },
+    {
+      "name": "Flattery",
+      "description": "Recognizing insincere praise and reasoning about its underlying motivation.",
+      "cogtom_subcategories": [
+        "Expanding Tasks: Flattery"
+      ],
+      "tombench_tasks": [],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Expanding Tasks: Flattery",
+        "story": "At the company's quarterly summary meeting, the actual ranking of departmental performance was only average. But Xiao Li publicly said in his speech, \"It's all thanks to Director Wang's insightful strategic layout that we were able to achieve such outstanding results this time! Your leadership is definitely the benchmark for the entire company",
+        "question": "What is the main purpose of Xiao Li's public praise?"
+      }
+    },
+    {
+      "name": "Ambiguous Story",
+      "description": "Interpreting stories that admit multiple valid readings of intent or emotion.",
+      "cogtom_subcategories": [
+        "Ambiguous Story Task"
+      ],
+      "tombench_tasks": [
+        "Ambiguous Story Task"
+      ],
+      "example": {
+        "source": "CogToM",
+        "subcategory": "Ambiguous Story Task",
+        "story": "Xiaohong and Xiaofang are watching other children play on the playground. They talked about some interesting things that happened on the playground and discussed going to the park together after school. Suddenly, Xiaohong signaled to Xiaofang and looked in the direction of the swing. Then, Xiaohong smiled at Xiaofang again. Xiaofang nodded and the two of them stood up afterwards. Xiaomei sat on the swing and noticed the facial expressions of Xiaohong and Xiaofang interacting.",
+        "question": "Why is Xiaohong smiling at Xiaofang?"
+      }
+    }
+  ]
+}

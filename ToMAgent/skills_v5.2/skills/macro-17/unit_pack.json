@@ -1,0 +1,116 @@
+{
+  "frontmatter_description": "Route directly to this macro when an offense or harm has already happened and the scene asks how to acknowledge it, apologize, make amends, and restore the relationship.",
+  "title": "Apology, Compensation, and Reconciliation",
+  "use_when": [
+    "Use when a hurtful act, insult, exclusion, betrayal, broken promise, or accidental damage has ALREADY occurred and someone is now hurt or angry.",
+    "Use when the task is to choose the best repair move: acknowledge the harm, apologize, offer concrete amends or compensation, and reassure that it will not recur.",
+    "Use when the right answer must restore trust and continued interaction, not merely state facts or win the point.",
+    "Use when the scene is a live repair attempt by the person who caused (or is associated with) the harm."
+  ],
+  "do_not_use_when": [
+    "Do not use when no real harm has occurred yet and the task is to clarify a live misunderstanding before anyone is hurt; that is pre-damage clarification, where the move is to restate intent, not to apologize.",
+    "Do not use when the only question is WHETHER (or which sentence) something inappropriate was said; that is detecting an offense, a judgment task, not performing the repair.",
+    "Do not use when both sides are bargaining over terms or building a joint plan from conflicting preferences; that calls for trading concessions, not making amends.",
+    "Do not use when the central evidence is a long history of trustworthiness, reputation, or loyalty rather than a single offense to repair right now.",
+    "Do not use when the scene is mainly about managing one's image, first impression, or formal etiquette with no relationship injury to mend."
+  ],
+  "decision_variable": "given that harm has occurred, which repair move (acknowledgement, apology, amends, prevention) is proportional to the injury and best restores the relationship",
+  "direct_route_rule": "Route immediately when an offense or harm has already happened and the scene asks how to apologize, make amends, or restore the relationship.",
+  "expandable_micro_ids": [
+    "micro-42",
+    "micro-43",
+    "micro-48",
+    "micro-49"
+  ],
+  "trigger_checklist": [
+    "A specific person was hurt, excluded, insulted, embarrassed, betrayed, or let down by an act that has already happened.",
+    "The actor (or someone responsible) must now decide how to respond to repair the bond.",
+    "The scene is about restoring the relationship, not establishing the facts or winning an argument.",
+    "A repair gesture is expected: admitting the harm, expressing remorse, making restitution, and/or promising changed behavior.",
+    "The best answer is the one that most credibly reopens trust and continued interaction."
+  ],
+  "workflow": [
+    "Confirm real harm actually occurred and identify WHO was harmed. If no one is hurt and it is only a misread or a still-correctable misunderstanding, do not apologize; clarify intent instead.",
+    "Gauge the severity of the harm and the actor's degree of responsibility (deliberate, careless, or accidental; minor slight or serious betrayal). This sets how much repair is owed.",
+    "Acknowledge the harm explicitly and from the victim's point of view, before any explanation. Naming the impact ('I hurt you / I damaged this') must come first.",
+    "Apologize sincerely and take responsibility; do not defend, justify ('I was only being honest'), or shift blame, which deepens the rupture.",
+    "Add amends proportional to the injury: concrete restitution or compensation for material harm, reassurance and changed behavior for emotional harm, and a credible step to prevent recurrence for repeated or serious harm.",
+    "Calibrate the size of the repair to the injury: do not over-repair a trivial slight (which looks insincere) nor under-repair a serious wound with a hollow apology and no amends.",
+    "Return the option that combines acknowledgement + apology + proportional amends and most plausibly restores trust and ongoing interaction."
+  ],
+  "special_case": {
+    "title": "Repair after accidental harm",
+    "rule": "When the harm was accidental, lighter blame language is fine, but the repair move is still primary: acknowledge the damage, apologize, and offer to make it right. An accident does not excuse skipping the apology or the amends; denying or minimizing it (e.g., blaming someone else) makes the rupture worse.",
+    "worked_example": {
+      "scene": "A friend accidentally knocks over and breaks another friend's favorite mug, and the friend is clearly upset.",
+      "question": "What should the person do next?",
+      "answer_logic": "Real harm occurred and the friend is the victim (step 1); it was an accident but the actor is responsible (step 2); so acknowledge the damage from the friend's view, apologize sincerely, and offer to replace the mug or otherwise make it right (steps 3-5). Denying it ('the dog did it'), or explaining it away without an apology or replacement, fails because it leaves the relationship unrepaired."
+    }
+  },
+  "boundary_exit_rule": [
+    "If no harm has happened yet and the scene is a still-fixable misunderstanding, treat it as pre-damage clarification: restate what was actually meant to prevent harm, rather than apologizing for harm that has not occurred.",
+    "If the only question is whether, or which sentence, someone said something inappropriate, that is detecting an offense (a judgment about what happened), not repairing it; answer the detection question and do not jump to an apology move.",
+    "If both sides are negotiating terms, concessions, or a shared plan from conflicting preferences, the task is to find a mutually acceptable trade-off, not to make amends for an injury.",
+    "If the decisive evidence is a long record of trustworthiness, reputation, or loyalty across many interactions, the task is judging the relationship over time, not executing a single repair now.",
+    "If the core issue is managing image, formality, or rank-sensitive self-presentation with no relationship injury, the task is impression management, not reconciliation after offense."
+  ],
+  "references": {
+    "route_signal": "An offense or harm has already happened, someone is hurt, and the scene asks how to apologize, compensate, or make things right.",
+    "hard_boundary": [
+      "If no one has actually been harmed yet, there is nothing to repair and this is not the right scene.",
+      "If the task is only to clarify what someone meant before any damage, restating intent (not apologizing) is the move.",
+      "If the task is only to judge whether an offense occurred, answer that judgment; do not perform a repair.",
+      "If the task is reaching a mutually acceptable trade-off, that is bargaining, not making amends."
+    ],
+    "shortcut_to_avoid": [
+      "Do not lead with an explanation or excuse when the harm has not yet been acknowledged from the victim's side.",
+      "Do not offer a bare 'sorry' with no amends when the injury is real enough to require restitution or changed behavior.",
+      "Do not treat the response as routine politeness; the relationship is now in a damaged state that must be actively restored.",
+      "Do not apologize at all when nothing was actually harmed; that misreads a clarification or a non-event as an offense."
+    ],
+    "common_failure_modes": [
+      "Apologizing or over-repairing when no real harm occurred (e.g., treating a mere misunderstanding or a correct statement as an offense).",
+      "Giving a hollow apology with no concrete amends when the harm clearly calls for restitution or changed behavior.",
+      "Misjudging severity: under-repairing a serious wound, or over-repairing a trivial slight so the apology looks insincere.",
+      "Defending, justifying ('I was just being honest'), or shifting blame instead of acknowledging the harm and repairing it.",
+      "Confusing the repair task with merely detecting that an offense occurred, or with negotiating terms."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A person bluntly insults a friend's gift, the friend is visibly hurt, and the person must choose how to respond.",
+        "why_it_matches": "Real harm has occurred and the task is to repair it; the right move is to acknowledge the hurt, apologize, and make it right."
+      },
+      {
+        "case": "A person reads a story and is asked only whether anyone said something inappropriate, or which sentence was inappropriate.",
+        "why_it_matches": "This is detecting that an offense occurred, a judgment about what happened, not the live repair of a damaged relationship, so it belongs to the offense-detection scene, not here."
+      }
+    ],
+    "boundary_stress_test": [
+      "If no offense or hurt has actually happened, do not route here even if the words 'sorry' or 'mistake' appear.",
+      "If the question is only whether or which line was inappropriate, that is offense detection, not repair.",
+      "If the apology language is present but the real question is how to split costs, concessions, or a plan, that is negotiation.",
+      "If a misunderstanding is still correctable before anyone is harmed, the move is clarifying intent, not apologizing."
+    ],
+    "generalization_note": "This macro covers repair behavior after damage: acknowledgement, apology, restitution or compensation, reassurance, and prevention. It applies to any scene whose primary goal is to restore a relationship AFTER an offense or harm has occurred, with the repair calibrated to the severity of that harm."
+  },
+  "validation_seed": {
+    "positive_pattern": "An offense or harm has clearly occurred and the question asks which repair response (acknowledge + apologize + proportional amends) best restores the relationship.",
+    "near_miss_pattern": "A story is presented and the question only asks whether, or which sentence, was inappropriate; this is detecting an offense, not repairing it.",
+    "boundary_pattern": "No real harm has occurred (a minor misread or a still-fixable misunderstanding), so a full apology is not warranted and the move is to clarify intent."
+  },
+  "notes": [
+    "Keep the unit router-friendly: this macro fires only AFTER damage, to repair it; not for detecting offenses or for pre-damage clarification.",
+    "Micro expansions are only for diagnosis (faux-pas recognition, blame apportionment, privacy-breach naming, repair-act selection); the macro itself should solve the scene directly.",
+    "The canonical answer logic is acknowledgement plus the repair move that is proportional to the severity of the harm, neither over- nor under-repairing."
+  ],
+  "id": "macro-17",
+  "level": "macro",
+  "layer": "macro",
+  "family": "apology-compensation-and-reconciliation",
+  "core_question": "how to acknowledge, compensate, and restore interaction after relationship damage",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

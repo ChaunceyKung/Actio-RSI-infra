@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-55",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming receives a bicycle on his birthday.",
+      "question": "What is Xiao Ming's emotion?",
+      "options": [
+        "Embarrassed",
+        "Happy",
+        "Disappointed",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Unexpected Outcome Test (Emotion: Typical emotional reactions; story 'Xiao Ming receives a bicycle on his birthday'). Real item, gold preserved. The answer is the default reaction to a normal positive event, decided by typicality with no twist and no observed sample, which is exactly this unit."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "SYNTHETIC. At a conference, 90 attendees are engineers and 10 are poets. Jordan is described as quiet, precise, and always carrying a notebook.",
+      "question": "Who is Jordan more likely to be?",
+      "options": [
+        "An engineer",
+        "A poet",
+        "Either is equally likely",
+        "Impossible to tell"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC (classic base-rate vignette; no dedicated base-rate task exists in ToMBench). The notebook description is representative, not diagnostic, so the strong 90-to-10 base rate makes engineer more likely. Tests resisting base-rate neglect."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "SYNTHETIC. A clinic usually expects flu and cold cases to be about equal. Today a test run observes 8 flu positives out of the first 10 samples from the waiting room.",
+      "question": "Should the estimate of today's flu cases be revised upward from the original guess?",
+      "options": [
+        "Yes, based on the newly observed sample",
+        "No, keep the original guess exactly",
+        "Only because flu is more typical in general",
+        "Not enough information because no one is sick"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC near-miss for the primary confusion. A specific sample was observed and must move the estimate, so the core operation is updating on observed data, which belongs to the quantity-update-after-observation skill, not base-rate typicality. Distractor C wrongly invokes general typicality (this unit) when fresh data is the real driver."
+    },
+    {
+      "id": "case_4",
+      "pattern": "near_miss",
+      "scene": "SYNTHETIC. A school newsletter says, 'Most students turned in the form on time.'",
+      "question": "What does 'most' mean here?",
+      "options": [
+        "More than half",
+        "Exactly half",
+        "Less than half",
+        "Almost none"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC near-miss for the vague-quantity neighbor. The task is decoding the quantifier word 'most' into an approximate range, not comparing category likelihoods, so it routes to the vague-quantity interpretation skill."
+    }
+  ]
+}

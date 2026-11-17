@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-18",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Two roommates want the only quiet study room on Saturday. One has an online exam from 9 to 12. The other wants the room all day to finish a presentation.",
+      "question": "What is the best plan?",
+      "options": [
+        "Give the room to the exam-taker from 9 to 12, then let the other roommate use it afterward.",
+        "Tell the exam-taker to study elsewhere so the presentation gets the room all day.",
+        "Split the day exactly in half, even though the exam has a fixed start time.",
+        "Ignore both requests and choose whoever asked first."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic, benchmark-style positive (no ToMBench task models a mutual-concession bargaining process). A true negotiated plan: the exam-taker concedes the afternoon and the presenter concedes the morning, so BOTH give something and each keeps its must-have. The wrong options either hand a one-sided win (B), split blindly against a fixed time constraint (C), or ignore the interests entirely (D)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Mei is a 6-year-old. It is Saturday and her parents have free time. Mei really, really wants to go to the amusement park today. But her dad objects: 'That is not a good idea. I think the amusement park is very noisy.'",
+      "question": "How can Mei best persuade her dad to go to the amusement park?",
+      "options": [
+        "Mei can look up information showing that modern amusement parks take many noise-reduction measures, such as soundproof walls and quieter equipment.",
+        "Mei can tell her dad she has not been to the amusement park for a long time and it is a very special wish for her.",
+        "If dad really does not want the amusement park, Mei can suggest somewhere else, like a park or zoo, so everyone is happy.",
+        "Mei can suggest: 'How about we go early in the morning or on a weekday? I hear there are fewer people then, so it would be quieter and we avoid the peak crowds.'"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (idx 1, gold B): one-way persuasion. Mei's goal (the amusement park) stays fixed and she concedes nothing; the task is to find the appeal that moves her dad, and the benchmark answer is the heartfelt appeal that her long-held wish matters to her. Option C is a genuine compromise that abandons her goal, so it is NOT the persuasion answer here. This teaches the boundary: negotiation needs BOTH sides to give, whereas this scene only moves the listener while the speaker's goal is unchanged."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Jun is a TV-drama fan who loves suspense and crime series. His roommate Lan is a loyal reality-show fan who finds those programs close to life and relaxing. Over TV choices, Jun has always given way to Lan. Tonight they sit together with only one TV, and Jun says he wants to watch what HE wants for once.",
+      "question": "What type of TV program do Jun and Lan most likely watch together that night?",
+      "options": [
+        "Challenge obstacle-course reality show",
+        "Suspense crime TV drama",
+        "Exciting knowledge quiz program",
+        "News report on criminal cases"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires (idx 1, gold B): a preference-conflict decision, NOT a negotiation. The question asks only which single outcome results given who yields tonight, with no exchange of concessions or constructed joint plan. The answer is read off the desires (Jun finally asserts his suspense-crime preference), not bargained out. This teaches the boundary: picking the winning outcome among conflicting wants is judged by the result, whereas this macro models a back-and-forth where BOTH sides trade concessions."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Two coworkers both want Friday off. One has a family event that cannot move. The other wants a long weekend and is flexible about which Friday they take.",
+      "question": "Which agreement best fits the situation?",
+      "options": [
+        "Give both people Friday off and leave the team short-staffed.",
+        "Make them split the day evenly, even though one need is fixed all day.",
+        "Deny both requests because only one person can ever be absent.",
+        "Let the person with the family event take this Friday, and offer the other coworker a different Friday or shift swap."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "Synthetic, benchmark-style positive (no ToMBench task models a back-and-forth bargain). Both sides adjust: the one with the fixed family event keeps this Friday, while the flexible coworker moves to a different Friday and accepts a shift swap as compensation. Tests the wrong shortcut of equal splitting (B) when one side's need is fixed and the other's is flexible, plus the failures of granting both (A) or denying both (C)."
+    }
+  ]
+}

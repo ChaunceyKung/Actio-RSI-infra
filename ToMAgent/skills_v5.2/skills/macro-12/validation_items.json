@@ -1,0 +1,69 @@
+{
+  "unit_id": "macro-12",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "All fifth-graders enter a composition contest. Leo desperately wants first place but is absent the day results come out, so he does not learn that Hana won. On Monday Hana, the winner, is first to greet him and says: \"Leo, I read your composition, it's not bad, just a bit of a shame.\" Leo, startled, asks: \"What do you mean?\" Hana says: \"Oh, it's nothing, let's get to class.\" Hana does not know how badly Leo wanted to win.",
+      "question": "Does anyone say something inappropriate in this story?",
+      "options": [
+        "Someone in the story says something inappropriate.",
+        "No one in the story says something inappropriate."
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (idx 1, gold A). Classic faux pas: the winner's offhand 'a bit of a shame' wounds the absent rival, and she would not have said it if she knew how much he wanted to win. Speaker ignorance plus a hurtful remark equals a faux pas, even with no bad intent."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Same composition contest, same absent rival. This time the winner, Hana, greets Leo on Monday and says: \"Leo, the teacher graded everyone's compositions yesterday; I saw yours and I think you write really well.\" Leo smiles: \"Thanks for the compliment.\" Hana replies: \"You're welcome, you write great, keep it up.\"",
+      "question": "Does anyone say something inappropriate in this story?",
+      "options": [
+        "Someone says something inappropriate in the story.",
+        "No one says anything inappropriate in the story."
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (idx 1, gold B). The control twin of the faux-pas story: the same setup but the remark is an encouraging compliment that hurts no one. The skill must answer 'no faux pas' here and not manufacture offense just because a rivalry exists."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Aunt Mei visits her nephew Danny, whom he adores. Today she wears a new hat that Danny privately thinks is ugly and makes her look silly; her old hat was much nicer. When Aunt Mei asks, \"Do you like my new hat?\", Danny says, \"Oh, it looks lovely.\"",
+      "question": "Does Danny tell the truth?",
+      "options": [
+        "Yes.",
+        "No."
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Strange Story Task white-lie item (idx 1, gold B). Near-miss boundary: a kind, tactful white lie that protects the listener's feelings. Nothing hurtful or embarrassing is said, so there is no faux pas at all; the only live question is whether the statement is literally true, which is a deception/truthfulness matter, not an offense-detection one."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "First day at a new school. Sam tells his deskmate, \"My mom works here; she's one of the cafeteria ladies.\" His deskmate nods. Another classmate, Priya, walks over and says, \"I think the food in our cafeteria is really tasty.\" Sam smiles: \"Yes, my mom cooks well.\" The deskmate then asks Priya to go to the arcade after school, and she happily agrees.",
+      "question": "Does anyone say something inappropriate in this story?",
+      "options": [
+        "Someone says something inappropriate in the story.",
+        "No one says anything inappropriate in the story."
+      ],
+      "labels": [
+        "A",
+        "B"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (idx 1, gold B). Control case the model must not over-read: it has the ingredients of the classic faux-pas twin (a child's parent works in the cafeteria, a remark about cafeteria staff) but every line is neutral or kind. The skill must resist hallucinating a faux pas where no one is hurt and no ignorant, wounding remark occurs."
+    }
+  ]
+}

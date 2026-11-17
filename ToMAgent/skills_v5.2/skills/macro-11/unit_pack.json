@@ -1,0 +1,115 @@
+{
+  "frontmatter_description": "Direct-route macro for deciding what a character does NEXT when a standing commitment, plan, promise, or in-progress task competes with a new opportunity or interruption.",
+  "title": "Commitments, Plans, and Next Action",
+  "use_when": [
+    "Use when the scene asks what the character does next, given that a prior commitment, plan, promise, appointment, or already-started task is in place.",
+    "Use when an interruption, invitation, request, or new opportunity arrives before the planned or in-progress action is finished, and the question is which action happens next.",
+    "Use when the answer turns on priority among actions of one agent: continue, resume, defer, decline, or switch, decided by what was promised, what is underway, social obligation, and time pressure.",
+    "Use when, after the character handles an interruption, you must predict whether the original task resumes or is set aside."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks what a gesture, glance, hint, or topic shift MEANS, or what the character WANTS or is signaling; reading the purpose behind an indirect cue is a nonverbal-intention problem, not a next-action-under-commitment problem.",
+    "Do not use when two or more people must agree on a shared choice and the puzzle is whose preference wins or how to split conflicting wants; that is a preference-conflict / joint-allocation problem.",
+    "Do not use when the next step is driven by a simple dominant desire and the deal or detour that satisfies it, with no prior promise, duty, or in-progress task; tracking how a plain want gets satisfied is a desire-drives-action problem.",
+    "Do not use when the core task is how to phrase a refusal or persuade a listener, or whether something was rude or embarrassing; those are communication and social-offense problems."
+  ],
+  "decision_variable": "what the character does next when an existing commitment, plan, or in-progress task competes with a new opportunity or interruption",
+  "direct_route_rule": "Route immediately when one agent already has a commitment, plan, or started task, a competing event appears, and the question asks for the concrete next action (continue, resume, defer, decline, or switch).",
+  "expandable_micro_ids": [
+    "micro-08",
+    "micro-21",
+    "micro-23",
+    "micro-24",
+    "micro-25"
+  ],
+  "trigger_checklist": [
+    "A prior commitment, plan, promise, appointment, or in-progress task is already established before the new event.",
+    "A new invitation, request, interruption, or opportunity appears before that planned or started action is finished.",
+    "The question asks for the next concrete action, not what the character wants, feels, or is hinting at.",
+    "The correct answer depends on whether the character continues, resumes, defers, declines, or switches.",
+    "Priority is set by what was promised, what is underway, social obligation, and time pressure rather than by simple liking."
+  ],
+  "workflow": [
+    "Name the standing commitment or in-progress task: what was promised, scheduled, or already started, and how far along it is.",
+    "Name the competing event: the interruption, request, invitation, or new opportunity, and exactly when it must be acted on (now vs. later).",
+    "Weigh priority along four axes: an explicit promise or duty outranks a casual want; an already-started task carries continuation pressure; social obligation to a waiting person matters; time pressure or a deadline can force the order.",
+    "Check whether the original commitment is still live or has been discharged: if someone credibly takes it over or it is genuinely finished, it no longer competes and the character is freed to take the new option.",
+    "Predict the single concrete next action. If the interruption is now handled and the original task is still unfinished and uncovered, the character RESUMES it; do not silently drop a commitment the scene implies continues.",
+    "Confirm the chosen action answers 'what does the character DO next', not 'what does the character want' and not 'how should this be phrased'."
+  ],
+  "special_case": {
+    "title": "Resume after an interruption, unless relief is arranged",
+    "rule": "When a character is pulled away from a started task or a standing plan, the default next action after the interruption is to resume that task or plan. The exception is when the scene shows the commitment is genuinely covered (someone reliable takes it over) or already complete, in which case the character is free to take the new opportunity.",
+    "worked_example": {
+      "scene": "Maya is halfway through preparing slides for a meeting she promised to lead when a friend texts asking to grab coffee right now. No one else can cover the slides.",
+      "question": "What does Maya do next?",
+      "answer_logic": "The slides are an in-progress, promised task and no relief is arranged, while the coffee is only a fresh, deferrable opportunity, so she keeps preparing the slides and defers the coffee. Had a reliable colleague offered to finish the slides, the commitment would be covered and going for coffee would become the predicted next action."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question asks what a glance, gesture, hint, or topic shift MEANS, or what the character WANTS or is trying to get someone to do, treat it as reading the purpose behind an indirect cue (a nonverbal-intention problem); infer the intended meaning of the signal rather than ranking competing actions.",
+    "If two or more people must settle on a shared plan and the puzzle is whose preference should win or how to balance conflicting wants, treat it as a preference-conflict / joint-allocation problem; model each person's preference and find the choice that best reconciles them, not a single agent's next step.",
+    "If the next step is set by a simple dominant desire plus the deal or detour that satisfies it, with no prior promise, duty, or started task, treat it as a desire-drives-action problem; follow how the plain want gets fulfilled through the chain of options.",
+    "If the core task is choosing polite wording for a refusal or delay, or persuading a listener, treat it as a communication problem; pick the phrasing that fits the listener and goal rather than deciding which action happens.",
+    "If the question is whether something was rude, embarrassing, or offensive, treat it as a social-offense problem; judge the breach and any repair rather than the next action.",
+    "If the answer hinges on who can see or reach what from where, treat it as a spatial-perspective problem; reason about viewpoint and access rather than action priority."
+  ],
+  "references": {
+    "route_signal": "The character already has a plan, promise, appointment, or task underway, and a new option appears that could interrupt or redirect them; the question asks what they DO next.",
+    "hard_boundary": [
+      "Reading what a gesture, glance, or hint means, or what the character wants or is signaling",
+      "Settling a shared choice among two or more people's conflicting preferences",
+      "A simple dominant desire satisfied through a deal or detour, with no prior commitment",
+      "Choosing polite wording, persuading a listener, or judging rudeness or offense"
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer what the character wants or is hinting at when the question asks what they will do next.",
+      "Do not reflexively continue the started task: check whether relief was arranged or the task is already finished before deciding.",
+      "Do not over-focus on the appealing new opportunity and silently drop a standing promise or in-progress task the scene implies resumes.",
+      "Do not treat a polite invitation as a binding order, or a scheduling question as a question of general preference."
+    ],
+    "common_failure_modes": [
+      "Confusing what the character WANTS or is signaling with what they will actually DO next.",
+      "Dropping the original commitment when the scene clearly implies it resumes after the interruption is handled.",
+      "Ignoring an explicit promise, duty, or already-started task and answering with the most appealing option instead.",
+      "Reflexively defaulting to 'continue the task' even when the scene shows someone reliable has taken it over or it is already done."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A friend is cooking dinner when a movie invitation arrives; a sibling offers to take over the cooking, and the question is what the friend does next.",
+        "why_it_matches": "A standing in-progress task competes with a new invitation and the question asks the next concrete action; because the cooking is credibly covered, the commitment is discharged and going to the movie is the resolved next step."
+      },
+      {
+        "case": "During an argument over a trip destination, a character glances at a friend's snow-mountain guidebook and then steers the talk toward snow-mountain photography; the question asks what that character wants.",
+        "why_it_matches": "This is a near miss: it asks the purpose behind an indirect cue, not the next action under a competing commitment, so it belongs to the nonverbal-intention scene rather than here."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the new opportunity is tempting but the old commitment is an explicit promise and no relief is arranged, this macro still applies and the answer favors the commitment.",
+      "If the scene shows a reliable person taking over the started task, this macro still applies but the next action flips to taking the new opportunity, because the commitment is now covered.",
+      "If the question asks what a look, hint, or topic shift means or what the character wants, leave this macro for the nonverbal-intention scene.",
+      "If the puzzle is whose preference wins among several people with no prior plan, leave this macro for the preference-conflict scene."
+    ],
+    "generalization_note": "This macro mirrors everyday planning behavior: people resume promises, schedules, and in-progress tasks after an interruption unless a new event is genuinely more urgent or the original task has been covered or completed."
+  },
+  "validation_seed": {
+    "positive_pattern": "One agent has an active plan, promise, or started task; a competing invitation or interruption appears; the answer is the concrete next action, including whether the interrupted task resumes.",
+    "near_miss_pattern": "The scene shows a gesture, glance, or topic shift and asks what the character WANTS or is signaling, which is reading the purpose behind a cue rather than the next action under a commitment.",
+    "boundary_pattern": "A simple dominant desire is satisfied through a deal or detour with no prior commitment, so the next step is driven by the want itself rather than by a standing plan or promise."
+  },
+  "notes": [
+    "Keep the answer focused on the next concrete action and on whether the interrupted task resumes, not on broad motivation analysis.",
+    "The decisive checks are: is there a prior commitment or in-progress task, and has it been covered, finished, or overridden before the new option is taken.",
+    "This macro stays routable for direct next-action questions even when the scene also contains mild social nuance, as long as the question is about doing, not about meaning or wording."
+  ],
+  "id": "macro-11",
+  "level": "macro",
+  "layer": "macro",
+  "family": "commitments-plans-and-next-action",
+  "core_question": "what a character does next when existing commitments compete with a new opportunity",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

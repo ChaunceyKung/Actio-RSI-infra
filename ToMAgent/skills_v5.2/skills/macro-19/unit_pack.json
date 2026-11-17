@@ -1,0 +1,118 @@
+{
+  "frontmatter_description": "Route here when the scene is about curating the image one presents to an audience, choosing what to disclose and in what register, in a first impression or formal interaction.",
+  "title": "First Impression, Self-Presentation, and Formal Interaction",
+  "use_when": [
+    "Use when the main task is to curate the image one presents of oneself to an audience.",
+    "Use when the scene centers on a first impression, a self-introduction, etiquette, or a formal first meeting.",
+    "Use when the answer depends on choosing what to disclose or withhold, in what order, and in what register to build the intended impression.",
+    "Use when the live decision is how formal, polished, warm, or reserved to seem so the presentation fits the audience and occasion."
+  ],
+  "do_not_use_when": [
+    "Do not use when the goal is to change the listener's belief or behavior by giving them reasons, offers, or incentives, since that is one-way persuasion about the other party, not curating one's own image.",
+    "Do not use when the live decision is which move to make given a status difference, such as deferring to, challenging, or reporting up or down a hierarchy.",
+    "Do not use when the main issue is apology, compensation, or reconciliation after one has caused harm.",
+    "Do not use when the main issue is bargaining over terms or reaching a mutually acceptable compromise between conflicting sides.",
+    "Do not use when the question is really about what someone hidden feels, knows, or intends rather than how one outwardly presents oneself."
+  ],
+  "decision_variable": "how to manage the image one presents to others",
+  "direct_route_rule": "Route immediately when the central decision is how the actor presents their own image to an audience: a first impression, a self-introduction, or the register and content of a formal interaction.",
+  "expandable_micro_ids": [
+    "micro-29",
+    "micro-39",
+    "micro-40",
+    "micro-50"
+  ],
+  "trigger_checklist": [
+    "A new audience or a formal occasion where the impression one makes matters.",
+    "The actor must choose how formal, polished, warm, or reserved to seem.",
+    "The question asks what to say, disclose, withhold, wear, or do to come across appropriately.",
+    "Who the audience is and what they value shapes the correct response.",
+    "The goal is to curate one's own presented image, not to move the listener's belief or to pick a move set by rank.",
+    "The scene is about the image one shows to others, not the private self behind it."
+  ],
+  "workflow": [
+    "Read the audience and the occasion: who they are, what they value, and how formal the setting is, so you know which register and content will land.",
+    "Decide what to emphasize, disclose, or withhold, and in what order, to build the impression the actor intends, for example leading with relevance and credibility rather than dumping everything at once.",
+    "Choose the register and conduct (wording, tone, level of formality and warmth) that match that audience and occasion.",
+    "Select the self-presentation move that builds the intended impression honestly, without boasting, over-disclosing, or misrepresenting who the actor is.",
+    "Answer in terms of the most fitting outward presentation choice, not the actor's hidden feelings, not a later apology, and not an attempt to argue the audience into something."
+  ],
+  "special_case": {
+    "title": "Formality is a presentation choice, not a rank problem",
+    "rule": "Stay in this scene when formality is chosen to shape how the actor comes across to an audience. Leave it when the formal setting is really about which move to make given a status difference, where the question is whether to defer to, challenge, or report up or down a hierarchy.",
+    "worked_example": {
+      "scene": "A person is meeting a future employer for the first time and wants to come across as professional and trustworthy.",
+      "question": "How should they greet the employer?",
+      "answer_logic": "Read the audience and occasion (a formal first meeting with someone evaluating them), then choose a greeting that is warm but concise and respectful, leading with relevance rather than over-disclosing. The decision turns on curating one's own first impression, so this scene type fits directly."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the goal is to change the listener's belief or behavior by giving them reasons, offers, or incentives, treat it as one-way persuasion: find the argument or offer that actually moves the other party, rather than asking how the speaker comes across.",
+    "If the live decision is which move to make given a status difference (whether to defer to, push back on, or report up or down a hierarchy), solve it as power-gap communication, weighing rank and standing, not as image curation.",
+    "If the main issue is repairing harm one has caused (apology, making amends, restoring a relationship after an offense), solve it as a repair problem focused on accountability, not self-presentation.",
+    "If the main issue is bargaining over terms (offers, concessions, or a mutually acceptable compromise between conflicting sides), solve it as a negotiation, not as managing one's image.",
+    "If the question is really about what someone hidden feels, knows, or intends, reason about that inner state directly instead of about the outward presentation shown here."
+  ],
+  "references": {
+    "route_signal": "The scene asks how to come across, what to disclose, and in what register, so the actor makes the right impression on an audience in a first meeting or formal setting.",
+    "hard_boundary": [
+      "Arguing the listener into a belief or decision is one-way persuasion, a different scene from curating one's own image",
+      "Choosing a move because of a rank or status difference is power-gap communication, not self-presentation",
+      "Apologizing and making amends after causing harm is relationship repair",
+      "Trading offers and concessions toward a compromise is negotiation"
+    ],
+    "shortcut_to_avoid": [
+      "Do not collapse impression management into persuasion: the task is how the actor comes across, not which reasons or offers would move the other party.",
+      "Do not read a self-presentation choice as deference to power just because the audience is senior; check whether the live decision is the actor's image or a rank-driven move.",
+      "Do not answer with the actor's hidden feelings or with a later apology when the question asks for the fitting outward presentation now.",
+      "Do not give a generic 'be polite' answer that ignores who the audience is and how formal the occasion is."
+    ],
+    "common_failure_modes": [
+      "Ignoring the formality of the occasion or who the audience is, and giving a one-size-fits-all polite answer",
+      "Over-disclosing or boasting, dumping the whole life story or self-praise instead of leading with what is relevant to this audience",
+      "Confusing self-presentation with persuading, and answering as if the goal were to argue the listener into a belief or action",
+      "Confusing self-presentation with deferring to power, and answering as if rank rather than image were the live decision",
+      "Answering with the actor's private attitude instead of the outward conduct the scene asks for",
+      "Misjudging the register, being too casual for a formal occasion or too stiff for a warm one"
+    ],
+    "minimal_pair": [
+      {
+        "case": "A guest meets a respected teacher for the first time and must choose how to introduce themselves to come across as respectful and capable.",
+        "why_it_matches": "The decisive variable is curating one's own first impression for a specific audience and occasion, which is exactly this scene type."
+      },
+      {
+        "case": "A worker wants a colleague to swap desks and must choose what to offer the colleague to win agreement.",
+        "why_it_matches": "Here the goal is to move the listener's decision with an offer, which is one-way persuasion about the other party, not curating one's own image, so it belongs to a different scene."
+      }
+    ],
+    "boundary_stress_test": [
+      "A formal greeting is requested, but the real decision is which move to make across a status gap, such as whether to challenge a senior.",
+      "A polished message is requested, but the real task is conceding a point to reach a compromise in a negotiation.",
+      "A first meeting is described, but the real goal is to win the other party over with reasons or offers, which is persuasion.",
+      "A poised first impression is described, but the real goal is to make amends for a prior offense.",
+      "The actor wants to look confident, but the question is actually asking what they privately feel underneath."
+    ],
+    "generalization_note": "This scene type covers reusable impression-management situations across introductions, etiquette, formal messages, interviews, and other self-presentation choices, so a matching scene routes here directly: the unifying question is always how to curate the image the actor shows to a given audience, not how to move that audience or where the actor stands in a hierarchy."
+  },
+  "validation_seed": {
+    "positive_pattern": "A first-impression or formal-interaction scene where the best move curates how the actor is perceived, such as an interview greeting or choosing how to present oneself to a new audience.",
+    "near_miss_pattern": "A power-gap communication scene, where the live decision is which move to make given a status difference (up or down a hierarchy) rather than how the actor's image comes across.",
+    "boundary_pattern": "A persuasion scene, where the goal is to change the listener's belief or behavior, distinct from managing one's own presented image."
+  },
+  "notes": [
+    "Treat this as a direct scene prototype: route here when the live question is how the actor curates their own presented image.",
+    "The key output is the best self-presentation choice for the given audience and occasion, built honestly without misrepresentation.",
+    "Use the expandable micro units only for finer diagnosis, refinement, or boundary repair, not to override the direct route.",
+    "For finer diagnosis: when a genuine feeling is masked behind a socially expected display, reason about the gap between the felt and displayed emotion; when a chosen wording's social motive matters, ask what relationship or image goal it serves; when the audience's expertise, identity, or stance matters, tailor content and register to what they already know and value; and when fine-grained self-presentation is at stake, reason step by step about what to disclose, in what order, and which identity each choice signals."
+  ],
+  "id": "macro-19",
+  "level": "macro",
+  "layer": "macro",
+  "family": "first-impression-self-presentation-and-formal-interaction",
+  "core_question": "how to manage the image one presents to others",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

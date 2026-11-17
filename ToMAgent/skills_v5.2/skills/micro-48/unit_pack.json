@@ -1,0 +1,103 @@
+{
+  "frontmatter_description": "Decide whether a piece of private, secret, or sensitive information may be told and to whom: disclosing it to someone not entitled is a breach; withholding it is appropriate.",
+  "title": "Privacy, Secrets, and Boundaries",
+  "use_when": [
+    "Use when the scene contains a specific item of private, secret, or sensitive information (a confided secret, a medical or family matter, a planned surprise, a confidential detail) and the question turns on whether saying it was appropriate.",
+    "Use when someone was told or trusted to keep something, and you must judge whether disclosing it crossed a line or whether keeping it quiet was the right call.",
+    "Use when the diagnostic pivot is the audience: this fact is fine for one circle but off-limits to another, and the question is whether the speaker leaked it to people not entitled to know."
+  ],
+  "do_not_use_when": [
+    "Do not use when the remark is awkward or rude for reasons OTHER than disclosing private information (bragging, tactlessness, a hurtful but public comment); judging whether a remark is socially inappropriate in general is broader social tact / faux pas.",
+    "Do not use when the secret has already been let out and the question is what to do next; making amends, apologizing, and rebuilding trust after a breach is relationship repair.",
+    "Do not use when the truth is being softened or withheld to spare someone's feelings about THEIR OWN thing (praising an ugly hat, an average painting); that is a kind white lie / protective concealment, not a privacy boundary.",
+    "Do not use when the point is what a remark hints at beyond its literal words; reading implied meaning is conversational implicature."
+  ],
+  "decision_variable": "whether disclosing this information to this audience crosses its privacy/secrecy boundary",
+  "trigger_checklist": [
+    "Is there a concrete item of information that is private, secret, confidential, or a planned surprise?",
+    "Did someone designate it as not-to-be-told, or is it private by default (health, family trouble, someone else's personal life)?",
+    "Does the question hinge on whether telling a particular audience was appropriate, rather than on apology, role/status, or general rudeness?",
+    "Is the boundary still intact at decision time (the choice to tell or withhold is the live issue), not already breached?"
+  ],
+  "workflow": [
+    "1. Name the specific item of information at stake (the secret, surprise, diagnosis, family matter, confidential fact).",
+    "2. Establish its boundary: who is entitled to know it? Was it explicitly entrusted ('do not tell X'), private by default, or already public?",
+    "3. Identify the actual audience the speaker disclosed it to (or would disclose it to) and check whether that audience is inside or outside the entitled circle.",
+    "4. Apply the rule: telling it to someone OUTSIDE the entitled circle is a breach / inappropriate; keeping it within that circle, or deflecting outsiders, is appropriate. A flattering or harmless-seeming detail can still be off-limits.",
+    "5. If asked WHY a disclosure was wrong, the answer is that the speaker revealed information that was private or had been entrusted as secret to people who were not supposed to hear it."
+  ],
+  "special_case": {
+    "title": "Same Information, Disclose vs Withhold",
+    "rule": "When two scenes carry the identical private fact and differ only in whether the holder spoke it to outsiders, the disclosure is the faux pas and the withholding is correct conduct. The wrongness lives in the act of telling people not entitled, not in the fact itself.",
+    "worked_example": {
+      "scene": "Xiao Gang tells Xiao Ming his mother is ill and the family wants it kept private; Xiao Ming agrees. Later, when curious classmates ask, Xiao Ming says 'Everything is normal at Xiao Gang's house.'",
+      "question": "Did anyone say something inappropriate?",
+      "answer_logic": "No one did. The information was entrusted as private, and Xiao Ming kept it inside the entitled circle by deflecting outsiders. Contrast the matched scene where the confidant instead repeats the family secret to classmates: there the disclosure to non-entitled people is the breach."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to broader social tact / faux pas if the remark is inappropriate for reasons other than leaking private info, e.g. boasting, insensitivity, or a hurtful comment about something already public.",
+    "Exit to relationship repair if the secret is already out and the question is how to apologize, explain, or rebuild trust.",
+    "Exit to kind white lies / protective concealment if truth is being softened to spare someone's feelings about their own work or gift, with no third-party secret involved.",
+    "Exit to conversational implicature if the task is to decode what a remark implies rather than whether private information should be disclosed."
+  ],
+  "references": {
+    "route_signal": "Route here when the scene names a private fact, secret, or surprise and the live question is whether telling a particular person or group was allowed.",
+    "hard_boundary": [
+      "Does not judge general rudeness or tactlessness when no private information is being disclosed; that is broader social tact / faux pas.",
+      "Does not handle what to do after a secret is already out; apology and trust repair is relationship repair.",
+      "Does not cover softening truth to protect feelings about someone's own thing with no third-party secret; that is a kind white lie."
+    ],
+    "shortcut_to_avoid": [
+      "Do not call withholding a secret a lie; keeping entrusted information private is correct conduct, not deception.",
+      "Do not assume a positive or harmless-sounding detail is safe to share; a flattering fact (an award, a happy surprise) can still be private and off-limits.",
+      "Do not jump straight to apology because a disclosure feels awkward; first decide whether the boundary was actually crossed."
+    ],
+    "common_failure_modes": [
+      "Treating any awkward remark as a privacy issue when it is really general tactlessness with no secret involved (should be general social tact / faux pas).",
+      "Marking the holder who KEEPS the secret as the offender, instead of the one who LEAKS it.",
+      "Assuming 'positive news is fine to share' and missing that a flattering detail can still be private.",
+      "Sliding into apology/repair logic when the only question is whether to disclose."
+    ],
+    "minimal_pair": [
+      {
+        "case": "A friend who was told a family's private trouble in confidence repeats it to a group of curious classmates.",
+        "why_it_matches": "A specific entrusted secret is disclosed to people outside the entitled circle, so the disclosure boundary decides it; this is this unit."
+      },
+      {
+        "case": "Identical confidence, but the friend deflects the same curious classmates and says nothing about the family.",
+        "why_it_matches": "Same private fact, withheld from outsiders; the holder acts correctly, which is the appropriate side of the same disclosure boundary (still this unit)."
+      },
+      {
+        "case": "At a party someone loudly brags about a promotion others were passed over for; nothing secret is revealed, the comment is just tactless.",
+        "why_it_matches": "The awkwardness is general insensitivity with no private information leaked, so it is broader social tact / faux pas, not this unit."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the audience is polite and curious but not entitled to know, telling them still crosses the boundary.",
+      "If the detail is flattering or happy rather than embarrassing, it can still be private and off-limits.",
+      "If the secret is already public knowledge, repeating it crosses no boundary and this unit no longer applies."
+    ],
+    "generalization_note": "The judgment is constant across friendships, family, work, and online life: who is entitled to know this item, and did the speaker tell someone outside that circle. It does not extend to general rudeness, to repairing a breach, or to softening truth about someone's own thing."
+  },
+  "validation_seed": {
+    "positive_pattern": "A scene names a private fact or entrusted secret and asks whether disclosing it to a particular audience was appropriate.",
+    "near_miss_pattern": "A scene is awkward or rude for reasons other than leaking private information, which belongs to broader social tact rather than the disclosure boundary.",
+    "boundary_pattern": "A scene where the secret is already out and the question is how to apologize or rebuild trust, which belongs to relationship repair."
+  },
+  "notes": [
+    "Keep the unit narrow: the live disclose-or-withhold decision about private/secret information.",
+    "The offender is the one who tells outsiders; the one who keeps the confidence is acting correctly.",
+    "If the case is general rudeness, aftermath repair, or kind concealment, route out."
+  ],
+  "id": "micro-48",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Determine what information may be shared and what should remain private",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

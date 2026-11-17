@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-09",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Ming, age 5, loves a toy car at the shop. His mother resists buying it, stating her specific concern: there are already enough toys at home and this car has too many parts that will be thrown around and make the house messy.",
+      "question": "How does Xiao Ming persuade his mother to buy the toy car?",
+      "options": [
+        "Mom, I promise to carefully put away each part after playing each time, so the house does not get messy.",
+        "Mom, we can donate or give away the toys I do not play with, so there will not be too many toys at home.",
+        "Dad can clean up the parts, Mom, so you do not have to worry.",
+        "Mom, I have never seen such a toy car, it is very special, I really like it."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (Desires influence on actions). The mother states one concrete objection (mess from loose parts). The winning move directly resolves THAT stated objection (a promise to put parts away) while keeping the persuader's real goal (getting the car) fixed. The generic 'it is special, I like it' appeal (D) ignores her stated concern, and reassigning the chore to Dad (C) does not credibly remove her worry. Shows the rule is to address the listener's specific objection, not to deflect or to give a generic appeal."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "Zhang San, an engineer, proposes a new software-development idea in a work report. His leader Li Si objects on specific grounds: the plan looks technically and economically hard to implement.",
+      "question": "How does Zhang San best persuade Li Si?",
+      "options": [
+        "Zhang San emphasizes how much effort he puts in and hopes Li Si supports the plan out of trust in him.",
+        "Zhang San presents successful cases of similar plans at other companies.",
+        "Zhang San tries to win Li Si over through other colleagues or channels.",
+        "Zhang San invites Li Si to take part in one key step of the plan so he experiences the process."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (Desires influence on emotions/beliefs). Here the listener's objection is about feasibility evidence, not feelings, so the calibrated move is concrete proof (successful comparable cases), NOT an emotional 'trust me' appeal (A) or going around him to other channels (C). This positive item guards against over-generalizing 'always use a personal/relationship appeal': the right appeal is whichever one answers the listener's actual stated concern."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "Li Hua loves outdoor adventure and spends every weekend hiking or camping. Wang Fang is a quiet librarian who spends weekends reading in a calm, orderly library. This weekend Li Hua invites Wang Fang to spend the weekend together.",
+      "question": "Where does Li Hua plan to spend the weekend with Wang Fang?",
+      "options": [
+        "Hiking",
+        "Library",
+        "Sports Park",
+        "Skiing"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Desires task. The two people want different things and the inviter accommodates the OTHER person's preference (the library), giving up his own goal of an outdoor adventure. That is the opposite of one-way persuasion: persuasion keeps the persuader's goal fixed and moves the listener, whereas here the actor moves himself to please the listener. Routing a 'whose goal wins / accommodate the other' scene as if it were persuasion is the core boundary error this case teaches."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Mr. Wang, the village antique appraiser, discovers his grandson Xiao Ming has taken a priceless ancient porcelain cup and plans to use it at school as an ordinary water cup. Xiao Ming's actual want is simply a cup to carry to school.",
+      "question": "How does Mr. Wang best persuade Xiao Ming to give up the porcelain cup?",
+      "options": [
+        "Brother Ming, give this cup to me, it has a lot of value.",
+        "Xiao Ming, how about I swap this Superman cup with you?",
+        "Xiao Ming, give the cup to me and you do not have to do homework today.",
+        "Xiao Ming, this cup is very precious, you had better give it to me for safekeeping."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (Desires influence on actions). The listener (a child) does not value the cup's appraised worth; he just wants a usable cup. Audience calibration means addressing what THIS listener actually cares about, so offering a swap for a cup he would like (the Superman cup) wins. Lecturing him on the cup's value (A, D) targets a value the child does not hold, and an unrelated bribe like skipping homework (C) does not meet his stated want. Boundary lesson: tailor the appeal to the specific listener's real concern, not to the objectively 'correct' reason."
+    }
+  ]
+}

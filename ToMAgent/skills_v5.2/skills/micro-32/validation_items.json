@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-32",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Fei is in the hospital after a recent tragic accident and has been feeling low and alone. His friend Xiao Gang quietly brings Xiao Fei's girlfriend to visit him at his bedside.",
+      "question": "What kind of emotion does Xiao Fei have when his girlfriend, brought by his friend, appears at his side?",
+      "options": [
+        "Thrilled",
+        "Touched",
+        "Worried",
+        "Regretful"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Discrepant Emotions (Xiao Fei hospital story, gold B). Closest real anchor for this capability: Xiao Fei's own state shifts to feeling moved because of the caring presence and warmth of others, i.e. another person's emotional gesture becomes the input to his own feeling, rather than a cold appraisal of the accident itself."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Xinxin wants to go to her friend's party tonight, but she has a stomachache. She knows that if she mentions the pain, her mother will not let her go, so she hides how she feels and acts cheerful. Her friend Lulu watches the whole exchange and quietly works out how Xinxin really feels, while staying upbeat herself.",
+      "question": "What are Xinxin's real feelings, as Lulu figures out?",
+      "options": [
+        "Sad",
+        "Scared",
+        "Happy",
+        "Disappointed"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Xinxin party story, gold A). Near miss: Lulu only identifies the concealed true feeling without being emotionally changed by it, so the task is reading a hidden emotion (micro-28), not the observer's own state being affected. It teaches that understanding another's emotion is not the same as catching it."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "James displays his painting at the school art exhibition but forgets to take it home. While cleaning, Nick mistakes the painting for trash and puts it in the discard box. When James finds it missing he is very upset and asks around. Later Nick realizes he may have mishandled James's work.",
+      "question": "What kind of emotion does Nick feel after realizing he may have mishandled James's painting?",
+      "options": [
+        "Nick possibly feels satisfied because he completes the task of cleaning the exhibition room, helping to clear useless items.",
+        "Nick possibly feels indifferent, and he indeed does not know at the time, nor does he intentionally take James's.",
+        "Nick possibly feels guilty and anxious because he unintentionally causes loss to others.",
+        "Nick possibly feels confused because he is not sure if he really handles James's painting."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Moral Emotions (James painting story, gold C). Boundary: Nick's bad feeling comes from judging himself responsible for harm, not from absorbing James's upset. The deciding variable is moral self-evaluation, so this routes to the moral-emotion capability (micro-30), not empathy or contagion."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "During a quiet meeting, one person bursts out laughing with obvious delight at a harmless slip. Within seconds several teammates are smiling and chuckling too, including people who did not even see what the slip was.",
+      "question": "Why do the teammates become more cheerful?",
+      "options": [
+        "The first person's amusement spreads through the group and lifts their mood.",
+        "Each teammate independently appraises the slip as important to their own goals.",
+        "They feel shame because they violated a workplace norm.",
+        "They are merely defining what the laughter means."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC, benchmark-style. ToMBench has no dedicated emotional-contagion task, so this slot uses a sharp constructed item: the teammates who never saw the slip cannot be appraising the event, isolating mood transmission (the spreading laughter) as the only cause. It blocks the common shortcut of attributing the feeling to the original event."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-47",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Two new students give the exact same short, quiet answer in class. The teacher reads the answer from a student in her own homeroom as thoughtful, but reads the identical answer from a student who transferred in from a rival school as evasive.",
+      "question": "What best explains why the teacher reads the two identical answers differently?",
+      "options": [
+        "In-group favor for her own homeroom and out-group suspicion toward the transfer student shape the interpretation.",
+        "The transfer student holds more formal authority in the classroom.",
+        "The transfer student has broken a specific promise to the teacher before.",
+        "The teacher is deciding whether to keep one student's information private."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC, modeled on ToMBench Ambiguous Story Task classroom scenes; no real item turns on in-group/out-group bias. Core positive: the only thing that changes is which group the student belongs to, so the swap test isolates group membership as the decisive variable."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "A senior designer and a new intern on the same project team both receive the same blunt note on their work. The intern decides the note is harsh but fair, reasoning that the person who wrote it is the team lead who outranks them.",
+      "question": "What is the main driver of the intern's interpretation?",
+      "options": [
+        "In-group favoritism toward the intern's own group.",
+        "Rank and authority between the two individuals, since the writer outranks the intern.",
+        "A stereotype attached to a rival group.",
+        "A need to keep a secret from the team."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "SYNTHETIC, modeled on ToMBench Persuasion Story Task (idx 1) senior-designer-and-intern setup; reframed so gold is synthetic. Near-miss against power, status, and role: both people sit in the SAME team, so there is no us-versus-them category. The judgment turns on who outranks whom, which is interpersonal rank, not group membership. Teaches the primary confusion explicitly."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "A neighbor says a man cannot be counted on, pointing out that he personally promised to attend the last two community meetings and skipped both with no notice.",
+      "question": "Why is the man being judged as unreliable?",
+      "options": [
+        "Because he belongs to an out-group.",
+        "Because of a stereotype about his neighborhood club.",
+        "Because of his own past actions and broken promises.",
+        "Because he holds a lower-status job than the neighbor."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "SYNTHETIC; no ToMBench item pivots on personal-history reliability versus group identity. Boundary against trust and reputation: the judgment comes from this one person's own track record, not from any group he belongs to. Deleting all group labels leaves the explanation intact, so the swap test fails and this unit does not apply."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "A teacher receives a personal note a student left behind. Even though the student is from the rival debate team, the teacher quietly returns it without reading it aloud to the class.",
+      "question": "What is the main issue in the teacher's decision?",
+      "options": [
+        "Whether the student's private information may be disclosed.",
+        "In-group favoritism toward the teacher's own group.",
+        "A stereotype-based judgment of the student.",
+        "Formal authority over the classroom."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "SYNTHETIC; no ToMBench item pivots on privacy versus group identity. Boundary against privacy and disclosure boundaries: the scene plants a group label (rival debate team) as a lure, but the decisive issue is whether to disclose private information. The group label is decorative, not the variable, so this is an overrouting trap."
+    }
+  ]
+}

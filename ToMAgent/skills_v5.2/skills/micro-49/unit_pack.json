@@ -1,0 +1,100 @@
+{
+  "frontmatter_description": "After a relationship is already damaged, pick the repair move (apology, explanation, amends, reassurance, de-escalation) that best restores the interaction.",
+  "title": "Relationship Repair and Apology",
+  "use_when": [
+    "Use when the damage has ALREADY happened (someone is hurt, offended, excluded, let down, or strained) and the question asks what to do NEXT to mend it.",
+    "Use when the answer must choose among repair moves: apologize, explain, make amends or compensate, reassure, or de-escalate the tension.",
+    "Use when the scene shows a visible aftermath (the other person is distant, cold, hurt, or pulling away) and the task is the actor's follow-up response."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question is whether the original act WAS a breach at all ('Did someone say something inappropriate? Which line was rude?'); detecting the breach is the prior step, handle it in the faux-pas / social-breach-detection skill.",
+    "Do not use when the question is WHO caused the harm or whether they are blameworthy; that is the harm-and-responsibility skill.",
+    "Do not use when the question is what the wrongdoer FEELS (guilt, remorse, shame); naming the moral emotion is a different skill from choosing the repair action.",
+    "Do not use when the issue is whether to disclose or keep a secret, or how to negotiate a joint plan, with no relationship yet damaged."
+  ],
+  "decision_variable": "the repair move that best restores the relationship after damage has already occurred",
+  "trigger_checklist": [
+    "Has damage already landed (someone is hurt, offended, excluded, disappointed, or visibly strained)?",
+    "Does the question ask 'what should they do NOW / next' rather than 'was that wrong / who is at fault'?",
+    "Are the answer options repair actions (apologize, explain, make amends, reassure, smooth over) rather than verdicts?",
+    "Is the target the relationship's restoration, not the verdict on the act or the feeling inside the actor?"
+  ],
+  "workflow": [
+    "Gate 1 - confirm the question is about the AFTERMATH. If it asks whether the act was rude/a breach, who is to blame, or what the actor feels, this is not the repair skill; route to breach-detection, harm-and-responsibility, or moral-emotion respectively.",
+    "Gate 2 - confirm damage actually occurred. If nobody is yet hurt or strained (only a worry about how a remark might land), there is nothing to repair yet.",
+    "Name the damage type and what the injured party needs: hurt feelings need acknowledgment and reassurance; a broken promise or material loss needs amends or compensation; a misunderstanding needs explanation; rising conflict needs de-escalation.",
+    "Match the repair move to that need; favor a move that ACKNOWLEDGES the other person's experience over one that defends or excuses the actor.",
+    "Pick the least costly move that would credibly restore trust, and reject options that deny the harm, re-litigate whether it was wrong, or skip straight to a new plan without addressing the strain."
+  ],
+  "special_case": {
+    "title": "Silent or indirect harm still needs repair",
+    "rule": "Repair can be the right answer even when no apology was demanded and the harm was unintended or indirect. A quiet acknowledgment, reassurance, or small make-good can be correct; 'do nothing because no one asked' is a trap.",
+    "worked_example": {
+      "scene": "Mina forgets her friend's birthday dinner. No one confronts her, but afterward the friend is noticeably distant and cool toward her.",
+      "question": "What should Mina do next to repair things?",
+      "answer_logic": "The breach is already settled — forgetting was the lapse — so the task is not to judge that lapse but to choose the repair. The friend's coldness signals hurt feelings, so Mina should acknowledge the oversight, apologize sincerely, and offer a small make-good (reschedule, a gesture). Doing nothing because no apology was demanded misses the needed repair."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question is whether the act itself was rude, inappropriate, or a breach, exit to the skill that detects whether a social breach occurred.",
+    "If the question is who caused the harm or whether they are blameworthy, exit to the harm-and-responsibility skill.",
+    "If the question is what the wrongdoer feels inside (guilt, shame, remorse), exit to the moral-emotion skill.",
+    "If no damage has occurred yet, or the issue is disclosure or negotiation with no strain, do not force repair reasoning."
+  ],
+  "references": {
+    "route_signal": "Route here when the breach is already settled and the question is which follow-up move mends the strained relationship.",
+    "hard_boundary": [
+      "Not for deciding whether a remark was inappropriate in the first place; that is detecting whether a social breach occurred (the prior step).",
+      "Not for deciding who is at fault or how blameworthy they are; that is harm and responsibility.",
+      "Not for naming the guilt or shame the wrongdoer feels; that is a moral emotion, not the repair action.",
+      "Not for whether to disclose a secret or how to negotiate; those involve no post-harm repair."
+    ],
+    "shortcut_to_avoid": [
+      "Do not pick 'do nothing / it was not technically rude' when the other person is clearly hurt; re-litigating the act is not repairing the relationship.",
+      "Do not collapse repair into mere general niceness; the move must address the specific damage that was done.",
+      "Do not jump to a new joint plan (reschedule, future arrangement) while ignoring the unacknowledged hurt."
+    ],
+    "common_failure_modes": [
+      "Answering the breach-detection question ('was it rude?') instead of the repair question ('what should they do now?').",
+      "Choosing a defensive option that argues the act was justified, instead of one that acknowledges the other's hurt.",
+      "Choosing 'do nothing' because no apology was explicitly requested, missing that indirect or unintended harm still needs repair."
+    ],
+    "minimal_pair": [
+      {
+        "case": "After Xiao Wang says his mom is a cafeteria worker, a classmate sneers that he hates the cafeteria aunties; Xiao Wang goes quiet and looks hurt. What should the classmate do now to make it right?",
+        "why_it_matches": "The breach is already done and someone is visibly hurt; the question is the repair move, so this skill applies."
+      },
+      {
+        "case": "Same cafeteria scene, but the question is only 'Did anyone say something inappropriate in this story?'",
+        "why_it_matches": "Single variable flipped: this asks whether a breach OCCURRED, not how to repair it — that is detecting a social breach, handle it in the breach-detection skill, not here."
+      }
+    ],
+    "boundary_stress_test": [
+      "Question 'Was that line rude?' or 'Which sentence was inappropriate?' -> breach detection, not this skill.",
+      "Question 'What should they do now to make it better?' with someone already hurt -> this skill.",
+      "Scene shows both an offense and a proposed fix: evaluate the repair move, ignore the temptation to re-judge the original wrong.",
+      "Question 'How bad must she feel / does she feel guilty?' -> moral emotion, not the repair action."
+    ],
+    "generalization_note": "Covers the follow-up move after harm — apology, explanation, amends/compensation, reassurance, de-escalation — and asks which best restores the relationship. It never decides whether the first act was wrong, who is to blame, or what the actor feels."
+  },
+  "validation_seed": {
+    "positive_pattern": "Damage has already landed and someone is visibly hurt; the actor must choose a repair move that acknowledges the hurt.",
+    "near_miss_pattern": "Same situation, but the question asks only whether the original act was a breach, not how to repair it.",
+    "boundary_pattern": "The scene asks who is to blame, or what the actor feels, rather than what repair move to make."
+  },
+  "notes": [
+    "Keep the unit focused on the follow-up repair move, not on detecting the breach, assigning blame, or naming the feeling.",
+    "A repair move can be verbal (apology, explanation), behavioral (make-good, compensation), or relational (reassurance, de-escalation).",
+    "The relationship's restoration is the diagnostic target; favor moves that acknowledge the other person's experience over defensive ones."
+  ],
+  "id": "micro-49",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Identify when apology, explanation, compensation, or relationship easing is needed",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

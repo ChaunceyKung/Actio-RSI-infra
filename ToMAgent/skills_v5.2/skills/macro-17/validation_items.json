@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-17",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Xiao Hua brings a new robot toy car to school to share. His classmate Xiaoming frowns and says, 'This toy car doesn't look cool at all, I have more than ten bigger and more complex robot toys at home!' Xiao Hua does not respond and his face falls. Later Xiaoming realizes he hurt Xiao Hua's feelings.",
+      "question": "What is the best thing for Xiaoming to do now?",
+      "options": [
+        "Tell Xiao Hua he is sincerely sorry for putting the toy down, that it was unkind, and that he actually thinks the car is nice",
+        "Explain that he was only stating his honest opinion about toys and that Xiao Hua should not be so sensitive",
+        "Say nothing and hope Xiao Hua forgets about it by tomorrow",
+        "Point out that his own toys really are bigger, so the comment was technically accurate"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Offense framing from ToMBench Faux-pas Recognition Test (the toy-car put-down story); real harm has occurred, so the repair move is acknowledging the hurt and apologizing, not defending the honesty of the remark (option B is the classic defend-instead-of-repair failure)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Over the weekend, Xiaofang and her mother move into a new house and buy blue curtains. After Xiaofang hangs them, she happily says to her mother: 'Mom, the new curtains look really good.' Her mother smiles and says: 'Yes, the blue matches Xiaofang's bedroom.' Later, Xiaofang's best friend Xiaolan comes over, looks at the curtains, and says: 'Oh, the color of these curtains is too ugly, I think you should buy new ones.' Xiaofang doesn't say anything, then after a while asks: 'So, do you think the other parts of my bedroom are okay?'",
+      "question": "If there is, which sentence is inappropriate?",
+      "options": [
+        "Mom, the new curtains look really good.",
+        "Oh, the color of this curtain is too ugly, I think you should buy a new one.",
+        "So, do you think the other parts of my bedroom are okay?",
+        "There is no inappropriate sentence."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (curtain story, idx 2; options and gold preserved). The question only asks WHICH sentence was inappropriate, i.e. detecting that an offense occurred, not how to repair it; the offense-detection scene is a different task from performing the apology and amends."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Mei texts her friend Lin 'See you at 7' about dinner. Lin briefly thinks Mei means 7am and is confused, but immediately texts back to ask. Mei has not yet replied, no plan has been missed, and neither friend is upset. Mei sees the question.",
+      "question": "What is the best response for Mei?",
+      "options": [
+        "Apologize at length for hurting Lin and offer to make it up to her",
+        "Simply clarify that she meant 7 in the evening",
+        "Offer to pay for Lin's dinner as compensation",
+        "Promise it will never happen again and ask Lin to forgive her"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "No real harm has occurred: it is a still-fixable misunderstanding caught before anyone is hurt, so a full apology, compensation, or plea for forgiveness all over-repair a non-injury. The correct move is to clarify the intended meaning, which distinguishes pre-damage clarification from repair after actual harm."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "At a family dinner, Jun makes a harsh comment that visibly upsets his cousin. When his aunt asks what happened, Jun says, 'I was just being honest, it's not my fault she got upset,' but he can see his cousin is hurt and the table has gone quiet.",
+      "question": "What should Jun do next?",
+      "options": [
+        "Keep insisting the comment was true and that honesty cannot be wrong",
+        "Explain that his cousin simply misread his tone, so nothing needs to change",
+        "Acknowledge that his comment hurt his cousin, apologize sincerely, and try to repair things",
+        "Drop the subject, since being honest excuses how she reacted"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Real harm has occurred and the actor is responsible. This tests the defend/justify-instead-of-repair failure mode ('I was just being honest', shift blame to the victim's reaction); the correct repair is to acknowledge the hurt, apologize, and restore the relationship rather than defend the remark's accuracy."
+    }
+  ]
+}

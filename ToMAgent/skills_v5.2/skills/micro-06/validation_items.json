@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-06",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Leo stands on the far side of a small table, facing you across it. A single gold star is painted on the tabletop. From where you are standing, the star is near the right edge of the table, closest to your right hand.",
+      "question": "From Leo's point of view, where is the star?",
+      "options": [
+        "On Leo's left",
+        "On Leo's right",
+        "Directly in front of Leo, centered",
+        "Behind Leo"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic item (no native ToMBench spatial-visibility item exists). Because Leo faces you, his left-right axis is mirrored relative to yours, so the star that sits on your right is on his left. The case is only solvable by actually performing the mirror transform; reading off your own right-hand side gives the wrong answer 'on Leo's right.'"
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "On a table there is a tall opaque cereal box. A small red eraser sits on the table directly behind the box, on the side away from Mia. Mia is seated on the near side and looks straight across the table at the box; the eraser is on the box's far side from her.",
+      "question": "From Mia's seat, what can she see?",
+      "options": [
+        "Both the box and the red eraser",
+        "The box, but the eraser is hidden behind it",
+        "Only the red eraser, not the box",
+        "Neither the box nor the eraser"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic item (no native ToMBench spatial-visibility item exists). The transform must compute occlusion from Mia's specific viewpoint: the opaque box lies on her line of sight to the eraser, so the eraser is blocked while the box is plainly visible. Knowing the eraser exists in the scene must not leak into what is visible from her position."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "A painting hangs on the wall directly in front of Omar, well within his field of view and at eye level. But the room is in total darkness because the power is out, and Omar has no light source of any kind.",
+      "question": "Can Omar see what the painting depicts?",
+      "options": [
+        "No, because there is no light reaching his eyes at all",
+        "Yes, because the painting is in front of him and unobstructed",
+        "Yes, but only the left half from his angle",
+        "No, because the painting faces the wrong way"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic near miss (no native ToMBench spatial-visibility item exists). The viewpoint geometry is perfect - nothing is occluded and the painting faces Omar - so a viewpoint transform would wrongly answer 'yes.' The deciding variable is that the visual channel is dead in the dark: this is a whole-channel failure that routes to sensory access, not a perspective computation."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "A small dated stamp is printed in the bottom corner of a poster that hangs in clear view beside Nadia's desk; she has walked past it many times with an unobstructed line of sight. The question is whether she is aware of the exact date printed there.",
+      "question": "Does this scene turn on Nadia's spatial viewpoint of the poster?",
+      "options": [
+        "No, the date is fully visible from her position; the issue is whether she ever noticed it",
+        "Yes, the date is only visible after a viewpoint rotation",
+        "Yes, the poster is occluded from her seat",
+        "No, the poster is behind her and out of view"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Synthetic boundary (no native ToMBench spatial-visibility item exists). Visibility is not in doubt - the stamp sits in her unobstructed line of sight - so no transform is needed. The real variable is whether the small detail entered her attention, which routes to attention and salience, not spatial perspective."
+    }
+  ]
+}

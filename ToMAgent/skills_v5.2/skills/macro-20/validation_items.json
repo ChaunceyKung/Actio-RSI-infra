@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-20",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Mei is a junior engineer. In a work report she proposes a new software development idea, but her leader, Director Han, judges that the plan has technical and economic difficulties and is unconvinced.",
+      "question": "How should Mei make her case to Director Han across this power gap?",
+      "options": [
+        "Mei emphasizes how much effort she has put in, hoping Director Han backs the plan out of trust in her.",
+        "Mei presents documented successful cases of similar plans at other companies.",
+        "Mei works through other colleagues or back channels to pressure Director Han.",
+        "Mei invites Director Han to take part in a key step of the plan so he experiences how it is implemented."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (Zhang San / leader Li Si item, gold B): the power gap is the deciding variable. Pleading personal effort is too weak upward, and going around the leader through other colleagues reads as insubordinate; the calibrated upward move is objective external evidence the leader can weigh while keeping his authority intact."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Priya has fifteen minutes to introduce herself to a roomful of strangers at a networking mixer where no one outranks anyone. She wants the audience to remember her as warm and competent.",
+      "question": "What is the central thing Priya must get right?",
+      "options": [
+        "How to curate the impression she makes so the audience sees her as warm and competent.",
+        "Whether to defer to or challenge a higher-ranking person in the room.",
+        "How to escalate a complaint past an unresponsive supervisor.",
+        "How to bargain a concession out of an equal-status counterpart."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Self-presentation near-miss: there is no power gap to navigate, so the deciding variable is how Priya manages her own image to an audience, not a move calibrated to who outranks whom. This is the neighbor this macro is most easily confused with."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Manager Ortiz hears that his subordinate Daniel is considering resigning to join a competitor. Worried about leaked trade secrets, Ortiz decides to talk with Daniel, hoping he stays.",
+      "question": "How does Ortiz persuade Daniel to stay?",
+      "options": [
+        "Daniel, we have worked together for years and I enjoy it, so stay a while longer.",
+        "Daniel, competitors are really the same as here, you are better off staying with us.",
+        "Daniel, are you worn out lately? I will have Wang take some of your load, how about you stay first?",
+        "Daniel, you have worked so hard lately, I will talk to the board about a raise for you, what do you think?"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (Manager Zhang / subordinate Li Ming item, gold D): although a manager outranks the subordinate, rank does not narrow the move. The task is one-way persuasion, finding the offer that actually shifts the listener's desire to stay, so it sits on the persuasion boundary rather than being a rank-calibrated decision."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Kenji, a junior-high student, forgot his homework at home this morning. He tells Teacher Park, but because Kenji often misses or fails to hand in work and his grades are weak, Teacher Park assumes he is lying.",
+      "question": "How can Kenji convince Teacher Park that he really did the homework and just left it at home?",
+      "options": [
+        "Kenji opens his backpack and shows Teacher Park its contents to prove the homework is not there.",
+        "Kenji offers to invite Teacher Park to his house after school to check the homework book.",
+        "Kenji provides photos or a video of himself doing the homework the night before as evidence.",
+        "Kenji tells Teacher Park he is willing to redo the homework after school to prove his intentions."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Persuasion Story Task (Xiao Qiang / Teacher Li item, gold C): close to the positive scene because a low-status student faces a skeptical authority, but the deciding factor is which evidence credibly overcomes the teacher's disbelief, not how steeply to defer. Concrete prior-night proof beats showing an empty bag or making promises."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-25",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Li Lei really likes to play basketball, but his skills are not very good, and his sister always mocks his basketball skills. Today is the weekend and his friend invites him to play basketball. When his sister asks him, \"Are you going to play basketball today?\" Li Lei answers, \"No.\"",
+      "question": "Li Lei wants to play basketball, so why does he say no?",
+      "options": [
+        "Because he thinks basketball is not interesting.",
+        "Because he is afraid of being mocked by his friends.",
+        "Because he does not want his sister to mock him anymore.",
+        "Because his coursework is heavy and he does not want to affect his studies."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Strange Story Task, ability Desire: Desire-action contradiction (Li Lei/basketball 'why' row, gold C); tests the weighting-rule variable. Two free goals compete (play basketball vs. avoid his sister's mockery) with no promise or schedule; avoiding mockery outweighs the surface desire, so that is the reason he says no."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "College student Jack is about to face the final exam, so he plans to stay in the dormitory over the weekend to review the courses that are behind schedule. However, when his friends invite him to outdoor activities, he agrees to go.",
+      "question": "What does Jack do after the outdoor activities with his friends end?",
+      "options": [
+        "Jack returns to the dormitory to study.",
+        "Jack makes plans with his friends to go outdoors another day.",
+        "Jack goes to the library to read books.",
+        "Jack starts preparing for the next outdoor activity."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "From ToMBench Multiple Desires (Jack/exam-review row, gold A); the answer is decided by a binding ongoing commitment (the exam review he must finish), which he resumes after the outing, rather than by free weighing of equal desires. Routes to the binding-commitment capability (Commitment Priority, micro-24)."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Xu Ming, Li Hua, and Zhao Lei are senior-high classmates preparing a group report. Xu Ming and Li Hua know that although Zhao Lei easily gets nervous when reporting in public, he always performs well once he gets into the state. The counselor suddenly tells them he is coming over to listen to their rehearsal. Zhao Lei appears a bit nervous, and then Xu Ming comes over.",
+      "question": "What does Xu Ming do?",
+      "options": [
+        "He takes Zhao Lei's manuscript and questions Zhao Lei.",
+        "He comforts Zhao Lei, telling him not to be nervous.",
+        "He tells Zhao Lei that he will give the report for him.",
+        "He tells Zhao Lei they need to change the content of the report."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (Xu Ming/rehearsal row, gold B); the question asks what the character will physically do next given the situation, not how competing goals are weighted. Routes to the next-action-prediction capability (Action Prediction, micro-23)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Today Dekai really wants to go to the playground to swing. But she knows she must pass Mr. Wang's house, where a fierce dog rushes to the door and barks at her every time, which scares her badly and makes her hate walking past it. Even so, she really wants to swing. Her mother asks her, \"Do you want to go to the playground?\" Dekai says, \"I don't want to.\"",
+      "question": "Dekai wants so much to go swing, so why does she say she does not want to go?",
+      "options": [
+        "Because she does not like the playground.",
+        "Because she thinks it is too far and too much trouble.",
+        "Because she thinks the playground is too far away.",
+        "Because she is afraid of walking past the dog."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Strange Story Task, ability Desire: Desire-action contradiction (Dekai/swing 'why' row, gold D); tests the weighting-rule variable and guards against taking the surface desire at face value. Two free goals compete (go swing vs. avoid the frightening dog), and fear of the dog outweighs the wish to swing, so that is why she says no."
+    }
+  ]
+}

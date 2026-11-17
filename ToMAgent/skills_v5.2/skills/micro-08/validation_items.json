@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-08",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Li Lei and Han Meimei are wandering in the living room, they see the cabinet, box and handbag, they find a sweatshirt in the cabinet, Han Meimei leaves the living room, Li Lei moves the sweatshirt to the handbag.",
+      "question": "After Han Meimei returns to the living room, where does Han Meimei look for the sweatshirt?",
+      "options": [
+        "Cabinet",
+        "Handbag",
+        "Box",
+        "Tote bag"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "ToMBench False Belief (location) item used for its event sequence. The order is fixed: Han Meimei saw the sweatshirt in the cabinet, then left, and only after that did Li Lei move it to the handbag. Her last accessible update is the cabinet, because the relocation happened after she was gone. Reverse the order - move it before she leaves - and the answer changes, which is exactly what makes this an event-order case. Answering 'handbag' uses the reader's final state instead of her last update."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Yesterday Ben was clearly told the keys had been moved to the blue drawer, and he understood it at the time. This morning he simply cannot recall that instruction, and out of old habit he checks the red drawer first.",
+      "question": "What is the decisive variable in Ben's mistake?",
+      "options": [
+        "The chronological order of the two events",
+        "Whether he still retains the instruction in memory",
+        "Whether the keys were perceptually available",
+        "Whether he has the background to understand 'drawer'"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Refined synthetic near miss. The sequence here is harmless - the update arrived and was understood before he acts - so event order would predict he goes to the blue drawer. He goes wrong only because the update has faded from memory. The deciding variable is retention, not chronology, so this routes to memory, forgetting, and misremembering."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Clara is told the meeting is at 2. Later, before she leaves, a text changes it to 3. The text arrives in time, but her phone stays in her bag and she never reads it before walking out.",
+      "question": "Is the event sequence alone enough to predict what time Clara believes the meeting is?",
+      "options": [
+        "No - the correction arrived in time, so we must check whether it ever reached her senses",
+        "Yes - the later event always overrides the earlier one, so she believes 3",
+        "Yes - because the text was sent before she acted",
+        "No - because the meeting time cannot be known at all"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "A",
+      "why_this_case_matters": "Refined synthetic boundary. This is the unit's own hard limit: a correction can be chronologically earlier than the action yet still fail to update the character if it never reaches their senses. Mechanically applying 'later event wins' would wrongly conclude she believes 3. Because timing alone is insufficient and the open question is whether the text was perceived, this routes to sensory access - the correct handling, rather than computing a belief inside this unit."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "The story first says Max searched the closet. Later, in a flashback, it reveals that before he searched, he had already been told the coat was moved to the hallway and he had read that message.",
+      "question": "Where should Max look if the true chronological order is followed?",
+      "options": [
+        "The closet",
+        "The hallway",
+        "The kitchen",
+        "The garage"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Refined synthetic positive (no ToMBench item presents events out of narration order). The text presents the closet search first, but the flashback establishes that the hallway update came earlier in real time and was read before he acted. The answer depends on reconstructing true event chronology, not sentence order, which is the core skill. Using narration order gives the wrong answer 'closet.'"
+    }
+  ]
+}

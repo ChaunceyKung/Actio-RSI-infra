@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-42",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Over the weekend, Xiaofang and her mother move into a new house and buy blue curtains together. Xiaofang hangs them in her bedroom and says proudly to her mother: 'Mom, the new curtains look really good.' Her mother smiles: 'Yes, the blue matches your bedroom.' Later, Xiaofang's best friend Xiaolan comes to visit, looks at the curtains, and says: 'Oh, the color of these curtains is too ugly, I think you should buy new ones.' Xiaofang says nothing, then asks: 'So, do you think the other parts of my bedroom are okay?'",
+      "question": "If there is one, which sentence is inappropriate?",
+      "options": [
+        "Mom, the new curtains look really good.",
+        "Oh, the color of these curtains is too ugly, I think you should buy new ones.",
+        "So, do you think the other parts of my bedroom are okay?",
+        "There is no inappropriate sentence."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (gold B); direct in-scope match. The judgment is pure tact: bluntly calling something Xiaofang just chose and is proud of 'too ugly' is likely to embarrass her, even though it may be a sincere opinion. Tests not letting 'it's just honest' override a clear faux pas."
+    },
+    {
+      "id": "case_2",
+      "pattern": "positive",
+      "scene": "At the company annual meeting, Xiao Gao wins a speaker as a prize and says happily to his colleague Xiao Qiang: 'The prize is really good, I love this speaker, I'm so lucky!' Xiao Qiang replies: 'Yes, the sound quality is great, you must be very happy to get this prize.' Then another colleague, Xiao Lei, interrupts: 'I think this speaker is just so-so, the prizes other companies give are more advanced and valuable, our company is too stingy this time.' Xiao Qiang immediately says: 'Xiao Lei, that's not right, you should be grateful for a gift, not picky.'",
+      "question": "If there is one, which sentence is inappropriate?",
+      "options": [
+        "Xiao Lei, that's not right, you should be grateful for a gift, not picky.",
+        "Yes, the sound quality is great, you must be very happy to get this prize.",
+        "I think this speaker is just so-so, the prizes other companies give are more advanced and valuable, our company is too stingy this time.",
+        "There is no inappropriate sentence."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Faux-pas Recognition Test (gold C); in-scope. Xiao Lei's dismissive comment in front of the happy winner is the faux pas. Tests the failure mode of mistaking the corrective reply (option A) for the breach, instead of the line that actually committed it."
+    },
+    {
+      "id": "case_3",
+      "pattern": "near_miss",
+      "scene": "A university physicist is invited to explain her latest paper to a class of middle-school students. She drops the technical jargon, uses simple everyday analogies, and slows down so the students can follow.",
+      "question": "Was the physicist's simplified explanation a social faux pas?",
+      "options": [
+        "Yes, because adapting wording for an audience is always condescending.",
+        "No, this is audience calibration: tailoring a message to the listeners' level is appropriate, not a tact breach.",
+        "Yes, because simple language is offensive in an academic context.",
+        "This is mainly about who is to blame for the students' confusion."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "Synthetic near-miss (no native ToMBench audience-calibration item). Teaches the audience calibration boundary: fitting wording to a listener's level helps rather than embarrasses, so it is not a faux pas. Note the contrast with the real ToMBench item where Professor Zhang dismissively refuses to re-explain to a struggling student, which IS a faux pas."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "At a reunion, Alex makes a joke about Priya's recent divorce in front of the group. Priya goes quiet and leaves the table upset.",
+      "question": "The discussion now focuses on whether Alex is morally responsible and blameworthy for the emotional harm Priya suffered. Which unit should handle this question?",
+      "options": [
+        "Faux pas and offense, because any awkward joke belongs there.",
+        "Audience calibration, because Priya was in the audience.",
+        "Harm and responsibility, because the question is about blame and responsibility for harm, not whether the remark was tactless.",
+        "Negotiation, because relationships involve give-and-take."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "Synthetic boundary item. The scene contains a clear faux pas, but the explicit question shifts to blameworthiness and responsibility for harm, which exits this unit and routes to harm and responsibility. Tests separating the tact verdict (this unit) from the blame question (neighbor)."
+    }
+  ]
+}

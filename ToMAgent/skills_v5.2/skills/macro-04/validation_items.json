@@ -1,0 +1,85 @@
+{
+  "unit_id": "macro-04",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Rosa and Fang sit on a bench watching other children play. They chat about the playground and discuss going to the park together after school. Suddenly Rosa gives Fang a look, glances toward the swings where a new child is sitting, and then smiles at Fang. Fang nods, and the two stand up.",
+      "question": "Why does Rosa smile at Fang?",
+      "options": [
+        "Rosa smiles because she sees something interesting on the playground.",
+        "Rosa smiles because she remembers a joke about the child on the swings.",
+        "Rosa smiles because she thinks it is fun to play after school.",
+        "Rosa smiles at Fang to suggest going over to make a new friend together."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Ambiguous Story Task / Intention explanations (idx 1, gold D). The decisive evidence is a nonverbal sequence (a meaningful look, a gaze directed at the swings, then a smile) used to propose a shared action. The gaze target plus the immediately preceding talk disambiguates the smile as 'let's go meet that child', defeating the generic emotion readings (A, C) and the unsupported joke reading (B)."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Marissa is about to take a bath. Anna has just finished her own bath. When Marissa finds the bathroom is very dirty, she calls out to Anna and says, 'Anna, can't you find the cleaner?'",
+      "question": "What does Marissa really want to say when she says this?",
+      "options": [
+        "Anna needs to find the cleaner.",
+        "Marissa cannot find the cleaner.",
+        "Anna should clean the bathroom now.",
+        "Anna should buy more cleaner."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Hinting Task Test (idx 1, gold C). This is the key near-miss: there is NO nonverbal cue to read. The whole inference rides on decoding an indirect spoken utterance ('can't you find the cleaner?') into the implied request 'clean the bathroom now.' That is conversational implicature, a different scene from reading a glance or gesture, so the cue-to-intention procedure here does not apply."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "Rosa and Fang sit watching other children play and discuss going to the park after school. Suddenly Rosa gives Fang a look, glances toward the swings, and smiles at Fang. Fang nods, and the two stand up. May, who is sitting on the swings, notices the exchange between Rosa and Fang.",
+      "question": "How do you think May feels?",
+      "options": [
+        "May feels excited because she thinks Rosa and Fang want to play on the swings together.",
+        "May feels curious, and possibly a bit worried.",
+        "May feels a little scared, worried they will bully her.",
+        "May feels very happy, thinking they are going to give her a surprise."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Ambiguous Story Task / Beliefs based action-emotions (idx 2, gold B). Same nonverbal exchange as the positive case, but the question is not what the cue signals between Rosa and Fang. It asks how a third party (May) feels given that she cannot read the private signal. The answer hinges on May's uncertain belief and resulting emotion, not on decoding the senders' intention, so this is an emotion/belief inference, not cue-reading."
+    },
+    {
+      "id": "case_4",
+      "pattern": "positive",
+      "scene": "Dario and Sara are fixing a car in the park, getting ready for a weekend outing. They keep discussing where to go but neither comes up with a good idea. At this point Nadia passes by, and Dario stops her and beckons her over to look at the car they are fixing. Nadia sees the two of them and walks over.",
+      "question": "What does Dario want to do?",
+      "options": [
+        "Ask Nadia to help him fix the car.",
+        "Invite Nadia to go on the outing with them.",
+        "Ask Nadia to suggest a place for them to go.",
+        "Show off their car-repair skills to Nadia."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Prediction of Actions (idx 1, gold C). A 'what does X want to do?' prediction where the over-literal cue (beckoning toward the car) tempts answers A and D. The shared-context disambiguator is what they were just doing: stuck on deciding where to go. So beckoning a passer-by over is best read as recruiting an idea for a destination (C), not a request for repair help or showing off."
+    }
+  ]
+}

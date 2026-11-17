@@ -1,0 +1,85 @@
+{
+  "unit_id": "micro-28",
+  "items": [
+    {
+      "id": "case_1",
+      "pattern": "positive",
+      "scene": "Lily just got a haircut. The hairdresser cut off too much, so she looks silly. At school, her friends laugh at her and say she looks like a hedgehog. Lily tries to pretend she does not care.",
+      "question": "What are Lily's real feelings?",
+      "options": [
+        "Happy",
+        "Sad",
+        "Excited",
+        "Satisfied"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Lily haircut story, idx 1; gold B). Pure detection task: she pretends not to care, but the teasing makes her privately sad, so the outward display is not the true feeling. The question asks ONLY for the inner emotion, which is the core of this unit."
+    },
+    {
+      "id": "case_2",
+      "pattern": "near_miss",
+      "scene": "Mingming finds visiting his grandfather boring, but he goes every week and this visit is long. He keeps a happy face so his grandfather will not be hurt. On the surface Mingming seems happy.",
+      "question": "Why does Mingming seem happy on the surface?",
+      "options": [
+        "Because he likes long visits",
+        "Because he does not want his grandfather to get hurt",
+        "Because he finds something interesting to do",
+        "Because he wants to make his grandfather happy"
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "B",
+      "why_this_case_matters": "From ToMBench Hidden Emotions (Mingming grandfather story, idx 4; gold B). Near-miss that teaches the boundary: the question no longer asks what Mingming feels (annoyed) but WHY he manages the display. That social reason - protecting the grandfather's feelings - is the social-display-rule capability (micro-29), not bare detection."
+    },
+    {
+      "id": "case_3",
+      "pattern": "boundary",
+      "scene": "James shows his painting at the school art exhibition. He forgets to take it home. Nick, while cleaning the exhibition room, mistakes the painting for trash and puts it in the discard box, accidentally losing James's work.",
+      "question": "What kind of emotion does Nick feel after realizing he may have mishandled James's painting?",
+      "options": [
+        "Nick possibly feels satisfied because he finished cleaning the room and cleared useless items.",
+        "Nick possibly feels indifferent, since he did not know at the time and did not take it on purpose.",
+        "Nick possibly feels guilty and anxious because he unintentionally caused loss to others.",
+        "Nick possibly feels confused because he is not sure whether he really handled James's painting."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "C",
+      "why_this_case_matters": "From ToMBench Moral Emotions (James painting story, idx 1; gold C). Boundary: the feeling is produced by responsibility for accidental harm, so the central variable is a moral, self-conscious emotion (guilt), not a hidden-versus-shown mismatch. Routes to the moral-emotion capability (micro-30)."
+    },
+    {
+      "id": "case_4",
+      "pattern": "boundary",
+      "scene": "Two team co-captains joke that the still-unselected players are 'the best players,' then exchange a wink and a smile before choosing Taotao, who was one of the last left. Taotao sees the wink and smile.",
+      "question": "What does Taotao do next?",
+      "options": [
+        "He walks over, extends his hand, and shows a positive, friendly attitude.",
+        "He talks to a good friend about his feelings and seeks support.",
+        "He reinterprets it positively, considering himself a 'hidden treasure' or 'secret weapon' rather than the last pick.",
+        "He shifts his attention to the upcoming game and stops focusing on the order of selection."
+      ],
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "gold_answer": "D",
+      "why_this_case_matters": "From ToMBench Emotion Regulation (co-captains story, idx 1; gold D). Boundary: Taotao actually CHANGES his internal feeling by redirecting attention, rather than detecting or masking a mismatch. This is the emotion-regulation capability (micro-33), which alters the inner feeling, not this detect-the-mismatch unit."
+    }
+  ]
+}

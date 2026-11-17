@@ -1,0 +1,110 @@
+{
+  "frontmatter_description": "Judge whether a remark or act is a social faux pas: does it breach the tact of its setting and embarrass, hurt, or offend someone present? Use for 'did anyone say something inappropriate / which sentence was inappropriate' detection. NOT for who is to blame, how to apologize, or fitting a message to the listener's level.",
+  "title": "Faux Pas and Offense",
+  "use_when": [
+    "The question asks whether anyone said or did something inappropriate, rude, awkward, embarrassing, or offensive in the scene.",
+    "The question asks which specific sentence or act was the inappropriate one (identify the faux pas among several lines).",
+    "The judgment turns on whether a remark breaches the tact of its setting because the speaker did not realize it would expose, belittle, or wound a listener present."
+  ],
+  "do_not_use_when": [
+    "The main question is who caused harm, whether the act was intentional, or whether someone is blameworthy; route to harm and responsibility.",
+    "The main task is how to apologize, repair, reconcile, or manage the relationship after the breach; route to relationship repair and apology.",
+    "The act is simply adapting wording to the listener's expertise, age, or identity (e.g. simplifying for a novice); that is appropriate, so route to audience calibration.",
+    "The issue is distribution, fairness, reciprocity, negotiation, or strategic influence; route to fairness and reciprocity or negotiation.",
+    "The question asks WHY a non-literal remark was said (sarcasm, irony, hidden meaning) rather than whether it breached tact; that is non-literal comprehension, not a faux-pas judgment."
+  ],
+  "decision_variable": "whether a remark or act breaches the tact of its setting and is likely to embarrass, hurt, or offend someone present",
+  "trigger_checklist": [
+    "Does the prompt ask 'did anyone say something inappropriate' or 'which sentence was inappropriate'?",
+    "Is the test whether a remark was rude, tactless, embarrassing, or offensive in its specific setting?",
+    "Is there a listener present who would be exposed, belittled, or wounded by the remark?",
+    "Is the speaker's intent NOT the thing being asked about (a faux pas counts even when accidental and well-meant)?"
+  ],
+  "workflow": [
+    "Confirm the question is a tact judgment: 'was it inappropriate / which line was inappropriate'. If it instead asks who is to blame, how to apologize, or why a remark was meant, jump to the matching exit rule and stop.",
+    "List the candidate remarks/acts and, for each, the audience actually present (especially anyone the remark is about or could wound).",
+    "For each candidate, test the tact line: does it expose private/sensitive facts, belittle or insult a person present, ignore the setting's decorum, or expose a fact that wounds someone present?",
+    "A remark is a faux pas even if it is true, blunt, or unintentional — judge by likely embarrassment or offense to those present, not by truthfulness or intent. Honest-but-unsolicited put-downs and dismissals of someone present DO count.",
+    "If exactly one candidate crosses the line, that is the faux pas (the inappropriate sentence). If none crosses it (e.g. the remark is a normal compliment, request, or polite reply), answer that no one said anything inappropriate.",
+    "Return the tact verdict only. Do not assign blame, propose an apology, or recommend a next social move."
+  ],
+  "special_case": {
+    "title": "Blunt-but-true or well-meant remark that still embarrasses",
+    "rule": "A remark counts as a faux pas when it would embarrass or offend a listener present, even if it is factually true, merely blunt, or made with no bad intent. Do not let 'it's true' or 'they didn't mean it' talk you out of the faux-pas verdict. Truthfulness and intent are not the deciding variable; likely embarrassment to those present is. (If the question instead asks about blame, intent, or an apology, leave this unit.)",
+    "worked_example": {
+      "scene": "Xiaofang proudly hangs the new blue curtains she and her mother just bought. Her best friend Xiaolan comes over, looks at them, and says: 'Oh, the color of these curtains is too ugly, I think you should buy new ones.'",
+      "question": "If there is one, which sentence is inappropriate?",
+      "answer_logic": "Xiaolan's remark is the faux pas. The judgment is about tact, not honesty: bluntly calling something Xiaofang just chose and is proud of 'too ugly' in front of her is likely to embarrass and hurt her, regardless of whether Xiaolan is sincere. The mother's earlier compliment and Xiaofang's follow-up question are normal and appropriate."
+    }
+  },
+  "boundary_exit_rule": [
+    "Exit to harm and responsibility if the question turns on responsibility, intent, causation, or whether someone is to blame for harm.",
+    "Exit to relationship repair and apology if the question is about how to apologize, repair, or restore the relationship after the breach.",
+    "Exit to audience calibration if the act is fitting speech to a listener's expertise, age, identity, or stance, and the question is whether that adaptation was appropriate (it usually is, so it is not a faux pas).",
+    "Exit to fairness and reciprocity or negotiation if the question is about negotiation, fairness, reciprocity, or strategic influence.",
+    "Exit to non-literal comprehension if the question asks WHY a sarcastic/ironic remark was made rather than whether it breached tact."
+  ],
+  "references": {
+    "route_signal": "Route here when the question is 'did anyone say something inappropriate' or 'which sentence was inappropriate' — i.e. judging a remark or act for tact, embarrassment, or offense toward someone present.",
+    "hard_boundary": [
+      "Not audience calibration: simplifying or tailoring a message to a listener is appropriate, not a tact breach. Dismissively refusing to help a confused listener, however, IS a faux pas.",
+      "Not harm and responsibility: the issue is whether the remark was tactless, not who caused harm or who is to blame.",
+      "Not repair: the issue is whether the act was a faux pas, not how to apologize for it.",
+      "Not non-literal comprehension: judging tact is different from inferring why a sarcastic remark was said."
+    ],
+    "shortcut_to_avoid": [
+      "Do not treat any awkward or uncomfortable scene as automatically containing a faux pas; a normal compliment, request, or polite reply is not inappropriate (some stories have no faux pas — the answer is 'no one').",
+      "Do not let 'the remark is true' or 'the speaker meant no harm' override a clear tact breach.",
+      "Do not slide from the tact verdict into assigning blame or proposing an apology when the prompt only asks what was inappropriate."
+    ],
+    "common_failure_modes": [
+      "Treating a blunt-but-true put-down as acceptable because it is honest, and answering 'no faux pas'.",
+      "Over-calling: flagging a normal, polite line as inappropriate when the story actually contains no faux pas.",
+      "Misreading audience calibration (simplifying for a novice) as a faux pas just because a listener is addressed.",
+      "Confusing the tactless remark with the question of who is to blame or who should apologize, and routing to harm/repair.",
+      "Picking the line that was hurt-BY the faux pas (the victim's reply) instead of the line that committed it."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Xiaofang proudly shows her new blue curtains; her friend Xiaolan says 'the color is too ugly, you should buy new ones.' Q: which sentence is inappropriate?",
+        "why_it_matches": "In-scope faux pas: a blunt put-down of something the listener is proud of, judged for tact."
+      },
+      {
+        "case": "Same curtains, but the friend says 'Wow, these are beautiful, they match your room well.' Q: which sentence is inappropriate?",
+        "why_it_matches": "Routes to 'no faux pas': the matched control story is identical except the remark is a normal compliment, so the answer is 'no one said anything inappropriate.' Same decisive variable, opposite tact verdict."
+      },
+      {
+        "case": "A scientist explains a paper to middle-schoolers using simple analogies, avoiding jargon. Q: was that a faux pas?",
+        "why_it_matches": "Routes to audience calibration, not a faux pas: tailoring wording to the listener is appropriate; nothing embarrasses or offends. Differs from the in-scope case only in that the adaptation helps rather than wounds the listener."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the remark is honest but embarrasses someone present, it is still a faux pas — decide by tact, not truthfulness.",
+      "If the story's lines are all normal compliments, requests, or polite replies, the correct answer is 'no one said anything inappropriate' — do not invent a faux pas.",
+      "If the speaker simplifies or adapts wording to help a novice/child/outsider, that is audience calibration, not a faux pas.",
+      "If the question asks who is to blame or whether an apology is owed, the task has shifted to harm or repair — exit."
+    ],
+    "generalization_note": "Apply across any culture or setting by substituting the local decorum norm; the core question is always whether the remark crosses the setting's tact line and is likely to embarrass, hurt, or offend someone present — independent of whether it was true or intentional."
+  },
+  "validation_seed": {
+    "positive_pattern": "The question asks whether anyone said something inappropriate, or which sentence was inappropriate, and a remark breaches the setting's tact and would embarrass or offend someone present.",
+    "near_miss_pattern": "A speaker adapts wording to fit a novice, child, or outsider; this is audience calibration, appropriate and not a faux pas.",
+    "boundary_pattern": "A scene contains a tactless remark but the question instead asks who is to blame, whether harm was intentional, or who should apologize; this routes to harm or repair."
+  },
+  "notes": [
+    "Keep the judgment focused on tact and likely embarrassment to those present, not on moral blame.",
+    "A faux pas can be accidental and can be literally true; intent and truthfulness are not the deciding variable.",
+    "Some stories contain no faux pas — when every line is normal, answer 'no one said anything inappropriate.'",
+    "If the prompt asks for the next social move after the mistake, route away from this unit."
+  ],
+  "id": "micro-42",
+  "level": "micro",
+  "layer": "L6",
+  "family": "norms-relationships",
+  "core_question": "Judge whether behavior or speech violates social appropriateness",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "frontmatter_description": "Use this unit when the answer hinges on what THIS character personally likes or wants, read from their own desire, repeated choice, or stated taste — not from a model of someone else's wants, a duty, or a plan.",
+  "title": "Self Preference",
+  "use_when": [
+    "Use when the question asks what this character personally likes, wants, prefers, or would choose for themselves.",
+    "Use when the answer is the character's OWN original desire that persists across an interruption (e.g. they wanted X, were briefly pulled away, and you must say they still want X).",
+    "Use when the evidence is the character's own statement of liking, a stable taste, or a repeated voluntary choice they make.",
+    "Use when the answer would NOT change if every other person in the scene were removed — it depends only on this character's desire."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question is about what ANOTHER person likes, or about this character accommodating someone else's taste — that is modeling another person's preference (micro-20).",
+    "Do not use when the question asks who is right, how sure the character is, or whether a source is reliable — that is certainty of a belief (micro-17) or source credibility (micro-18).",
+    "Do not use when the answer depends on ranking competing goals, a duty, or a constraint that overrides liking — that is goal hierarchy (micro-21), commitment priority (micro-24), or goal-conflict arbitration (micro-25).",
+    "Do not use when the question asks what would be socially wise, polite, or persuasive for the listener — that is audience calibration (micro-40) or persuasion strategy (micro-41)."
+  ],
+  "decision_variable": "the character's own preference",
+  "trigger_checklist": [
+    "WHOSE liking is queried? It must be the focal character's own, not their guess about someone else's.",
+    "Is the evidence the character's own desire — a stated like, a stable taste, or a repeated voluntary choice?",
+    "Would the answer survive deleting every other person from the scene? If yes, the variable is this character's own preference.",
+    "Is the queried thing a LIKING (what they want), not a duty they must perform or the best move for the group?"
+  ],
+  "workflow": [
+    "Name the focal character and confirm the question targets THAT character's own liking or wanting (not another person's, and not 'who is correct').",
+    "Pull the character's own desire from the scene: a direct statement of liking, a stable taste, or a repeated voluntary choice. A one-off act under pressure is not yet preference.",
+    "If the character is briefly pulled away by an interruption (an invitation, a distraction, a pause), the original desire still governs once the interruption ends — pick the option that fulfils it.",
+    "Choose the option most aligned with that own desire; reject options that merely reflect convenience, politeness, or another person's wish.",
+    "Exit only if the question shifts: to another person's taste, to certainty, or to a duty/goal that overrides liking (see Boundary Exit Rule)."
+  ],
+  "special_case": {
+    "title": "Original desire survives an interruption",
+    "rule": "When a character has a clear own-desire and is briefly pulled away by an unrelated interruption (an invitation, a distraction, a pause), the action after the interruption still serves the ORIGINAL desire. Do not let the interruption overwrite the preference.",
+    "worked_example": {
+      "scene": "Susan bakes cookies because she wants to eat them. Before she can, a friend invites her to go swimming, so she sets the cookies aside and goes.",
+      "question": "What does Susan do after she comes home from swimming?",
+      "answer_logic": "Susan's own desire was to eat the cookies she baked; swimming was an unrelated interruption, not a step taken to get the cookies. So once she is home she eats her cookies. The interruption does not change her preference."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question turns to what SOMEONE ELSE likes, or to this character choosing FOR another person to suit that person's taste, exit to the other-person preference capability — modeling what another person wants (micro-20).",
+    "If the question is about confidence, rumor, evidence, or how reliable a source is, exit to certainty of a belief (micro-17) or source credibility (micro-18).",
+    "If the character acts AGAINST their own liking because of a duty, fear, or competing aim, exit to commitment priority (micro-24) or goal-conflict arbitration (micro-25) — the deciding variable is which goal wins, not what they like.",
+    "If the answer is about what is polite, persuasive, or best for the listener, exit to audience calibration (micro-40) or persuasion strategy (micro-41)."
+  ],
+  "references": {
+    "route_signal": "Route here when the diagnostic question is THIS character's own liking, wanting, or self-directed choice — and the answer depends on their desire alone, not on anyone else's mind.",
+    "hard_boundary": [
+      "Another person's preference, or this character accommodating it, belongs to modeling another person's preference (micro-20) — not here.",
+      "Uncertainty about a preference belongs to certainty of a belief (micro-17) or source credibility (micro-18).",
+      "Ranking goals, duties, or constraints that override liking belongs to goal hierarchy (micro-21), commitment priority (micro-24), or goal-conflict arbitration (micro-25)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not treat a polite or face-saving statement (e.g. 'No, I do not want to') as the true preference when the scene shows the character actually wants the opposite.",
+      "Do not answer from what is useful, expected, or good for the group — answer from what the character themselves wants.",
+      "Do not let a brief interruption (an invitation, a distraction) erase the original desire the character set aside."
+    ],
+    "common_failure_modes": [
+      "Confusing the character's own preference with their guess about, or accommodation of, someone else's preference.",
+      "Treating a duty or constraint the character obeys as if it were their liking.",
+      "Reading a polite denial as the genuine wish, ignoring the desire the story makes explicit."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Susan wants to eat the cookies she baked, but a friend invites her to swim; she puts the cookies back and goes swimming. After she comes home, what does she do? — she eats her cookies.",
+        "why_it_matches": "The query is Susan's OWN desire, which persists across the interruption. Answer depends only on her preference, so this is Self Preference."
+      },
+      {
+        "case": "Adventurous Li Hua invites quiet, library-loving Wang Fang for the weekend. Where does Li Hua plan to spend it with her? — the Library.",
+        "why_it_matches": "The answer is driven by Li Hua's model of Wang Fang's quiet taste, NOT his own adventurous liking. This routes to modeling another person's preference (micro-20)."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the scene asks 'What does she think HE likes?' or 'Where should she take HIM to please him?', do not use this unit — it is modeling another person's preference (micro-20).",
+      "If the scene asks 'What does she want, judging from her own repeated choice?', use this unit.",
+      "If the character likes X but does Y because of a duty or to avoid being mocked, the question 'why did she do Y' is about which goal won — exit to commitment priority or goal-conflict arbitration (micro-24/micro-25), not here."
+    ],
+    "generalization_note": "This unit generalizes to any self-directed liking or wanting — food, objects, activities, partners, plans, options — whether stable or momentary, as long as the answer rests on the focal character's OWN desire."
+  },
+  "validation_seed": {
+    "positive_pattern": "The question targets the focal character's own liking/wanting, and the evidence is their own desire, stable taste, or repeated voluntary choice (often surviving a brief interruption).",
+    "near_miss_pattern": "The scene is about one person accommodating ANOTHER person's taste, so the answer depends on a model of someone else's preference, not the focal character's own.",
+    "boundary_pattern": "The character acts against their own liking because of a duty, fear, or competing goal, so the deciding variable is which goal wins, not what they like."
+  },
+  "notes": [
+    "Keep the answer anchored in the focal character's own preference, never the observer's or another person's.",
+    "Stay narrow: this unit diagnoses liking/wanting, not intention, belief, certainty, or social strategy.",
+    "Central confusion to guard against: own preference (here) vs. a model of another person's preference (micro-20). The test: does the answer depend on anyone else's mind? If yes, it is not this unit."
+  ],
+  "id": "micro-19",
+  "level": "micro",
+  "layer": "L3",
+  "family": "goal-action",
+  "core_question": "Determine what a character personally likes or wants",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

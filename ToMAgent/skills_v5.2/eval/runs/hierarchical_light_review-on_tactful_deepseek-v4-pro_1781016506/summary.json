@@ -1,0 +1,358 @@
+{
+  "n": 4254,
+  "overall_acc": 0.8157028678890456,
+  "review_changed": 512,
+  "review_flips_correct": 299,
+  "review_flips_wrong": 147,
+  "errors": 0,
+  "malformed_rows": 0,
+  "n_routed_to_none": 237,
+  "by_task": {
+    "tactful-answerability_binary": {
+      "n": 504,
+      "acc": 0.8214285714285714
+    },
+    "tactful-answerability_list": {
+      "n": 168,
+      "acc": 0.6309523809523809
+    },
+    "tactful-belief": {
+      "n": 2016,
+      "acc": 0.8298611111111112
+    },
+    "tactful-comprehension": {
+      "n": 100,
+      "acc": 0.7
+    },
+    "tactful-fact_reason": {
+      "n": 100,
+      "acc": 0.94
+    },
+    "tactful-fact_truth": {
+      "n": 68,
+      "acc": 0.9264705882352942
+    },
+    "tactful-info_access_binary": {
+      "n": 446,
+      "acc": 0.8789237668161435
+    },
+    "tactful-info_access_list": {
+      "n": 154,
+      "acc": 0.7857142857142857
+    },
+    "tactful-justification": {
+      "n": 100,
+      "acc": 0.92
+    },
+    "tactful-lieability": {
+      "n": 198,
+      "acc": 0.8838383838383839
+    },
+    "tactful-liedetect_binary": {
+      "n": 300,
+      "acc": 0.73
+    },
+    "tactful-liedetect_list": {
+      "n": 100,
+      "acc": 0.51
+    }
+  },
+  "by_ability": {
+    "comprehension": {
+      "n": 100,
+      "acc": 0.7
+    },
+    "fact:real_reason": {
+      "n": 100,
+      "acc": 0.94
+    },
+    "fact:truth": {
+      "n": 68,
+      "acc": 0.9264705882352942
+    },
+    "justification:liar": {
+      "n": 31,
+      "acc": 0.967741935483871
+    },
+    "justification:liar:accompliance": {
+      "n": 69,
+      "acc": 0.8985507246376812
+    },
+    "tom:answerability:binary:real_reason": {
+      "n": 300,
+      "acc": 0.9733333333333334
+    },
+    "tom:answerability:binary:truth": {
+      "n": 204,
+      "acc": 0.5980392156862745
+    },
+    "tom:answerability:list:real_reason": {
+      "n": 100,
+      "acc": 0.8
+    },
+    "tom:answerability:list:truth": {
+      "n": 68,
+      "acc": 0.38235294117647056
+    },
+    "tom:belief:accessible:reason": {
+      "n": 800,
+      "acc": 0.8775
+    },
+    "tom:belief:accessible:truth": {
+      "n": 544,
+      "acc": 0.7463235294117647
+    },
+    "tom:belief:inaccessible:reason": {
+      "n": 400,
+      "acc": 0.83
+    },
+    "tom:belief:inaccessible:truth": {
+      "n": 272,
+      "acc": 0.8566176470588235
+    },
+    "tom:info_accessibility:binary:real_reason": {
+      "n": 262,
+      "acc": 0.9007633587786259
+    },
+    "tom:info_accessibility:binary:truth": {
+      "n": 184,
+      "acc": 0.8478260869565217
+    },
+    "tom:info_accessibility:list:real_reason": {
+      "n": 86,
+      "acc": 0.813953488372093
+    },
+    "tom:info_accessibility:list:truth": {
+      "n": 68,
+      "acc": 0.75
+    },
+    "tom:lieability:accomplice:real_reason": {
+      "n": 24,
+      "acc": 1.0
+    },
+    "tom:lieability:accomplice:truth": {
+      "n": 20,
+      "acc": 0.85
+    },
+    "tom:lieability:liar:real_reason": {
+      "n": 86,
+      "acc": 0.9418604651162791
+    },
+    "tom:lieability:liar:truth": {
+      "n": 68,
+      "acc": 0.7794117647058824
+    },
+    "tom:liedetectability:binary": {
+      "n": 300,
+      "acc": 0.73
+    },
+    "tom:liedetectability:list": {
+      "n": 100,
+      "acc": 0.51
+    }
+  },
+  "by_first_pick": {
+    "<none>": {
+      "n": 237,
+      "acc": 0.8860759493670886
+    },
+    "macro-01": {
+      "n": 7,
+      "acc": 1.0
+    },
+    "macro-02": {
+      "n": 1660,
+      "acc": 0.810843373493976
+    },
+    "macro-03": {
+      "n": 1886,
+      "acc": 0.806998939554613
+    },
+    "macro-05": {
+      "n": 10,
+      "acc": 0.7
+    },
+    "macro-07": {
+      "n": 31,
+      "acc": 0.9032258064516129
+    },
+    "macro-08": {
+      "n": 216,
+      "acc": 0.8333333333333334
+    },
+    "macro-09": {
+      "n": 14,
+      "acc": 0.9285714285714286
+    },
+    "macro-10": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "macro-11": {
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    "micro-05": {
+      "n": 4,
+      "acc": 0.75
+    },
+    "micro-07": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-08": {
+      "n": 4,
+      "acc": 1.0
+    },
+    "micro-09": {
+      "n": 7,
+      "acc": 0.8571428571428571
+    },
+    "micro-10": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "micro-11": {
+      "n": 118,
+      "acc": 0.8135593220338984
+    },
+    "micro-12": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "micro-13": {
+      "n": 6,
+      "acc": 0.6666666666666666
+    },
+    "micro-17": {
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    "micro-22": {
+      "n": 3,
+      "acc": 1.0
+    },
+    "micro-28": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "micro-29": {
+      "n": 6,
+      "acc": 1.0
+    },
+    "micro-34": {
+      "n": 10,
+      "acc": 0.8
+    },
+    "micro-36": {
+      "n": 7,
+      "acc": 0.8571428571428571
+    },
+    "micro-37": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-39": {
+      "n": 13,
+      "acc": 0.8461538461538461
+    }
+  },
+  "by_n_picked": {
+    "0": {
+      "n": 237,
+      "acc": 0.8860759493670886
+    },
+    "1": {
+      "n": 857,
+      "acc": 0.809801633605601
+    },
+    "2": {
+      "n": 3079,
+      "acc": 0.8174732055862293
+    },
+    "3": {
+      "n": 71,
+      "acc": 0.6197183098591549
+    },
+    "4": {
+      "n": 7,
+      "acc": 0.5714285714285714
+    },
+    "5": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "6": {
+      "n": 1,
+      "acc": 0.0
+    }
+  },
+  "pick_frequency": {
+    "macro-03": 1892,
+    "macro-02": 1663,
+    "micro-13": 1608,
+    "micro-05": 1016,
+    "macro-08": 224,
+    "micro-11": 184,
+    "micro-10": 173,
+    "micro-37": 110,
+    "micro-14": 104,
+    "micro-39": 99,
+    "macro-07": 32,
+    "micro-18": 25,
+    "micro-15": 24,
+    "macro-09": 14,
+    "micro-35": 11,
+    "macro-05": 11,
+    "micro-34": 10,
+    "micro-12": 8,
+    "micro-36": 8,
+    "micro-41": 8,
+    "micro-09": 7,
+    "macro-01": 7,
+    "micro-29": 7,
+    "micro-08": 5,
+    "micro-28": 4,
+    "macro-11": 3,
+    "micro-22": 3,
+    "micro-17": 3,
+    "micro-19": 3,
+    "micro-07": 2,
+    "micro-25": 1,
+    "macro-10": 1,
+    "micro-40": 1,
+    "micro-20": 1
+  },
+  "n_rerouted": 232,
+  "reroute_changed_pick": 232,
+  "acc_by_reroute_count": {
+    "0": {
+      "n": 4022,
+      "acc": 0.8269517652909001
+    },
+    "1": {
+      "n": 197,
+      "acc": 0.6192893401015228
+    },
+    "2": {
+      "n": 31,
+      "acc": 0.6451612903225806
+    },
+    "3": {
+      "n": 4,
+      "acc": 0.5
+    }
+  },
+  "mean_jaccard": 0.8347829493809739,
+  "acc_by_answer_kind": {
+    "multi": {
+      "n": 422,
+      "acc": 0.6587677725118484
+    },
+    "single": {
+      "n": 3832,
+      "acc": 0.8329853862212944
+    }
+  },
+  "draft_acc": 0.7799717912552891
+}

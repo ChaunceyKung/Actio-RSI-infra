@@ -1,0 +1,99 @@
+{
+  "frontmatter_description": "Use this unit when the answer depends on whether a character correctly represents what ANOTHER person likes or wants — choosing, recommending, or accommodating to suit that other person's taste, not the character's own.",
+  "title": "Other Preference",
+  "use_when": [
+    "Use when the question asks what one character thinks ANOTHER person likes, wants, or would choose.",
+    "Use when a character chooses, recommends, buys, or plans FOR someone else, and the right answer suits that other person's taste.",
+    "Use when two people have different tastes and the answer must accommodate the OTHER person's preference rather than the chooser's own.",
+    "Use when the answer changes depending on whose mind you read — and the queried mind is someone other than the actor's own."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question is about the focal character's OWN liking or wanting — that is the character's own preference (micro-19).",
+    "Do not use when the task is to infer the PURPOSE behind an action, gaze, gesture, or request — that is intention recognition (micro-22).",
+    "Do not use when the required answer is what someone will DO next as a behavior, not what they LIKE — that is action prediction (micro-23).",
+    "Do not use when the deciding cue is belief, emotion, trust, or deception rather than preference."
+  ],
+  "decision_variable": "the character's representation of another person's preference",
+  "trigger_checklist": [
+    "Is the queried liking someone OTHER than the actor's — a friend, partner, customer, child, guest?",
+    "Does the actor have to set aside their own taste and pick what suits the OTHER person?",
+    "Can the answer be reached by matching the other person's known taste, prior choices, or stable likes?",
+    "Is the queried thing a LIKING (what the other wants), not the purpose of an act or a prediction of the next move?"
+  ],
+  "workflow": [
+    "Identify whose preference is being asked about and confirm it is a person OTHER than the actor.",
+    "Read that other person's taste from the scene: stated likes, stable disposition, or prior choices.",
+    "If the actor's own taste differs, explicitly set it aside — the answer must match the OTHER person, not the actor.",
+    "Choose the option that best fits the other person's preference; reject options that merely suit the actor or that describe an action's purpose.",
+    "Exit if the question is really about the actor's own taste, the purpose behind an act, or a predicted next behavior (see Boundary Exit Rule)."
+  ],
+  "special_case": {
+    "title": "Set aside the actor's own taste",
+    "rule": "When a character chooses for someone else AND has a different personal taste, the answer follows the OTHER person's preference. The actor's own liking is a distractor, not the answer.",
+    "worked_example": {
+      "scene": "Adventurous, nature-loving Li Hua often hikes on weekends. His friend Wang Min is an interior designer who prefers indoor activities, especially art exhibitions and design expos. Wang Min wants to invite Li Hua to spend the weekend together and make it enjoyable for him.",
+      "question": "To make this weekend enjoyable, where should Wang Min suggest going?",
+      "answer_logic": "Wang Min must accommodate Li Hua's nature/photography taste, not her own indoor taste, so she suggests a Natural Landscape Photography Exhibition — a bridge that fits Li Hua's preference. The decisive variable is Wang Min's representation of Li Hua's liking."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question asks what the focal character THEMSELVES wants or likes, exit to the character's own preference capability — their own taste (micro-19).",
+    "If the main task is to infer the PURPOSE behind an action, look, gesture, or request, exit to intention recognition — why they did it (micro-22).",
+    "If the required answer is the other person's next BEHAVIOR rather than their taste, exit to action prediction — what they will do next (micro-23).",
+    "If the deciding cue is trust, belief, emotion, or deception rather than what someone likes, exit to the relevant belief, emotion, or source-credibility capability."
+  ],
+  "references": {
+    "route_signal": "Route here when the scene asks whether one person correctly grasps ANOTHER person's likes or wants — and the right answer suits that other person's taste, not the actor's own.",
+    "hard_boundary": [
+      "The target variable is another person's preference; the focal character's own taste belongs to the character's own preference capability (micro-19).",
+      "The answer must be a LIKING, not the purpose of an action (intention recognition, micro-22) or a predicted next move (action prediction, micro-23).",
+      "This unit is about representing taste, not revising a belief or reading an emotion."
+    ],
+    "shortcut_to_avoid": [
+      "Do not answer with the ACTOR's own taste when they are choosing for someone else — that collapses other-preference into own-preference.",
+      "Do not pick what the other person will DO next; pick what they LIKE.",
+      "Do not infer preference from emotional tone alone unless the scene links it to what the person likes or wants."
+    ],
+    "common_failure_modes": [
+      "Answering with the actor's own preference instead of the other person's, especially when their tastes differ.",
+      "Treating a wish or liking as an action's purpose (sliding into intention recognition).",
+      "Answering with the most likely next action instead of the represented liking (sliding into action prediction)."
+    ],
+    "minimal_pair": [
+      {
+        "case": "Adventurous Li Hua invites quiet, library-loving Wang Fang for the weekend. Where does Li Hua plan to spend it with her? — the Library.",
+        "why_it_matches": "The answer is driven by Li Hua's model of Wang Fang's quiet taste, set against his own adventurous liking. The decisive variable is one person's representation of another's preference, so this is Other Preference."
+      },
+      {
+        "case": "Susan wants the cookies she baked, but is invited to swim; she swims, then after coming home, what does she do? — she eats her cookies.",
+        "why_it_matches": "The query is Susan's OWN desire; no other person's taste decides the answer. This routes to the character's own preference (micro-19)."
+      }
+    ],
+    "boundary_stress_test": [
+      "If two people have opposite tastes and one chooses for the other, verify the answer matches the RECIPIENT's taste, not the chooser's own.",
+      "If the scene gives a gaze, hint, or request and asks 'what does he want to do', that is the purpose behind an act — exit to intention recognition (micro-22).",
+      "If the question is 'what is his next action' after he notices something, that is a predicted behavior — exit to action prediction (micro-23), not a taste judgment."
+    ],
+    "generalization_note": "This unit covers stable or momentary likes, wants, and choices, in any domain, as long as the central variable is ONE person's understanding of ANOTHER person's preference."
+  },
+  "validation_seed": {
+    "positive_pattern": "A character chooses, recommends, or plans for someone else and the answer suits that OTHER person's taste, often against the actor's own different taste.",
+    "near_miss_pattern": "The scene reveals the focal character's OWN desire and the answer depends only on it, with no other person's taste involved.",
+    "boundary_pattern": "The question asks for the purpose behind an act or the next behavior, which belongs to intention recognition or action prediction rather than a taste judgment."
+  },
+  "notes": [
+    "Keep the variable narrow: the preferred option as represented by, or accommodated for, another person.",
+    "Treat liking, wanting, and choice as preference only when they function as taste in the scene, not as an action's purpose.",
+    "Central confusion to guard against: a model of another person's preference (here) vs. the focal character's own preference (micro-19). The test: does the answer track someone else's taste, set against the actor's own? If yes, it is this unit."
+  ],
+  "id": "micro-20",
+  "level": "micro",
+  "layer": "L3",
+  "family": "goal-action",
+  "core_question": "Determine whether a character understands what someone else likes or wants",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

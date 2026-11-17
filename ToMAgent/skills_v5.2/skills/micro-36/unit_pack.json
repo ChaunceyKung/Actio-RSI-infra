@@ -1,0 +1,103 @@
+{
+  "frontmatter_description": "Infers the extra information a speaker communicates through context but does not explicitly say: the implicit proposition a cooperative listener recovers from the wording, the situation, and shared expectations.",
+  "title": "Conversational Implicature",
+  "use_when": [
+    "Use when the question asks what extra meaning or information is communicated beyond the literal sentence.",
+    "Use when the answer is an inferred PROPOSITION or quantity (e.g. 'not all of them', 'about four of five') that the words alone do not state but context makes recoverable.",
+    "Use when the listener must combine the wording, a scalar or partial cue ('some', 'almost every', 'I looked at 3 of 5'), and the scene to fill in what is meant.",
+    "Use when a literally true or incomplete utterance only fully answers the question once the implicit content is added."
+  ],
+  "do_not_use_when": [
+    "Do not use when the question asks what social act the utterance performs, such as requesting, warning, refusing, reminding, or hinting; name and route to the social-action-of-an-utterance capability (Indirect Speech Act, micro-35).",
+    "Do not use when the question asks only for the plain stated content of the words; name and route to the explicit-meaning capability (Literal Meaning, micro-34).",
+    "Do not use when the question is whether the statement is true, false, or a lie; name and route to the truth-status capability (Truth, Lie, and Half-Truth, micro-37).",
+    "Do not use when the issue is whether a true statement steers the listener to a false belief; name and route to the misleading-true-statement capability (Misleading and Selective Expression, micro-38)."
+  ],
+  "decision_variable": "the implicit information derived from context",
+  "trigger_checklist": [
+    "Is the utterance literally true but underinformative, so a cooperative listener is expected to read in more?",
+    "Does the question ask what the speaker MEANT or what is IMPLIED beyond the words actually said?",
+    "Is the correct answer an inferred fact or quantity, not a speech-act label and not a true/false verdict?",
+    "Must the listener combine wording, a scalar cue, and scene expectations to recover the extra message?"
+  ],
+  "workflow": [
+    "State the literal sentence meaning first (SAY), including any scalar or partial cue such as 'some', 'almost every', or 'I checked 3 of 5'.",
+    "Ask what additional proposition a cooperative, informative speaker would expect the listener to infer (IMPLY).",
+    "Apply the relevant inference: a weaker scalar term excludes the stronger one (e.g. 'some' implies 'not all'); a 'almost every / about half' cue plus a sample implies an estimated total.",
+    "Confirm the inferred content is what the question wants, not the act being performed and not a truth verdict.",
+    "Return only the implied proposition or quantity. If the question instead targets the act, the plain words, or the truth status, stop and route out to the matching capability."
+  ],
+  "special_case": {
+    "title": "Quantity implicature from a scalar cue and a partial sample",
+    "rule": "When the scene gives a scalar quantifier ('almost every', 'about a third') and a partial observation, the implicature is the estimated total derived from the quantifier, not the literal count of the sample alone.",
+    "worked_example": {
+      "scene": "Almost every letter to Laura's company contains a check. Today Laura receives 5 letters. She phones: 'I looked at 3 of the 5 letters; 2 of them have checks.'",
+      "question": "Before her call, how many of the 5 letters would you expect to contain checks?",
+      "answer_logic": "Literally Laura states only that 2 of the 3 she opened had checks. The implicit information, recovered from 'almost every letter contains a check' applied to all 5, is that about 4 of the 5 contain checks. The target is this inferred quantity, not what act Laura performs (that would be the social-action capability, Indirect Speech Act, micro-35) and not whether she is truthful (the truth-status capability, Truth, Lie, and Half-Truth, micro-37). The correct reading is the implied count of about 4."
+    }
+  },
+  "boundary_exit_rule": [
+    "If the question asks what social action the utterance performs (request, warning, reminder, refusal, hint), route to the social-action-of-an-utterance capability (Indirect Speech Act, micro-35).",
+    "If the question asks only for the explicit content of the words, route to the explicit-meaning capability (Literal Meaning, micro-34).",
+    "If the question asks whether the utterance is factually true or false, route to the truth-status capability (Truth, Lie, and Half-Truth, micro-37).",
+    "If the question asks whether a literally true statement nudges the listener toward a false belief, route to the misleading-true-statement capability (Misleading and Selective Expression, micro-38)."
+  ],
+  "references": {
+    "route_signal": "Use this unit when the diagnostic target is the extra information communicated implicitly, recovered by a cooperative listener from context, especially scalar or quantity implicatures where the words alone underdetermine the answer.",
+    "hard_boundary": [
+      "The output is an inferred extra proposition or quantity (IMPLY), not the speech act being performed (the Indirect Speech Act capability, micro-35).",
+      "The output is content, not a true-or-false verdict on the sentence (the Truth, Lie, and Half-Truth capability, micro-37).",
+      "If the inference the listener is meant to draw is a FALSE belief the speaker is counting on, the target is misleading expression instead (Misleading and Selective Expression, micro-38)."
+    ],
+    "shortcut_to_avoid": [
+      "Do not just restate the literal sentence in other words; the answer must add the implicit content.",
+      "Do not confuse 'what was meant' (implied fact) with 'what action was done' (speech act).",
+      "Do not treat every context-based inference as implicature; use it only when the target is the extra communicated content.",
+      "For quantity items, do not report only the count in the sample; project the scalar cue onto the whole set."
+    ],
+    "common_failure_modes": [
+      "Confusing an implied fact with an indirect request or warning (mistaking IMPLY for DO).",
+      "Judging truthfulness instead of recovering the inferred meaning.",
+      "Giving a paraphrase of the literal sentence rather than the implied message.",
+      "On scalar items, answering the literal sample count instead of the estimated total.",
+      "Over-inferring beyond what a cooperative listener would reasonably derive."
+    ],
+    "minimal_pair": [
+      {
+        "case": "In a zoo of 9 monkeys, almost one third are female; an observer counts 8 and finds 2 female, and the question asks how many females are in the zoo overall.",
+        "why_it_matches": "The cooperative inference projects 'almost one third of 9' onto the whole zoo to recover the implied quantity (about 2); the target is that implied amount, so it is in scope for this capability."
+      },
+      {
+        "case": "Reaching the candy aisle, a child says 'Look, those candies look delicious', and the question asks what the child really wants.",
+        "why_it_matches": "Here the target is the act the utterance performs (an indirect request to buy candy), not an inferred fact, so it routes to the social-action-of-an-utterance capability (Indirect Speech Act, micro-35), not this unit."
+      }
+    ],
+    "boundary_stress_test": [
+      "If the same words are used but the speaker is getting the listener to act, switch to the social-action capability (Indirect Speech Act, micro-35).",
+      "If the statement could be literally true while pushing the listener to a false conclusion, switch to the misleading-true-statement capability (Misleading and Selective Expression, micro-38).",
+      "If the main question is whether the speaker lied, switch to the truth-status capability (Truth, Lie, and Half-Truth, micro-37).",
+      "If you find yourself only paraphrasing the words, you have not yet recovered the implicature; add the inferred content."
+    ],
+    "generalization_note": "This is the IMPLY member of the pragmatics triad: SAY (Literal Meaning, micro-34), DO (Indirect Speech Act, micro-35), IMPLY (this unit). It covers conversational enrichment, the extra proposition or quantity a cooperative listener recovers from context, without rewording the literal sentence or naming the social act."
+  },
+  "validation_seed": {
+    "positive_pattern": "A literally true or partial utterance, often with a scalar cue, lets the listener infer an extra proposition or quantity the words do not state, and the question asks what is implied.",
+    "near_miss_pattern": "An indirect utterance is given but the question asks what the speaker is doing (requesting, hinting) rather than what extra fact it implies, so it belongs to the social-action capability.",
+    "boundary_pattern": "A literally true statement is used to nudge the listener toward a false belief, so the target is misleading expression rather than a clean implicature."
+  },
+  "notes": [
+    "Keep outputs to the implied proposition or quantity only.",
+    "Treat context (scalar cues, samples, shared expectations) as evidence for the added meaning, not as a cue to rename the speech act.",
+    "Use this as a narrow diagnostic unit inside broader pragmatics and lie/misdirection routing."
+  ],
+  "id": "micro-36",
+  "level": "micro",
+  "layer": "L5",
+  "family": "language-pragmatics",
+  "core_question": "Infer what is communicated by context but not explicitly said",
+  "source_mix": [
+    "benchmark",
+    "psychology",
+    "real-world"
+  ]
+}

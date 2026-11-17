@@ -1,0 +1,316 @@
+{
+  "n": 600,
+  "overall_acc": 0.7366666666666667,
+  "review_changed": 74,
+  "review_flips_correct": 36,
+  "review_flips_wrong": 21,
+  "errors": 0,
+  "malformed_rows": 0,
+  "n_routed_to_none": 90,
+  "by_task": {
+    "emobench-EA-Action": {
+      "n": 100,
+      "acc": 0.66
+    },
+    "emobench-EA-Response": {
+      "n": 100,
+      "acc": 0.71
+    },
+    "emobench-EU-cause": {
+      "n": 200,
+      "acc": 0.91
+    },
+    "emobench-EU-emotion": {
+      "n": 200,
+      "acc": 0.615
+    }
+  },
+  "by_ability": {
+    "Personal-Others": {
+      "n": 50,
+      "acc": 0.72
+    },
+    "Personal-Self": {
+      "n": 50,
+      "acc": 0.76
+    },
+    "Social-Others": {
+      "n": 50,
+      "acc": 0.52
+    },
+    "Social-Self": {
+      "n": 50,
+      "acc": 0.74
+    },
+    "complex_emotions": {
+      "n": 98,
+      "acc": 0.8367346938775511
+    },
+    "emotional_cues": {
+      "n": 56,
+      "acc": 0.875
+    },
+    "personal_beliefs_and_experiences": {
+      "n": 112,
+      "acc": 0.6964285714285714
+    },
+    "perspective_taking": {
+      "n": 134,
+      "acc": 0.7164179104477612
+    }
+  },
+  "by_first_pick": {
+    "<none>": {
+      "n": 90,
+      "acc": 0.7
+    },
+    "macro-03": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "macro-05": {
+      "n": 228,
+      "acc": 0.7807017543859649
+    },
+    "macro-06": {
+      "n": 54,
+      "acc": 0.6666666666666666
+    },
+    "macro-07": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "macro-08": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "macro-09": {
+      "n": 25,
+      "acc": 0.68
+    },
+    "macro-12": {
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    "macro-15": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "macro-16": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "macro-17": {
+      "n": 23,
+      "acc": 0.8260869565217391
+    },
+    "macro-18": {
+      "n": 9,
+      "acc": 0.7777777777777778
+    },
+    "macro-19": {
+      "n": 4,
+      "acc": 0.25
+    },
+    "macro-20": {
+      "n": 9,
+      "acc": 0.8888888888888888
+    },
+    "micro-10": {
+      "n": 6,
+      "acc": 0.8333333333333334
+    },
+    "micro-11": {
+      "n": 4,
+      "acc": 1.0
+    },
+    "micro-18": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-20": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "micro-22": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-23": {
+      "n": 34,
+      "acc": 0.5588235294117647
+    },
+    "micro-24": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-25": {
+      "n": 5,
+      "acc": 0.2
+    },
+    "micro-26": {
+      "n": 23,
+      "acc": 0.782608695652174
+    },
+    "micro-27": {
+      "n": 6,
+      "acc": 0.6666666666666666
+    },
+    "micro-28": {
+      "n": 5,
+      "acc": 0.8
+    },
+    "micro-30": {
+      "n": 6,
+      "acc": 1.0
+    },
+    "micro-31": {
+      "n": 4,
+      "acc": 0.75
+    },
+    "micro-32": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-33": {
+      "n": 5,
+      "acc": 0.4
+    },
+    "micro-34": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-37": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-40": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-41": {
+      "n": 3,
+      "acc": 0.6666666666666666
+    },
+    "micro-42": {
+      "n": 8,
+      "acc": 0.75
+    },
+    "micro-43": {
+      "n": 6,
+      "acc": 0.5
+    },
+    "micro-48": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-49": {
+      "n": 11,
+      "acc": 0.9090909090909091
+    },
+    "micro-50": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "micro-51": {
+      "n": 2,
+      "acc": 1.0
+    },
+    "micro-52": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "micro-56": {
+      "n": 5,
+      "acc": 0.8
+    }
+  },
+  "by_n_picked": {
+    "0": {
+      "n": 90,
+      "acc": 0.7
+    },
+    "1": {
+      "n": 154,
+      "acc": 0.7142857142857143
+    },
+    "2": {
+      "n": 351,
+      "acc": 0.7521367521367521
+    },
+    "3": {
+      "n": 5,
+      "acc": 1.0
+    }
+  },
+  "pick_frequency": {
+    "macro-05": 228,
+    "micro-26": 145,
+    "micro-27": 95,
+    "micro-30": 68,
+    "macro-06": 54,
+    "micro-23": 34,
+    "micro-49": 32,
+    "macro-09": 25,
+    "macro-17": 23,
+    "micro-31": 12,
+    "micro-28": 11,
+    "micro-41": 10,
+    "macro-18": 9,
+    "micro-51": 9,
+    "micro-42": 9,
+    "macro-20": 9,
+    "micro-10": 9,
+    "micro-43": 8,
+    "micro-25": 7,
+    "micro-33": 7,
+    "micro-52": 7,
+    "micro-50": 5,
+    "micro-56": 5,
+    "micro-11": 5,
+    "micro-32": 5,
+    "micro-48": 4,
+    "macro-19": 4,
+    "macro-12": 4,
+    "micro-20": 3,
+    "micro-39": 3,
+    "macro-16": 2,
+    "macro-15": 2,
+    "micro-40": 2,
+    "micro-22": 2,
+    "macro-07": 2,
+    "micro-35": 2,
+    "micro-46": 1,
+    "micro-29": 1,
+    "micro-24": 1,
+    "micro-45": 1,
+    "micro-34": 1,
+    "micro-37": 1,
+    "macro-08": 1,
+    "micro-18": 1,
+    "macro-03": 1,
+    "micro-12": 1
+  },
+  "n_rerouted": 259,
+  "reroute_changed_pick": 259,
+  "acc_by_reroute_count": {
+    "0": {
+      "n": 341,
+      "acc": 0.7448680351906158
+    },
+    "1": {
+      "n": 73,
+      "acc": 0.7671232876712328
+    },
+    "2": {
+      "n": 70,
+      "acc": 0.7285714285714285
+    },
+    "3": {
+      "n": 116,
+      "acc": 0.6982758620689655
+    }
+  },
+  "mean_jaccard": 0.7366666666666667,
+  "draft_acc": 0.7116666666666667
+}
